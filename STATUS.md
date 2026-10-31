@@ -22,7 +22,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Next actions
 
-1. Start P1 in parallel: Renzo → P2-01 (noise floor) and P2-05 once the gate allows; P1-01 and P1-02 in review (Jonathan re-runs P1-01) · Nattan → P1-03, P1-05 · Felipe → P1-04 ·
+1. Start P1 in parallel: Renzo → P2-05 when P1-03 (second venue) is in; P1-01, P1-02, P2-01 in review (Jonathan re-runs P1-01) · Nattan → P1-03, P1-05 · Felipe → P1-04 ·
    Jonathan → P1-07, then P1-06 once P1-04 has the Brazil list.
 2. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
    (`prompt.md` §7).
@@ -70,7 +70,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
-| [P2-01](tasks/P2-01-noise-floor.md) | Noise floor (how big a premium is just trading friction) | 🔄 doing | CS 1 | Renzo | 0/3 | 0/3 | 2026-11-01 | P1-02 |
+| [P2-01](tasks/P2-01-noise-floor.md) | Noise floor (how big a premium is just trading friction) | 👀 review | CS 1 | - | 3/3 | 3/3 | 2026-11-01 | P1-02 |
 | [P2-02](tasks/P2-02-blind-break-test.md) | Blind structural-break test on the premium | ⬜ todo | CS 2 | - | 0/4 | 0/4 | 2026-11-01 | P1-02, P1-04 |
 | [P2-03](tasks/P2-03-event-studies.md) | Before/after test for every dated rule, with placebo dates | ⬜ todo | CS 2 | - | 0/3 | 0/3 | 2026-11-02 | P1-02, P1-04 |
 | [P2-04](tasks/P2-04-synthetic-control.md) | Synthetic control for the 23 Jun 2026 shock | ⬜ todo | CS 2 | - | 0/5 | 0/4 | 2026-11-02 | P1-05, P1-06, P2-03 |
@@ -119,10 +119,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-004](findings/F-004-usdt-own-dollar-price.md) | USDT's own dollar price explains only a few bps of the premium | 🔍 exploratory | P0-01 | - |
 | [F-005](findings/F-005-2025-model-lost-to-naive.md) | Our 2025 model lost to a naive "tomorrow = today" forecast | ✔️ confirmed | P0-01 | - |
 | [F-006](findings/F-006-usdcusdt-gap-fillable.md) | The Binance USDC/USDT gap (Sep 2022 – Mar 2023) can be filled; three USDT/USD series agree within ~1 bps | 🔍 exploratory | P1-02 | - |
+| [F-007](findings/F-007-noise-floor.md) | Trading friction on USDT/BRL is 2–10 bps; the premium is 4–11 times that every year, but only ~2 times it from Aug 2025 to Jun 2026 | ✔️ confirmed | P2-01 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-10-31 — agent for Renzo: P2-01 done → review: spread 2–10 bps, premium 4–11× it yearly but ~2× in Aug 2025 – Jun 2026 (F-007); Binance tick cut ~27 Jun 2025 (note in P2-02)
 - 2026-10-31 — agent for Renzo: P1-02 done → review: premium v2 daily (1,520 days) and hourly, probe reproduced exactly, notebook with 6 figures; F-002 jump partly reverts by Oct; Oct 2026 weekend moves noted in F-003
 - 2026-10-31 — agent for Renzo: P1 started; P1-01 done → review (464 raw files frozen at 30 Oct, checksums in git, coverage audit; USDCUSDT missing Sep 2022 – Mar 2023); requirements pinned + `.venv`; USDCUSDT gap fillers found (F-006), BUSDUSDT + Coinbase USDT/USD frozen (517 files)
 - 2026-10-31 — agent for Renzo: handoff support (working field, subtasks, Handoff section, paused status, git rules); P1-08 decided (existing plans); first commit

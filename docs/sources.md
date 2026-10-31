@@ -15,6 +15,7 @@ Status: **checked** (opened and confirmed by us, with date) or **[verify]** (not
 | D-07 | Coinbase Exchange public API | USDT/USD 1h candles, from 4 May 2021 | `https://api.exchange.coinbase.com/products/USDT-USD/candles?granularity=3600&start=..&end=..` (300 per call, no key) | checked 31 Oct 2026 (F-006); frozen 31 Oct 2026 by P1-01 (`data/raw/coinbase/USDT-USD-1h.csv`) |
 | D-08 | Bitstamp public API | USDT/USD and USDC/USD 1h OHLC | `https://www.bitstamp.net/api/v2/ohlc/{usdtusd,usdcusd}/?step=3600&limit=1000&start=..` (no key) | checked 31 Oct 2026 (F-006); start dates not checked; not frozen yet |
 | D-09 | The Block, 5 Sep 2022: "Binance to end support for USDC, two other stablecoins in favor of its own BUSD" | Cause of the USDCUSDT gap (auto-conversion from 29 Sep 2022) | https://www.theblock.co/post/167885/binance-to-end-support-for-usdc-other-stablecoins-in-favor-of-its-own-busd | secondary; Binance's own announcement not checked |
+| D-10 | Binance public market-data API | USDT/BRL tick size and live best bid/ask (spread sanity check, F-007) | `https://data-api.binance.vision/api/v3/{exchangeInfo,ticker/bookTicker}?symbol=USDTBRL` (api.binance.com refuses this location) | checked 31 Oct 2026 16:43 UTC (tickSize 0.0001; bid 5.3800 / ask 5.3804) |
 | D-06 | 2025 project repo | `raw_data/Y.csv` for the naive-baseline check | https://github.com/Renzo-Filho/6-datathon-fgv-eesp | checked 30 Oct 2026 |
 
 ## Events and regulation (Brazil)
@@ -41,3 +42,8 @@ Status: **checked** (opened and confirmed by us, with date) or **[verify]** (not
 
 See the "Literature anchors" sections of `02-dolar-cripto.md`, `01-depeg-recovery.md` and the references in
 `05-agentic-robustness.md`. Mark a reference **checked** only after opening it.
+
+| ID | Reference | Used for | Status |
+|---|---|---|---|
+| L-01 | Corwin, S. A. & Schultz, P. (2012). A simple way to estimate bid-ask spreads from daily high and low prices. *Journal of Finance* 67(2), 719–760 | Noise floor (P2-01, F-007) | [verify] formula implemented from memory; paper not opened |
+| L-02 | Abdi, F. & Ranaldo, A. (2017). A simple estimation of bid-ask spreads from daily close, high, and low prices. *Review of Financial Studies* 30(12), 4437–4480 | Noise floor (P2-01, F-007) | [verify] formula implemented from memory; paper not opened |

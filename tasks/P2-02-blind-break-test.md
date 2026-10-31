@@ -37,5 +37,8 @@ then check which breaks match known events. If it finds 24 Jun 2026 on its own, 
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo (note from P2-01, nobody working here yet): Binance cut the USDT/BRL price tick
+  tenfold on ~27 Jun 2025 (0.001 → 0.0001 BRL; F-007). The premium steps down around Jul 2025 (P1-02 figures).
+  If the break test finds a break there, the tick change is a candidate explanation besides any rule.
 
 ## Result
