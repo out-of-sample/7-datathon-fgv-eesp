@@ -2,9 +2,9 @@
 id: P1-05
 title: USDT premiums for the comparison currencies
 phase: P1
-status: review
+status: doing
 owner: CS 2
-working: -
+working: Renzo (second agent, review)
 due: 2026-11-01
 depends: P1-01
 ---
@@ -21,6 +21,8 @@ not receive the 23 Jun 2026 shock.
 - [x] S3 — Daily premium per currency at a time matched to each fix (or a documented approximation). — done: Renzo, 31 Oct
 - [x] S4 — Flag currencies with capital controls (ARS, UAH likely) and write the exclusion rule **before** fitting
    anything. — done: Renzo, 31 Oct (rule committed in 8a8db9b, before the premiums were computed)
+
+- [ ] S5 — Independent review: reproduce outputs, audit quote direction, timestamps, coverage and exclusion rules. — doing: Renzo (second agent)
 
 ## Success criteria
 - [x] `data/processed/P1-05_donor_premiums_daily.csv` (date x currency, bps)
@@ -49,6 +51,7 @@ not receive the 23 Jun 2026 shock.
   via `p1_01_download.py <PAIR>`, its official rate in `SOURCES`/`official`, its fix in `FIX`.
 
 ## Log
+- 2026-10-31, second agent for Renzo: claims S5 independent review with Renzo's approval; S1–S4 implementation stays unchanged during review.
 - 2026-10-31, agent for Renzo: S1–S4 done; 654 Binance files + 4 official-rate files frozen, checksums added (1,177 OK); official files re-downloaded byte-identical; F-010; status → review
 - 2026-10-31, agent for Renzo: exclusion rule written and committed (8a8db9b) before any donor premium was computed
 - 2026-10-31, agent for Renzo: Renzo takes P1-05 (planned for Nattan; Renzo covers CS 2's P1 work and tells him)
