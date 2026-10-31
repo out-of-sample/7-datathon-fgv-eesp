@@ -2,7 +2,7 @@
 id: P1-03
 title: Find and download a second BRL venue for USDT
 phase: P1
-status: review
+status: done 
 owner: CS 2
 working: -
 due: 2026-10-31
@@ -29,7 +29,7 @@ from a second exchange.
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** done by Renzo, waiting for a teammate's check (`review`). Two Brazilian venues frozen (hourly, 30 Oct
+-  **State:** done (reviewed and verified by Jonathan). Two Brazilian venues frozen (hourly, 30 Oct
   2026 cutoff), checksums added to `data/raw/SHA256SUMS`, manifest and D-04 filled.
 - **Next step (reviewer):** `python scripts/p1_03_second_venue.py` (about 2 min), then
   `sha256sum -c data/raw/SHA256SUMS` (needs P1-01's script run first); printed audit must match the Result.
@@ -42,6 +42,7 @@ from a second exchange.
   so use closes (or Mercado Bitcoin's `o`, a true first trade) when matching the PTAX window.
 
 ## Log
+- 2026-10-31, Jonathan: review complete; scripts/p1_03_second_venue.py executed cleanly; coverage and volume tables match Result exactly; SHA256SUMS passed; status -> done
 - 2026-10-31, agent for Renzo: S1–S3 done: Foxbit + Mercado Bitcoin frozen; re-download byte-identical; status → review
 - 2026-10-31, agent for Renzo: Renzo takes P1-03 (planned for Nattan in STATUS, unclaimed; Renzo to tell him)
 
