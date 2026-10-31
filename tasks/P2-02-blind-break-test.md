@@ -2,9 +2,9 @@
 id: P2-02
 title: Blind structural-break test on the premium
 phase: P2
-status: todo
+status: doing
 owner: CS 2
-working: -
+working: Renzo
 due: 2026-11-01
 depends: P1-02, P1-04
 ---
@@ -15,7 +15,7 @@ then check which breaks match known events. If it finds 24 Jun 2026 on its own, 
 
 ## Subtasks
 - [ ] S1 — **Before running**, write the specification here: method (Bai-Perron via R `strucchange`, or Python
-   `ruptures`), minimum segment = 20 trading days, maximum breaks = 8, number of breaks chosen by BIC.
+   `ruptures`), minimum segment = 20 trading days, maximum breaks = 8, number of breaks chosen by BIC. — doing: Renzo
 - [ ] S2 — Run on the daily premium (P1-02). Report break dates with confidence intervals.
 - [ ] S3 — Match breaks to the P1-04 events (within +/-5 trading days). List unmatched breaks as "unexplained".
 - [ ] S4 — Robustness: the alternative time-matching variant of the premium.
@@ -37,6 +37,7 @@ then check which breaks match known events. If it finds 24 Jun 2026 on its own, 
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo: Renzo takes P2-02 (CS 2 task; Renzo covers CS 2 work and tells Nattan). S1–S2 and S4 now; S3 waits for P1-04
 - 2026-10-31, agent for Renzo (note from P2-01, nobody working here yet): Binance cut the USDT/BRL price tick
   tenfold on ~27 Jun 2025 (0.001 → 0.0001 BRL; F-007). The premium steps down around Jul 2025 (P1-02 figures).
   If the break test finds a break there, the tick change is a candidate explanation besides any rule.
