@@ -123,11 +123,17 @@ premium explained by BRL volatility and USDT/USD alone (H0).
 
 ## 9. Deck storyline (≈12 slides + annex)
 
-1. Title. 2. Question; why a Brazilian treasurer, the BCB and Ripple care. 3. Lições de 2025.
-4. How arbitrage holds USDT/BRL near PTAX (one diagram: the doors). 5. Data and premium construction.
-6. The series and its blind breaks (headline 1). 7. Every rule tested, including the nulls.
-8. Synthetic control (headline 2) + placebos. 9. What it costs: US$ 100k by regime; scenarios.
-10. The same mechanism in dollars: SVB weekend (project 1 chapter). 11. Monitor do Dólar Digital.
+1. Title.
+2. Question; why a Brazilian treasurer, the BCB and Ripple care.
+3. Lições de 2025.
+4. How arbitrage holds USDT/BRL near PTAX (one diagram: the doors).
+5. Data and premium construction.
+6. The series and its blind breaks (headline 1).
+7. Every rule tested, including the nulls.
+8. Synthetic control (headline 2) + placebos.
+9. What it costs: US$ 100k by regime; scenarios.
+10. The same mechanism in dollars: SVB weekend (project 1 chapter).
+11. Monitor do Dólar Digital.
 12. Implications and limitations. Annex: event table with sources, donor pool, robustness, code map.
 
 ## 10. Framing rule
