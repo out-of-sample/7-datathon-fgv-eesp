@@ -46,6 +46,8 @@ work (and the AI agents of extension A) uses exactly the same data.
   `python scripts/p1_01_download.py` (about 7 min) and `python scripts/p1_03_second_venue.py` (about 2 min; the
   checksums also cover P1-03's two venue files), then `sha256sum -c data/raw/SHA256SUMS`. Every line must say OK
   and the printed audit must match the Result table. Then set `status: done`.
+- **State:** done (reviewed and verified by Jonathan, 31 Oct 2026). All 517 raw files (18 MB) match SHA256SUMS.
+- **Next step:** None for P1-01. Downstream tasks (P1-02, P1-05, P1-07) can consume frozen raw data.
 - **Open questions:** the USDCUSDT gap's cause rests on secondary sources (D-09) and the 2018 BTCUSDT outage
   is `[verify]`; neither changes any data. P1-07 may want Bitstamp USDC/USD frozen too (Jonathan's call, F-006).
 - **How to resume / reuse:**
@@ -56,6 +58,7 @@ work (and the AI agents of extension A) uses exactly the same data.
   - `scripts/00_probe_premium.py` (P0) reads `*.csv` and no longer runs on this layout; P1-02 replaces it.
 
 ## Log
+- 2026-10-31, Jonathan: clean-run verification passed (517/517 files sha256sum OK, audit table matches results); status -> done
 - 2026-10-31, agent for Renzo: S6–S7 done (BUSDUSDT 52 files, Coinbase 48,128 candles); 517 files; status → review
 - 2026-10-31, agent for Renzo: reopened for S6–S7 (gap fillers, F-006), Renzo's decision
 - 2026-10-31, agent for Renzo: S1–S5 done; 464 files frozen; clean-checkout test run; status → review
