@@ -43,4 +43,7 @@ Reproduce: `python scripts/p1_03_second_venue.py` (last printed table; data froz
 Not used.
 
 ## History
+- 2026-10-31, agent for Renzo: news search (P2-05 S3) found no explanation. One unopened lead: a startupi.com.br
+  article dated 10 Sep 2026 on a R$ 110 million investment in Foxbit, whose snippet mentions strengthening its OTC desk
+  (https://startupi.com.br/foxbit-recebe-investimento-de-r-110-milhoes/) `[verify]`.
 - 2026-10-31, agent for Renzo: created from the P1-03 audit (status exploratory)

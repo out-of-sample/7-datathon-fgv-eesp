@@ -38,5 +38,8 @@ primary source. It feeds the event studies, the break matching, and is the human
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo (note from P2-05, not working here): candidate non-regulatory events found while
+  ruling out causes: Binance BRL Pix suspension 17 Jun – Jul 2022 (E-07, `[verify]` dates) and Binance's USDT/BRL tick
+  cut on ~27 Jun 2025 (F-007). Your call whether they go in the event list.
 
 ## Result

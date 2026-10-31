@@ -22,7 +22,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Next actions
 
-1. Start P1 in parallel: Renzo → P2-05 (inputs ready); P1-01, P1-02, P1-03, P2-01 in review (Jonathan re-runs P1-01) · Nattan → P1-05 (Renzo took P1-03) · Felipe → P1-04 ·
+1. Start P1 in parallel: Renzo → next CS 1 task after the gate (P3-02 / P3-03); P1-01, P1-02, P1-03, P2-01, P2-05 in review (Jonathan re-runs P1-01) · Nattan → P1-05 (Renzo took P1-03) · Felipe → P1-04 ·
    Jonathan → P1-07, then P1-06 once P1-04 has the Brazil list.
 2. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
    (`prompt.md` §7).
@@ -76,7 +76,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P2-02](tasks/P2-02-blind-break-test.md) | Blind structural-break test on the premium | ⬜ todo | CS 2 | - | 0/4 | 0/4 | 2026-11-01 | P1-02, P1-04 |
 | [P2-03](tasks/P2-03-event-studies.md) | Before/after test for every dated rule, with placebo dates | ⬜ todo | CS 2 | - | 0/3 | 0/3 | 2026-11-02 | P1-02, P1-04 |
 | [P2-04](tasks/P2-04-synthetic-control.md) | Synthetic control for the 23 Jun 2026 shock | ⬜ todo | CS 2 | - | 0/5 | 0/4 | 2026-11-02 | P1-05, P1-06, P2-03 |
-| [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | 🔄 doing | CS 1 | Renzo | 0/4 | 0/2 | 2026-11-02 | P1-02, P1-03 |
+| [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | 👀 review | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | ⬜ todo | CS 2 | - | 0/3 | 0/2 | 2026-11-02 | P2-03 |
 
 **P3 — Extensions** (0/8 closed)
@@ -123,10 +123,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-006](findings/F-006-usdcusdt-gap-fillable.md) | The Binance USDC/USDT gap (Sep 2022 – Mar 2023) can be filled; three USDT/USD series agree within ~1 bps | 🔍 exploratory | P1-02 | - |
 | [F-007](findings/F-007-noise-floor.md) | Trading friction on USDT/BRL is 2–10 bps; the premium is 4–11 times that every year, but only ~2 times it from Aug 2025 to Jun 2026 | ✔️ confirmed | P2-01 | - |
 | [F-008](findings/F-008-foxbit-volume-jul-2026.md) | Foxbit's USDT/BRL volume rose about sixfold from July 2026, through bigger trades, not more trades | 🔍 exploratory | P1-03 | - |
+| [F-009](findings/F-009-jump-not-venue-fx-usdt.md) | The 24 Jun 2026 jump appears on three exchanges by the same amount and is not explained by the real, USDT/USD or a Binance event | ✔️ confirmed | P2-05 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-10-31 — agent for Renzo: P2-05 done → review: jump +93–95 bps on Binance, Foxbit and Mercado Bitcoin; not the real, USDT/USD or a Binance event (F-009). Gate question "second venue shows the jump?" → yes
 - 2026-10-31 — agent for Renzo: P1-03 done → review: Foxbit (from Apr 2021) and Mercado Bitcoin (from Mar 2023) hourly USDT/BRL frozen; Foxbit volume ~6× from Jul 2026
 - 2026-10-31 — agent for Renzo: P2-01 done → review: spread 2–10 bps, premium 4–11× it yearly but ~2× in Aug 2025 – Jun 2026 (F-007); Binance tick cut ~27 Jun 2025 (note in P2-02)
 - 2026-10-31 — agent for Renzo: P1-02 done → review: premium v2 daily (1,520 days) and hourly, probe reproduced exactly, notebook with 6 figures; F-002 jump partly reverts by Oct; Oct 2026 weekend moves noted in F-003

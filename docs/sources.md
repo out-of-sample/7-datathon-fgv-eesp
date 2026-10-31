@@ -27,6 +27,7 @@ Status: **checked** (opened and confirmed by us, with date) or **[verify]** (not
 | E-03 | Feb 2026: proposal of 3.5% IOF on crypto purchases | https://forbes.com.br/coluna/2026/02/governo-quer-taxar-criptomoedas-com-iof-o-que-isso-muda-para-o-investidor/ | [verify] status in Fazenda/Receita |
 | E-04 | 4 May 2026: reporting obligation to the BCB | secondary news only | [verify] |
 | E-05 | 23 Jun 2026: BCB notice to banks and funds on FX imports of virtual assets via funds; spread 0.1% → 0.7% | https://www.conjur.com.br/2026-jul-01/o-cerco-do-banco-central-as-stablecoins/ (opinion column) | [verify] primary or second source |
+| E-07 | 17 Jun – Jul 2022: Binance suspends BRL deposits/withdrawals via Pix (partner Capitual), resumes with Latam Gateway. A Binance-only event, possible comparison for event tests (found in P2-05 S3) | https://www.theblock.co/post/156492/binance-resumes-withdrawals-and-deposits-in-brazilian-reais ; https://www.infomoney.com.br/?p=1874175 | [verify] dates |
 | E-06 | Res. BCB 561/2026 (eFX settlement) and proposed 24-hour hold on stablecoin transfers | same Conjur column | [verify] |
 
 ## Competition
