@@ -18,6 +18,8 @@ data/agentic_bundle/  frozen inputs for extension A (raw files + provider docs o
 | `raw/binance/BTCUSDT/*.zip` | same, pair BTCUSDT | 2017-08-17 – 2026-10-30 23h UTC | 2026-10-31 | 140 | `scripts/p1_01_download.py` |
 | `raw/binance/BUSDUSDT/*.zip` | same, pair BUSDUSDT (fills the USDCUSDT gap; F-006) | 2019-09-20 08h – 2023-12-15 04h UTC (BUSD delisted) | 2026-10-31 | 52 | `scripts/p1_01_download.py` |
 | `raw/coinbase/USDT-USD-1h.csv` | https://api.exchange.coinbase.com/products/USDT-USD/candles?granularity=3600 (300-hour chunks) | 2021-05-04 01h – 2026-10-30 23h UTC | 2026-10-31 | 1 | `scripts/p1_01_download.py` |
+| `raw/binance/{USDC,BUSD,TUSD,UST,USTC,FDUSD,USDP}USDT/*.zip` | https://data.binance.vision/data/spot/monthly/klines/ | 2019-01-01 – 2026-09-30 UTC; pair-specific listing dates | 2026-10-31 | pair-specific | `scripts/p1_07_depeg.py` |
+| `raw/bitstamp/USDC-USD-1h_2023-03-10_to_2023-03-14.csv` | https://www.bitstamp.net/api/v2/ohlc/usdcusd/ | 2023-03-10 00h – 2023-03-14 23h UTC | 2026-10-31 | 1 | `scripts/p1_07_depeg.py` |
 | `raw/foxbit/USDTBRL-1h.csv` | https://api.foxbit.com.br/rest/v3/markets/usdtbrl/candlesticks (500-hour chunks) | trades from 2021-04-07 03h; file 2020-10-01 – 2026-10-30 23h UTC | 2026-10-31 | 1 | `scripts/p1_03_second_venue.py` |
 | `raw/mercadobitcoin/USDT-BRL-1h.csv` | https://api.mercadobitcoin.net/api/v4/candles?symbol=USDT-BRL&resolution=1h (30-day chunks) | 2023-03-11 22h – 2026-10-30 23h UTC | 2026-10-31 | 1 | `scripts/p1_03_second_venue.py` |
 | `raw/binance/USDTTRY/*.zip` | same as USDTBRL, pair USDTTRY (P1-05 donor) | 2019-12-25 08h – 2026-10-30 23h UTC | 2026-10-31 | 112 | `scripts/p1_01_download.py USDTTRY` |
