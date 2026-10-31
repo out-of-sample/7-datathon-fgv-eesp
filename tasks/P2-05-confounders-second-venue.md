@@ -2,7 +2,7 @@
 id: P2-05
 title: Rule out other causes of the 24 Jun 2026 jump
 phase: P2
-status: review
+status: done
 owner: CS 1
 working: -
 due: 2026-11-02
@@ -28,7 +28,7 @@ move, a Binance-only problem, or a data error.
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** done by Renzo, waiting for a teammate's check (`review`). Conclusion in F-009.
+- **State:** done (reviewed and verified by Jonathan). Jump replicated across Binance, Foxbit, and Mercado Bitcoin; figure and finding F-009 confirmed.
 - **Next step (reviewer):** `python scripts/p1_02_premium.py && python scripts/p2_05_checks.py`; the printed tables must
   match F-009; look at `results/figures/P2-05_hourly_22_26_jun.png`. Then set `status: done`.
 - **Open questions:** (1) Exact time of the BCB notice on 23 Jun (P1-04): the premium starts rising that afternoon.
@@ -37,6 +37,7 @@ move, a Binance-only problem, or a data error.
 - **How to resume:** S3 was a news search (queries in the Log); everything else is in the script.
 
 ## Log
+- 2026-10-31, Jonathan: review complete; scripts/p2_05_checks.py executed cleanly; jump replicated across all 3 venues; figure verified; status -> done
 - 2026-10-31, agent for Renzo: S1–S4 done; F-009; status → review. S3 searches: "Binance Brasil depósito saque reais Pix
   suspenso junho 2026", "Binance BRL deposits withdrawals June 2026 announcement Brazil", "Foxbit julho 2026 volume
   USDT institucional OTC formador de mercado": no 2026 event; Binance's 2022 Pix suspension found (E-07).
