@@ -35,5 +35,6 @@ The 23 Jun 2026 row is also the number the AI analysts (extension A) are compare
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo (note from P2-02): the high regime after 23 Jun 2026 lasts about 20 PTAX days (24 Jun – 21 Jul; F-011), so the planned [+1, +20] window measures the spike almost exactly. The lasting effect is smaller (regime mean 9.3 → 26.8 bps after 22 Jul). Suggest reporting a later window too (e.g. [+21, +60]) as a pre-declared extra, decided before running.
 
 ## Result

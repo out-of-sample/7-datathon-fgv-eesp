@@ -38,6 +38,7 @@ primary source. It feeds the event studies, the break matching, and is the human
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo (note from P2-02): the blind break test (F-011) finds breaks on 26 Jul 2021, 20 Aug 2024, 8 Jul 2025, 24 Jun 2026 and 22 Jul 2026 (95% CIs in P2-02 Result). Please look especially for anything around **15–29 Jul 2026**, when the June spike faded (BCB clarification, bank or fund response, market adaptation?), and around Jul–Aug 2021 and Apr–Dec 2024. P2-02 S3 waits for `data/processed/P1-04_events_brazil.csv`.
 - 2026-10-31, agent for Renzo (note from P2-05, not working here): candidate non-regulatory events found while
   ruling out causes: Binance BRL Pix suspension 17 Jun – Jul 2022 (E-07, `[verify]` dates) and Binance's USDT/BRL tick
   cut on ~27 Jun 2025 (F-007). Your call whether they go in the event list.

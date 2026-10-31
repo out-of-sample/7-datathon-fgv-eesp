@@ -22,7 +22,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Next actions
 
-1. Start P1 in parallel: Renzo → next CS 1 task after the gate (P3-02 / P3-03); P1-05, P2-01, P2-05 in review · Renzo covers CS 2's P1 work (P1-03 done, P1-05 in review) · Felipe → P1-04 ·
+1. Start P1 in parallel: Renzo → next CS 1 task after the gate (P3-02 / P3-03); P1-05, P2-01, P2-05 in review · Renzo covers CS 2 work (P1-03 done, P1-05 in review, P2-02 blocked on P1-04) · Felipe → P1-04 ·
    Nattan → P1-07; Jonathan → P1-06 once P1-04 has the Brazil list.
 2. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
    (`prompt.md` §7).
@@ -35,6 +35,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | P2 gate: 23 Jun confirmed? donors usable? second venue? A and B go/no-go? | Team | Sun 1 Nov evening |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
 | F-008 (Foxbit volume ×6 from Jul 2026): interpretation, and whether it belongs in the story | Felipe | P2 gate |
+| P2-02 S3 (match breaks to events) waits for P1-04's event list; check 15–29 Jul 2026 (spike fades) | Felipe | P2 gate |
 | P1-05 donor exclusion rule: confirm before P2-04 fits; IDR (pre-period start); Brazil outcome PTAX or ECB-way | Team | P2 gate |
 
 ## Team
@@ -63,7 +64,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P1-02](tasks/P1-02-premium-v2.md) | Build the premium series v2 (time-matched, USDT/USD-adjusted) | ✅ done | CS 1 | - | 6/6 | 4/4 | 2026-10-31 | P1-01 |
 | [P1-03](tasks/P1-03-second-venue.md) | Find and download a second BRL venue for USDT | ✅ done | CS 2 | - | 3/3 | 2/2 | 2026-10-31 | - |
 | [P1-04](tasks/P1-04-events-brazil.md) | Verified list of Brazilian rule changes and events | ⬜ todo | Economist | - | 0/5 | 0/3 | 2026-10-31 | - |
-| [P1-05](tasks/P1-05-comparison-currencies.md) | USDT premiums for the comparison currencies | 👀 review | CS 2 | - | 4/4 | 3/3 | 2026-11-01 | P1-01 |
+| [P1-05](tasks/P1-05-comparison-currencies.md) | USDT premiums for the comparison currencies | 🔄 doing | CS 2 | Renzo (second agent, review) | 4/5 | 3/3 | 2026-11-01 | P1-01 |
 | [P1-06](tasks/P1-06-agentic-B-event-coder.md) | Extension B - AI event coder for the comparison currencies | ⬜ todo | CS 3 | - | 0/6 | 0/4 | 2026-11-01 | P1-04 |
 | [P1-07](tasks/P1-07-depeg-detector.md) | Depeg detector and SVB-weekend figure (chapter) | 🔄 doing | Nattan | Nattan | 1/4 | 0/3 | 2026-11-01 | P1-01 |
 | [P1-08](tasks/P1-08-decision-agentic-budget.md) | Decide the API budget and models for extension A | ✅ done | Team | - | 3/3 | 1/1 | 2026-11-01 | - |
@@ -73,7 +74,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
 | [P2-01](tasks/P2-01-noise-floor.md) | Noise floor (how big a premium is just trading friction) | 👀 review | CS 1 | - | 3/3 | 3/3 | 2026-11-01 | P1-02 |
-| [P2-02](tasks/P2-02-blind-break-test.md) | Blind structural-break test on the premium | 🔄 doing | CS 2 | Renzo | 1/4 | 1/4 | 2026-11-01 | P1-02, P1-04 |
+| [P2-02](tasks/P2-02-blind-break-test.md) | Blind structural-break test on the premium | ⛔ blocked | CS 2 | - | 3/4 | 2/4 | 2026-11-01 | P1-02, P1-04 |
 | [P2-03](tasks/P2-03-event-studies.md) | Before/after test for every dated rule, with placebo dates | ⬜ todo | CS 2 | - | 0/3 | 0/3 | 2026-11-02 | P1-02, P1-04 |
 | [P2-04](tasks/P2-04-synthetic-control.md) | Synthetic control for the 23 Jun 2026 shock | ⬜ todo | CS 2 | - | 0/5 | 0/4 | 2026-11-02 | P1-05, P1-06, P2-03 |
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | 👀 review | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
@@ -125,10 +126,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-008](findings/F-008-foxbit-volume-jul-2026.md) | Foxbit's USDT/BRL volume rose about sixfold from July 2026, through bigger trades, not more trades | 🔍 exploratory | P1-03 | - |
 | [F-009](findings/F-009-jump-not-venue-fx-usdt.md) | The 24 Jun 2026 jump appears on three exchanges by the same amount and is not explained by the real, USDT/USD or a Binance event | ✔️ confirmed | P2-05 | - |
 | [F-010](findings/F-010-donor-premiums.md) | Where residents cannot buy dollars freely (ARS, UAH) USDT costs 4-7% more than the official dollar; in open markets 0-1% | 🔍 exploratory | P1-05 | - |
+| [F-011](findings/F-011-blind-breaks.md) | A blind break test finds 24 Jun 2026 as the sharpest regime change in six years (+100 bps), followed by a partial reversal from 22 Jul | 🔍 exploratory | P2-02 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-10-31 — agent for Renzo: P2-02 S1/S2/S4 → blocked on P1-04 for S3: spec committed before the run; break test finds 24 Jun 2026 blind (CI 18–30 Jun, +100 bps) in all 3 series, spike fades from 22 Jul to ~+17 bps (F-011)
 - 2026-10-31 — agent for Renzo: P1-05 done → review: 9 donor premiums (ECB, TRM, NBU, BCRA rates frozen); exclusion rule written before computing; pool after data and controls rules: EUR, TRY, ZAR, MXN, COP; ARS/UAH premiums 4–7% vs 0–1% in open markets (F-010)
 - 2026-10-31 — Nattan: claimed P1-07; S1 (freeze the depeg-event definition) is in progress
 - 2026-10-31 — agent for Renzo: P2-05 done → review: jump +93–95 bps on Binance, Foxbit and Mercado Bitcoin; not the real, USDT/USD or a Binance event (F-009). Gate question "second venue shows the jump?" → yes
