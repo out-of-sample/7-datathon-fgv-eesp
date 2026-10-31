@@ -2,9 +2,9 @@
 id: P2-05
 title: Rule out other causes of the 24 Jun 2026 jump
 phase: P2
-status: todo
+status: doing
 owner: CS 1
-working: -
+working: Renzo
 due: 2026-11-02
 depends: P1-02, P1-03
 ---
@@ -14,7 +14,7 @@ Check that the jump is not caused by something else: a BRL shock (PTAX rose ~0.7
 move, a Binance-only problem, or a data error.
 
 ## Subtasks
-- [ ] S1 — Second venue (P1-03): does it show the jump on the same day?
+- [ ] S1 — Second venue (P1-03): does it show the jump on the same day? — doing: Renzo
 - [ ] S2 — BRL volatility and PTAX moves 15-30 Jun 2026; USDT/USD that week.
 - [ ] S3 — Binance announcements about BRL deposits/withdrawals in June-July 2026.
 - [ ] S4 — Hourly view of 23-25 Jun: when exactly did the premium move?
@@ -34,6 +34,7 @@ move, a Binance-only problem, or a data error.
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo: Renzo takes P2-05
 - 2026-10-31, agent for Renzo (note from P1-03): S1 inputs ready: Foxbit (`data/raw/foxbit/`) and Mercado Bitcoin
   (`data/raw/mercadobitcoin/`) hourly USDT/BRL, both covering Jun 2026. Foxbit sits ~12.5 bps below Binance on
   average, so compare each venue's change around 23 Jun, not levels. Foxbit's volume rose ~6x from July 2026 (P1-03
