@@ -22,7 +22,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Next actions
 
-1. Start P1 in parallel: Renzo → P1-02 (P1-01 in review: a teammate re-runs it, see its Handoff) · Nattan → P1-03, P1-05 · Felipe → P1-04 ·
+1. Start P1 in parallel: Renzo → P1-01 S6–S7 (gap fillers), then P1-02 · Nattan → P1-03, P1-05 · Felipe → P1-04 ·
    Jonathan → P1-07, then P1-06 once P1-04 has the Brazil list.
 2. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
    (`prompt.md` §7).
@@ -34,7 +34,6 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 |---|---|---|
 | P2 gate: 23 Jun confirmed? donors usable? second venue? A and B go/no-go? | Team | Sun 1 Nov evening |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
-| USDT/USD source to fill the USDCUSDT gap, Sep 2022 – Mar 2023 (F-006): 1/BUSDUSDT, Coinbase or both; freeze in `data/raw/` | Renzo | before P1-02 S3 |
 
 ## Team
 
@@ -58,7 +57,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
-| [P1-01](tasks/P1-01-raw-data-download.md) | Download and freeze the raw price data | 👀 review | CS 1 | - | 5/5 | 4/4 | 2026-10-31 | - |
+| [P1-01](tasks/P1-01-raw-data-download.md) | Download and freeze the raw price data | 🔄 doing | CS 1 | Renzo | 5/7 | 4/4 | 2026-10-31 | - |
 | [P1-02](tasks/P1-02-premium-v2.md) | Build the premium series v2 (time-matched, USDT/USD-adjusted) | ⬜ todo | CS 1 | - | 0/5 | 0/4 | 2026-10-31 | P1-01 |
 | [P1-03](tasks/P1-03-second-venue.md) | Find and download a second BRL venue for USDT | ⬜ todo | CS 2 | - | 0/3 | 0/2 | 2026-10-31 | - |
 | [P1-04](tasks/P1-04-events-brazil.md) | Verified list of Brazilian rule changes and events | ⬜ todo | Economist | - | 0/5 | 0/3 | 2026-10-31 | - |

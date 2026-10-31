@@ -2,9 +2,9 @@
 id: P1-01
 title: Download and freeze the raw price data
 phase: P1
-status: review
+status: doing
 owner: CS 1
-working: -
+working: Renzo
 due: 2026-10-31
 depends: -
 ---
@@ -25,6 +25,8 @@ work (and the AI agents of extension A) uses exactly the same data.
 - [x] S4 — Coverage audit per pair: first and last timestamp, number of missing hours, longest gap. Note that
    Binance timestamps are in **microseconds** from 2025 (milliseconds before). — done: Renzo, 31 Oct
 - [x] S5 — Pin the package versions you used in `requirements.txt`. — done: Renzo, 31 Oct
+- [ ] S6 — Freeze Binance `BUSDUSDT` (fills the USDCUSDT gap; decided 31 Oct, F-006) with the same script. — doing: Renzo
+- [ ] S7 — Freeze Coinbase `USDT-USD` 1h (direct dollar price, robustness series; from May 2021) and audit it. — doing: Renzo
 
 ## Success criteria
 - [x] `sha256sum -c data/raw/SHA256SUMS` passes on a clean checkout after running the script (tested 31 Oct: fresh folder, script only, 464/464 OK)
@@ -51,6 +53,7 @@ work (and the AI agents of extension A) uses exactly the same data.
   - `scripts/00_probe_premium.py` (P0) reads `*.csv` and no longer runs on this layout; P1-02 replaces it.
 
 ## Log
+- 2026-10-31, agent for Renzo: reopened for S6–S7 (gap fillers, F-006), Renzo's decision
 - 2026-10-31, agent for Renzo: S1–S5 done; 464 files frozen; clean-checkout test run; status → review
 - 2026-10-31, agent for Renzo: Renzo claims P1-01; plan for S1 to be shown before any download
 
