@@ -1,0 +1,150 @@
+r"""P1-05: USDT premiums for the comparison currencies (donor pool for the synthetic control, P2-04).
+
+Premium, same definition as Brazil (P1-02): local price of USDT / (official local price of USD x USDT/USD) - 1, in bps.
+  USDT/USD is the hourly Binance series of P1-02 (1/USDCUSDT). Each currency is measured at its own official fix:
+  ECB currencies   EUR, TRY, ZAR, MXN, PLN, IDR (and BRL as a check): the ECB reference rates come from one
+                   concertation at ~14:10 Frankfurt time, so X per USD = (X per EUR) / (USD per EUR) is time-consistent.
+                   Binance price = open of the 14:00 Frankfurt hour (13h UTC in winter, 12h UTC in summer).
+  COP  TRM (Superfinanciera): volume-weighted average of one day's interbank trades. The TRM valid from day D is taken
+       to come from the trades of the last weekday before D [verify]. Binance = mean of the hourly opens 08-13h Bogota.
+  UAH  NBU official rate: the data gives the calculation day (calcdate). Binance = mean of the opens 10-16h Kyiv [verify].
+  ARS  BCRA Com. A 3500 wholesale reference rate (volume-weighted trades from 1 Jan 2026, a survey before).
+       Binance = mean of the opens 10-15h Buenos Aires [verify].
+  Dates are the day of the fix (or of the trades behind it), local time. Hours with zero volume carry a stale price and
+  are dropped. EURUSDT is quoted in USDT per EUR, so the local price of USDT is 1/price.
+Inputs   data/raw/binance/<PAIR>/ (python scripts/p1_01_download.py USDTTRY USDTZAR USDTUAH EURUSDT USDTMXN USDTCOP
+         USDTPLN USDTIDR USDTARS), data/processed/P1-02_premium_hourly.csv and _daily.csv (scripts/p1_02_premium.py)
+Outputs  data/raw/fx_official/ecb_exr.csv, trm_cop.csv, nbu_uah.json, bcra_a3500.json   API responses, byte for byte
+         data/processed/P1-05_donor_premiums_daily.csv   date x currency, bps (BRL_ptax = P1-02 premium, BRL_ecb = check)
+         results/tables/P1-05_donor_coverage.csv          coverage per currency, pre and post 23 Jun 2026
+Run      python scripts/p1_05_donors.py   (downloads skipped when the file exists; add new files to data/raw/SHA256SUMS)
+"""
+import json, time, urllib.parse, urllib.request
+from pathlib import Path
+import pandas as pd
+
+ROOT = Path(__file__).resolve().parent.parent
+RAW, PROC, FX = ROOT / "data/raw", ROOT / "data/processed", ROOT / "data/raw/fx_official"
+START, END = "2020-01-01", "2026-10-30"  # same cutoff as P1-01
+PRE, POST = ("2025-11-01", "2026-06-22"), ("2026-06-24", "2026-09-30")  # P2-04 windows
+SOURCES = {
+    "ecb_exr.csv": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD+TRY+ZAR+MXN+PLN+IDR+BRL.EUR.SP00.A?"
+                   f"startPeriod={START}&endPeriod={END}&format=csvdata",
+    "trm_cop.csv": "https://www.datos.gov.co/resource/32sa-8pi3.csv?" + urllib.parse.urlencode(
+        {"$where": f"vigenciadesde between '{START}T00:00:00' and '{END}T00:00:00'", "$order": "vigenciadesde",
+         "$limit": 50000}),
+    "nbu_uah.json": f"https://bank.gov.ua/NBU_Exchange/exchange_site?start={START.replace('-', '')}"
+                    f"&end={END.replace('-', '')}&valcode=usd&sort=exchangedate&order=asc&json",
+    "bcra_a3500.json": f"https://api.bcra.gob.ar/estadisticas/v4.0/Monetarias/5?desde={START}&hasta={END}&limit=3000",
+}
+
+
+def get(url, tries=3):
+    req = urllib.request.Request(url, headers={"User-Agent": "out-of-sample-datathon"})
+    for i in range(tries):
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                return r.read()
+        except OSError:
+            if i == tries - 1:
+                raise
+            time.sleep(2 ** i)
+
+
+# 1. Official rates, saved as the APIs return them
+FX.mkdir(parents=True, exist_ok=True)
+for name, url in SOURCES.items():
+    f = FX / name
+    if not f.exists():
+        f.with_suffix(".part").write_bytes(get(url))
+        f.with_suffix(".part").rename(f)
+        print(f"downloaded {name}")
+
+e = pd.read_csv(FX / "ecb_exr.csv", parse_dates=["TIME_PERIOD"]).pivot(index="TIME_PERIOD", columns="CURRENCY",
+                                                                        values="OBS_VALUE")
+official = {c: e[c] / e.USD for c in ["TRY", "ZAR", "MXN", "PLN", "IDR", "BRL"]}  # local currency per USD
+official["EUR"] = 1 / e.USD
+t = pd.read_csv(FX / "trm_cop.csv", parse_dates=["vigenciadesde"])
+calc = t.vigenciadesde - pd.offsets.BDay(1)  # last weekday before the day the TRM starts to apply [verify]
+official["COP"] = pd.Series(t.valor.values, index=calc.values)
+n = pd.DataFrame(json.loads((FX / "nbu_uah.json").read_bytes()))
+official["UAH"] = pd.Series(n.rate.values, index=pd.to_datetime(n.calcdate, format="%d.%m.%Y")).groupby(level=0).last()
+b = json.loads((FX / "bcra_a3500.json").read_bytes())
+assert b["metadata"]["resultset"]["count"] <= 3000, "BCRA response truncated"
+b = pd.DataFrame(b["results"][0]["detalle"])
+official["ARS"] = pd.Series(b.valor.values, index=pd.to_datetime(b.fecha)).sort_index()
+for c, s in official.items():
+    assert s.index.is_unique and s.notna().all() and (s > 0).all(), c
+
+
+# 2. Binance: local price of one USDT per hour, divided by USDT/USD -> crypto-implied local price of one USD
+def binance(pair):
+    k = pd.concat(pd.read_csv(f, header=None, usecols=range(6)) for f in sorted((RAW / "binance" / pair).glob("*.zip")))
+    k.index = pd.to_datetime(k[0].where(k[0] < 1e14, k[0] // 1000), unit="ms")  # microseconds from 2025
+    return k.sort_index().drop(columns=0).set_axis(["open", "high", "low", "close", "volume"], axis=1)
+
+
+uu = pd.read_csv(PROC / "P1-02_premium_hourly.csv", parse_dates=["time_utc"], index_col="time_utc").usdtusd_open_usd
+FIX = {  # currency: (pair, time zone of the fix, local hours whose opens are averaged)
+    "EUR": ("EURUSDT", "Europe/Berlin", [14]), "TRY": ("USDTTRY", "Europe/Berlin", [14]),
+    "ZAR": ("USDTZAR", "Europe/Berlin", [14]), "MXN": ("USDTMXN", "Europe/Berlin", [14]),
+    "PLN": ("USDTPLN", "Europe/Berlin", [14]), "IDR": ("USDTIDR", "Europe/Berlin", [14]),
+    "BRL": ("USDTBRL", "Europe/Berlin", [14]),
+    "COP": ("USDTCOP", "America/Bogota", range(8, 14)), "UAH": ("USDTUAH", "Europe/Kyiv", range(10, 17)),
+    "ARS": ("USDTARS", "America/Argentina/Buenos_Aires", range(10, 16)),
+}
+
+
+def session(k, pair, tz, hours):
+    """Daily mean, over the given local hours, of the crypto-implied local price of one USD (zero-volume hours dropped)."""
+    local = (1 / k.open if pair == "EURUSDT" else k.open)[k.volume > 0]  # local currency per USDT
+    r = (local / uu.reindex(local.index)).dropna()
+    r.index = r.index.tz_localize("UTC").tz_convert(tz)
+    r = r[r.index.hour.isin(hours)]
+    return r.groupby(r.index.tz_localize(None).normalize()).mean()
+
+
+prem, cov = {}, []
+for c, (pair, tz, hours) in FIX.items():
+    k = binance(pair)
+    stale = k.volume == 0
+    daily = session(k, pair, tz, hours)
+    p = ((daily / official[c]).dropna() - 1) * 1e4
+    if c == "COP":  # which day's trades does the TRM reflect? The right dating gives the calmer premium [verify]
+        for lab, idx in {"previous weekday (used)": calc, "same day": t.vigenciadesde}.items():
+            q = ((daily / pd.Series(t.valor.values, index=idx.values)).dropna() - 1)["2024-07-01":PRE[1]] * 1e4
+            print(f"TRM dated to the {lab}: sd of the daily change in the COP premium {q.diff().std():.1f} bps "
+                  f"(Jul 2024 - 22 Jun 2026, {len(q)} days)")
+    prem[c] = p
+    row = {"currency": c, "pair": pair, "fix": tz + " " + ("14:00" if len(hours) == 1 else f"{hours[0]}-{hours[-1]}h mean"),
+           "first": p.index.min().date(), "last": p.index.max().date(), "days": len(p),
+           "zero_volume_hours_pct": round(100 * stale.mean(), 1)}
+    for w, (a, z) in {"pre": PRE, "post": POST}.items():
+        fixes = official[c][a:z].index
+        row[f"{w}_fix_days"], row[f"{w}_share_with_premium"] = len(fixes), round(p.reindex(fixes).notna().mean(), 3)
+    pre = p[PRE[0]:PRE[1]]
+    row |= {"pre_mean_bps": round(pre.mean(), 1), "pre_sd_bps": round(pre.std(), 1)}  # pre-period only: rule is outcome-blind
+    cov.append(row)
+
+# 3. Output, plus the check: Brazil measured the ECB way vs the P1-02 PTAX premium
+d = pd.read_csv(PROC / "P1-02_premium_daily.csv", parse_dates=["date_brt"], index_col="date_brt")
+out = pd.DataFrame(prem).rename(columns={"BRL": "BRL_ecb"})
+out.insert(0, "BRL_ptax", d.premium_bps)
+out = out[out.drop(columns="BRL_ptax").notna().any(axis=1)].sort_index()
+out.index.name = "date"
+out.round(2).to_csv(PROC / "P1-05_donor_premiums_daily.csv")
+cov = pd.DataFrame(cov)
+(ROOT / "results/tables").mkdir(parents=True, exist_ok=True)
+cov.to_csv(ROOT / "results/tables/P1-05_donor_coverage.csv", index=False)
+print(cov.to_string(index=False))
+
+both = out[["BRL_ptax", "BRL_ecb"]].dropna()
+diff = both.BRL_ecb - both.BRL_ptax
+print(f"\nCheck, Brazil ECB-way vs PTAX premium: {len(both)} common days, corr {both.corr().iloc[0, 1]:.3f}, "
+      f"mean difference {diff.mean():+.1f} bps, median |difference| {diff.abs().median():.1f} bps")
+for y, g in both.groupby(both.index.year):
+    print(f"  {y}: PTAX {g.BRL_ptax.mean():6.1f}  ECB {g.BRL_ecb.mean():6.1f}  corr {g.corr().iloc[0, 1]:.3f}")
+ev = both.index.get_indexer([pd.Timestamp("2026-06-23")])[0]
+if ev >= 0:
+    jump = both.iloc[ev + 1:ev + 21].mean() - both.iloc[ev - 20:ev].mean()
+    print(f"  23 Jun 2026 jump (20 days after - 20 before): PTAX {jump.BRL_ptax:+.1f} bps, ECB-way {jump.BRL_ecb:+.1f} bps")

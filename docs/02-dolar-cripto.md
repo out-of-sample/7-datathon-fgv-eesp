@@ -68,7 +68,7 @@ the placebo-country gaps (permutation p-value > 0.1), or a second BRL venue show
 | USDT's dollar price | Binance `USDCUSDT` (checked, Dec 2018 – Sep 2026); Kraken USDT/USD as a direct USD quote | Kraken coverage `[verify]` |
 | Second BRL venue | Mercado Bitcoin or Foxbit public APIs | `[verify]` |
 | Donor currencies (synthetic control) | Binance `USDTTRY` (2019-12+), `USDTZAR` (2020-03+), `USDTUAH` (2020-06+), `EURUSDT` (2020-01+), `USDTMXN` (2024-04+), `USDTCOP` (2024-06+), `USDTPLN` (2023-04 → 2026-07), `USDTIDR` (2025-11+), `USDTARS` (2023-04+) | **Checked** in the archive (through Sep 2026 unless noted) |
-| Donors' official FX | Central-bank fixes or FRED/ECB daily series | `[verify]` per currency |
+| Donors' official FX | ECB reference rates (EUR, TRY, ZAR, MXN, PLN, IDR), TRM (COP), NBU (UAH), BCRA A 3500 (ARS) | **Checked**, frozen by P1-05 (D-05); premiums in `data/processed/P1-05_donor_premiums_daily.csv` |
 | BTC premium (heterogeneity) | Binance `BTCBRL` (2020-10+) and `BTCUSDT` | Checked (`BTCBRL`) |
 | Event dates | BCB resolutions and communications, decrees, Receita/Fazenda notes, exchange notices | Hand-collected; every date confirmed in a primary source |
 

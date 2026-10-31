@@ -41,5 +41,6 @@ coding, and remove contaminated countries from the synthetic control. Plan: `doc
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo (note from P1-05): rule 2 of the donor exclusion rule (P1-05 Result) needs this task's screen for EUR, TRY, ZAR, MXN, COP, IDR, window 1 Jun – 30 Sep 2026 (earlier events listed for robustness). ARS and UAH are already out (capital controls; UAH easing package 11 Aug 2026, ARS cepo changes Jun 2026). Check for EUR: MiCA restrictions on USDT for EEA users from ~31 Mar 2025 `[verify]`.
 
 ## Result

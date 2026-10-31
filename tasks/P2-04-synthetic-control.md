@@ -39,5 +39,6 @@ shock. This is the main causal evidence of the project.
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo (note from P1-05): donor premiums ready (`data/processed/P1-05_donor_premiums_daily.csv`). Exclusion rule in P1-05 → Result, to be confirmed at the gate before fitting. After rules 1 and 3: EUR, TRY, ZAR, MXN, COP (rule 2 waits for P1-06). IDR misses only because its Binance pair starts 29 Nov 2025. Each donor is measured at its own fix time; `BRL_ecb` is Brazil measured the same way as the ECB donors. ZAR, MXN, COP are thin on Binance (noisier).
 
 ## Result

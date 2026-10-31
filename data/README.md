@@ -20,6 +20,19 @@ data/agentic_bundle/  frozen inputs for extension A (raw files + provider docs o
 | `raw/coinbase/USDT-USD-1h.csv` | https://api.exchange.coinbase.com/products/USDT-USD/candles?granularity=3600 (300-hour chunks) | 2021-05-04 01h – 2026-10-30 23h UTC | 2026-10-31 | 1 | `scripts/p1_01_download.py` |
 | `raw/foxbit/USDTBRL-1h.csv` | https://api.foxbit.com.br/rest/v3/markets/usdtbrl/candlesticks (500-hour chunks) | trades from 2021-04-07 03h; file 2020-10-01 – 2026-10-30 23h UTC | 2026-10-31 | 1 | `scripts/p1_03_second_venue.py` |
 | `raw/mercadobitcoin/USDT-BRL-1h.csv` | https://api.mercadobitcoin.net/api/v4/candles?symbol=USDT-BRL&resolution=1h (30-day chunks) | 2023-03-11 22h – 2026-10-30 23h UTC | 2026-10-31 | 1 | `scripts/p1_03_second_venue.py` |
+| `raw/binance/USDTTRY/*.zip` | same as USDTBRL, pair USDTTRY (P1-05 donor) | 2019-12-25 08h – 2026-10-30 23h UTC | 2026-10-31 | 112 | `scripts/p1_01_download.py USDTTRY` |
+| `raw/binance/USDTZAR/*.zip` | same as USDTBRL, pair USDTZAR (P1-05 donor) | 2020-03-27 04h – 2026-10-30 23h UTC; **no data 2021-04-02 – 2023-06-09** | 2026-10-31 | 84 | `scripts/p1_01_download.py USDTZAR` |
+| `raw/binance/USDTUAH/*.zip` | same as USDTBRL, pair USDTUAH (P1-05 donor) | 2020-06-24 06h – 2026-09-28 06h UTC (no October files) | 2026-10-31 | 76 | `scripts/p1_01_download.py USDTUAH` |
+| `raw/binance/EURUSDT/*.zip` | same as USDTBRL, pair EURUSDT (P1-05 donor) | 2020-01-03 08h – 2026-10-30 23h UTC (quoted in USDT per EUR) | 2026-10-31 | 111 | `scripts/p1_01_download.py EURUSDT` |
+| `raw/binance/USDTMXN/*.zip` | same as USDTBRL, pair USDTMXN (P1-05 donor) | 2024-04-10 00h – 2026-10-30 23h UTC | 2026-10-31 | 60 | `scripts/p1_01_download.py USDTMXN` |
+| `raw/binance/USDTCOP/*.zip` | same as USDTBRL, pair USDTCOP (P1-05 donor) | 2024-06-05 15h – 2026-10-30 23h UTC | 2026-10-31 | 58 | `scripts/p1_01_download.py USDTCOP` |
+| `raw/binance/USDTPLN/*.zip` | same as USDTBRL, pair USDTPLN (P1-05 donor) | 2023-04-14 08h – **2026-07-01 11h UTC** (pair ends) | 2026-10-31 | 40 | `scripts/p1_01_download.py USDTPLN` |
+| `raw/binance/USDTIDR/*.zip` | same as USDTBRL, pair USDTIDR (P1-05 donor) | **2025-11-29 12h** – 2026-10-30 23h UTC | 2026-10-31 | 41 | `scripts/p1_01_download.py USDTIDR` |
+| `raw/binance/USDTARS/*.zip` | same as USDTBRL, pair USDTARS (P1-05 donor) | 2023-04-28 12h – 2026-10-30 23h UTC | 2026-10-31 | 72 | `scripts/p1_01_download.py USDTARS` |
+| `raw/fx_official/ecb_exr.csv` | https://data-api.ecb.europa.eu/service/data/EXR/D.USD+TRY+ZAR+MXN+PLN+IDR+BRL.EUR.SP00.A (csvdata) | 2020-01-02 – 2026-10-30, 1,751 days per currency | 2026-10-31 | 1 | `scripts/p1_05_donors.py` |
+| `raw/fx_official/trm_cop.csv` | https://www.datos.gov.co/resource/32sa-8pi3.csv (TRM, Superfinanciera) | validity periods starting 2020-01-03 – 2026-10-30, 1,618 rows | 2026-10-31 | 1 | `scripts/p1_05_donors.py` |
+| `raw/fx_official/nbu_uah.json` | https://bank.gov.ua/NBU_Exchange/exchange_site?valcode=usd&json | 2020-01-01 – 2026-10-30, every calendar day, 2,495 rows | 2026-10-31 | 1 | `scripts/p1_05_donors.py` |
+| `raw/fx_official/bcra_a3500.json` | https://api.bcra.gob.ar/estadisticas/v4.0/Monetarias/5 (Com. A 3500) | 2020-01-02 – 2026-10-30, 1,658 business days | 2026-10-31 | 1 | `scripts/p1_05_donors.py` |
 | `raw/bcb/ptax.json` | https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo (01-10-2020 to 10-30-2026) | 2020-10-01 – 2026-10-30, 1,527 days | 2026-10-31 | 1 | `scripts/p1_01_download.py` |
 
 Notes:
@@ -37,4 +50,8 @@ Notes:
   without trades have no row.
 - PTAX `dataHoraCotacao` is the **publication** time in Brasília time (UTC-3, no daylight saving since 2019),
   not the time of the four averaging windows. One date (2025-04-23) appears twice with identical rates.
+- Official FX files (P1-05) are the API responses byte for byte; a re-download on 31 Oct 2026 gave identical files.
+  ECB: rates per EUR, `TIME_PERIOD` = fix date (~14:10 CET). TRM: `vigenciadesde`/`vigenciahasta` = days the rate
+  applies, COP per USD. NBU: `calcdate` = day the rate was calculated, `exchangedate` = day it applies (also weekends).
+  BCRA: `fecha`, `valor` in ARS per USD.
 - Coverage audit per pair: task P1-01 → Result, and `results/tables/P1-01_coverage.csv`.
