@@ -2,9 +2,9 @@
 id: P1-01
 title: Download and freeze the raw price data
 phase: P1
-status: todo
+status: doing
 owner: CS 1
-working: -
+working: Renzo
 due: 2026-10-31
 depends: -
 ---
@@ -14,7 +14,7 @@ Get every Binance and BCB file the main analysis needs into `data/raw/`, frozen 
 work (and the AI agents of extension A) uses exactly the same data.
 
 ## Subtasks
-- [ ] S1 — Write `scripts/p1_01_download.py` (or `.sh`) that is safe to re-run. It downloads:
+- [ ] S1 — Write `scripts/p1_01_download.py` (or `.sh`) that is safe to re-run. It downloads: — doing: Renzo
    - Binance monthly 1h klines for `USDTBRL`, `USDCUSDT`, `BTCBRL`, `BTCUSDT` into `data/raw/binance/<PAIR>/`
      (listing and download commands are in the header of `scripts/00_probe_premium.py`);
    - Binance **daily** 1h klines for October 2026 (`data/spot/daily/klines/<PAIR>/1h/`), since monthly
@@ -43,5 +43,6 @@ work (and the AI agents of extension A) uses exactly the same data.
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo: Renzo claims P1-01; plan for S1 to be shown before any download
 
 ## Result
