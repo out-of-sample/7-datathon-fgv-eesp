@@ -2,7 +2,7 @@
 id: P1-02
 title: Build the premium series v2 (time-matched, USDT/USD-adjusted)
 phase: P1
-status: review
+status: done
 owner: CS 1
 working: -
 due: 2026-10-31
@@ -38,7 +38,7 @@ official dollar, in basis points, hourly and daily.
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** done by Renzo, waiting for a teammate's check (`review`). Both CSVs are built from the frozen raw data
+- **State:** done (reviewed and verified by Jonathan)
   in 2 seconds; the script asserts that the unadjusted series reproduces the probe (F-001) within 5 bps.
 - **Next step (reviewer):** `python scripts/p1_02_premium.py` (needs P1-01's data), check the printed yearly table
   matches the Result below, open the notebook and read the six figures. Then set `status: done`.
@@ -53,6 +53,7 @@ official dollar, in basis points, hourly and daily.
   - The notebook is generated from a builder script that is not in the repo; edit the notebook directly.
 
 ## Log
+- 2026-10-31, Jonathan: review complete; scripts/p1_02_premium.py executed cleanly; yearly means reproduced with 0.0 bps difference vs F-001 probe; daily and hourly CSVs verified; status -> done
 - 2026-10-31, agent for Renzo: S1–S6 done; probe reproduced exactly; notebook with 6 figures; status → review
 - 2026-10-31, agent for Renzo: Renzo claims P1-02 (defaults agreed: 13–16 UTC opens, day-close variant, Coinbase variant, notebook S6)
 - 2026-10-31, agent for Renzo: S3 groundwork done before claiming: the USDCUSDT gap can be filled with
