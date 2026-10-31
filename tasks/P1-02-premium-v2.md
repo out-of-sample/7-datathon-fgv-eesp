@@ -39,6 +39,9 @@ official dollar, in basis points, hourly and daily.
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo: S3 groundwork done before claiming: the USDCUSDT gap can be filled with
+  1/BUSDUSDT, Coinbase or Bitstamp USDT/USD (agree within ~1 bps; F-006, `scripts/p1_02_probe_usdtusd.py`).
+  Which one to use, and freezing it in `data/raw/`, is Renzo's decision (STATUS → Blockers).
 - 2026-10-31, agent for Renzo (note from P1-01): inputs ready. Read the zips in `data/raw/binance/<PAIR>/`
   directly; USDCUSDT is missing 2022-09-26 to 2023-03-11 (S3 needs a fallback there); PTAX has one duplicate
   date and non-standard publication times on 24/31 Dec and Ash Wednesdays (S2). Details: P1-01 → Result.

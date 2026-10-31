@@ -75,8 +75,10 @@ or price ≤ 0, zero-volume hours ≤ 0.09%. Timestamps are **milliseconds up to
 from the 2025-01 file** in all four pairs; no file mixes the two.
 
 Gaps longer than 24 h and other flags:
-1. **USDCUSDT, 2022-09-26 03h – 2023-03-11 13h UTC (3,995 h).** Probably Binance's conversion of USDC into BUSD
-   (pair removed Sep 2022, relisted Mar 2023) `[verify]`. Consequences: (a) P1-02 cannot adjust the premium for
+1. **USDCUSDT, 2022-09-26 03h – 2023-03-11 13h UTC (3,995 h).** Binance auto-converted USDC, USDP and TUSD into BUSD from
+   29 Sep 2022 and closed their pairs (The Block, 5 Sep 2022; reports give 26 Sep 03:00 UTC for the pair closure,
+   which matches our last row at 02:00), and relisted USDC/USDT on Sat 11 Mar 2023. Secondary sources only (D-09).
+   Replacement series for the gap: F-006. Consequences: (a) P1-02 cannot adjust the premium for
    USDT's own dollar price in those months with Binance data; (b) the pair restarts in the middle of the SVB
    weekend: first candle 2023-03-11 14h opens at 1.0000 (a listing artefact) with low 0.882, so the depeg's start
    is not in Binance (P1-07 told).

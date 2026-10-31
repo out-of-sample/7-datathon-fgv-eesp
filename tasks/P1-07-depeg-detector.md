@@ -39,5 +39,8 @@ Plan: `docs/01-depeg-recovery.md` (chapter scope at the top, definition in §6.1
   2022-09-26 03h to 2023-03-11 13h UTC**. The pair restarts at 2023-03-11 14:00 UTC, mid-SVB weekend (first
   candle open 1.0000 = listing artefact, low 0.882). The Friday-to-Saturday-morning part of the depeg is not in
   Binance; S4 needs the Kraken reference or another venue for it. Details: P1-01 → Result.
+- 2026-10-31, agent for Renzo (note from F-006): Bitstamp USDC/USD 1h covers all 120 hours of 10–14 Mar 2023,
+  including the bottom (low 0.805 at 11 Mar 07:00 UTC) that Binance misses; USDT/USD itself reached 1.027 that
+  night (Coinbase), so USDC/USDT understates USDC's fall. API calls are in `scripts/p1_02_probe_usdtusd.py`.
 
 ## Result

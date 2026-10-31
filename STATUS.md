@@ -34,6 +34,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 |---|---|---|
 | P2 gate: 23 Jun confirmed? donors usable? second venue? A and B go/no-go? | Team | Sun 1 Nov evening |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
+| USDT/USD source to fill the USDCUSDT gap, Sep 2022 – Mar 2023 (F-006): 1/BUSDUSDT, Coinbase or both; freeze in `data/raw/` | Renzo | before P1-02 S3 |
 
 ## Team
 
@@ -118,11 +119,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-003](findings/F-003-weekend-price-discovery.md) | Weekend moves in USDT/BRL only weakly anticipate Monday's official dollar | 🔍 exploratory | P0-01 | - |
 | [F-004](findings/F-004-usdt-own-dollar-price.md) | USDT's own dollar price explains only a few bps of the premium | 🔍 exploratory | P0-01 | - |
 | [F-005](findings/F-005-2025-model-lost-to-naive.md) | Our 2025 model lost to a naive "tomorrow = today" forecast | ✔️ confirmed | P0-01 | - |
+| [F-006](findings/F-006-usdcusdt-gap-fillable.md) | The Binance USDC/USDT gap (Sep 2022 – Mar 2023) can be filled; three USDT/USD series agree within ~1 bps | 🔍 exploratory | P1-02 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
-- 2026-10-31 — agent for Renzo: P1 started; P1-01 done → review (464 raw files frozen at 30 Oct, checksums in git, coverage audit; USDCUSDT missing Sep 2022 – Mar 2023); requirements pinned + `.venv`
+- 2026-10-31 — agent for Renzo: P1 started; P1-01 done → review (464 raw files frozen at 30 Oct, checksums in git, coverage audit; USDCUSDT missing Sep 2022 – Mar 2023); requirements pinned + `.venv`; USDCUSDT gap fillers found (F-006)
 - 2026-10-31 — agent for Renzo: handoff support (working field, subtasks, Handoff section, paused status, git rules); P1-08 decided (existing plans); first commit
 - 2026-10-31 — Renzo: Team table filled
 - 2026-10-31 — agent for Renzo: phases P0–P6, 32 task files, findings F-001–F-005, STATUS board, agentic extension doc
