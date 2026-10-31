@@ -34,6 +34,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 |---|---|---|
 | P2 gate: 23 Jun confirmed? donors usable? second venue? A and B go/no-go? | Team | Sun 1 Nov evening |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
+| Mercado Bitcoin API terms: save https://www.mercadobitcoin.com.br/politicas-termo-api from a browser so D-04 can be closed | Renzo | before deck v1 |
+| F-008 (Foxbit volume ×6 from Jul 2026): interpretation, and whether it belongs in the story | Felipe | P2 gate |
 
 ## Team
 
@@ -120,6 +122,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-005](findings/F-005-2025-model-lost-to-naive.md) | Our 2025 model lost to a naive "tomorrow = today" forecast | ✔️ confirmed | P0-01 | - |
 | [F-006](findings/F-006-usdcusdt-gap-fillable.md) | The Binance USDC/USDT gap (Sep 2022 – Mar 2023) can be filled; three USDT/USD series agree within ~1 bps | 🔍 exploratory | P1-02 | - |
 | [F-007](findings/F-007-noise-floor.md) | Trading friction on USDT/BRL is 2–10 bps; the premium is 4–11 times that every year, but only ~2 times it from Aug 2025 to Jun 2026 | ✔️ confirmed | P2-01 | - |
+| [F-008](findings/F-008-foxbit-volume-jul-2026.md) | Foxbit's USDT/BRL volume rose about sixfold from July 2026, through bigger trades, not more trades | 🔍 exploratory | P1-03 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)

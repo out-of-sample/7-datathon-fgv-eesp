@@ -34,8 +34,9 @@ from a second exchange.
 - **Next step (reviewer):** `python scripts/p1_03_second_venue.py` (about 2 min), then
   `sha256sum -c data/raw/SHA256SUMS` (needs P1-01's script run first); printed audit must match the Result.
   Then set `status: done`. The jump check itself is P2-05 S1.
-- **Open questions:** (1) Mercado Bitcoin's API terms page returns 403 to scripts; someone should read
-  https://www.mercadobitcoin.com.br/termo-de-uso-apis in a browser before we publish (D-04). (2) Why Foxbit's
+- **Open questions:** (1) Mercado Bitcoin's general terms were read (D-04: no clause on research use of public
+  prices; databases owned by MB, so we never share the raw file and we cite MB). The separate API terms page
+  https://www.mercadobitcoin.com.br/politicas-termo-api blocks scripts: Renzo saves it from a browser, then D-04 is closed. (2) Why Foxbit's
   volume rose ~6× in July 2026 (see Result) is unknown; relevant to the economist's interpretation.
 - **How to resume / reuse:** drop Foxbit rows with `volume_usdt == 0` (no trade); Foxbit `open` = previous close,
   so use closes (or Mercado Bitcoin's `o`, a true first trade) when matching the PTAX window.
@@ -76,4 +77,4 @@ Foxbit traded 100–190 million USDT a month in Jan–Jun 2026 and **0.9–1.1 b
 number of trades did not rise (92–218 thousand a month before, 146–201 thousand after); the average trade grew from
 0.9–1.3 thousand USDT (Jan–Jun) to 5.4–6.6 thousand (Jul–Oct). It starts right
 after the 23–24 Jun jump. Larger players moving to a domestic venue, or a market-making or reporting change at
-Foxbit, are both possible; nothing here tells them apart `[verify]`.
+Foxbit, are both possible; nothing here tells them apart `[verify]`. Recorded as **F-008**.
