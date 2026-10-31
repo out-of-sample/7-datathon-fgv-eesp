@@ -35,5 +35,9 @@ Plan: `docs/01-depeg-recovery.md` (chapter scope at the top, definition in §6.1
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo (note from P1-01, nobody working here yet): Binance has **no USDCUSDT data from
+  2022-09-26 03h to 2023-03-11 13h UTC**. The pair restarts at 2023-03-11 14:00 UTC, mid-SVB weekend (first
+  candle open 1.0000 = listing artefact, low 0.882). The Friday-to-Saturday-morning part of the depeg is not in
+  Binance; S4 needs the Kraken reference or another venue for it. Details: P1-01 → Result.
 
 ## Result

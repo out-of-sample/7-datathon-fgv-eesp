@@ -1,4 +1,8 @@
 data/*
 !data/README.md
+!data/raw/
+data/raw/*
+!data/raw/SHA256SUMS
 __pycache__/
 .env
+.venv/

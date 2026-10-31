@@ -7,8 +7,8 @@ Status: **checked** (opened and confirmed by us, with date) or **[verify]** (not
 
 | ID | Source | What | Access | Status |
 |---|---|---|---|---|
-| D-01 | Binance public data archive | Spot klines 1h: USDTBRL (Oct 2020 – Sep 2026), USDCUSDT (Dec 2018 – Sep 2026), BTCBRL, donors | https://data.binance.vision ; listing via `https://s3-ap-northeast-1.amazonaws.com/data.binance.vision?prefix=data/spot/monthly/klines/<PAIR>/1h/&delimiter=/` | checked 30 Oct 2026 (coverage) |
-| D-02 | BCB Olinda PTAX API | `CotacaoDolarPeriodo`: PTAX buy/sell with timestamp | https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/ | checked 30 Oct 2026 (Oct 2020 – 30 Oct 2026) |
+| D-01 | Binance public data archive | Spot klines 1h: USDTBRL and BTCBRL (13 Oct 2020 – 30 Oct 2026), USDCUSDT (Dec 2018 – 30 Oct 2026, **no data 26 Sep 2022 – 11 Mar 2023**), BTCUSDT (Aug 2017 – 30 Oct 2026), donors | https://data.binance.vision ; listing via `https://s3-ap-northeast-1.amazonaws.com/data.binance.vision?prefix=data/spot/monthly/klines/<PAIR>/1h/&delimiter=/` | checked 30 Oct 2026 (coverage); frozen 31 Oct 2026 by P1-01 |
+| D-02 | BCB Olinda PTAX API | `CotacaoDolarPeriodo`: PTAX buy/sell with timestamp | https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/ | checked 30 Oct 2026 (Oct 2020 – 30 Oct 2026); frozen 31 Oct 2026 by P1-01 |
 | D-03 | Kraken OHLCVT | USDT/USD direct quote | Kraken downloadable data | [verify] |
 | D-04 | Mercado Bitcoin / Foxbit public APIs | Second BRL venue for USDT | exchange API docs | [verify] |
 | D-05 | Official FX for donor currencies | Daily fixes (central banks, FRED, ECB) | per currency | [verify] |

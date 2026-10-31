@@ -39,5 +39,8 @@ official dollar, in basis points, hourly and daily.
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo (note from P1-01): inputs ready. Read the zips in `data/raw/binance/<PAIR>/`
+  directly; USDCUSDT is missing 2022-09-26 to 2023-03-11 (S3 needs a fallback there); PTAX has one duplicate
+  date and non-standard publication times on 24/31 Dec and Ash Wednesdays (S2). Details: P1-01 → Result.
 
 ## Result

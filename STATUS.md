@@ -22,7 +22,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Next actions
 
-1. Start P1 in parallel: Renzo → P1-01 then P1-02 · Nattan → P1-03, P1-05 · Felipe → P1-04 ·
+1. Start P1 in parallel: Renzo → P1-02 (P1-01 in review: a teammate re-runs it, see its Handoff) · Nattan → P1-03, P1-05 · Felipe → P1-04 ·
    Jonathan → P1-07, then P1-06 once P1-04 has the Brazil list.
 2. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
    (`prompt.md` §7).
@@ -57,7 +57,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
-| [P1-01](tasks/P1-01-raw-data-download.md) | Download and freeze the raw price data | 🔄 doing | CS 1 | Renzo | 0/5 | 0/4 | 2026-10-31 | - |
+| [P1-01](tasks/P1-01-raw-data-download.md) | Download and freeze the raw price data | 👀 review | CS 1 | - | 5/5 | 4/4 | 2026-10-31 | - |
 | [P1-02](tasks/P1-02-premium-v2.md) | Build the premium series v2 (time-matched, USDT/USD-adjusted) | ⬜ todo | CS 1 | - | 0/5 | 0/4 | 2026-10-31 | P1-01 |
 | [P1-03](tasks/P1-03-second-venue.md) | Find and download a second BRL venue for USDT | ⬜ todo | CS 2 | - | 0/3 | 0/2 | 2026-10-31 | - |
 | [P1-04](tasks/P1-04-events-brazil.md) | Verified list of Brazilian rule changes and events | ⬜ todo | Economist | - | 0/5 | 0/3 | 2026-10-31 | - |
@@ -122,7 +122,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
-- 2026-10-31 — Renzo: P1 started; Renzo takes P1-01
+- 2026-10-31 — agent for Renzo: P1 started; P1-01 done → review (464 raw files frozen at 30 Oct, checksums in git, coverage audit; USDCUSDT missing Sep 2022 – Mar 2023); requirements pinned + `.venv`
 - 2026-10-31 — agent for Renzo: handoff support (working field, subtasks, Handoff section, paused status, git rules); P1-08 decided (existing plans); first commit
 - 2026-10-31 — Renzo: Team table filled
 - 2026-10-31 — agent for Renzo: phases P0–P6, 32 task files, findings F-001–F-005, STATUS board, agentic extension doc
