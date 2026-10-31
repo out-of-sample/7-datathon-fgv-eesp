@@ -43,7 +43,8 @@ work (and the AI agents of extension A) uses exactly the same data.
   30 Oct 2026, including the gap fillers BUSDUSDT and Coinbase USDT/USD (S6–S7); checksums in
   `data/raw/SHA256SUMS` (tracked in git, the rest of `data/` is not).
 - **Next step (reviewer):** in your own clone: set up the venv (header of `requirements.txt`), run
-  `python scripts/p1_01_download.py` (about 7 min), then `sha256sum -c data/raw/SHA256SUMS`. Every line must say OK
+  `python scripts/p1_01_download.py` (about 7 min) and `python scripts/p1_03_second_venue.py` (about 2 min; the
+  checksums also cover P1-03's two venue files), then `sha256sum -c data/raw/SHA256SUMS`. Every line must say OK
   and the printed audit must match the Result table. Then set `status: done`.
 - **Open questions:** the USDCUSDT gap's cause rests on secondary sources (D-09) and the 2018 BTCUSDT outage
   is `[verify]`; neither changes any data. P1-07 may want Bitstamp USDC/USD frozen too (Jonathan's call, F-006).

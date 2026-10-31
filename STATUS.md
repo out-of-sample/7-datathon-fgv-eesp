@@ -22,7 +22,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Next actions
 
-1. Start P1 in parallel: Renzo → P2-05 when P1-03 (second venue) is in; P1-01, P1-02, P2-01 in review (Jonathan re-runs P1-01) · Nattan → P1-05 (Renzo took P1-03) · Felipe → P1-04 ·
+1. Start P1 in parallel: Renzo → P2-05 (inputs ready); P1-01, P1-02, P1-03, P2-01 in review (Jonathan re-runs P1-01) · Nattan → P1-05 (Renzo took P1-03) · Felipe → P1-04 ·
    Jonathan → P1-07, then P1-06 once P1-04 has the Brazil list.
 2. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
    (`prompt.md` §7).
@@ -59,7 +59,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 |---|---|---|---|---|---|---|---|---|
 | [P1-01](tasks/P1-01-raw-data-download.md) | Download and freeze the raw price data | 👀 review | CS 1 | - | 7/7 | 4/4 | 2026-10-31 | - |
 | [P1-02](tasks/P1-02-premium-v2.md) | Build the premium series v2 (time-matched, USDT/USD-adjusted) | 👀 review | CS 1 | - | 6/6 | 4/4 | 2026-10-31 | P1-01 |
-| [P1-03](tasks/P1-03-second-venue.md) | Find and download a second BRL venue for USDT | 🔄 doing | CS 2 | Renzo | 0/3 | 0/2 | 2026-10-31 | - |
+| [P1-03](tasks/P1-03-second-venue.md) | Find and download a second BRL venue for USDT | 👀 review | CS 2 | - | 3/3 | 2/2 | 2026-10-31 | - |
 | [P1-04](tasks/P1-04-events-brazil.md) | Verified list of Brazilian rule changes and events | ⬜ todo | Economist | - | 0/5 | 0/3 | 2026-10-31 | - |
 | [P1-05](tasks/P1-05-comparison-currencies.md) | USDT premiums for the comparison currencies | ⬜ todo | CS 2 | - | 0/4 | 0/3 | 2026-11-01 | P1-01 |
 | [P1-06](tasks/P1-06-agentic-B-event-coder.md) | Extension B - AI event coder for the comparison currencies | ⬜ todo | CS 3 | - | 0/6 | 0/4 | 2026-11-01 | P1-04 |
@@ -124,6 +124,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-10-31 — agent for Renzo: P1-03 done → review: Foxbit (from Apr 2021) and Mercado Bitcoin (from Mar 2023) hourly USDT/BRL frozen; Foxbit volume ~6× from Jul 2026
 - 2026-10-31 — agent for Renzo: P2-01 done → review: spread 2–10 bps, premium 4–11× it yearly but ~2× in Aug 2025 – Jun 2026 (F-007); Binance tick cut ~27 Jun 2025 (note in P2-02)
 - 2026-10-31 — agent for Renzo: P1-02 done → review: premium v2 daily (1,520 days) and hourly, probe reproduced exactly, notebook with 6 figures; F-002 jump partly reverts by Oct; Oct 2026 weekend moves noted in F-003
 - 2026-10-31 — agent for Renzo: P1 started; P1-01 done → review (464 raw files frozen at 30 Oct, checksums in git, coverage audit; USDCUSDT missing Sep 2022 – Mar 2023); requirements pinned + `.venv`; USDCUSDT gap fillers found (F-006), BUSDUSDT + Coinbase USDT/USD frozen (517 files)

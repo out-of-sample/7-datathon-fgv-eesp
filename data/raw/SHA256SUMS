@@ -515,3 +515,5 @@ eaa1a92b93049224b2c17b25e4eba4ea953fa0f546893cfe162b313676b4869c  data/raw/binan
 51128cb40a41a64f04d483d10a43fb1f326ac3c4a5a0580ecd5092a60769cc49  data/raw/binance/USDTBRL/USDTBRL-1h-2026-10-29.zip
 cb10d33b01e46aa5dc3f831b97771d3b73e65e9a3aa695fc958d64adf918b73d  data/raw/binance/USDTBRL/USDTBRL-1h-2026-10-30.zip
 074d643dcc85d05c5572513b0154ea0136b1d23ba96ccdae89d57709acbd33e5  data/raw/coinbase/USDT-USD-1h.csv
+b761de3a2a52b6fd111009d57631076cc34615c7ddec52fc2aeb7671d4755a73  data/raw/foxbit/USDTBRL-1h.csv
+2d62cfb16ea28be953e68a3aa5026fc1f90b7db3db5f28c7729126b48c206747  data/raw/mercadobitcoin/USDT-BRL-1h.csv

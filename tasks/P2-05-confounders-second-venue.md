@@ -34,5 +34,9 @@ move, a Binance-only problem, or a data error.
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo (note from P1-03): S1 inputs ready: Foxbit (`data/raw/foxbit/`) and Mercado Bitcoin
+  (`data/raw/mercadobitcoin/`) hourly USDT/BRL, both covering Jun 2026. Foxbit sits ~12.5 bps below Binance on
+  average, so compare each venue's change around 23 Jun, not levels. Foxbit's volume rose ~6x from July 2026 (P1-03
+  Result): worth a look in S3 (venue-specific events).
 
 ## Result

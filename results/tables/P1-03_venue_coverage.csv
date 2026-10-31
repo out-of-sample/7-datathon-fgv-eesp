@@ -1,0 +1,3 @@
+venue,hours_with_trades,first_utc,last_utc,no_trade_pct,longest_gap_h,longest_gap_before_utc,gaps_gt24h,dup_ts,bad_hlc,median_abs_diff_vs_binance_bps,mean_diff_vs_binance_bps
+Foxbit,45789,2021-04-07 03:00:00,2026-10-30 23:00:00,6.1,9,2022-05-24 12:00:00,0,0,0,9.7,-12.5
+Mercado Bitcoin,30889,2023-03-11 22:00:00,2026-10-30 23:00:00,3.2,22,2026-04-20 02:00:00,0,0,0,5.5,-0.6
