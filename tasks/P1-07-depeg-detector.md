@@ -2,7 +2,7 @@
 id: P1-07
 title: Depeg detector and SVB-weekend figure (chapter)
 phase: P1
-status: done
+status: review
 owner: Nattan
 working: -
 due: 2026-11-01
@@ -29,8 +29,13 @@ Plan: `docs/01-depeg-recovery.md` (chapter scope at the top, definition in §6.1
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** done. Automated detector identified 29 USD-confirmed independent depeg events (exceeding the target of ≥ 20), 16 relative-price candidates, and logged 273 rejected episodes with explicit exclusion reasons. SVB weekend figure generated from Bitstamp 1h USDC/USD data with bank-closed hours shaded.
-- **Next step:** P3-04 (Depeg chapter v1) can proceed with the event table and Kaplan-Meier survival curves using `data/processed/P1-07_depeg_events.csv` and `results/figures/P1-07_svb_weekend.png`.
+- **State:** complete by Nattan; awaiting independent review by Felipe or Renzo (`status: review`). Automated detector identified 29 USD-confirmed independent depeg events (exceeding the target of ≥ 20), 16 relative-price candidates, and logged 273 rejected episodes with explicit exclusion reasons. SVB weekend figure generated from Bitstamp 1h USDC/USD data with bank-closed hours shaded.
+- **Next step (reviewer: Felipe or Renzo):**
+  1. Re-run `python scripts/p1_07_depeg.py`.
+  2. Verify that `data/processed/P1-07_depeg_events.csv` generates 318 screened rows (29 `USD-confirmed`, 16 `relative-price candidate`, 273 `rejected`).
+  3. Inspect `results/figures/P1-07_svb_weekend.png` (Bitstamp USDC/USD, low $0.805 on 11 Mar 2023 07:00 UTC during US bank closures).
+  4. Verify findings match `findings/F-012-stablecoin-depeg-events.md`.
+  5. If confirmed, set `status: done`, add reviewer to `checked_by: <name>` in F-012, and update `STATUS.md`.
 - **Open questions:** none.
 - **How to resume:** run `python scripts/p1_07_depeg.py` to regenerate the event dataset and figure.
 
@@ -54,7 +59,8 @@ This definition is fixed before the automated scan:
 - **Pre-specified sensitivity checks:** start thresholds 0.3% and 1.0%; recovery bands 0.05% and 0.25%.
 
 ## Log
-- 2026-10-31, Nattan: completed S2, S3, S4. Automated scan produced 318 screened candidates: 29 USD-confirmed independent events, 16 relative-price candidates, and 273 logged quality rejections. Generated SVB-weekend case figure `P1-07_svb_weekend.png` (Bitstamp USDC/USD trough $0.805 on 11 Mar 2023 07:00 UTC). Documented in F-012. Task done.
+- 2026-10-31, Nattan: status set to review; marked for review by Felipe or Renzo.
+- 2026-10-31, Nattan: completed S2, S3, S4. Automated scan produced 318 screened candidates: 29 USD-confirmed independent events, 16 relative-price candidates, and 273 logged quality rejections. Generated SVB-weekend case figure `P1-07_svb_weekend.png` (Bitstamp USDC/USD trough $0.805 on 11 Mar 2023 07:00 UTC). Documented in F-012.
 - 2026-10-31, Nattan: froze the event definition before S2; direct USD prices are required for USD-level claims.
 - 2026-10-31, Nattan: claimed task; S1 in progress.
 - 2026-10-31, agent for Renzo (note from P1-01, nobody working here yet): Binance has **no USDCUSDT data from
