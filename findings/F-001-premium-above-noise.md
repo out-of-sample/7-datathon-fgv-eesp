@@ -34,4 +34,7 @@ One venue; no USDT/USD adjustment (see F-004); the hourly range is a rough noise
 Not yet.
 
 ## History
+- 2026-10-31, agent for Renzo: premium v2 (P1-02) reproduces the yearly means exactly (unadjusted, to 30 Sep 2026).
+  With the USDT/USD adjustment they move by ≤ 5 bps (2020–2026: 97, 79, 47, 56, 49, 22, 24 bps; 2026 to 30 Oct).
+  Reproduce: `python scripts/p1_02_premium.py`. Claim unchanged; still exploratory until P2-01 (noise floor).
 - 2026-10-30 — agent for Renzo: created from the probe

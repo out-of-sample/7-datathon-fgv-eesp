@@ -22,7 +22,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Next actions
 
-1. Start P1 in parallel: Renzo → P1-02 (P1-01 in review: a teammate re-runs it, see its Handoff) · Nattan → P1-03, P1-05 · Felipe → P1-04 ·
+1. Start P1 in parallel: Renzo → P2-01 (noise floor) and P2-05 once the gate allows; P1-01 and P1-02 in review (Jonathan re-runs P1-01) · Nattan → P1-03, P1-05 · Felipe → P1-04 ·
    Jonathan → P1-07, then P1-06 once P1-04 has the Brazil list.
 2. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
    (`prompt.md` §7).
@@ -58,7 +58,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
 | [P1-01](tasks/P1-01-raw-data-download.md) | Download and freeze the raw price data | 👀 review | CS 1 | - | 7/7 | 4/4 | 2026-10-31 | - |
-| [P1-02](tasks/P1-02-premium-v2.md) | Build the premium series v2 (time-matched, USDT/USD-adjusted) | 🔄 doing | CS 1 | Renzo | 0/6 | 0/4 | 2026-10-31 | P1-01 |
+| [P1-02](tasks/P1-02-premium-v2.md) | Build the premium series v2 (time-matched, USDT/USD-adjusted) | 👀 review | CS 1 | - | 6/6 | 4/4 | 2026-10-31 | P1-01 |
 | [P1-03](tasks/P1-03-second-venue.md) | Find and download a second BRL venue for USDT | ⬜ todo | CS 2 | - | 0/3 | 0/2 | 2026-10-31 | - |
 | [P1-04](tasks/P1-04-events-brazil.md) | Verified list of Brazilian rule changes and events | ⬜ todo | Economist | - | 0/5 | 0/3 | 2026-10-31 | - |
 | [P1-05](tasks/P1-05-comparison-currencies.md) | USDT premiums for the comparison currencies | ⬜ todo | CS 2 | - | 0/4 | 0/3 | 2026-11-01 | P1-01 |
@@ -123,6 +123,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-10-31 — agent for Renzo: P1-02 done → review: premium v2 daily (1,520 days) and hourly, probe reproduced exactly, notebook with 6 figures; F-002 jump partly reverts by Oct; Oct 2026 weekend moves noted in F-003
 - 2026-10-31 — agent for Renzo: P1 started; P1-01 done → review (464 raw files frozen at 30 Oct, checksums in git, coverage audit; USDCUSDT missing Sep 2022 – Mar 2023); requirements pinned + `.venv`; USDCUSDT gap fillers found (F-006), BUSDUSDT + Coinbase USDT/USD frozen (517 files)
 - 2026-10-31 — agent for Renzo: handoff support (working field, subtasks, Handoff section, paused status, git rules); P1-08 decided (existing plans); first commit
 - 2026-10-31 — Renzo: Team table filled

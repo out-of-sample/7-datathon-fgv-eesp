@@ -22,4 +22,9 @@ Side result; R-squared about 7%. Not part of the main question unless the team d
 Not yet.
 
 ## History
+- 2026-10-31, agent for Renzo: two strong cases after the probe's sample ended. PTAX Fri 2 Oct 5.2238 → Mon 5 Oct
+  4.9859 (−4.6%) and Fri 23 Oct 5.0377 → Mon 26 Oct 5.5007 (+9.2%); in both, USDT/BRL started moving on Sunday
+  around 22h UTC (19h Brasília), about 18 hours before the PTAX window. What happened on those Sundays is `[verify]`
+  (possibly Brazil's election rounds). Not yet a test of the claim. Data: `data/processed/P1-02_premium_hourly.csv`;
+  figure `results/figures/P1-02_premium_hourly_recent.png`.
 - 2026-10-30 — agent for Renzo: created from the probe
