@@ -91,6 +91,7 @@ regime), a "solution" deliverable (a daily monitor), and a causal design the aca
 | 31 Oct | Extension A runs on Renzo's existing Claude, ChatGPT and Gemini plans via Claude Code, Codex CLI and Gemini CLI (3 families, ~10 runs each); no API spend (P1-08) | Renzo |
 | 31 Oct | Team: Renzo (CS 1), Nattan (CS 2), Jonathan (CS 3), Felipe (Economist). Tasks can be handed over mid-way: `working` field, subtasks, Handoff section (`prompt.md` §7) | Renzo |
 | 31 Oct | USDT's dollar price for the premium: 1/USDCUSDT (Binance), with 1/BUSDUSDT filling Binance's USDC gap (26 Sep 2022 – 11 Mar 2023); Coinbase USDT/USD (direct dollar quote, from May 2021) frozen as the robustness series (F-006) | Renzo |
+| 31 Oct | After the day-1 review (`review-2026-10-31.md`): keep the full plan, no tasks dropped; critical-path work first when tasks compete for a person | Renzo |
 | 1 Nov | _Pending (P2 gate):_ agentic A go/no-go (owner available? CLIs usable on Renzo's plans?); B done or manual screening | Team |
 
 ## Opening briefing notes (30 Oct)

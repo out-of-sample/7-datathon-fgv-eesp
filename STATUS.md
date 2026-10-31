@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-10-31 by Nattan · **Current phase:** P1 — Data foundation (started
+**Last updated:** 2026-10-31 by agent for Renzo · **Current phase:** P1 — Data foundation (started
 Sat 31 Oct) · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results freeze:** Wed 4 Nov
 
 This page is the team's dashboard. Read it first; update it at the end of every work session
@@ -12,8 +12,10 @@ This page is the team's dashboard. Read it first; update it at the end of every 
 We chose the project "Quanto custa fechar a porta? O preço do dólar digital no Brasil": how much more
 Brazilians pay for a digital dollar (USDT) than for the official dollar, and how much of that gap comes from
 rules that close or tax the arbitrage channels. A first probe found a real premium (0.2–1% depending on the
-year) and a sharp jump on 24 Jun 2026, the day after a reported BCB notice (F-001, F-002). Nothing has been
-confirmed yet: P1 builds the data, P2 runs the tests that can confirm or reject it.
+year) and a sharp jump on 24 Jun 2026, the day after a reported BCB notice (F-001, F-002). After day 1 the jump is
+well supported: it appears on three exchanges, is not the real or USDT's own price, and a blind break test finds it
+(F-009, F-011). It faded from late July to about +17 bps. Still open: the notice itself is unconfirmed (P1-04), and the
+synthetic control needs a different test. **Read the [day-1 review](docs/review-2026-10-31.md) before the P2 gate.**
 
 Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 [`docs/01-depeg-recovery.md`](docs/01-depeg-recovery.md) (chapter) ·
@@ -24,9 +26,10 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 1. Start P1 in parallel: Renzo → next CS 1 task after the gate (P3-02 / P3-03); P1-05 review passed; P2-01, P2-05 in review · Renzo covers CS 2 work (P1-03 done, P1-05 done, P2-02 blocked on P1-04) · Felipe → P1-04 ·
    Nattan → P1-07 done; Jonathan → P1-06 once P1-04 has the Brazil list.
-2. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
+2. Everyone (and your agents): read [`docs/review-2026-10-31.md`](docs/review-2026-10-31.md) before the gate.
+3. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
    (`prompt.md` §7).
-3. Sun 1 Nov evening: P2 gate (`docs/phases.md`).
+4. Sun 1 Nov evening: P2 gate (`docs/phases.md`).
 
 ## Blockers and decisions pending
 
@@ -134,6 +137,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-10-31 — agent for Renzo: day-1 review written for the team (`docs/review-2026-10-31.md`): findings, weak points, gate decisions; full scope kept (Renzo); P2-04 p-value floor noted
 - 2026-10-31 — Nattan: P1-07 done → review: 29 USD-confirmed independent depeg events across 7 pairs (F-012); SVB weekend figure (Bitstamp USDC/USD, low $0.805) ready for chapter (P3-04)
 - 2026-10-31 — second agent for Renzo: P1-05 independent review passed → done; reproducible raw-data audit added; historical UAH boundary cleanup filed as P1-09; F-010 remains exploratory pending source/event validation.
 - 2026-10-31 — agent for Renzo: P2-02 S1/S2/S4 → blocked on P1-04 for S3: spec committed before the run; break test finds 24 Jun 2026 blind (CI 18–30 Jun, +100 bps) in all 3 series, spike fades from 22 Jul to ~+17 bps (F-011)
