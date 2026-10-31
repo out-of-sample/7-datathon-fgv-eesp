@@ -70,7 +70,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
-| [P2-01](tasks/P2-01-noise-floor.md) | Noise floor (how big a premium is just trading friction) | ⬜ todo | CS 1 | - | 0/3 | 0/3 | 2026-11-01 | P1-02 |
+| [P2-01](tasks/P2-01-noise-floor.md) | Noise floor (how big a premium is just trading friction) | 🔄 doing | CS 1 | Renzo | 0/3 | 0/3 | 2026-11-01 | P1-02 |
 | [P2-02](tasks/P2-02-blind-break-test.md) | Blind structural-break test on the premium | ⬜ todo | CS 2 | - | 0/4 | 0/4 | 2026-11-01 | P1-02, P1-04 |
 | [P2-03](tasks/P2-03-event-studies.md) | Before/after test for every dated rule, with placebo dates | ⬜ todo | CS 2 | - | 0/3 | 0/3 | 2026-11-02 | P1-02, P1-04 |
 | [P2-04](tasks/P2-04-synthetic-control.md) | Synthetic control for the 23 Jun 2026 shock | ⬜ todo | CS 2 | - | 0/5 | 0/4 | 2026-11-02 | P1-05, P1-06, P2-03 |

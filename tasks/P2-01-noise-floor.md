@@ -2,9 +2,9 @@
 id: P2-01
 title: Noise floor (how big a premium is just trading friction)
 phase: P2
-status: todo
+status: doing
 owner: CS 1
-working: -
+working: Renzo
 due: 2026-11-01
 depends: P1-02
 ---
@@ -14,7 +14,7 @@ Estimate the typical bid-ask spread of USDT/BRL so that any premium inside that 
 not evidence.
 
 ## Subtasks
-- [ ] S1 — Spread estimators from hourly high/low/close: Corwin-Schultz and Abdi-Ranaldo; daily median.
+- [ ] S1 — Spread estimators from hourly high/low/close: Corwin-Schultz and Abdi-Ranaldo; daily median. — doing: Renzo
 - [ ] S2 — Compare with the probe's median hourly range (F-001).
 - [ ] S3 — Add the band to the premium chart.
 
@@ -34,5 +34,6 @@ not evidence.
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo: Renzo takes P2-01 (P1-02 in review)
 
 ## Result
