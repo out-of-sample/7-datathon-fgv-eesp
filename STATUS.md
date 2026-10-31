@@ -36,6 +36,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
 | F-008 (Foxbit volume ×6 from Jul 2026): interpretation, and whether it belongs in the story | Felipe | P2 gate |
 | P2-02 S3 (match breaks to events) waits for P1-04's event list; check 15–29 Jul 2026 (spike fades) | Felipe | P2 gate |
+| P2-04 inference: 5 donors → permutation p-value cannot go below 0.17, so the plan's "p > 0.1 falsifies" test cannot be passed; choose the inference (P2-04 Log) | Team | P2 gate |
 | P1-05 donor exclusion rule: confirm before P2-04 fits; IDR (pre-period start); Brazil outcome PTAX or ECB-way | Team | P2 gate |
 
 ## Team
