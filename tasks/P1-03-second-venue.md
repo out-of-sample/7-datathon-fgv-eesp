@@ -35,8 +35,8 @@ from a second exchange.
   `sha256sum -c data/raw/SHA256SUMS` (needs P1-01's script run first); printed audit must match the Result.
   Then set `status: done`. The jump check itself is P2-05 S1.
 - **Open questions:** (1) Mercado Bitcoin's general terms were read (D-04: no clause on research use of public
-  prices; databases owned by MB, so we never share the raw file and we cite MB). The separate API terms page
-  https://www.mercadobitcoin.com.br/politicas-termo-api blocks scripts: Renzo saves it from a browser, then D-04 is closed. (2) Why Foxbit's
+  prices; databases owned by MB, so we never share the raw file and we cite MB). The API terms
+  (https://www.mercadobitcoin.com.br/politicas-termo-api) were read on 31 Oct: non-commercial research use is fine (D-04). Closed. (2) Why Foxbit's
   volume rose ~6× in July 2026 (see Result) is unknown; relevant to the economist's interpretation.
 - **How to resume / reuse:** drop Foxbit rows with `volume_usdt == 0` (no trade); Foxbit `open` = previous close,
   so use closes (or Mercado Bitcoin's `o`, a true first trade) when matching the PTAX window.

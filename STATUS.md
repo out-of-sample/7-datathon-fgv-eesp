@@ -34,7 +34,6 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 |---|---|---|
 | P2 gate: 23 Jun confirmed? donors usable? second venue? A and B go/no-go? | Team | Sun 1 Nov evening |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
-| Mercado Bitcoin API terms: save https://www.mercadobitcoin.com.br/politicas-termo-api from a browser so D-04 can be closed | Renzo | before deck v1 |
 | F-008 (Foxbit volume ×6 from Jul 2026): interpretation, and whether it belongs in the story | Felipe | P2 gate |
 
 ## Team
