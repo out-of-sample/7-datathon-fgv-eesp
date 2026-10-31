@@ -1,0 +1,7 @@
+# Pin exact versions in task P1-01 once the environment is set up.
+pandas
+numpy
+matplotlib
+scipy
+statsmodels
+ruptures
