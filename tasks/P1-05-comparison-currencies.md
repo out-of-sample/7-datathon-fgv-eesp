@@ -2,9 +2,9 @@
 id: P1-05
 title: USDT premiums for the comparison currencies
 phase: P1
-status: todo
+status: doing
 owner: CS 2
-working: -
+working: Renzo
 due: 2026-11-01
 depends: P1-01
 ---
@@ -15,7 +15,7 @@ not receive the 23 Jun 2026 shock.
 
 ## Subtasks
 - [ ] S1 — Binance 1h klines: `USDTTRY, USDTZAR, USDTUAH, EURUSDT, USDTMXN, USDTCOP, USDTPLN, USDTIDR, USDTARS`
-   (coverage in `docs/02-dolar-cripto.md` §6). Note `EURUSDT` is quoted the other way round.
+   (coverage in `docs/02-dolar-cripto.md` §6). Note `EURUSDT` is quoted the other way round. — doing: Renzo
 - [ ] S2 — An official daily rate for each currency with its fixing time (central bank, FRED or ECB); record each
    source in `docs/sources.md` (D-05).
 - [ ] S3 — Daily premium per currency at a time matched to each fix (or a documented approximation).
@@ -38,5 +38,6 @@ not receive the 23 Jun 2026 shock.
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo: Renzo takes P1-05 (planned for Nattan; Renzo covers CS 2's P1 work and tells him)
 
 ## Result
