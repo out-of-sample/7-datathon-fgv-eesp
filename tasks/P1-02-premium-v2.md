@@ -2,9 +2,9 @@
 id: P1-02
 title: Build the premium series v2 (time-matched, USDT/USD-adjusted)
 phase: P1
-status: todo
+status: doing
 owner: CS 1
-working: -
+working: Renzo
 due: 2026-10-31
 depends: P1-01
 ---
@@ -14,7 +14,7 @@ Produce the official premium series the whole project uses: how much more USDT c
 official dollar, in basis points, hourly and daily.
 
 ## Subtasks
-- [ ] S1 — Definition: `premium = USDTBRL / (PTAX x USDTUSD) - 1`, in bps.
+- [ ] S1 — Definition: `premium = USDTBRL / (PTAX x USDTUSD) - 1`, in bps. — doing: Renzo
 - [ ] S2 — Time matching: PTAX is the average of four windows between 10h and 13h Brasília (13-16 UTC). Match the
    USDT/BRL price to that window (mean of the hourly prices). Document the choice; also produce the
    closing-time version as an alternative.
@@ -23,6 +23,8 @@ official dollar, in basis points, hourly and daily.
    Decided 31 Oct (F-006, decision log). Kraken dropped (10 GB archive).
 - [ ] S4 — Daily series on PTAX days; hourly series for the weekend and noise work.
 - [ ] S5 — Reproduce the probe's yearly means (F-001) within +/-5 bps, or explain the difference.
+- [ ] S6 — Plot the series in a notebook (`notebooks/p1_02_premium_plots.ipynb`, reads the processed CSVs; figures
+   also saved as `results/figures/P1-02_*.png`). Asked by Renzo, 31 Oct.
 
 ## Success criteria
 - [ ] `data/processed/P1-02_premium_daily.csv` and `..._hourly.csv` with a column dictionary in the task Result
@@ -41,6 +43,7 @@ official dollar, in basis points, hourly and daily.
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo: Renzo claims P1-02 (defaults agreed: 13–16 UTC opens, day-close variant, Coinbase variant, notebook S6)
 - 2026-10-31, agent for Renzo: S3 groundwork done before claiming: the USDCUSDT gap can be filled with
   1/BUSDUSDT, Coinbase or Bitstamp USDT/USD (agree within ~1 bps; F-006, `scripts/p1_02_probe_usdtusd.py`).
   Decided the same day: 1/BUSDUSDT fills the gap, Coinbase is the robustness series; both frozen by P1-01 S6–S7.
