@@ -2,7 +2,7 @@
 id: P1-01
 title: Download and freeze the raw price data
 phase: P1
-status: review
+status: done
 owner: CS 1
 working: -
 due: 2026-10-31
