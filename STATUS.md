@@ -22,7 +22,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Next actions
 
-1. Start P1 in parallel: Renzo → P2-05 when P1-03 (second venue) is in; P1-01, P1-02, P2-01 in review (Jonathan re-runs P1-01) · Nattan → P1-03, P1-05 · Felipe → P1-04 ·
+1. Start P1 in parallel: Renzo → P2-05 when P1-03 (second venue) is in; P1-01, P1-02, P2-01 in review (Jonathan re-runs P1-01) · Nattan → P1-05 (Renzo took P1-03) · Felipe → P1-04 ·
    Jonathan → P1-07, then P1-06 once P1-04 has the Brazil list.
 2. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
    (`prompt.md` §7).
@@ -59,7 +59,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 |---|---|---|---|---|---|---|---|---|
 | [P1-01](tasks/P1-01-raw-data-download.md) | Download and freeze the raw price data | 👀 review | CS 1 | - | 7/7 | 4/4 | 2026-10-31 | - |
 | [P1-02](tasks/P1-02-premium-v2.md) | Build the premium series v2 (time-matched, USDT/USD-adjusted) | 👀 review | CS 1 | - | 6/6 | 4/4 | 2026-10-31 | P1-01 |
-| [P1-03](tasks/P1-03-second-venue.md) | Find and download a second BRL venue for USDT | ⬜ todo | CS 2 | - | 0/3 | 0/2 | 2026-10-31 | - |
+| [P1-03](tasks/P1-03-second-venue.md) | Find and download a second BRL venue for USDT | 🔄 doing | CS 2 | Renzo | 0/3 | 0/2 | 2026-10-31 | - |
 | [P1-04](tasks/P1-04-events-brazil.md) | Verified list of Brazilian rule changes and events | ⬜ todo | Economist | - | 0/5 | 0/3 | 2026-10-31 | - |
 | [P1-05](tasks/P1-05-comparison-currencies.md) | USDT premiums for the comparison currencies | ⬜ todo | CS 2 | - | 0/4 | 0/3 | 2026-11-01 | P1-01 |
 | [P1-06](tasks/P1-06-agentic-B-event-coder.md) | Extension B - AI event coder for the comparison currencies | ⬜ todo | CS 3 | - | 0/6 | 0/4 | 2026-11-01 | P1-04 |

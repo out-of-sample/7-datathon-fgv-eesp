@@ -2,9 +2,9 @@
 id: P1-03
 title: Find and download a second BRL venue for USDT
 phase: P1
-status: todo
+status: doing
 owner: CS 2
-working: -
+working: Renzo
 due: 2026-10-31
 depends: -
 ---
@@ -15,7 +15,7 @@ from a second exchange.
 
 ## Subtasks
 - [ ] S1 — Look for public historical USDT/BRL data (Mercado Bitcoin, Foxbit, or another Brazilian venue); hourly if
-   possible, daily at minimum, covering at least 1 Jan - 30 Sep 2026.
+   possible, daily at minimum, covering at least 1 Jan - 30 Sep 2026. — doing: Renzo
 - [ ] S2 — Record the endpoint, limits and terms in `docs/sources.md` (row D-04).
 - [ ] S3 — Download to `data/raw/<venue>/` and add checksums and a manifest row.
 
@@ -34,5 +34,6 @@ from a second exchange.
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo: Renzo takes P1-03 (planned for Nattan in STATUS, unclaimed; Renzo to tell him)
 
 ## Result
