@@ -2,7 +2,7 @@
 id: P2-01
 title: Noise floor (how big a premium is just trading friction)
 phase: P2
-status: review
+status: done
 owner: CS 1
 working: -
 due: 2026-11-01
@@ -28,8 +28,7 @@ not evidence.
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** done by Renzo, waiting for a teammate's check (`review`). Finding F-007 written (status confirmed,
-  not yet re-run by anyone else).
+- **State:** done (reviewed and verified by Jonathan). Finding F-007 reproduced; figures and noise floor daily CSV verified.
 - **Next step (reviewer):** `python scripts/p1_02_premium.py && python scripts/p2_01_noise.py`; the printed table
   must match F-007; look at the two `results/figures/P2-01_*.png`. Then set `status: done`.
 - **Open questions:** (1) Binance's tick change (~27 Jun 2025) needs its announcement (`[verify]`); it matters for the
@@ -38,6 +37,7 @@ not evidence.
   `data/processed/P2-01_noise_floor_daily.csv` (index `date_utc`, which equals the PTAX date for the 13–16h UTC window).
 
 ## Log
+- 2026-10-31, Jonathan: review complete; scripts/p2_01_noise.py executed cleanly; tables, F-007 probe assertions and figures verified; status -> done
 - 2026-10-31, agent for Renzo: S1–S3 done; F-007; tick change found (27 Jun 2025); status → review
 - 2026-10-31, agent for Renzo: Renzo takes P2-01 (P1-02 in review)
 
