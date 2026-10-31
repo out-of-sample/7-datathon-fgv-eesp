@@ -58,3 +58,34 @@ Not yet (candidate: one slide or annex table "the same mechanism across countrie
 
 ## History
 - 2026-10-31, agent for Renzo: created (exploratory)
+
+### Independent review — 2026-10-31, second agent for Renzo
+- **Scope and verdict:** P1-05 data-delivery review passed. This is an independent agent check on Renzo's behalf,
+  not the later independent-teammate P4-02 sign-off. The economic interpretation stays `exploratory` and
+  `checked_by` is unchanged. Capital-control labels and admissible donor membership still need verification.
+- **Reproduction:** `.venv/bin/python scripts/p1_02_premium.py` then `.venv/bin/python scripts/p1_05_donors.py`
+  reproduced both saved P1-05 CSVs byte for byte against copies made before the run. The printed Brazil check,
+  TRM comparison and all rounded yearly means above matched. `sha256sum --quiet -c data/raw/SHA256SUMS`
+  succeeded for all 1,177 entries. No raw files were downloaded or changed.
+- **Independent measurement check:** `.venv/bin/python scripts/p1_05_review.py` reads raw files directly without
+  importing production functions. Outputs: `results/tables/P1-05_review.csv`, `_review_yearly.csv` and
+  `_review_differences.csv`. Quote inversion for EUR, cross-rates, mixed timestamp units, daylight-saving
+  conversion, NBU calculation-date deduplication and zero-volume filtering were checked. Every available
+  value in the pre-period (1 Nov 2025–22 Jun 2026) and post-period (24 Jun–30 Sep 2026) differs by at most
+  0.005 bps from production, consistent with rounding. Coverage shares match; no populated session in
+  either period has fewer than its specified number of hourly observations. An intentionally wrong EUR
+  reciprocal in an in-memory copy of the audit was rejected at the pre-period comparison.
+- **Historical defect, deferred to P1-09:** on 13 Oct 2020, UAH is 13.23 bps in production versus 11.248862 bps
+  using all seven specified hours. P1-02's USD adjustment inherits USDT/BRL's listing time (10:00 UTC), so
+  P1-05 drops 07:00, 08:00 and 09:00 UTC despite available UAH and USDC candles. The gap is 1.981138 bps;
+  this is the only discrepancy beyond rounding on the saved output dates. It does not affect the core
+  periods or the 2024–2026 table above. Earlier donor history is also clipped by the BRL-indexed input.
+- **Source checks:** D-12 supports previous-business-day TRM dating. In this frozen interval file, subtracting
+  one calendar day and one weekday from every interval start gives identical dates, and validity intervals
+  are contiguous. This does not validate arbitrary future holiday handling or the intraday matching window.
+  D-11 corrects the BCRA methodology effective date to 2 Jan 2026. ECB reference timing is supported by D-05;
+  14:00 hourly opens remain an approximation to the approximately 14:10 concertation, and publication is later.
+- **Limits:** no new official-calendar completeness audit, capital-control/event screen, synthetic-control fit,
+  or independent volume-table recalculation was performed. The COP/UAH/ARS intraday windows remain unverified
+  approximations; original NBU PDF requests returned 403. Raw checksums establish snapshot integrity, not
+  independent certification of source accuracy. No production numerical logic or donor rule was changed.

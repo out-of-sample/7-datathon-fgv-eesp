@@ -8,7 +8,7 @@ Premium, same definition as Brazil (P1-02): local price of USDT / (official loca
   COP  TRM (Superfinanciera): volume-weighted average of one day's interbank trades. The TRM valid from day D is taken
        to come from the trades of the last weekday before D [verify]. Binance = mean of the hourly opens 08-13h Bogota.
   UAH  NBU official rate: the data gives the calculation day (calcdate). Binance = mean of the opens 10-16h Kyiv [verify].
-  ARS  BCRA Com. A 3500 wholesale reference rate (volume-weighted trades from 1 Jan 2026, a survey before).
+  ARS  BCRA Com. A 3500 wholesale reference rate (volume-weighted trades from 2 Jan 2026, a survey before).
        Binance = mean of the opens 10-15h Buenos Aires [verify].
   Dates are the day of the fix (or of the trades behind it), local time. Hours with zero volume carry a stale price and
   are dropped. EURUSDT is quoted in USDT per EUR, so the local price of USDT is 1/price.

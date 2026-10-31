@@ -2,9 +2,9 @@
 id: P1-05
 title: USDT premiums for the comparison currencies
 phase: P1
-status: doing
+status: done
 owner: CS 2
-working: Renzo (second agent, review)
+working: -
 due: 2026-11-01
 depends: P1-01
 ---
@@ -20,9 +20,9 @@ not receive the 23 Jun 2026 shock.
    source in `docs/sources.md` (D-05). — done: Renzo, 31 Oct
 - [x] S3 — Daily premium per currency at a time matched to each fix (or a documented approximation). — done: Renzo, 31 Oct
 - [x] S4 — Flag currencies with capital controls (ARS, UAH likely) and write the exclusion rule **before** fitting
-   anything. — done: Renzo, 31 Oct (rule committed in 8a8db9b, before the premiums were computed)
+   anything. — done: Renzo, 31 Oct (rule committed in 9ad0591, before the premiums were computed)
 
-- [ ] S5 — Independent review: reproduce outputs, audit quote direction, timestamps, coverage and exclusion rules. — doing: Renzo (second agent)
+- [x] S5 — Independent review: reproduce outputs, audit quote direction, timestamps, coverage and exclusion rules. — done: Renzo (second agent), 31 Oct
 
 ## Success criteria
 - [x] `data/processed/P1-05_donor_premiums_daily.csv` (date x currency, bps)
@@ -34,26 +34,16 @@ not receive the 23 Jun 2026 shock.
   `results/tables/P1-05_donor_coverage.csv`, finding F-010
 
 ## Handoff
-<!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** done by Renzo, waiting for a teammate's check (`review`). Nine donor premiums built; exclusion rule
-  written (Result); 5 currencies pass the data rule and are not excluded so far (EUR, TRY, ZAR, MXN, COP). Numbers in F-010.
-- **Next step (reviewer):** `python scripts/p1_01_download.py USDTTRY USDTZAR USDTUAH EURUSDT USDTMXN USDTCOP USDTPLN USDTIDR USDTARS`
-  (about 10 min), `python scripts/p1_02_premium.py`, `python scripts/p1_05_donors.py`, then `sha256sum -c data/raw/SHA256SUMS`
-  (1,177 OK). Printed tables must match the Result and F-010. Then set `status: done`.
-- **Open questions for the P2 gate (team):** (1) Confirm or change the exclusion rule **before P2-04 fits anything**.
-  (2) IDR fails the data rule only because Binance's pair starts 29 Nov 2025 (87.5% of pre-period days); starting the
-  pre-period on 1 Dec 2025 would admit it. Decide on design grounds, not on results. (3) Brazil's outcome in P2-04: the
-  PTAX premium (P1-02) or the same-definition ECB version (`BRL_ecb`, finds 82.5 of the 93.9 bps jump)? (4) Rule 2 needs
-  P1-06's event screen for EUR, TRY, ZAR, MXN, COP (and IDR).
-- **`[verify]` left:** local trading hours used for COP/UAH/ARS; which day's trades feed the TRM (data supports the
-  previous weekday, see Result); capital-control sources for ARS/UAH are secondary.
-- **How to resume:** all in `scripts/p1_05_donors.py` (downloads skip existing files). To add a currency: its Binance pair
-  via `p1_01_download.py <PAIR>`, its official rate in `SOURCES`/`official`, its fix in `FIX`.
+- **State:** independent data review passed; status `done`. Production outputs reproduce byte for byte. An independent raw-data reconstruction matches the core pre/post periods within CSV rounding. Evidence and limits are in F-010 History.
+- **Next step:** P1-06 screens donor events; the team confirms exclusions and the Brazil outcome definition at the P2 gate before P2-04 fitting. P1-09 records a non-blocking historical boundary defect.
+- **Open questions:** IDR's pre-period start; PTAX versus ECB-based Brazil; primary-source verification of capital-control classifications and COP/UAH/ARS matching hours. These are not resolved by numerical reproduction. F-010 remains exploratory.
+- **How to reproduce:** `.venv/bin/python scripts/p1_02_premium.py`, `.venv/bin/python scripts/p1_05_donors.py`, `.venv/bin/python scripts/p1_05_review.py`, `sha256sum --quiet -c data/raw/SHA256SUMS`. Existing frozen inputs are sufficient; no re-download required. Review tables are `results/tables/P1-05_review*.csv`.
 
 ## Log
+- 2026-10-31, second agent for Renzo: S5 passed; independent raw reconstruction, coverage, raw checksums and quote-inversion negative check; historical UAH boundary defect deferred to P1-09; status → done. Corrected exclusion-rule commit reference and BCRA effective-date documentation.
 - 2026-10-31, second agent for Renzo: claims S5 independent review with Renzo's approval; S1–S4 implementation stays unchanged during review.
 - 2026-10-31, agent for Renzo: S1–S4 done; 654 Binance files + 4 official-rate files frozen, checksums added (1,177 OK); official files re-downloaded byte-identical; F-010; status → review
-- 2026-10-31, agent for Renzo: exclusion rule written and committed (8a8db9b) before any donor premium was computed
+- 2026-10-31, agent for Renzo: exclusion rule written and committed (9ad0591) before any donor premium was computed
 - 2026-10-31, agent for Renzo: Renzo takes P1-05 (planned for Nattan; Renzo covers CS 2's P1 work and tells him)
 
 ## Result
@@ -113,3 +103,13 @@ Checks:
 - No Binance hour without trades at 12–13h UTC in the pre-period for any ECB currency; official-rate files have no
   duplicates or gaps beyond weekends and holidays.
 
+
+### Independent review (S5)
+Approved for the task's data-delivery criteria, not as a causal finding or final donor-selection decision.
+The four ECB candidates EUR, TRY, ZAR and MXN and the approximate COP series reproduce; the exclusion rule
+was committed in 9ad0591 before the results commit 3588cc7. Rule 2 still needs P1-06. The original
+"ECB-based measure works" wording above is a measurement sanity check, not evidence of a good synthetic-control fit.
+
+The BCRA formal notice A 8359 gives **2 Jan 2026** as the effective date of its new method (source D-11),
+correcting the 1 Jan date in the original source-register description. The script header is corrected;
+no premium values changed. Exact local matching hours remain documented approximations.
