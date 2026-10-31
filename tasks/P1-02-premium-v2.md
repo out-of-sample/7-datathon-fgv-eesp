@@ -18,7 +18,9 @@ official dollar, in basis points, hourly and daily.
 - [ ] S2 — Time matching: PTAX is the average of four windows between 10h and 13h Brasília (13-16 UTC). Match the
    USDT/BRL price to that window (mean of the hourly prices). Document the choice; also produce the
    closing-time version as an alternative.
-- [ ] S3 — USDT/USD: use `1 / USDCUSDT` (assumes USDC = US$ 1). If Kraken USDT/USD is available, compare both.
+- [ ] S3 — USDT/USD: use `1 / USDCUSDT` (assumes USDC = US$ 1), with `1 / BUSDUSDT` where USDCUSDT is missing
+   (26 Sep 2022 – 11 Mar 2023). Robustness variant: Coinbase USDT/USD (`data/raw/coinbase/`, from 4 May 2021).
+   Decided 31 Oct (F-006, decision log). Kraken dropped (10 GB archive).
 - [ ] S4 — Daily series on PTAX days; hourly series for the weekend and noise work.
 - [ ] S5 — Reproduce the probe's yearly means (F-001) within +/-5 bps, or explain the difference.
 
@@ -41,7 +43,7 @@ official dollar, in basis points, hourly and daily.
 ## Log
 - 2026-10-31, agent for Renzo: S3 groundwork done before claiming: the USDCUSDT gap can be filled with
   1/BUSDUSDT, Coinbase or Bitstamp USDT/USD (agree within ~1 bps; F-006, `scripts/p1_02_probe_usdtusd.py`).
-  Which one to use, and freezing it in `data/raw/`, is Renzo's decision (STATUS → Blockers).
+  Decided the same day: 1/BUSDUSDT fills the gap, Coinbase is the robustness series; both frozen by P1-01 S6–S7.
 - 2026-10-31, agent for Renzo (note from P1-01): inputs ready. Read the zips in `data/raw/binance/<PAIR>/`
   directly; USDCUSDT is missing 2022-09-26 to 2023-03-11 (S3 needs a fallback there); PTAX has one duplicate
   date and non-standard publication times on 24/31 Dec and Ash Wednesdays (S2). Details: P1-01 → Result.

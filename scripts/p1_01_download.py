@@ -4,25 +4,28 @@ Sources
   Binance public archive  https://data.binance.vision  (spot 1h klines; listing via
                           https://s3-ap-northeast-1.amazonaws.com/data.binance.vision?prefix=...&delimiter=/)
   BCB Olinda PTAX API     https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo
+  Coinbase Exchange API   https://api.exchange.coinbase.com/products/USDT-USD/candles (1h, 300 per call, no key)
 Outputs (frozen at 30 Oct 2026)
   data/raw/binance/<PAIR>/<PAIR>-1h-YYYY-MM.zip     monthly files up to 2026-09, zips exactly as published
   data/raw/binance/<PAIR>/<PAIR>-1h-YYYY-MM-DD.zip  daily files 2026-10-01 .. 2026-10-30 (no monthly file yet)
   data/raw/bcb/ptax.json                            PTAX closing rate, 01 Oct 2020 .. 30 Oct 2026
-  results/tables/P1-01_coverage.csv                 coverage audit per pair (also printed)
+  data/raw/coinbase/USDT-USD-1h.csv                 USDT/USD candles as the API returns them, May 2021 .. 30 Oct 2026
+  results/tables/P1-01_coverage.csv                 coverage audit of every series in data/raw (also printed)
 Run (from the repo root)
   python scripts/p1_01_download.py [PAIR ...]       default pairs below; existing files are skipped
   sha256sum -c data/raw/SHA256SUMS                  every file must say OK
 
-Each zip holds one headerless CSV: open_time, open, high, low, close, volume, close_time, ... (UTC).
+Each Binance zip holds one headerless CSV: open_time, open, high, low, close, volume, close_time, ... (UTC).
 open_time is in milliseconds up to 2024 and in microseconds from 2025. pandas reads the zips directly.
+BUSDUSDT stands in for USDCUSDT where Binance has no USDC (26 Sep 2022 - 11 Mar 2023); see finding F-006.
 """
-import hashlib, json, re, sys, time, urllib.request
+import csv, hashlib, json, re, sys, time, urllib.request
 from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data/raw"
-PAIRS = sys.argv[1:] or ["USDTBRL", "USDCUSDT", "BTCBRL", "BTCUSDT"]
+PAIRS = sys.argv[1:] or ["USDTBRL", "USDCUSDT", "BTCBRL", "BTCUSDT", "BUSDUSDT"]
 LAST_MONTH, LAST_DAY = "2026-09", "2026-10-30"  # freeze cutoff; a later monthly 2026-10 file would duplicate the dailies
 BUCKET = "https://s3-ap-northeast-1.amazonaws.com/data.binance.vision"
 PTAX_URL = ("https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo("
@@ -31,9 +34,10 @@ PTAX_URL = ("https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/Cotac
 
 
 def get(url, tries=3):
+    req = urllib.request.Request(url, headers={"User-Agent": "out-of-sample-datathon"})
     for i in range(tries):
         try:
-            with urllib.request.urlopen(url, timeout=60) as r:
+            with urllib.request.urlopen(req, timeout=60) as r:
                 return r.read()
         except OSError:
             if i == tries - 1:
@@ -46,6 +50,21 @@ def keys(prefix):
     if "<IsTruncated>false</IsTruncated>" not in x:
         raise SystemExit(f"listing truncated or failed: {prefix}")
     return re.findall(r"<Key>([^<]*\.zip)</Key>", x)
+
+
+def audit(name, k):
+    """Coverage of one hourly series; k has one row per candle with t (UTC), o, h, l, c, v."""
+    t = k.t.drop_duplicates().sort_values(ignore_index=True)
+    gap = t.diff().dt.total_seconds() / 3600 - 1  # hours missing right before each row
+    for i in gap[gap > 24].index:
+        print(f"  {name} gap > 24h: {t[i - 1] + pd.Timedelta(hours=1)} .. {t[i] - pd.Timedelta(hours=1)} ({gap[i]:.0f} h)")
+    lo, hi = k[["o", "c"]].min(axis=1), k[["o", "c"]].max(axis=1)
+    return {"pair": name, "rows": len(k), "first_utc": t.iloc[0], "last_utc": t.iloc[-1],
+            "missing_h": int(gap.sum()), "longest_gap_h": int(gap.max()), "longest_gap_before_utc": t[gap.idxmax()],
+            "gaps_gt24h": int((gap > 24).sum()), "dup_ts": int(k.t.duplicated().sum()),
+            "off_hour": int((k.t != k.t.dt.floor("h")).sum()),
+            "bad_ohlc": int(((k.l > lo) | (k.h < hi) | (k.l <= 0)).sum()),
+            "zero_vol_pct": round(100 * (k.v == 0).mean(), 2)}
 
 
 # 1. Binance klines, each file checked against Binance's own .CHECKSUM before it is kept
@@ -78,30 +97,43 @@ if not ptax.exists():
     ptax.parent.mkdir(parents=True, exist_ok=True)
     ptax.write_bytes(data)
 
-# 3. Coverage audit
+# 3. Coinbase USDT/USD in fixed 300-hour chunks (the pair starts 4 May 2021); hours without trades have no row
+cb = RAW / "coinbase/USDT-USD-1h.csv"
+if not cb.exists():
+    candles, t, end = {}, pd.Timestamp("2021-05-01"), pd.Timestamp(LAST_DAY) + pd.Timedelta(hours=23)
+    while t <= end:
+        u = min(t + pd.Timedelta(hours=299), end)
+        r = json.loads(get(f"https://api.exchange.coinbase.com/products/USDT-USD/candles?granularity=3600"
+                           f"&start={t:%Y-%m-%dT%H:%M:%SZ}&end={u:%Y-%m-%dT%H:%M:%SZ}"))
+        if not isinstance(r, list):
+            raise SystemExit(f"Coinbase error at {t}: {r}")
+        candles.update((c[0], c) for c in r if t.timestamp() <= c[0] <= u.timestamp())
+        t = u + pd.Timedelta(hours=1)
+        time.sleep(0.2)
+    cb.parent.mkdir(parents=True, exist_ok=True)
+    with open(cb.with_suffix(".part"), "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["time_unix_utc", "low", "high", "open", "close", "volume"])
+        w.writerows(candles[k] for k in sorted(candles))
+    cb.with_suffix(".part").rename(cb)
+    print(f"Coinbase USDT-USD: {len(candles)} hourly candles")
+
+# 4. Coverage audit of everything on disk
 rows = []
-for pair in PAIRS:
+for d in sorted(p for p in (RAW / "binance").iterdir() if p.is_dir()):
     parts = []
-    for f in sorted((RAW / "binance" / pair).glob("*.zip")):
-        d = pd.read_csv(f, header=None, usecols=range(6))
-        if not pd.api.types.is_integer_dtype(d[0]):
+    for f in sorted(d.glob("*.zip")):
+        x = pd.read_csv(f, header=None, usecols=range(6))
+        if not pd.api.types.is_integer_dtype(x[0]):
             raise SystemExit(f"header row or non-integer timestamp in {f.name}")
-        parts.append(d.assign(file=f.name, us=d[0] >= 1e14))
-    k = pd.concat(parts, ignore_index=True)
+        parts.append(x.assign(file=f.name, us=x[0] >= 1e14))
+    k = pd.concat(parts, ignore_index=True).rename(columns={1: "o", 2: "h", 3: "l", 4: "c", 5: "v"})
     k["t"] = pd.to_datetime(k[0].where(~k.us, k[0] // 1000), unit="ms")
-    t = k.t.drop_duplicates().sort_values(ignore_index=True)
-    gap = t.diff().dt.total_seconds() / 3600 - 1  # hours missing right before each row
-    for i in gap[gap > 24].index:
-        print(f"  {pair} gap > 24h: {t[i - 1] + pd.Timedelta(hours=1)} .. {t[i] - pd.Timedelta(hours=1)} ({gap[i]:.0f} h)")
-    lo, hi = k[[1, 4]].min(axis=1), k[[1, 4]].max(axis=1)
-    rows.append({"pair": pair, "files": k.file.nunique(), "rows": len(k), "first_utc": t.iloc[0], "last_utc": t.iloc[-1],
-                 "missing_h": int(gap.sum()), "longest_gap_h": int(gap.max()), "longest_gap_before_utc": t[gap.idxmax()],
-                 "gaps_gt24h": int((gap > 24).sum()), "dup_ts": int(k.t.duplicated().sum()),
-                 "off_hour": int((k.t != k.t.dt.floor("h")).sum()),
-                 "bad_ohlc": int(((k[3] > lo) | (k[2] < hi) | (k[3] <= 0)).sum()),
-                 "zero_vol_pct": round(100 * (k[5] == 0).mean(), 2),
-                 "last_ms_file": k[~k.us].file.max(), "first_us_file": k[k.us].file.min(),
-                 "mixed_unit_files": int((k.groupby("file").us.nunique() > 1).sum())})
+    rows.append({**audit(d.name, k), "files": k.file.nunique(), "last_ms_file": k[~k.us].file.max(),
+                 "first_us_file": k[k.us].file.min(), "mixed_unit_files": int((k.groupby("file").us.nunique() > 1).sum())})
+c = pd.read_csv(cb)
+rows.append({**audit("USDT-USD (Coinbase)", pd.DataFrame({"t": pd.to_datetime(c.time_unix_utc, unit="s"), "o": c.open,
+                                                         "h": c.high, "l": c.low, "c": c.close, "v": c.volume})), "files": 1})
 cov = pd.DataFrame(rows)
 (ROOT / "results/tables").mkdir(parents=True, exist_ok=True)
 cov.to_csv(ROOT / "results/tables/P1-01_coverage.csv", index=False)

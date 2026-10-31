@@ -32,10 +32,12 @@ missing there. Three other hourly series cover every hour of that gap and agree 
   claim on USDC. Later events around BUSD's issuer (early 2023) are `[verify]`.
 - Coinbase USDT/USD starts on 4 May 2021, so it cannot cover Oct 2020 – Apr 2021 alone. Bitstamp's start date is
   not checked.
-- These API series are not frozen in `data/raw/` yet; nothing in P1-02 may use them until they are.
+- Frozen on 31 Oct (P1-01 S6–S7): Binance BUSDUSDT (covers all 3,995 gap hours) and Coinbase USDT/USD (misses 4
+  of them). Bitstamp and USDTDAI are not frozen; the probe script reads them from the web.
 
 ## Used in deck
 Not used.
 
 ## History
+- 2026-10-31, agent for Renzo: Renzo chose 1/BUSDUSDT for the gap and Coinbase as robustness; both frozen
 - 2026-10-31, agent for Renzo: created (status exploratory)
