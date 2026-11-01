@@ -1,0 +1,3 @@
+rule,parameter,alarm budget in training,jump 24 Jun 2026: alarm,jump 24 Jun 2026: delay (PTAX days),fade 22 Jul 2026: alarm,fade 22 Jul 2026: delay (PTAX days),train alarms,test alarms,test false alarms,test false alarms per year,false alarm dates
+CUSUM,h = 24.5,10,2026-06-24,0,2026-08-06,11,9,4,2,2.4,2026-09-25(-) 2026-10-30(-)
+"simple (5d vs 60d mean, x noise band)",c = 7.25,10,2026-06-24,0,2026-08-07,12,10,6,4,4.8,2026-07-09(+) 2026-08-24(-) 2026-09-09(-) 2026-09-24(-)

@@ -2,9 +2,9 @@
 id: P3-03
 title: Monitor do Dólar Digital (daily index + regime flag)
 phase: P3
-status: doing
+status: review
 owner: CS 1
-working: Renzo
+working: -
 due: 2026-11-03
 depends: P1-02, P2-02
 ---
@@ -14,9 +14,9 @@ One script that updates a daily premium index, shows the current regime and flag
 
 ## Subtasks
 - [x] S1 — Write the alarm rule, calibration and pass mark (Specification below); commit before the first run. — done: Renzo, 2026-10-31
-- [ ] S2 — `scripts/p3_03_monitor.py`: rebuild premium and noise band from raw, then daily index, regime level and alarm. — doing: Renzo
-- [ ] S3 — Real-time backtest, CUSUM vs the simple rule: delay on 24 Jun and 22 Jul 2026, false alarms per year.
-- [ ] S4 — `results/figures/P3-03_monitor.png` (pt-BR, last 12 months + "today" box); finding; Handoff; STATUS.
+- [x] S2 — `scripts/p3_03_monitor.py`: rebuild premium and noise band from raw, then daily index, regime level and alarm. — done: Renzo, 2026-10-31
+- [x] S3 — Real-time backtest, CUSUM vs the simple rule: delay on 24 Jun and 22 Jul 2026, false alarms per year. — done: Renzo, 2026-10-31
+- [x] S4 — `results/figures/P3-03_monitor.png` (pt-BR, last 12 months + "today" box); finding; Handoff; STATUS. — done: Renzo, 2026-10-31
 
 ## Specification (S1)
 Written 31 Oct 2026 by the agent for Renzo and **committed before the first run** of any monitor code. Plan:
@@ -61,22 +61,37 @@ threshold is therefore set only on data before 2026, and 2026 is the test.
   `scripts/p1_01_download.py`, then this script.
 
 ## Success criteria
-- [ ] Script runs end to end from raw data
-- [ ] results/figures/P3-03_monitor.png ready for a slide
-- [ ] Rule for the flag written in the script header
+- [x] Script runs end to end from raw data
+- [x] results/figures/P3-03_monitor.png ready for a slide
+- [x] Rule for the flag written in the script header
 
 ## Outputs
-- `scripts/p3_03_monitor.py`, `results/figures/P3-03_monitor.png`
+- `scripts/p3_03_monitor.py`, `results/figures/P3-03_monitor.png`, `results/tables/P3-03_backtest.csv`,
+  `data/processed/P3-03_monitor_daily.csv`
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** S1 done (Specification committed before any code ran).
-- **Next step:** S2, write `scripts/p3_03_monitor.py` exactly as specified
-- **Open questions:** none
-- **How to resume:** -
+- **State:** S1–S4 done; all three criteria met. The monitor passes the pass mark fixed in advance (F-014):
+  - it flags the 24 Jun jump the same day;
+  - it has 2 other alarms in the 2026 test, vs 4 for the simple rule;
+  - it caught the fade after 11 PTAX days.
+- **Next step (reviewer, a teammate who did not write it):**
+  1. Run `.venv/bin/python scripts/p3_03_monitor.py` (about 5 s; needs the raw data of P1-01).
+  2. Check the script against the Specification: past data only (`level` uses days up to t−1; `s` and the noise
+     band are shifted by one day), the calibration grids, and the test definitions.
+  3. Check the backtest table against F-014; look at the figure.
+  4. If it holds: `status: done`, F-014 `checked_by`.
+- **Open questions:**
+  - The upward sum built from 25 May 2026 and was at 92% of the threshold on 23 Jun: did something start in late May?
+    Passed to P2-03 and P1-04.
+  - Are the 25 Sep and 30 Oct "false" alarms real falls? Re-run with November data.
+  - For the deck (P5): show the 5-day mean, not the lagging regime level, as the main line?
+- **How to resume:** update with `python scripts/p1_01_download.py`, then `python scripts/p3_03_monitor.py`.
 
 ## Log
+- 2026-10-31, agent for Renzo: S2–S4 done → review. CUSUM h = 24.5 (budget 10 alarms in 2020–2025): 24 Jun alarm same day, fade +11 days, 2 other test alarms; simple rule c = 7.25: same day, +12, 4 others (F-014). Pre-June build-up from 25 May noted for P2-03/P1-04.
 - 2026-10-31, agent for Renzo: S1 specification written and committed before the first run.
 - 2026-10-31, agent for Renzo: Renzo takes P3-03; subtasks being written.
 
 ## Result
+F-014. Backtest in `results/tables/P3-03_backtest.csv`; figure `results/figures/P3-03_monitor.png`.
