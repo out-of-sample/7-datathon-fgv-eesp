@@ -35,7 +35,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | Item | Needed from | By |
 |---|---|---|
-| P2 gate: 23 Jun confirmed? donors usable? second venue? A and B go/no-go? | Team | Sun 1 Nov evening |
+| P2 gate: 23 Jun confirmed? donors usable? second venue? A and B go/no-go? depeg chapter form (11 events, F-013) and the shared-move rule | Team | Sun 1 Nov evening |
+| P1-04 (events, 23 Jun notice): Felipe starts Sun 1 Nov | Felipe | P2 gate |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
 | F-008 (Foxbit volume ×6 from Jul 2026): interpretation, and whether it belongs in the story | Felipe | P2 gate |
 | P2-02 S3 (match breaks to events) waits for P1-04's event list; check 15–29 Jul 2026 (spike fades) | Felipe | P2 gate |
