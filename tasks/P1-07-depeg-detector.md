@@ -4,7 +4,7 @@ title: Depeg detector and SVB-weekend figure (chapter)
 phase: P1
 status: review
 owner: Nattan
-working: -
+working: Renzo (review)
 due: 2026-11-01
 depends: P1-01
 ---
@@ -59,6 +59,7 @@ This definition is fixed before the automated scan:
 - **Pre-specified sensitivity checks:** start thresholds 0.3% and 1.0%; recovery bands 0.05% and 0.25%.
 
 ## Log
+- 2026-10-31, agent for Renzo: Renzo takes the review.
 - 2026-10-31, Nattan: status set to review; marked for review by Felipe or Renzo.
 - 2026-10-31, Nattan: completed S2, S3, S4. Automated scan produced 318 screened candidates: 29 USD-confirmed independent events, 16 relative-price candidates, and 273 logged quality rejections. Generated SVB-weekend case figure `P1-07_svb_weekend.png` (Bitstamp USDC/USD trough $0.805 on 11 Mar 2023 07:00 UTC). Documented in F-012.
 - 2026-10-31, Nattan: froze the event definition before S2; direct USD prices are required for USD-level claims.
