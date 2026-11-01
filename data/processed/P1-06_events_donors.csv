@@ -1,0 +1,8 @@
+﻿currency,date,description,source_url,type,in_critical_window_jun_jul_2026,exclude_rule_2
+ARS,2026-01-02,BCRA Communication A 8359 methodological and cepo FX regime adjustments,https://www.bcra.gob.ar/,restriction,true,true
+UAH,2026-08-11,NBU martial-law capital controls and August 2026 FX easing package,https://bank.gov.ua/,restriction,false,true
+EUR,2025-03-31,MiCA CASP delistings and restrictions on USDT for EEA retail users (pre-dates Nov 2025 window),https://www.esma.europa.eu/,restriction,false,false
+TRY,,,,none,false,false
+ZAR,,,,none,false,false
+MXN,,,,none,false,false
+COP,,,,none,false,false
