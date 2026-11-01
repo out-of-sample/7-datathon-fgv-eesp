@@ -24,6 +24,7 @@ Status: **checked** (opened and confirmed by us, with date) or **[verify]** (not
 |---|---|---|---|
 | D-11 | BCRA, Comunicación A 8359, 4 Dec 2025: https://www.bcra.gob.ar/Pdfs/comytexord/A8359.pdf | Formal effective date is 2 Jan 2026; replaces A 3500 with a transaction-based weighted rate. Corrects the 1 Jan date in the press-release-based description. Does not establish the script's hourly window. | checked 31 Oct 2026, PDF text |
 | D-12 | Colombia Ministry of Commerce: https://www.mincit.gov.co/estudios-economicos-mincomercio/tasas-de-cambio | TRM uses qualifying same-day-settlement trades from the previous business day. Supports trade-day dating, not choosing dates by lower volatility. Exact hours and full holiday-calendar methodology remain unverified. | checked 31 Oct 2026 |
+| D-13 | Federal Reserve press release, "Joint Statement by Treasury, Federal Reserve, and FDIC", 12 Mar 2023: https://www.federalreserve.gov/newsevents/pressreleases/monetary20230312b.htm | "For release at 6:15 p.m. EDT" = 22:15 UTC: SVB depositors made whole. Marks the Sunday step in the P1-07 SVB figure (v2). | checked 31 Oct 2026 |
 
 ## Events and regulation (Brazil)
 

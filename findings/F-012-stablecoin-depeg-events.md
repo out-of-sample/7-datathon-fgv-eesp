@@ -36,3 +36,4 @@ Dollar-side chapter ("O que traz uma stablecoin de volta a US$ 1?"): SVB-weekend
   SVB: lowest hourly close $0.863 (low $0.805 is intra-hour); most of the recovery came before banks reopened. Details
   and commands: `tasks/P1-07-depeg-detector.md` → Review. Revised count in a v2 (S6–S7); this claim is kept for
   comparison. Reviewer suggests status `exploratory` until then (owner's call).
+- 2026-10-31, agent for Renzo: v2 with the review fixes is F-013 (24 of the 29 pass; 11 below $1). This file is unchanged otherwise.

@@ -2,9 +2,9 @@
 id: P1-07
 title: Depeg detector and SVB-weekend figure (chapter)
 phase: P1
-status: doing
+status: review
 owner: Nattan
-working: Renzo
+working: -
 due: 2026-11-01
 depends: P1-01
 ---
@@ -19,8 +19,8 @@ Plan: `docs/01-depeg-recovery.md` (chapter scope at the top, definition in §6.1
 - [x] S3 — Reject bad ticks; log every rejection with its reason. — done: Nattan, 2026-10-31
 - [x] S4 — SVB weekend figure: Fri 10 - Tue 14 Mar 2023, bank-closed hours shaded. — done: Nattan, 2026-10-31
 - [x] S5 — Review of S1–S4 (see Review below). — done: Renzo, 2026-10-31
-- [ ] S6 — Fix the review points in a v2 script (`scripts/p1_07_depeg_v2.py`); v1 script and outputs stay untouched. — doing: Renzo
-- [ ] S7 — Compare v1 and v2 event by event; new finding for the v2 count; F-012 History updated.
+- [x] S6 — Fix the review points in a v2 script (`scripts/p1_07_depeg_v2.py`); v1 script and outputs stay untouched. — done: Renzo, 2026-10-31
+- [x] S7 — Compare v1 and v2 event by event; new finding for the v2 count; F-012 History updated. — done: Renzo, 2026-10-31
 
 ## Success criteria
 - [x] Definition written here before the scan (commit order shows it)
@@ -28,20 +28,27 @@ Plan: `docs/01-depeg-recovery.md` (chapter scope at the top, definition in §6.1
 - [x] `results/figures/P1-07_svb_weekend.png`
 
 ## Outputs
-- `scripts/p1_07_depeg.py`, `data/processed/P1-07_depeg_events.csv`, `results/figures/P1-07_svb_weekend.png`
+- v1 (Nattan): `scripts/p1_07_depeg.py`, `data/processed/P1-07_depeg_events.csv`, `results/figures/P1-07_svb_weekend.png`
+- review and v2 (Renzo): `scripts/p1_07_review.py`, `scripts/p1_07_depeg_v2.py`, `data/processed/P1-07_depeg_events_v2.csv`,
+  `results/tables/P1-07_v1_vs_v2.csv`, `results/figures/P1-07_svb_weekend_v2.png`
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** Nattan's S1–S4 are complete and reproduce exactly (318 rows, 29 USD-confirmed, Bitstamp low 0.805).
-  Renzo's review (below) found that the "29 independent depeg events" count includes prices above $1, one double
-  count, shared USDT moves on Binance and false censoring. Nattan asked Renzo to fix it. Renzo is on S6: a v2 script
-  next to v1, so both results can be compared. **Do not edit or delete v1 files** (`scripts/p1_07_depeg.py`,
-  `P1-07_depeg_events.csv`, `P1-07_svb_weekend.png`, F-012's claim).
-- **Next step:** S6, write `scripts/p1_07_depeg_v2.py` addressing review points 1–6; then S7.
-- **Open questions:** whether events above $1 belong in the chapter at all (team, P3-04); whether USDP was delisted
-  from Binance in Sep 2026 `[verify]`.
-- **How to resume:** `.venv/bin/python scripts/p1_07_depeg.py` (v1, downloads missing archives, ~3 min) then
-  `.venv/bin/python scripts/p1_07_review.py` (prints every number in Review).
+- **State:** S1–S7 done. v1 (Nattan, F-012: 29 events) and v2 (review fixes, F-013) sit side by side; no v1 file was
+  changed. v2: 24 of the 29 pass the dollar check, **11 are falls below $1** (9 without USDP's Sep 2026 events), under
+  the ≥ 12 the chapter needs for Kaplan–Meier curves. New SVB figure `P1-07_svb_weekend_v2.png` (lowest hourly close
+  $0.863, Sunday announcement 22:15 UTC marked, most of the recovery before banks reopened).
+- **Next step (reviewer: Nattan, or Jonathan):**
+  1. `.venv/bin/python scripts/p1_07_depeg.py` (once, downloads Binance archives), then
+     `.venv/bin/python scripts/p1_07_depeg_v2.py`; it asserts that v1's rule on the frozen Coinbase file gives 29.
+  2. Read `results/tables/P1-07_v1_vs_v2.csv` and F-013 → Caveats; above all the shared-move rule (written after
+     seeing the Dec 2023 case; it also removes TUSD and BUSD on the SVB weekend).
+  3. If it holds: `status: done`, your name in F-013 `checked_by`; Nattan decides F-012's status (suggested
+     `exploratory` or `retracted` in favour of F-013).
+- **Open questions (P3-04 / team):** case table instead of curves, or widen the sample (more coins or venues, e.g. DAI,
+  USDe; the 16 pre-2021 candidates need a USDT/USD source before May 2021)? Do events above $1 belong in the
+  chapter? USDP delisting date `[verify]`. Sensitivity checks not run yet.
+- **How to resume:** commands above; ~3 min each, v2 needs no network.
 
 ## Review (Renzo, 2026-10-31)
 Reproduced with `.venv/bin/python scripts/p1_07_depeg.py`: 318 rows (29 USD-confirmed, 16 relative-price
@@ -102,6 +109,7 @@ This definition is fixed before the automated scan:
 - **Pre-specified sensitivity checks:** start thresholds 0.3% and 1.0%; recovery bands 0.05% and 0.25%.
 
 ## Log
+- 2026-10-31, agent for Renzo: S6/S7 done: v2 with the review fixes next to v1; 11 falls below $1 (F-013); SVB figure v2 with the 22:15 UTC announcement (D-13). Status review (Nattan or Jonathan).
 - 2026-10-31, agent for Renzo: S5 review done (Review section; `scripts/p1_07_review.py`); 233 new raw files added to SHA256SUMS. Nattan asked Renzo to fix the points; S6/S7 added, status doing.
 - 2026-10-31, agent for Renzo: Renzo takes the review.
 - 2026-10-31, Nattan: status set to review; marked for review by Felipe or Renzo.
@@ -117,6 +125,8 @@ This definition is fixed before the automated scan:
   night (Coinbase), so USDC/USDT understates USDC's fall. API calls are in `scripts/p1_02_probe_usdtusd.py`.
 
 ## Result
+v1 (Nattan) below; v2 after the review fixes: F-013 (24 USD-confirmed, 11 below $1, 2 censored). Both kept for comparison.
+
 1. **Automated Event Detection (`data/processed/P1-07_depeg_events.csv`):**
    - Screened 7 stablecoin pairs on Binance (1h klines, 2019-01 to 2026-09): `BUSDUSDT`, `FDUSDUSDT`, `TUSDUSDT`, `USDCUSDT`, `USDPUSDT`, `USTCUSDT`, `USTUSDT`.
    - Identified **29 USD-confirmed independent depeg events** after cross-checking against Coinbase USDT/USD prices (target was ≥ 20; exceeds the ≥ 12 threshold required for Kaplan-Meier survival curves in P3-04).
