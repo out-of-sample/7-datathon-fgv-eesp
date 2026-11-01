@@ -2,9 +2,9 @@
 id: P3-03
 title: Monitor do Dólar Digital (daily index + regime flag)
 phase: P3
-status: todo
+status: doing
 owner: CS 1
-working: -
+working: Renzo
 due: 2026-11-03
 depends: P1-02, P2-02
 ---
@@ -31,5 +31,6 @@ _Write the subtasks (S1, S2, ...) when the phase starts; see `docs/phases.md` an
 - **How to resume:** -
 
 ## Log
+- 2026-10-31, agent for Renzo: Renzo takes P3-03; subtasks being written.
 
 ## Result
