@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-10-31 by Nattan · **Current phase:** P1 — Data foundation (started
+**Last updated:** 2026-10-31 by agent for Renzo · **Current phase:** P1 — Data foundation (started
 Sat 31 Oct) · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results freeze:** Wed 4 Nov
 
 This page is the team's dashboard. Read it first; update it at the end of every work session
@@ -24,8 +24,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Next actions
 
-1. Start P1 in parallel: Renzo → next CS 1 task after the gate (P3-02 / P3-03); P1-05 review passed; P2-01, P2-05 in review · Renzo covers CS 2 work (P1-03 done, P1-05 done, P2-02 blocked on P1-04) · Felipe → P1-04 ·
-   Nattan → P1-07 in review (needs check from Felipe or Renzo); Jonathan → P1-06 once P1-04 has the Brazil list.
+1. Start P1 in parallel: Renzo → next CS 1 task after the gate (P3-02 / P3-03); P1-05, P2-01, P2-05 reviewed and done · Renzo covers CS 2 work (P1-03 done, P1-05 done, P2-02 blocked on P1-04) · Felipe → P1-04 ·
+   P1-07 reviewed: Renzo fixes the points in a v2 next to Nattan's v1 (count of 29 needs revision); Jonathan → P1-06 once P1-04 has the Brazil list.
 2. Everyone (and your agents): read [`docs/review-2026-10-31.md`](docs/review-2026-10-31.md) before the gate.
 3. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
    (`prompt.md` §7).
@@ -70,7 +70,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P1-04](tasks/P1-04-events-brazil.md) | Verified list of Brazilian rule changes and events | ⬜ todo | Economist | - | 0/5 | 0/3 | 2026-10-31 | - |
 | [P1-05](tasks/P1-05-comparison-currencies.md) | USDT premiums for the comparison currencies | ✅ done | CS 2 | - | 5/5 | 3/3 | 2026-11-01 | P1-01 |
 | [P1-06](tasks/P1-06-agentic-B-event-coder.md) | Extension B - AI event coder for the comparison currencies | ⬜ todo | CS 3 | - | 0/6 | 0/4 | 2026-11-01 | P1-04 |
-| [P1-07](tasks/P1-07-depeg-detector.md) | Depeg detector and SVB-weekend figure (chapter) | 👀 review | Nattan | Renzo (review) | 4/4 | 3/3 | 2026-11-01 | P1-01 |
+| [P1-07](tasks/P1-07-depeg-detector.md) | Depeg detector and SVB-weekend figure (chapter) | 🔄 doing | Nattan | Renzo | 5/7 | 3/3 | 2026-11-01 | P1-01 |
 | [P1-08](tasks/P1-08-decision-agentic-budget.md) | Decide the API budget and models for extension A | ✅ done | Team | - | 3/3 | 1/1 | 2026-11-01 | - |
 | [P1-09](tasks/P1-09-donor-history-boundary.md) | Remove the Brazil-listing boundary from donor history | ⬜ todo | CS 2 | - | 0/2 | 0/3 | 2026-11-04 | P1-05 |
 
@@ -137,6 +137,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-10-31 — agent for Renzo: P1-07 reviewed: reproduces exactly, but 16 of 29 events are prices above $1, USTC double-counts UST, 13 Dec 2023 is a Binance USDT move, 6 of 9 censored events recovered; SVB lowest hourly close $0.863; fixes go in a v2 (S6–S7)
 - 2026-10-31 — Nattan: P1-07 done → review (needs check from Felipe or Renzo): 29 USD-confirmed independent depeg events across 7 pairs (F-012); SVB weekend figure (Bitstamp USDC/USD, low $0.805) ready for chapter (P3-04)
 - 2026-10-31 — agent for Renzo: day-1 review written for the team (`docs/review-2026-10-31.md`): findings, weak points, gate decisions; full scope kept (Renzo); P2-04 p-value floor noted
 - 2026-10-31 — second agent for Renzo: P1-05 independent review passed → done; reproducible raw-data audit added; historical UAH boundary cleanup filed as P1-09; F-010 remains exploratory pending source/event validation.

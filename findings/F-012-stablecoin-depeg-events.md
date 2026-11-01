@@ -30,3 +30,9 @@ Dollar-side chapter ("O que traz uma stablecoin de volta a US$ 1?"): SVB-weekend
 
 ## History
 - 2026-10-31, Nattan: created upon completing P1-07 automated detector scan and Bitstamp SVB case figure (status confirmed; numbered F-012 after F-010/F-011 committed by peers).
+- 2026-10-31, Renzo (review, P1-07 S5): numbers reproduce exactly. The count of 29 needs revision before use: 16 events
+  are prices above $1; USTC (Mar 2023) double-counts UST's May 2022 collapse; BUSD and FDUSD on 13 Dec 2023 are one
+  USDT move on Binance; 6 of the 9 censored events recovered within 1–8 days; USDP Sep 2026 may be delisting drift.
+  SVB: lowest hourly close $0.863 (low $0.805 is intra-hour); most of the recovery came before banks reopened. Details
+  and commands: `tasks/P1-07-depeg-detector.md` → Review. Revised count in a v2 (S6–S7); this claim is kept for
+  comparison. Reviewer suggests status `exploratory` until then (owner's call).

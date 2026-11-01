@@ -2,9 +2,9 @@
 id: P1-07
 title: Depeg detector and SVB-weekend figure (chapter)
 phase: P1
-status: review
+status: doing
 owner: Nattan
-working: Renzo (review)
+working: Renzo
 due: 2026-11-01
 depends: P1-01
 ---
@@ -18,6 +18,9 @@ Plan: `docs/01-depeg-recovery.md` (chapter scope at the top, definition in §6.1
 - [x] S2 — Scan Binance stablecoin pairs; handle the numeraire problem (USDC/USDT is a relative price). — done: Nattan, 2026-10-31
 - [x] S3 — Reject bad ticks; log every rejection with its reason. — done: Nattan, 2026-10-31
 - [x] S4 — SVB weekend figure: Fri 10 - Tue 14 Mar 2023, bank-closed hours shaded. — done: Nattan, 2026-10-31
+- [x] S5 — Review of S1–S4 (see Review below). — done: Renzo, 2026-10-31
+- [ ] S6 — Fix the review points in a v2 script (`scripts/p1_07_depeg_v2.py`); v1 script and outputs stay untouched. — doing: Renzo
+- [ ] S7 — Compare v1 and v2 event by event; new finding for the v2 count; F-012 History updated.
 
 ## Success criteria
 - [x] Definition written here before the scan (commit order shows it)
@@ -29,15 +32,55 @@ Plan: `docs/01-depeg-recovery.md` (chapter scope at the top, definition in §6.1
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** complete by Nattan; awaiting independent review by Felipe or Renzo (`status: review`). Automated detector identified 29 USD-confirmed independent depeg events (exceeding the target of ≥ 20), 16 relative-price candidates, and logged 273 rejected episodes with explicit exclusion reasons. SVB weekend figure generated from Bitstamp 1h USDC/USD data with bank-closed hours shaded.
-- **Next step (reviewer: Felipe or Renzo):**
-  1. Re-run `python scripts/p1_07_depeg.py`.
-  2. Verify that `data/processed/P1-07_depeg_events.csv` generates 318 screened rows (29 `USD-confirmed`, 16 `relative-price candidate`, 273 `rejected`).
-  3. Inspect `results/figures/P1-07_svb_weekend.png` (Bitstamp USDC/USD, low $0.805 on 11 Mar 2023 07:00 UTC during US bank closures).
-  4. Verify findings match `findings/F-012-stablecoin-depeg-events.md`.
-  5. If confirmed, set `status: done`, add reviewer to `checked_by: <name>` in F-012, and update `STATUS.md`.
-- **Open questions:** none.
-- **How to resume:** run `python scripts/p1_07_depeg.py` to regenerate the event dataset and figure.
+- **State:** Nattan's S1–S4 are complete and reproduce exactly (318 rows, 29 USD-confirmed, Bitstamp low 0.805).
+  Renzo's review (below) found that the "29 independent depeg events" count includes prices above $1, one double
+  count, shared USDT moves on Binance and false censoring. Nattan asked Renzo to fix it. Renzo is on S6: a v2 script
+  next to v1, so both results can be compared. **Do not edit or delete v1 files** (`scripts/p1_07_depeg.py`,
+  `P1-07_depeg_events.csv`, `P1-07_svb_weekend.png`, F-012's claim).
+- **Next step:** S6, write `scripts/p1_07_depeg_v2.py` addressing review points 1–6; then S7.
+- **Open questions:** whether events above $1 belong in the chapter at all (team, P3-04); whether USDP was delisted
+  from Binance in Sep 2026 `[verify]`.
+- **How to resume:** `.venv/bin/python scripts/p1_07_depeg.py` (v1, downloads missing archives, ~3 min) then
+  `.venv/bin/python scripts/p1_07_review.py` (prints every number in Review).
+
+## Review (Renzo, 2026-10-31)
+Reproduced with `.venv/bin/python scripts/p1_07_depeg.py`: 318 rows (29 USD-confirmed, 16 relative-price
+candidates, 273 rejected), Bitstamp 120 rows, low 0.805. The definition commit (57597ab) precedes the script commit
+(2a36549). The code implements the frozen definition. All numbers below: `.venv/bin/python scripts/p1_07_review.py`.
+
+The three success criteria are met. The **claim in F-012 is not yet supported** as worded:
+1. **16 of the 29 events are prices above $1** (12 below, 1 both ways). A coin at $1.01 is excess demand, closed by
+   minting, not by redemption; the chapter asks how a coin *returns to $1 after falling*. Report the two directions
+   separately; the chapter count is the events below $1.
+2. **USTC (Mar 2023) is not an event.** It is UST after the May 2022 collapse, relisted under a new name; its first
+   Binance candle is already $0.022. It double-counts UST's terminal event. The listing-artefact rule only checks
+   candles after a >24 h gap, so it misses an episode that starts at a pair's first candle.
+3. **Shared moves of USDT on Binance pass the USD check.** On 13 Dec 2023 BUSD/USDT and FDUSD/USDT rise to 1.006 in
+   the same hour (closes within 0.0003 of each other) while Coinbase USDT/USD is 0.9995: USDT was cheap on Binance,
+   two coins did not depeg together. Multiplying by Coinbase's USDT price cannot remove a Binance-only USDT move.
+   "USD-confirmed" is weaker than it sounds; it means "survives Coinbase's USDT price".
+4. **6 of the 9 censored events did recover.** Their Binance episodes ended 1–8 days later (BUSD and FDUSD
+   13 Dec 2023, FDUSD Feb, Mar 2024 and Apr 2025, USDP Apr 2024). The direct check only looks at
+   relative end + 12 h, so recovery after that is coded as "never recovered". This would bias survival curves.
+   Real censoring: UST May 2022, USTC (point 2), USDP Sep 2026.
+5. **Delistings.** USDP's data stops on 24 Sep 2026 (delisting `[verify]`); its two Sep 2026 events (one censored)
+   may be wind-down drift, like BUSD's Dec 2023 event (pair ends 15 Dec 2023). UST's collapse also ends in a delisting,
+   so a delisting flag must not drop it automatically.
+6. **Reproducibility.** Coinbase USDT/USD is fetched live and not saved, although `data/raw/coinbase/USDT-USD-1h.csv`
+   is frozen (P1-01). The Bitstamp file in `data/raw/` is rewritten on every run (raw data should be immutable).
+   The pre-specified sensitivity checks (0.3%/1.0% start, 0.05%/0.25% recovery) are not run yet (P3-04 or P4-01).
+
+Consequence: below $1, without USTC and the USDP delisting events, about **10–12 events** remain. The chapter plan
+draws Kaplan–Meier curves only with ≥ 12 independent events, so the count decides the chapter's form.
+
+**SVB figure.** Correct data and shading (bank close Fri 21:00 UTC, open Mon 13:30 UTC, after the US clock change).
+- $0.805 is an intra-hour low on one venue; the lowest hourly close is **$0.863** (11 Mar 07h UTC), and 3 hours close
+  below $0.90. Quote the close, or say "brief low".
+- **Most of the recovery happened while banks were closed:** $0.86 → $0.97 over Saturday and Sunday; $0.968 → $0.989 in
+  the hour of 22h UTC Sunday 12 Mar, around the US government's deposit guarantee announcement (time `[verify]`); only
+  $0.991 → $0.999 at Monday's bank open (13–14h UTC). F-012's "recovering once banking channels reopened" is only
+  partly right. For the chapter (redemption vs backing) this matters: news about the backing did most of the work.
+- The footnote overlaps the x-axis label.
 
 ## Frozen event definition (S1)
 
@@ -59,6 +102,7 @@ This definition is fixed before the automated scan:
 - **Pre-specified sensitivity checks:** start thresholds 0.3% and 1.0%; recovery bands 0.05% and 0.25%.
 
 ## Log
+- 2026-10-31, agent for Renzo: S5 review done (Review section; `scripts/p1_07_review.py`); 233 new raw files added to SHA256SUMS. Nattan asked Renzo to fix the points; S6/S7 added, status doing.
 - 2026-10-31, agent for Renzo: Renzo takes the review.
 - 2026-10-31, Nattan: status set to review; marked for review by Felipe or Renzo.
 - 2026-10-31, Nattan: completed S2, S3, S4. Automated scan produced 318 screened candidates: 29 USD-confirmed independent events, 16 relative-price candidates, and 273 logged quality rejections. Generated SVB-weekend case figure `P1-07_svb_weekend.png` (Bitstamp USDC/USD trough $0.805 on 11 Mar 2023 07:00 UTC). Documented in F-012.
