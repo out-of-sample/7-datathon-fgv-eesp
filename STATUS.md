@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-10-31 by agent for Renzo · **Current phase:** P1 — Data foundation (started
+**Last updated:** 2026-11-01 by Nattan · **Current phase:** P1 — Data foundation (started
 Sat 31 Oct) · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results freeze:** Wed 4 Nov
 
 This page is the team's dashboard. Read it first; update it at the end of every work session
@@ -25,7 +25,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 ## Next actions
 
 1. Start P1 in parallel: Renzo → P3-03 monitor done → review (F-014); P3-02 after P2-03; P1-05, P2-01, P2-05 reviewed and done · Renzo covers CS 2 work (P1-03 done, P1-05 done, P2-02 blocked on P1-04) · Felipe → P1-04 ·
-   P1-07 v2 done → review (Nattan or Jonathan): 11 falls below $1, under the 12 the chapter needs for curves (F-013); Jonathan → P1-06 once P1-04 has the Brazil list.
+   P1-07 done (v2 confirmed: 11 falls below $1, F-013); Jonathan → P1-06 once P1-04 has the Brazil list.
 2. Everyone (and your agents): read [`docs/review-2026-10-31.md`](docs/review-2026-10-31.md) before the gate.
 3. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
    (`prompt.md` §7).
@@ -61,7 +61,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 |---|---|---|---|---|---|---|---|---|
 | [P0-01](tasks/P0-01-scoping-and-probe.md) | Scoping, past-winner review and day-0 probe | ✅ done | Team | - | – | 3/3 | 2026-10-30 | - |
 
-**P1 — Data foundation** (6/9 closed)
+**P1 — Data foundation** (7/9 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -71,7 +71,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P1-04](tasks/P1-04-events-brazil.md) | Verified list of Brazilian rule changes and events | ⬜ todo | Economist | - | 0/5 | 0/3 | 2026-10-31 | - |
 | [P1-05](tasks/P1-05-comparison-currencies.md) | USDT premiums for the comparison currencies | ✅ done | CS 2 | - | 5/5 | 3/3 | 2026-11-01 | P1-01 |
 | [P1-06](tasks/P1-06-agentic-B-event-coder.md) | Extension B - AI event coder for the comparison currencies | ✅ done | CS 3 | - | 2/6 | 3/4 | 2026-11-01 | P1-04 |
-| [P1-07](tasks/P1-07-depeg-detector.md) | Depeg detector and SVB-weekend figure (chapter) | 👀 review | Nattan | - | 7/7 | 3/3 | 2026-11-01 | P1-01 |
+| [P1-07](tasks/P1-07-depeg-detector.md) | Depeg detector and SVB-weekend figure (chapter) | ✅ done | Nattan | - | 7/7 | 3/3 | 2026-11-01 | P1-01 |
 | [P1-08](tasks/P1-08-decision-agentic-budget.md) | Decide the API budget and models for extension A | ✅ done | Team | - | 3/3 | 1/1 | 2026-11-01 | - |
 | [P1-09](tasks/P1-09-donor-history-boundary.md) | Remove the Brazil-listing boundary from donor history | ⬜ todo | CS 2 | - | 0/2 | 0/3 | 2026-11-04 | P1-05 |
 
@@ -133,13 +133,14 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-009](findings/F-009-jump-not-venue-fx-usdt.md) | The 24 Jun 2026 jump appears on three exchanges by the same amount and is not explained by the real, USDT/USD or a Binance event | ✔️ confirmed | P2-05 | - |
 | [F-010](findings/F-010-donor-premiums.md) | Where residents cannot buy dollars freely (ARS, UAH) USDT costs 4-7% more than the official dollar; in open markets 0-1% | 🔍 exploratory | P1-05 | - |
 | [F-011](findings/F-011-blind-breaks.md) | A blind break test finds 24 Jun 2026 as the sharpest regime change in six years (+100 bps), followed by a partial reversal from 22 Jul | 🔍 exploratory | P2-02 | - |
-| [F-012](findings/F-012-stablecoin-depeg-events.md) | Automatic screening identifies 29 USD-confirmed independent depeg events across 7 stablecoin pairs | ✔️ confirmed | P1-07 | - |
-| [F-013](findings/F-013-depeg-count-v2.md) | After the review fixes, the depeg screen finds 11 falls below $1 (9 without a likely delisting), short of the 12 the chapter needs for recovery curves | 🔍 exploratory | P1-07 | - |
+| [F-012](findings/F-012-stablecoin-depeg-events.md) | Automatic screening identifies 29 USD-confirmed independent depeg events across 7 stablecoin pairs | 🔍 exploratory | P1-07 | Renzo, Nattan |
+| [F-013](findings/F-013-depeg-count-v2.md) | After the review fixes, the depeg screen finds 11 falls below $1 (9 without a likely delisting), short of the 12 the chapter needs for recovery curves | ✔️ confirmed | P1-07 | Nattan |
 | [F-014](findings/F-014-monitor-backtest.md) | A real-time alarm calibrated on 2020–2025 flags the 24 Jun 2026 jump on the same day, with fewer false alarms than a simple rule | 🔍 exploratory | P3-03 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-01 — Nattan: P1-07 reviewed and approved Renzo's v2 fixes → done; F-013 confirmed (11 falls below $1), F-012 exploratory (superseded by v2)
 - 2026-10-31 — agent for Renzo: P3-03 done → review: spec committed before the run; real-time CUSUM calibrated on 2020–2025 flags 24 Jun 2026 the same day, fade +11 days, 2 other test alarms vs 4 for the simple rule (F-014); premium already building from 25 May (note to P2-03, P1-04)
 - 2026-10-31 — agent for Renzo: P1-07 S6–S7 → review: v2 next to v1, 24 of 29 pass, 11 falls below $1 (9 without USDP delisting), chapter short of 12 for curves (F-013); SVB v2 figure marks the 22:15 UTC guarantee (D-13)
 - 2026-10-31 — agent for Renzo: P1-07 reviewed: reproduces exactly, but 16 of 29 events are prices above $1, USTC double-counts UST, 13 Dec 2023 is a Binance USDT move, 6 of 9 censored events recovered; SVB lowest hourly close $0.863; fixes go in a v2 (S6–S7)

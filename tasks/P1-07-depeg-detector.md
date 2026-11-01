@@ -2,7 +2,7 @@
 id: P1-07
 title: Depeg detector and SVB-weekend figure (chapter)
 phase: P1
-status: review
+status: done
 owner: Nattan
 working: -
 due: 2026-11-01
@@ -34,21 +34,8 @@ Plan: `docs/01-depeg-recovery.md` (chapter scope at the top, definition in §6.1
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** S1–S7 done. v1 (Nattan, F-012: 29 events) and v2 (review fixes, F-013) sit side by side; no v1 file was
-  changed. v2: 24 of the 29 pass the dollar check, **11 are falls below $1** (9 without USDP's Sep 2026 events), under
-  the ≥ 12 the chapter needs for Kaplan–Meier curves. New SVB figure `P1-07_svb_weekend_v2.png` (lowest hourly close
-  $0.863, Sunday announcement 22:15 UTC marked, most of the recovery before banks reopened).
-- **Next step (reviewer: Nattan, or Jonathan):**
-  1. `.venv/bin/python scripts/p1_07_depeg.py` (once, downloads Binance archives), then
-     `.venv/bin/python scripts/p1_07_depeg_v2.py`; it asserts that v1's rule on the frozen Coinbase file gives 29.
-  2. Read `results/tables/P1-07_v1_vs_v2.csv` and F-013 → Caveats; above all the shared-move rule (written after
-     seeing the Dec 2023 case; it also removes TUSD and BUSD on the SVB weekend).
-  3. If it holds: `status: done`, your name in F-013 `checked_by`; Nattan decides F-012's status (suggested
-     `exploratory` or `retracted` in favour of F-013).
-- **Open questions (P3-04 / team):** case table instead of curves, or widen the sample (more coins or venues, e.g. DAI,
-  USDe; the 16 pre-2021 candidates need a USDT/USD source before May 2021)? Do events above $1 belong in the
-  chapter? USDP delisting date `[verify]`. Sensitivity checks not run yet.
-- **How to resume:** commands above; ~3 min each, v2 needs no network.
+- **State:** S1–S7 done and reviewed. Nattan reviewed and approved Renzo's v2 fixes. Both v1 (F-012, 29 events) and v2 (F-013, 24 USD-confirmed, 11 falls below $1) sit side by side; no v1 file was changed. F-012 marked `exploratory` (superseded by v2), F-013 marked `confirmed` (checked by Nattan). New SVB figure `P1-07_svb_weekend_v2.png` (lowest hourly close $0.863, Sunday announcement 22:15 UTC marked, most recovery occurred before US banks reopened).
+- **Next step (P3-04 / team):** Decide between a case table of the 11 falls vs widening the universe (more coins/venues like DAI, USDe, or pre-2021 USDT/USD sources). Check USDP delisting date. Sensitivity checks.
 
 ## Review (Renzo, 2026-10-31)
 Reproduced with `.venv/bin/python scripts/p1_07_depeg.py`: 318 rows (29 USD-confirmed, 16 relative-price
@@ -109,6 +96,7 @@ This definition is fixed before the automated scan:
 - **Pre-specified sensitivity checks:** start thresholds 0.3% and 1.0%; recovery bands 0.05% and 0.25%.
 
 ## Log
+- 2026-11-01, Nattan: reviewed Renzo's v2 fixes; verified logic, directional separation, and shared-move filter; approved; status → done.
 - 2026-10-31, agent for Renzo: S6/S7 done: v2 with the review fixes next to v1; 11 falls below $1 (F-013); SVB figure v2 with the 22:15 UTC announcement (D-13). Status review (Nattan or Jonathan).
 - 2026-10-31, agent for Renzo: S5 review done (Review section; `scripts/p1_07_review.py`); 233 new raw files added to SHA256SUMS. Nattan asked Renzo to fix the points; S6/S7 added, status doing.
 - 2026-10-31, agent for Renzo: Renzo takes the review.

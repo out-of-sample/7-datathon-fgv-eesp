@@ -1,10 +1,10 @@
 ---
 id: F-012
 title: Automatic screening identifies 29 USD-confirmed independent depeg events across 7 stablecoin pairs
-status: confirmed
+status: exploratory
 task: P1-07
 date: 2026-10-31
-checked_by: -
+checked_by: Renzo, Nattan
 ---
 
 ## Claim
@@ -37,3 +37,4 @@ Dollar-side chapter ("O que traz uma stablecoin de volta a US$ 1?"): SVB-weekend
   and commands: `tasks/P1-07-depeg-detector.md` → Review. Revised count in a v2 (S6–S7); this claim is kept for
   comparison. Reviewer suggests status `exploratory` until then (owner's call).
 - 2026-10-31, agent for Renzo: v2 with the review fixes is F-013 (24 of the 29 pass; 11 below $1). This file is unchanged otherwise.
+- 2026-11-01, Nattan: reviewed Renzo's v2 review fixes (F-013). Status set to exploratory as superseded by v2's refined count (11 falls below $1); preserved for historical comparison.
