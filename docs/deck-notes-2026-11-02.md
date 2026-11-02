@@ -42,3 +42,9 @@ caveat. It is a prediction, not a result.
 
 Earlier I told the team that Decreto 6.306/2007 art. 15-B III had not been opened. Felipe opened it on Planalto on
 2 Nov (`docs/sources.md` E-05.10 and R-02). The 0% IOF for the funds' route is sourced.
+
+## Update, 2 Nov (later)
+
+- "Lições de 2025" does not get its own slide: put it as a strip on the method slide (full table in the annex).
+- Research continues, so the "future work" lines for Argentina and SVB may become results; keep the four language levels either way.
+- Last year's main problem was the presentation time limit: write speaker notes to a time budget and plan rehearsals (P5-01 / P5-03).
