@@ -4,7 +4,7 @@ title: Robustness battery for every headline number
 phase: P4
 status: review
 owner: CS 2
-working: Renzo (review)
+working: -
 due: 2026-11-04
 depends: P2-02, P2-03, P2-04
 ---
@@ -31,12 +31,25 @@ Show that each headline survives reasonable changes: windows, premium definition
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** review (all 4 subtasks and criteria 1–3 satisfied; 51-run robustness matrix exported and verified).
-- **Next step:** Teammate review (Jonathan or Renzo for P4-02 independent re-check); integrate forest plot and robustness matrix into deck slides.
-- **Open questions:** None. All headline claims survive across all 6 dimensions.
-- **How to resume / reproduce:** Run `py scripts/p4_01_robustness.py`. Outputs inspectable at `results/tables/P4-01_robustness.csv` and `results/figures/P4-01_robustness_forest.png`.
+- **State:** reviewed by Renzo (2 Nov). `scripts/p4_01_robustness.py` reproduces all 51 rows exactly. **The spike is robust;
+  the lasting effect is not shown** (owner: Felipe / CS 2).
+  - **Spike:** every acute variant gives +74 to +128 bps (window length, premium definition, three venues, synthetic
+    control, DiD, break intervals).
+  - **Lasting effect (new check by the reviewer):** placebo test for [+21, +60] vs [−20, −1] over all 882 clean dates
+    (±20/+60 days from any event). E-05's +19.3 bps has p = 0.24 (placebo sd 16.5); in 2025–26 alone (85 dates)
+    p = 0.14. The "persistent plateau" is not distinguishable from ordinary drift; only parametric p-values supported it.
+- **Changes requested:**
+  1. F-022: drop "settled into a persistent post-adaptation plateau" and "robust across every dimension" for the plateau.
+     Report: spike robust; whatever lasted (+11 to +34 bps by method) is not significant against placebos.
+  2. Placebo p-values only; the parametric ones (e.g. p = 8.6 × 10⁻⁶⁵) overstate everything (see P2-03 review).
+  3. Point 5 (BTC "confirming a market-wide capital import boundary"): triangular arbitrage makes it automatic (P3-02 review).
+  4. Add the plateau placebo test above to the battery as a row.
+- **Consequence for the team (gate decision 2):** the money result (P3-01) and the deck should give the spike cost as
+  the measured effect, and present the after-spike level as "not distinguishable from normal variation".
+- **How to resume:** `.venv/bin/python scripts/p4_01_robustness.py` (seconds).
 
 ## Log
+- 2026-11-02, agent for Renzo: review done (Handoff): reproduces; spike robust; plateau placebo p = 0.24 (all) / 0.14 (2025–26), so the lasting effect is not shown.
 - 2026-11-02, agent for Renzo: Renzo takes the review.
 - 2026-11-02, Felipe: completed P4-01 robustness battery. Implemented 51 specification tests across 6 dimensions covering event-study windows, premium definitions, 3 domestic exchange order books, Bai (1997) Theorem 1 vs Theorem 2 regime-specific heteroskedastic break CIs, Synthetic Control donor pools & Colombian Ley Emiliani holiday filter, and cross-asset BTC lockstep jump. Exported `results/tables/P4-01_robustness.csv`, generated publication figure `results/figures/P4-01_robustness_forest.png`, and wrote finding `findings/F-022-robustness-battery.md`. Status -> review.
 

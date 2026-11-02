@@ -132,4 +132,5 @@ Testing whether the shock transmitted to Bitcoin and comparing the jump against 
 ---
 
 ## History
+- 2026-11-02, Renzo (review, P4-01): 51 rows reproduce exactly; acute jump robust (+74 to +128 bps). Plateau placebo test (reviewer): +19.3 bps for [+21,+60] has p = 0.24 over 882 clean dates (0.14 in 2025–26), so the "persistent plateau" is not shown. Drop parametric p-values; BTC point is implied by arbitrage (tasks/P4-01 → Handoff)
 - 2026-11-02, Felipe: created (status exploratory; P4-01 criteria 1–3 satisfied; full 51-specification battery executed across 6 dimensions via `scripts/p4_01_robustness.py`).

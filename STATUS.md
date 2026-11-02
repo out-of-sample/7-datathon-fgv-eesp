@@ -43,6 +43,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | P3-01 (money layer): institutional bank vs USDT route costs | Resolved: Felipe completed P3-01 (`results/tables/P3-01_route_costs.csv`, `results/figures/P3-01_route_costs.png`, F-015 confirmed); status -> review | done |
 | Repository technical & consistency audit | Resolved: multi-agent audit report completed in `docs/audit-2026-11-02.md`; script bugs patched and literature citations verified | done |
 | P2-02 S3 (match breaks to events) | Resolved: S3 matching complete in `scripts/p2_02_breaks.py`, `results/tables/P2-02_breaks.csv` updated, and `results/figures/P2-02_premium_breaks.png` regenerated | done |
+| Lasting effect not shown: the +19 bps after the spike has placebo p = 0.24 (P4-01 review). Deck and money result should present the spike as the measured effect | Team | before freeze (Wed 4 Nov) |
+| Reviews (Renzo, 2 Nov) request changes from Felipe in P2-03, P2-04, P3-01 (IOF rate 2020–May 2025, framing), P3-02, P3-04, P4-01: see each task's Handoff | Felipe | Tue 3 Nov |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
 | F-008 (Foxbit volume ×6 from Jul 2026): coincides with the NovaDAX client migration (M-04), cause open; whether it belongs in the story | Felipe / Team | P2 gate |
 | P2-04 inference & donor pool | Resolved: combined within-Brazil 200 placebos (p < 0.005) + synthetic control across 6 specs (+109.3 bps acute gap, rank 1/6, ratio 9.31, F-017) | done |
@@ -108,7 +110,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
-| [P4-01](tasks/P4-01-robustness.md) | Robustness battery for every headline number | 👀 review | CS 2 | Renzo (review) | 4/4 | 3/3 | 2026-11-04 | P2-02, P2-03, P2-04 |
+| [P4-01](tasks/P4-01-robustness.md) | Robustness battery for every headline number | 👀 review | CS 2 | - | 4/4 | 3/3 | 2026-11-04 | P2-02, P2-03, P2-04 |
 | [P4-02](tasks/P4-02-independent-recheck.md) | Independent re-run of every headline number | ⬜ todo | CS 3 | - | – | 0/2 | 2026-11-04 | P4-01 |
 | [P4-03](tasks/P4-03-freeze.md) | Freeze results | ⬜ todo | Team | - | – | 0/4 | 2026-11-04 | P4-01, P4-02 |
 
@@ -153,6 +155,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-02 — agent for Renzo: reviews of P2-03, P2-04, P3-01, P3-02, P3-04, P4-01: all reproduce; spike robust (+94 bps, p ≈ 0.001 over all clean dates); lasting effect not significant (placebo p = 0.24); P3-01 uses 3.5% IOF for 2020–May 2025 (should be 1.1%); several findings claim causes without evidence; changes requested from Felipe
 - 2026-11-02 — agent for Renzo: source links fixed (P1-04 review): 5 broken links replaced with opened, quoted sources; unsupported details removed (M-01, M-02 date, M-03 date, M-04); E-05 now has 2 independent accounts + BCB's LAI answer; P2-02 matching re-run with one rule for all breaks (July fade unexplained); new rule "sources are opened, not remembered" (prompt.md §6); P2-03 needs a re-run for M-02/M-03
 - 2026-11-02 — Felipe: P4-01 completed → review (51-spec robustness battery across windows, definitions, venues, heteroskedastic Bai CIs 23–30 Jun, donor pools & Colombian festivos filter, F-022); P3-05 S1–S2 bundle + protocol + CLI harness built (`results/agentic/protocol.md`, `bundle_SHA256SUMS.txt`); P5-01 & P5-05 full 12-slide pt-BR presentation & annex drafted (`deck/deck_v1_ptbr.md`, `deck/annex_v1_ptbr.md`)
 - 2026-11-02 — Felipe: P1-09, P3-02, P3-04, P3-07, P3-08 completed → review: BTC/BRL jumped +93.8 bps in lockstep with USDT/BRL (+93.9 bps, diff 0.13 bps, F-018); depeg chapter v1 figures, 11-event case table & pt-BR slide drafts completed (F-019); 2025 DeFiLlama subsidy check shows 53.6% of Compound V3 spread (37.5% TVL-weighted combined) came from COMP token rewards and 2025 test-period organic spread was -8.2 bps (F-020); Band-TAR model shows no-arbitrage band widened 26× from 1.6 bps to 42.0 bps on 24 Jun before settling at 9.4 bps (F-021); P1-09 resolved 2020 UAH boundary (0 discrepancies in P1-05 review)
