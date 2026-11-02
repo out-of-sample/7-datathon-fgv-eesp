@@ -62,10 +62,10 @@ means the algorithm is given no event dates, and every choice below is fixed bef
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** S1, S2, S4 done by Renzo (F-011). S3 is unblocked and ready to run (`status: review`) now that `data/processed/P1-04_events_brazil.csv` exists and all 5 breaks are mapped in P1-04.
-- **Next step:** CS 2 (Nattan/Renzo) runs S3: confirm `matched_event` matching in `scripts/p2_02_breaks.py`, update `results/tables/P2-02_breaks.csv` and `results/figures/P2-02_premium_breaks.png` with event markers, then advance status to `review`.
-- **Open questions:** (1) What happened around 15–29 Jul 2026, when the spike faded (break 5)? Resolved: matched to endogenous market adaptation / liquidity reconfiguration following Foxbit-NovaDAX migration (7 Jul 2026, M-04), with break 5 constrained by the 20-day minimum segment. (2) High regime duration: the spike lasted ~20 PTAX days before decaying towards +17 bps.
-- **How to resume:** `python scripts/p2_02_breaks.py`. On machines with `P1-02_premium_daily.csv`, it re-runs the full break detection, CIs, S3 matching, and updates `results/figures/P2-02_premium_breaks.png`.
+- **State:** S1–S4 complete (`status: review`). S3 matching re-run on 2 Nov after P1-04 source fixes so every break follows the strict ±5-day rule (`F-011`).
+- **Next step:** Teammate (Nattan / Jonathan) reviews `results/tables/P2-02_breaks.csv` and `findings/F-011-blind-breaks.md` and marks `done`.
+- **Open questions:** Break 5 (22 Jul 2026, fade from 109.1 to 26.8 bps) has no verified event within ±5 trading days and is reported as `unexplained` (M-04 on 7 Jul is −11 trading days away; M-05 Foxbit Infra on 18 Jul is a market rebrand/claim, not a rule).
+- **How to resume:** `py scripts/p2_02_breaks.py`
 
 ## Log
 - 2026-11-02, agent for Renzo: S3 re-run after the P1-04 source fixes. Removed the date-keyed overrides (Break 3, July fade) and the hand-written labels/markers so every break follows the ±5-day rule and labels come from the event table. Main series: Breaks 1–4 coincide with M-01 (0d), M-02 (−5d, was 0d with the unsourced 20 Aug date), E-01b (−2d), E-05 (−1d); Break 5 unexplained. The committed table had come from an older script version (Coinbase break 1 19 Jul 2021 vs 1 Jun 2021 now and on 31 Oct). F-011 updated.
@@ -80,13 +80,13 @@ means the algorithm is given no event dates, and every choice below is fixed bef
 ## Result
 S3 complete. Breaks found blind (headline: LWZ, because BIC hit the cap of 8; F-011):
 
-| Break | First day of new regime | 95% CI | Mean before → after (bps) | Matched event |
+| Break | First day of new regime | 95% CI | Mean before → after (bps) | Matched event (±5 PTAX days) |
 |---|---|---|---|---|
-| 1 | 26 Jul 2021 | 22 Jun – 27 Aug 2021 | 91.3 → 54.5 | M-01: 26 Jul 2021 Binance leverage cap (0 trading days, in 95% CI) |
-| 2 | 20 Aug 2024 | 24 Apr – 16 Dec 2024 | 54.5 → 34.9 | M-02: 20 Aug 2024 CVM Binance settlement DOU (0 trading days, in 95% CI) |
-| 3 | 8 Jul 2025 | 29 Apr – 12 Sep 2025 | 34.9 → 9.3 | E-01b: 4 Jul 2025 STF IOF injunction (-2 trading days, in 95% CI); also in 95% CI: M-03 Binance tick cut 27 Jun 2025 (-7d) |
-| 4 | **24 Jun 2026** | **18 – 30 Jun 2026** | 9.3 → 109.1 | **E-05: 23 Jun 2026 BCB supervisory ofício (-1 trading day, in 95% CI)** |
-| 5 | 22 Jul 2026 | 15 – 29 Jul 2026 | 109.1 → 26.8 | unexplained (±5d); fade of 24 Jun spike (M-04 domestic adaptation 7 Jul [-11d], 20d min-segment boundary) |
+| 1 | 26 Jul 2021 | 22 Jun – 27 Aug 2021 | 91.3 → 54.5 | Coincides with M-01: 26 Jul 2021 Binance 20× leverage cap (0 trading days, in 95% CI) |
+| 2 | 20 Aug 2024 | 24 Apr – 16 Dec 2024 | 54.5 → 34.9 | Coincides with M-02: 13 Aug 2024 CVM–Binance settlement (−5 trading days, in 95% CI) |
+| 3 | 8 Jul 2025 | 29 Apr – 12 Sep 2025 | 34.9 → 9.3 | Coincides with E-01b: 4 Jul 2025 STF IOF injunction (−2 trading days, in 95% CI; M-03 tick cut 27 Jun is −7d, in 95% CI) |
+| 4 | **24 Jun 2026** | **18 – 30 Jun 2026** | 9.3 → 109.1 | **Coincides with E-05: 23 Jun 2026 BCB supervisory ofício (−1 trading day, in 95% CI)** |
+| 5 | 22 Jul 2026 | 15 – 29 Jul 2026 | 109.1 → 26.8 | **unexplained** (no event within ±5 trading days; M-04 on 7 Jul is −11d) |
 
 24 Jun 2026 is found in all three series (day-close 23 Jun; Coinbase USDT/USD 24 Jun), and so is the reversal around
-21–22 Jul. Command: `python scripts/p2_02_breaks.py`. Figure: `results/figures/P2-02_premium_breaks.png`.
+21–22 Jul. Command: `py scripts/p2_02_breaks.py`. Figure: `results/figures/P2-02_premium_breaks.png`.

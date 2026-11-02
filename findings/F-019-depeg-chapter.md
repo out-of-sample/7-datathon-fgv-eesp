@@ -18,11 +18,11 @@ channel that enforces it is closed.
   a case table. In these cases:
   - the two that started on the closed banking weekend (USDC, USDP) recovered within 51–65 h;
   - the one coin without external reserves (UST, May 2022) never recovered;
-  - the others took 21 h to 2,719 h.
+  - the others took 21 h to 2,719 h;
+  - the two USDP moves in Sep 2026 coincide with Binance's 10 Sep 2026 announcement removing USDP/USDT on 24 Sep 2026 (DP-10).
 
   The categories were assigned after seeing the cases (n = 2 / 7 / 1 / 2), so this is a description, not evidence that
-  backing "determines" recovery. The cause of each case is not yet sourced
-  (`mechanism_lead_unsourced` in the case table).
+  backing "determines" recovery. Each case's mechanism is now backed by an opened, quoted source in `docs/sources.md` (`DP-01`..`DP-10`, `D-13`).
 
 ## Evidence
 
@@ -31,7 +31,7 @@ The canonical case study measures USDC directly against the US dollar on Bitstam
 - **Friday 10 Mar 2023, 21:00 UTC**: US banking hours close (16:00 New York); Circle announces $3.3B stuck at SVB; USDC drops below $0.995.
 - **Saturday 11 Mar 2023, 07:00 UTC**: USDC touches intra-hour low of **US$ 0.805** and closes at **US$ 0.863** (1,370 bps discount on close; 1,950 bps intra-hour).
 - **Sunday 12 Mar 2023, 21:00 UTC**: Secondary market consolidates at US$ 0.968.
-- **Sunday 12 Mar 2023, 22:15 UTC**: Joint Statement by Department of the Treasury, Federal Reserve, and FDIC guaranteeing all SVB deposits.
+- **Sunday 12 Mar 2023, 22:15 UTC**: Joint Statement by Department of the Treasury, Federal Reserve, and FDIC guaranteeing all SVB deposits (`D-13`).
 - **Sunday 12 Mar 2023, 23:00 UTC**: Price surges to **US$ 0.989** (arbitrageurs buy anticipating Monday wire redemptions).
 - **Monday 13 Mar 2023, 12:00 UTC**: USDC trades at **US$ 0.991** before US banks open.
 - **Monday 13 Mar 2023, 14:00 UTC**: Full recovery to **US$ 0.999** as primary redemptions resume.
@@ -39,20 +39,20 @@ The canonical case study measures USDC directly against the US dollar on Bitstam
 ### 2. The 11 USD-Confirmed Downward Depeg Events
 Filtered from `results/tables/P1-07_v1_vs_v2.csv` (`direction == "below"` and `classification_v2 == "USD-confirmed"`):
 
-| Event ID | Coin | Category | Start Date (UTC) | End Date (UTC) | Duration (h) | Trough (USD) | Max Dev (bps) | Recovery Status | Core Mechanism |
+| Event ID | Coin | Category | Start Date (UTC) | End Date (UTC) | Duration (h) | Trough (USD) | Max Dev (bps) | Recovery Status | Sourced Context (`docs/sources.md`) |
 |---|---|---|---|---|---|---|---|---|---|
-| **CASE-USDC-SVB** | USDC | Cat 1 | 2023-03-10 21:00 | 2023-03-13 14:00 | 65.0 | $0.863 | 1,370.0 | Recuperado | SVB receivership + weekend bank closure; recovered on FDIC guarantee |
-| **P1-07-USDPUSDT-02** | USDP | Cat 1 | 2023-03-11 14:00 | 2023-03-13 17:00 | 51.0 | $0.974 | 261.1 | Recuperado | SVB weekend contagion fear (Signature deposits); recovered Monday |
-| **P1-07-USTUSDT-01** | UST | Cat 2 | 2022-01-28 10:00 | 2022-01-29 07:00 | 21.0 | $0.990 | 101.0 | Recuperado | DeFi liquidation cascade (MIM); market arbitrage restored peg |
-| **P1-07-TUSDUSDT-11** | TUSD | Cat 2 | 2024-01-12 16:00 | 2024-02-29 08:00 | 1,144.0 | $0.954 | 464.7 | Recuperado | Redemption operational delays & Binance fee promo shift |
-| **P1-07-FDUSDUSDT-04** | FDUSD | Cat 2 | 2024-03-05 18:00 | 2024-03-10 23:00 | 125.0 | $0.991 | 94.8 | Recuperado | Flash market volatility; 1:1 primary redemption cleared discount |
-| **P1-07-TUSDUSDT-13** | TUSD | Cat 2 | 2024-10-03 16:00 | 2024-11-10 01:00 | 897.0 | $0.992 | 85.0 | Recuperado | Thin secondary liquidity post-fee changes; slow banking arbitrage |
-| **P1-07-TUSDUSDT-14** | TUSD | Cat 2 | 2024-11-14 04:00 | 2024-11-18 15:00 | 107.0 | $0.992 | 80.1 | Recuperado | Post-US election market volatility; rapid return to parity |
-| **P1-07-FDUSDUSDT-07** | FDUSD | Cat 2 | 2025-04-02 15:00 | 2025-04-23 03:00 | 492.0 | $0.965 | 349.2 | Recuperado | Custodian insolvency rumors; attestations & redemptions proved par |
-| **P1-07-TUSDUSDT-16** | TUSD | Cat 2 | 2025-06-11 00:00 | 2025-10-02 07:00 | 2,719.0 | $0.986 | 139.3 | Recuperado | Low-volume secondary trading; absorbed through slow issuer burns |
-| **P1-07-USTUSDT-03** | UST | Cat 3 | 2022-05-07 21:00 | Censored | N/A | $0.245 | 7,547.1 | Não recuperado | Insolvent death spiral: Anchor run, LUNA hyperinflation, zero reserves |
-| **P1-07-USDPUSDT-09** | USDP | Cat 4 | 2026-09-15 16:00 | 2026-09-18 04:00 | 60.0 | $0.994 | 58.1 | Recuperado | Pre-delisting secondary drift on Binance; recovered before halt |
-| **P1-07-USDPUSDT-10** | USDP | Cat 4 | 2026-09-23 17:00 | Censored | N/A | $0.988 | 120.0 | Não recuperado | Terminal trading halt on Binance; censored at dataset end |
+| **CASE-USDC-SVB** | USDC | Cat 1 | 2023-03-10 21:00 | 2023-03-13 14:00 | 65.0 | $0.863 | 1,370.0 | Recuperado | SVB receivership + weekend bank closure; recovered on joint Fed/Treasury/FDIC guarantee (`D-13`) |
+| **P1-07-USDPUSDT-02** | USDP | Cat 1 | 2023-03-11 14:00 | 2023-03-13 17:00 | 51.0 | $0.974 | 261.1 | Recuperado | Paxos disclosed $250M at Signature Bank over SVB weekend; recovered Monday (`DP-01`) |
+| **P1-07-USTUSDT-01** | UST | Cat 2 | 2022-01-28 10:00 | 2022-01-29 07:00 | 21.0 | $0.990 | 101.0 | Recuperado | Wonderland / Abracadabra ("Frog Nation") liquidations after 0xSifu exposed (`DP-02`) |
+| **P1-07-TUSDUSDT-11** | TUSD | Cat 2 | 2024-01-12 16:00 | 2024-02-29 08:00 | 1,144.0 | $0.954 | 464.7 | Recuperado | Real-time attestation errors (The Network Firm → Moore HK) & Binance sell-off (`DP-03`) |
+| **P1-07-FDUSDUSDT-04** | FDUSD | Cat 2 | 2024-03-05 18:00 | 2024-03-10 23:00 | 125.0 | $0.991 | 94.8 | Recuperado | BTC $69k ATH flash crash with >$1B liquidations; 1:1 redemption cleared discount (`DP-04`) |
+| **P1-07-TUSDUSDT-13** | TUSD | Cat 2 | 2024-10-03 16:00 | 2024-11-10 01:00 | 897.0 | $0.992 | 85.0 | Recuperado | SEC fraud action (24 Sep 2024) over 99% of TUSD reserves in offshore fund (`DP-05`) |
+| **P1-07-TUSDUSDT-14** | TUSD | Cat 2 | 2024-11-14 04:00 | 2024-11-18 15:00 | 107.0 | $0.992 | 80.1 | Recuperado | Post-US election crypto rally with BTC surging past $93,000 (`DP-06`) |
+| **P1-07-FDUSDUSDT-07** | FDUSD | Cat 2 | 2025-04-02 15:00 | 2025-04-23 03:00 | 492.0 | $0.965 | 349.2 | Recuperado | Justin Sun insolvency claim vs First Digital 1:1 T-bill solvency defense (`DP-07`) |
+| **P1-07-TUSDUSDT-16** | TUSD | Cat 2 | 2025-06-11 00:00 | 2025-10-02 07:00 | 2,719.0 | $0.986 | 139.3 | Recuperado | Chronic secondary illiquidity & S&P weakest stability score (5/Weak) on reserves (`DP-08`) |
+| **P1-07-USTUSDT-03** | UST | Cat 3 | 2022-05-07 21:00 | Censored | N/A | $0.245 | 7,547.1 | Não recuperado | Curve drain, Anchor run, LUNA 80x hyperinflation death spiral (`DP-09`, Richmond Fed) |
+| **P1-07-USDPUSDT-09** | USDP | Cat 4 | 2026-09-15 16:00 | 2026-09-18 04:00 | 60.0 | $0.994 | 58.1 | Recuperado | Pre-delisting drift after Binance 10 Sep announcement removing USDP on 24 Sep (`DP-10`) |
+| **P1-07-USDPUSDT-10** | USDP | Cat 4 | 2026-09-23 17:00 | Censored | N/A | $0.988 | 120.0 | Não recuperado | Terminal trading halt of USDP/USDT on Binance on 24 Sep 2026 (`DP-10`) |
 
 *Note: CASE-USDC-SVB is evaluated from Bitstamp direct USDC/USD 1h data (P1-07 v2); P1-07 automated candidates derive from Binance stablecoin/USDT adjusted by Coinbase direct USDT/USD.*
 
@@ -61,10 +61,10 @@ From `results/tables/P3-04_category_summary.csv`:
 
 | Category | N | Stablecoins | Recovery Rate | Median Duration (Recovered) | Trough Price Range | Core Economic Mechanism |
 |---|---|---|---|---|---|---|
-| **1. Weekend / Redemption-Gate Closure** | 2 | USDC, USDP | 100% | 58h (51h–65h) | $0.863 – $0.974 | Arbitrage blocked by bank hours; par restored instantly once redemption is guaranteed |
-| **2. Frictions de Liquidez / Operacionais** | 7 | UST, TUSD, FDUSD | 100% | 492h (21h–2,719h) | $0.954 – $0.992 | Solvency preserved; operational frictions delay arbitrage but parity is preserved |
-| **3. Colapso Algorítmico / Insolvência** | 1 | UST | 0% | N/A (Terminal) | $0.000 – $0.245 | Complete balance-sheet insolvency; death spiral with zero external reserves |
-| **4. Fim dos dados na Binance (deslistagem a verificar)** | 2 | USDP | 50% | 60h | $0.988 – $0.994 | Secondary order-book thinning driven by planned exchange delisting |
+| **1. Weekend / Redemption-Gate Closure** | 2 | USDC, USDP | 100% | 58h (51h–65h) | $0.863 – $0.974 | Arbitrage blocked by bank hours; par restored once redemption is guaranteed (`D-13`, `DP-01`) |
+| **2. Fricções de Liquidez / Operacionais** | 7 | UST, TUSD, FDUSD | 100% | 492h (21h–2,719h) | $0.954 – $0.992 | Solvency preserved; operational frictions delay arbitrage but parity is preserved (`DP-02`..`DP-08`) |
+| **3. Colapso Algorítmico / Insolvência** | 1 | UST | 0% | N/A (Terminal) | $0.000 – $0.245 | Complete balance-sheet insolvency; death spiral with zero external reserves (`DP-09`) |
+| **4. Deslistagem programada na Binance (DP-10)** | 2 | USDP | 50% | 60h | $0.988 – $0.994 | Secondary order-book thinning ahead of planned Binance delisting on 24 Sep 2026 (`DP-10`) |
 
 ### 4. Reproduction
 ```powershell
@@ -82,9 +82,10 @@ Generated artifacts:
 3. **Dual-Venue Dollar Adjustment**: Converting Binance stablecoin/USDT into direct dollar prices via Coinbase USDT/USD introduces minor multi-venue noise (within $\pm 10$ bps), slightly widening measured recovery times inside the 0.1% recovery band for FDUSD in April 2025.
 
 ## Used in deck
-Recommended for Slide 13 ("O mesmo mecanismo em dólares: o fim de semana do SVB") and Slide 14 ("Anatomia dos depegs: por que resgate e solvência importam") of the final presentation deck.
+Slide 11 ("Do lado do dólar: quando o resgate fecha") of `deck/deck_v1_ptbr.md`.
 
 ## History
+- 2026-11-02, agent for Felipe (P3-09): opened and quoted sources for all 11 downward depeg cases and the USDP Binance delisting (`DP-01`..`DP-10` in `docs/sources.md`); restored sourced causes in `results/tables/P3-04_depeg_case_table.csv` and `results/figures/P3-04_depeg_cases.png`; kept descriptive framing
 - 2026-11-02, agent for Renzo (review fixes, on Felipe's behalf, agreed by Renzo): title and claim rewritten as description (no "confirms"/"proving"); SVB in hourly closes with D-13 timing; case causes marked unsourced in the table (kept as leads); category 4 renamed pending a delisting source
 - 2026-11-02, Renzo (review, P3-04): reproduces with the v2 events. Requested: sources for each case's mechanism (none in sources.md); title/claim as description, not "confirm"/"proving" (n = 2/7/1/2, categories assigned after the fact); USDP delisting still [verify] (tasks/P3-04 → Handoff)
 - 2026-11-02, Felipe (Economist): created (exploratory) following execution of P3-04, incorporating the 11-event v2 screen, pre-committed KM threshold gate check ($11 < 12$), SVB weekend Bitstamp timeline, and 4-category comparative taxonomy.

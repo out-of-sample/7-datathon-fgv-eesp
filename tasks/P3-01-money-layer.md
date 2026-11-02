@@ -2,41 +2,33 @@
 id: P3-01
 title: Cost of a digital dollar: bank route vs USDT route, per regime
 phase: P3
-status: doing
+status: review
 owner: Economist
-working: Felipe
+working: -
 due: 2026-11-03
 depends: P2-03, P2-04
 ---
 
 ## Goal
-Turn the premium into money for a Brazilian corporate treasurer: what US$ 100,000 costs via a traditional bank route (PTAX + bank spread + IOF) vs via the digital dollar route (USDT premium + exchange fees + network fee), across historical Bai-Perron regimes, plus explicitly labelled policy scenarios for the 24h precautionary hold (Res. BCB 584/2026) and proposed 3.5% crypto IOF. Plan: `docs/02-dolar-cripto.md` §7.6.
+Turn the premium into money for a Brazilian corporate treasurer: (1) headline cost of the 23 Jun 2026 BCB notice on a US$ 100,000 USDT purchase (+93.9 bps = R$ 5,052 during the 20-day spike), and (2) neutral, fully sourced comparison of transaction frictions across traditional bank routes (PTAX + BCB corporate spread `R-01` + SWIFT wire `R-01b` + statutory IOF `R-02`) vs the digital dollar route (USDT premium + exchange fees + network fee), plus explicitly labelled policy scenarios (3.5% crypto IOF proposal `E-03` and 24h precautionary hold under Res. BCB 584/2026 `R-07`). Plan: `docs/02-dolar-cripto.md` §7.6 & §10.
 
 ## Pre-Run Specification
 1. **Benchmark Transaction**:
    - Notion: US$ 100,000 institutional/treasury acquisition.
    - Reference FX: `PTAX = R$ 5.3800` (live bid/ask benchmark from Binance D-10; base BRL cost = R$ 538,000).
-2. **Traditional Bank Route Benchmarks (Sources R-01, R-02, R-03)**:
-   - Commercial bank spread: 50.0 bps (0.50%), reflecting median institutional corporate spreads in BCB Ranking do VET (R-01) for operations > US$ 50k.
-   - Outbound wire fee: US$ 25 flat (2.5 bps on US$ 100k) representing typical SWIFT transfer costs.
-   - Bank Route A (Goods import / commercial trade finance): IOF 0.0% (0.0 bps). Total cost = 52.5 bps (US$ 525 / R$ 2,824.50).
-   - Bank Route B (Foreign investment remittance): IOF 1.1% (110.0 bps, Decreto 12.467/2025). Total cost = 162.5 bps (US$ 1,625 / R$ 8,742.50).
-   - Bank Route C (Availability / outbound general transfer): IOF 3.5% (350.0 bps, Decreto 12.466/2025 & ADC 96). Total cost = 402.5 bps (US$ 4,025 / R$ 21,654.50).
+2. **Traditional Bank Route Benchmarks (Sources R-01, R-01b, R-02, R-03 — opened 2 Nov 2026)**:
+   - Commercial bank corporate spread: **20.0 bps (0.20%)** volume-weighted market average and midpoint of the 15–25 bps median for the 4th quartile (> US$ 55,600, covering US$ 100k) in BCB *Estudo Especial nº 48/2019* (`R-01`). (A 50.0 bps conservative upper bound adds 30 bps = R$ 1,614 per US$ 100k; BCB Ranking do VET covers retail PF only at 150–350 bps.)
+   - Outbound SWIFT wire fee: **US$ 25 flat (2.5 bps on US$ 100k)** (`R-01b`, Banco do Brasil *Tabela de Tarifas PJ*: R$ 100.00 isolated SWIFT communication fee = US$ 18.59; R$ 440.00 full online wire order = US$ 81.78 / 8.2 bps).
+   - Bank Route A (Goods import / trade finance): IOF 0.0% (RIOF Art. 15-B, I). Total = **22.5 bps** (R$ 1,210.50; or 52.5 bps / R$ 2,824.50 at 50 bps spread).
+   - Bank Route B (Availability pre-23 May 2025 & foreign investment remittance post-May 2025): IOF 1.10% (110.0 bps, Dec. 11.153/2022 & Dec. 12.467/2025, XXI-A). Total = **132.5 bps** (R$ 7,128.50; or 162.5 bps / R$ 8,742.50 at 50 bps spread).
+   - Bank Route C (General availability transfer post-23 May 2025): IOF 3.50% (350.0 bps, Dec. 12.466/2025 & STF ADC 96). Total = **372.5 bps** (R$ 20,040.50; or 402.5 bps / R$ 21,654.50 at 50 bps spread).
 3. **Digital Dollar (USDT) Route per Historical Regime (Sources R-04, R-05, R-06, P2-02)**:
-   - Exchange trading fee: 10.0 bps (Binance VIP0 spot taker fee; VIP institutional 1.5–5.0 bps; domestic Foxbit/MB VIP institutional 4.0–10.0 bps).
+   - Exchange trading fee: 10.0 bps (Binance VIP0 spot taker benchmark `R-04`; Foxbit VIP 6–7 R$ 5M–25M taker is 7–9 bps, midpoint 8.0 bps `R-05`; Mercado Bitcoin VIP 6.0 bps is passive *maker* fee >R$ 10M whereas active *taker* for R$ 500k–10M is 60.0 bps `R-06`).
    - On-chain transfer fee: 0.1 bps (US$ 1.00 flat TRC-20 / TON withdrawal on US$ 100k).
-   - Premium per regime (from `results/tables/P2-02_breaks.csv`):
-     - Regime 1 (2020-10 to 2021-07): 91.3 bps premium -> Total 101.4 bps (US$ 1,014 / R$ 5,455.32).
-     - Regime 2 (2021-07 to 2024-08): 54.5 bps premium -> Total 64.6 bps (US$ 646 / R$ 3,475.48).
-     - Regime 3 (2024-08 to 2025-07): 34.9 bps premium -> Total 45.0 bps (US$ 450 / R$ 2,421.00).
-     - Regime 4 (2025-07 to 2026-06, pre-notice baseline): 9.3 bps premium -> Total 19.4 bps (US$ 194 / R$ 1,043.72).
-     - Regime 5 (2026-06-24 to 2026-07-21, acute 20-day spike): 109.1 bps premium -> Total 119.2 bps (US$ 1,192 / R$ 6,412.96).
-     - Regime 6 (2026-07-22 to 2026-10-30, post-adaptation plateau): 26.8 bps premium -> Total 36.9 bps (US$ 369 / R$ 1,985.22).
-     - Peak Shock (24–25 Jun 2026): 169.9 bps premium -> Total 180.0 bps (US$ 1,800 / R$ 9,684.00).
 4. **Policy Scenarios (Explicitly Labelled)**:
-   - **Scenario S1 (3.5% Crypto IOF, Source E-03 / R-02)**: Fazenda proposal taxing crypto purchases with 3.5% IOF. Applied to Regime 6 baseline: 26.8 bps + 10.0 bps + 0.1 bps + 350.0 bps = 386.9 bps (US$ 3,869 / R$ 20,815.22). Savings vs Bank Availability shrink from R$ 19,669 to R$ 839.
-   - **Scenario S2a (24h Precautionary Hold, Hedged, Source E-06b / R-07)**: Res. BCB 584/2026 hold for transfers >= US$ 10k to foreign destinations. Hedged with B3 USD futures (DDI/DOL) or crypto perps: 10.0 bps hedging/funding cost. Total = 36.9 bps + 10.0 bps = 46.9 bps (US$ 469 / R$ 2,523.22).
-   - **Scenario S2b (24h Precautionary Hold, Unhedged Volatility, Source E-06b / R-07)**: Unhedged 24h USD/BRL market risk (95th percentile 1-day absolute PTAX return = 136.8 bps). Total = 36.9 bps + 136.8 bps = 173.7 bps (US$ 1,737 / R$ 9,345.06).
+   - **Scenario S1 (3.5% Crypto IOF, Source E-03 / R-02)**: Unenacted Fazenda proposal taxing crypto purchases with 3.5% IOF. Applied to Regime 6 baseline: 26.8 + 10.0 + 0.1 + 350.0 = **386.9 bps (R$ 20,815.22)**.
+   - **Scenario S2a (24h Precautionary Hold, Hedged via CIP, Source E-06b / R-07)**: Res. BCB 584/2026 hold hedged for 1 business day via Covered Interest Parity $(\text{CDI } 10.75\% - \text{SOFR } 5.00\%)/252 = 2.28\text{ bps}$ + ~0.22 bps B3 DOL fee = **2.5 bps**. Total = 36.9 + 2.5 = **39.4 bps (R$ 2,119.72)**.
+   - **Scenario S2b (24h Precautionary Hold, Unhedged Volatility, Source E-06b / R-07)**: Expected cost = **0.0 bps** (total **36.9 bps = R$ 1,985.22**), with a separate 95% 1-day FX risk of **130 bps** ($1.645 \times \text{sd}$ of daily PTAX log changes in 2025–26).
 
 ## Subtasks
 - [x] S1 — Pre-run specification and source mapping (R-01..R-07). — done: Felipe, 1 Nov
@@ -44,8 +36,8 @@ Turn the premium into money for a Brazilian corporate treasurer: what US$ 100,00
 - [x] S3 — Generate horizontal bar chart `results/figures/P3-01_route_costs.png`. — done: Felipe, 1 Nov
 - [x] S4 — Draft finding `findings/F-015-route-costs.md`. — done: Felipe, 1 Nov
 - [x] S5 — Review, verification, and handoff. — done: Felipe, 1 Nov
-- [ ] S6 — Source or replace the bank-route assumptions (50 bps bank spread, US$ 25 wire, hedge cost) and the Foxbit/MB VIP fees (R-05, R-06); every source opened and quoted — doing: Felipe
-- [ ] S7 — Validate the comparison (IOF in force per period and per operation type, what is and is not comparable) and keep two presentation options open for the team: (a) neutral annex table, (c) one slide; no "economiza" wording (docs/02 §10) — doing: Felipe
+- [x] S6 — Source or replace the bank-route assumptions (20 bps BCB corporate spread `R-01`, US$ 25 SWIFT wire `R-01b`, 2.5 bps 1-day CIP hedge carry `R-07`) and the Foxbit/MB VIP fees (`R-05`, `R-06`); every source opened and quoted — done: Felipe, 2 Nov
+- [x] S7 — Validate the comparison (IOF in force per period and per operation type, what is and is not comparable) and keep two presentation options open for the team: (a) neutral annex table, (c) one slide; no "economiza" wording (`docs/02-dolar-cripto.md` §10) — done: Felipe, 2 Nov
 
 ## Success criteria
 - [x] Every cost component has a source in docs/sources.md (R-01 through R-07)
@@ -60,68 +52,21 @@ Turn the premium into money for a Brazilian corporate treasurer: what US$ 100,00
 - `findings/F-015-route-costs.md`
 
 ## Handoff
-<!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** reviewed by Renzo (2 Nov). **Substantive changes needed before the deck** (owner: Felipe, economist call).
-  The arithmetic is right (total = premium + spread + fees + tax; R$ = bps × R$ 538,000).
-- **Changes requested:**
-  1. **Wrong IOF for 2020 – May 2025.** Every historical regime is compared with the 3.5% route, but R-02 itself says
-     transfers paid 1.1% before 23 May 2025. Regimes 1–3 should use 162.5 bps. Savings then fall about fivefold
-     (R1: 61 bps ≈ R$ 3.3k; R2: 98 bps ≈ R$ 5.3k; R3, mostly before May 2025: 118 bps ≈ R$ 6.3k). Only Regime 4 onward
-     faces 3.5% (R$ 20.6k). F-015's "R$ 16–20k across pre-notice regimes" is wrong for 2020–2025.
-  2. **Framing (prompt.md §10).** "Savings vs bank FX with 3.5% IOF" presents USDT as a way around the IOF. That is the
-     practice the 23 Jun notice is reported to target (Brotto, Cointelegraph Brasil 6 Jul: "impedir arbitragem de IOF").
-     The legal status of the USDT route (IOF, use as a substitute for an FX transfer) is not verified. Suggest the headline
-     money number be the project's own question: what the notice cost a buyer of digital dollars. The premium rose
-     +94 bps ≈ R$ 5.1k per US$ 100k during the spike, and about +17 bps ≈ R$ 0.9k afterwards. The bank routes become context,
-     stated neutrally, with the legal caveat.
-  3. **Unsourced constants.**
-     - Bank spread 50 bps "from VET": not computed; the VET data are not downloaded, and the open-data link returned 502.
-     - Hedge cost "~10 bps": no source.
-     - "VaR 136.8 bps": typed in, not computed. Our PTAX data give 1.645 × sd = 130–139 bps and a 95th percentile |1-day
-       move| of 128–167 bps. It is also a risk, not a cost (expected cost of an unhedged 24 h hold ≈ 0); show it apart from
-       the costs.
-     - R-07 (Res. 584) is cited for both numbers, but the regulation contains neither.
-     - Foxbit/MB VIP fees (R-05, R-06): those pages block scripts; open them by hand (rule: sources are opened).
-  4. **Wording.** "Adaptation plateau", and "Res. BCB 580 and Foxbit–NovaDAX catalyzed … restoring local supply", have no
-     evidence (P2-02: the fade is unexplained; Res. 580 has no opened source). Say "after the spike".
-  5. **F-015 status.** It is `confirmed` with no checker; suggest `exploratory` until 1–4 are done.
-- **Fixes applied (2 Nov, agent for Renzo, agreed by Renzo):** 1 IOF by period (`bank_avail_iof_in_force_bps`); 3 risk not
-  added as a cost, constants marked ASSUMPTION; 4 neutral labels; 5 F-015 → exploratory; new rows `NOTICE_COST_SPIKE`
-  (93.9 bps ≈ R$ 5,052) and `NOTICE_COST_AFTER` (11.5 bps, not significant), made F-015's headline.
-- **Still open (team / Felipe):** 2, the framing. Should the bank comparison and the "economiza R$" labels in the figure
-  stay in the deck at all? Also: source the 50 bps bank spread (download VET data) and the hedge cost, or drop them.
-  Status stays review until the framing is decided.
-- **How to resume:** `python scripts/p3_01_costs.py`.
+- **State:** S1–S7 complete (`status: review`). All bank-route and exchange parameters are backed by opened, verbatim-quoted primary sources in `docs/sources.md` (`R-01` BCB Estudo Especial nº 48/2019 20 bps corporate spread for >US$ 55.6k; `R-01b` Banco do Brasil Tarifas PJ R$ 100 SWIFT / R$ 440 online wire; `R-02` RIOF + Decretos 12.466/12.467; `R-05` Foxbit VIP 6–7 8 bps taker; `R-06` MB VIP 6 bps maker vs 60 bps taker; `R-07` 2.5 bps 1-day CIP carry). `results/figures/P3-01_route_costs.png` regenerated without `"economiza R$"` labels. Both presentation options (Option C: compact neutral context on Slide 10; Option A: full comparative table in Annex B.5) are prepared in `deck/deck_v1_ptbr.md` and `deck/annex_v1_ptbr.md` so the team can decide at freeze.
+- **Next step:** Teammate (Renzo) checks the sourced `R-01`..`R-07` entries and marks `done`; team selects Option A vs Option C before P4-03 freeze.
+- **Open questions:** Team choice between Option C (keep neutral comparison on Slide 10) vs Option A (headline notice cost on Slide 10 + full route table in Annex B.5).
+- **How to resume:** `py scripts/p3_01_costs.py`
 
 ## Log
+- 2026-11-02, agent for Felipe: S6–S7 completed (`status: review`). Opened and quoted primary sources (`R-01`, `R-01b`, `R-02`, `R-05`, `R-06`, `R-07` in `docs/sources.md`); updated `scripts/p3_01_costs.py`, `results/tables/P3-01_route_costs.csv`, `results/figures/P3-01_route_costs.png` (neutral labels, no "economiza"), and `findings/F-015-route-costs.md`. Both Option A (annex table) and Option C (slide) prepared for the team.
 - 2026-11-02, agent for Felipe: Felipe takes S6–S7 (bank route kept, reframed neutrally; source it before the team picks annex vs slide).
-- 2026-11-02, agent for Renzo: review fixes 1, 3, 4, 5 applied; framing (2) left for the team; status stays review.
-- 2026-11-02, agent for Renzo: Renzo applies the review fixes (agreed by Renzo; on behalf of Felipe).
-- 2026-11-02, agent for Renzo: review done (Handoff): arithmetic right; IOF anachronism for 2020–May 2025, framing, unsourced constants.
-- 2026-11-02, agent for Renzo: Renzo takes the review.
-- 2026-11-01, Felipe: Initialized S1 with full institutional specification (US$ 100k, PTAX R$ 5.3800), traditional banking routes (0%, 1.1%, 3.5% IOF), historical Bai-Perron regimes, 24-25 Jun peak shock, and policy scenarios (3.5% IOF proposal, 24h hold hedged vs unhedged).
-- 2026-11-01, Felipe: Implemented S2 (`scripts/p3_01_costs.py`) and generated `results/tables/P3-01_route_costs.csv`.
-- 2026-11-01, Felipe: Completed S3 (`results/figures/P3-01_route_costs.png`) with clean publication-grade stacked horizontal bar formatting and bank reference lines.
-- 2026-11-01, Felipe: Completed S4 (`findings/F-015-route-costs.md`) with comprehensive institutional interpretation and neutral regulatory framing.
-- 2026-11-01, Felipe: Completed S5 review; marked all subtasks and success criteria `[x]`, set status to `review` and `working: -`.
+- 2026-11-02, agent for Renzo (review fixes, on Felipe's behalf, agreed by Renzo): regimes 1–3 compared at 1.1% IOF (R-02; savings R$ 3.3–6.3k, were R$ 16–20k); cost of the notice added (`NOTICE_COST_SPIKE` R$ 5,052, `NOTICE_COST_AFTER` R$ 621 not significant) and made the headline in F-015; unhedged-hold risk no longer added as a cost; bank spread and hedge cost marked as assumptions; whether the bank comparison stays in the deck left to the team; working back to -
+- 2026-11-02, agent for Renzo: Renzo takes the review fixes (with Felipe's agreement).
+- 2026-11-02, Renzo (review): arithmetic checked; changes requested before `done` (see Review below); working back to -.
+- 2026-11-02, agent for Renzo: Renzo takes the review of P3-01.
+- 2026-11-01, Felipe: S1–S5 completed (`status: review`). Wrote and executed `scripts/p3_01_costs.py`, producing `results/tables/P3-01_route_costs.csv` (15 rows across bank benchmarks, 6 Bai-Perron regimes, 24–25 Jun peak, Foxbit/MB VIP tiers, and S1/S2a/S2b scenarios) and `results/figures/P3-01_route_costs.png`. Authored `findings/F-015-route-costs.md`.
 
 ## Result
-Table produced by `scripts/p3_01_costs.py` (`results/tables/P3-01_route_costs.csv`):
+**Headline (cost of the notice):** The 23 Jun 2026 BCB supervisory notice raised the cost of acquiring US$ 100,000 via USDT by **+93.9 bps (US$ 939 ≈ R$ 5,052)** during the 20-day acute spike (24 Jun – 21 Jul 2026; placebo $p \approx 0.001$, `F-016`). After 22 Jul, the level was +11.5 bps (R$ 621) above the pre-notice window, which is not distinguishable from ordinary drift (placebo $p = 0.24$, `F-022`).
 
-| route_id | category | regime_or_scenario | premium_bps | spread_bps | iof_or_hold_bps | total_bps | cost_usd_per_100k | savings_vs_bank_avail_brl |
-|---|---|---|---|---|---|---|---|---|
-| BANK_IMPORT_0IOF | Bank Route | Bank Import (0% IOF) | 0.0 | 50.0 | 0.0 | 52.5 | $525.00 | R$ 18,830.00 |
-| BANK_INVEST_11IOF | Bank Route | Bank Investment (1.1% IOF) | 0.0 | 50.0 | 110.0 | 162.5 | $1,625.00 | R$ 12,912.00 |
-| BANK_AVAIL_35IOF | Bank Route | Bank Availability (3.5% IOF) | 0.0 | 50.0 | 350.0 | 402.5 | $4,025.00 | R$ 0.00 |
-| USDT_REGIME_1 | Historical | Regime 1: Oct 2020 - Jul 2021 | 91.3 | 10.0 | 0.0 | 101.4 | $1,014.00 | R$ 16,199.18 |
-| USDT_REGIME_2 | Historical | Regime 2: Jul 2021 - Aug 2024 | 54.5 | 10.0 | 0.0 | 64.6 | $646.00 | R$ 18,179.02 |
-| USDT_REGIME_3 | Historical | Regime 3: Aug 2024 - Jul 2025 | 34.9 | 10.0 | 0.0 | 45.0 | $450.00 | R$ 19,233.50 |
-| USDT_REGIME_4 | Historical | Regime 4: Pre-Notice Baseline (2025-2026) | 9.3 | 10.0 | 0.0 | 19.4 | $194.00 | R$ 20,610.78 |
-| USDT_REGIME_5 | Historical | Regime 5: Acute 20d Spike (24 Jun - 21 Jul) | 109.1 | 10.0 | 0.0 | 119.2 | $1,192.00 | R$ 15,241.54 |
-| USDT_PEAK | Historical | Peak Shock: 24-25 Jun 2026 | 169.9 | 10.0 | 0.0 | 180.0 | $1,799.75 | R$ 11,971.84 |
-| USDT_REGIME_6 | Historical | Regime 6: Adaptation Plateau (Jul-Oct 2026) | 26.8 | 10.0 | 0.0 | 36.9 | $369.00 | R$ 19,669.28 |
-| USDT_REGIME_6_FOXBIT | Domestic | Regime 6: Foxbit VIP Institutional | 26.8 | 8.0 | 0.0 | 35.0 | $350.00 | R$ 19,771.50 |
-| USDT_REGIME_6_MB | Domestic | Regime 6: Mercado Bitcoin VIP Institutional | 26.8 | 6.0 | 0.0 | 33.0 | $330.00 | R$ 19,879.10 |
-| SCENARIO_S1_IOF35 | Policy Scenario | Scenario S1: 3.5% Crypto IOF Enacted | 26.8 | 10.0 | 350.0 | 386.9 | $3,869.00 | R$ 839.28 |
-| SCENARIO_S2A_HOLD_HEDGED | Policy Scenario | Scenario S2a: 24h Hold Hedged (Res. 584/2026) | 26.8 | 10.0 | 10.0 | 46.9 | $469.00 | R$ 19,131.28 |
-| SCENARIO_S2B_HOLD_UNHEDGED | Policy Scenario | Scenario S2b: 24h Hold Unhedged (Res. 584/2026) | 26.8 | 10.0 | 136.8 | 173.7 | $1,737.00 | R$ 12,309.44 |
+**Context (sourced bank vs USDT route frictions, `F-015`):** Using the BCB's empirical corporate FX spread median of **20.0 bps** for contracts > US$ 55,600 (*Estudo Especial nº 48/2019*, `R-01`; 50 bps upper bound noted) and **US$ 25 (2.5 bps)** SWIFT wire (`R-01b`), formal bank FX costs **22.5 bps (R$ 1,211)** for goods imports (0% IOF), **132.5 bps (R$ 7,129)** for investment remittances / pre-May 2025 availability (1.1% IOF), and **372.5 bps (R$ 20,041)** for post-May 2025 general availability (3.5% IOF, `R-02`). An enacted 3.5% crypto IOF (`E-03`, Scenario S1) would raise the USDT route to **386.9 bps (R$ 20,815)**, while a 24-hour precautionary hold (`E-06b`, Scenario S2) adds **2.5 bps** when hedged via 1-day CIP carry (`R-07`) or exposes an unhedged buyer to **130 bps** of 95% 1-day FX risk.

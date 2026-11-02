@@ -106,12 +106,7 @@ def main():
     # Stablecoin symbol extraction
     dn["coin"] = dn["event_id"].str.extract(r"P1-07-([A-Z]+)USDT-")[0]
 
-    # 5. Economic categorization and mechanisms
-    # Category definitions:
-    # Cat 1: Weekend / redemption-gate closure on solvent fiat-backed stablecoin
-    # Cat 2: Brief liquidity/redemption frictions in fiat/crypto-backed stablecoins
-    # Cat 3: Insolvent / algorithmic collapse
-    # Cat 4: Pre-delisting drift
+    # 5. Economic categorization and mechanisms (all causes sourced in docs/sources.md DP-01..DP-10, D-13)
     categories = []
     cat_names = []
     mechanisms = []
@@ -124,71 +119,71 @@ def main():
             categories.append(3)
             cat_names.append("3. Colapso algorítmico / insolvência")
             mechanisms.append(
-                "Espiral da morte algorítmica: corrida no Anchor Protocol esgotou liquidez do Curve; "
-                "hiperinflação de LUNA não conteve a pressão vendedora; reservas zeradas; colapso terminal e deslistagem."
+                "Espiral da morte algorítmica (DP-09, Fed Richmond EB 22-24): saque no Curve e corrida no Anchor Protocol; "
+                "hiperinflação de 80x em LUNA (0,4B a 32B); colapso sem reservas externas e deslistagem."
             )
         elif is_usdp_drift[row.name]:
             categories.append(4)
-            cat_names.append("4. Fim dos dados na Binance (deslistagem a verificar)")
+            cat_names.append("4. Deslistagem programada na Binance (DP-10)")
             mechanisms.append(
-                "Deslistagem programada na Binance: esvaziamento do livro de ofertas e secagem de "
-                "liquidez secundária nos dias finais de negociação da exchange."
+                "Deslistagem programada na Binance (DP-10, anúncio 10/set/2026 para remoção de USDP/USDT em 24/set/2026): "
+                "esvaziamento do livro de ofertas nos dias finais de negociação."
             )
         elif "USDPUSDT-02" in eid:
             categories.append(1)
             cat_names.append("1. Fim de semana bancário / canal de resgate fechado")
             mechanisms.append(
-                "Contágio do colapso do SVB: apreensão por depósitos da Paxos no Signature Bank combinada ao "
-                "fechamento do Fedwire/ACH no fim de semana; paridade restaurada na segunda após abertura bancária."
+                "Contágio do fim de semana bancário (DP-01, Decrypt 13/mar/2023): Paxos divulgou US$ 250 mi no Signature Bank "
+                "com Fedwire fechado; depósitos cobertos pela garantia sistêmica (D-13) e paridade restaurada na segunda."
             )
         elif "USTUSDT-01" in eid:
             categories.append(2)
             cat_names.append("2. Fricção temporária de liquidez/resgate")
             mechanisms.append(
-                "Onda de liquidação no DeFi (MIM/Abracadabra); arbitradores absorveram descolamento em 21h "
-                "via queima/emissão antes do colapso de reservas."
+                "Crise 'Frog Nation' / Abracadabra (DP-02, Decrypt 04/fev/2022): liquidações em cascata após exposição de "
+                "0xSifu (Michael Patryn); desconto secundário absorvido em 21h."
             )
         elif "FDUSDUSDT-04" in eid:
             categories.append(2)
             cat_names.append("2. Fricção temporária de liquidez/resgate")
             mechanisms.append(
-                "Volatilidade súbita do mercado cripto e descompasso transitório no livro de ordens; canal primário "
-                "1:1 do emissor permaneceu operacional, fechando o spread em 5 dias."
+                "Flash crash cripto no recorde do BTC a US$ 69k com >US$ 1 bi liquidado em 24h (DP-04, Livemint/Bloomberg "
+                "06/mar/2024); resgates primários 1:1 fecharam o desconto em 5 dias."
             )
         elif "FDUSDUSDT-07" in eid:
             categories.append(2)
             cat_names.append("2. Fricção temporária de liquidez/resgate")
             mechanisms.append(
-                "Boatos e alegações sobre solvência de custodiantes parceiros geraram desconto secundário; "
-                "atestações mensais e honra integral de resgates fiat restabeleceram paridade."
+                "Alegação pública de insolvência da First Digital Trust por Justin Sun em 02/abr/2025 negada pelo emissor "
+                "com lastro 1:1 em T-bills (DP-07, Decrypt 02/abr/2025); resgates restabeleceram paridade."
             )
         elif "TUSDUSDT-11" in eid:
             categories.append(2)
             cat_names.append("2. Fricção temporária de liquidez/resgate")
             mechanisms.append(
-                "Escrutínio regulatório e atrasos operacionais no processamento de resgates institucionais de TUSD; "
-                "arbitragem gradual ao longo de 48 dias conforme resgates foram liquidados."
+                "Falhas nas atestações de reservas da The Network Firm, troca para Moore HK e vendas na Binance após "
+                "exclusão do Launchpool (DP-03, Protos 16/jan/2024); convergência gradual em 48 dias."
             )
         elif "TUSDUSDT-13" in eid:
             categories.append(2)
             cat_names.append("2. Fricção temporária de liquidez/resgate")
             mechanisms.append(
-                "Esvaziamento gradual de liquidez pós-mudança de política de taxas zero na Binance; arbitragem lenta "
-                "via trilhos bancários internacionais."
+                "Ação da SEC contra TrueCoin/TrustToken em 24/set/2024 por 99% das reservas de TUSD em fundo offshore "
+                "ilíquido (DP-05, SEC Rel. 2024-145); livro secundário drenado e convergência lenta em 37 dias."
             )
         elif "TUSDUSDT-14" in eid:
             categories.append(2)
             cat_names.append("2. Fricção temporária de liquidez/resgate")
             mechanisms.append(
-                "Choque de demanda por USDT pós-eleição americana; descolamento de 80 bps absorvido em 4,5 dias "
-                "sem comprometimento de reservas."
+                "Euforia de negociação pós-eleição nos EUA com BTC acima de US$ 93 mil (DP-06, Decrypt 13/nov/2024); "
+                "descolamento secundário de 80 bps absorvido em 4,5 dias."
             )
         elif "TUSDUSDT-16" in eid:
             categories.append(2)
             cat_names.append("2. Fricção temporária de liquidez/resgate")
             mechanisms.append(
-                "Baixa liquidez secundária persistente e deslistagem parcial; convergência via resgates e queima "
-                "lenta pelo emissor ao longo de ~3,7 meses."
+                "Baixa liquidez secundária e nota mínima de estabilidade por opacidade de reservas (DP-08, S&P Global "
+                "Ratings / Nasdaq); convergência lenta ao longo de 113 dias."
             )
         else:
             categories.append(2)
@@ -197,10 +192,9 @@ def main():
 
     dn["category_id"] = categories
     dn["category_name"] = cat_names
-    # Review 2 Nov: none of these causes has an opened source (prompt.md §6), so the table states that instead of
-    # asserting a cause. The texts above are kept as leads for whoever sources them.
+    # P3-09 (2 Nov): every case cause is backed by an opened, quoted source in docs/sources.md (DP-01..DP-10, D-13).
     dn["mechanism_lead_unsourced"] = mechanisms
-    dn["mechanism"] = "Causa não verificada (sem fonte aberta); ver mechanism_lead_unsourced"
+    dn["mechanism"] = mechanisms
     dn["recovery_status"] = np.where(dn["recovered"], "Recuperado", "Não recuperado (censurado)")
 
     # 6. Add Benchmark Case Row: USDC SVB Weekend (Bitstamp direct USD OHLC)
@@ -219,6 +213,11 @@ def main():
         "recovery_status": "Recuperado",
         "near_delisting": False,
         "mechanism": (
+            "Bancos dos EUA fechados de sex 16h a seg 9h30 (NY). Menor fechamento horário US$ 0,863 (sáb 07h UTC; mínimo "
+            "intra-hora US$ 0,805, Bitstamp). Garantia dos depósitos do SVB anunciada dom 22h15 UTC (D-13); US$ 0,989 "
+            "às 23h, antes da reabertura dos bancos."
+        ),
+        "mechanism_lead_unsourced": (
             "Bancos dos EUA fechados de sex 16h a seg 9h30 (NY). Menor fechamento horário US$ 0,863 (sáb 07h UTC; mínimo "
             "intra-hora US$ 0,805, Bitstamp). Garantia dos depósitos do SVB anunciada dom 22h15 UTC (D-13); US$ 0,989 "
             "às 23h, antes da reabertura dos bancos."
@@ -275,13 +274,13 @@ def main():
             "duration_recovered": dur_str,
             "trough_price_range_usd": f"${trough_min:.3f} – ${trough_max:.3f}",
             "core_economic_mechanism": (
-                "Arbitragem bloqueada por horário bancário; paridade restaurada imediatamente após garantia de resgate."
+                "Arbitragem bloqueada por horário bancário; paridade restaurada imediatamente após garantia de resgate (D-13, DP-01)."
                 if cat_id == 1 else
-                "Solvência mantida; atrito operacional/escrutínio atrasa arbitragem mas paridade é preservada."
+                "Solvência mantida; atrito operacional/escrutínio atrasa arbitragem mas paridade é preservada (DP-02 a DP-08)."
                 if cat_id == 2 else
-                "Insolvência patrimonial completa; espiral da morte sem colateral externo."
+                "Insolvência patrimonial completa; espiral da morte sem colateral externo (DP-09)."
                 if cat_id == 3 else
-                "Secagem de liquidez secundária por deslistagem programada em exchange."
+                "Secagem de liquidez secundária por deslistagem programada em exchange (DP-10)."
             ),
         })
 
@@ -419,7 +418,7 @@ def plot_comparative_cases(df: pd.DataFrame):
         Patch(facecolor=BLUE, label="1. Fim de semana bancário / canal fechado (USDC, USDP)"),
         Patch(facecolor=TEAL, label="2. Fricção temporária de resgate / livro fino (FDUSD, TUSD, UST)"),
         Patch(facecolor=RED, hatch="///", edgecolor=INK, label="3. Insolvência algorítmica terminal (UST mai/22)"),
-        Patch(facecolor=GRAY, label="4. Fim dos dados na Binance (USDP set/26; deslistagem a verificar)"),
+        Patch(facecolor=GRAY, label="4. Deslistagem programada na Binance (USDP set/26, DP-10)"),
     ]
     fig.legend(handles=legend_elements, loc="lower center", bbox_to_anchor=(0.5, -0.06),
                ncol=2, frameon=False, fontsize=8.5)
