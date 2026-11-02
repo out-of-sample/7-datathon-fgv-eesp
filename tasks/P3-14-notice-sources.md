@@ -1,5 +1,5 @@
 ---
-id: P3-09
+id: P3-14
 title: Every source on the 23 Jun 2026 BCB notice, opened and registered
 phase: P3
 status: review
@@ -31,7 +31,7 @@ deck can say exactly what is known about the notice and from whom. Plan: `docs/0
 
 ## Outputs
 - `docs/sources.md` (E-05 row, table "E-05: every source found", E-10 Res. 580, D-16), `data/processed/P1-04_events_brazil.csv`
-  (E-05 description and source), `scripts/p3_09_press_check.py`, `results/tables/P3-09_press_vs_series.csv`, F-023
+  (E-05 description and source), `scripts/p3_14_press_check.py`, `results/tables/P3-14_press_vs_series.csv`, F-023
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
@@ -43,9 +43,10 @@ deck can say exactly what is known about the notice and from whom. Plan: `docs/0
   (it would add one row to the P2-03 table; prudential rules only apply from 2027).
 - **Open questions:** the decree behind the zero IOF for funds (Decreto 6.306/2007, art. 15-B, III) is cited by E-05.10
   but not opened.
-- **How to resume:** `python scripts/p3_09_press_check.py`; sources in `docs/sources.md` → "E-05: every source found".
+- **How to resume:** `python scripts/p3_14_press_check.py`; sources in `docs/sources.md` → "E-05: every source found".
 
 ## Log
+- 2026-11-02, agent for Renzo: renumbered from P3-09 (Felipe's depeg-sources task took P3-09 first on main); files and references renamed. Commits before this one say P3-09.
 - 2026-11-02, agent for Renzo: S1–S3 done: 10 sources registered with verified quotes, E-10 and D-16 added, F-023 written; status review.
 - 2026-11-02, agent for Renzo: created (plan `docs/06-so-what.md`); Renzo takes S1.
 

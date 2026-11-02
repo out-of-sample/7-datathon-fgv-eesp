@@ -2,7 +2,7 @@
 id: F-023
 title: Two outlets saw the 23 Jun notice (or an excerpt) the next days, the BCB confirmed its position in writing, and the price moves they reported match our premium series
 status: exploratory
-task: P3-09
+task: P3-14
 date: 2026-11-02
 checked_by: -
 ---
@@ -41,7 +41,7 @@ not only by later opinion pieces. The price moves the press reported (about 0.1%
 | Tue 30 Jun | 116 | 134 | 178 | 131 |
 
   Pre-notice level (mean of the 20 PTAX days to 22 Jun): 15.2 bps.
-- Reproduce: `python scripts/p3_09_press_check.py` → `results/tables/P3-09_press_vs_series.csv`.
+- Reproduce: `python scripts/p3_14_press_check.py` → `results/tables/P3-14_press_vs_series.csv`.
 
 ## Caveats
 - The BCB's full text has not been seen; what we know of its content comes from E-05.1, E-05.2 (excerpt) and the LAI
@@ -56,4 +56,4 @@ not only by later opinion pieces. The price moves the press reported (about 0.1%
 Not yet (candidate: the "notice and its sources" slide).
 
 ## History
-- 2026-11-02, agent for Renzo: created (P3-09 sweep). Exame 25 Jun was first pointed out by another agent's review.
+- 2026-11-02, agent for Renzo: created (P3-14 sweep). Exame 25 Jun was first pointed out by another agent's review.

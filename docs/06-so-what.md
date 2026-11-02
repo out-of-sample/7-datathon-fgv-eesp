@@ -1,6 +1,6 @@
 # Plan — answering "so what?"
 
-**Status:** active since 2 Nov 2026 (Renzo). Tasks P3-09 to P3-13. Freeze is Wed 4 Nov, so every task here is
+**Status:** active since 2 Nov 2026 (Renzo). Tasks P3-10 to P3-14. Freeze is Wed 4 Nov, so every task here is
 small and has a stop rule.
 
 ## The problem
@@ -10,10 +10,10 @@ notice; the lasting effect is not distinguishable from noise (F-016, F-022). A j
 We cannot make the effect bigger. We can show what it means: how much money it moved, which rules matter, what
 mechanism produced it, and what to watch next.
 
-## Step 0 — the notice itself (P3-09)
+## Step 0 — the notice itself (P3-14)
 
 Our account of the notice rests on two opinion pieces and a LAI answer (E-05). A contemporaneous report exists
-(Cointelegraph Brasil, 24 Jun 2026: the notification was shared with the reporter). P3-09 sweeps for every
+(Cointelegraph Brasil, 24 Jun 2026: the notification was shared with the reporter). P3-14 sweeps for every
 report and official text about the notice, opens each one and adds it to `docs/sources.md` with a quote.
 
 ## The four answers
@@ -25,12 +25,12 @@ report and official text about the notice, opens each one and adds it to `docs/s
 | 2 | **Which rules matter.** A confidential notice moved the premium; published rules (IOF decree, Res. 561, Res. 584) did not | **P3-12** | P2-03 event table (no new analysis) | That only the rule that closed the channel arbitrageurs used moved the price | Whether "confidential" or "content" did it (they differ in both); effects below the ~25–37 bps detection limit |
 | 4 | **A tool and a dated prediction.** The monitor flags the jump the same day (F-014). We commit, before the final, what should happen when Res. 584's 24-hour hold starts on 1 Jan 2027 | **P3-13** | P3-03 monitor, P3-01 one-day FX risk | A falsifiable claim the jury can check later | Anything now: it is a scenario |
 
-Order: P3-09 and P3-10 first (they decide the story), then P3-11, P3-12, P3-13. The numbers in this table are
+Order: P3-14 and P3-10 first (they decide the story), then P3-11, P3-12, P3-13. The numbers in this table are
 rough sizing from 2 Nov; they become findings only through the tasks.
 
 ## Results so far (2 Nov)
 
-- **P3-09 (F-023):** the notice is documented by two outlets that had the document or an excerpt (Cointelegraph Brasil
+- **P3-14 (F-023):** the notice is documented by two outlets that had the document or an excerpt (Cointelegraph Brasil
   24 Jun, Exame 25 Jun) and by the BCB's own LAI answer; reported price moves match our series.
 - **P3-10 (F-024):** stablecoin purchases abroad fell 78% in July 2026 (beyond the normal range, p = 0.02) while the premium
   rose; they stayed at about a third of their earlier level through September while the premium fell back. The fade is
