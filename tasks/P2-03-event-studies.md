@@ -4,7 +4,7 @@ title: Before/after test for every dated rule, with placebo dates
 phase: P2
 status: review
 owner: CS 2
-working: -
+working: Renzo (review)
 due: 2026-11-02
 depends: P1-02, P1-04
 ---
@@ -35,6 +35,7 @@ The 23 Jun 2026 row is also the number the AI analysts (extension A) are compare
 - **How to resume:** Re-run `python scripts/p2_03_events.py`.
 
 ## Log
+- 2026-11-02, agent for Renzo: Renzo takes the review.
 - 2026-11-02, agent for Renzo (note for Felipe): P1-04 dates corrected: M-02 effective 13 Aug 2024 (the 20 Aug "DOU" date had no source); M-03 has no announcement date (N/A; the 19/20 Jun date had no source; effective 27 Jun 2025 confirmed in our data). Rows for M-02 "vigência 20 Aug" and M-03 "anúncio 20 Jun" (p = 0.014) rest on unsourced dates: please re-run P2-03 and update F-016 and the annex.
 - 2026-11-02, Felipe: Completed S1, S2, S3 in `scripts/p2_03_events.py`. Generated `results/tables/P2-03_event_table.csv`, `results/tables/P2-03_placebo_draws.csv`, `results/figures/P2-03_placebo_dist.png`, and `results/agentic/team_estimate.json`. Written `findings/F-016-event-studies-placebos.md`. Status -> review.
 - 2026-11-01, Felipe (Economist gate call): For the 23 Jun 2026 shock, report both the acute 20-day spike window ([+1, +20] trading days, 24 Jun – 21 Jul, ~109 bps) and the post-adaptation plateau ([+21, +60] trading days, 22 Jul – Oct, ~27 bps) separately. Within-Brazil placebo distribution (200 random dates) serves as primary statistical p-value. Event 23 Jun 2026 is framed as empirically confirmed break across 3 venues coinciding with reported BCB supervisory ofício (ConJur secondary source, not public DOU norm).
