@@ -1,0 +1,19 @@
+{
+  "run_id": "team_estimate",
+  "model": "team_out_of_sample",
+  "direction": "up",
+  "estimate_bps": 93.9,
+  "std_error_bps": 16.2,
+  "premium_definition": "USDTBRL_open / (PTAX_sell x USDTUSD_open) - 1, hourly mean in 13-16h UTC window, expressed in basis points",
+  "time_matching": "PTAX window: 4-hour window (10:00-13:00 BRT / 13:00-16:00 UTC) matching the BCB PTAX calculation window on trading days",
+  "usdt_usd_adjustment": true,
+  "window_pre_days": 20,
+  "window_post_days": 20,
+  "estimator": "difference in means (OLS with Newey-West HAC Bartlett kernel, maxlags=5)",
+  "controls": [],
+  "data_issues_found": [
+    "Binance USDC/USDT gap Sep 2022 - Mar 2023 filled with BUSD/USDT as documented in P1-02",
+    "2026-06-23 event day excluded from pre and post windows as transition day"
+  ],
+  "notes": "Pre-window: 25 May - 22 Jun 2026 (20 PTAX days, mean 15.2 bps); Post-window: 24 Jun - 21 Jul 2026 (20 PTAX days, mean 109.1 bps); Diff: +93.9 bps (t=5.80, p_param=6.44e-09, p_placebo=0.005, 100th percentile vs 200 placebos). Post-adaptation plateau (22 Jul - 16 Sep 2026, 40 PTAX days) mean 34.5 bps (+19.3 bps vs pre); full plateau through 30 Oct 2026 mean 26.8 bps (+11.5 bps vs pre). Pre-trend: [-40, -21] mean 7.0 bps vs [-20, -1] mean 15.2 bps (+8.3 bps drift as BCB monitoring mounted)."
+}
