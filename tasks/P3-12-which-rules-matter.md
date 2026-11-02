@@ -2,9 +2,9 @@
 id: P3-12
 title: So what (2) - which rules moved the premium (published rules vs the confidential notice)
 phase: P3
-status: todo
+status: doing
 owner: Economist
-working: -
+working: Renzo
 due: 2026-11-03
 depends: P2-03
 ---
@@ -40,6 +40,7 @@ answer 2.
 - **How to resume:** `results/tables/P2-03_event_table.csv`, column `p_placebo_all_clean_2s`.
 
 ## Log
+- 2026-11-02, agent for Renzo: Renzo takes P3-12 (owner Economist; asked by Renzo). Scope: the 8 rules (E-01 to E-06b); market events (E-07, M-01 to M-04) are not rules and stay out. Band = 2.5–97.5% of the 200 P2-03 placebo draws.
 - 2026-11-02, agent for Renzo: created (plan `docs/06-so-what.md`).
 
 ## Result

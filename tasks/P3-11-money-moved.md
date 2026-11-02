@@ -58,8 +58,8 @@ R$ 106 mn on Binance alone, on about R$ 16 bn traded.
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
 - **State:** done, in review (F-025). Headline R$ 106 mn on Binance (tariff equivalent 95 bps), R$ 145 mn on three
   exchanges, 24 Jun – 21 Jul 2026; range R$ 106–122 mn (Binance); no placebo month above R$ 35 mn (p = 0.005).
-- **Next step:** Felipe (deck owner) checks F-025 and the two pt-BR sentences in Result; decide Binance alone or three
-  exchanges as the slide number (spec says Binance alone).
+- **Next step:** Felipe (deck owner) checks F-025 and the pt-BR sentences in Result. Which number goes on the slide (Binance
+  alone or three exchanges) is deferred to slide building (decision log, 2 Nov).
 - **Open questions:** none for the computation. Decreto 6.306/2007 art. 15-B (zero IOF for funds) still to be opened if the
   slide uses the "quarter of the tax gap" comparison.
 - **How to resume:** `python scripts/p3_11_money.py`.

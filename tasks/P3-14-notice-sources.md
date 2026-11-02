@@ -39,8 +39,8 @@ deck can say exactly what is known about the notice and from whom. Plan: `docs/0
   the page text: two outlets had the document or an excerpt (Cointelegraph Brasil 24 Jun, Exame 25 Jun), the BCB's LAI
   answer gives its own words (29–30 Jul), plus follow-ups, market reports and opinion. Found along the way: Res. BCB 580
   (1 Jul 2026, E-10), not in the P1-04 event list. Reported price moves match our series (F-023).
-- **Next step:** a teammate (Felipe, P1-04 owner) checks the E-05 rows and decides whether E-10 joins the event list
-  (it would add one row to the P2-03 table; prudential rules only apply from 2027).
+- **Next step:** a teammate (Felipe, P1-04 owner) checks the E-05 rows. Whether E-10 joins the event list is deferred to
+  slide building (decision log, 2 Nov); until then it is a caveat in F-024.
 - **Open questions:** the decree behind the zero IOF for funds (Decreto 6.306/2007, art. 15-B, III) is cited by E-05.10
   but not opened.
 - **How to resume:** `python scripts/p3_14_press_check.py`; sources in `docs/sources.md` → "E-05: every source found".
