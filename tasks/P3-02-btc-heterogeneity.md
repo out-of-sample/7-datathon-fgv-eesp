@@ -2,9 +2,9 @@
 id: P3-02
 title: Did the 23 Jun notice also move the bitcoin premium?
 phase: P3
-status: review
+status: done
 owner: CS 1
-working: Renzo (applying review fixes)
+working: -
 due: 2026-11-03
 depends: P1-01, P2-03
 ---
@@ -44,10 +44,12 @@ Compute the BTC/BRL premium over BTCUSDT x PTAX and run the same before/after te
   2. Show only placebo p-values (the parametric p = 5.7 × 10⁻⁹ has the same problem as in P2-03).
   3. If the team wants a real heterogeneity test, it needs a price not tied by that arbitrage, e.g. BTC on a domestic
      venue against Binance's BTC/USDT. Optional, and only if time allows (P3 ends Tue 3 Nov).
-- **Next step:** Felipe edits F-018; then status → done.
+- **Fixes applied (2 Nov, agent for Renzo, agreed by Renzo):** F-018 title/claim/interpretation rewritten. Status done.
+- **Next step:** none (optional real heterogeneity test, item 3, only if time allows).
 - **How to resume:** `.venv/bin/python scripts/p3_02_btc.py`.
 
 ## Log
+- 2026-11-02, agent for Renzo: review fixes applied; status → done.
 - 2026-11-02, agent for Renzo: Renzo applies the review fixes (agreed by Renzo; on behalf of Felipe).
 - 2026-11-02, agent for Renzo: review done (Handoff): reproduces; lockstep is implied by triangular arbitrage (gap 0.36 bps), so F-018's interpretation must change; event table re-run with corrected P1-04 dates.
 - 2026-11-02, agent for Renzo: Renzo takes the review.

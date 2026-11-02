@@ -1,6 +1,6 @@
 ---
 id: F-018
-title: The 23 Jun 2026 BCB notice moved the Bitcoin premium in lockstep (+93.8 bps, p < 0.005), confirming market-wide import restrictions and frictionless triangular arbitrage
+title: The Bitcoin premium jumped by the same +93.8 bps on 24 Jun 2026, as triangular arbitrage on Binance requires; the test cannot tell a stablecoin-specific shock from a crypto-wide one
 status: exploratory
 task: P3-02
 date: 2026-11-02
@@ -8,7 +8,7 @@ checked_by: -
 ---
 
 ## Claim
-The 23 Jun 2026 BCB supervisory *ofício* (E-05) moved the Brazilian **Bitcoin premium** in virtually perfect lockstep with the digital dollar (USDT) premium:
+After the 23 Jun 2026 BCB notice (E-05), the Brazilian **Bitcoin premium** rose by the same amount as the USDT premium. This is what triangular arbitrage on Binance requires: BTC/BRL ÷ (BTC/USDT × USDT/BRL) stays within 0.4 bps of 1 (mean 0.36 bps, sd 1.07 in 2025–26). So the premium is a price on entering crypto with reais, carried to every BRL pair. The test cannot say whether the notice hit stablecoins only or all crypto. Only placebo p-values are meaningful (see F-016):
 - The **USD-adjusted Bitcoin premium** ($P^{\text{BTC}}_{\text{BRL}} / (P^{\text{BTC}}_{\text{USD}} \times \text{PTAX}) - 1$) jumped by **+93.78 bps** ($t = 5.82$, Newey-West HAC $SE = 16.10$ bps, parametric $p = 5.72 \times 10^{-9}$), rising from a 20-day pre-period mean of **14.96 bps** to an acute post-period mean of **108.74 bps**.
 - Against an empirical benchmark of **200 random placebo dates** (matching weekday proportions, `seed = 20261102`), no placebo date reached +93.78 bps (placebo range: -56.31 to +62.83 bps, std 18.06 bps). The empirical two-sided and one-sided p-values are both **$p = 1/201 = 0.004975$ ($p < 0.005$, 100th percentile)**.
 - Across the entire 2025–2026 period, the daily arbitrage spread between USDT/BRL and BTC/BRL ($\text{USDT}_{\text{premium}} - \text{BTC}_{\text{premium}}$) remained pinned at **$0.28\text{ to }0.46$ bps** (less than half a basis point). During the acute post-event window, the spread shifted by only **+0.13 bps** (from 0.28 bps to 0.40 bps).
@@ -17,7 +17,7 @@ The 23 Jun 2026 BCB supervisory *ofício* (E-05) moved the Brazilian **Bitcoin p
 ## Evidence
 
 ### Headline Comparison: USDT/BRL vs BTC/BRL (E-05, 23 Jun 2026)
-Evaluated over a 20-PTAX-day pre-window ($[-20, -1]$) and acute post-window ($[+1, +20]$), alongside extended pre-trend ($[-40, -21]$) and adaptation plateaus ($[+21, +60]$ and $[+21, +71]$):
+Evaluated over a 20-PTAX-day pre-window ($[-20, -1]$) and acute post-window ($[+1, +20]$), alongside extended pre-trend ($[-40, -21]$) and after-spike windows ($[+21, +60]$ and $[+21, +71]$):
 
 | Series | Pre-trend [-40, -21] (bps) | Pre [-20, -1] (bps) | Acute [+1, +20] (bps) | Acute Diff (bps) | HAC SE (bps) | $t$-stat | $p$ (Placebo 2S) | Plateau [+21, +60] (bps) | Full Plateau [+21, end] (bps) |
 |---|---|---|---|---|---|---|---|---|---|
@@ -51,27 +51,22 @@ Computed with Newey-West HAC standard errors (5 lags) and empirical p-values aga
 | M-02 | eff | 2024-08-20 | 2024-08-20 | 60.83 | 43.46 | -17.37 | 16.19 | -1.07 | 0.283 | 0.2886 | 14.0% | 25.56 | 18.75 | CVM Binance settlement DOU publication |
 | M-03 | ann | 2025-06-19 | 2025-06-20 | 37.26 | 20.16 | -17.11 | 6.90 | -2.48 | 0.013 | 0.2935 | 14.0% | 27.53 | 21.57 | Binance 10x tick size cut announcement |
 | M-03 | eff | 2025-06-27 | 2025-06-27 | 38.62 | 15.30 | -23.31 | 5.59 | -4.17 | $3.0 \times 10^{-5}$ | 0.2040 | 9.5% | 30.70 | 19.97 | Binance 10x tick size cut takes effect |
-| M-04 | eff | 2026-07-07 | 2026-07-07 | 70.65 | 60.13 | -10.52 | 28.47 | -0.37 | 0.712 | 0.4527 | 24.0% | 25.63 | 23.37 | Foxbit-NovaDAX migration & order-book adaptation |
+| M-04 | eff | 2026-07-07 | 2026-07-07 | 70.65 | 60.13 | -10.52 | 28.47 | -0.37 | 0.712 | 0.4527 | 24.0% | 25.63 | 23.37 | Foxbit takes over NovaDAX clients (M-04) |
 
 ### Naive Persistence Baseline
 - For E-05 on BTC, the naive pre-period persistence baseline yields an RMSE of **102.91 bps** on the post-event window.
 - In contrast, modeling the post-regime mean reduces the RMSE to **42.38 bps**, an error reduction of **58.8%** (identical to the 58.8% reduction observed for USDT in F-016).
 
-## Economic Interpretation
-This finding resolves the core research question raised in `docs/02-dolar-cripto.md` §7.5: **did the 23 Jun 2026 supervisory shock hit only stablecoins, or did it affect all crypto imports into Brazil?**
-
-1. **Rejection of the "Stablecoin-Only" or "Tether-Specific" Hypothesis:**
-   If the 24 Jun premium jump were caused by idiosyncratic stablecoin risks (e.g., reserve doubts, Tether regulatory friction, or MiCA delistings), the premium on Bitcoin (an unbacked, censorship-resistant native cryptocurrency) would not have moved. Instead, the Bitcoin premium jumped by **+93.78 bps**, matching USDT's **+93.91 bps** almost to the basis point.
-2. **Two Mutually Reinforcing Mechanisms:**
-   - **Common Regulatory Channel:** The confidential BCB supervisory *ofício* instructed commercial banks, FX brokers, and fund managers to cease facilitating cross-border virtual-asset import operations through investment funds. Institutional OTC desks used these fund structures to import both stablecoins and Bitcoin. Shutting down this pipeline constricted the fiat-to-crypto import gateway across all digital asset categories simultaneously.
-   - **Frictionless Triangular Arbitrage:** Within domestic order books (Binance BRL books), high-frequency arbitrageurs continuously trade the triangle:
-     $$\text{USDT/BRL} \times \text{BTC/USDT} \longleftrightarrow \text{BTC/BRL}$$
-     Because domestic liquidity on `BTC/BRL` and `BTC/USDT` is deep, any deviation between the implied dollar rate via BTC and the direct USDT rate is immediately eliminated down to exchange trading fees (~0.3–0.5 bps). Thus, even if the primary restriction initially hit USDT on-ramps, domestic arbitrage instantly transmitted the price wedge to Bitcoin.
-3. **Macro Implications for the Datathon Deck:**
-   The finding proves that the USDT/BRL premium is not an isolated crypto-niche curiosity, but rather a transparent, high-frequency price indicator of the **cost of cross-border capital mobility** in Brazil. When the regulator closes an institutional crypto-import corridor, the price of all digital foreign assets in Brazil rises by ~100 bps over the official PTAX rate.
+## Interpretation
+- **What it shows:** the jump is not a quirk of the USDT/BRL order book. Any BRL pair on Binance carries the same premium,
+  because arbitrageurs close the BTC–USDT–BRL triangle to within about 0.4 bps.
+- **What it cannot show:** whether the shock was specific to stablecoins. Even a stablecoin-only shock would move the BTC
+  premium through the triangle. A real heterogeneity test needs a price not tied by that arbitrage, for example BTC on a
+  domestic venue against a foreign BTC/USD price. That has not been done.
+- For the deck: one sentence ("the same premium appears on bitcoin, as arbitrage requires"), not a separate slide.
 
 ## Used in deck
-Slide on "Heterogeneidade: O choque atingiu apenas stablecoins ou todo o mercado cripto?" (and Annex robustness table).
+One sentence on the robustness slide ("o mesmo prêmio aparece no bitcoin, como a arbitragem exige"); annex table.
 
 ## Reproduction
 ```bash
@@ -83,5 +78,6 @@ Outputs:
 - `results/figures/P3-02_btc_vs_usdt_premium.png`
 
 ## History
+- 2026-11-02, agent for Renzo (review fixes, on Felipe's behalf, agreed by Renzo): title, claim and interpretation rewritten; the lockstep follows from triangular arbitrage and cannot confirm a market-wide restriction; slide suggestion reduced to one sentence
 - 2026-11-02, Renzo (review, P3-02): reproduces. The lockstep is implied by triangular arbitrage on Binance (USDT-vs-BTC-cross gap 0.36 bps mean, sd 1.07 in 2025–26), so it cannot confirm "market-wide import restrictions"; reword to "a price on entering crypto with reais". Event table re-run with corrected P1-04 dates (tasks/P3-02 → Handoff)
 - 2026-11-02: Initial exploratory finding written by Felipe for task P3-02.
