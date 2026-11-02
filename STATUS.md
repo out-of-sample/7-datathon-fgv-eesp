@@ -29,7 +29,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 1. Phase P1, P2, and non-agentic P3 tasks are now complete (`done` or `review`):
    - **P2 core evidence ready for peer review:** P2-02 S3 (break matching), P2-03 (event studies + 200 placebos, F-016), P2-04 (synthetic control, F-017), P2-06 (frozen team estimate `80fc866`).
    - **P3 extensions ready for peer review:** P3-01 (money layer route costs, F-015), P3-02 (BTC heterogeneity: +93.8 bps lockstep jump, F-018), P3-04 (depeg chapter SVB + 11-event table + pt-BR slide drafts, F-019), P3-07 (Band-TAR threshold model: band widened 26× on 24 Jun, F-021), P3-08 (2025 subsidy share: 53.6% of Compound V3 spread was COMP rewards, F-020), and P1-09 (donor boundary cleanup).
-   - **Next tasks:** Jonathan/Renzo → P3-05 & P3-06 (optional Extension A — 30 AI analysts pilot & runs, if go); Teammates → peer-review tasks in `review` (`P1-04`, `P1-09`, `P2-02`–`P2-04`, `P2-06`, `P3-01`–`P3-02`, `P3-04`, `P3-07`–`P3-08`) and proceed to P4 (`P4-01` robustness battery, `P4-02` independent re-check).
+   - **Next tasks:** `P4-01` (51-specification robustness battery, F-022) is now complete (`review`); `P3-05` harness/bundle/protocol (`results/agentic/protocol.md`, `bundle_SHA256SUMS.txt`) is built (`doing`, ready for S3–S7 live CLI runs on Renzo's accounts); `P5-01` & `P5-05` full 12-slide pt-BR deck and annex drafts (`deck/deck_v1_ptbr.md`, `deck/annex_v1_ptbr.md`) are ready (`doing`, awaiting `P4-03` freeze). Teammates (Renzo, Nattan, Jonathan) → peer-review tasks in `review` (`P1-04`, `P1-09`, `P2-02`–`P2-04`, `P2-06`, `P3-01`–`P3-02`, `P3-04`, `P3-07`–`P3-08`, `P4-01`) and execute `P4-02` (independent re-check).
 2. Everyone (and your agents): read [`docs/review-2026-10-31.md`](docs/review-2026-10-31.md) before the gate.
 3. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
    (`prompt.md` §7).
@@ -99,7 +99,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-02](tasks/P3-02-btc-heterogeneity.md) | Did the 23 Jun notice also move the bitcoin premium? | 👀 review | CS 1 | - | 4/4 | 3/3 | 2026-11-03 | P1-01, P2-03 |
 | [P3-03](tasks/P3-03-monitor.md) | Monitor do Dólar Digital (daily index + regime flag) | ✅ done | CS 1 | - | 4/4 | 3/3 | 2026-11-03 | P1-02, P2-02 |
 | [P3-04](tasks/P3-04-depeg-chapter.md) | Depeg chapter v1 (the same mechanism in dollars) | 👀 review | CS 3 | - | 4/4 | 4/4 | 2026-11-03 | P1-07 |
-| [P3-05](tasks/P3-05-agentic-A-protocol-pilot.md) | Extension A - protocol, memory test and pilot on the three CLIs | ⬜ todo | CS 3 | - | 0/7 | 0/5 | 2026-11-02 | P1-01, P1-08 |
+| [P3-05](tasks/P3-05-agentic-A-protocol-pilot.md) | Extension A - protocol, memory test and pilot on the three CLIs | 🔄 doing | CS 3 | - | 2/7 | 1/5 | 2026-11-02 | P1-01, P1-08 |
 | [P3-06](tasks/P3-06-agentic-A-runs-analysis.md) | Extension A - full runs and dispersion analysis | ⬜ todo | CS 3 | - | – | 0/5 | 2026-11-03 | P3-05, P2-06 |
 | [P3-07](tasks/P3-07-stretch-band-tar.md) | Stretch: threshold model of the no-arbitrage band | 👀 review | CS 2 | - | 3/3 | 3/3 | 2026-11-03 | P2-02 |
 | [P3-08](tasks/P3-08-subsidy-check-2025.md) | 2025 subsidy share for the 'Lições de 2025' slide | 👀 review | CS 3 | - | 3/3 | 2/2 | 2026-11-03 | - |
@@ -108,7 +108,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
-| [P4-01](tasks/P4-01-robustness.md) | Robustness battery for every headline number | ⬜ todo | CS 2 | - | – | 0/3 | 2026-11-04 | P2-02, P2-03, P2-04 |
+| [P4-01](tasks/P4-01-robustness.md) | Robustness battery for every headline number | 👀 review | CS 2 | - | 4/4 | 3/3 | 2026-11-04 | P2-02, P2-03, P2-04 |
 | [P4-02](tasks/P4-02-independent-recheck.md) | Independent re-run of every headline number | ⬜ todo | CS 3 | - | – | 0/2 | 2026-11-04 | P4-01 |
 | [P4-03](tasks/P4-03-freeze.md) | Freeze results | ⬜ todo | Team | - | – | 0/3 | 2026-11-04 | P4-01, P4-02 |
 
@@ -116,11 +116,11 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
-| [P5-01](tasks/P5-01-deck-v1.md) | Deck v1 (pt-BR) | ⬜ todo | Economist | - | – | 0/4 | 2026-11-05 | P4-03 |
+| [P5-01](tasks/P5-01-deck-v1.md) | Deck v1 (pt-BR) | 🔄 doing | Economist | - | 3/4 | 4/4 | 2026-11-05 | P4-03 |
 | [P5-02](tasks/P5-02-final-figures.md) | Final figures in one consistent style | ⬜ todo | CS 1 | - | – | 0/3 | 2026-11-06 | P5-01 |
 | [P5-03](tasks/P5-03-red-team.md) | Red-team review | ⬜ todo | Team | - | – | 0/2 | 2026-11-06 | P5-01 |
 | [P5-04](tasks/P5-04-scripts-txt.md) | Export scripts as .txt with headers | ⬜ todo | CS 2 | - | – | 0/2 | 2026-11-07 | P4-03 |
-| [P5-05](tasks/P5-05-annex.md) | Annex: sources, event table, AI-use disclosure | ⬜ todo | Economist | - | – | 0/2 | 2026-11-07 | P5-01 |
+| [P5-05](tasks/P5-05-annex.md) | Annex: sources, event table, AI-use disclosure | 🔄 doing | Economist | - | 4/4 | 2/2 | 2026-11-07 | P5-01 |
 | [P5-06](tasks/P5-06-submission.md) | Submit PDF and scripts | ⬜ todo | Team | - | – | 0/3 | 2026-11-08 | P5-02, P5-03, P5-04, P5-05 |
 
 **Findings**
@@ -148,10 +148,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-019](findings/F-019-depeg-chapter.md) | Parity in dollars obeys the same limits to arbitrage — USDC drifted to $0.805 when SVB shut redemption rails and recovered to $0.989 on Sunday's guarantee before banks reopened; 11 downward depegs confirm that backing solvency, not open banking hours, determines survival | 🔍 exploratory | P3-04 | - |
 | [F-020](findings/F-020-subsidy-share-2025.md) | Between 37.5% and 53.6% of the 2025 DeFi spread over SOFR was token subsidies, not risk premium | 🔍 exploratory | P3-08 | - |
 | [F-021](findings/F-021-band-tar.md) | Threshold Band-TAR model reveals a 26-fold widening of the no-arbitrage band after the 23 Jun notice (1.6 to 42.0 bps) and deceleration of mean reversion | 🔍 exploratory | P3-07 | - |
+| [F-022](findings/F-022-robustness-battery.md) | Full robustness battery confirms the 23 Jun 2026 premium jump (+93 to +117 bps acute, +19 to +34 bps plateau) across 25+ specifications, venues, and models | 🔍 exploratory | P4-01 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-02 — Felipe: P4-01 completed → review (51-spec robustness battery across windows, definitions, venues, heteroskedastic Bai CIs 23–30 Jun, donor pools & Colombian festivos filter, F-022); P3-05 S1–S2 bundle + protocol + CLI harness built (`results/agentic/protocol.md`, `bundle_SHA256SUMS.txt`); P5-01 & P5-05 full 12-slide pt-BR presentation & annex drafted (`deck/deck_v1_ptbr.md`, `deck/annex_v1_ptbr.md`)
 - 2026-11-02 — Felipe: P1-09, P3-02, P3-04, P3-07, P3-08 completed → review: BTC/BRL jumped +93.8 bps in lockstep with USDT/BRL (+93.9 bps, diff 0.13 bps, F-018); depeg chapter v1 figures, 11-event case table & pt-BR slide drafts completed (F-019); 2025 DeFiLlama subsidy check shows 53.6% of Compound V3 spread (37.5% TVL-weighted combined) came from COMP token rewards and 2025 test-period organic spread was -8.2 bps (F-020); Band-TAR model shows no-arbitrage band widened 26× from 1.6 bps to 42.0 bps on 24 Jun before settling at 9.4 bps (F-021); P1-09 resolved 2020 UAH boundary (0 discrepancies in P1-05 review)
 - 2026-11-02 — Felipe: P2-03, P2-04, P2-06 completed → review: evaluated all 13 Brazilian events (only 23 Jun 2026 moved premium: +93.9 bps, p < 0.005 vs 200 placebos, F-016); built synthetic control across 6 specs (+109.3 bps acute gap, +28.2 bps plateau gap, rank 1/6, ratio 9.31, F-017); froze team estimate in results/agentic/team_estimate.json
 - 2026-11-02 — Multi-agent audit: completed repository-wide technical, data, and literature consistency audit (`docs/audit-2026-11-02.md`); patched `scripts/p3_01_costs.py`, `scripts/board.py`, `.gitignore`; verified literature formulas L-01 to L-04; updated task and finding states

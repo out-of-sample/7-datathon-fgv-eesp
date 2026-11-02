@@ -6,6 +6,7 @@ data/raw/*
 !data/processed/
 !data/processed/*.csv
 data/processed/*_hourly.csv
+data/agentic_bundle/
 __pycache__/
 .env
 .venv/

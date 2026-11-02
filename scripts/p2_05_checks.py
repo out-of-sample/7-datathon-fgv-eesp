@@ -51,7 +51,7 @@ print(s1.round(1).to_string())
 print("\nDaily window premium by venue (bps), 15 Jun - 10 Jul 2026:")
 print(v["2026-06-15":"2026-07-10"].round(0).to_string())
 (ROOT / "results/tables").mkdir(parents=True, exist_ok=True)
-v["2026-06-01":"2026-07-31"].round(2).to_csv(ROOT / "results/tables/P2-05_venues_daily.csv")
+v["2026-05-25":"2026-07-31"].round(2).to_csv(ROOT / "results/tables/P2-05_venues_daily.csv")
 
 # S2: was 24 Jun a big BRL day, and what does the premium usually do after one?
 r = np.log(d.ptax_sell_brl_per_usd).diff() * 100  # PTAX daily change, %
