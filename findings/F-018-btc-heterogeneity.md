@@ -83,4 +83,5 @@ Outputs:
 - `results/figures/P3-02_btc_vs_usdt_premium.png`
 
 ## History
+- 2026-11-02, Renzo (review, P3-02): reproduces. The lockstep is implied by triangular arbitrage on Binance (USDT-vs-BTC-cross gap 0.36 bps mean, sd 1.07 in 2025–26), so it cannot confirm "market-wide import restrictions"; reword to "a price on entering crypto with reais". Event table re-run with corrected P1-04 dates (tasks/P3-02 → Handoff)
 - 2026-11-02: Initial exploratory finding written by Felipe for task P3-02.

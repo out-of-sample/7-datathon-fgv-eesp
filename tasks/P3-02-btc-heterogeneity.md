@@ -4,7 +4,7 @@ title: Did the 23 Jun notice also move the bitcoin premium?
 phase: P3
 status: review
 owner: CS 1
-working: Renzo (review)
+working: -
 due: 2026-11-03
 depends: P1-01, P2-03
 ---
@@ -31,12 +31,24 @@ Compute the BTC/BRL premium over BTCUSDT x PTAX and run the same before/after te
 - `findings/F-018-btc-heterogeneity.md`
 
 ## Handoff
-- **State:** Completed and moved to review. All 4 subtasks and 3 success criteria met.
-- **Next step:** Teammate review (CS 1 / CS 3) to independently re-run `python scripts/p3_02_btc.py` and confirm `F-018`.
-- **Open questions:** None; findings confirm that the 23 Jun 2026 BCB supervisory ofício moved Bitcoin and USDT in lockstep, ruling out tether-specific depeg hypotheses.
-- **How to resume:** Re-run `python scripts/p3_02_btc.py` to regenerate all tables and figures.
+<!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
+- **State:** reviewed by Renzo (2 Nov). **The numbers hold; the interpretation in F-018 needs changing** (owner: Felipe).
+  `scripts/p3_02_btc.py` reproduces the daily series exactly. The event table was re-run with the corrected P1-04 dates
+  (40 rows, was 44); the BTC jump on 23 Jun is unchanged (+93.8 bps, placebo p = 0.005).
+- **Why "lockstep" is not new evidence.** BTC premium = USDT premium + the triangular gap BTC/BRL ÷ (BTC/USDT × USDT/BRL).
+  Arbitrage on Binance keeps that gap at 0.36 bps on average (sd 1.07) in 2025–26: 0.28 before 23 Jun, 0.40 after. So any
+  move in the USDT premium *must* appear in the BTC premium. The test cannot tell "stablecoin-specific" from "all crypto".
+- **Changes requested:**
+  1. F-018 title and claim: drop "confirming market-wide import restrictions". What the data show: the premium is a price on
+     entering crypto with reais on Binance; triangular arbitrage spreads it to every BRL pair (gap ≈ 0.4 bps).
+  2. Show only placebo p-values (the parametric p = 5.7 × 10⁻⁹ has the same problem as in P2-03).
+  3. If the team wants a real heterogeneity test, it needs a price not tied by that arbitrage, e.g. BTC on a domestic
+     venue against Binance's BTC/USDT. Optional, and only if time allows (P3 ends Tue 3 Nov).
+- **Next step:** Felipe edits F-018; then status → done.
+- **How to resume:** `.venv/bin/python scripts/p3_02_btc.py`.
 
 ## Log
+- 2026-11-02, agent for Renzo: review done (Handoff): reproduces; lockstep is implied by triangular arbitrage (gap 0.36 bps), so F-018's interpretation must change; event table re-run with corrected P1-04 dates.
 - 2026-11-02, agent for Renzo: Renzo takes the review.
 - 2026-11-02 — Felipe: Started P3-02. Downloaded raw klines for BTCBRL (102 files) and BTCUSDT (140 files); checked out master coverage table.
 - 2026-11-02 — Felipe: Wrote `scripts/p3_02_btc.py` computing PTAX-window BTC/BRL premium (USD-adjusted and cross-rate) and running before/after tests across all 13 Brazilian events against 200 placebos.
