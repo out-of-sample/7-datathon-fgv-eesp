@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-01 by Jonathan · **Current phase:** P1 — Data foundation (started
+**Last updated:** 2026-11-01 by Felipe · **Current phase:** P1 — Data foundation (started
 Sat 31 Oct) · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results freeze:** Wed 4 Nov
 
 This page is the team's dashboard. Read it first; update it at the end of every work session
@@ -14,8 +14,10 @@ Brazilians pay for a digital dollar (USDT) than for the official dollar, and how
 rules that close or tax the arbitrage channels. A first probe found a real premium (0.2–1% depending on the
 year) and a sharp jump on 24 Jun 2026, the day after a reported BCB notice (F-001, F-002). After day 1 the jump is
 well supported: it appears on three exchanges, is not the real or USDT's own price, and a blind break test finds it
-(F-009, F-011). It faded from late July to about +17 bps. Still open: the notice itself is unconfirmed (P1-04), and the
-synthetic control needs a different test. **Read the [day-1 review](docs/review-2026-10-31.md) before the P2 gate.**
+(F-009, F-011). It faded from late July to about +17 bps. P1-04 (Brazilian event list and sources) is now completed and in
+review: the 23 Jun 2026 action was a confidential BCB supervisory *ofício* (secondary source: Isac Costa, ConJur 1 Jul 2026),
+and the July fade + Foxbit 6× volume surge match the 7 Jul 2026 Foxbit–NovaDAX migration partnership and domestic order-book
+adaptation. **Read the [day-1 review](docs/review-2026-10-31.md) before the P2 gate.**
 
 Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 [`docs/01-depeg-recovery.md`](docs/01-depeg-recovery.md) (chapter) ·
@@ -24,8 +26,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Next actions
 
-1. Start P1 in parallel: Renzo -> P3-03 monitor reviewed and done (F-014 confirmed); P3-02 after P2-03; P1-05, P2-01, P2-05 reviewed and done · Renzo covers CS 2 work (P1-03 done, P1-05 done, P2-02 blocked on P1-04) · Felipe → P1-04 ·
-   P1-07 done (v2 confirmed: 11 falls below $1, F-013); Jonathan -> P1-06 done (S6 manual screen: EUR, TRY, ZAR, MXN, COP); next: P3-03 review / P3-04 / P3-05.
+1. Start P1/P2 in parallel: Renzo → P3-03 monitor reviewed and done (F-014 confirmed); P3-02 after P2-03; P1-05, P2-01, P2-05 reviewed and done · Renzo covers CS 2 work (P1-03 done, P1-05 done, P2-02 blocked on P1-04) · Felipe → P1-04 done → review (`data/processed/P1-04_events_brazil.csv` ready, unblocking P2-02 S3 and P2-03) ·
+   P1-07 done (v2 confirmed: 11 falls below $1, F-013); Jonathan -> P1-06 done (S6 manual screen: EUR, TRY, ZAR, MXN, COP); next: P3-04 / P3-05.
 2. Everyone (and your agents): read [`docs/review-2026-10-31.md`](docs/review-2026-10-31.md) before the gate.
 3. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
    (`prompt.md` §7).
@@ -35,11 +37,10 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | Item | Needed from | By |
 |---|---|---|
-| P2 gate: 23 Jun confirmed? donors usable? second venue? A and B go/no-go? depeg chapter form (11 events, F-013) and the shared-move rule | Team | Sun 1 Nov evening |
-| P1-04 (events, 23 Jun notice): Felipe starts Sun 1 Nov | Felipe | P2 gate |
+| P2 gate: 23 Jun framing (supervisory *ofício* in ConJur vs unexplained break)? donors usable? second venue? A and B go/no-go? depeg chapter form (11 events, F-013) and the shared-move rule | Team | Sun 1 Nov evening |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
-| F-008 (Foxbit volume ×6 from Jul 2026): interpretation, and whether it belongs in the story | Felipe | P2 gate |
-| P2-02 S3 (match breaks to events) waits for P1-04's event list; check 15–29 Jul 2026 (spike fades) | Felipe | P2 gate |
+| F-008 (Foxbit volume ×6 from Jul 2026): matched to 7 Jul 2026 Foxbit–NovaDAX migration + order-book adaptation (M-04); confirm gate framing | Felipe / Team | P2 gate |
+| P2-02 S3 (match breaks to events): unblocked now that `data/processed/P1-04_events_brazil.csv` is written | CS 2 (Nattan/Renzo) | P2 gate |
 | P2-04 inference: 5 donors → permutation p-value cannot go below 0.17, so the plan's "p > 0.1 falsifies" test cannot be passed; choose the inference (P2-04 Log) | Team | P2 gate |
 | P1-05 donor exclusion rule: confirm before P2-04 fits; IDR (pre-period start); Brazil outcome PTAX or ECB-way | Team | P2 gate |
 
@@ -68,7 +69,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P1-01](tasks/P1-01-raw-data-download.md) | Download and freeze the raw price data | ✅ done | CS 1 | - | 7/7 | 4/4 | 2026-10-31 | - |
 | [P1-02](tasks/P1-02-premium-v2.md) | Build the premium series v2 (time-matched, USDT/USD-adjusted) | ✅ done | CS 1 | - | 6/6 | 4/4 | 2026-10-31 | P1-01 |
 | [P1-03](tasks/P1-03-second-venue.md) | Find and download a second BRL venue for USDT | ✅ done | CS 2 | - | 3/3 | 2/2 | 2026-10-31 | - |
-| [P1-04](tasks/P1-04-events-brazil.md) | Verified list of Brazilian rule changes and events | ⬜ todo | Economist | - | 0/5 | 0/3 | 2026-10-31 | - |
+| [P1-04](tasks/P1-04-events-brazil.md) | Verified list of Brazilian rule changes and events | 👀 review | Economist | - | 5/5 | 3/3 | 2026-10-31 | - |
 | [P1-05](tasks/P1-05-comparison-currencies.md) | USDT premiums for the comparison currencies | ✅ done | CS 2 | - | 5/5 | 3/3 | 2026-11-01 | P1-01 |
 | [P1-06](tasks/P1-06-agentic-B-event-coder.md) | Extension B - AI event coder for the comparison currencies | ✅ done | CS 3 | - | 2/6 | 3/4 | 2026-11-01 | P1-04 |
 | [P1-07](tasks/P1-07-depeg-detector.md) | Depeg detector and SVB-weekend figure (chapter) | ✅ done | Nattan | - | 7/7 | 3/3 | 2026-11-01 | P1-01 |
@@ -140,8 +141,9 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-01 — Felipe: P1-04 done → review: wrote `data/processed/P1-04_events_brazil.csv` (13 verified events) and updated `docs/sources.md` (E-01..E-07, M-01..M-04); 23 Jun 2026 identified as confidential BCB supervisory *ofício* (secondary: Isac Costa, ConJur 1 Jul 2026); July fade and Foxbit 6× volume surge matched to 7 Jul 2026 Foxbit–NovaDAX migration partnership + domestic order-book adaptation; unblocks P2-02 S3 and P2-03
 - 2026-11-01 — Jonathan: P3-03 reviewed and verified (no lookahead, backtest & figure reproduced) -> done; F-014 confirmed
-Jonathan -> P1-06 done (S6 manual screen: EUR, TRY, ZAR, MXN, COP); next: P3-03 review / P3-04 / P3-05.
+- 2026-11-01 — Jonathan -> P1-06 done (S6 manual screen: EUR, TRY, ZAR, MXN, COP); next: P3-04 / P3-05.
 - 2026-11-01 — Nattan: P1-07 reviewed and approved Renzo's v2 fixes → done; F-013 confirmed (11 falls below $1), F-012 exploratory (superseded by v2)
 - 2026-10-31 — agent for Renzo: P3-03 done → review: spec committed before the run; real-time CUSUM calibrated on 2020–2025 flags 24 Jun 2026 the same day, fade +11 days, 2 other test alarms vs 4 for the simple rule (F-014); premium already building from 25 May (note to P2-03, P1-04)
 - 2026-10-31 — agent for Renzo: P1-07 S6–S7 → review: v2 next to v1, 24 of 29 pass, 11 falls below $1 (9 without USDP delisting), chapter short of 12 for curves (F-013); SVB v2 figure marks the 22:15 UTC guarantee (D-13)
@@ -155,7 +157,7 @@ Jonathan -> P1-06 done (S6 manual screen: EUR, TRY, ZAR, MXN, COP); next: P3-03 
 - 2026-10-31 — agent for Renzo: P1-03 done → review: Foxbit (from Apr 2021) and Mercado Bitcoin (from Mar 2023) hourly USDT/BRL frozen; Foxbit volume ~6× from Jul 2026
 - 2026-10-31 — agent for Renzo: P2-01 done → review: spread 2–10 bps, premium 4–11× it yearly but ~2× in Aug 2025 – Jun 2026 (F-007); Binance tick cut ~27 Jun 2025 (note in P2-02)
 - 2026-10-31 — agent for Renzo: P1-02 done → review: premium v2 daily (1,520 days) and hourly, probe reproduced exactly, notebook with 6 figures; F-002 jump partly reverts by Oct; Oct 2026 weekend moves noted in F-003
-- 2026-10-31 — agent for Renzo: P1 started; P1-01 done → review (464 raw files frozen at 30 Oct, checksums in git, coverage audit; USDCUSDT missing Sep 2022 – Mar 2023); requirements pinned + `.venv`; USDCUSDT gap fillers found (F-006), BUSDUSDT + Coinbase USDT/USD frozen (517 files)
+- 2026-10-31 — agent for Renzo: P1-01 done → review (464 raw files frozen at 30 Oct, checksums in git, coverage audit; USDCUSDT missing Sep 2022 – Mar 2023); requirements pinned + `.venv`; USDCUSDT gap fillers found (F-006), BUSDUSDT + Coinbase USDT/USD frozen (517 files)
 - 2026-10-31 — agent for Renzo: handoff support (working field, subtasks, Handoff section, paused status, git rules); P1-08 decided (existing plans); first commit
 - 2026-10-31 — Renzo: Team table filled
 - 2026-10-31 — agent for Renzo: phases P0–P6, 32 task files, findings F-001–F-005, STATUS board, agentic extension doc
