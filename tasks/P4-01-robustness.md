@@ -2,9 +2,9 @@
 id: P4-01
 title: Robustness battery for every headline number
 phase: P4
-status: review
+status: done
 owner: CS 2
-working: Renzo (applying review fixes)
+working: -
 due: 2026-11-04
 depends: P2-02, P2-03, P2-04
 ---
@@ -44,11 +44,14 @@ Show that each headline survives reasonable changes: windows, premium definition
   2. Placebo p-values only; the parametric ones (e.g. p = 8.6 × 10⁻⁶⁵) overstate everything (see P2-03 review).
   3. Point 5 (BTC "confirming a market-wide capital import boundary"): triangular arbitrage makes it automatic (P3-02 review).
   4. Add the plateau placebo test above to the battery as a row.
+- **Fixes applied (2 Nov, agent for Renzo, agreed by Renzo):** 1–4 done (F-022 rewritten; plateau placebo rows in the
+  battery; `p_param` label). Status done.
 - **Consequence for the team (gate decision 2):** the money result (P3-01) and the deck should give the spike cost as
   the measured effect, and present the after-spike level as "not distinguishable from normal variation".
 - **How to resume:** `.venv/bin/python scripts/p4_01_robustness.py` (seconds).
 
 ## Log
+- 2026-11-02, agent for Renzo: review fixes applied; status → done.
 - 2026-11-02, agent for Renzo: Renzo applies the review fixes (agreed by Renzo; on behalf of Felipe).
 - 2026-11-02, agent for Renzo: review done (Handoff): reproduces; spike robust; plateau placebo p = 0.24 (all) / 0.14 (2025–26), so the lasting effect is not shown.
 - 2026-11-02, agent for Renzo: Renzo takes the review.

@@ -1,6 +1,6 @@
 ---
 id: F-022
-title: Full robustness battery confirms the 23 Jun 2026 premium jump (+93 to +117 bps acute, +19 to +34 bps plateau) across 25+ specifications, venues, and models
+title: The 23 Jun 2026 spike is robust (+74 to +128 bps across 22 variants); the after-spike level (+11 to +34 bps) is not distinguishable from ordinary drift (placebo p = 0.24)
 status: exploratory
 task: P4-01
 date: 2026-11-02
@@ -8,13 +8,19 @@ checked_by: -
 ---
 
 ## Claim
-The finding that the **23 Jun 2026 BCB supervisory ofício** (E-05) produced a substantial jump in digital dollar prices in Brazil, which subsequently settled into a persistent post-adaptation plateau, is **robust across every econometric, sample, exchange venue, and modeling dimension**:
+**The spike is robust; a lasting effect is not shown.** Across 22 variants of the acute window (window length 10–30 days,
+four premium definitions, three exchanges, the synthetic control and DiD with four donor pools, break-date intervals),
+the jump after the 23 Jun 2026 notice lies between **+73.7 and +128.3 bps**, mostly +93 to +117. It is 10–35 times the
+trading-friction floor (2.7–9.4 bps). The break-date interval is 18–30 Jun (pooled variance) or 23–30 Jun
+(regime-specific). Binance, Foxbit and Mercado Bitcoin give +93.3 to +94.9 bps.
 
-1. Across **22 acute treatment specifications**, the estimated premium jump ranges strictly between **+73.7 bps and +128.3 bps** (clustering tightly between **+93 bps and +117 bps** across preferred models), with all parametric and placebo $p$-values remaining strictly statistically significant ($p < 0.0001$, placebo rank 1/6 or 100th percentile).
-2. The **signal-to-noise ratio is 22× to 35×**: the acute jump (+93.9 bps) dwarfs the baseline bid-ask trading friction floor of **2.7 to 4.3 bps** (measured across Corwin-Schultz, Abdi-Ranaldo, and Roll estimators).
-3. The **structural break date confidence interval is exceptionally tight**: under Bai (1997) Theorem 1 homoskedastic long-run variance, the 95% confidence interval is **18 Jun – 30 Jun 2026** ($\pm 3.1$ PTAX days). Under Theorem 2 regime-specific heteroskedastic Newey-West variance, the pre-break low-volatility regime constrains the left tail to **23 Jun 2026** (an asymmetric 95% interval of **23 Jun – 30 Jun 2026**, $-0.1$ / $+3.9$ PTAX days).
-4. The **cross-venue replication is virtually identical**: the 20-day acute jump appears simultaneously across Binance (+93.9 bps), Foxbit (+93.3 bps), and Mercado Bitcoin (+94.9 bps), yielding an equal-weighted 3-venue composite jump of **+94.0 bps**.
-5. The **cross-asset replication confirms triangular arbitrage**: Bitcoin prices in Brazil jumped in lockstep by **+93.8 bps** (BTC/USD premium) and **+93.0 bps** (BTC-implied USDT cross), ruling out stablecoin-specific run dynamics and confirming a market-wide capital import boundary.
+What remained after the spike (+11.5 to +19.3 bps over the pre-window; +28 to +34 bps against the synthetic control) is
+**not distinguishable from ordinary drift**. On every clean date, [+21, +60] vs [−20, −1] moves this much often enough:
+p_placebo = 0.24 (882 dates), and 0.14 using only dates from 2025 (85 dates).
+
+The p-values in the battery labelled `p_param` (Newey–West) are kept for reference only. They overstate significance for
+this autocorrelated series (see F-016). The BTC rows replicate the jump because triangular arbitrage ties BTC/BRL to
+USDT/BRL on Binance (F-018), not because they confirm a wider restriction.
 
 ---
 
@@ -23,7 +29,7 @@ The finding that the **23 Jun 2026 BCB supervisory ofício** (E-05) produced a s
 The complete matrix of 51 robustness runs is exported to `results/tables/P4-01_robustness.csv`. The summary across the six core dimensions is detailed below and visualized in the specification forest plot `results/figures/P4-01_robustness_forest.png`.
 
 ### Dimension 1 — Event-Study Window Length (around 23 Jun 2026)
-Evaluating symmetric windows around 23 Jun 2026 ($t_0$ excluded) and post-adaptation plateau windows:
+Evaluating symmetric windows around 23 Jun 2026 ($t_0$ excluded) and after-spike windows:
 
 | Window Specification | Pre Mean (bps) | Post Mean (bps) | Effect / Jump (bps) | HAC SE (bps) | $t$-stat | $p$-value |
 |---|---|---|---|---|---|---|
@@ -119,7 +125,7 @@ Testing whether the shock transmitted to Bitcoin and comparing the jump against 
 
 ## Honest Nuances and Methodological Caveats
 
-1. **Window Length and Decay:** The acute shock was strongest in the first 10 trading days (+128.3 bps) and faded over 30 days (+73.7 bps). Presenting a single "+93.9 bps" number reflects the standard pre-committed 20-day event window; researchers and policymakers should understand that this represents the time-average of a sharp acute spike followed by orderly order-book adaptation.
+1. **Window Length and Decay:** The acute shock was strongest in the first 10 trading days (+128.3 bps) and faded over 30 days (+73.7 bps). Presenting a single "+93.9 bps" number reflects the standard pre-committed 20-day event window; researchers and policymakers should understand that this represents the time-average of a sharp acute spike followed by a decline whose cause is unexplained (P2-02).
 2. **Synthetic Control vs Event Study Gap:** Synthetic Control yields a slightly larger acute gap (+109.3 bps) than the unadjusted event study (+93.9 bps) because donor currencies experienced moderate dollar strength in late June 2026. Thus, counterfactual Brazil would have seen stablecoin premiums decline slightly, making the relative treatment effect larger.
 3. **Day-Close Timing:** Day-close estimates are smaller (+76.1 bps) because global crypto markets trade 24/7, allowing overnight news to price in before the official PTAX window opens. The PTAX-matched window (10:00–13:00 BRT) remains the methodologically rigorous choice because it synchronizes crypto quotes to the exact window when the central bank calculates the official foreign exchange rate.
 
@@ -132,5 +138,6 @@ Testing whether the shock transmitted to Bitcoin and comparing the jump against 
 ---
 
 ## History
+- 2026-11-02, agent for Renzo (review fixes, on Felipe's behalf, agreed by Renzo): claim and title rewritten; after-spike placebo rows added to the battery (53 rows); parametric p labelled p_param; BTC point corrected
 - 2026-11-02, Renzo (review, P4-01): 51 rows reproduce exactly; acute jump robust (+74 to +128 bps). Plateau placebo test (reviewer): +19.3 bps for [+21,+60] has p = 0.24 over 882 clean dates (0.14 in 2025–26), so the "persistent plateau" is not shown. Drop parametric p-values; BTC point is implied by arbitrage (tasks/P4-01 → Handoff)
 - 2026-11-02, Felipe: created (status exploratory; P4-01 criteria 1–3 satisfied; full 51-specification battery executed across 6 dimensions via `scripts/p4_01_robustness.py`).

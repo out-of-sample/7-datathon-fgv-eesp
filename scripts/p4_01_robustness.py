@@ -139,13 +139,13 @@ def run_battery():
             "treatment_estimate_bps": round(post_m, 2),
             "effect_or_gap_bps": round(diff, 2),
             "se_or_ci": f"SE: {se_hac:.2f} bps (t={t_stat:.2f})",
-            "p_value_or_rank": f"p = {p_val:.2e}" if p_val < 0.001 else f"p = {p_val:.4f}",
+            "p_value_or_rank": f"p_param = {p_val:.2e}" if p_val < 0.001 else f"p_param = {p_val:.4f}",
             "is_headline": is_headline,
             "type": "acute",
             "notes": f"Pre-window {pre.index[0].date()}..{pre.index[-1].date()}, post {post.index[0].date()}..{post.index[-1].date()}"
         })
 
-    # Post-adaptation plateau [+21, +60] and [+21, end]
+    # After-spike level [+21, +60] and [+21, end]
     pre20 = df_prem.iloc[pos_e05 - 20 : pos_e05]["premium_bps"]
     post_plat40 = df_prem.iloc[pos_e05 + 21 : pos_e05 + 61]["premium_bps"]
     post_platend = df_prem.iloc[pos_e05 + 21 :]["premium_bps"]
@@ -163,10 +163,40 @@ def run_battery():
             "treatment_estimate_bps": round(post_plat.mean(), 2),
             "effect_or_gap_bps": round(diff_plat, 2),
             "se_or_ci": f"SE: {res.bse[1]:.2f} bps (t={res.tvalues[1]:.2f})",
-            "p_value_or_rank": f"p = {res.pvalues[1]:.2e}" if res.pvalues[1] < 0.001 else f"p = {res.pvalues[1]:.4f}",
+            "p_value_or_rank": f"p_param = {res.pvalues[1]:.2e}" if res.pvalues[1] < 0.001 else f"p_param = {res.pvalues[1]:.4f}",
             "is_headline": False,
             "type": "plateau",
-            "notes": f"Post-adaptation period {post_plat.index[0].date()}..{post_plat.index[-1].date()}"
+            "notes": f"After-spike period {post_plat.index[0].date()}..{post_plat.index[-1].date()}"
+        })
+
+    # Placebo test for the after-spike level (review 2 Nov): [+21, +60] vs [-20, -1] on every clean date
+    # (outside -20/+60 PTAX days of any P1-04 event date). Parametric p-values overstate this; this is the test to read.
+    ev_pos = set()
+    ev_tab = pd.read_csv(ROOT / "data/processed/P1-04_events_brazil.csv")
+    for col in ["date_announced", "date_effective"]:
+        for v in ev_tab[col].astype(str):
+            if v not in ("N/A", "nan"):
+                after = df_prem.index[df_prem.index >= pd.Timestamp(v)]
+                if len(after):
+                    ev_pos.add(df_prem.index.get_loc(after[0]))
+    black = {q for e in ev_pos for q in range(e - 20, e + 61)}
+    prem = df_prem["premium_bps"]
+    plat = lambda i: prem.iloc[i + 21:i + 61].mean() - prem.iloc[i - 20:i].mean()
+    clean = [i for i in range(20, len(prem) - 60) if i not in black]
+    pl = np.array([plat(i) for i in clean])
+    x0 = plat(pos_e05)
+    for lab, sel in [("all clean dates", pl), ("clean dates from 2025", pl[[k for k, i in enumerate(clean) if prem.index[i] >= pd.Timestamp("2025-01-01")]])]:
+        rows.append({
+            "dimension": "Dimension 1: Window length",
+            "specification": f"[+21, +60] after-spike level vs placebo dates ({lab})",
+            "baseline_estimate_bps": round(pre20.mean(), 2),
+            "treatment_estimate_bps": round(post_plat40.mean(), 2),
+            "effect_or_gap_bps": round(x0, 2),
+            "se_or_ci": f"placebo sd {sel.std():.1f} bps (n = {len(sel)})",
+            "p_value_or_rank": f"p_placebo = {(np.sum(np.abs(sel) >= abs(x0)) + 1) / (len(sel) + 1):.3f}",
+            "is_headline": False,
+            "type": "plateau",
+            "notes": "Not distinguishable from ordinary drift if p_placebo is large",
         })
 
     # Dropping pre-trend days: Clean baseline 1 Apr - 22 May 2026 vs [+1, +20]
@@ -410,7 +440,7 @@ def run_battery():
             "p_value_or_rank": f"Rank 1/{len(d_list)+1}",
             "is_headline": False,
             "type": "plateau",
-            "notes": "Post-adaptation plateau 22 Jul – 30 Sep 2026"
+            "notes": "After-spike level 22 Jul – 30 Sep 2026"
         })
 
     # DiD baseline explicitly

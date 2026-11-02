@@ -106,11 +106,11 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-07](tasks/P3-07-stretch-band-tar.md) | Stretch: threshold model of the no-arbitrage band | 👀 review | CS 2 | - | 3/3 | 3/3 | 2026-11-03 | P2-02 |
 | [P3-08](tasks/P3-08-subsidy-check-2025.md) | 2025 subsidy share for the 'Lições de 2025' slide | 👀 review | CS 3 | - | 3/3 | 2/2 | 2026-11-03 | - |
 
-**P4 — Robustness and freeze** (0/3 closed)
+**P4 — Robustness and freeze** (1/3 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
-| [P4-01](tasks/P4-01-robustness.md) | Robustness battery for every headline number | 👀 review | CS 2 | Renzo (applying review fixes) | 4/4 | 3/3 | 2026-11-04 | P2-02, P2-03, P2-04 |
+| [P4-01](tasks/P4-01-robustness.md) | Robustness battery for every headline number | ✅ done | CS 2 | - | 4/4 | 3/3 | 2026-11-04 | P2-02, P2-03, P2-04 |
 | [P4-02](tasks/P4-02-independent-recheck.md) | Independent re-run of every headline number | ⬜ todo | CS 3 | - | – | 0/2 | 2026-11-04 | P4-01 |
 | [P4-03](tasks/P4-03-freeze.md) | Freeze results | ⬜ todo | Team | - | – | 0/4 | 2026-11-04 | P4-01, P4-02 |
 
@@ -150,7 +150,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-019](findings/F-019-depeg-chapter.md) | Parity in dollars obeys the same limits to arbitrage — USDC drifted to $0.805 when SVB shut redemption rails and recovered to $0.989 on Sunday's guarantee before banks reopened; 11 downward depegs confirm that backing solvency, not open banking hours, determines survival | 🔍 exploratory | P3-04 | - |
 | [F-020](findings/F-020-subsidy-share-2025.md) | Between 37.5% and 53.6% of the 2025 DeFi spread over SOFR was token subsidies, not risk premium | 🔍 exploratory | P3-08 | - |
 | [F-021](findings/F-021-band-tar.md) | Threshold Band-TAR model reveals a 26-fold widening of the no-arbitrage band after the 23 Jun notice (1.6 to 42.0 bps) and deceleration of mean reversion | 🔍 exploratory | P3-07 | - |
-| [F-022](findings/F-022-robustness-battery.md) | Full robustness battery confirms the 23 Jun 2026 premium jump (+93 to +117 bps acute, +19 to +34 bps plateau) across 25+ specifications, venues, and models | 🔍 exploratory | P4-01 | - |
+| [F-022](findings/F-022-robustness-battery.md) | The 23 Jun 2026 spike is robust (+74 to +128 bps across 22 variants); the after-spike level (+11 to +34 bps) is not distinguishable from ordinary drift (placebo p = 0.24) | 🔍 exploratory | P4-01 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
