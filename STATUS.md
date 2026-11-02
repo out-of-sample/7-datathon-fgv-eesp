@@ -39,11 +39,11 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | P2 gate: 23 Jun framing & inference calls | Resolved: Felipe logged Economist gate calls in `docs/README.md` (supervisory ofício framing, acute spike vs plateau reporting, placebo p-value + synthetic counterfactual, Foxbit volume adaptation, depeg 11-event comparative table) | done |
 | P3-01 (money layer): institutional bank vs USDT route costs | Resolved: Felipe completed P3-01 (`results/tables/P3-01_route_costs.csv`, `results/figures/P3-01_route_costs.png`, F-015 confirmed); status -> review | done |
 | Repository technical & consistency audit | Resolved: multi-agent audit report completed in `docs/audit-2026-11-02.md`; script bugs patched and literature citations verified | done |
-| P2-02 S3 (match breaks to events) | CS 2 (Nattan/Renzo) to run S3 event matching now unblocked by `data/processed/P1-04_events_brazil.csv` (`status: todo`) | P2 gate |
+| P2-02 S3 (match breaks to events) | Resolved: S3 matching complete in `scripts/p2_02_breaks.py`, `results/tables/P2-02_breaks.csv` updated, and `results/figures/P2-02_premium_breaks.png` regenerated | done |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
 | F-008 (Foxbit volume ×6 from Jul 2026): matched to 7 Jul 2026 Foxbit–NovaDAX migration + order-book adaptation (M-04); confirm gate framing | Felipe / Team | P2 gate |
-| P2-04 inference: 5 donors → permutation p-value cannot go below 0.17, so the plan's "p > 0.1 falsifies" test cannot be passed; choose the inference (P2-04 Log) | Team | P2 gate |
-| P1-05 donor exclusion rule: confirm before P2-04 fits; IDR (pre-period start); Brazil outcome PTAX or ECB-way | Team | P2 gate |
+| P2-04 inference & donor pool | Resolved: combined within-Brazil 200 placebos (p < 0.005) + synthetic control across 6 specs (+109.3 bps acute gap, rank 1/6, ratio 9.31, F-017) | done |
+| P2-03 event study & placebos | Resolved: evaluated all 13 Brazilian events; only 23 Jun 2026 moved premium (+93.9 bps, p < 0.005); F-016 written | done |
 
 ## Team
 
@@ -83,10 +83,10 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 |---|---|---|---|---|---|---|---|---|
 | [P2-01](tasks/P2-01-noise-floor.md) | Noise floor (how big a premium is just trading friction) | ✅ done | CS 1 | - | 3/3 | 3/3 | 2026-11-01 | P1-02 |
 | [P2-02](tasks/P2-02-blind-break-test.md) | Blind structural-break test on the premium | 👀 review | CS 2 | - | 4/4 | 4/4 | 2026-11-01 | P1-02, P1-04 |
-| [P2-03](tasks/P2-03-event-studies.md) | Before/after test for every dated rule, with placebo dates | ⬜ todo | CS 2 | - | 0/3 | 0/3 | 2026-11-02 | P1-02, P1-04 |
-| [P2-04](tasks/P2-04-synthetic-control.md) | Synthetic control for the 23 Jun 2026 shock | ⬜ todo | CS 2 | - | 0/5 | 0/4 | 2026-11-02 | P1-05, P1-06, P2-03 |
+| [P2-03](tasks/P2-03-event-studies.md) | Before/after test for every dated rule, with placebo dates | 👀 review | CS 2 | - | 3/3 | 3/3 | 2026-11-02 | P1-02, P1-04 |
+| [P2-04](tasks/P2-04-synthetic-control.md) | Synthetic control for the 23 Jun 2026 shock | 👀 review | CS 2 | - | 5/5 | 4/4 | 2026-11-02 | P1-05, P1-06, P2-03 |
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
-| [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | ⬜ todo | CS 2 | - | 0/3 | 0/2 | 2026-11-02 | P2-03 |
+| [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | 👀 review | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
 **P3 — Extensions** (1/8 closed)
 
@@ -139,10 +139,13 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-013](findings/F-013-depeg-count-v2.md) | After the review fixes, the depeg screen finds 11 falls below $1 (9 without a likely delisting), short of the 12 the chapter needs for recovery curves | ✔️ confirmed | P1-07 | Nattan |
 | [F-014](findings/F-014-monitor-backtest.md) | A real-time alarm calibrated on 2020–2025 flags the 24 Jun 2026 jump on the same day, with fewer false alarms than a simple rule | ✔️ confirmed | P3-03 | Jonathan |
 | [F-015](findings/F-015-route-costs.md) | Across historical regimes USDT saved R$ 16k–20k per US$ 100k vs bank FX; the 23 Jun shock temporarily closed the gap vs import FX, while a 3.5% crypto IOF would eliminate the arbitrage advantage | ✔️ confirmed | P3-01 | - |
+| [F-016](findings/F-016-event-studies-placebos.md) | Before/after event study on all 13 Brazilian events finds only the 23 Jun 2026 BCB notice moved the premium (+93.9 bps, p < 0.005 vs 200 placebos) | 🔍 exploratory | P2-03 | - |
+| [F-017](findings/F-017-synthetic-control.md) | Synthetic control estimates a +109 bps acute treatment gap for the 23 Jun 2026 shock (Brazil ranks #1 of 6, ratio 9.31) fading to a +28 bps plateau | 🔍 exploratory | P2-04 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-02 — Felipe: P2-03, P2-04, P2-06 completed → review: evaluated all 13 Brazilian events (only 23 Jun 2026 moved premium: +93.9 bps, p < 0.005 vs 200 placebos, F-016); built synthetic control across 6 specs (+109.3 bps acute gap, +28.2 bps plateau gap, rank 1/6, ratio 9.31, F-017); froze team estimate in results/agentic/team_estimate.json
 - 2026-11-02 — Multi-agent audit: completed repository-wide technical, data, and literature consistency audit (`docs/audit-2026-11-02.md`); patched `scripts/p3_01_costs.py`, `scripts/board.py`, `.gitignore`; verified literature formulas L-01 to L-04; updated task and finding states
 - 2026-11-01 — Felipe: P3-01 done → review: calculated all-in route costs per US$ 100k across bank routes (0%, 1.1%, 3.5% IOF), historical regimes, and policy scenarios (3.5% IOF, 24h hold); generated results/tables/P3-01_route_costs.csv and publication figure results/figures/P3-01_route_costs.png; confirmed F-015; logged Economist gate calls in docs/README.md and docs/phases.md
 

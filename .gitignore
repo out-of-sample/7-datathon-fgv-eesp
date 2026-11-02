@@ -5,6 +5,7 @@ data/raw/*
 !data/raw/SHA256SUMS
 !data/processed/
 !data/processed/*.csv
+data/processed/*_hourly.csv
 __pycache__/
 .env
 .venv/

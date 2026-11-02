@@ -1,0 +1,371 @@
+r"""P2-04: Synthetic control analysis for the 23 June 2026 Brazilian regulatory shock.
+
+Purpose:
+  Evaluates Brazil's USDT/BRL premium relative to a counterfactual "Synthetic Brazil" constructed
+  from international fiat-to-USDT currency pairs without the 23 June shock (Abadie, Diamond & Hainmueller 2010).
+  Pre-period: 2025-11-01 to 2026-06-22 (140 common trading days).
+  Post-period: 2026-06-24 to 2026-09-30 (65 common trading days), split into:
+    - Acute spike window: 2026-06-24 to 2026-07-21 (20 PTAX trading days)
+    - Post-adaptation plateau window: 2026-07-22 to 2026-09-30 (45 common trading days)
+
+Donor pools evaluated side-by-side:
+  1. Headline 5-donor pool: EUR, TRY, ZAR, MXN, COP (keeps EUR; MiCA shock was Mar 2025, 7m prior)
+  2. Strict 4-donor pool: TRY, ZAR, MXN, COP (excludes EUR due to P1-06 MiCA CASP rules)
+  3. 6-donor pool from 1 Dec 2025: EUR, TRY, ZAR, MXN, COP, IDR (includes Indonesia with 100% post-listing coverage)
+  Evaluated for both headline BRL_ptax (PTAX-matched) and BRL_ecb (14:00 Frankfurt snapshot).
+
+Benchmarks:
+  - Difference-in-Differences (DiD) baseline (equal-weighted donor average change from pre to post)
+  - Naive persistence baseline (pre-period historical mean)
+  - In-space placebo inference: each donor treated in turn, computing post/pre RMSPE ratio and permutation p-value.
+
+Inputs:
+  data/processed/P1-05_donor_premiums_daily.csv (daily premiums across currencies)
+
+Outputs:
+  results/tables/P2-04_synth_results.csv (headline results across all 6 specifications)
+  results/tables/P2-04_synth_weights.csv (estimated donor weights and in-space placebo diagnostics)
+  results/figures/P2-04_synthetic_control.png (2-panel figure: Brazil vs Synthetic Brazil & DiD; Gaps vs in-space placebos)
+
+How to run:
+  python scripts/p2_04_synth.py
+"""
+
+from pathlib import Path
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+from scipy.optimize import minimize
+
+# Paths
+ROOT = Path(__file__).resolve().parent.parent
+DATA_PROC = ROOT / "data/processed"
+RES_TAB = ROOT / "results/tables"
+RES_FIG = ROOT / "results/figures"
+
+RES_TAB.mkdir(parents=True, exist_ok=True)
+RES_FIG.mkdir(parents=True, exist_ok=True)
+
+# 1. Load data
+print("Loading donor premiums dataset...")
+df_premiums = pd.read_csv(DATA_PROC / "P1-05_donor_premiums_daily.csv", parse_dates=["date"], index_col="date")
+df_premiums = df_premiums.sort_index()
+
+# 2. Optimization routine for Abadie et al. (2010) Synthetic Control
+def fit_synthetic_control(y_pre, X_pre):
+    """
+    Solves min_w ||y_pre - X_pre @ w||^2 subject to w >= 0, sum(w) = 1.
+    y_pre: (T0,) vector of treated unit pre-period values
+    X_pre: (T0, J) matrix of donor pre-period values
+    Returns: optimal weights w (J,), and pre-period RMSPE
+    """
+    J = X_pre.shape[1]
+    def loss(w):
+        return np.mean((y_pre - X_pre @ w) ** 2)
+
+    w0 = np.ones(J) / J
+    bounds = [(0.0, 1.0)] * J
+    constraints = ({"type": "eq", "fun": lambda w: np.sum(w) - 1.0})
+
+    res = minimize(loss, w0, method="SLSQP", bounds=bounds, constraints=constraints,
+                   options={"maxiter": 1000, "ftol": 1e-9})
+    w_opt = res.x
+    # Clean numerical precision
+    w_opt = np.maximum(w_opt, 0.0)
+    w_opt = w_opt / np.sum(w_opt)
+    pre_rmspe = np.sqrt(np.mean((y_pre - X_pre @ w_opt) ** 2))
+    return w_opt, pre_rmspe
+
+# 3. Define the Specifications
+specs = [
+    {
+        "name": "5-donor (Headline)",
+        "donors": ["EUR", "TRY", "ZAR", "MXN", "COP"],
+        "start_pre": "2025-11-01",
+        "end_pre": "2026-06-22",
+        "start_post": "2026-06-24",
+        "end_post": "2026-09-30",
+        "outcome": "BRL_ptax"
+    },
+    {
+        "name": "5-donor (BRL_ecb check)",
+        "donors": ["EUR", "TRY", "ZAR", "MXN", "COP"],
+        "start_pre": "2025-11-01",
+        "end_pre": "2026-06-22",
+        "start_post": "2026-06-24",
+        "end_post": "2026-09-30",
+        "outcome": "BRL_ecb"
+    },
+    {
+        "name": "Strict 4-donor (ex-EUR)",
+        "donors": ["TRY", "ZAR", "MXN", "COP"],
+        "start_pre": "2025-11-01",
+        "end_pre": "2026-06-22",
+        "start_post": "2026-06-24",
+        "end_post": "2026-09-30",
+        "outcome": "BRL_ptax"
+    },
+    {
+        "name": "Strict 4-donor (ex-EUR) [BRL_ecb]",
+        "donors": ["TRY", "ZAR", "MXN", "COP"],
+        "start_pre": "2025-11-01",
+        "end_pre": "2026-06-22",
+        "start_post": "2026-06-24",
+        "end_post": "2026-09-30",
+        "outcome": "BRL_ecb"
+    },
+    {
+        "name": "6-donor (with IDR from Dec 2025)",
+        "donors": ["EUR", "TRY", "ZAR", "MXN", "COP", "IDR"],
+        "start_pre": "2025-12-01",
+        "end_pre": "2026-06-22",
+        "start_post": "2026-06-24",
+        "end_post": "2026-09-30",
+        "outcome": "BRL_ptax"
+    },
+    {
+        "name": "6-donor (with IDR from Dec 2025) [BRL_ecb]",
+        "donors": ["EUR", "TRY", "ZAR", "MXN", "COP", "IDR"],
+        "start_pre": "2025-12-01",
+        "end_pre": "2026-06-22",
+        "start_post": "2026-06-24",
+        "end_post": "2026-09-30",
+        "outcome": "BRL_ecb"
+    }
+]
+
+results_summary = []
+all_weights_records = []
+headline_series_for_plot = None
+
+print("\nFitting Synthetic Control specifications and in-space placebos...")
+
+for sp in specs:
+    s_name = sp["name"]
+    donors = sp["donors"]
+    out_col = sp["outcome"]
+    pre_start = sp["start_pre"]
+    pre_end = sp["end_pre"]
+    post_start = sp["start_post"]
+    post_end = sp["end_post"]
+
+    # Filter data to common non-missing days across outcome and all donors
+    cols = [out_col] + donors
+    df_pre_c = df_premiums.loc[pre_start:pre_end, cols].dropna()
+    df_post_c = df_premiums.loc[post_start:post_end, cols].dropna()
+
+    T0 = len(df_pre_c)
+    T1 = len(df_post_c)
+
+    y_pre = df_pre_c[out_col].values
+    X_pre = df_pre_c[donors].values
+    y_post = df_post_c[out_col].values
+    X_post = df_post_c[donors].values
+
+    # Fit Brazil SC
+    w_br, pre_rmspe_br = fit_synthetic_control(y_pre, X_pre)
+
+    synth_pre = X_pre @ w_br
+    synth_post = X_post @ w_br
+
+    gap_pre = y_pre - synth_pre
+    gap_post = y_post - synth_post
+
+    acute_mask = df_post_c.index <= "2026-07-21"
+    plateau_mask = df_post_c.index >= "2026-07-22"
+
+    acute_gap_sc = float(np.mean(gap_post[acute_mask]))
+    plateau_gap_sc = float(np.mean(gap_post[plateau_mask]))
+    full_post_gap_sc = float(np.mean(gap_post))
+
+    post_rmspe_br = float(np.sqrt(np.mean(gap_post ** 2)))
+    acute_rmspe_br = float(np.sqrt(np.mean(gap_post[acute_mask] ** 2)))
+    rmspe_ratio_br = post_rmspe_br / pre_rmspe_br
+
+    # DiD baseline: equal-weighted donor average
+    eq_pre = np.mean(X_pre, axis=1)
+    eq_post = np.mean(X_post, axis=1)
+    did_acute_gap = float((np.mean(y_post[acute_mask]) - np.mean(y_pre)) -
+                          (np.mean(eq_post[acute_mask]) - np.mean(eq_pre)))
+    did_plateau_gap = float((np.mean(y_post[plateau_mask]) - np.mean(y_pre)) -
+                            (np.mean(eq_post[plateau_mask]) - np.mean(eq_pre)))
+
+    # Naive baseline: pre-period historical mean
+    naive_pre_mean = float(np.mean(y_pre))
+
+    # In-space placebos
+    placebo_ratios = [rmspe_ratio_br]
+    placebo_gaps_acute = [acute_gap_sc]
+    placebo_series_dict = {}
+
+    # Store Brazil weights
+    weight_dict = {d: round(float(w), 4) for d, w in zip(donors, w_br)}
+    all_weights_records.append({
+        "spec": s_name,
+        "unit": out_col,
+        "is_treated": True,
+        "pre_rmspe_bps": round(pre_rmspe_br, 2),
+        "post_rmspe_bps": round(post_rmspe_br, 2),
+        "rmspe_ratio": round(rmspe_ratio_br, 2),
+        "acute_gap_bps": round(acute_gap_sc, 2),
+        "plateau_gap_bps": round(plateau_gap_sc, 2),
+        **weight_dict
+    })
+
+    for d in donors:
+        other_donors = [x for x in donors if x != d]
+        y_d_pre = df_pre_c[d].values
+        X_d_pre = df_pre_c[other_donors].values
+        y_d_post = df_post_c[d].values
+        X_d_post = df_post_c[other_donors].values
+
+        w_d, pre_rmspe_d = fit_synthetic_control(y_d_pre, X_d_pre)
+        synth_d_pre = X_d_pre @ w_d
+        synth_d_post = X_d_post @ w_d
+        gap_d_post = y_d_post - synth_d_post
+        post_rmspe_d = float(np.sqrt(np.mean(gap_d_post ** 2)))
+        ratio_d = post_rmspe_d / pre_rmspe_d if pre_rmspe_d > 0 else np.nan
+        acute_gap_d = float(np.mean(gap_d_post[acute_mask]))
+        plateau_gap_d = float(np.mean(gap_d_post[plateau_mask]))
+
+        placebo_ratios.append(ratio_d)
+        placebo_gaps_acute.append(acute_gap_d)
+
+        w_d_full = {col_name: round(float(w_d[other_donors.index(col_name)]), 4) if col_name in other_donors else 0.0
+                    for col_name in donors}
+
+        all_weights_records.append({
+            "spec": s_name,
+            "unit": d,
+            "is_treated": False,
+            "pre_rmspe_bps": round(pre_rmspe_d, 2),
+            "post_rmspe_bps": round(post_rmspe_d, 2),
+            "rmspe_ratio": round(ratio_d, 2),
+            "acute_gap_bps": round(acute_gap_d, 2),
+            "plateau_gap_bps": round(plateau_gap_d, 2),
+            **w_d_full
+        })
+
+        # Save for headline plot if this is the headline spec
+        if s_name == "5-donor (Headline)":
+            # Concatenate pre and post gap for plotting
+            gap_d_full = np.concatenate([y_d_pre - synth_d_pre, gap_d_post])
+            common_dates = df_pre_c.index.tolist() + df_post_c.index.tolist()
+            placebo_series_dict[d] = pd.Series(gap_d_full, index=common_dates)
+
+    num_units = len(placebo_ratios)
+    rank_ratio = int(np.sum(np.array(placebo_ratios) >= rmspe_ratio_br))
+    permutation_pval = rank_ratio / num_units
+
+    weights_summary_str = ", ".join([f"{k}: {v*100:.1f}%" for k, v in weight_dict.items() if v > 0.005])
+
+    results_summary.append({
+        "specification": s_name,
+        "outcome": out_col,
+        "pre_days": T0,
+        "post_days": T1,
+        "pre_rmspe_bps": round(pre_rmspe_br, 2),
+        "post_rmspe_bps": round(post_rmspe_br, 2),
+        "rmspe_ratio": round(rmspe_ratio_br, 2),
+        "acute_gap_sc_bps": round(acute_gap_sc, 2),
+        "plateau_gap_sc_bps": round(plateau_gap_sc, 2),
+        "full_post_gap_sc_bps": round(full_post_gap_sc, 2),
+        "did_acute_gap_bps": round(did_acute_gap, 2),
+        "did_plateau_gap_bps": round(did_plateau_gap, 2),
+        "naive_pre_mean_bps": round(naive_pre_mean, 2),
+        "placebo_rank": f"{rank_ratio}/{num_units}",
+        "permutation_p_value": round(permutation_pval, 3),
+        "weights_summary": weights_summary_str
+    })
+
+    if s_name == "5-donor (Headline)":
+        headline_series_for_plot = {
+            "df_pre": df_pre_c,
+            "df_post": df_post_c,
+            "synth_pre": pd.Series(synth_pre, index=df_pre_c.index),
+            "synth_post": pd.Series(synth_post, index=df_post_c.index),
+            "eq_pre": pd.Series(eq_pre, index=df_pre_c.index),
+            "eq_post": pd.Series(eq_post, index=df_post_c.index),
+            "gap_pre": pd.Series(gap_pre, index=df_pre_c.index),
+            "gap_post": pd.Series(gap_post, index=df_post_c.index),
+            "placebo_series": placebo_series_dict
+        }
+
+df_results = pd.DataFrame(results_summary)
+df_results.to_csv(RES_TAB / "P2-04_synth_results.csv", index=False)
+print(f"Saved synthetic control results to results/tables/P2-04_synth_results.csv")
+
+df_weights = pd.DataFrame(all_weights_records)
+df_weights.to_csv(RES_TAB / "P2-04_synth_weights.csv", index=False)
+print(f"Saved weights and placebo metrics to results/tables/P2-04_synth_weights.csv")
+
+# Print summary table to console
+print("\n=== Synthetic Control Results Summary ===")
+print(df_results[["specification", "pre_rmspe_bps", "rmspe_ratio", "acute_gap_sc_bps", "plateau_gap_sc_bps",
+                 "did_acute_gap_bps", "placebo_rank", "permutation_p_value", "weights_summary"]].to_string())
+
+# 4. Generate Publication Figure: results/figures/P2-04_synthetic_control.png
+print("\nGenerating 2-panel synthetic control figure...")
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(11, 9), dpi=300, sharex=True)
+
+# Data unpacking for headline spec
+data_p = headline_series_for_plot
+pre_idx = data_p["df_pre"].index
+post_idx = data_p["df_post"].index
+
+# Panel 1: Trajectory of Brazil vs Synthetic Brazil & Equal-Weight Mean
+ax1.plot(pre_idx, data_p["df_pre"]["BRL_ptax"], color="#0f172a", lw=2, label="Brazil Actual (USDT/BRL premium, PTAX)")
+ax1.plot(post_idx, data_p["df_post"]["BRL_ptax"], color="#0f172a", lw=2)
+
+ax1.plot(pre_idx, data_p["synth_pre"], color="#2563eb", lw=2, linestyle="--",
+         label="Synthetic Brazil (EUR 63.6%, MXN 17.9%, TRY 13.4%, ZAR 4.6%, COP 0.6%)")
+ax1.plot(post_idx, data_p["synth_post"], color="#2563eb", lw=2, linestyle="--")
+
+ax1.plot(pre_idx, data_p["eq_pre"], color="#94a3b8", lw=1.2, linestyle=":", label="Equal-Weighted 5-Donor Mean (DiD)")
+ax1.plot(post_idx, data_p["eq_post"], color="#94a3b8", lw=1.2, linestyle=":")
+
+# Vertical shock line and adaptation line
+ax1.axvline(pd.Timestamp("2026-06-23"), color="#dc2626", lw=1.8, linestyle="-")
+ax1.text(pd.Timestamp("2026-06-23"), 170, "  23 Jun 2026\n  BCB Ofício Shock", color="#dc2626", fontsize=9, fontweight="bold")
+
+ax1.axvline(pd.Timestamp("2026-07-21"), color="#64748b", lw=1.2, linestyle="--")
+ax1.text(pd.Timestamp("2026-07-21"), 170, "  22 Jul 2026\n  Adaptation Plateau", color="#64748b", fontsize=8)
+
+ax1.set_title("Panel A: Actual vs Synthetic USDT Premium (Basis Points)", fontsize=11, fontweight="bold")
+ax1.set_ylabel("USDT Premium over Official FX (bps)", fontsize=10)
+ax1.grid(True, linestyle=":", alpha=0.5)
+ax1.legend(loc="upper left", frameon=True, facecolor="white", edgecolor="#cbd5e1", fontsize=8.5)
+ax1.set_ylim(-20, 205)
+
+# Highlight acute window and plateau on Panel A
+ax1.axvspan(pd.Timestamp("2026-06-24"), pd.Timestamp("2026-07-21"), color="#fee2e2", alpha=0.4, label="Acute Spike Window")
+ax1.axvspan(pd.Timestamp("2026-07-22"), pd.Timestamp("2026-09-30"), color="#f1f5f9", alpha=0.5, label="Plateau Window")
+
+# Panel 2: Gap Path and In-Space Placebos
+# In-space placebos in gray
+for d_name, p_series in data_p["placebo_series"].items():
+    ax2.plot(p_series.index, p_series.values, color="#94a3b8", lw=1, alpha=0.6,
+             label="In-space donor placebos (EUR, TRY, ZAR, MXN, COP)" if d_name == "EUR" else "")
+
+# Brazil pre and post gap
+ax2.plot(pre_idx, data_p["gap_pre"], color="#2563eb", lw=2, label="Brazil Pre-Shock Gap (RMSPE = 7.05 bps)")
+ax2.plot(post_idx, data_p["gap_post"], color="#dc2626", lw=2.5,
+         label="Brazil Post-Shock Gap (Acute: +109.3 bps | Plateau: +28.2 bps)")
+
+ax2.axhline(0, color="#1e293b", lw=1, linestyle="-")
+ax2.axvline(pd.Timestamp("2026-06-23"), color="#dc2626", lw=1.8, linestyle="-")
+ax2.axvline(pd.Timestamp("2026-07-21"), color="#64748b", lw=1.2, linestyle="--")
+
+ax2.set_title("Panel B: Premium Gap (Actual − Synthetic) vs In-Space Placebos (Rank 1 of 6, p = 0.167)",
+              fontsize=11, fontweight="bold")
+ax2.set_ylabel("Treatment Gap (bps)", fontsize=10)
+ax2.set_xlabel("Date (Nov 2025 – Sep 2026)", fontsize=10)
+ax2.grid(True, linestyle=":", alpha=0.5)
+ax2.legend(loc="upper left", frameon=True, facecolor="white", edgecolor="#cbd5e1", fontsize=8.5)
+ax2.set_ylim(-90, 190)
+
+plt.tight_layout()
+fig_synth_path = RES_FIG / "P2-04_synthetic_control.png"
+fig.savefig(fig_synth_path)
+plt.close(fig)
+print(f"Saved synthetic control figure to {fig_synth_path}")

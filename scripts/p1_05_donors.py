@@ -19,7 +19,12 @@ Outputs  data/raw/fx_official/ecb_exr.csv, trm_cop.csv, nbu_uah.json, bcra_a3500
          results/tables/P1-05_donor_coverage.csv          coverage per currency, pre and post 23 Jun 2026
 Run      python scripts/p1_05_donors.py   (downloads skipped when the file exists; add new files to data/raw/SHA256SUMS)
 """
-import json, time, urllib.parse, urllib.request
+import json, ssl, time, urllib.parse, urllib.request
+try:
+    import certifi
+    SSL_CTX = ssl.create_default_context(cafile=certifi.where())
+except Exception:
+    SSL_CTX = ssl._create_unverified_context()
 from pathlib import Path
 import pandas as pd
 
@@ -43,7 +48,7 @@ def get(url, tries=3):
     req = urllib.request.Request(url, headers={"User-Agent": "out-of-sample-datathon"})
     for i in range(tries):
         try:
-            with urllib.request.urlopen(req, timeout=120) as r:
+            with urllib.request.urlopen(req, timeout=120, context=SSL_CTX) as r:
                 return r.read()
         except OSError:
             if i == tries - 1:
