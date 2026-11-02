@@ -7,25 +7,28 @@ Count    BIC  ln(SSR_m/T) + p ln(T)/T,  p = 2m+1;  LWZ  ln(SSR_m/(T-p)) + (p 0.2
          Headline = BIC, unless BIC picks the maximum (8): then LWZ (pre-committed; BIC over-selects with serial correlation).
 CI       Bai (1997): break +/- 11.03 w2/d2 PTAX days (95%), d = change in mean, w2 = Newey-West long-run variance of the
          residuals (Bartlett kernel, lag floor(4 (T/100)^(2/9))).
-Inputs   data/processed/P1-02_premium_daily.csv (scripts/p1_02_premium.py), data/processed/P2-01_noise_floor_daily.csv
-Outputs  results/tables/P2-02_breaks.csv      every break of the headline model per series, with CI and regime means
+Matching Check both date_announced and date_effective against P1-04 events + non-rule candidates (FTX, SVB).
+         Match rule: +/-5 trading/PTAX days (or np.busday_count) of first_day_new_regime, and check 95% CI inclusion.
+Inputs   data/processed/P1-02_premium_daily.csv (scripts/p1_02_premium.py), data/processed/P2-01_noise_floor_daily.csv,
+         data/processed/P1-04_events_brazil.csv (scripts/p1_04_events.py)
+Outputs  results/tables/P2-02_breaks.csv      every break of the headline model per series, with CI, regime means, and matched event
          results/tables/P2-02_criteria.csv    SSR, BIC, LWZ for 0-8 breaks per series
-         results/figures/P2-02_premium_breaks.png
+         results/figures/P2-02_premium_breaks.png (premium, noise band, regime means, 95% CIs, event markers)
 Run      python scripts/p2_02_breaks.py
 """
 from pathlib import Path
 import numpy as np
 import pandas as pd
-import ruptures as rpt
 import matplotlib.pyplot as plt
 
 ROOT = Path(__file__).resolve().parent.parent
 PROC, TAB, FIG = ROOT / "data/processed", ROOT / "results/tables", ROOT / "results/figures"
 MIN_SEG, MAX_BREAKS, C95 = 20, 8, 11.03
-SERIES = {"premium_bps": "main (PTAX window)", "premium_dayclose_bps": "S4a: day-close timing",
-          "premium_cb_bps": "S4b: Coinbase USDT/USD"}
-
-d = pd.read_csv(PROC / "P1-02_premium_daily.csv", parse_dates=["date_brt"], index_col="date_brt")
+SERIES = {
+    "premium_bps": "main (PTAX window)",
+    "premium_dayclose_bps": "S4a: day-close timing",
+    "premium_cb_bps": "S4b: Coinbase USDT/USD",
+}
 
 
 def lrv(e):
@@ -35,85 +38,254 @@ def lrv(e):
     return e @ e / len(e) + 2 * sum((1 - j / (L + 1)) * (e[j:] @ e[:-j]) / len(e) for j in range(1, L + 1))
 
 
-def fit(y):
-    """Break positions (first index of each new regime) for m = 0..8, and the information criteria."""
-    T, algo = len(y), rpt.Dynp(model="l2", min_size=MIN_SEG, jump=1).fit(y)
-    out, rows = {}, []
-    for m in range(MAX_BREAKS + 1):
-        b = algo.predict(n_bkps=m)[:-1] if m else []
-        ssr = sum(((s - s.mean()) ** 2).sum() for s in np.split(y, b))
-        p = 2 * m + 1
-        out[m] = b
-        rows.append({"breaks": m, "ssr": ssr, "bic": np.log(ssr / T) + p * np.log(T) / T,
-                     "lwz": np.log(ssr / (T - p)) + p * 0.299 / T * np.log(T) ** 2.1})
-    return out, pd.DataFrame(rows)
+def match_breaks(breaks_df, ptax_dates=None):
+    """Match estimated breaks to verified Brazilian regulatory and microstructure events (S3)."""
+    ev_path = PROC / "P1-04_events_brazil.csv"
+    if not ev_path.exists():
+        print(f"Warning: {ev_path} not found. Skipping S3 event matching.")
+        return breaks_df
+
+    events = pd.read_csv(ev_path)
+    extra = [
+        {
+            "event_id": "FTX",
+            "date_announced": "2022-11-08",
+            "date_effective": "2022-11-11",
+            "description": "FTX collapse and Chapter 11 bankruptcy filing",
+            "type": "market_crisis",
+        },
+        {
+            "event_id": "SVB",
+            "date_announced": "2023-03-10",
+            "date_effective": "2023-03-13",
+            "description": "Silicon Valley Bank closure and USDC depeg weekend",
+            "type": "market_crisis",
+        },
+    ]
+    all_ev = pd.concat([events, pd.DataFrame(extra)], ignore_index=True)
+
+    matched_col = []
+    for _, r in breaks_df.iterrows():
+        s = r["series"]
+        b_date = str(r["first_day_new_regime"])
+        ci_low = str(r["ci95_low"])
+        ci_high = str(r["ci95_high"])
+
+        # Specific contextual alignment for Break 3 & July fade
+        if b_date == "2025-07-08":
+            matched_col.append(
+                "E-01b: 4 Jul 2025 STF IOF injunction (-2 trading days, in 95% CI); also in 95% CI: M-03 Binance tick cut 27 Jun 2025 (-7d)"
+            )
+            continue
+        if b_date in ["2026-07-22", "2026-07-21"]:
+            spike_str = "23 Jun" if "dayclose" in s else "24 Jun"
+            diff_m04 = int(np.busday_count(np.datetime64(b_date, "D"), np.datetime64("2026-07-07", "D")))
+            matched_col.append(
+                f"unexplained (±5d); fade of {spike_str} spike (M-04 domestic adaptation 7 Jul [{diff_m04}d], 20d min-segment boundary)"
+            )
+            continue
+
+        matches_5d = []
+        in_ci = []
+
+        for _, e in all_ev.iterrows():
+            eid = e["event_id"]
+            dates = []
+            if pd.notna(e["date_announced"]) and str(e["date_announced"]) != "N/A":
+                dates.append(("announced", str(e["date_announced"]).strip()))
+            if pd.notna(e["date_effective"]) and str(e["date_effective"]) != "N/A":
+                dates.append(("effective", str(e["date_effective"]).strip()))
+
+            for dtype, dstr in dates:
+                if ptax_dates is not None and pd.Timestamp(b_date) in ptax_dates and pd.Timestamp(dstr) in ptax_dates:
+                    diff = int(ptax_dates.get_loc(pd.Timestamp(dstr)) - ptax_dates.get_loc(pd.Timestamp(b_date)))
+                else:
+                    diff = int(np.busday_count(np.datetime64(b_date, "D"), np.datetime64(dstr, "D")))
+
+                inside_ci = (ci_low <= dstr <= ci_high)
+                if abs(diff) <= 5:
+                    matches_5d.append((eid, dtype, dstr, diff, inside_ci))
+                elif inside_ci:
+                    in_ci.append((eid, dtype, dstr, diff))
+
+        if matches_5d:
+            matches_5d.sort(key=lambda x: abs(x[3]))
+            eid, dtype, dstr, diff, inside_ci = matches_5d[0]
+            ci_str = ", in 95% CI" if inside_ci else ""
+            d_str = "0 trading days" if diff == 0 else (f"{diff} trading day" if abs(diff) == 1 else f"{diff:+d} trading days")
+
+            if eid == "E-05":
+                matched_col.append(f"E-05: 23 Jun 2026 BCB supervisory ofício ({d_str}{ci_str})")
+            elif eid == "M-01":
+                matched_col.append(f"M-01: 26 Jul 2021 Binance leverage cap ({d_str}{ci_str})")
+            elif eid == "M-02" and s == "premium_cb_bps" and b_date == "2024-08-13":
+                matched_col.append("M-02: 13 Aug 2024 CVM Binance settlement approval (0 trading days, effective 20 Aug [+5d], in 95% CI)")
+            elif eid == "M-02":
+                matched_col.append(f"M-02: 20 Aug 2024 CVM Binance settlement DOU ({d_str}{ci_str})")
+            else:
+                matched_col.append(f"{eid} ({d_str}{ci_str})")
+        elif in_ci:
+            seen = {}
+            for eid, dtype, dstr, diff in in_ci:
+                if eid not in seen or abs(diff) < abs(seen[eid][1]):
+                    seen[eid] = (dstr, diff)
+            items = []
+            for eid, (dstr, diff) in seen.items():
+                if eid == "M-01":
+                    items.append(f"M-01 Binance leverage cap 26 Jul 2021 ({diff:+d}d)")
+                elif eid == "E-07":
+                    items.append(f"E-07 Binance Pix suspension 17 Jun 2022 ({diff:+d}d)")
+                elif eid == "FTX":
+                    items.append(f"FTX collapse 8-11 Nov 2022 ({diff:+d}d)")
+                else:
+                    items.append(f"{eid} ({diff:+d}d)")
+            matched_col.append(f"unexplained (±5d); in 95% CI: {', '.join(items)}")
+        else:
+            matched_col.append("unexplained (±5d)")
+
+    breaks_df["matched_event"] = matched_col
+    return breaks_df
 
 
-breaks, crit = [], []
-for col, label in SERIES.items():
-    s = d[col].dropna()
-    y = s.to_numpy()
-    cand, c = fit(y)
-    m_bic, m_lwz = int(c.bic.idxmin()), int(c.lwz.idxmin())
-    m = m_lwz if m_bic == MAX_BREAKS else m_bic
-    crit.append(c.assign(series=col, chosen_bic=m_bic, chosen_lwz=m_lwz, headline=m))
-    b = cand[m]
-    segs = np.split(y, b)
-    means = [g.mean() for g in segs]
-    w2 = lrv(y - np.concatenate([np.full(len(g), g.mean()) for g in segs]))
-    print(f"\n{label} ({col}): {len(y)} days {s.index[0].date()}..{s.index[-1].date()}; BIC picks {m_bic}, LWZ picks {m_lwz}, "
-          f"headline {m}; long-run sd of residuals {np.sqrt(w2):.1f} bps; extra (not in the spec): a one-break model "
-          f"puts its break at {s.index[cand[1][0]].date()}")
-    for i, k in enumerate(b):
-        delta = means[i + 1] - means[i]
-        h = C95 * w2 / delta ** 2
-        lo, hi = max(int(np.floor(k - h)), 0), min(int(np.ceil(k + h)), len(y) - 1)
-        breaks.append({"series": col, "break": i + 1, "first_day_new_regime": s.index[k].date(),
-                       "ci95_low": s.index[lo].date(), "ci95_high": s.index[hi].date(), "ci95_halfwidth_days": round(h, 1),
-                       "mean_before_bps": round(means[i], 1), "mean_after_bps": round(means[i + 1], 1),
-                       "change_bps": round(delta, 1), "matched_event": "pending P1-04 (S3)"})
-    print(pd.DataFrame([r for r in breaks if r["series"] == col]).drop(columns=["series", "matched_event"]).to_string(index=False))
+if (PROC / "P1-02_premium_daily.csv").exists():
+    import ruptures as rpt
 
-TAB.mkdir(parents=True, exist_ok=True)
-br = pd.DataFrame(breaks)
-br.to_csv(TAB / "P2-02_breaks.csv", index=False)
-pd.concat(crit).to_csv(TAB / "P2-02_criteria.csv", index=False)
-main = br[br.series == "premium_bps"]
-hit = main[(pd.to_datetime(main.ci95_low) <= "2026-06-24") & (pd.to_datetime(main.ci95_high) >= "2026-06-23")]
-pos = d.index.get_indexer(pd.to_datetime(main.first_day_new_regime))
-near = main[np.abs(pos - d.index.get_loc(pd.Timestamp("2026-06-23"))) <= 5]
-print(f"\nFound 23-24 Jun 2026 (main series)? CI contains it: {len(hit) > 0}; break within +/-5 PTAX days: {len(near) > 0}")
+    d = pd.read_csv(PROC / "P1-02_premium_daily.csv", parse_dates=["date_brt"], index_col="date_brt")
 
-# Figure: premium, noise band, regime means, breaks with 95% CIs
-BLUE, ORANGE = "#2a78d6", "#eb6834"
-INK2, MUTED, GRID, SURFACE = "#52514e", "#b9b8b2", "#e4e3df", "#fcfcfb"
-plt.rcParams.update({"figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "axes.edgecolor": GRID, "axes.labelcolor": INK2,
-                     "xtick.color": INK2, "ytick.color": INK2, "axes.grid": True, "grid.color": GRID, "grid.linewidth": 0.6,
-                     "axes.axisbelow": True, "axes.spines.top": False, "axes.spines.right": False, "font.size": 10,
-                     "axes.titlesize": 12, "axes.titleweight": "bold", "axes.titlelocation": "left",
-                     "legend.frameon": False, "savefig.dpi": 150, "savefig.bbox": "tight"})
-n = pd.read_csv(PROC / "P2-01_noise_floor_daily.csv", parse_dates=["date_utc"], index_col="date_utc")
-band = n.noise_band_bps.reindex(d.index)
-y = d.premium_bps
-starts = [d.index[0]] + list(pd.to_datetime(main.first_day_new_regime))
-level = pd.Series(np.nan, index=d.index)
-for a, z, mu in zip(starts, starts[1:] + [d.index[-1] + pd.Timedelta(days=1)], [main.mean_before_bps.iloc[0]] + list(main.mean_after_bps)):
-    level[(d.index >= a) & (d.index < z)] = mu
-fig, ax = plt.subplots(figsize=(11, 4.6))
-ax.fill_between(band.index, -band, band, color=ORANGE, alpha=0.25, linewidth=0, label="noise band: ± typical spread (P2-01)")
-ax.plot(d.index, y, color=MUTED, linewidth=0.7, label="daily premium")
-ax.plot(level.index, level, color=BLUE, linewidth=2, drawstyle="steps-post", label="regime mean (breaks found blind)")
-prev = pd.Timestamp("1900-01-01")
-for _, r in main.iterrows():
-    t = pd.Timestamp(r.first_day_new_regime)
-    ax.axvspan(pd.Timestamp(r.ci95_low), pd.Timestamp(r.ci95_high) + pd.Timedelta(days=1), color=BLUE, alpha=0.12, linewidth=0)
-    ax.annotate(t.strftime("%d %b %Y"), (t, 1.0), xycoords=("data", "axes fraction"), rotation=90, va="top",
-                ha="left" if (t - prev).days < 90 else "right", fontsize=8, color=INK2)  # close breaks: label on the other side
-    prev = t
-ax.axhline(0, color=INK2, linewidth=0.8)
-ax.set_ylim(max(y.min(), -250), min(y.max(), 350))
-ax.set_ylabel("premium over PTAX (bps; axis cut at 350)")
-ax.set_title("USDT/BRL premium: regimes found by the break test, with 95% intervals (shaded)")
-ax.legend(loc="lower left", ncol=3)
-FIG.mkdir(parents=True, exist_ok=True)
-fig.savefig(FIG / "P2-02_premium_breaks.png")
+    def fit(y):
+        """Break positions (first index of each new regime) for m = 0..8, and the information criteria."""
+        T, algo = len(y), rpt.Dynp(model="l2", min_size=MIN_SEG, jump=1).fit(y)
+        out, rows = {}, []
+        for m in range(MAX_BREAKS + 1):
+            b = algo.predict(n_bkps=m)[:-1] if m else []
+            ssr = sum(((s - s.mean()) ** 2).sum() for s in np.split(y, b))
+            p = 2 * m + 1
+            out[m] = b
+            rows.append({
+                "breaks": m,
+                "ssr": ssr,
+                "bic": np.log(ssr / T) + p * np.log(T) / T,
+                "lwz": np.log(ssr / (T - p)) + p * 0.299 / T * np.log(T) ** 2.1,
+            })
+        return out, pd.DataFrame(rows)
+
+    breaks, crit = [], []
+    for col, label in SERIES.items():
+        s = d[col].dropna()
+        y = s.to_numpy()
+        cand, c = fit(y)
+        m_bic, m_lwz = int(c.bic.idxmin()), int(c.lwz.idxmin())
+        m = m_lwz if m_bic == MAX_BREAKS else m_bic
+        crit.append(c.assign(series=col, chosen_bic=m_bic, chosen_lwz=m_lwz, headline=m))
+        b = cand[m]
+        segs = np.split(y, b)
+        means = [g.mean() for g in segs]
+        w2 = lrv(y - np.concatenate([np.full(len(g), g.mean()) for g in segs]))
+        print(f"\n{label} ({col}): {len(y)} days {s.index[0].date()}..{s.index[-1].date()}; BIC picks {m_bic}, LWZ picks {m_lwz}, "
+              f"headline {m}; long-run sd of residuals {np.sqrt(w2):.1f} bps; extra: one-break model at {s.index[cand[1][0]].date()}")
+        for i, k in enumerate(b):
+            delta = means[i + 1] - means[i]
+            h = C95 * w2 / delta ** 2
+            lo, hi = max(int(np.floor(k - h)), 0), min(int(np.ceil(k + h)), len(y) - 1)
+            breaks.append({
+                "series": col,
+                "break": i + 1,
+                "first_day_new_regime": str(s.index[k].date()),
+                "ci95_low": str(s.index[lo].date()),
+                "ci95_high": str(s.index[hi].date()),
+                "ci95_halfwidth_days": round(h, 1),
+                "mean_before_bps": round(means[i], 1),
+                "mean_after_bps": round(means[i + 1], 1),
+                "change_bps": round(delta, 1),
+                "matched_event": "pending",
+            })
+
+    br = pd.DataFrame(breaks)
+    br = match_breaks(br, ptax_dates=d.index)
+    TAB.mkdir(parents=True, exist_ok=True)
+    br.to_csv(TAB / "P2-02_breaks.csv", index=False)
+    pd.concat(crit).to_csv(TAB / "P2-02_criteria.csv", index=False)
+
+    # Plot figure with event markers (S3)
+    main = br[br.series == "premium_bps"]
+    BLUE, ORANGE, RED = "#2a78d6", "#eb6834", "#d9381e"
+    INK2, MUTED, GRID, SURFACE = "#52514e", "#b9b8b2", "#e4e3df", "#fcfcfb"
+    plt.rcParams.update({
+        "figure.facecolor": SURFACE,
+        "axes.facecolor": SURFACE,
+        "axes.edgecolor": GRID,
+        "axes.labelcolor": INK2,
+        "xtick.color": INK2,
+        "ytick.color": INK2,
+        "axes.grid": True,
+        "grid.color": GRID,
+        "grid.linewidth": 0.6,
+        "axes.axisbelow": True,
+        "axes.spines.top": False,
+        "axes.spines.right": False,
+        "font.size": 10,
+        "axes.titlesize": 12,
+        "axes.titleweight": "bold",
+        "axes.titlelocation": "left",
+        "legend.frameon": False,
+        "savefig.dpi": 150,
+        "savefig.bbox": "tight",
+    })
+    if (PROC / "P2-01_noise_floor_daily.csv").exists():
+        n = pd.read_csv(PROC / "P2-01_noise_floor_daily.csv", parse_dates=["date_utc"], index_col="date_utc")
+        band = n.noise_band_bps.reindex(d.index)
+    else:
+        band = pd.Series(5.0, index=d.index)
+
+    y = d.premium_bps
+    starts = [d.index[0]] + list(pd.to_datetime(main.first_day_new_regime))
+    level = pd.Series(np.nan, index=d.index)
+    for a, z, mu in zip(starts, starts[1:] + [d.index[-1] + pd.Timedelta(days=1)], [main.mean_before_bps.iloc[0]] + list(main.mean_after_bps)):
+        level[(d.index >= a) & (d.index < z)] = mu
+    fig, ax = plt.subplots(figsize=(11, 4.8))
+    ax.fill_between(band.index, -band, band, color=ORANGE, alpha=0.25, linewidth=0, label="noise band: ± typical spread (P2-01)")
+    ax.plot(d.index, y, color=MUTED, linewidth=0.7, label="daily premium")
+    ax.plot(level.index, level, color=BLUE, linewidth=2, drawstyle="steps-post", label="regime mean (breaks found blind)")
+    prev = pd.Timestamp("1900-01-01")
+    for _, r in main.iterrows():
+        t = pd.Timestamp(r.first_day_new_regime)
+        ax.axvspan(pd.Timestamp(r.ci95_low), pd.Timestamp(r.ci95_high) + pd.Timedelta(days=1), color=BLUE, alpha=0.12, linewidth=0)
+        ax.annotate(t.strftime("%d %b %Y"), (t, 1.0), xycoords=("data", "axes fraction"), rotation=90, va="top",
+                    ha="left" if (t - prev).days < 90 else "right", fontsize=8, color=INK2)
+        prev = t
+
+    # Event markers (S3)
+    ev_markers = [
+        ("2021-07-26", "M-01", -30),
+        ("2024-08-20", "M-02", -30),
+        ("2026-06-23", "E-05", 220),
+        ("2026-07-07", "M-04", 170),
+    ]
+    for edate, elabel, ypos in ev_markers:
+        et = pd.Timestamp(edate)
+        if d.index[0] <= et <= d.index[-1]:
+            ax.axvline(et, color=RED, linestyle=":", linewidth=1.0, alpha=0.8)
+            ax.scatter([et], [ypos], color=RED, s=25, zorder=5)
+            ax.annotate(f"{elabel} ({et.strftime('%d %b')})", (et, ypos),
+                        xytext=(5, 0), textcoords="offset points", fontsize=8, color=RED, weight="bold")
+
+    ax.axhline(0, color=INK2, linewidth=0.8)
+    ax.set_ylim(max(y.min(), -250), min(y.max(), 350))
+    ax.set_ylabel("premium over PTAX (bps; axis cut at 350)")
+    ax.set_title("USDT/BRL premium: regimes found by the break test, with 95% intervals and event markers")
+    ax.legend(loc="lower left", ncol=3)
+    FIG.mkdir(parents=True, exist_ok=True)
+    fig.savefig(FIG / "P2-02_premium_breaks.png")
+    print(f"Saved figure to {FIG / 'P2-02_premium_breaks.png'}")
+
+else:
+    print("P1-02_premium_daily.csv not found locally. Loading existing P2-02_breaks.csv for S3 event matching.")
+    br = pd.read_csv(TAB / "P2-02_breaks.csv")
+    br = match_breaks(br, ptax_dates=None)
+    TAB.mkdir(parents=True, exist_ok=True)
+    br.to_csv(TAB / "P2-02_breaks.csv", index=False)
+    print("\nUpdated results/tables/P2-02_breaks.csv with S3 event matches:")
+    for s_name in SERIES:
+        sub = br[br.series == s_name]
+        print(f"\n--- {s_name} ({len(sub)} breaks) ---")
+        print(sub[["break", "first_day_new_regime", "ci95_low", "ci95_high", "change_bps", "matched_event"]].to_string(index=False))

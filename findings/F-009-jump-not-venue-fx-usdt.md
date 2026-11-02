@@ -46,4 +46,5 @@ starting on the afternoon of 23 Jun, consistent with, but not proof of, the repo
 Not yet (candidate: one robustness line "same jump on 3 exchanges", and the hourly figure in the annex).
 
 ## History
+- 2026-10-31, Jonathan: reviewed and verified (independent clean run reproduces tables, cross-venue replication and hourly figure); confirmed. Note: P2-05_venues_daily.csv exports 1 Jun – 31 Jul (16 pre-event PTAX days) while the 20-day pre-window reported above starts 25 May.
 - 2026-10-31, agent for Renzo: created (status confirmed: P2-05 criteria pass; not yet re-run by a teammate)

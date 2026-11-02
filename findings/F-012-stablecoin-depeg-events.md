@@ -8,6 +8,9 @@ checked_by: Renzo, Nattan
 ---
 
 ## Claim
+> [!NOTE]
+> **Superseded by F-013 (v2 screen):** This v1 automated screen was superseded by F-013 following peer review. The refined v2 detector identifies 11 falls below $1 (9 excluding pre-delisting drift, below the 12-event threshold for Kaplan–Meier survival curves). During the SVB weekend, Bitstamp USDC/USD reached a lowest hourly close of $0.863 ($0.805 was the intra-hour low); recovery occurred Sunday 23:00 UTC immediately after the 22:15 UTC deposit guarantee announcement (D-13), before banks reopened Monday.
+
 Applying the frozen depeg detection rule (|price − 1| > 0.5% sustained for ≥ 2 consecutive hours, recovery sustained for 6 hours, merging episodes < 24h apart) to hourly Binance data and adjusting against direct Coinbase USDT/USD quotes identifies 29 USD-confirmed independent depeg events across 7 pairs (BUSD, FDUSD, TUSD, USDC, USDP, USTC, UST) between 2019 and 2026. An additional 16 episodes remain classified as relative-price candidates due to missing direct USD references. During the March 2023 SVB weekend, direct Bitstamp USDC/USD data demonstrates that USDC depegged to an intra-hour low of $0.805 on Saturday 11 March 07:00 UTC during US bank closure hours before recovering once banking channels reopened on Monday 13 March.
 
 ## Evidence

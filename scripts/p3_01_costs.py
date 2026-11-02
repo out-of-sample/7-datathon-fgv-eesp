@@ -35,15 +35,14 @@ NOTIONAL_USD = 100_000.0
 BENCHMARK_PTAX = 5.3800  # Default benchmark (Binance live bid 5.3800 / ask 5.3804 from D-10)
 
 # 1. Inspect dynamic inputs if present
-ptax_rate = BENCHMARK_PTAX
+ptax_rate = BENCHMARK_PTAX  # Pre-committed benchmark reference FX (tasks/P3-01-money-layer.md §18)
+empirical_last_ptax = None
 if (PROC / "P1-02_premium_daily.csv").exists():
     try:
         p1_02 = pd.read_csv(PROC / "P1-02_premium_daily.csv", parse_dates=["date_brt"], index_col="date_brt")
-        if "ptax" in p1_02.columns:
-            latest_ptax = float(p1_02["ptax"].dropna().iloc[-1])
-            if 3.0 < latest_ptax < 10.0:
-                ptax_rate = latest_ptax
-                print(f"Loaded latest PTAX from P1-02_premium_daily.csv: R$ {ptax_rate:.4f}")
+        if "ptax_sell_brl_per_usd" in p1_02.columns:
+            empirical_last_ptax = float(p1_02["ptax_sell_brl_per_usd"].dropna().iloc[-1])
+            print(f"Verified latest PTAX in P1-02_premium_daily.csv: R$ {empirical_last_ptax:.4f} (benchmark pre-committed to R$ {BENCHMARK_PTAX:.4f})")
     except Exception as e:
         print(f"Notice reading P1-02_premium_daily.csv: {e}")
 

@@ -22,7 +22,9 @@ Yearly mean premium (bps), Binance USDT/BRL vs PTAX, matched to the PTAX window,
 | 2023 | 249 | 57.6 | 60.6 | 12.2 |
 | 2024 | 253 | 48.6 | 51.1 | 12.0 |
 | 2025 | 252 | 23.3 | 20.4 | 11.0 |
-| 2026 (to 30 Oct) | 187 | 20.4 | 8.7 | 7.4 |
+| 2026 (to 30 Sep, probe) | 187 | 20.4 | 8.7 | 7.4 |
+
+*Note:* Full 2026 through 30 Oct (P1-02 v2, 208 PTAX days): unadjusted mean 19.2 bps, USDT/USD-adjusted mean 24.0 bps, median 13.1 bps, median hourly range 7.6 bps.
 
 Reproduce: `python scripts/00_probe_premium.py data/raw/binance/USDTBRL data/raw/bcb/ptax.json` (first table and
 the "median hourly high-low range" line).

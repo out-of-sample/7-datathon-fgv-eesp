@@ -29,10 +29,8 @@ not evidence.
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
 - **State:** done (reviewed and verified by Jonathan). Finding F-007 reproduced; figures and noise floor daily CSV verified.
-- **Next step (reviewer):** `python scripts/p1_02_premium.py && python scripts/p2_01_noise.py`; the printed table
-  must match F-007; look at the two `results/figures/P2-01_*.png`. Then set `status: done`.
-- **Open questions:** (1) Binance's tick change (~27 Jun 2025) needs its announcement (`[verify]`); it matters for the
-  Jul 2025 step (note left in P2-02). (2) The two papers are cited from memory (L-01, L-02 `[verify]`).
+- **Next step:** None for P2-01. Downstream tasks consume data/processed/P2-01_noise_floor_daily.csv.
+- **Open questions:** (1) Binance's tick change (27 Jun 2025) verified in M-03. (2) Formulas for Corwin-Schultz (L-01) and Abdi-Ranaldo (L-02) verified against published literature.
 - **How to resume / reuse:** the band for other charts is `noise_band_bps` in
   `data/processed/P2-01_noise_floor_daily.csv` (index `date_utc`, which equals the PTAX date for the 13–16h UTC window).
 

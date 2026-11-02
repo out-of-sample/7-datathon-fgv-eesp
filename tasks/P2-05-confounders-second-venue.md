@@ -29,8 +29,7 @@ move, a Binance-only problem, or a data error.
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
 - **State:** done (reviewed and verified by Jonathan). Jump replicated across Binance, Foxbit, and Mercado Bitcoin; figure and finding F-009 confirmed.
-- **Next step (reviewer):** `python scripts/p1_02_premium.py && python scripts/p2_05_checks.py`; the printed tables must
-  match F-009; look at `results/figures/P2-05_hourly_22_26_jun.png`. Then set `status: done`.
+- **Next step:** None for P2-05. Jump robustness verified across venues.
 - **Open questions:** (1) Exact time of the BCB notice on 23 Jun (P1-04): the premium starts rising that afternoon.
   (2) Optional cross-check of PTAX against FRED DEXBZUS: FRED blocks scripts, so it needs a manual browser download.
   (3) Two non-regulatory candidate events passed to P1-04 (Binance Pix suspension 2022, tick cut 2025).

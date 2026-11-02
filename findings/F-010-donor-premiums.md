@@ -18,7 +18,7 @@ controlled currencies are a description, not a test.
 ## Evidence
 Mean premium, bps (price of USDT in local currency / (official rate x USDT/USD) - 1), up to 22 Jun 2026:
 
-| Currency | Official rate | 2024 | 2025 | 2026 (to 22 Jun) | Binance volume, M USD/month (Nov 2025 - Jun 2026) |
+| Currency | Official rate | 2024 | 2025 | 2026 (to 22 Jun) | Binance volume, M USDT/month (Nov 2025 - Jun 2026) |
 |---|---|---|---|---|---|
 | BRL (PTAX, P1-02) | PTAX | 49 | 22 | 8 | 1,462 |
 | BRL (ECB, check) | ECB | 56 | 25 | 12 | same |

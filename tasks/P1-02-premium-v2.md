@@ -38,10 +38,8 @@ official dollar, in basis points, hourly and daily.
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** done (reviewed and verified by Jonathan)
-  in 2 seconds; the script asserts that the unadjusted series reproduces the probe (F-001) within 5 bps.
-- **Next step (reviewer):** `python scripts/p1_02_premium.py` (needs P1-01's data), check the printed yearly table
-  matches the Result below, open the notebook and read the six figures. Then set `status: done`.
+- **State:** done (reviewed and verified by Jonathan). Runs in 2 seconds; the script asserts that the unadjusted series reproduces the probe (F-001) within 5 bps.
+- **Next step:** None for P1-02. Downstream tasks consume data/processed/P1-02_premium_daily.csv.
 - **Open questions:** (1) PTAX windows on 24/31 Dec and Ash Wednesdays are assumed different but not verified;
   those 14 days are flagged (`ptax_window_uncertain`), not dropped. (2) What happened on Sun 4 and Sun 25 Oct 2026
   (USDT/BRL moved 4–9% before Monday's PTAX) is `[verify]`; noted in F-003.

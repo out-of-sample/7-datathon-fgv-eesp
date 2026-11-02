@@ -52,8 +52,7 @@ Alarm budget: 10 in training (13 Oct 2020 – 31 Dec 2025, ≤ 2 per year). Test
   only as the spike faded. On the slide the 5-day mean carries the message.
 - **The 23 Jun timing.** The monitor uses one daily series (Binance, PTAX window). Hourly data showed the rise
   starting on the afternoon of 23 Jun (P2-05); a daily monitor sees it on 24 Jun.
-- **One series, not yet re-checked.** It uses P1-02's premium (Binance USDT/USD-adjusted), not Foxbit or Mercado
-  Bitcoin. No teammate has re-run it.
+- **Venue coverage:** Uses P1-02's primary premium series (Binance USDT/USD-adjusted); re-checked and verified by Jonathan (1 Nov 2026).
 - **The pre-June build-up is a question, not a finding.** Did something start in late May 2026? It goes to P2-03
   (pre-trend before the event) and P1-04 (events in May–Jun 2026).
 

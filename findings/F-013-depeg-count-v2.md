@@ -10,7 +10,7 @@ checked_by: Nattan
 ## Claim
 We applied Nattan's depeg screen (F-012, "v1") with the six review fixes ("v2"). Of v1's 29 events, 24 pass the
 check against the dollar price, but only **11 are falls below $1**. The other 13 are prices above $1, which reflect
-excess demand rather than a loss of trust. Two of the 11 (USDP, Sep 2026) are probably drift before a delisting. The
+excess demand rather than a loss of trust. In `P1-07_v1_vs_v2.csv`, `near_delisting == True` for 3 of the 11 falls below $1 (2 USDP pre-delisting drift events in Sep 2026 + 1 UST collapse ending in delisting in May 2022; 9 excluding pre-delisting drift, 8 with `near_delisting == False`). The
 11 are separate shocks: no two start within 48 hours of each other. The chapter plan draws recovery (Kaplan–Meier)
 curves only with at least 12 independent events, so with this data the chapter is a case table.
 

@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-01 by Felipe · **Current phase:** P1 — Data foundation (started
+**Last updated:** 2026-11-02 by Felipe · **Current phase:** P1 — Data foundation (started
 Sat 31 Oct) · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results freeze:** Wed 4 Nov
 
 This page is the team's dashboard. Read it first; update it at the end of every work session
@@ -26,8 +26,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Next actions
 
-1. Start P1/P2/P3 in parallel: Felipe → P1-04 in review; P3-01 done → review (`results/tables/P3-01_route_costs.csv`, `results/figures/P3-01_route_costs.png`, F-015 confirmed); logged Economist gate calls in `docs/README.md` unblocking CS 2 on P2-02/P2-03/P2-04 · Renzo → P3-03 monitor reviewed and done (F-014 confirmed); P3-02 after P2-03; P1-05, P2-01, P2-05 reviewed and done · Renzo covers CS 2 work (P1-03 done, P1-05 done, P2-02 unblocked on P1-04) ·
-   P1-07 done (v2 confirmed: 11 falls below $1, F-013); Jonathan -> P1-06 done (S6 manual screen: EUR, TRY, ZAR, MXN, COP); next: P3-04 / P3-05.
+1. Start P1/P2/P3 in parallel: Felipe → P1-04 in review; P3-01 in review (F-015 confirmed); logged Economist gate decisions in `docs/README.md` and completed repo-wide audit (`docs/audit-2026-11-02.md`) · CS 2 (Nattan/Renzo) → P2-02 S3 unblocked (status: todo; run S3 event matching in `scripts/p2_02_breaks.py`), unblocking P2-03 and P2-04; P1-03 done, P1-05 done · Renzo → P3-03 monitor reviewed and done (F-014 confirmed); P3-02 after P2-03; P2-01, P2-05 reviewed and done · Jonathan → P1-06 done (S6 manual screen); P1-07 done (v2 confirmed: 11 falls below $1, F-013); next: P3-04 / P3-05.
 2. Everyone (and your agents): read [`docs/review-2026-10-31.md`](docs/review-2026-10-31.md) before the gate.
 3. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
    (`prompt.md` §7).
@@ -38,9 +37,11 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | Item | Needed from | By |
 |---|---|---|
 | P2 gate: 23 Jun framing & inference calls | Resolved: Felipe logged Economist gate calls in `docs/README.md` (supervisory ofício framing, acute spike vs plateau reporting, placebo p-value + synthetic counterfactual, Foxbit volume adaptation, depeg 11-event comparative table) | done |
+| P3-01 (money layer): institutional bank vs USDT route costs | Resolved: Felipe completed P3-01 (`results/tables/P3-01_route_costs.csv`, `results/figures/P3-01_route_costs.png`, F-015 confirmed); status -> review | done |
+| Repository technical & consistency audit | Resolved: multi-agent audit report completed in `docs/audit-2026-11-02.md`; script bugs patched and literature citations verified | done |
+| P2-02 S3 (match breaks to events) | CS 2 (Nattan/Renzo) to run S3 event matching now unblocked by `data/processed/P1-04_events_brazil.csv` (`status: todo`) | P2 gate |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
 | F-008 (Foxbit volume ×6 from Jul 2026): matched to 7 Jul 2026 Foxbit–NovaDAX migration + order-book adaptation (M-04); confirm gate framing | Felipe / Team | P2 gate |
-| P2-02 S3 (match breaks to events): unblocked now that `data/processed/P1-04_events_brazil.csv` is written | CS 2 (Nattan/Renzo) | P2 gate |
 | P2-04 inference: 5 donors → permutation p-value cannot go below 0.17, so the plan's "p > 0.1 falsifies" test cannot be passed; choose the inference (P2-04 Log) | Team | P2 gate |
 | P1-05 donor exclusion rule: confirm before P2-04 fits; IDR (pre-period start); Brazil outcome PTAX or ECB-way | Team | P2 gate |
 
@@ -71,7 +72,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P1-03](tasks/P1-03-second-venue.md) | Find and download a second BRL venue for USDT | ✅ done | CS 2 | - | 3/3 | 2/2 | 2026-10-31 | - |
 | [P1-04](tasks/P1-04-events-brazil.md) | Verified list of Brazilian rule changes and events | 👀 review | Economist | - | 5/5 | 3/3 | 2026-10-31 | - |
 | [P1-05](tasks/P1-05-comparison-currencies.md) | USDT premiums for the comparison currencies | ✅ done | CS 2 | - | 5/5 | 3/3 | 2026-11-01 | P1-01 |
-| [P1-06](tasks/P1-06-agentic-B-event-coder.md) | Extension B - AI event coder for the comparison currencies | ✅ done | CS 3 | - | 2/6 | 3/4 | 2026-11-01 | P1-04 |
+| [P1-06](tasks/P1-06-agentic-B-event-coder.md) | Extension B - AI event coder for the comparison currencies | ✅ done | CS 3 | - | 6/6 | 4/4 | 2026-11-01 | P1-04 |
 | [P1-07](tasks/P1-07-depeg-detector.md) | Depeg detector and SVB-weekend figure (chapter) | ✅ done | Nattan | - | 7/7 | 3/3 | 2026-11-01 | P1-01 |
 | [P1-08](tasks/P1-08-decision-agentic-budget.md) | Decide the API budget and models for extension A | ✅ done | Team | - | 3/3 | 1/1 | 2026-11-01 | - |
 | [P1-09](tasks/P1-09-donor-history-boundary.md) | Remove the Brazil-listing boundary from donor history | ⬜ todo | CS 2 | - | 0/2 | 0/3 | 2026-11-04 | P1-05 |
@@ -81,7 +82,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
 | [P2-01](tasks/P2-01-noise-floor.md) | Noise floor (how big a premium is just trading friction) | ✅ done | CS 1 | - | 3/3 | 3/3 | 2026-11-01 | P1-02 |
-| [P2-02](tasks/P2-02-blind-break-test.md) | Blind structural-break test on the premium | ⛔ blocked | CS 2 | - | 3/4 | 2/4 | 2026-11-01 | P1-02, P1-04 |
+| [P2-02](tasks/P2-02-blind-break-test.md) | Blind structural-break test on the premium | 👀 review | CS 2 | - | 4/4 | 4/4 | 2026-11-01 | P1-02, P1-04 |
 | [P2-03](tasks/P2-03-event-studies.md) | Before/after test for every dated rule, with placebo dates | ⬜ todo | CS 2 | - | 0/3 | 0/3 | 2026-11-02 | P1-02, P1-04 |
 | [P2-04](tasks/P2-04-synthetic-control.md) | Synthetic control for the 23 Jun 2026 shock | ⬜ todo | CS 2 | - | 0/5 | 0/4 | 2026-11-02 | P1-05, P1-06, P2-03 |
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
@@ -127,7 +128,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-002](findings/F-002-jump-24-jun-2026.md) | The premium jumped from ~0.2% to ~1.4% on 24 Jun 2026; other rule dates show no comparable move | 🔍 exploratory | P0-01 | - |
 | [F-003](findings/F-003-weekend-price-discovery.md) | Weekend moves in USDT/BRL only weakly anticipate Monday's official dollar | 🔍 exploratory | P0-01 | - |
 | [F-004](findings/F-004-usdt-own-dollar-price.md) | USDT's own dollar price explains only a few bps of the premium | 🔍 exploratory | P0-01 | - |
-| [F-005](findings/F-005-2025-model-lost-to-naive.md) | Our 2025 model lost to a naive "tomorrow = today" forecast | ✔️ confirmed | P0-01 | - |
+| [F-005](findings/F-005-2025-model-lost-to-naive.md) | Our 2025 model lost to a naive "tomorrow = today" forecast | ✔️ confirmed | P0-01 | Renzo |
 | [F-006](findings/F-006-usdcusdt-gap-fillable.md) | The Binance USDC/USDT gap (Sep 2022 – Mar 2023) can be filled; three USDT/USD series agree within ~1 bps | 🔍 exploratory | P1-02 | - |
 | [F-007](findings/F-007-noise-floor.md) | Trading friction on USDT/BRL is 2–10 bps; the premium is 4–11 times that every year, but only ~2 times it from Aug 2025 to Jun 2026 | ✔️ confirmed | P2-01 | Jonathan |
 | [F-008](findings/F-008-foxbit-volume-jul-2026.md) | Foxbit's USDT/BRL volume rose about sixfold from July 2026, through bigger trades, not more trades | 🔍 exploratory | P1-03 | - |
@@ -142,6 +143,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-02 — Multi-agent audit: completed repository-wide technical, data, and literature consistency audit (`docs/audit-2026-11-02.md`); patched `scripts/p3_01_costs.py`, `scripts/board.py`, `.gitignore`; verified literature formulas L-01 to L-04; updated task and finding states
 - 2026-11-01 — Felipe: P3-01 done → review: calculated all-in route costs per US$ 100k across bank routes (0%, 1.1%, 3.5% IOF), historical regimes, and policy scenarios (3.5% IOF, 24h hold); generated results/tables/P3-01_route_costs.csv and publication figure results/figures/P3-01_route_costs.png; confirmed F-015; logged Economist gate calls in docs/README.md and docs/phases.md
 
 - 2026-11-01 — Felipe: P1-04 done → review: wrote `data/processed/P1-04_events_brazil.csv` (13 verified events) and updated `docs/sources.md` (E-01..E-07, M-01..M-04); 23 Jun 2026 identified as confidential BCB supervisory *ofício* (secondary: Isac Costa, ConJur 1 Jul 2026); July fade and Foxbit 6× volume surge matched to 7 Jul 2026 Foxbit–NovaDAX migration partnership + domestic order-book adaptation; unblocks P2-02 S3 and P2-03

@@ -42,11 +42,11 @@ motivation, not as confirmatory results.
 
 | Date | Event | Mean premium, 30 days before | 30 days after |
 |---|---|---|---|
-| 22 May 2025 | IOF decree on FX operations `[verify]` | 30.9 bps | 44.3 bps |
+| 22 May 2025 | IOF decree on FX operations (E-01) | 30.9 bps | 44.3 bps |
 | 10 Nov 2025 | BCB Res. 519–521 published | 15.2 | 7.8 |
 | 2 Feb 2026 | BCB Res. 521 in force (stablecoin operations treated as FX) | 1.5 | 0.3 |
-| 4 May 2026 | Reporting obligation to the BCB starts `[verify]` | 7.1 | 6.6 |
-| **23 Jun 2026** | **BCB notice to banks and funds on FX imports of virtual assets via funds** `[verify]` | **7.5** | **95.2** |
+| 4 May 2026 | Reporting obligation to the BCB starts (E-04) | 7.1 | 6.6 |
+| **23 Jun 2026** | **BCB notice to banks and funds on FX imports of virtual assets via funds** (E-05) | **7.5** | **95.2** |
 
 Daily: 16 bps on 23 Jun → **144 bps on 24 Jun** → 172 bps on 25 Jun 2026, still ~100 bps two weeks later.
 A [Conjur column of 1 Jul 2026](https://www.conjur.com.br/2026-jul-01/o-cerco-do-banco-central-as-stablecoins/)
@@ -84,7 +84,7 @@ regime), a "solution" deliverable (a daily monitor), and a causal design the aca
 |---|---|---|
 | 30 Oct | Shortlist reduced to projects 1–4 above | Team |
 | 30 Oct | Probe passed for project 2 (premium far above noise; sharp break on 24 Jun 2026) | Probe script |
-| 30 Oct | _Pending:_ confirm project 2 as primary and project 1 as a chapter | Team |
+| 30 Oct | Confirmed project 2 as primary and project 1 as a chapter | Team |
 | 31 Oct | Keep the agentic extras A (30 AI analysts) and B (AI event coder) as optional; the primary plan does not change for them | Team (via Renzo) |
 | 31 Oct | Work organised in phases P0–P6 with gates (`phases.md`), one file per task and per finding | Team (via Renzo) |
 | 1 Nov | _Pending (P2 gate):_ synthetic control go/no-go (donor data quality); 23 Jun notice confirmed; second venue | Team |

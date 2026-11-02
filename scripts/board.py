@@ -18,7 +18,7 @@ def count(text, section):
     """'done/total' checkboxes in a '## section', or '–' if it has none."""
     m = re.search(rf"^## {section}\n(.*?)(?=^## |\Z)", text, re.S | re.M)
     body = re.sub(r"<!--.*?-->", "", m.group(1), flags=re.S) if m else ""
-    done, total = len(re.findall(r"^- \[x\]", body, re.M)), len(re.findall(r"^- \[[ x]\]", body, re.M))
+    done, total = len(re.findall(r"^\s*- \[[xX]\]", body, re.M)), len(re.findall(r"^\s*- \[[ xX]\]", body, re.M))
     return f"{done}/{total}" if total else "–"
 
 
@@ -49,11 +49,11 @@ for ph, name in phases.items():
     out += [f"**{ph} — {name}** ({closed}/{len(ts)} closed)", "",
             "| ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |",
             "|---|---|---|---|---|---|---|---|---|"]
-    out += [f"| [{t['id']}]({t['file']}) | {t['title']} | {ICON[t['status']]} | {t['owner']} | {t.get('working', '-')} "
+    out += [f"| [{t['id']}]({t['file']}) | {t['title']} | {ICON.get(t['status'], '❓ ' + t['status'])} | {t['owner']} | {t.get('working', '-')} "
             f"| {t['steps']} | {t['criteria']} | {t['due']} | {t['depends']} |" for t in ts]
     out.append("")
 out += ["**Findings**", "", "| ID | Claim | Status | Task | Checked by |", "|---|---|---|---|---|"]
-out += [f"| [{f['id']}]({f['file']}) | {f['title']} | {ICON[f['status']]} | {f['task']} | {f['checked_by']} |"
+out += [f"| [{f['id']}]({f['file']}) | {f['title']} | {ICON.get(f['status'], '❓ ' + f['status'])} | {f['task']} | {f['checked_by']} |"
         for f in findings]
 
 status = ROOT / "STATUS.md"

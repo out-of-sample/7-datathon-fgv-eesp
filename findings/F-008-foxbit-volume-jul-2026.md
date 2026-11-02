@@ -11,7 +11,7 @@ checked_by: -
 On Foxbit, a Brazilian exchange, USDT/BRL volume went from 100–190 million USDT a month (Jan–Jun 2026) to
 0.9–1.1 billion a month (Jul–Oct 2026), right after the 23–24 Jun premium jump. The number of trades did not rise;
 the average trade grew about fivefold. The same months show no such rise on Mercado Bitcoin, and a much smaller
-one on Binance. Why this happened is not known.
+one on Binance. P1-04 (M-04) matched this surge to the 7 Jul 2026 Foxbit–NovaDAX migration partnership and domestic order-book adaptation following Res. BCB 580 and Receita DeCripto IN RFB 2.291/2025.
 
 ## Evidence
 Monthly traded volume (million USDT) and Foxbit trade counts, 2026:
@@ -35,14 +35,14 @@ Reproduce: `python scripts/p1_03_second_venue.py` (last printed table; data froz
 - Exchange-reported volume. A market-making programme, fee promotion, wash trading or a reporting change at Foxbit
   would look the same. Nothing here tells those apart from real new demand.
 - Timing alone is not a cause. "Large players moved to a domestic venue after the June notice" fits the
-  limits-to-arbitrage story but is untested `[verify]`: look for Foxbit announcements (fees, institutional or OTC
-  desk, market makers) in June–July 2026 (P2-05 S3).
+  limits-to-arbitrage story and domestic order-book adaptation (M-04).
 - Mercado Bitcoin, the larger domestic venue in 2025, shows no rise, which argues for something Foxbit-specific.
 
 ## Used in deck
 Not used.
 
 ## History
+- 2026-11-01, Felipe: P1-04 matched the surge to M-04 (7 Jul 2026 Foxbit–NovaDAX user-migration partnership following NovaDAX exit, Res. BCB 580 and IN RFB 2.291/2025 entry into force), consolidating domestic order-book liquidity and explaining the July volume rise.
 - 2026-10-31, agent for Renzo: news search (P2-05 S3) found no explanation. One unopened lead: a startupi.com.br
   article dated 10 Sep 2026 on a R$ 110 million investment in Foxbit, whose snippet mentions strengthening its OTC desk
   (https://startupi.com.br/foxbit-recebe-investimento-de-r-110-milhoes/) `[verify]`.

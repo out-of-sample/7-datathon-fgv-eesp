@@ -3,6 +3,8 @@ data/*
 !data/raw/
 data/raw/*
 !data/raw/SHA256SUMS
+!data/processed/
+!data/processed/*.csv
 __pycache__/
 .env
 .venv/

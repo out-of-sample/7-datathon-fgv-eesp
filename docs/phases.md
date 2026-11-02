@@ -29,13 +29,13 @@ Success criteria:
 **Dates:** Sat 31 Oct. **Goal:** every dataset the analysis needs is downloaded, frozen, documented and
 understood, and every event date has a primary source.
 
-Tasks: P1-01 to P1-08.
+Tasks: P1-01 to P1-09.
 
 Success criteria:
 - [x] Every raw file listed in `data/README.md` with source URL, retrieval date and SHA-256 checksum
 - [x] Premium v2 (time-matched, USDT/USD-adjusted) reproduces the probe's yearly means within ±5 bps, or the
       differences are explained in the task file
-- [x] Every event in `data/processed/P1-04_events_brazil.csv` has a primary-source link in `docs/sources.md`
+- [x] Every event in data/processed/P1-04_events_brazil.csv has a primary-source link (or documented secondary source where confidential/private) in docs/sources.md
 - [x] The 23 Jun 2026 notice is confirmed by a primary or second independent source, or flagged "unconfirmed"
 - [x] At least 4 comparison currencies have USDT prices and an official FX rate for 1 Nov 2025 – 30 Sep 2026
 - [x] Team decision on the API budget for agentic A (P1-08): existing Claude, ChatGPT and Gemini plans, no API spend

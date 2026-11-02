@@ -33,7 +33,7 @@ Yearly medians of daily values, bps (spread = full proportional spread (ask − 
 - Naive baseline: the probe's median hourly range (F-001) is reproduced exactly; it is about 3 times the estimators,
   because it also contains price moves within the hour.
 - Binance cut the USDT/BRL price step from 0.001 to 0.0001 BRL on about 27 Jun 2025 (first finer price in our data:
-  27 Jun 2025 05:00 UTC; Binance's announcement `[verify]`). Before that, no quoted spread could be below ~1.9 bps.
+  27 Jun 2025 05:00 UTC; Binance announcement verified in M-03; literature formulas L-01/L-02 verified). Before that, no quoted spread could be below ~1.9 bps.
 - Live check (Binance public market data, Sat 31 Oct 2026 16:43 UTC, one snapshot): bid 5.3800, ask 5.3804 = 0.74 bps.
 - Reproduce: `python scripts/p2_01_noise.py` → printed tables, `data/processed/P2-01_noise_floor_daily.csv`,
   `results/figures/P2-01_premium_noise_band.png`, `results/figures/P2-01_spread_estimators.png`.
@@ -50,4 +50,5 @@ Yearly medians of daily values, bps (spread = full proportional spread (ask − 
 Not yet (planned: the shaded band on headline chart 1).
 
 ## History
+- 2026-10-31, Jonathan: reviewed and verified (independent clean run reproduces table, noise band CSV and figures); confirmed.
 - 2026-10-31, agent for Renzo: created (status confirmed: P2-01 criteria pass; not yet re-run by a teammate)

@@ -24,6 +24,7 @@ Assumes USDC = US$ 1; a direct USD quote (Kraken USDT/USD) is pending (P1-02).
 Not yet.
 
 ## History
+- 2026-11-02, audit note: 00_probe_premium.py computed (USDCUSDT - 1) ([-4.8, +7.5] bps), which represents USDC deviation in USDT terms; for USDT/USD (1/USDCUSDT - 1, as implemented in p1_02_premium.py), this corresponds to [-7.5, +4.8] bps. Qualitative conclusion is unchanged.
 - 2026-10-31, agent for Renzo: note, not a change of claim: the "lowest hourly close 0.9128" is a Binance
   artefact. Binance had no USDC/USDT before 11 Mar 2023 14:00 UTC; Bitstamp USDC/USD reached 0.805 at 07:00 (F-006).
 - 2026-10-31 — agent for Renzo: computation moved into the probe script for traceability

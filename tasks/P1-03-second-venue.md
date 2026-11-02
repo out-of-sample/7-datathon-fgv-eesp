@@ -2,7 +2,7 @@
 id: P1-03
 title: Find and download a second BRL venue for USDT
 phase: P1
-status: done 
+status: done
 owner: CS 2
 working: -
 due: 2026-10-31
@@ -31,9 +31,7 @@ from a second exchange.
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
 -  **State:** done (reviewed and verified by Jonathan). Two Brazilian venues frozen (hourly, 30 Oct
   2026 cutoff), checksums added to `data/raw/SHA256SUMS`, manifest and D-04 filled.
-- **Next step (reviewer):** `python scripts/p1_03_second_venue.py` (about 2 min), then
-  `sha256sum -c data/raw/SHA256SUMS` (needs P1-01's script run first); printed audit must match the Result.
-  Then set `status: done`. The jump check itself is P2-05 S1.
+- **Next step:** None for P1-03. Downstream tasks (P2-05) use frozen venue data.
 - **Open questions:** (1) Mercado Bitcoin's general terms were read (D-04: no clause on research use of public
   prices; databases owned by MB, so we never share the raw file and we cite MB). The API terms
   (https://www.mercadobitcoin.com.br/politicas-termo-api) were read on 31 Oct: non-commercial research use is fine (D-04). Closed. (2) Why Foxbit's
