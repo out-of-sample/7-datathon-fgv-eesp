@@ -33,6 +33,7 @@ Annex slides: source register, event table with links, robustness tables, and a 
 - **How to resume:** Utilizar os anexos como apêndice formal no material da submissão final.
 
 ## Log
+- 2026-11-02, agent for Renzo: correction: the M-03 row's p = 0.014 is the parametric p (placebo p 0.26). Show only placebo p-values in the annex (P2-03 review).
 - 2026-11-02, agent for Renzo: four broken event links in `deck/annex_v1_ptbr.md` replaced with the opened sources (docs/sources.md M-01–M-04). Event-study rows for M-02 (20 Aug) and M-03 (20 Jun announcement) rest on unsourced dates; update after the P2-03 re-run. Use "coincide com" rather than "explica" for M-01–M-04.
 - 2026-11-02, Felipe: Estruturadas as sub-tarefas S1 a S4; criado `deck/annex_v1_ptbr.md` cobrindo detalhadamente os Anexos A, B, C, D e E com rastreabilidade total, links normativos, parâmetros tarifários e governança do uso de IA. Todos os critérios de sucesso atendidos. Status definido como `doing` até o congelamento oficial de P4-03 e compilação do PDF final.
 

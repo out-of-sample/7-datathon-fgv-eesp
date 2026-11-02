@@ -4,7 +4,7 @@ title: Before/after test for every dated rule, with placebo dates
 phase: P2
 status: review
 owner: CS 2
-working: Renzo (review)
+working: -
 due: 2026-11-02
 depends: P1-02, P1-04
 ---
@@ -29,12 +29,28 @@ The 23 Jun 2026 row is also the number the AI analysts (extension A) are compare
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** Completed, in review. All 13 Brazilian events evaluated for effective and announcement dates across 20-PTAX-day windows.
-- **Next step:** Review by CS 2 (Nattan/Renzo) or CS 3 (Jonathan).
-- **Open questions:** None. All criteria met.
-- **How to resume:** Re-run `python scripts/p2_03_events.py`.
+- **State:** reviewed by Renzo (2 Nov). **The analysis holds; F-016's text needs changes** (owner: Felipe). Outputs
+  re-run with the corrected P1-04 dates (M-02 13 Aug 2024; M-03 no announcement date): E-05 unchanged (+93.9 bps,
+  placebo p = 0.005); `team_estimate.json` identical; placebo p-values of the null events moved by 0.02–0.05 because the
+  random draw changed.
+- **Changes requested (see Review in the Log):**
+  1. F-016: drop "as BCB supervisory inquiries circulated" (no source) and state the pre-trend as a fact only (+8.3 bps).
+  2. F-016 "Economic interpretation": present points 1–3 as hypotheses; point 3 (OTC rerouting, Foxbit–NovaDAX) has no
+     evidence, and the July fade is unexplained (P2-02).
+  3. Do not show the parametric (Newey–West) p-values in the deck or annex: they call E-01 "p = 10⁻¹¹" when its placebo
+     p is 0.35. Use the placebo p only.
+  4. Replace the "naive baseline RMSE" section: the post-period's own mean always beats the pre-mean in-sample, so it is not a
+     baseline test. The baseline is the pre-mean itself; the jump *is* the comparison.
+  5. Update the F-016 table from the re-run (`results/tables/P2-03_event_table.csv`).
+  6. Code: E-03 is evaluated twice (duplicate row); the weekday quotas (61/52/52/35) are hard-coded and no longer match
+     the event dates (now Fri 5, Thu 4, Mon 4, Tue 3).
+  7. Suggested extra (stronger, deterministic): placebo over **all 1,073 clean dates**, not 200 random ones. E-05 exceeds every
+     one (largest +65.7 bps), p = 1/1,074 ≈ 0.001. In 2025–26 the largest clean-date move is 26.6 bps.
+- **Next step:** Felipe applies 1–6 (7 optional); then status → done.
+- **How to resume:** `.venv/bin/python scripts/p2_03_events.py` (seconds).
 
 ## Log
+- 2026-11-02, agent for Renzo: review done (Handoff). Correction to my earlier note: the M-03 announcement p = 0.014 was the parametric p; its placebo p was 0.26, so it was never significant. Checks for item 7: all-dates placebo computed inline (1,073 clean dates).
 - 2026-11-02, agent for Renzo: Renzo takes the review.
 - 2026-11-02, agent for Renzo (note for Felipe): P1-04 dates corrected: M-02 effective 13 Aug 2024 (the 20 Aug "DOU" date had no source); M-03 has no announcement date (N/A; the 19/20 Jun date had no source; effective 27 Jun 2025 confirmed in our data). Rows for M-02 "vigência 20 Aug" and M-03 "anúncio 20 Jun" (p = 0.014) rest on unsourced dates: please re-run P2-03 and update F-016 and the annex.
 - 2026-11-02, Felipe: Completed S1, S2, S3 in `scripts/p2_03_events.py`. Generated `results/tables/P2-03_event_table.csv`, `results/tables/P2-03_placebo_draws.csv`, `results/figures/P2-03_placebo_dist.png`, and `results/agentic/team_estimate.json`. Written `findings/F-016-event-studies-placebos.md`. Status -> review.
