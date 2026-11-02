@@ -44,6 +44,7 @@ Reproduce: `python scripts/p1_03_second_venue.py` (last printed table; data froz
 Not used.
 
 ## History
+- 2026-11-02, agent for Felipe: new lead opened and quoted (docs/sources.md M-05). On 18 Jul 2026 Foxbit relaunched its B2B arm as "Foxbit Infra" (institutional liquidity, own market making, order routing, stablecoin cross-border payments; running inside 99Pay, Genial, PicPay) and claimed >41% of Brazil's USDT+USDC volume in the prior two weeks. Partner/institutional flow and market making would show up as bigger trades rather than more trades, so M-05 fits the pattern better than M-04 (NovaDAX: clients open new accounts voluntarily, no automatic migration). Still a coincidence in time, not a shown cause; claim unchanged, cause open. The startupi R$ 110M lead is the Feb 2022 OK Group Series A, not a 2026 event
 - 2026-11-02, agent for Renzo: M-04 wording "matched … adaptation following Res. BCB 580 and IN RFB 2.291" replaced by "coincides with"; the M-04 source names neither rule (docs/sources.md). Noted that a client migration fits "more trades" better than "bigger trades"
 - 2026-11-01, Felipe: P1-04 matched the surge to M-04 (7 Jul 2026 Foxbit–NovaDAX user-migration partnership following NovaDAX exit, Res. BCB 580 and IN RFB 2.291/2025 entry into force), consolidating domestic order-book liquidity and explaining the July volume rise.
 - 2026-10-31, agent for Renzo: news search (P2-05 S3) found no explanation. One unopened lead: a startupi.com.br

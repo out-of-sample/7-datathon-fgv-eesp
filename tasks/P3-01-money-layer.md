@@ -2,9 +2,9 @@
 id: P3-01
 title: Cost of a digital dollar: bank route vs USDT route, per regime
 phase: P3
-status: review
+status: doing
 owner: Economist
-working: -
+working: Felipe
 due: 2026-11-03
 depends: P2-03, P2-04
 ---
@@ -44,6 +44,8 @@ Turn the premium into money for a Brazilian corporate treasurer: what US$ 100,00
 - [x] S3 — Generate horizontal bar chart `results/figures/P3-01_route_costs.png`. — done: Felipe, 1 Nov
 - [x] S4 — Draft finding `findings/F-015-route-costs.md`. — done: Felipe, 1 Nov
 - [x] S5 — Review, verification, and handoff. — done: Felipe, 1 Nov
+- [ ] S6 — Source or replace the bank-route assumptions (50 bps bank spread, US$ 25 wire, hedge cost) and the Foxbit/MB VIP fees (R-05, R-06); every source opened and quoted — doing: Felipe
+- [ ] S7 — Validate the comparison (IOF in force per period and per operation type, what is and is not comparable) and keep two presentation options open for the team: (a) neutral annex table, (c) one slide; no "economiza" wording (docs/02 §10) — doing: Felipe
 
 ## Success criteria
 - [x] Every cost component has a source in docs/sources.md (R-01 through R-07)
@@ -92,6 +94,7 @@ Turn the premium into money for a Brazilian corporate treasurer: what US$ 100,00
 - **How to resume:** `python scripts/p3_01_costs.py`.
 
 ## Log
+- 2026-11-02, agent for Felipe: Felipe takes S6–S7 (bank route kept, reframed neutrally; source it before the team picks annex vs slide).
 - 2026-11-02, agent for Renzo: review fixes 1, 3, 4, 5 applied; framing (2) left for the team; status stays review.
 - 2026-11-02, agent for Renzo: Renzo applies the review fixes (agreed by Renzo; on behalf of Felipe).
 - 2026-11-02, agent for Renzo: review done (Handoff): arithmetic right; IOF anachronism for 2020–May 2025, framing, unsourced constants.

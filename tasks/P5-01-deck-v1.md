@@ -4,7 +4,7 @@ title: Deck v1 (pt-BR)
 phase: P5
 status: doing
 owner: Economist
-working: -
+working: Felipe
 due: 2026-11-05
 depends: P4-03
 ---
@@ -36,6 +36,7 @@ Full deck draft following `docs/02-dolar-cripto.md` §9 and the definition of do
 - **How to resume:** Verificar se houve alguma alteração de dados no freeze de P4-03 e prosseguir com a renderização em PDF via Pandoc/Marp/Typst.
 
 ## Log
+- 2026-11-02, agent for Felipe: Felipe takes the deck rewrite after the 2 Nov reviews: rebuild on the P5-07 notebook flow (deck prototype), spike = measured effect, after-spike level reported as not shown (p = 0.24), placebo p only, sources/framing rules.
 - 2026-11-02, agent for Renzo (note for Felipe): sources fixed (docs/sources.md). In the deck, market events M-01–M-04 coincide with breaks, they do not explain them; the July fade is unexplained (P2-02 re-run); the 23 Jun notice can now cite two independent accounts plus the BCB's LAI answer (E-05).
 - 2026-11-02, Felipe: Estruturadas as sub-tarefas S1 a S4; elaborada a versão integral de `deck/deck_v1_ptbr.md` com 12 slides contendo título direto, visual/layout com figura de 10s, tópicos quantitativos em pt-BR, notas do orador e rodapé de rastreabilidade para findings (`F-001` a `F-021`), scripts e fontes (`D-xx`, `E-xx`, `R-xx`, `L-xx`). S1, S2 e S3 concluídos. Status definido como `doing` aguardando freeze de P4-03 para PDF final.
 
