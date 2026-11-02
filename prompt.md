@@ -98,6 +98,11 @@ changes in scope.
 
 ## 6. How to work
 
+- **Sources are opened, not remembered.** A link enters `docs/sources.md` only if whoever adds it (person or
+  agent) opened that exact address and copied it from the page. The entry quotes one line from the page and says
+  who opened it and when ("opened 2 Nov 2026 (Renzo)"). Describe only what the page says. An agent that cannot
+  open a page writes `[link not opened]` instead of a guessed address. Decided 2 Nov after 4 of 4 agent-written
+  event links failed (P1-04).
 - **Verify before you claim.** Anything marked `[verify]` in the docs is unconfirmed: a date, an event,
   a data source's coverage, an API's behaviour. Check it against a primary source before it reaches the
   deck. Never invent data, events, dates, citations or results. If you cannot verify something, say so.

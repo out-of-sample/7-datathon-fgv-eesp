@@ -68,6 +68,7 @@ means the algorithm is given no event dates, and every choice below is fixed bef
 - **How to resume:** `python scripts/p2_02_breaks.py`. On machines with `P1-02_premium_daily.csv`, it re-runs the full break detection, CIs, S3 matching, and updates `results/figures/P2-02_premium_breaks.png`.
 
 ## Log
+- 2026-11-02, agent for Renzo: S3 re-run after the P1-04 source fixes. Removed the date-keyed overrides (Break 3, July fade) and the hand-written labels/markers so every break follows the ±5-day rule and labels come from the event table. Main series: Breaks 1–4 coincide with M-01 (0d), M-02 (−5d, was 0d with the unsourced 20 Aug date), E-01b (−2d), E-05 (−1d); Break 5 unexplained. The committed table had come from an older script version (Coinbase break 1 19 Jul 2021 vs 1 Jun 2021 now and on 31 Oct). F-011 updated.
 - 2026-11-02, Felipe: S3 matching completed using P1-04 verified events + non-rules; results/tables/P2-02_breaks.csv updated; script handles both local full data and table-based matching; status -> review
 - 2026-10-31, agent for Renzo: S2 and S4 run (F-011): 24 Jun 2026 found blind (CI 18–30 Jun, +99.8 bps) in all three series; partial reversal from 22 Jul. Status → blocked (S3 needs P1-04)
 - 2026-10-31, agent for Renzo: S1 specification written and committed before any break-test run

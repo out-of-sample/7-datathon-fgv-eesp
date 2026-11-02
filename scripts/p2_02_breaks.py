@@ -71,20 +71,6 @@ def match_breaks(breaks_df, ptax_dates=None):
         ci_low = str(r["ci95_low"])
         ci_high = str(r["ci95_high"])
 
-        # Specific contextual alignment for Break 3 & July fade
-        if b_date == "2025-07-08":
-            matched_col.append(
-                "E-01b: 4 Jul 2025 STF IOF injunction (-2 trading days, in 95% CI); also in 95% CI: M-03 Binance tick cut 27 Jun 2025 (-7d)"
-            )
-            continue
-        if b_date in ["2026-07-22", "2026-07-21"]:
-            spike_str = "23 Jun" if "dayclose" in s else "24 Jun"
-            diff_m04 = int(np.busday_count(np.datetime64(b_date, "D"), np.datetime64("2026-07-07", "D")))
-            matched_col.append(
-                f"unexplained (±5d); fade of {spike_str} spike (M-04 domestic adaptation 7 Jul [{diff_m04}d], 20d min-segment boundary)"
-            )
-            continue
-
         matches_5d = []
         in_ci = []
 
@@ -114,31 +100,13 @@ def match_breaks(breaks_df, ptax_dates=None):
             ci_str = ", in 95% CI" if inside_ci else ""
             d_str = "0 trading days" if diff == 0 else (f"{diff} trading day" if abs(diff) == 1 else f"{diff:+d} trading days")
 
-            if eid == "E-05":
-                matched_col.append(f"E-05: 23 Jun 2026 BCB supervisory ofício ({d_str}{ci_str})")
-            elif eid == "M-01":
-                matched_col.append(f"M-01: 26 Jul 2021 Binance leverage cap ({d_str}{ci_str})")
-            elif eid == "M-02" and s == "premium_cb_bps" and b_date == "2024-08-13":
-                matched_col.append("M-02: 13 Aug 2024 CVM Binance settlement approval (0 trading days, effective 20 Aug [+5d], in 95% CI)")
-            elif eid == "M-02":
-                matched_col.append(f"M-02: 20 Aug 2024 CVM Binance settlement DOU ({d_str}{ci_str})")
-            else:
-                matched_col.append(f"{eid} ({d_str}{ci_str})")
+            matched_col.append(f"{eid} {dtype} {dstr} ({d_str}{ci_str})")  # label from the event table, not hand-written
         elif in_ci:
             seen = {}
             for eid, dtype, dstr, diff in in_ci:
                 if eid not in seen or abs(diff) < abs(seen[eid][1]):
                     seen[eid] = (dstr, diff)
-            items = []
-            for eid, (dstr, diff) in seen.items():
-                if eid == "M-01":
-                    items.append(f"M-01 Binance leverage cap 26 Jul 2021 ({diff:+d}d)")
-                elif eid == "E-07":
-                    items.append(f"E-07 Binance Pix suspension 17 Jun 2022 ({diff:+d}d)")
-                elif eid == "FTX":
-                    items.append(f"FTX collapse 8-11 Nov 2022 ({diff:+d}d)")
-                else:
-                    items.append(f"{eid} ({diff:+d}d)")
+            items = [f"{eid} {dstr} ({diff:+d}d)" for eid, (dstr, diff) in seen.items()]
             matched_col.append(f"unexplained (±5d); in 95% CI: {', '.join(items)}")
         else:
             matched_col.append("unexplained (±5d)")
@@ -254,13 +222,9 @@ if (PROC / "P1-02_premium_daily.csv").exists():
                     ha="left" if (t - prev).days < 90 else "right", fontsize=8, color=INK2)
         prev = t
 
-    # Event markers (S3)
-    ev_markers = [
-        ("2021-07-26", "M-01", -30),
-        ("2024-08-20", "M-02", -30),
-        ("2026-06-23", "E-05", 220),
-        ("2026-07-07", "M-04", 170),
-    ]
+    # Event markers (S3): exactly the events matched to the main series by the rule above (+/-5 PTAX days)
+    m = main.matched_event.str.extract(r"^(\S+) \w+ (\d{4}-\d{2}-\d{2})").dropna()
+    ev_markers = [(dt, eid, (-40, 260)[i % 2]) for i, (eid, dt) in enumerate(m.itertuples(index=False))]
     for edate, elabel, ypos in ev_markers:
         et = pd.Timestamp(edate)
         if d.index[0] <= et <= d.index[-1]:

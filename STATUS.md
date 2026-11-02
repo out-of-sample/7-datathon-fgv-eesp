@@ -15,9 +15,9 @@ rules that close or tax the arbitrage channels. A first probe found a real premi
 year) and a sharp jump on 24 Jun 2026, the day after a reported BCB notice (F-001, F-002). After day 1 the jump is
 well supported: it appears on three exchanges, is not the real or USDT's own price, and a blind break test finds it
 (F-009, F-011). It faded from late July to about +17 bps. P1-04 (Brazilian event list and sources) is now completed and in
-review: the 23 Jun 2026 action was a confidential BCB supervisory *ofício* (secondary source: Isac Costa, ConJur 1 Jul 2026),
-and the July fade + Foxbit 6× volume surge match the 7 Jul 2026 Foxbit–NovaDAX migration partnership and domestic order-book
-adaptation. **Read the [day-1 review](docs/review-2026-10-31.md) before the P2 gate.**
+review: the 23 Jun 2026 action was a confidential BCB supervisory *ofício*, described by two independent secondary
+accounts (ConJur 1 Jul; Cointelegraph Brasil 6 Jul) and consistent with the BCB's own LAI answer (Webitcoin 30 Jul). The July
+fade matches no event; Foxbit's volume surge coincides with its takeover of NovaDAX clients (M-04), cause open. **Read the [day-1 review](docs/review-2026-10-31.md) before the P2 gate.**
 
 Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 [`docs/01-depeg-recovery.md`](docs/01-depeg-recovery.md) (chapter) ·
@@ -44,7 +44,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | Repository technical & consistency audit | Resolved: multi-agent audit report completed in `docs/audit-2026-11-02.md`; script bugs patched and literature citations verified | done |
 | P2-02 S3 (match breaks to events) | Resolved: S3 matching complete in `scripts/p2_02_breaks.py`, `results/tables/P2-02_breaks.csv` updated, and `results/figures/P2-02_premium_breaks.png` regenerated | done |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
-| F-008 (Foxbit volume ×6 from Jul 2026): matched to 7 Jul 2026 Foxbit–NovaDAX migration + order-book adaptation (M-04); confirm gate framing | Felipe / Team | P2 gate |
+| F-008 (Foxbit volume ×6 from Jul 2026): coincides with the NovaDAX client migration (M-04), cause open; whether it belongs in the story | Felipe / Team | P2 gate |
 | P2-04 inference & donor pool | Resolved: combined within-Brazil 200 placebos (p < 0.005) + synthetic control across 6 specs (+109.3 bps acute gap, rank 1/6, ratio 9.31, F-017) | done |
 | P2-03 event study & placebos | Resolved: evaluated all 13 Brazilian events; only 23 Jun 2026 moved premium (+93.9 bps, p < 0.005); F-016 written | done |
 
@@ -73,7 +73,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P1-01](tasks/P1-01-raw-data-download.md) | Download and freeze the raw price data | ✅ done | CS 1 | - | 7/7 | 4/4 | 2026-10-31 | - |
 | [P1-02](tasks/P1-02-premium-v2.md) | Build the premium series v2 (time-matched, USDT/USD-adjusted) | ✅ done | CS 1 | - | 6/6 | 4/4 | 2026-10-31 | P1-01 |
 | [P1-03](tasks/P1-03-second-venue.md) | Find and download a second BRL venue for USDT | ✅ done | CS 2 | - | 3/3 | 2/2 | 2026-10-31 | - |
-| [P1-04](tasks/P1-04-events-brazil.md) | Verified list of Brazilian rule changes and events | 👀 review | Economist | Renzo (review: source links) | 5/5 | 3/3 | 2026-10-31 | - |
+| [P1-04](tasks/P1-04-events-brazil.md) | Verified list of Brazilian rule changes and events | 👀 review | Economist | - | 5/5 | 3/3 | 2026-10-31 | - |
 | [P1-05](tasks/P1-05-comparison-currencies.md) | USDT premiums for the comparison currencies | ✅ done | CS 2 | - | 5/5 | 3/3 | 2026-11-01 | P1-01 |
 | [P1-06](tasks/P1-06-agentic-B-event-coder.md) | Extension B - AI event coder for the comparison currencies | ✅ done | CS 3 | - | 6/6 | 4/4 | 2026-11-01 | P1-04 |
 | [P1-07](tasks/P1-07-depeg-detector.md) | Depeg detector and SVB-weekend figure (chapter) | ✅ done | Nattan | - | 7/7 | 3/3 | 2026-11-01 | P1-01 |
@@ -110,7 +110,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 |---|---|---|---|---|---|---|---|---|
 | [P4-01](tasks/P4-01-robustness.md) | Robustness battery for every headline number | 👀 review | CS 2 | - | 4/4 | 3/3 | 2026-11-04 | P2-02, P2-03, P2-04 |
 | [P4-02](tasks/P4-02-independent-recheck.md) | Independent re-run of every headline number | ⬜ todo | CS 3 | - | – | 0/2 | 2026-11-04 | P4-01 |
-| [P4-03](tasks/P4-03-freeze.md) | Freeze results | ⬜ todo | Team | - | – | 0/3 | 2026-11-04 | P4-01, P4-02 |
+| [P4-03](tasks/P4-03-freeze.md) | Freeze results | ⬜ todo | Team | - | – | 0/4 | 2026-11-04 | P4-01, P4-02 |
 
 **P5 — Deck and submission** (0/6 closed)
 
@@ -153,6 +153,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-02 — agent for Renzo: source links fixed (P1-04 review): 5 broken links replaced with opened, quoted sources; unsupported details removed (M-01, M-02 date, M-03 date, M-04); E-05 now has 2 independent accounts + BCB's LAI answer; P2-02 matching re-run with one rule for all breaks (July fade unexplained); new rule "sources are opened, not remembered" (prompt.md §6); P2-03 needs a re-run for M-02/M-03
 - 2026-11-02 — Felipe: P4-01 completed → review (51-spec robustness battery across windows, definitions, venues, heteroskedastic Bai CIs 23–30 Jun, donor pools & Colombian festivos filter, F-022); P3-05 S1–S2 bundle + protocol + CLI harness built (`results/agentic/protocol.md`, `bundle_SHA256SUMS.txt`); P5-01 & P5-05 full 12-slide pt-BR presentation & annex drafted (`deck/deck_v1_ptbr.md`, `deck/annex_v1_ptbr.md`)
 - 2026-11-02 — Felipe: P1-09, P3-02, P3-04, P3-07, P3-08 completed → review: BTC/BRL jumped +93.8 bps in lockstep with USDT/BRL (+93.9 bps, diff 0.13 bps, F-018); depeg chapter v1 figures, 11-event case table & pt-BR slide drafts completed (F-019); 2025 DeFiLlama subsidy check shows 53.6% of Compound V3 spread (37.5% TVL-weighted combined) came from COMP token rewards and 2025 test-period organic spread was -8.2 bps (F-020); Band-TAR model shows no-arbitrage band widened 26× from 1.6 bps to 42.0 bps on 24 Jun before settling at 9.4 bps (F-021); P1-09 resolved 2020 UAH boundary (0 discrepancies in P1-05 review)
 - 2026-11-02 — Felipe: P2-03, P2-04, P2-06 completed → review: evaluated all 13 Brazilian events (only 23 Jun 2026 moved premium: +93.9 bps, p < 0.005 vs 200 placebos, F-016); built synthetic control across 6 specs (+109.3 bps acute gap, +28.2 bps plateau gap, rank 1/6, ratio 9.31, F-017); froze team estimate in results/agentic/team_estimate.json

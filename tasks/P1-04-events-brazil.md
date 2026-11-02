@@ -4,7 +4,7 @@ title: Verified list of Brazilian rule changes and events
 phase: P1
 status: review
 owner: Economist
-working: Renzo (review: source links)
+working: -
 due: 2026-10-31
 depends: -
 ---
@@ -38,6 +38,7 @@ primary source. It feeds the event studies, the break matching, and is the human
 - **How to resume:** inspect `data/processed/P1-04_events_brazil.csv` and `docs/sources.md`
 
 ## Log
+- 2026-11-02, agent for Renzo (review of source links, Renzo): 5 links failed. M-01, M-02 and M-04 (and the competition page C-01) returned 404; M-03 opened a generic page. Replaced with opened sources, one line quoted each (docs/sources.md). Removed details the sources do not support: M-01 withdrawal limits / CVM / Brazil; M-02 "DOU 20 Aug 2024" (effective date now 13 Aug); M-03 announcement date 19 Jun (no announcement found; the cut is in our data on 27 Jun 2025); M-04 Res. BCB 580 and IN RFB 2.291. E-05: added Cointelegraph Brasil (Brotto, 6 Jul: notice made public the next day) and Webitcoin (30 Jul: BCB's LAI answer); with ConJur these are two independent accounts. The rest of the P1-04 review (dates and sources of the E-rows) is still open; working back to -.
 - 2026-11-02, agent for Renzo: Renzo takes the review of the source links (5 broken links found; see docs/sources.md).
 - 2026-11-01, Felipe: S1–S5 completed (`status: review`). Wrote `data/processed/P1-04_events_brazil.csv` (13 rows: `E-01`, `E-01b`, `E-02`, `E-03`, `E-04`, `E-05`, `E-06a`, `E-06b`, `E-07`, `M-01`..`M-04`) and updated `docs/sources.md`. Unblocks `P2-02` S3 and `P2-03`.
 - 2026-11-01, Felipe: claimed P1-04 (S1–S4); launched regulatory-verifier subagents on E-01..E-07, the 23 Jun 2026 notice, and the July 2026 fade / blind break dates.
