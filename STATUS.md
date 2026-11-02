@@ -119,7 +119,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-10](tasks/P3-10-stablecoin-imports.md) | Mechanism - did stablecoin imports fall when the premium jumped, and recover when it faded? | 👀 review | CS 1 | Felipe (review) | 4/4 | 3/3 | 2026-11-03 | P1-02, P2-02 |
 | [P3-11](tasks/P3-11-money-moved.md) | So what (1) - how much money the spike moved, and to whom | 👀 review | Economist | Felipe (review) | 4/4 | 3/3 | 2026-11-03 | P2-03, P3-01 |
 | [P3-12](tasks/P3-12-which-rules-matter.md) | So what (2) - which rules moved the premium (published rules vs the confidential notice) | 👀 review | Economist | Felipe (review) | 3/3 | 3/3 | 2026-11-03 | P2-03 |
-| [P3-13](tasks/P3-13-prediction-res584.md) | So what (4) - a dated prediction for the 24-hour hold (Res. 584, 1 Jan 2027) read by the monitor | ⬜ todo | CS 1 | - | 0/3 | 0/2 | 2026-11-03 | P3-01, P3-03 |
+| [P3-13](tasks/P3-13-prediction-res584.md) | So what (4) - a dated prediction for the 24-hour hold (Res. 584, 1 Jan 2027) read by the monitor | 🔄 doing | CS 1 | Renzo | 0/3 | 0/2 | 2026-11-03 | P3-01, P3-03 |
 | [P3-14](tasks/P3-14-notice-sources.md) | Every source on the 23 Jun 2026 BCB notice, opened and registered | 👀 review | CS 1 | Felipe (review) | 3/3 | 3/3 | 2026-11-03 | P1-04 |
 
 **P4 — Robustness and freeze** (1/3 closed)

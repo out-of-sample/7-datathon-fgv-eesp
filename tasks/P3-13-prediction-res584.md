@@ -2,9 +2,9 @@
 id: P3-13
 title: So what (4) - a dated prediction for the 24-hour hold (Res. 584, 1 Jan 2027) read by the monitor
 phase: P3
-status: todo
+status: doing
 owner: CS 1
-working: -
+working: Renzo
 due: 2026-11-03
 depends: P3-01, P3-03
 ---
@@ -38,6 +38,7 @@ Plan: `docs/06-so-what.md`, answer 4.
 - **How to resume:** P3-01 risk number in `results/tables/P3-01_route_costs.csv`; monitor in `scripts/p3_03_monitor.py`.
 
 ## Log
+- 2026-11-02, agent for Renzo: Renzo takes P3-13 (asked by Renzo).
 - 2026-11-02, agent for Renzo: created (plan `docs/06-so-what.md`).
 
 ## Result
