@@ -129,7 +129,7 @@ def main():
             )
         elif is_usdp_drift[row.name]:
             categories.append(4)
-            cat_names.append("4. Deriva pré-deslistagem")
+            cat_names.append("4. Fim dos dados na Binance (deslistagem a verificar)")
             mechanisms.append(
                 "Deslistagem programada na Binance: esvaziamento do livro de ofertas e secagem de "
                 "liquidez secundária nos dias finais de negociação da exchange."
@@ -197,7 +197,10 @@ def main():
 
     dn["category_id"] = categories
     dn["category_name"] = cat_names
-    dn["mechanism"] = mechanisms
+    # Review 2 Nov: none of these causes has an opened source (prompt.md §6), so the table states that instead of
+    # asserting a cause. The texts above are kept as leads for whoever sources them.
+    dn["mechanism_lead_unsourced"] = mechanisms
+    dn["mechanism"] = "Causa não verificada (sem fonte aberta); ver mechanism_lead_unsourced"
     dn["recovery_status"] = np.where(dn["recovered"], "Recuperado", "Não recuperado (censurado)")
 
     # 6. Add Benchmark Case Row: USDC SVB Weekend (Bitstamp direct USD OHLC)
@@ -216,10 +219,9 @@ def main():
         "recovery_status": "Recuperado",
         "near_delisting": False,
         "mechanism": (
-            "Caso canônico: intervenção no SVB e parada do Fedwire na sexta-feira fecharam o resgate primário "
-            "da Circle ($3,3 bi retidos). Preço caiu a $0,805 no sábado sem arbitragem. Anúncio conjunto de "
-            "garantia total de depósitos no domingo às 22h15 UTC restaurou o preço a $0,989 às 23h, antes "
-            "mesmo da reabertura física dos bancos na segunda-feira."
+            "Bancos dos EUA fechados de sex 16h a seg 9h30 (NY). Menor fechamento horário US$ 0,863 (sáb 07h UTC; mínimo "
+            "intra-hora US$ 0,805, Bitstamp). Garantia dos depósitos do SVB anunciada dom 22h15 UTC (D-13); US$ 0,989 "
+            "às 23h, antes da reabertura dos bancos."
         ),
     }
 
@@ -237,6 +239,7 @@ def main():
         "recovery_status",
         "near_delisting",
         "mechanism",
+        "mechanism_lead_unsourced",
     ]
 
     table_11 = dn[cols_export].copy()
@@ -416,7 +419,7 @@ def plot_comparative_cases(df: pd.DataFrame):
         Patch(facecolor=BLUE, label="1. Fim de semana bancário / canal fechado (USDC, USDP)"),
         Patch(facecolor=TEAL, label="2. Fricção temporária de resgate / livro fino (FDUSD, TUSD, UST)"),
         Patch(facecolor=RED, hatch="///", edgecolor=INK, label="3. Insolvência algorítmica terminal (UST mai/22)"),
-        Patch(facecolor=GRAY, label="4. Deriva pré-deslistagem em exchange (USDP set/26)"),
+        Patch(facecolor=GRAY, label="4. Fim dos dados na Binance (USDP set/26; deslistagem a verificar)"),
     ]
     fig.legend(handles=legend_elements, loc="lower center", bbox_to_anchor=(0.5, -0.06),
                ncol=2, frameon=False, fontsize=8.5)

@@ -2,9 +2,9 @@
 id: P3-04
 title: Depeg chapter v1 (the same mechanism in dollars)
 phase: P3
-status: review
+status: done
 owner: CS 3
-working: Renzo (applying review fixes)
+working: -
 due: 2026-11-03
 depends: P1-07
 ---
@@ -53,10 +53,14 @@ Turn P1-07 into 1-3 slides: the SVB weekend, and Kaplan-Meier curves only if the
      "end of data on Binance".
   4. **SVB wording.** Recovery came with the Sunday deposit guarantee (D-13), before banks reopened. "Parity restored as soon
      as redemption became credible" is fair; "redemption reopened" is not.
-- **Next step:** owner applies 1–4; then status → done.
+- **Fixes applied (2 Nov, agent for Renzo, agreed by Renzo):** 1 causes marked unsourced in the table (texts kept as
+  `mechanism_lead_unsourced`); 2 F-019 rewritten as description; 3 category 4 renamed; 4 SVB wording uses D-13. Status done.
+- **Next step:** whoever has time: open sources for the case causes (start with FDUSD Apr 2025, TUSD Jan 2024, UST May 2022)
+  and for the USDP delisting; then restore those causes in the table.
 - **How to resume:** `.venv/bin/python scripts/p3_04_depeg_chapter.py`.
 
 ## Log
+- 2026-11-02, agent for Renzo: review fixes applied; status → done.
 - 2026-11-02, agent for Renzo: Renzo applies the review fixes (agreed by Renzo; on behalf of Felipe).
 - 2026-11-02, agent for Renzo: review done (Handoff): reproduces; mechanisms unsourced; F-019 claims overreach.
 - 2026-11-02, agent for Renzo: Renzo takes the review.

@@ -1,6 +1,6 @@
 ---
 id: F-019
-title: Parity in dollars obeys the same limits to arbitrage — USDC drifted to $0.805 when SVB shut redemption rails and recovered to $0.989 on Sunday's guarantee before banks reopened; 11 downward depegs confirm that backing solvency, not open banking hours, determines survival
+title: In dollars too, a stablecoin left parity while its redemption channel was closed: USDC closed at $0.863 on the SVB weekend and was back at $0.989 an hour after Sunday's deposit guarantee, before banks reopened; 11 other falls below $1 form a case table (too few for curves)
 status: exploratory
 task: P3-04
 date: 2026-11-02
@@ -8,16 +8,21 @@ checked_by: -
 ---
 
 ## Claim
-The empirical evidence on dollar stablecoin depegs confirms the exact economic mechanism documented in the primary project's USDT/BRL premium: **prices leave parity when primary redemption/arbitrage doors close, and return as soon as 1:1 redemption becomes credible.**
+The dollar side shows the same pattern as the BRL premium, described here, not tested: a price leaves parity when the
+channel that enforces it is closed.
+- **SVB weekend (USDC, Bitstamp USDC/USD).** US banks were closed from Fri 16h to Mon 9h30 (New York). USDC's lowest
+  hourly close was **$0.863** (Sat 11 Mar 2023, 07h UTC; intra-hour low $0.805). The joint Treasury/Fed/FDIC deposit
+  guarantee was released at 22:15 UTC on Sunday (D-13). USDC closed that hour at **$0.989**, before banks reopened. The
+  last step, to $0.999, came at Monday's opening.
+- **The other 11 falls below $1 (P1-07 v2, F-013).** Too few for Kaplan–Meier curves (the rule needs ≥ 12), so they form
+  a case table. In these cases:
+  - the two that started on the closed banking weekend (USDC, USDP) recovered within 51–65 h;
+  - the one coin without external reserves (UST, May 2022) never recovered;
+  - the others took 21 h to 2,719 h.
 
-During the Silicon Valley Bank (SVB) collapse of 10–13 March 2023, Circle held $3.3 billion of USDC cash reserves at SVB (8.2% of total reserves). When the FDIC closed SVB on Friday afternoon and commercial bank payment rails (Fedwire/ACH) shut down for the weekend, primary 1:1 issuer redemptions became physically impossible. Without an arbitrage floor, panic selling in secondary markets drove USDC to an hourly close trough of **US$ 0.863** and an intra-hour low of **US$ 0.805** on Saturday 11 March (07:00 UTC).
-
-On Sunday 12 March at 22:15 UTC (18:15 New York time), the Federal Reserve, US Treasury, and FDIC announced a joint systemic risk exception fully guaranteeing all SVB deposits. Because this guarantee ensured that Monday morning wire redemptions at $1.00 would be honored in full, market arbitrageurs immediately bid USDC back up to **US$ 0.989 by 23:00 UTC Sunday** (just 45 minutes after the announcement), reaching US$ 0.991 at 12:00 UTC Monday before commercial bank branches opened, and US$ 0.999 at 14:00 UTC. The entire recovery occurred via secondary market arbitrage on the *expectation* of Monday redemption.
-
-Across the systematic screen of 7 major stablecoin pairs on Binance (2019–2026), exactly **11 USD-confirmed downward depeg events** occurred (9 excluding 2 USDP pre-delisting drift episodes in Sep 2026; 8 excluding UST's terminal collapse). Because this falls short of the pre-committed threshold of 12 independent events (`11 < 12`), Kaplan-Meier survival curves were omitted per research protocol (`docs/01-depeg-recovery.md` §5). Instead, a structured 4-category comparative case study demonstrates that:
-1. **Weekend / closed-door events on solvent fiat coins** (USDC and USDP during SVB) exhibit 100% recovery within 51–65 hours, rebounding immediately once redemption credibility is restored;
-2. **Operational and liquidity frictions on solvent coins** (FDUSD, TUSD, early UST) take longer (median 492 hours, range 21–2,719 hours) but maintain a narrow discount band (trough US$ 0.954–0.992) and achieve 100% recovery;
-3. **Insolvent algorithmic designs** (UST May 2022) suffer terminal collapse (0% recovery, falling to $0.00 and delisting), proving that external, segregated reserve backing is a necessary condition for long-term parity.
+  The categories were assigned after seeing the cases (n = 2 / 7 / 1 / 2), so this is a description, not evidence that
+  backing "determines" recovery. The cause of each case is not yet sourced
+  (`mechanism_lead_unsourced` in the case table).
 
 ## Evidence
 
@@ -59,7 +64,7 @@ From `results/tables/P3-04_category_summary.csv`:
 | **1. Weekend / Redemption-Gate Closure** | 2 | USDC, USDP | 100% | 58h (51h–65h) | $0.863 – $0.974 | Arbitrage blocked by bank hours; par restored instantly once redemption is guaranteed |
 | **2. Frictions de Liquidez / Operacionais** | 7 | UST, TUSD, FDUSD | 100% | 492h (21h–2,719h) | $0.954 – $0.992 | Solvency preserved; operational frictions delay arbitrage but parity is preserved |
 | **3. Colapso Algorítmico / Insolvência** | 1 | UST | 0% | N/A (Terminal) | $0.000 – $0.245 | Complete balance-sheet insolvency; death spiral with zero external reserves |
-| **4. Deriva Pré-Deslistagem em Exchange** | 2 | USDP | 50% | 60h | $0.988 – $0.994 | Secondary order-book thinning driven by planned exchange delisting |
+| **4. Fim dos dados na Binance (deslistagem a verificar)** | 2 | USDP | 50% | 60h | $0.988 – $0.994 | Secondary order-book thinning driven by planned exchange delisting |
 
 ### 4. Reproduction
 ```powershell
@@ -80,5 +85,6 @@ Generated artifacts:
 Recommended for Slide 13 ("O mesmo mecanismo em dólares: o fim de semana do SVB") and Slide 14 ("Anatomia dos depegs: por que resgate e solvência importam") of the final presentation deck.
 
 ## History
+- 2026-11-02, agent for Renzo (review fixes, on Felipe's behalf, agreed by Renzo): title and claim rewritten as description (no "confirms"/"proving"); SVB in hourly closes with D-13 timing; case causes marked unsourced in the table (kept as leads); category 4 renamed pending a delisting source
 - 2026-11-02, Renzo (review, P3-04): reproduces with the v2 events. Requested: sources for each case's mechanism (none in sources.md); title/claim as description, not "confirm"/"proving" (n = 2/7/1/2, categories assigned after the fact); USDP delisting still [verify] (tasks/P3-04 → Handoff)
 - 2026-11-02, Felipe (Economist): created (exploratory) following execution of P3-04, incorporating the 11-event v2 screen, pre-committed KM threshold gate check ($11 < 12$), SVB weekend Bitstamp timeline, and 4-category comparative taxonomy.
