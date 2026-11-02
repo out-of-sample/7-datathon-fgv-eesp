@@ -2,9 +2,9 @@
 id: P3-11
 title: So what (1) - how much money the spike moved, and to whom
 phase: P3
-status: doing
+status: review
 owner: Economist
-working: Renzo
+working: -
 due: 2026-11-03
 depends: P2-03, P3-01
 ---
@@ -40,31 +40,39 @@ R$ 106 mn on Binance alone, on about R$ 16 bn traded.
 - [x] S1 — Write the specification in this file before running: transfer = Σ over the spike window [+1, +20] PTAX
   days of (premium − pre-window mean [−20, −1]) × traded volume in BRL; weekend volume assigned to the previous
   PTAX day; per venue and total; Binance alone as the conservative figure. — done: Renzo, 2 Nov (above)
-- [ ] S2 — Range: alternative pre-windows (10, 40 days), the synthetic-control gap instead of the pre-mean
+- [x] S2 — Range: alternative pre-windows (10, 40 days), the synthetic-control gap instead of the pre-mean
   (F-017), and the same transfer computed at every clean placebo date (P2-03) so the jury sees what an ordinary
-  month moves.
-- [ ] S3 — `scripts/p3_11_money.py`, table `results/tables/P3-11_transfer.csv`, finding.
-- [ ] S4 — Two sentences of interpretation for the deck: transfer, not a welfare loss; who is on each side.
+  month moves. — done: Renzo, 2 Nov
+- [x] S3 — `scripts/p3_11_money.py`, table `results/tables/P3-11_transfer.csv`, finding. — done: Renzo, 2 Nov (F-025)
+- [x] S4 — Two sentences of interpretation for the deck: transfer, not a welfare loss; who is on each side. — done: Renzo, 2 Nov (Result)
 
 ## Success criteria
-- [ ] Specification committed before the run
-- [ ] Transfer reported per venue, with the placebo comparison and the range
-- [ ] Finding says what the number is not (welfare loss; whole market)
+- [x] Specification committed before the run
+- [x] Transfer reported per venue, with the placebo comparison and the range
+- [x] Finding says what the number is not (welfare loss; whole market)
 
 ## Outputs
-- `scripts/p3_11_money.py`, `results/tables/P3-11_transfer.csv`, finding
+- `scripts/p3_11_money.py`, `results/tables/P3-11_transfer.csv`, `results/tables/P3-11_placebo.csv`, F-025
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** specification written and committed before the script. Rough sizing (not in the repo) gave R$ 145 mn / R$ 106 mn on Binance.
-- **Next step:** S2–S3, `scripts/p3_11_money.py`
-- **Open questions:** Foxbit volume quality (F-008): include it or report Binance alone as the headline? For the
-  interpretation: the closed channel paid zero IOF-Câmbio against 3.5% for ordinary buyers (E-05.10, `docs/sources.md`), and
-  F-024 measures the quantity that stopped (stablecoin purchases abroad −US$ 2.0 bn in July 2026).
-- **How to resume:** volumes are in the frozen raw files (`scripts/p1_03_second_venue.py` shows how to read them).
+- **State:** done, in review (F-025). Headline R$ 106 mn on Binance (tariff equivalent 95 bps), R$ 145 mn on three
+  exchanges, 24 Jun – 21 Jul 2026; range R$ 106–122 mn (Binance); no placebo month above R$ 35 mn (p = 0.005).
+- **Next step:** Felipe (deck owner) checks F-025 and the two pt-BR sentences in Result; decide Binance alone or three
+  exchanges as the slide number (spec says Binance alone).
+- **Open questions:** none for the computation. Decreto 6.306/2007 art. 15-B (zero IOF for funds) still to be opened if the
+  slide uses the "quarter of the tax gap" comparison.
+- **How to resume:** `python scripts/p3_11_money.py`.
 
 ## Log
+- 2026-11-02, agent for Renzo: S2–S4 done; F-025; status review.
 - 2026-11-02, agent for Renzo: Renzo takes P3-11 (owner Economist; asked by Renzo); specification written (S1).
 - 2026-11-02, agent for Renzo: created (plan `docs/06-so-what.md`).
 
 ## Result
+R$ 106 mn on Binance (R$ 145 mn on three exchanges) moved from buyers to sellers of USDT in the four weeks after the notice,
+a tariff equivalent of about 95 bps; no ordinary month comes close (F-025). Slide text (pt-BR):
+"Nas quatro semanas após o ofício, quem comprou dólar digital na Binance pagou R$ 106 milhões a mais do que pagaria ao prêmio
+de antes (R$ 145 milhões em três corretoras): o ofício funcionou como uma tarifa de cerca de 0,95%. Esse valor não foi
+arrecadado pelo governo; foi para quem ainda conseguia trazer stablecoins ao país. É uma transferência, não uma perda de
+bem-estar medida, e não inclui mesas OTC nem outras corretoras."

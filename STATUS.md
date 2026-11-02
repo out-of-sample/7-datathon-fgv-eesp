@@ -30,7 +30,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
    - **P2 core evidence ready for peer review:** P2-02 S3 (break matching), P2-03 (event studies + 200 placebos, F-016), P2-04 (synthetic control, F-017), P2-06 (frozen team estimate `80fc866`).
    - **P3 extensions ready for peer review:** P3-01 (money layer route costs, F-015), P3-02 (BTC heterogeneity: +93.8 bps lockstep jump, F-018), P3-04 (depeg chapter SVB + 11-event table + pt-BR slide drafts, F-019), P3-07 (Band-TAR threshold model: band widened 26× on 24 Jun, F-021), P3-08 (2025 subsidy share: 53.6% of Compound V3 spread was COMP rewards, F-020), and P1-09 (donor boundary cleanup).
    - **Next tasks:** `P4-01` (51-specification robustness battery, F-022) is now complete (`review`); `P3-05` harness/bundle/protocol (`results/agentic/protocol.md`, `bundle_SHA256SUMS.txt`) is built (`doing`, ready for S3–S7 live CLI runs on Renzo's accounts); `P5-01` & `P5-05` full 12-slide pt-BR deck and annex drafts (`deck/deck_v1_ptbr.md`, `deck/annex_v1_ptbr.md`) are ready (`doing`, awaiting `P4-03` freeze). Teammates (Renzo, Nattan, Jonathan) → peer-review tasks in `review` (`P1-04`, `P1-09`, `P2-02`–`P2-04`, `P2-06`, `P3-01`–`P3-02`, `P3-04`, `P3-07`–`P3-08`, `P4-01`) and execute `P4-02` (independent re-check).
-2. "So what" plan ([`docs/06-so-what.md`](docs/06-so-what.md)): P3-14 and P3-10 in review (F-023, F-024); P3-11 (money moved),
+2. "So what" plan ([`docs/06-so-what.md`](docs/06-so-what.md)): P3-14, P3-10 and P3-11 in review (F-023, F-024, F-025);
    P3-12 (which rules matter), P3-13 (dated prediction for Res. 584) todo before the freeze.
 3. Everyone (and your agents): read [`docs/review-2026-10-31.md`](docs/review-2026-10-31.md) before the gate.
 4. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
@@ -110,7 +110,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-08](tasks/P3-08-subsidy-check-2025.md) | 2025 subsidy share for the 'Lições de 2025' slide | 👀 review | CS 3 | - | 3/3 | 2/2 | 2026-11-03 | - |
 | [P3-09](tasks/P3-09-depeg-case-sources.md) | Open sources for the depeg case causes (restore them in the case table) | 🔄 doing | Economist | Felipe | 0/2 | 0/2 | 2026-11-04 | P3-04 |
 | [P3-10](tasks/P3-10-stablecoin-imports.md) | Mechanism - did stablecoin imports fall when the premium jumped, and recover when it faded? | 👀 review | CS 1 | - | 4/4 | 3/3 | 2026-11-03 | P1-02, P2-02 |
-| [P3-11](tasks/P3-11-money-moved.md) | So what (1) - how much money the spike moved, and to whom | 🔄 doing | Economist | Renzo | 1/4 | 0/3 | 2026-11-03 | P2-03, P3-01 |
+| [P3-11](tasks/P3-11-money-moved.md) | So what (1) - how much money the spike moved, and to whom | 👀 review | Economist | - | 4/4 | 3/3 | 2026-11-03 | P2-03, P3-01 |
 | [P3-12](tasks/P3-12-which-rules-matter.md) | So what (2) - which rules moved the premium (published rules vs the confidential notice) | ⬜ todo | Economist | - | 0/3 | 0/3 | 2026-11-03 | P2-03 |
 | [P3-13](tasks/P3-13-prediction-res584.md) | So what (4) - a dated prediction for the 24-hour hold (Res. 584, 1 Jan 2027) read by the monitor | ⬜ todo | CS 1 | - | 0/3 | 0/2 | 2026-11-03 | P3-01, P3-03 |
 | [P3-14](tasks/P3-14-notice-sources.md) | Every source on the 23 Jun 2026 BCB notice, opened and registered | 👀 review | CS 1 | - | 3/3 | 3/3 | 2026-11-03 | P1-04 |
@@ -163,10 +163,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-022](findings/F-022-robustness-battery.md) | The 23 Jun 2026 spike is robust (+74 to +128 bps across 22 variants); the after-spike level (+11 to +34 bps) is not distinguishable from ordinary drift (placebo p = 0.24) | 🔍 exploratory | P4-01 | - |
 | [F-023](findings/F-023-notice-sources-and-press-moves.md) | Two outlets saw the 23 Jun notice (or an excerpt) the next days, the BCB confirmed its position in writing, and the price moves they reported match our premium series | 🔍 exploratory | P3-14 | - |
 | [F-024](findings/F-024-stablecoin-imports.md) | In July 2026 stablecoin purchases abroad fell 78% (BCB) while the premium rose; they stayed at about a third of their earlier level through September while the premium fell back | 🔍 exploratory | P3-10 | - |
+| [F-025](findings/F-025-money-moved.md) | In the four weeks after the notice, buyers of USDT/BRL paid about R$ 106 mn more on Binance (R$ 145 mn on three exchanges) than at the pre-notice premium; no ordinary month comes close | 🔍 exploratory | P3-11 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-02 — agent for Renzo: P3-11 → review: buyers paid R$ 106 mn more on Binance (R$ 145 mn on 3 exchanges) in the 4 weeks after the notice, tariff equivalent ~95 bps, no placebo month above R$ 35 mn (F-025). My notice-sources task renumbered P3-09 → P3-14 (Felipe's depeg-sources task holds P3-09)
 - 2026-11-02 — agent for Renzo: "so what" plan (`docs/06-so-what.md`, P3-10–P3-14). P3-14 → review: 10 sources on the 23 Jun notice with verified quotes (Cointelegraph Brasil 24 Jun had the notice, Exame 25 Jun an excerpt, BCB LAI answer), Res. 580 found (E-10), press moves match our series (F-023). P3-10 → review: BCB stablecoin purchases abroad −78% in Jul 2026 (p = 0.02), still at 32% of the earlier level in Aug–Sep while the premium fell back (F-024)
 - 2026-11-02 — agent for Renzo: review fixes applied for Felipe (P2-03, P2-04, P3-02, P3-04, P4-01 → done; P3-01 framing left to the team); cost of the notice R$ 5,052 per US$ 100k (spike); story notebook `notebooks/p5_07_story.ipynb` (P5-07, deck prototype) → review
 - 2026-11-02 — agent for Renzo: reviews of P2-03, P2-04, P3-01, P3-02, P3-04, P4-01: all reproduce; spike robust (+94 bps, p ≈ 0.001 over all clean dates); lasting effect not significant (placebo p = 0.24); P3-01 uses 3.5% IOF for 2020–May 2025 (should be 1.1%); several findings claim causes without evidence; changes requested from Felipe

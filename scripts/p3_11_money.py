@@ -1,0 +1,103 @@
+r"""P3-11: how much money the 23 Jun 2026 spike moved from buyers of USDT/BRL to sellers.
+Specification fixed before this script: tasks/P3-11-money-moved.md -> Specification.
+
+Windows  PTAX days around t0 = 23 Jun 2026: before [-20,-1], spike [+1,+20], after [+21,+60]. A window covers every
+         calendar day from its first PTAX day to the day before the next window starts; each calendar day takes the
+         premium and PTAX of the latest PTAX day on or before it.
+Transfer sum over days of (premium - mean premium of the before window) / 10,000 x volume (USDT, UTC day) x PTAX, in R$.
+Tariff   transfer / sum(volume x PTAX), in bps: the volume-weighted excess premium buyers paid.
+Range    before window of 10 and 40 PTAX days; the synthetic-control acute gap (+109.31 bps, F-017) in place of the
+         excess; the after window (description only).
+Placebo  Binance tariff equivalent and transfer at each P2-03 placebo date with full data; p = (k+1)/(n+1),
+         k = placebos with |tariff equivalent| >= observed.
+Inputs   data/processed/P1-02_premium_daily.csv, data/raw/binance/USDTBRL/*.zip, data/raw/foxbit/USDTBRL-1h.csv,
+         data/raw/mercadobitcoin/USDT-BRL-1h.csv, results/tables/P2-03_placebo_draws.csv
+Outputs  results/tables/P3-11_transfer.csv   one row per variant x venue
+         results/tables/P3-11_placebo.csv    Binance tariff equivalent and transfer at each placebo date
+Run      python scripts/p3_11_money.py
+"""
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+ROOT = Path(__file__).resolve().parent.parent
+RAW, PROC, TAB = ROOT / "data/raw", ROOT / "data/processed", ROOT / "results/tables"
+NOTICE, SYNTH_GAP_BPS = pd.Timestamp("2026-06-23"), 109.31
+
+# 1. Premium and PTAX on PTAX days; daily volume (USDT) per venue on UTC days
+d = pd.read_csv(PROC / "P1-02_premium_daily.csv", parse_dates=["date_brt"]).set_index("date_brt")
+ptax = d.index
+b = pd.concat(pd.read_csv(z, header=None, usecols=[0, 5]) for z in sorted((RAW / "binance/USDTBRL").glob("*.zip")))
+t = b[0].astype("int64")
+b = pd.Series(b[5].values, index=pd.to_datetime(np.where(t > 1e14, t // 1000, t), unit="ms"))  # 2025+ files: microseconds
+f = pd.read_csv(RAW / "foxbit/USDTBRL-1h.csv")
+m = pd.read_csv(RAW / "mercadobitcoin/USDT-BRL-1h.csv")
+vol = {"Binance": b.resample("D").sum(),
+       "Foxbit": pd.Series(f.volume_usdt.values, index=pd.to_datetime(f.open_time_ms, unit="ms")).resample("D").sum(),
+       "Mercado Bitcoin": pd.Series(m.v.values, index=pd.to_datetime(m.t, unit="s")).resample("D").sum()}
+
+
+def days(t0, a, z):
+    """Calendar days from PTAX day t0+a to the day before PTAX day t0+z+1."""
+    i = ptax.get_loc(t0)
+    return pd.date_range(ptax[i + a], ptax[i + z + 1] - pd.Timedelta(days=1), freq="D")
+
+
+def on_days(s, cal):
+    return s.reindex(s.index.union(cal)).ffill().reindex(cal)
+
+
+def transfer(v, t0, window=(1, 20), pre_n=20, gap=None):
+    """Return (pre mean bps, R$ volume, R$ transfer, tariff equivalent bps)."""
+    i = ptax.get_loc(t0)
+    pre = d.premium_bps.iloc[i - pre_n:i].mean()
+    cal = days(t0, *window)
+    excess = gap if gap is not None else on_days(d.premium_bps, cal) - pre
+    brl = v.reindex(cal).fillna(0) * on_days(d.ptax_sell_brl_per_usd, cal)
+    tr = (excess / 1e4 * brl).sum()
+    return pre, brl.sum(), tr, tr / brl.sum() * 1e4
+
+
+# 2. Headline and range
+variants = [("headline: spike, pre 20 days", {}), ("pre window 10 days", {"pre_n": 10}), ("pre window 40 days", {"pre_n": 40}),
+            ("synthetic-control gap +109.31 bps", {"gap": SYNTH_GAP_BPS}), ("after window [+21,+60] (description)", {"window": (21, 60)})]
+rows = []
+for name, kw in variants:
+    tot = np.zeros(2)
+    for v, s in vol.items():
+        pre, brl, tr, te = transfer(s, NOTICE, **kw)
+        tot += (brl, tr)
+        rows.append({"variant": name, "venue": v, "pre_mean_bps": pre, "volume_brl_bn": brl / 1e9, "transfer_brl_mn": tr / 1e6,
+                     "tariff_equivalent_bps": te})
+    rows.append({"variant": name, "venue": "3 venues", "pre_mean_bps": pre, "volume_brl_bn": tot[0] / 1e9,
+                 "transfer_brl_mn": tot[1] / 1e6, "tariff_equivalent_bps": tot[1] / tot[0] * 1e4})
+res = pd.DataFrame(rows)
+cal = days(NOTICE, 1, 20)
+print(f"spike window: {cal[0].date()} to {cal[-1].date()} ({len(cal)} calendar days)")
+print(res.round(2).to_string(index=False))
+
+# 3. Placebo dates (Binance)
+pl = pd.read_csv(TAB / "P2-03_placebo_draws.csv", parse_dates=["date"]).date
+out = []
+for p in pl:
+    i = ptax.get_loc(p)
+    if i < 40 or i + 21 >= len(ptax) or ptax[i - 20] < vol["Binance"].index[0]:
+        continue
+    _, brl, tr, te = transfer(vol["Binance"], p)
+    out.append({"date": p.date(), "volume_brl_bn": brl / 1e9, "transfer_brl_mn": tr / 1e6, "tariff_equivalent_bps": te})
+out = pd.DataFrame(out)
+obs = res.query("variant == 'headline: spike, pre 20 days' and venue == 'Binance'").iloc[0]
+k = (out.tariff_equivalent_bps.abs() >= abs(obs.tariff_equivalent_bps)).sum()
+k_brl = (out.transfer_brl_mn >= obs.transfer_brl_mn).sum()
+res["placebo_n"], res["placebo_k"], res["placebo_p"] = np.nan, np.nan, np.nan
+hl = (res.variant == "headline: spike, pre 20 days") & (res.venue == "Binance")
+res.loc[hl, ["placebo_n", "placebo_k", "placebo_p"]] = len(out), k, (k + 1) / (len(out) + 1)
+TAB.mkdir(parents=True, exist_ok=True)
+res.to_csv(TAB / "P3-11_transfer.csv", index=False, float_format="%.3f")
+out.to_csv(TAB / "P3-11_placebo.csv", index=False, float_format="%.3f")
+q = out.quantile([0.05, 0.5, 0.95], numeric_only=True)
+print(f"\nplacebo dates used: {len(out)}; |tariff equivalent| >= {obs.tariff_equivalent_bps:.1f} bps: k = {k}, "
+      f"p = {(k + 1) / (len(out) + 1):.4f}; transfer >= R$ {obs.transfer_brl_mn:.1f} mn: {k_brl}")
+print("placebo 5% / 50% / 95%:\n", q.round(2).to_string())
+print(f"largest placebo transfer: R$ {out.transfer_brl_mn.max():.1f} mn; smallest: R$ {out.transfer_brl_mn.min():.1f} mn")
