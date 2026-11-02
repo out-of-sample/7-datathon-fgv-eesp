@@ -24,6 +24,7 @@ When a plan, result, or claim is weak, say so directly, explain why, and propose
 | Stated goal of the event (Art. 1) | "Desenvolver e aplicar conceitos econômicos, combinando a prática à teoria" |
 | Data (Art. 6) | Any data source is allowed **if cited** |
 | Deliverable (Art. 7) | **One PDF presentation** + scripts as **`.txt` files** (preferably Python, R or Stata) |
+| **Deck length (team rule, 2 Nov)** | **At most 10 slides.** Anything else goes to the annex |
 | Recommended deck structure (Art. 7) | Motivação → Delimitação do problema → Dados e metodologia → Resultados → Discussão e implicações |
 | Supplementary material (Art. 8) | Tables and annexes may be included |
 | Deadline | **8 Nov 2026, 23:59 (Brasília). No late files, no replacements after the deadline.** |
