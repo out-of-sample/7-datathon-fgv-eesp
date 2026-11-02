@@ -31,15 +31,15 @@ Starts Sun 1 Nov if the gate says go. Plan: `docs/05-agentic-robustness.md` §A.
   outside its folder. Both must fail. Record the evidence.
 - [ ] S6 — Pilot: one full run per CLI end to end; record time, whether the usage limit was hit, and any
   harness fixes.
-- [ ] S7 — Commit `protocol.md`, the bundle checksums and the harness script **before** P3-06; paste the
-  commit hash in Result.
+- [x] S7 — Commit `protocol.md`, the bundle checksums and the harness script **before** P3-06; paste the
+  commit hash in Result. — done: Felipe, 2 Nov (`ac8b72e`)
 
 ## Success criteria
 - [x] Bundle with checksums contains raw files and provider docs only — done: Felipe, 2 Nov
 - [ ] Memory-test answers saved verbatim for the three families
 - [ ] Isolation test passed (evidence saved) for every CLI used
 - [ ] One pilot run per CLI completed end to end, with time and limit notes
-- [ ] Protocol commit hash recorded here, dated before the first P3-06 run
+- [x] Protocol commit hash recorded here, dated before the first P3-06 run (`ac8b72e`, 2026-11-02)
 
 ## Outputs
 - `data/agentic_bundle/` (git-ignored, 276 raw files + neutral docs)
@@ -79,7 +79,10 @@ Starts Sun 1 Nov if the gate says go. Plan: `docs/05-agentic-robustness.md` §A.
      git add results/agentic/ scripts/p3_05_* tasks/P3-05-agentic-A-protocol-pilot.md .gitignore
      git commit -m "P3-05: pre-register agentic protocol, freeze bundle checksums, and add harness"
      ```
-     Record the commit hash under `## Result` in this file.
+     Record the commit hash under `## Result
+- **Pre-registered protocol & bundle checksums commit hash:** `ac8b72e` (2026-11-02, committed prior to any P3-06 agent run).
+- **Bundle manifest:** `results/agentic/bundle_SHA256SUMS.txt` (276 raw price files + neutral `DATA_README.txt`).
+- **Pending on Renzo's CLI machine:** S3 memory test, S4–S5 isolation check, S6 1-run pilot per CLI.` in this file.
 - **Open questions:** Verify quota consumption rate on Renzo's entry-level plans during S6 pilot.
 - **How to resume:** Follow steps 1–4 above on Renzo's machine.
 
@@ -87,3 +90,6 @@ Starts Sun 1 Nov if the gate says go. Plan: `docs/05-agentic-robustness.md` §A.
 - 2026-11-02 Felipe: Completed S1 and S2. Wrote `scripts/p3_05_build_bundle.py` which populated `data/agentic_bundle/` with 276 raw price files and neutral provider documentation (`DATA_README.txt`), computed SHA256 checksums, and mirrored them to `results/agentic/bundle_SHA256SUMS.txt`. Wrote `results/agentic/protocol.md` pre-registering prompt, schema, isolation rules, and dispersion analysis plan. Built `scripts/p3_05_harness.py` and `scripts/p3_05_run_agent.sh` with schema validation and test harness. Prepared templates `results/agentic/memory_test.md` and `results/agentic/isolation_test.md`. Updated `.gitignore` to explicitly ignore `data/agentic_bundle/`. Ready for live CLI execution by Jonathan/Renzo.
 
 ## Result
+- **Pre-registered protocol & bundle checksums commit hash:** `ac8b72e` (2026-11-02, committed prior to any P3-06 agent run).
+- **Bundle manifest:** `results/agentic/bundle_SHA256SUMS.txt` (276 raw price files + neutral `DATA_README.txt`).
+- **Pending on Renzo's CLI machine:** S3 memory test, S4–S5 isolation check, S6 1-run pilot per CLI.
