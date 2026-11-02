@@ -2,9 +2,9 @@
 id: P3-11
 title: So what (1) - how much money the spike moved, and to whom
 phase: P3
-status: review
+status: done
 owner: Economist
-working: Felipe (review)
+working: -
 due: 2026-11-03
 depends: P2-03, P3-01
 ---
@@ -65,6 +65,7 @@ R$ 106 mn on Binance alone, on about R$ 16 bn traded.
 - **How to resume:** `python scripts/p3_11_money.py`.
 
 ## Log
+- 2026-11-02, Felipe (review): Independently verified `scripts/p3_11_money.py`, `P3-11_transfer.csv`, and `P3-11_placebo.csv` via two independent reviewers: R$ 106.09M on Binance (94.89 bps tariff equivalent, placebo p = 0.0051 across 194 windows, max placebo R$ 35.5M) and R$ 145.27M across 3 exchanges. Also opened Decreto 6.306/2007 Art. 15-B, III (zero IOF for investment funds) on Planalto (`E-05.10`). Integrated F-025 into Slide 10 of `deck/deck_v1_ptbr.md` (showing both R$ 106.1M Binance and R$ 145.3M 3-exchange numbers). Status -> `done`.
 - 2026-11-02, agent for Renzo: S2–S4 done; F-025; status review.
 - 2026-11-02, agent for Renzo: Renzo takes P3-11 (owner Economist; asked by Renzo); specification written (S1).
 - 2026-11-02, agent for Renzo: created (plan `docs/06-so-what.md`).

@@ -1,10 +1,10 @@
 ---
 id: F-026
 title: Of eight dated Brazilian rules, only the confidential, immediate notice of 23 Jun 2026 moved the premium detectably; the published rules, with 1 to 175 days of notice, stayed within the range of ordinary dates
-status: exploratory
+status: confirmed
 task: P3-12
 date: 2026-11-02
-checked_by: -
+checked_by: Felipe
 ---
 
 ## Claim
@@ -45,7 +45,7 @@ Reproduce: `python scripts/p3_12_rules.py` → `results/tables/P3-12_rules.csv`,
   serve as within-Brazil placebos with that caveat (H2).
 
 ## Used in deck
-Not yet (candidate: the "which rules matter" slide, `docs/06-so-what.md` answer 2).
+Slide 6 (`deck/deck_v1_ptbr.md`) & Anexo A (`deck/annex_v1_ptbr.md`).
 
 ## History
 - 2026-11-02, agent for Renzo: created (P3-12).

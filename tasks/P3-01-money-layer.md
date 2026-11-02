@@ -28,7 +28,7 @@ Turn the premium into money for a Brazilian corporate treasurer: (1) headline co
 4. **Policy Scenarios (Explicitly Labelled)**:
    - **Scenario S1 (3.5% Crypto IOF, Source E-03 / R-02)**: Unenacted Fazenda proposal taxing crypto purchases with 3.5% IOF. Applied to Regime 6 baseline: 26.8 + 10.0 + 0.1 + 350.0 = **386.9 bps (R$ 20,815.22)**.
    - **Scenario S2a (24h Precautionary Hold, Hedged via CIP, Source E-06b / R-07)**: Res. BCB 584/2026 hold hedged for 1 business day via Covered Interest Parity $(\text{CDI } 10.75\% - \text{SOFR } 5.00\%)/252 = 2.28\text{ bps}$ + ~0.22 bps B3 DOL fee = **2.5 bps**. Total = 36.9 + 2.5 = **39.4 bps (R$ 2,119.72)**.
-   - **Scenario S2b (24h Precautionary Hold, Unhedged Volatility, Source E-06b / R-07)**: Expected cost = **0.0 bps** (total **36.9 bps = R$ 1,985.22**), with a separate 95% 1-day FX risk of **130 bps** ($1.645 \times \text{sd}$ of daily PTAX log changes in 2025–26).
+   - **Scenario S2b (24h Precautionary Hold, Unhedged Volatility, Source E-06b / R-07 / P3-13)**: Expected cost = **0.0 bps** (total **36.9 bps = R$ 1,985.22**). For an outgoing USDT transfer (`Art. 2º-B` of Res. 142 added by Res. 584/2026), the customer holds USDT during the 24h hold: 1-day Selic financing (5.5 bps at 13.75% a.a., `SGS 432`) + 95% 1-day `USDT/USD` risk (3.7 bps) = **9.1 bps** (`P3-13`, `F-027`); if exposed in BRL, 95% 1-day PTAX risk is **130 bps** ($1.645 \times \text{sd}$ of daily PTAX log changes in 2025–26).
 
 ## Subtasks
 - [x] S1 — Pre-run specification and source mapping (R-01..R-07). — done: Felipe, 1 Nov

@@ -206,8 +206,7 @@ hold_risk_bps = float(1.645 * _r.std())
 add_route(
     "SCENARIO_S2B_HOLD_UNHEDGED", "Policy Scenario", "Scenario S2b: 24h Hold Unhedged (Res. 584/2026)", True, "Binance (VIP0)",
     regime_means[6], BINANCE_FEE_BPS, ONCHAIN_FEE_BPS, 0.0,
-    f"[Scenario] Res. BCB 584/2026 (R-07) 24h hold, unhedged: 0 bps expected cost, but 95% 1-day FX risk of "
-    f"{hold_risk_bps:.0f} bps (1.645 x sd of daily PTAX changes, 2025-26; P1-02). Risk is not added to cost."
+    f"[Scenario] Res. BCB 584/2026 (R-07) 24h outgoing hold: for a holder already in USDT (P3-13, F-027), 1-day cost is ~9.1 bps (5.5 bps Selic financing + 3.7 bps 95% 1-day USDT/USD risk); if exposed in BRL for 24h, 95% 1-day PTAX risk is {hold_risk_bps:.0f} bps (not added to cost)."
 )
 
 # Cost of the notice for a buyer of US$ 100k in USDT (the project's headline question): premium change, F-016 / F-022

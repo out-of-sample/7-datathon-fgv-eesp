@@ -43,9 +43,9 @@ Benchmark transaction: institutional acquisition of US$ 100,000; reference PTAX 
 
 ### Scenarios (labelled as such)
 - **S1, 3.5% IOF on crypto purchases (`E-03`, unenacted draft):** USDT route rises to **386.9 bps (R$ 20,815)**, matching or exceeding the 3.5% bank route (372.5 bps at 20 bps bank spread, or 402.5 bps at 50 bps bank spread).
-- **S2, 24 h precautionary hold (Res. BCB 584/2026, effective 1 Jan 2027, `R-07`):**
+- **S2, 24 h precautionary hold (Res. BCB 584/2026, effective 1 Jan 2027, `R-07`, `F-027`):**
   - **hedged (`S2a`):** **+2.5 bps** (1-day Covered Interest Parity carry $(\text{CDI } 10.75\% - \text{SOFR } 5.00\%)/252 = 2.28\text{ bps}$ plus ~0.22 bps B3 DOL fee, `R-07`); total **39.4 bps (R$ 2,120)**;
-  - **unhedged (`S2b`):** **0 bps expected cost**, but a 95% one-day exchange-rate risk of **130 bps** ($1.645 \times \text{sd}$ of daily PTAX log changes in 2025–26, `P1-02`). Risk is reported separately, not added to expected cost.
+  - **unhedged (`S2b`):** **0 bps expected cost**, total **36.9 bps (R$ 1,985)**. Because Art. 2º-B of Res. 142 (added by Res. 584/2026) delays *outgoing* transfers ("transferência de ativo virtual ... para cliente ou terceiro"), the customer already holds USDT during the 24-hour hold: as computed in `P3-13` (`F-027`), 1 business day of Selic financing (13.75% a.a., `SGS 432` = **5.5 bps**) plus 95% 1-day `USDT/USD` risk (**3.7 bps**) totals **~9.1 bps**. (If a buyer were instead exposed to BRL/USD during a 24h hold, the 95% 1-day PTAX risk would be **130 bps**, $1.645 \times \text{sd}$ of daily PTAX log changes in 2025–26, `P1-02`). Risk is reported separately, not added to expected cost.
 
 ### Reproduction
 ```powershell

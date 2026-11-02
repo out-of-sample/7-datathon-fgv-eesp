@@ -1,10 +1,10 @@
 ---
 id: F-023
 title: Two outlets saw the 23 Jun notice (or an excerpt) the next days, the BCB confirmed its position in writing, and the price moves they reported match our premium series
-status: exploratory
+status: confirmed
 task: P3-14
 date: 2026-11-02
-checked_by: -
+checked_by: Felipe
 ---
 
 ## Claim
@@ -53,7 +53,7 @@ not only by later opinion pieces. The price moves the press reported (about 0.1%
 - E-05.3 is the BCB's position on fund imports, not a confirmation of the notice's date or wording.
 
 ## Used in deck
-Not yet (candidate: the "notice and its sources" slide).
+Slide 5 (`deck/deck_v1_ptbr.md`) & Anexo C (`deck/annex_v1_ptbr.md`).
 
 ## History
 - 2026-11-02, agent for Renzo: created (P3-14 sweep). Exame 25 Jun was first pointed out by another agent's review.

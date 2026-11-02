@@ -2,9 +2,9 @@
 id: P3-14
 title: Every source on the 23 Jun 2026 BCB notice, opened and registered
 phase: P3
-status: review
+status: done
 owner: CS 1
-working: Felipe (review)
+working: -
 due: 2026-11-03
 depends: P1-04
 ---
@@ -46,6 +46,7 @@ deck can say exactly what is known about the notice and from whom. Plan: `docs/0
 - **How to resume:** `python scripts/p3_14_press_check.py`; sources in `docs/sources.md` → "E-05: every source found".
 
 ## Log
+- 2026-11-02, Felipe (review): Independently verified `scripts/p3_14_press_check.py`, `P3-14_press_vs_series.csv`, and rows `E-05.1` to `E-05.10` in `docs/sources.md`; opened Decreto 6.306/2007 Art. 15-B, III on Planalto to resolve the `[verify]` note on `E-05.10`. Integrated F-023 into Slide 5 of `deck/deck_v1_ptbr.md`. Status -> `done`.
 - 2026-11-02, agent for Renzo: renumbered from P3-09 (Felipe's depeg-sources task took P3-09 first on main); files and references renamed. Commits before this one say P3-09.
 - 2026-11-02, agent for Renzo: S1–S3 done: 10 sources registered with verified quotes, E-10 and D-16 added, F-023 written; status review.
 - 2026-11-02, agent for Renzo: created (plan `docs/06-so-what.md`); Renzo takes S1.

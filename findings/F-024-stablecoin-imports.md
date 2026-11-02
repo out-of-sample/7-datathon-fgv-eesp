@@ -1,10 +1,10 @@
 ---
 id: F-024
 title: In July 2026 stablecoin purchases abroad fell 78% (BCB) while the premium rose; they stayed at about a third of their earlier level through September while the premium fell back
-status: exploratory
+status: confirmed
 task: P3-10
 date: 2026-11-02
-checked_by: -
+checked_by: Felipe
 ---
 
 ## Claim
@@ -68,7 +68,7 @@ channel reopening (pre-set rule: 0.25 ≤ R < 0.5, "partial, inconclusive").
   specification was committed (`c6a1c1b`) and before the script ran. Thresholds and tests were not changed.
 
 ## Used in deck
-Not yet (candidate: the mechanism slide, `docs/06-so-what.md` answer 3).
+Slide 5 (`deck/deck_v1_ptbr.md`) & Anexo B.7 (`deck/annex_v1_ptbr.md`).
 
 ## History
 - 2026-11-02, agent for Renzo: created (P3-10).

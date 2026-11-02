@@ -7,20 +7,20 @@
 
 ---
 
-### Sumário da Apresentação e Mapeamento com o Protótipo (`notebooks/p5_07_story.ipynb`)
+### Sumário da Apresentação e Mapeamento com o Protótipo (`notebooks/p5_07_story.ipynb` & `docs/06-so-what.md`)
 1. **Slide 1 (Seção 1):** Quanto custa fechar a porta? — Tese, pergunta de pesquisa e o experimento natural
 2. **Slide 2 (Seção 2):** O que esperávamos — Hipóteses pré-comprometidas ($H_0$ a $H_3$) e critérios de falsificação
-3. **Slide 3 (Seção 3):** Dados e medida — Pareamento na janela PTAX, piso de ruído e quebras estruturais cegas
-4. **Slide 4 (Seção 4):** O salto: mesmo tamanho em três corretoras — Binance, Foxbit e Mercado Bitcoin e descarte de confundidores
-5. **Slide 5 (Seção 5):** A porta que fechou — O ofício de supervisão de 23 de junho de 2026 e suas três fontes
-6. **Slide 6 (Seção 6):** Só uma regra mexeu no preço — Estudo de eventos nas 13 regras vs todas as 1.073 datas limpas ($p = 0,0009$)
-7. **Slide 7 (Seção 7):** Outros países não se mexeram — Controle sintético internacional, DiD e arbitragem triangular no Bitcoin
-8. **Slide 8 (Seção 8):** Um pico de um mês — Robustez em 22 variantes agudas (+74 a +128 bps) e nível pós-pico não distinguível de deriva ($p = 0,24$)
-9. **Slide 9 (Seção 9):** Onde a porta está fechada, o prêmio é grande — Evidência descritiva internacional (ARS, UAH vs mercados abertos)
-10. **Slide 10 (Seção 10):** Quanto custou: R$ 5 mil por US$ 100 mil — Custo do ofício e comparação neutra de fricções por canal (Opções C e A)
-11. **Slide 11 (Seção 11):** Do lado do dólar: quando o resgate fecha — O fim de semana do SVB e a tabela de 11 casos de depeg com fontes abertas
-12. **Slide 12 (Seção 12):** Monitor do Dólar Digital — Alarme CUSUM sem *look-ahead* calibrado em 2020–2025 e testado em 2026
-13. **Slide 13 (Seção 13):** Lições de 2025 — Linha de base ingênua obrigatória e decomposição de subsídios em tokens (53,6% de COMP)
+3. **Slide 3 (Seção 3):** Dados e medida — Pareamento na janela PTAX, piso de ruído e quebras estruturais cegas (`F-007`, `F-011`, `F-021`)
+4. **Slide 4 (Seção 4):** O salto: mesmo tamanho em três corretoras — Binance, Foxbit e Mercado Bitcoin e descarte de confundidores (`F-009`)
+5. **Slide 5 (Seção 5 + `P3-14`/`P3-10`):** A porta que fechou — As 10 fontes sobre o ofício de 23/jun (`F-023`) e a queda de 78% na compra de stablecoins no exterior nas estatísticas do BCB (`F-024`)
+6. **Slide 6 (Seção 6 + `P3-12`):** Só o ofício sigiloso moveu o prêmio —As 8 regras datadas e 13 eventos contra todas as 1.073 datas limpas ($p = 0,0009$, `F-016`, `F-026`)
+7. **Slide 7 (Seção 7):** Outros países não se mexeram — Controle sintético internacional, DiD e arbitragem triangular no Bitcoin (`F-017`, `F-018`)
+8. **Slide 8 (Seção 8):** Um pico de um mês — Robustez em 22 variantes agudas (+74 a +128 bps) e nível pós-pico não distinguível de deriva ($p = 0,24$, `F-022`)
+9. **Slide 9 (Seção 9):** Onde a porta está fechada, o prêmio é grande — Evidência descritiva internacional (ARS, UAH vs mercados abertos, `F-010`)
+10. **Slide 10 (Seção 10 + `P3-11`):** Quanto custou: R$ 5.052 por US$ 100 mil e R$ 106–145 milhões transferidos em 4 semanas (`F-015`, `F-025`, Opções C e A)
+11. **Slide 11 (Seção 11 + `P3-09`):** Do lado do dólar: quando o resgate fecha — O fim de semana do SVB e a tabela de 11 casos de depeg com fontes abertas (`F-013`, `F-019`)
+12. **Slide 12 (Seção 12 + `P3-13`):** Monitor do Dólar Digital e Previsão Datada para 01/jan/2027 — Alarme CUSUM sem *look-ahead* (`F-014`) e previsão registrada para a Res. BCB 584 (`F-027`)
+13. **Slide 13 (Seção 13):** Lições de 2025 — Linha de base ingênua obrigatória e decomposição de subsídios em tokens (`F-005`, `F-020`)
 14. **Slide 14 (Seções 14–15):** O que os testes mostraram e limitações — Placar das hipóteses, implicações para supervisão/Drex e limites
 
 ---
@@ -32,7 +32,7 @@
 
 #### Layout Visual & Estrutura
 - **Posicionamento:** Capa executiva combinada à tese econômica central e à pergunta de pesquisa (Requisito `prompt.md` §8: uma pergunta clara logo na abertura, respondível com a evidência mostrada).
-- **Legenda (10 segundos):** Um ativo só permanece na paridade enquanto algum canal permite comprar barato de um lado e vender caro do outro; em 24/jun/2026, após notícia de ofício de supervisão do BCB sobre fundos, o prêmio do USDT sobre a PTAX saltou +93,9 bps (+R$ 5.052 por US$ 100 mil) durante um mês.
+- **Legenda (10 segundos):** Um ativo só permanece na paridade enquanto algum canal permite comprar barato de um lado e vender caro do outro; em 24/jun/2026, após ofício de supervisão do BCB que paralisou a importação de criptoativos via fundos (queda de 78% nas compras externas medidas pelo BCB em julho), o prêmio do USDT sobre a PTAX saltou +93,9 bps (+R$ 5.052 por US$ 100 mil; R$ 106–145 milhões transferidos em quatro semanas).
 
 #### Pontos Principais (pt-BR)
 - **Tese Econômica (Limites à Arbitragem — Shleifer & Vishny 1997; Makarov & Schoar 2020):**
@@ -40,15 +40,15 @@
     $$\text{USDT/BRL}_t = \text{PTAX}_t \times \text{USDT/USD}_t \times (1 + \pi_t)$$
   - Quando uma regra fecha ou encarece a porta fiduciária mais barata de arbitragem, o prêmio $\pi_t$ descola da paridade até o custo do próximo canal disponível (Obstfeld & Taylor 1997).
 - **A Pergunta de Pesquisa:**
-  - *Quanto a mais os brasileiros pagaram por um dólar digital quando uma intervenção fechou uma dessas portas, e quais regras realmente moveram o preço?*
+  - *Quanto a mais os brasileiros pagaram por um dólar digital quando uma intervenção fechou uma dessas portas, quanto dinheiro mudou de mãos e quais regras realmente moveram o preço?*
 - **O Experimento Natural (23 de junho de 2026):**
-  - Em 23/jun/2026, o Banco Central comunicou a bancos, corretoras de câmbio e administradores de fundos que operações de câmbio de fundos para importar ativos virtuais não tinham respaldo nas normas e determinou sua interrupção (`E-05`). Foi um ato de supervisão com data definida, não uma resolução com longo prazo de transição.
+  - Em 23/jun/2026, o Banco Central enviou notificação de supervisão a bancos (13 bancos segundo a *Exame*), corretoras de câmbio, empresas cripto e fundos determinando a *"imediata descontinuidade"* de operações de câmbio de fundos para importar ativos virtuais (`E-05`, `F-023`). Nas estatísticas do setor externo do BCB (`SGS 29644`), as compras líquidas de stablecoins no exterior caíram **78% em julho de 2026** (de US$ 2,54 bi para US$ 0,57 bi, `F-024`).
 - **Relevância Prática:**
-  - Afeta tesourarias corporativas (custo de liquidação transfronteiriça), a supervisão cambial do BCB (perímetro das SPSAVs — Res. 519–521 e eFX — Res. 561) e o desenho de pontes de liquidez no ecossistema **Drex**.
+  - Afeta compradores institucionais e de varejo (uma transferência equivalente a uma tarifa de ~0,95%, somando **R$ 106 milhões na Binance** ou **R$ 145 milhões em três corretoras** em 4 semanas, `F-025`), a supervisão cambial do BCB e o desenho de pontes de liquidez no ecossistema **Drex**.
 
 #### Notas do Orador & Rastreabilidade
-- **Notas:** "Senhores jurados, nossa pergunta é direta: quanto custa fechar a porta da arbitragem cambial no Brasil? Testamos seis anos de dados pareados na janela da PTAX e 13 eventos regulatórios. Mostraremos que resoluções formais com prazos longos de adaptação não moveram o prêmio, mas o fechamento operacional de um canal em 23 de junho de 2026 gerou um salto imediato de 94 pontos-base — cerca de R$ 5 mil para cada US$ 100 mil — durante um mês."
-- **Rastreabilidade:** Seção 1 de `notebooks/p5_07_story.ipynb`; `F-001`, `F-002`, `F-015`, `F-016`, `E-05`, `L-05`, `L-06`, `L-07`.
+- **Notas:** "Senhores jurados, nossa pergunta é direta: quanto custa fechar a porta da arbitragem cambial no Brasil? Testamos seis anos de dados pareados na janela da PTAX e 13 eventos regulatórios. Mostraremos que sete regras publicadas com prazos de transição não moveram o prêmio, mas o fechamento imediato do canal de importação via fundos em 23 de junho de 2026 derrubou em 78% as compras externas de stablecoins registradas pelo BCB e gerou um salto de 94 pontos-base — R$ 5.052 por cada US$ 100 mil, ou R$ 106 a 145 milhões transferidos de compradores para vendedores em quatro semanas."
+- **Rastreabilidade:** Seção 1 de `notebooks/p5_07_story.ipynb`; `docs/06-so-what.md`; `F-001`, `F-002`, `F-015`, `F-016`, `F-023`..`F-026`, `L-05`..`L-07`.
 
 ---
 
@@ -71,10 +71,10 @@
 | **$H_0$ (Hipótese Nula / Confundidores)** | O salto de 24/jun reflete apenas o câmbio do real, o preço global do USDT em dólar ou falha de uma corretora | O salto desaparece em outras corretoras brasileiras ou após controlar por PTAX e USDT/USD | Salto idêntico em três corretoras independentes com PTAX e USDT/USD estáveis |
 
 - **Compromisso com Padrões de Pesquisa (`prompt.md` §5):**
-  - Especificações de quebras estruturais (`P2-02`) e do monitor em tempo real (`P3-03`) registradas em commits no Git antes da execução; estimativa oficial congelada em `results/agentic/team_estimate.json` (`80fc866`).
+  - Especificações de quebras estruturais (`P2-02`), do monitor em tempo real (`P3-03`), da queda de importações no BCB (`P3-10`, `c6a1c1b`), do volume financeiro transferido (`P3-11`, `91f9c25`) e da previsão para 01/jan/2027 (`P3-13`, `393a14a`) foram todas registradas em commits no Git antes da execução; estimativa oficial congelada em `results/agentic/team_estimate.json` (`80fc866`).
 
 #### Notas do Orador & Rastreabilidade
-- **Notas:** "Para evitar qualquer caça a resultados estatísticos, registramos nossas hipóteses e regras de decisão antes de rodar os testes confirmatórios. Se o salto de 24 de junho aparecesse apenas na Binance, ou se moedas emergentes tivessem se movido juntas, nossa hipótese estaria refutada."
+- **Notas:** "Para evitar qualquer caça a resultados estatísticos, registramos nossas hipóteses e regras de decisão no Git antes de rodar os testes confirmatórios. Se o salto de 24 de junho aparecesse apenas na Binance, ou se moedas emergentes tivessem se movido juntas, nossa hipótese estaria refutada."
 - **Rastreabilidade:** Seção 2 de `notebooks/p5_07_story.ipynb`; `docs/02-dolar-cripto.md` §5; `tasks/P2-02-blind-break-test.md`; `tasks/P2-06-freeze-team-estimate.md`.
 
 ---
@@ -96,7 +96,7 @@
 - **Piso de Ruído Microestrutural (`P2-01`, `F-007`):**
   - O spread de compra e venda estimado por Corwin & Schultz (2012) e Abdi & Ranaldo (2017) é de **2 a 10 bps** (caindo para ~2,5 bps após o corte de 10× no tick size da Binance em 27/jun/2025, `M-03`). O prêmio mediano anual é **4 a 11 vezes maior** que o ruído em todos os anos.
 - **Teste Cego de Quebras Estruturais (Bai & Perron 2003, critério LWZ; `P2-02`, `F-011`):**
-  - Sem receber nenhuma data regulatória, o algoritmo encontra 5 quebras. A **4ª quebra ocorre em 24/jun/2026** com o intervalo de confiança mais estreito da série (**18 a 30/jun**, semi-largura de 3,1 dias úteis), saltando de **9,3 para 109,1 bps (+99,8 bps)**, seguida por recuo parcial a partir de **22/jul/2026** (para 26,8 bps).
+  - Sem receber nenhuma data regulatória, o algoritmo encontra 5 quebras. A **4ª quebra ocorre em 24/jun/2026** com o intervalo de confiança mais estreito da série (**18 a 30/jun**, semi-largura de 3,1 dias úteis; **23 a 30/jun** com variância heterocedástica por regime), saltando de **9,3 para 109,1 bps (+99,8 bps)**, seguida por recuo parcial a partir de **22/jul/2026** (para 26,8 bps).
   - No modelo de limiar **Band-TAR** (`P3-07`, `F-021`), a banda de não-arbitragem era de apenas **$c = 1,61\text{ bps}$** no regime pré-ofício (dentro do ruído de livro) e abriu **26 vezes para $c = 41,95\text{ bps}$** durante o pico agudo (reduzindo o RMSE em 20,3% vs passeio aleatório e 10,8% vs AR(1) linear).
 
 | Quebra (LWZ) | Data Estimada | IC 95% (Bai 1997) | Média Antes → Depois (bps) | Evento na Janela de $\pm 5$ Dias Úteis (`P1-04`) |
@@ -125,82 +125,87 @@
 #### Pontos Principais (pt-BR)
 - **Consistência em Três Livros de Ordens Independentes (`P1-03`, `P2-05`, `F-009`):**
   - Comparando os 20 dias úteis PTAX antes (25/mai a 22/jun/2026) e os 20 dias úteis depois (24/jun a 21/jul/2026):
-    - **Binance:** de 15,2 para 109,1 bps (**+93,9 bps**; pico de 155,4 bps em 24/jun e 184,4 bps em 25/jun).
+    - **Binance:** de 15,2 para 109,1 bps (**+93,9 bps**; janela diária PTAX de 155,4 bps em 24/jun e 184,3 bps em 25/jun; máxima horária de **245,9 bps** em 24/jun).
     - **Foxbit (corretora nacional):** de 14,7 para 108,0 bps (**+93,3 bps**).
     - **Mercado Bitcoin (corretora nacional):** de 10,7 para 105,6 bps (**+94,9 bps**).
 - **Explicações Alternativas Descartadas ($H_0$ Rejeitada, `F-009`):**
   1. **Não foi um choque no próprio Real (PTAX):** Em 24/jun a PTAX variou $+0,68\%$, uma oscilação diária comum; em dias de alta semelhante do dólar, o prêmio historicamente recua levemente em vez de subir.
   2. **Não foi o preço global do USDT em dólares:** A cotação `USDT/USD` na Coinbase e na Bitstamp moveu-se menos de **1 ponto-base** naqueles dias.
   3. **Não foi pane ou restrição específica da Binance:** Nenhuma suspensão de Pix ou manutenção ocorreu em junho de 2026 (ao contrário de jun/2022, `E-07`), e duas corretoras locais independentes subiram juntas.
-- **Cronologia Intradiária:**
-  - Hora a hora, a subida começa na tarde de **23 de junho**, com um segundo degrau na abertura de **24 de junho** — exatamente quando uma das fontes relata que a decisão do BCB "se tornou pública no dia seguinte" (`E-05`).
+- **Cronologia Intradiária Validada contra os Relatos de Imprensa (`P3-14`, `F-023`):**
+  - Os movimentos reportados pela imprensa à época (~0,1% antes $\to$ pico de 1%–2% em 24/jun $\to$ recuo a 0,5% na sexta-feira 26/jun após reunião com o BCB) batem exatamente com a nossa série: **15,2 bps** antes $\to$ máxima horária de **245,9 bps (2,46%)** e janela PTAX de **155,4 bps** em 24/jun $\to$ recuo temporário para **75,6 bps (0,76%)** na sexta-feira 26/jun $\to$ retorno a **130–140 bps** em 29–30/jun.
 
 #### Notas do Orador & Rastreabilidade
 - **Notas:** "Poderia esse salto ser um problema técnico da Binance, uma desvalorização do real ou uma crise do próprio Tether lá fora? Testamos as três hipóteses nulas. O Tether em dólar não mexeu nem 1 ponto-base, o real teve um dia comum, e duas corretoras brasileiras independentes — Foxbit e Mercado Bitcoin — subiram os mesmos 93 a 95 pontos-base."
-- **Rastreabilidade:** Seção 4 de `notebooks/p5_07_story.ipynb`; `F-009`, `D-01`, `D-04`, `D-07`, `scripts/p1_03_second_venue.py`, `scripts/p2_05_checks.py`, `results/tables/P2-05_venues_daily.csv`.
+- **Rastreabilidade:** Seção 4 de `notebooks/p5_07_story.ipynb`; `F-009`, `F-023`, `D-01`, `D-04`, `D-07`, `scripts/p2_05_checks.py`, `scripts/p3_14_press_check.py`.
 
 ---
 
 <!-- SLIDE 5 -->
-## Slide 5 — A Porta que Fechou: O que Sabemos sobre o Ofício de 23 de Junho
+## Slide 5 — A Porta que Fechou: O Ofício de 23/jun e a Queda de 78% nas Importações de Stablecoins
 
-### Duas fontes independentes descrevem o ofício de 23/jun e a resposta do BCB via LAI confirma a posição da autarquia
+### Dois veículos tiveram acesso ao ofício em 24–25/jun (`F-023`), e as compras externas de stablecoins registradas pelo BCB caíram 78% em julho (`F-024`)
 
-#### Layout Visual & Tabela de Fontes
-- **Tabela Documental:** As três fontes abertas e citadas literalmente em `docs/sources.md` (`E-05`).
-- **Legenda (10 segundos):** Temos dois relatos independentes do mercado jurídico e cambial sobre a notificação de 23/jun/2026 e a posição oficial do próprio BCB em resposta à Lei de Acesso à Informação; como o ofício é reservado, dizemos que o salto *coincide com* a medida.
+#### Layout Visual & Figura
+- **Imagem:** `results/figures/P3-10_imports.png` (Série mensal de aquisições líquidas de stablecoins no exterior por residentes — BCB `SGS 29644`, US$ milhões — vs prêmio médio mensal do USDT sobre a PTAX, jan/2024 a set/2026).
+- **Legenda (10 segundos):** A imprensa especializada teve acesso ao ofício em 24–25/jun (13 bancos notificados) e o BCB confirmou sua posição via LAI (`F-023`); no mês seguinte, as compras de stablecoins no exterior compiladas pelo próprio BCB caíram **78%** (de US$ 2,54 bi para US$ 0,57 bi, $p = 0,022$), provando o fechamento do canal de oferta (`F-024`).
 
 #### Pontos Principais (pt-BR)
+- **1. O Que Sabemos Sobre o Ofício de 23/jun/2026 (10 Fontes Abertas em `P3-14`, `F-023`):**
+  - **Acesso contemporâneo ao documento (`E-05.1`, `E-05.2`):** Em **24/jun**, o *Cointelegraph Brasil* noticia o documento (*"segundo uma notificação compartilhada com o Cointelegraph Brasil"*, determinando a *"imediata descontinuidade desse tipo de operação"*). Em **25/jun**, a *Exame* publica trecho literal (*"diz um trecho da notificação ao qual a EXAME teve acesso"*) informando que **13 bancos** foram notificados; a ABToken descreve que fundos *"usavam contas em bancos para comprarem criptomoedas no exterior e depois venderem esses ativos para as corretoras"* (*"um choque de oferta"*).
+  - **O diferencial tributário da rota fechada (`E-05.10`, `R-02`):** Aplicações de fundos no exterior tinham **alíquota zero de IOF-Câmbio** (Decreto nº 6.306/2007, art. 15-B, III, aberto no Planalto), contra **3,5%** para remessas comuns de disponibilidade.
+  - **Reunião de 26/jun e Resposta Oficial via LAI (`E-05.3`–`E-05.5`):** Em 26/jun o BCB manteve a suspensão das importações via fundos mas liberou a arbitragem dentro dos livros de ordens das exchanges. Em resposta escrita de LAI ao Instituto Live Mercado (`E-05.3`, `E-05.4`), o BCB confirmou: *"os fundos não podem atuar como intermediadores de ativos virtuais e, assim, as operações de câmbio de importação de ativos virtuais por eles realizadas carecem do atributo de licitude"*.
+- **2. A Prova Macroeconômica nas Estatísticas do BCB (`P3-10`, `D-16` `SGS 29644`, `F-024`):**
+  - Na série oficial do BCB (*Tabela 11 — Outros investimentos, criptoativos com passivo correspondente*), as aquisições líquidas de stablecoins no exterior caíram de **US$ 2.542 milhões (jun/2026) para US$ 572 milhões (jul/2026): queda de −77,5% (≈ −78%)**.
+  - **Teste pré-registrado (`T1`):** Variação logarítmica de $-1,49$ ($p = 0,022$ contra as 91 variações mensais desde 2019; $p = 0,046$ contra a média de jan–mai em `T1b`), a maior queda percentual desde que a série superou US$ 100 mi/mês em 2021. **Preço subindo (11 $\to$ 43 $\to$ 81 bps) com quantidade importada caindo (−78%) é a assinatura exata de um choque de oferta.**
+  - **Teste do recuo (`T2`):** Em ago–set/2026, as compras externas permaneceram em **32% do nível de jan–mai** (US$ 702 mi e US$ 843 mi) enquanto o prêmio recuou para 33 e 23 bps. Logo, **o recuo de 22/jul não veio da reabertura desse canal de importação** (*"parcial/inconclusivo"* pela regra pré-registrada).
+  - **Ressalva explícita:** Em 01/jul/2026 o BCB também editou a **Resolução BCB nº 580** (`E-10`, enquadrando SPSAVs como Tipo 3 a partir de jan/2027); dados mensais não separam o ofício de junho de outros ajustes de julho.
 
-| Fonte Aberta (`docs/sources.md` `E-05`) | O que a Fonte Relata | Citação Verbatim Extraída da Página Aberta | Natureza e Peso da Evidência |
-|---|---|---|---|
-| **1. Isac Costa, *ConJur*, 01/jul/2026** | Notificação da supervisão do BCB em 23/jun/2026 a bancos, corretoras, empresas cripto e administradores de fundos vedando remessas via fundos para importar criptoativos (relata salto do spread de 0,1% para 0,7%) | *"o cerco do Banco Central às stablecoins"* (coluna de opinião jurídica) | Relato secundário por professor e ex-analista da CVM |
-| **2. Sérgio Brotto (CEO, Dascam Corretora de Câmbio), *Cointelegraph Brasil*, 06/jul/2026** | Confirma a notificação do BCB apontando ilegalidade das operações de câmbio para importação de ativos virtuais e exigindo interrupção imediata | *"apontou a 'ilegalidade das operações de câmbio para a finalidade de importação de ativos virtuais'"* e *"A decisão se tornou pública no dia seguinte"* | Relato independente por executivo de corretora de câmbio |
-| **3. *Webitcoin*, 30/jul/2026 (Resposta do BCB a pedido de LAI do Instituto Live Mercado)** | Resposta institucional do Banco Central confirmando o entendimento normativo da autarquia sobre fundos e criptoativos | *"operações cambiais realizadas por fundos para importar ativos virtuais não possuem respaldo nas normas atualmente em vigor"* | Posição oficial do próprio BCB em resposta à LAI (sem data do ofício) |
-
-- **Postura Metodológica Honesta (`prompt.md` §5 e §6):**
-  - Contamos com **dois relatos secundários independentes** que datam a comunicação em 23/jun/2026 (com repercussão pública em 24/jun) e com a **posição oficial do BCB em suas próprias palavras** via LAI.
-  - Como se trata de ofício de supervisão confidencial (não publicado no Diário Oficial da União), não vimos o documento físico original. Por rigor, afirmamos que o salto de 24/jun **coincide com** o ofício relatado, descrevendo a atuação do BCB de forma estritamente neutra (`docs/02-dolar-cripto.md` §10).
+| Mês de 2026 (`SGS 29644` & `P1-02`) | Jan | Fev | Mar | Abr | Mai | Jun | **Jul (Pós-Ofício)** | Ago | Set |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Compras de Stablecoins no Exterior (US$ mi)** | 2.375 | 2.140 | 2.282 | 2.709 | 2.632 | 2.542 | **572 (−78%)** | 702 | 843 |
+| **Prêmio Médio Mensal USDT/PTAX (bps)** | 8 | 5 | 5 | 5 | 11 | 43 | **81** | 33 | 23 |
 
 #### Notas do Orador & Rastreabilidade
-- **Notas:** "Qual foi exatamente a porta que fechou em 23 de junho? Abrimos e citamos três fontes independentes: a coluna de Isac Costa no ConJur, o artigo do CEO da corretora de câmbio Dascam no Cointelegraph — que destaca que a decisão se tornou pública no dia seguinte, 24 de junho — e a própria resposta do Banco Central via Lei de Acesso à Informação declarando que operações cambiais de fundos para importar ativos virtuais não possuem respaldo nas normas em vigor."
-- **Rastreabilidade:** Seção 5 de `notebooks/p5_07_story.ipynb`; `docs/sources.md` (`E-05`); `tasks/P1-04-events-brazil.md`.
+- **Notas:** "Qual foi a porta que fechou em 23 de junho e como sabemos que ela realmente fechou? Primeiro, abrimos dez fontes contemporâneas: tanto o Cointelegraph em 24 de junho quanto a Exame em 25 de junho tiveram acesso à notificação enviada a 13 bancos, e o próprio BCB confirmou por escrito via LAI que a importação de criptoativos por fundos carece de licitude. Segundo, fomos às estatísticas de balanço de pagamentos do próprio Banco Central: em julho de 2026, a compra líquida de stablecoins no exterior despencou 78%, saindo de US$ 2,54 bilhões para US$ 572 milhões, enquanto o prêmio explodiu. Preço subindo e quantidade caindo é a prova clássica de fechamento de um canal de oferta."
+- **Rastreabilidade:** Seção 5 de `notebooks/p5_07_story.ipynb`; `P3-14` (`F-023`), `P3-10` (`F-024`), `docs/sources.md` (`D-16`, `E-05.1`..`E-05.10`, `E-10`), `scripts/p3_10_imports.py`, `scripts/p3_14_press_check.py`.
 
 ---
 
 <!-- SLIDE 6 -->
-## Slide 6 — Só Uma Regra Mexeu no Preço: Todas as Regras vs Datas Ordinárias
+## Slide 6 — Só o Ofício Sigiloso Moveu o Prêmio: 8 Regras e 13 Eventos vs 1.073 Datas Limpas
 
-### Das 13 regras e marcos testados, apenas o ofício de 23/jun/2026 superou todas as 1.073 datas limpas (+93,9 bps, $p = 0,0009$)
+### As 7 regras publicadas com aviso prévio (1 a 175 dias) ficaram dentro da faixa normal; só o ofício sigiloso e imediato saiu dela (+93,9 bps, $p = 0,0009$)
 
-#### Layout Visual & Figura
-- **Imagem:** `results/figures/P2-03_placebo_dist.png` (Distribuição empírica das variações antes/depois em datas placebo limpas vs os eventos regulatórios avaliados e o choque de 23/jun/2026).
-- **Legenda (10 segundos):** Comparando os 20 dias úteis antes e depois de cada evento, o salto de +93,9 bps após 23/jun supera todas as 1.073 datas ordinárias limpas do histórico (maior movimento placebo = +65,7 bps; $p \approx 0,001$).
+#### Layout Visual & Figuras
+- **Imagens:** `results/figures/P3-12_rules.png` (As 8 regras brasileiras ordenadas por forma de emissão e aviso prévio contra a faixa de 95% das datas comuns, `F-026`) e `results/figures/P2-03_placebo_dist.png` (Distribuição de placebos, `F-016`).
+- **Legenda (10 segundos):** Testamos as 8 regras brasileiras datadas (e 5 eventos de mercado): decretos e resoluções públicas com semanas ou meses de transição ficaram dentro da faixa das datas comuns ($-35,0\text{ a }+37,6\text{ bps}$); só o ofício sigiloso e de efeito imediato de 23/jun saiu dela (+93,9 bps, $p = 0,0009$).
 
 #### Pontos Principais (pt-BR)
-- **Desenho do Estudo de Eventos com Placebos (`P2-03`, `F-016`):**
-  - Para cada um dos **13 eventos verificados** (`P1-04`, avaliando datas de anúncio e vigência), calculamos a diferença entre a média dos 20 dias úteis PTAX posteriores ($[+1, +20]$) e a dos 20 dias úteis anteriores ($[-20, -1]$).
-  - **Inferência por Placebos (sem depender de p-valores paramétricos):** Como a série do prêmio possui autocorrelação serial forte, p-valores paramétricos (Newey-West) exageram a significância. Por isso, comparamos cada regra contra **todas as 1.073 datas ordinárias limpas** (a pelo menos 20 dias úteis de qualquer evento) e contra 200 sorteios estratificados por dia da semana.
-- **O Que os Dados Mostram (`F-016`):**
-  - **23/jun/2026 (`E-05`) é único:** variação de **+93,9 bps** (de 15,2 para 109,1 bps), acima de **todas as 1.073 datas limpas** ($p = 1/1074 = 0,0009 \approx 0,001$; máximo placebo = $+65,7\text{ bps}$; $p = 0,005$ nos 200 sorteios).
-  - **Nenhuma outra regra se destaca ($H_2$ consistente):** o marco de licenciamento das SPSAVs (Res. 519–521, `E-02`), os códigos de reporte cambial (`E-04`), a proibição de stablecoins em eFX (Res. 561, `E-06a`) e a proposta de IOF de 3,5% em cripto (`E-03`) tiveram variações entre **$-25\text{ e }+15\text{ bps}$**, dentro da oscilação normal ($p_{\text{placebo}} \ge 0,15$).
-  - **O aumento do IOF no câmbio oficial em maio/2025 (`E-01`)** moveu o prêmio em $+13,2\text{ a }+15,4\text{ bps}$ ($p_{\text{placebo}} = 0,31\text{ a }0,38$), consistente com $H_3$.
-  - **Poder do Teste (leitura honesta dos nulos):** Como datas ordinárias oscilam cerca de $\pm 37\text{ bps}$ na amostra completa ($\pm 23\text{ bps}$ em 2025–26), "efeito nulo" significa **ausência de efeito grande**, não prova de efeito zero.
+- **Qual Regra Move o Preço? (`P2-03`, `P3-12`, `F-016`, `F-026`):**
+  - Avaliamos a mudança de média nos 20 dias úteis PTAX após contra os 20 dias antes ($[+1, +20]$ vs $[-20, -1]$) usando **exclusivamente $p$-valores empíricos contra todas as 1.073 datas ordinárias limpas** (e contra a banda de 95% dos 200 sorteios placebo: **$-35,0\text{ a }+37,6\text{ bps}$**).
+  - **Divisão limpa nas 8 regras regulatórias/tributárias (`F-026`):**
+    - **O único ato sigiloso e imediato (`E-05`, 0 dias de aviso):** moveu o prêmio em **+93,9 bps**, superando todas as 1.073 datas limpas ($p = 1/1074 = 0,0009 \approx 0,001$).
+    - **As 7 regras publicadas (1 a 175 dias de aviso prévio):** o decreto presidencial do IOF (`E-01`), sua suspensão pelo Congresso/STF (`E-01b`), as quatro resoluções do BCB (`E-02`, `E-04`, `E-06a`, `E-06b`) e a minuta de IOF em cripto (`E-03`) permaneceram integralmente dentro da faixa das datas comuns ($-24,9\text{ a }+15,4\text{ bps}$, $p_{\text{placebo}} \ge 0,15$).
+  - **Para o regulador:** o prêmio revela qual regra atingiu o canal que os arbitradores de fato utilizavam.
+- **Duas Ressalvas Essenciais Declaradas no Gráfico (`F-026`):**
+  1. **Forma e conteúdo mudam juntos:** O ofício de 23/jun foi simultaneamente a única regra sigilosa/imediata *e* a única que fechou o canal de importação dos fundos (`F-024`); não é possível separar estatisticamente os dois atributos com $N=1$ regra tratada.
+  2. **Limite de detecção (~35 bps):** Como datas comuns oscilam entre $-35\text{ e }+38\text{ bps}$, *"sem efeito"* significa **sem efeito acima de ~35 bps**, não prova de efeito zero.
 
-| Evento Avaliado (`P1-04`) | ID | Data ($t_0$) | Tipo | Pré 20d (bps) | Pós 20d (bps) | Diferença (bps) | $p$-valor Placebo (1.073 datas) | Leitura Empírica |
-|---|---|---|---|---|---|---|---|---|
-| **Ofício Supervisão BCB (Fundos/Cripto)** | **E-05** | **23/06/2026** | **Vigência** | **15,2** | **109,1** | **+93,9** | **0,0009** | **Acima de todas as 1.073 datas** |
-| Decreto 12.466 (IOF Câmbio 3,5%) | E-01 | 23/05/2025 | Vigência | 26,2 | 41,7 | +15,4 | 0,3147 | Dentro da variação ordinária |
-| Res. BCB 521 Art. 4º (Códigos Cambiais) | E-04 | 04/05/2026 | Vigência | 4,7 | 11,9 | +7,2 | 0,6145 | Dentro da variação ordinária |
-| Res. BCB 561 (Vedação Stablecoin em eFX) | E-06a | 30/04/2026 | Anúncio | 4,9 | 10,9 | +6,0 | 0,6471 | Dentro da variação ordinária |
-| Proposta IOF Cripto 3,5% (Fazenda) | E-03 | 05/02/2026 | Anúncio | 7,6 | 5,5 | -2,1 | 0,8408 | Dentro da variação ordinária |
-| Res. BCB 519–521 (Marco das SPSAVs) | E-02 | 02/02/2026 | Vigência | 8,4 | 4,1 | -4,3 | 0,7225 | Dentro da variação ordinária |
-| Res. BCB 561 (Vedação Stablecoin em eFX) | E-06a | 01/10/2026 | Vigência | 22,8 | 17,5 | -5,3 | 0,6778 | Dentro da variação ordinária |
-| Res. BCB 584 (Retenção Cautelar 24h) | E-06b | 07/08/2026 | Anúncio | 53,3 | 31,3 | -22,0 | 0,1872 | Dentro da variação ordinária |
+| Regra Avaliada (`P3-12_rules.csv` / `P2-03`) | Forma de Emissão | Aviso Prévio | Mudança no Anúncio (bps, $p$) | Mudança na Vigência (bps, $p$) |
+|---|---|---:|---|---|
+| **E-01** Decreto IOF-Câmbio 3,5% (22/05/2025) | Decreto presidencial (público) | 1 dia | +13,2 ($p = 0,38$) | +15,4 ($p = 0,31$) |
+| **E-01b** Suspensão pelo Congresso e STF (27/06/2025) | Decreto legislativo / liminar STF | 7 dias | −23,9 ($p = 0,16$) | −24,9 ($p = 0,15$) |
+| **E-02** Res. BCB 519–521: marco SPSAV (10/11/2025) | Resolução do BCB (pública) | 84 dias | −3,8 ($p = 0,75$) | −4,3 ($p = 0,72$) |
+| **E-04** Res. BCB 521 art. 4º: reporte (04/05/2026) | Resolução do BCB (pública) | 175 dias | — (junto com E-02) | +7,2 ($p = 0,61$) |
+| **E-03** Proposta de IOF sobre cripto (05/02/2026) | Minuta da Fazenda (não editada) | — | −2,1 ($p = 0,84$) | — |
+| **E-06a** Res. BCB 561: vedação em eFX (30/04/2026) | Resolução do BCB (pública) | 154 dias | +6,0 ($p = 0,65$) | −5,3 ($p = 0,68$) |
+| **E-05 Ofício BCB: câmbio de fundos (23/06/2026)** | **Ofício de supervisão sigiloso** | **Imediato (0d)** | — | **+93,9 ($p = 0,0009$)** |
+| **E-06b** Res. BCB 584: retenção 24h (07/08/2026) | Resolução do BCB (pública) | 147 dias | −22,0 ($p = 0,19$) | *(vigência 01/01/2027)* |
 
 #### Notas do Orador & Rastreabilidade
-- **Notas:** "Testamos todas as 13 regras do nosso catálogo contra todas as 1.073 datas ordinárias limpas de seis anos. Nenhuma resolução publicada no Diário Oficial com meses de transição gerou salto anormal. Apenas o fechamento imediato de 23 de junho bateu todas as 1.073 datas ordinárias, com p-valor empírico de 0,0009."
-- **Rastreabilidade:** Seção 6 de `notebooks/p5_07_story.ipynb`; `F-016`, `P1-04`, `scripts/p2_03_events.py`, `results/tables/P2-03_event_table.csv`.
+- **Notas:** "Testamos as oito regras brasileiras com data. O decreto do IOF, sua suspensão e quatro resoluções do BCB — todas públicas e quase todas com semanas ou meses de antecedência — ficaram dentro da faixa das datas comuns, entre menos 35 e mais 38 pontos-base. Só o ofício de 23 de junho, sigiloso e de efeito imediato sobre o canal dos fundos, saiu dela: mais 94 pontos-base, superando todas as 1.073 datas limpas."
+- **Rastreabilidade:** Seção 6 de `notebooks/p5_07_story.ipynb`; `P2-03` (`F-016`), `P3-12` (`F-026`), `scripts/p2_03_events.py`, `scripts/p3_12_rules.py`, `results/tables/P3-12_rules.csv`.
 
 ---
 
@@ -217,7 +222,7 @@
 - **Brasil vs "Brasil Sintético" (Abadie, Diamond & Hainmueller 2010; `P1-05`, `P1-06`, `P2-04`, `F-017`):**
   - Construímos o mesmo prêmio do USDT para 5 moedas sem choque regulatório comparável e sem controles de capital estritos no período: **EUR (peso 63,6%), MXN (17,9%), TRY (13,4%), ZAR (4,5%) e COP (0,7%)** (pré-RMSPE de **7,05 bps** em 140 dias comuns de 01/nov/2025 a 22/jun/2026).
   - **Descolamento Agudo (24/jun a 21/jul/2026, 17 dias comuns):** O prêmio no Brasil superou o Brasil Sintético em **+109,3 bps** (e superou a média simples dos doadores via **Diferenças em Diferenças em +103,3 bps**, que não depende de ajuste de pesos). Nenhuma outra moeda teve movimento semelhante (variações de $-16\text{ a }+24\text{ bps}$).
-  - **Limite Estatístico Explícito:** O Brasil ocupa o **1º lugar entre 6 moedas** na razão RMSPE pós/pré (**9,31** vs 0,78 a 1,22 nos doadores). Com 5 doadores, o menor p-valor de permutação possível é **$p = 1/6 \approx 0,167$** (ou $1/7 = 0,143$ incluindo IDR). Portanto, o controle sintético é **evidência complementar** de que o salto não veio de fora; a significância estatística vem da Seção 6 ($p = 0,0009$).
+  - **Limite Estatístico Explícito:** O Brasil ocupa o **1º lugar entre 6 moedas** na razão RMSPE pós/pré (**9,31** vs 0,78 a 1,22 nos doadores). Com 5 doadores, o menor p-valor de permutação possível é **$p = 1/6 \approx 0,167$** (ou $1/7 = 0,143$ incluindo IDR). Portanto, o controle sintético é **evidência complementar** de que o salto não veio de fora; a significância estatística vem do Slide 6 ($p = 0,0009$).
 - **E o Bitcoin? Arbitragem Triangular na Binance (`P3-02`, `F-018`):**
   - O prêmio do Bitcoin em reais sobre a PTAX também saltou **+93,8 bps** em 24/jun. Isso decorre matematicamente da arbitragem triangular dentro da própria Binance ($\text{USDT/BRL} \times \text{BTC/USDT} = \text{BTC/BRL}$, cujo desvio médio é de apenas **0,36 bps**, dp 1,07): qualquer prêmio no USDT/BRL se transmite instantaneamente ao BTC/BRL, de modo que o teste não permite separar um choque específico em stablecoins de um choque amplo em cripto.
 
@@ -233,7 +238,7 @@
 ### O pico agudo é robusto em todas as 22 variantes (+74 a +128 bps); o nível pós-pico (+11 a +19 bps) não se distingue de deriva normal ($p = 0,24$)
 
 #### Layout Visual & Figura
-- **Imagem:** `results/figures/P4-01_robustness_forest.png` (*Forest plot* da bateria de 53 especificações testando janelas, definições do prêmio, corretoras, doadores e janelas pós-pico).
+- **Imagem:** `results/figures/P4-01_robustness_forest.png` (*Forest plot* da bateria de especificações testando janelas, definições do prêmio, corretoras, doadores e janelas pós-pico).
 - **Legenda (10 segundos):** Qualquer maneira de medir o mês seguinte a 23/jun confirma um salto de +74 a +128 bps (10× a 35× o piso de ruído), mas o nível observado após 22/jul (+11 a +19 bps) ocorre com frequência em datas ordinárias ($p_{\text{placebo}} = 0,24$).
 
 #### Pontos Principais (pt-BR)
@@ -244,13 +249,13 @@
   - Embora o p-valor paramétrico pareça baixo devido à autocorrelação, o teste honesto de placebos comparando $[+21, +60]$ vs $[-20, -1]$ em todas as 882 datas limpas resulta em **$p_{\text{placebo}} = 0,24$** (dp de 16,5 bps; $p = 0,14$ usando apenas datas de 2025–26).
   - **Conclusão Científica Direta:** O efeito medido do fechamento da porta é **um pico agudo de um mês**. Não reivindicamos um efeito permanente sobre o nível do prêmio.
 - **Três Fatos em Aberto que Reportamos com Transparência:**
-  1. **O recuo de 22 de julho:** Nenhum evento verificado cai dentro de $\pm 5$ dias úteis de 22/jul (`P2-02`).
-  2. **O salto de 6× no volume da Foxbit a partir de julho (`F-008`):** O volume mensal subiu de ~150 mi para ~1,0 bi USDT através de **ordens 5× maiores** (média de ~1.100 para ~6.200 USDT), não de mais negócios. Coincide no tempo com a parceria voluntária para clientes da NovaDAX em 07/jul (`M-04`) e com o lançamento da **Foxbit Infra** (liquidez B2B e *market making* próprio integrado a PicPay, 99Pay e Genial) em 18/jul (`M-05`), mas a causa segue aberta.
+  1. **O recuo de 22 de julho:** Nenhum evento verificado cai dentro de $\pm 5$ dias úteis de 22/jul (`P2-02`), e as importações de stablecoins no BCB (`F-024`) não voltaram ao nível anterior em ago–set (ficaram em 32%). A arbitragem dentro dos livros de ordens liberada na reunião de 26/jun (`E-05.5`) é uma candidata, mas sua data não coincide com 22/jul.
+  2. **O salto de 6× no volume da Foxbit a partir de julho (`F-008`, `P3-10`):** O volume diário nos dias PTAX subiu de 4,3 para 30,7–31,6 milhões de USDT através de **ordens 6× a 8× maiores** (média de 730 para 4.687–6.297 USDT), não de mais negócios. Coincide no tempo com a parceria para clientes da NovaDAX em 07/jul (`M-04`) e com o relançamento da **Foxbit Infra** (liquidez B2B e *market making* próprio integrado a PicPay, 99Pay e Genial) em 18/jul (`M-05`), mas a causa segue aberta.
   3. **Subida prévia desde 25 de maio (`F-014`):** O prêmio já subia levemente (+8 bps) quatro semanas antes de 23/jun (antecipação ou deriva).
 
 #### Notas do Orador & Rastreabilidade
 - **Notas:** "Aqui aplicamos nossa regra mais importante: não afirmar mais do que os dados provam. O pico de um mês após 23 de junho passa em todas as 22 verificações de robustez, entre 74 e 128 pontos-base. Já os 11 a 19 pontos-base que restaram depois de 22 de julho têm p-valor de placebo de 0,24 — ou seja, oscilações desse tamanho acontecem sozinhas um quarto das vezes. Portanto, apresentamos como efeito medido apenas o pico de um mês."
-- **Rastreabilidade:** Seção 8 de `notebooks/p5_07_story.ipynb`; `F-008`, `F-011`, `F-014`, `F-022`, `M-04`, `M-05`, `scripts/p4_01_robustness.py`, `results/tables/P4-01_robustness.csv`.
+- **Rastreabilidade:** Seção 8 de `notebooks/p5_07_story.ipynb`; `F-008`, `F-011`, `F-014`, `F-022`, `F-024`, `M-04`, `M-05`, `scripts/p4_01_robustness.py`.
 
 ---
 
@@ -282,41 +287,40 @@
 ---
 
 <!-- SLIDE 10 -->
-## Slide 10 — Quanto Custou: R$ 5 Mil por US$ 100 Mil e Fricções por Canal
+## Slide 10 — Quanto Custou: R$ 5.052 por US$ 100 Mil e R$ 106–145 Milhões Transferidos
 
-### Durante o pico de um mês, o ofício adicionou R$ 5.052 a cada US$ 100 mil adquiridos via USDT (+93,9 bps)
+### O ofício adicionou R$ 5.052 a cada US$ 100 mil (`F-015`) e transferiu R$ 106 milhões na Binance (R$ 145 milhões em 3 corretoras) em quatro semanas (`F-025`)
 
 #### Layout Visual & Figura
 - **Imagem:** `results/figures/P3-01_route_costs.png` (Gráfico horizontal neutro de fricções de transação por regime histórico da rota USDT, cenários regulatórios e referenciais bancários com fontes primárias).
-- **Legenda (10 segundos):** Para um comprador de US$ 100 mil em USDT (PTAX R$ 5,38), o salto de +93,9 bps representou um custo adicional de US$ 939 (R$ 5.052) durante o mês do pico; após o pico, a diferença (+11,5 bps = R$ 621) não é estatisticamente distinguível de ruído.
+- **Legenda (10 segundos):** Nas quatro semanas após o ofício, quem comprou dólar digital pagou **R$ 5.052 a mais por US$ 100 mil** (+93,9 bps) — uma transferência agregada de **R$ 106,1 milhões na Binance** (**R$ 145,3 milhões em 3 corretoras**, equivalente tarifário de ~0,95%, $p = 0,005$) dos compradores para quem ainda conseguia ofertar USDT.
 
 #### Pontos Principais (pt-BR)
-- **1. O Custo Direto do Ofício (Resultado Principal, `P3-01`, `F-015`):**
-  - Em um lote institucional de **US$ 100.000** (base R$ 538.000 a PTAX R$ 5,3800):
-    - **Durante o pico agudo (24/jun a 21/jul/2026):** o prêmio subiu **+93,9 bps**, adicionando **US$ 939,10 ≈ R$ 5.052,36** por operação ($p_{\text{placebo}} = 0,0009$). No pico de 48h (24–25/jun, 169,9 bps), a fricção total atingiu **180,0 bps (R$ 9.682,66)**.
-    - **Após o pico (22/jul a 30/out/2026):** +11,5 bps (**R$ 621,00**), valor não distinguível de deriva ordinária ($p_{\text{placebo}} = 0,24$).
+- **1. Quanto Dinheiro o Pico Moveu e Para Quem (`P3-11`, `F-025` + `P3-01`, `F-015`):**
+  - **Por lote institucional de US$ 100.000 (base R$ 538.000, `F-015`):** o salto de **+93,9 bps** custou **+R$ 5.052,36** (US$ 939,10) durante o pico de 20 dias úteis (e até **R$ 9.682,66** no pico de 48h de 24–25/jun). Após 22/jul (+11,5 bps = R$ 621,00), a diferença não se distingue de ruído ($p = 0,24$).
+  - **No mercado agregado em 4 semanas (24/jun a 21/jul/2026, `F-025`):** foram negociados **R$ 11,18 bilhões** em `USDT/BRL` na Binance (**R$ 15,76 bilhões** somando Binance, Foxbit e Mercado Bitcoin). Os compradores pagaram em média **94,9 bps** acima do nível pré-ofício, transferindo **R$ 106,1 milhões na Binance** (**R$ 145,3 milhões nas três corretoras**; faixa de robustez de R$ 106,1 a R$ 122,2 mi na Binance).
+  - **Equivalente tarifário de uma cota (`F-025`):** O ofício funcionou como uma restrição quantitativa com tarifa equivalente de **~0,95%** (~um quarto do diferencial de 3,50% de IOF que motivava a rota dos fundos, `E-05.10`), mas **essa renda não foi arrecadada pelo Tesouro**: foi capturada por quem ainda conseguia trazer ou ofertar stablecoins no país. Nenhum dos 194 meses placebo moveu mais de R$ 35,5 mi ($k = 0, p = 0,005$). **Ressalva:** trata-se de uma **transferência** entre compradores e vendedores (não uma perda de bem-estar medida) e não inclui mesas OTC nem outras corretoras.
 - **2. Contexto Institucional: Fricções por Canal e Cenários Regulatórios (Fontes Primárias Abertas `R-01`..`R-07`):**
   *(Nota para decisão da equipe no freeze: manter este bloco resumido no slide [Opção C] ou remeter à tabela completa no Anexo B.5 [Opção A])*
-  - **Parâmetros Bancários com Fonte Primária (`R-01`, `R-01b`, `R-02`):** Spread corporativo mediano do BCB para contratos $>$ US$ 55,6 mil = **20,0 bps** (*Estudo Especial BCB nº 48/2019*, `R-01`; teto conservador de 50 bps adiciona R$ 1.614); tarifa SWIFT = **US$ 25 (2,5 bps)** (*Tabela de Tarifas PJ Banco do Brasil*, `R-01b`: R$ 100 SWIFT / R$ 440 ordem online); IOF legal (`R-02`): **0%** na importação de bens (**22,5 bps = R$ 1.211**), **1,10%** em investimento ou disponibilidade pré-23/mai/2025 (**132,5 bps = R$ 7.129**), e **3,50%** em disponibilidade geral pós-23/mai/2025 (**372,5 bps = R$ 20.041**).
-  - **Cenário S1 (Proposta IOF 3,5% em Cripto, `E-03`):** elevaria a rota USDT para **386,9 bps (R$ 20.815)**, igualando o custo tributário do câmbio bancário de disponibilidade.
-  - **Cenário S2 (Retenção Cautelar de 24h $\ge$ US$ 10k, Res. BCB 584/2026, `E-06b`, `R-07`):** com *hedge* de 1 dia útil via Paridade Coberta de Juros ($\text{CDI } 10,75\% - \text{SOFR } 5,00\% = 2,28\text{ bps/dia}$ + taxa B3 = **2,5 bps**), totaliza **39,4 bps (R$ 2.120)**; sem *hedge*, custo esperado adicional é **0 bps**, mas expõe o comprador a um **risco cambial de 1 dia (95%) de 130 bps** (reportado como risco, não somado ao custo).
-  - **Não-Equivalência Jurídica e Operacional (`docs/02-dolar-cripto.md` §10):** O contrato bancário liquida moeda soberana (USD) com registro no Sisbacen e desembaraço aduaneiro (Lei 14.286/2021). A compra local de USDT é aquisição de ativo virtual (Lei 14.478/2022, declarada via IN RFB 1.888), embute risco privado do emissor/corretora e **não** liquida importação formal nem eFX (Res. BCB 561/2026; resposta LAI em `E-05`).
+  - **Parâmetros Bancários com Fonte Primária (`R-01`, `R-01b`, `R-02`):** Spread corporativo mediano do BCB para contratos $>$ US$ 55,6 mil = **20,0 bps** (*Estudo Especial BCB nº 48/2019*, `R-01`; teto conservador de 50 bps adiciona R$ 1.614); tarifa SWIFT = **US$ 25 (2,5 bps)** (*Tabela de Tarifas PJ Banco do Brasil*, `R-01b`); IOF legal (`R-02`): **0%** na importação de bens (**22,5 bps = R$ 1.211**), **1,10%** em investimento ou disponibilidade pré-23/mai/2025 (**132,5 bps = R$ 7.129**), e **3,50%** em disponibilidade geral pós-23/mai/2025 (**372,5 bps = R$ 20.041**).
+  - **Cenário S1 (Proposta IOF 3,5% em Cripto, `E-03`):** elevaria a rota USDT para **386,9 bps (R$ 20.815)**.
+  - **Cenário S2 (Retenção de 24h, Res. BCB 584/2026, `R-07`, `F-027`):** para uma saída em USDT, 1 dia custa **~9,1 bps** (5,5 bps de Selic + 3,7 bps de risco `USDT/USD`, `F-027`); com hedge CIP de 1 dia útil em BRL (**2,5 bps**), soma **39,4 bps (R$ 2.120)** (e só haveria risco PTAX de 130,5 bps se o agente ficasse exposto em reais).
+  - **Não-Equivalência Jurídica e Operacional (`docs/02-dolar-cripto.md` §10):** O contrato bancário entrega USD em conta no exterior liquidado no Sistema de Câmbio do BCB; a rota USDT entrega um token privado em blockchain e a diferença frente ao câmbio de disponibilidade advém do enquadramento tributário distinto no Decreto nº 6.306/2007 (`R-02`), não de "economia" operacional.
 
-| Medida / Canal / Cenário (`P3-01_route_costs.csv`) | Prêmio (bps) | Spread / Taxa (bps) | IOF / Carrego CIP (bps) | SWIFT / Rede (bps) | Total (bps) | Custo por US$ 100k (R$) |
-|---|---|---|---|---|---|---|
-| **Custo do Ofício: Pico de 20 Dias (24/jun–21/jul)** | **+93,9** | **0,0** | **0,0** | **0,0** | **+93,9** | **+R$ 5.052,36** |
-| **Custo do Ofício: Pós-Pico (22/jul–30/out, $p=0,24$)** | +11,5 | 0,0 | 0,0 | 0,0 | +11,5 | +R$ 621,00 (ruído) |
-| **USDT Regime 4 (Base Pré-Ofício, jul/25–jun/26)** | 9,3 | 10,0 | 0,0 | 0,1 | 19,4 | R$ 1.043,72 |
-| **USDT Regime 5 (Choque Agudo, 24/jun–21/jul/26)** | 109,1 | 10,0 | 0,0 | 0,1 | 119,2 | R$ 6.412,96 |
-| **Banco: Importação de Bens (IOF 0%, `R-01`/`R-02`)** | 0,0 | 20,0 | 0,0 | 2,5 | 22,5 | R$ 1.210,50 |
-| **Banco: Investimento / Disp. Pré-Mai/25 (IOF 1,1%)** | 0,0 | 20,0 | 110,0 | 2,5 | 132,5 | R$ 7.128,50 |
-| **Banco: Disponibilidade Pós-Mai/25 (IOF 3,5%)** | 0,0 | 20,0 | 350,0 | 2,5 | 372,5 | R$ 20.040,50 |
-| **Cenário S1: IOF 3,5% em Cripto (`E-03`)** | 26,8 | 10,0 | 350,0 | 0,1 | 386,9 | R$ 20.815,22 |
-| **Cenário S2a: Retenção 24h com Hedge CIP (`R-07`)** | 26,8 | 10,0 | 2,5 | 0,1 | 39,4 | R$ 2.119,72 |
+| Medida / Canal / Cenário (`P3-01` & `P3-11`) | Volume / Base | Prêmio / Tarifa Eq. (bps) | Total (bps) | Custo por US$ 100k (R$) | Transferência em 4 Semanas (R$ mi) |
+|---|---|---|---|---:|---:|
+| **Custo do Ofício: Pico 20d (Binance `VIP0`)** | R$ 11,18 bi | **+93,9 (94,9 pond.)** | **+93,9** | **+R$ 5.052,36** | **R$ 106,1 mi ($p = 0,005$)** |
+| **Custo do Ofício: Pico 20d (3 Corretoras)** | R$ 15,76 bi | **+92,2 (pond.)** | **+92,2** | — | **R$ 145,3 mi** |
+| **Custo do Ofício: Pós-Pico (22/jul–out, $p=0,24$)** | R$ 16,15 bi | +11,5 (+19,1 pond.) | +11,5 | +R$ 621,00 (ruído) | R$ 30,9 mi (ruído) |
+| **USDT Regime 4 (Base Pré-Ofício, jul/25–jun/26)** | US$ 100 mil | 9,3 | 19,4 | R$ 1.043,72 | — |
+| **USDT Regime 5 (Choque Agudo, 24/jun–21/jul/26)** | US$ 100 mil | 109,1 | 119,2 | R$ 6.412,96 | — |
+| **Banco: Importação de Bens (IOF 0%, `R-01`/`R-02`)** | US$ 100 mil | 0,0 (spread 20,0) | 22,5 | R$ 1.210,50 | — |
+| **Banco: Investimento / Disp. Pré-Mai/25 (IOF 1,1%)** | US$ 100 mil | 0,0 (spread 20,0) | 132,5 | R$ 7.128,50 | — |
+| **Banco: Disponibilidade Pós-Mai/25 (IOF 3,5%)** | US$ 100 mil | 0,0 (spread 20,0) | 372,5 | R$ 20.040,50 | — |
 
 #### Notas do Orador & Rastreabilidade
-- **Notas:** "Traduzindo pontos-base em reais: para quem comprava um lote de US$ 100 mil em USDT, o mês seguinte ao ofício custou R$ 5.052 a mais por operação. Também colocamos na tabela as fricções de cada canal bancário formal — medidas pelo Estudo Especial nº 48 do próprio BCB — ressaltando que câmbio bancário e ativo virtual têm naturezas jurídicas e usos legais distintos."
-- **Rastreabilidade:** Seção 10 de `notebooks/p5_07_story.ipynb`; `F-015`, `R-01`, `R-01b`, `R-02`..`R-07`, `scripts/p3_01_costs.py`, `results/tables/P3-01_route_costs.csv`.
+- **Notas:** "Traduzindo pontos-base em dinheiro: para quem comprava um lote de US$ 100 mil em USDT, o mês seguinte ao ofício custou R$ 5.052 a mais. No mercado todo, sobre os R$ 11,2 bilhões negociados na Binance em quatro semanas — ou R$ 15,8 bilhões nas três corretoras — quem comprou dólar digital pagou R$ 106 milhões a mais na Binance, ou R$ 145 milhões nas três exchanges. O ofício funcionou como uma tarifa de quase 1%, mas esse valor não foi arrecadado pelo governo: foi transferido dos compradores para quem ainda conseguia trazer stablecoins ao país."
+- **Rastreabilidade:** Seção 10 de `notebooks/p5_07_story.ipynb`; `P3-01` (`F-015`), `P3-11` (`F-025`), `R-01`..`R-07`, `scripts/p3_01_costs.py`, `scripts/p3_11_money.py`.
 
 ---
 
@@ -352,32 +356,32 @@
 ---
 
 <!-- SLIDE 12 -->
-## Slide 12 — A Solução Prática: O Monitor do Dólar Digital
+## Slide 12 — A Solução Prática: O Monitor do Dólar Digital e Previsão Datada para 01/jan/2027
 
-### Calibrado apenas em 2020–2025, nosso alarme CUSUM dispara no próprio dia 24/jun/2026 com metade dos falsos alarmes de uma regra simples
+### Calibrado apenas em 2020–2025, nosso alarme CUSUM dispara no próprio dia 24/jun/2026 (`F-014`) e já tem uma previsão falsificável registrada para a Res. BCB 584 (`F-027`)
 
 #### Layout Visual & Figura
 - **Imagem:** `results/figures/P3-03_monitor.png` (Painel superior: prêmio diário com banda de ruído e disparos de alarme; painel inferior: estatística CUSUM sequencial vs limiar calibrado no treino).
-- **Legenda (10 segundos):** Usando apenas dados passados (treino 2020–2025, orçamento de até 2 alarmes/ano), o monitor em código linear detecta o salto de 24/jun/2026 no próprio dia (atraso zero) e gera apenas 2 outros alarmes em 2026, contra 4 da regra ingênua.
+- **Legenda (10 segundos):** Usando apenas dados passados (treino 2020–2025, orçamento de até 2 alarmes/ano), o monitor detecta o salto de 24/jun/2026 no próprio dia (atraso zero) com metade dos falsos alarmes da regra simples (`F-014`), e deixamos registrada em Git (`393a14a`) uma previsão falsificável para a entrada em vigor da retenção de 24h em 01/01/2027 (`F-027`).
 
 #### Pontos Principais (pt-BR)
-- **Desenho Sem Olhar para o Futuro (*No Look-Ahead*, `P3-03`, `F-014`):**
-  - A especificação foi escrita e registrada no Git antes do backtest (`tasks/P3-03-monitor.md`).
-  - **Três componentes diários:** (1) Prêmio PTAX limpo do preço global do USDT; (2) Piso móvel de ruído microestrutural Corwin-Schultz; (3) Detector sequencial **CUSUM bilateral** sobre o excesso padronizado acima do ruído.
-  - **Separação estrita Treino vs Teste:** Limiar $h = 24,5$ calibrado exclusivamente em **2020–2025** para respeitar um orçamento máximo de 2 alarmes por ano (gerou 9 alarmes em 5 anos = 1,8/ano) e congelado para o teste fora da amostra em **2026**.
-- **Desempenho no Teste de 2026 (Comparado à Linha de Base Ingênua):**
-  - **Detecção do choque de 24/jun/2026:** Disparo no **próprio dia 24 de junho (atraso = 0 dias úteis)**; a estatística CUSUM já acumulava pressão desde 25 de maio (22,6 em 23/jun) e saltou para 62,0 em 24/jun.
-  - **Detecção do recuo de 22/jul/2026:** Identificado em **11 dias úteis PTAX** (06/ago/2026).
-  - **Menor taxa de falsos alarmes:** Apenas **2 outros alarmes** em 10 meses de 2026 (2,4/ano), contra **4 outros alarmes** (4,8/ano) de uma regra simples de médias móveis ("média de 5 dias vs 60 dias") calibrada com exatamente o mesmo orçamento no treino.
+- **1. Desenho Sem Olhar para o Futuro (*No Look-Ahead*, `P3-03`, `F-014`):**
+  - Especificação registrada no Git antes do backtest (`tasks/P3-03-monitor.md`). Limiar $h = 24,5$ calibrado exclusivamente em **2020–2025** (orçamento máximo de 2 alarmes/ano $\to$ 9 alarmes em 5 anos = 1,8/ano) e congelado para o teste fora da amostra em **2026**.
+  - **Desempenho em 2026:** Disparo no **próprio dia 24/jun/2026 (atraso = 0 dias úteis)**; detecção do recuo de 22/jul em **11 dias úteis PTAX** (06/ago); e apenas **2 outros alarmes** em 10 meses de 2026 (2,4/ano), contra **4 outros alarmes** (4,8/ano) da regra simples de médias móveis (MM 5d vs 60d).
 
 | Regra de Monitoramento (`P3-03_backtest.csv`) | Parâmetro Calibrado (2020–2025) | Alarmes no Treino (2020–2025) | Atraso no Salto de 24/jun/2026 | Atraso no Recuo de 22/jul/2026 | Outros Alarmes no Teste (2026) |
 |---|---|---|---|---|---|
 | **Monitor CUSUM (Nossa Solução)** | **$h = 24,5$** | **9 (1,8 / ano)** | **0 dias úteis (24/jun)** | **11 dias úteis (06/ago)** | **2 (2,4 / ano)** |
 | Linha de Base Simples (MM 5d vs 60d) | $c = 7,25$ | 10 (2,0 / ano) | 0 dias úteis (24/jun) | 12 dias úteis (07/ago) | 4 (4,8 / ano) |
 
+- **2. Uma Previsão Datada que a Banca Pode Conferir em 2027 (`P3-13`, `F-027`, commit `393a14a` de 02/11/2026):**
+  - Em **1º/01/2027** entra em vigor a retenção cautelar de até 24 horas da **Resolução BCB nº 584/2026** (`E-06b`, art. 2º-B da Res. 142).
+  - Pela letra da norma, ela atrasa **apenas as saídas** de ativos virtuais ($\ge$ US$ 10 mil para o exterior ou carteiras autohospedadas), **não as entradas** que formam a oferta de USDT no Brasil. Além disso, quem sofre a retenção já detém USDT durante essas 24 horas: o custo de 1 dia útil é de apenas **~9,1 bps** (**5,5 bps** de financiamento à Selic de 13,75% a.a., `D-17`, mais **3,7 bps** de risco diário a 95% do `USDT/USD`), um quarto do limite de detecção.
+  - **Previsão registrada (`results/tables/P3-13_prediction.md`):** No primeiro dia PTAX de 2027 (**04/01/2027**), a mudança antes/depois (20 dias úteis PTAX pós vs 20 pré) **permanecerá dentro da faixa das datas comuns ($-35,0\text{ a }+37,6\text{ bps}$)**, sem disparo de alta no monitor. **O que provaria que estamos errados:** variação fora de $[-35,0; +37,6]\text{ bps}$ com $p_{\text{placebo}} < 0,05$. *(Ressalva: a Res. BCB 580 também entra em vigor na mesma data).*
+
 #### Notas do Orador & Rastreabilidade
-- **Notas:** "Como solução prática para o mercado e para o regulador, construímos o Monitor do Dólar Digital em um script linear que lê dados públicos do BCB e da Binance. Calibrado apenas até 2025, sem espiar 2026, ele disparou o alerta no próprio dia 24 de junho com metade dos falsos alarmes de uma regra simples."
-- **Rastreabilidade:** Seção 12 de `notebooks/p5_07_story.ipynb`; `F-014`, `scripts/p3_03_monitor.py`, `data/processed/P3-03_monitor_daily.csv`.
+- **Notas:** "Como solução prática, construímos o Monitor do Dólar Digital em código aberto. Calibrado apenas até 2025, ele disparou o alerta no próprio dia 24 de junho com metade dos falsos alarmes de uma regra simples. E fomos além: deixamos registrada no Git uma previsão que a banca poderá conferir em janeiro de 2027. Quando a retenção de 24 horas da Resolução 584 entrar em vigor em 1º de janeiro, ela atrasará apenas saídas e custará cerca de 9 pontos-base a quem já tem USDT; prevemos que o prêmio não mudará de forma detectável, ficando entre menos 35 e mais 38 pontos-base."
+- **Rastreabilidade:** Seção 12 de `notebooks/p5_07_story.ipynb`; `P3-03` (`F-014`), `P3-13` (`F-027`, commit `393a14a`), `D-17`, `scripts/p3_03_monitor.py`, `scripts/p3_13_prediction.py`, `results/tables/P3-13_prediction.md`.
 
 ---
 
@@ -399,8 +403,8 @@
 |---|---|---|
 | Melhor modelo perdeu para "amanhã = hoje" sem reportar a baseline | **Toda estimativa é comparada à sua linha de base ingênua**; o monitor CUSUM bate a regra simples fora da amostra | `F-005`, `F-014`, `F-021` |
 | Linguagem causal extraída de *clustering* (K-Means) | **Reivindicações causais restritas a desenhos com placebos** (estudo de eventos e controle sintético) e **apenas para o pico de 1 mês** | `F-016`, `F-017`, `F-022` |
-| Spread bruto DeFi tratado como puro risco de crédito | **Decomposição explícita de fricções, impostos e subsídios** (53,6% do spread do Compound V3 em 2025 era token `COMP`) | `F-015`, `F-020` |
-| Brasil aparecia apenas na introdução; hiperparâmetros livres | **O mercado brasileiro é a pergunta central**; hipóteses e especificações registradas no Git antes dos testes | `P1-02`, `P2-02`, `P2-06` |
+| Spread bruto DeFi tratado como puro risco de crédito | **Decomposição explícita de fricções, impostos e subsídios** (53,6% do spread do Compound V3 em 2025 era token `COMP`) | `F-015`, `F-020`, `F-025` |
+| Brasil aparecia apenas na introdução; hiperparâmetros livres | **O mercado brasileiro é a pergunta central**; hipóteses, especificações e previsões registradas no Git antes dos testes | `P1-02`, `P2-02`, `P3-10`, `P3-13` |
 
 #### Notas do Orador & Rastreabilidade
 - **Notas:** "No ano passado ficamos em 3º lugar neste Datathon. Nossa primeira tarefa neste ano foi auditar criticamente aquele trabalho. Descobrimos duas coisas: nosso modelo complexo perdia para uma previsão ingênua de que amanhã é igual a hoje, e 53,6% do spread do Compound sobre o SOFR era subsídio promocional em tokens COMP. Em 2026 corrigimos cada um desses pontos: linha de base obrigatória, pré-registro no Git e identificação econômica limpa no Brasil."
@@ -411,31 +415,30 @@
 <!-- SLIDE 14 -->
 ## Slide 14 — O que os Testes Mostraram, Implicações e Limitações
 
-### O fechamento do canal gerou um pico robusto de um mês (+94 bps = R$ 5 mil/US$ 100k); efeito duradouro não foi demonstrado
+### O fechamento do canal gerou um pico robusto de um mês (+94 bps = R$ 5 mil/US$ 100k; R$ 106–145 mi transferidos); efeito duradouro não foi demonstrado
 
 #### Layout Visual & Placar Final
-- **Tabela-Síntese:** Placar das hipóteses pré-comprometidas ($H_1, H_2, H_3, H_0$) lado a lado com as limitações metodológicas explícitas (Seções 14 e 15 de `notebooks/p5_07_story.ipynb`).
-- **Legenda (10 segundos):** Confirmamos um salto agudo de um mês após 23/jun/2026 em todas as corretoras e especificações, sem efeito duradouro demonstrado ($p = 0,24$), e entregamos um termômetro diário aberto para supervisão cambial e tesourarias.
+- **Tabela-Síntese:** Placar das hipóteses pré-comprometidas ($H_1, H_2, H_3, H_0$) e das quatro respostas práticas (`docs/06-so-what.md`) lado a lado com as limitações metodológicas explícitas.
+- **Legenda (10 segundos):** Confirmamos um salto agudo de um mês após 23/jun/2026 (+93,9 bps, queda de 78% nas compras externas no BCB e R$ 106–145 milhões transferidos), sem efeito duradouro demonstrado ($p = 0,24$), e entregamos um monitor diário com previsão falsificável para janeiro de 2027.
 
 #### Pontos Principais (pt-BR)
-- **1. Placar das Hipóteses Pré-Comprometidas (Seção 14 do Protótipo):**
+- **1. Placar das Hipóteses e Respostas Práticas (`notebooks/p5_07_story.ipynb` & `docs/06-so-what.md`):**
 
-| Hipótese | Veredito Empírico | Evidência que Sustenta o Veredito |
+| Hipótese / Dimensão | Veredito Empírico | Evidência que Sustenta o Veredito |
 |---|---|---|
-| **$H_1$** Fechar o canal elevou o prêmio | **Sustentada para um pico de 1 mês** (+93,9 bps, $p = 0,0009$; mesmo salto em 3 corretoras; +109,3 bps vs Brasil Sintético). **Não demonstrada** para um efeito duradouro ($p_{\text{placebo}} = 0,24$) | `F-009`, `F-011`, `F-016`, `F-017`, `F-022` |
-| **$H_2$** Só a regra restritiva no canal marginal importa | **Consistente:** nenhuma das outras 12 regras e marcos moveu o prêmio além de datas ordinárias (o teste detecta movimentos acima de ~23–37 bps) | `F-016` |
-| **$H_3$** IOF de maio/2025 moveu o prêmio menos que o imposto | **Consistente:** variação de +13,2 a +15,4 bps ($p_{\text{placebo}} = 0,31\text{ a }0,38$, não anômala) frente a um aumento tributário de +240 bps | `F-016` |
-| **$H_0$** Corretora única, Real ou USDT explicam o salto | **Rejeitada** para o salto de 24 de junho de 2026 | `F-009` |
+| **$H_1$ (Canal Fechado)** | **Sustentada para um pico de 1 mês** (+93,9 bps, $p = 0,0009$; mesmo salto em 3 corretoras; +109,3 bps vs Brasil Sintético; queda de −78% nas compras externas de stablecoins no BCB em jul/2026, $p = 0,022$). **Não demonstrada** para efeito duradouro ($p_{\text{placebo}} = 0,24$) | `F-009`, `F-011`, `F-016`, `F-017`, `F-022`, `F-024` |
+| **$H_2$ (Quais Regras Importam)** | **Consistente:** as 7 regras publicadas com aviso prévio (1–175 dias) ficaram dentro da faixa das datas comuns ($-35\text{ a }+38\text{ bps}$); só o ofício sigiloso e imediato moveu o prêmio | `F-016`, `F-026` |
+| **$H_3$ (Repasse Parcial do IOF)** | **Consistente:** variação de +13,2 a +15,4 bps ($p_{\text{placebo}} = 0,31\text{ a }0,38$, não anômala) frente a um aumento tributário de +240 bps no câmbio | `F-016`, `F-026` |
+| **$H_0$ (Corretora / Real / USDT)** | **Rejeitada** para o salto de 24 de junho de 2026 | `F-009`, `F-023` |
+| **Impacto Financeiro e Previsão** | **R$ 5.052 / US$ 100k** e **R$ 106,1 mi (Binance) a R$ 145,3 mi (3 exchanges)** transferidos em 4 semanas ($p = 0,005$). Previsão registrada (`393a14a`): retenção de 24h da Res. 584 em 01/01/2027 não moverá o prêmio fora de $[-35, +38]\text{ bps}$ | `F-014`, `F-015`, `F-025`, `F-027` |
 
-- **2. Implicações para Supervisão Cambial e Drex:**
-  - Atos de supervisão que interrompem imediatamente um canal operacional geram descolamentos agudos de preço (+94 bps = R$ 5.052/US$ 100k), enquanto normas públicas com janela de transição (Res. 519–521, Res. 561) são absorvidas sem saltos. Para o **Drex** e *on/off-ramps* regulados, manter canais institucionais claros de arbitragem é essencial para evitar prêmios de escassez.
-- **3. Limitações que Declaramos no Slide (Seção 15 do Protótipo):**
-  1. **Não vimos o texto físico do ofício de 23/jun:** temos dois relatos independentes e a resposta oficial do BCB via LAI (`E-05`); por isso dizemos que o salto *coincide com* a notícia.
-  2. **Apenas o pico de um mês é medido:** o recuo a partir de 22/jul não possui evento em $\pm 5$ dias (`P2-02`), e o nível pós-pico não se distingue de deriva normal ($p = 0,24$).
-  3. **Subida prévia desde 25 de maio (+8 bps) e volume na Foxbit (`F-008`):** causas seguem em aberto.
-  4. **Amostra internacional curta:** o controle sintético tem 5 doadores ($p \ge 1/6 \approx 0,167$), servindo como evidência complementar, e a comparação com ARS/UAH é descritiva.
-  5. **Histórico longo centrado na Binance:** Foxbit e Mercado Bitcoin confirmam o salto de junho de 2026, mas a série desde 2020 vem da Binance.
+- **2. Limitações que Declaramos no Slide (Seção 15 do Protótipo):**
+  1. **Texto integral do ofício de 23/jun não foi visto:** temos dois veículos que viram a notificação/trecho em 24–25/jun (`E-05.1`, `E-05.2`) e a resposta escrita do BCB via LAI (`E-05.3`, `E-05.4`, `F-023`), mas o ofício não foi publicado no DOU.
+  2. **Apenas o pico de um mês é medido:** o recuo a partir de 22/jul não possui evento em $\pm 5$ dias (`P2-02`), não veio da retomada das importações no BCB (`F-024`, que ficaram em 32% em ago–set), e o nível pós-pico não se distingue de deriva normal ($p = 0,24$).
+  3. **Forma vs conteúdo e Res. BCB 580:** o ofício foi a única regra sigilosa/imediata e a única a fechar o canal dos fundos (`F-026`); na queda de julho nas estatísticas do BCB (`F-024`), dados mensais não separam o ofício de 23/jun da Res. BCB 580 de 01/jul (`E-10`).
+  4. **Transferência, não perda de bem-estar:** os R$ 106–145 milhões (`F-025`) medem transferência bruta nas exchanges analisadas (sem OTC/P2P), não peso morto econômico.
+  5. **Amostra internacional curta e histórico longo na Binance:** o controle sintético tem 5 doadores ($p \ge 1/6 \approx 0,167$), e a série desde 2020 vem da Binance.
 
 #### Notas do Orador & Rastreabilidade
-- **Notas:** "Concluímos respondendo à nossa pergunta com total transparência sobre o que sabemos e o que não sabemos: fechar a porta em 23 de junho coincidiu com um salto de 94 pontos-base — R$ 5 mil por cada US$ 100 mil — que durou um mês e bateu todas as 1.073 datas ordinárias do histórico. O que veio depois de julho não pode ser separado da deriva normal do mercado. Muito obrigado."
-- **Rastreabilidade:** Seções 14 e 15 de `notebooks/p5_07_story.ipynb`; `F-009`..`F-022`; `prompt.md` §5 e §8.
+- **Notas:** "Concluímos respondendo à nossa pergunta com total transparência sobre o que sabemos e o que não sabemos: fechar a porta em 23 de junho derrubou em 78% as compras externas de stablecoins medidas pelo BCB e produziu um salto de 94 pontos-base — R$ 5 mil por cada US$ 100 mil, ou R$ 106 a 145 milhões transferidos em quatro semanas — que bateu todas as 1.073 datas ordinárias do histórico. E deixamos nosso monitor aberto com uma previsão datada no Git para 1º de janeiro de 2027. Muito obrigado."
+- **Rastreabilidade:** Seções 14 e 15 de `notebooks/p5_07_story.ipynb`; `docs/06-so-what.md`; `F-001`..`F-027`; `prompt.md` §5 e §8.

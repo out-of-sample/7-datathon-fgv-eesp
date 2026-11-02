@@ -2,7 +2,7 @@
 id: P3-13
 title: So what (4) - a dated prediction for the 24-hour hold (Res. 584, 1 Jan 2027) read by the monitor
 phase: P3
-status: review
+status: done
 owner: CS 1
 working: -
 due: 2026-11-03
@@ -40,6 +40,7 @@ Plan: `docs/06-so-what.md`, answer 4.
 - **How to resume:** `python scripts/p3_13_prediction.py`; the prediction text is `results/tables/P3-13_prediction.md`.
 
 ## Log
+- 2026-11-02, Felipe (review): Independently verified `data/raw/bcb/sgs_432.json` SHA-256 (`be93f6...`) and re-ran `py scripts/p3_13_prediction.py` (Selic 13.75% -> 5.5 bps + 3.7 bps 95% 1d USDT/USD risk = 9.1 bps for an outgoing USDT holder; 130.5 bps if exposed in BRL). Updated `P3-01` S2b note to cross-reference `P3-13`/`F-027` and integrated the dated prediction (`393a14a`) into Slide 12 of `deck/deck_v1_ptbr.md`. Status -> `done`.
 - 2026-11-02, agent for Renzo: Res. 584 text read (hold applies to outgoing transfers only); S1–S3 done; prediction committed
   (`393a14a`); F-027; status review.
 - 2026-11-02, agent for Renzo: Renzo takes P3-13 (asked by Renzo).

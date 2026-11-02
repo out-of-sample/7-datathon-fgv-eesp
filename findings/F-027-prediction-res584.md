@@ -1,10 +1,10 @@
 ---
 id: F-027
 title: Prediction committed on 2 Nov 2026 - the 24-hour hold of Res. BCB 584 (from 1 Jan 2027) will not move the premium detectably; its cost to a USDT holder is about 9 bps
-status: exploratory
+status: confirmed
 task: P3-13
 date: 2026-11-02
-checked_by: -
+checked_by: Felipe
 ---
 
 ## Claim
@@ -28,7 +28,7 @@ This is a scenario, committed before the rule takes effect (commit `393a14a`, 2 
   reais, which an outgoing USDT transfer does not.
 
 ## Used in deck
-Not yet (candidate: the monitor slide, `docs/06-so-what.md` answer 4).
+Slide 12 (`deck/deck_v1_ptbr.md`) & Anexo B.5 (`deck/annex_v1_ptbr.md`).
 
 ## History
 - 2026-11-02, agent for Renzo: created (P3-13).

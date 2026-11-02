@@ -1,10 +1,10 @@
 ---
 id: F-025
 title: In the four weeks after the notice, buyers of USDT/BRL paid about R$ 106 mn more on Binance (R$ 145 mn on three exchanges) than at the pre-notice premium; no ordinary month comes close
-status: exploratory
+status: confirmed
 task: P3-11
 date: 2026-11-02
-checked_by: -
+checked_by: Felipe
 ---
 
 ## Claim
@@ -48,7 +48,7 @@ Specification committed before the script (`91f9c25`).
   decree not opened). The 95 bps tariff equivalent is about a quarter of that 350 bps gap.
 
 ## Used in deck
-Not yet (candidate: the money slide, `docs/06-so-what.md` answer 1).
+Slide 10 (`deck/deck_v1_ptbr.md`) & Anexo B.5 (`deck/annex_v1_ptbr.md`).
 
 ## History
 - 2026-11-02, agent for Renzo: created (P3-11).
