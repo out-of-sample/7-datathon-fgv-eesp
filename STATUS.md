@@ -59,6 +59,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | **CRITICAL: the deck must have at most 10 slides** (Renzo, 2 Nov). `deck/deck_v1_ptbr.md` has 14: choose which 4+ move to the annex or merge | Felipe (deck owner) + team | before deck v1 (Thu 5 Nov) |
 | Deck wording vs evidence (`docs/deck-notes-2026-11-02.md`): accept or reject the suggested changes on Slides 1, 6, 9, 11, 12, 14, and F-028's two sentences for Slides 1 and 5 (`P3-15`, review) | Felipe (deck owner) | before freeze (Wed 4 Nov) |
 | Review gaps found 2 Nov: F-015 (R$ 5,052 on the cover) still `exploratory`; F-020 and F-021 re-checked by their own author in P4-02 (not independent). Deck plan (`docs/deck-plan-10-slides.md`): disclose that the jump was seen in the probe before the hypotheses; replace "p ≈ 0.001" on slides with "maior que todas as 1.073 datas comuns" (overlapping windows) | Team (a teammate who did not author them) + Felipe | before freeze |
+| Headline wording (`P4-04`, todo): "p ≈ 0.001" uses overlapping windows (non-overlapping p = 0.03); the +94 bps window also holds the 26 Jun meeting (24-hour-hold draft, E-12) and Res. 580 (1 Jul); a second peak on 3 Jul has no identified cause | Nattan (CS 2) or whoever takes P4-04; Felipe for wording | before freeze |
 | Res. BCB 574 (DOU 22 Jun 2026, E-11) is not in the event list; F-026 says "eight rules". Add as event or caveat (`P3-16`); premium did not move on 22–23 Jun (23.3, 24.8 bps), jumped 24 Jun | Felipe + team | before freeze (Wed 4 Nov) |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
 | F-008 (Foxbit volume ×6 from Jul 2026): coincides with NovaDAX partnership (M-04, 7 Jul) and Foxbit Infra B2B relaunch (M-05, 18 Jul, fitting 5× larger trade size); kept as open cause in Slide 5 and F-008 | Resolved (cause kept open with M-04 and M-05 documented in `docs/sources.md` and `F-008`) | done |
@@ -129,13 +130,14 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-15](tasks/P3-15-route-comparison.md) | Why +94 bps and not +350 - which routes are comparable (clarification for the deck) | 👀 review | Economist | - | 4/4 | 3/3 | 2026-11-04 | P3-01, P3-10 |
 | [P3-16](tasks/P3-16-res574-event-list.md) | Res. BCB 574 (published 22 Jun 2026, one day before the notice) is missing from the event list | ⬜ todo | Economist | - | 1/3 | 0/2 | 2026-11-04 | P1-04, P3-12 |
 
-**P4 — Robustness and freeze** (2/3 closed)
+**P4 — Robustness and freeze** (2/4 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
 | [P4-01](tasks/P4-01-robustness.md) | Robustness battery for every headline number | ✅ done | CS 2 | - | 4/4 | 3/3 | 2026-11-04 | P2-02, P2-03, P2-04 |
 | [P4-02](tasks/P4-02-independent-recheck.md) | Independent re-run of every headline number | ✅ done | CS 3 | - | 3/3 | 2/2 | 2026-11-04 | P4-01 |
 | [P4-03](tasks/P4-03-freeze.md) | Freeze results | ⬜ todo | Team | - | – | 0/4 | 2026-11-04 | P4-01, P4-02 |
+| [P4-04](tasks/P4-04-headline-inference-window.md) | Honest inference and window contents for the +94 bps headline (non-overlapping windows, first-day move, other measures inside the window) | ⬜ todo | CS 2 | - | 0/3 | 0/3 | 2026-11-04 | P2-03, P4-01 |
 
 **P5 — Deck and submission** (1/7 closed)
 
@@ -185,6 +187,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-02 — agent for Renzo: round-2 strategy checks (`docs/deck-plan-10-slides.md`): non-overlapping placebo p = 0.03; the headline window also holds the 26 Jun meeting (E-12, new source) and Res. 580; Res. 561 text opened (E-06a) as the closest form-vs-content contrast; new task `P4-04`
 - 2026-11-02 — agent for Renzo: 10-slide plan (`docs/deck-plan-10-slides.md`) with checked strategies; after a second agent's review: F-028 no longer calls the 3.5% route a ceiling (adds May 2025 evidence), slide 6 "real flat" fixed (PTAX +68 bps on 24 Jun), P3-16 caveat by content + timing drafted, minute-timing and half-life ideas dropped; review gaps flagged (F-015 status, F-020/F-021 self-checked)
 - 2026-11-02 — agent for Renzo: P3-15 → review: rule committed first (`6393330`); marginal route not identified (outcome b); 3.5% route is a ceiling never approached (highest day +170.7 bps over pre-notice, +52.1 after 22 Jul); 1.1% "investimento" route's 110 bps lies in the spike range but no source says it carries virtual assets (F-028, `results/tables/P3-15_routes.md`); Res. BCB 574 (22 Jun) found, E-11, new task P3-16
 - 2026-11-02 — Renzo: deck limit registered: at most 10 slides (prompt.md §2, decision log, blocker); current deck has 14

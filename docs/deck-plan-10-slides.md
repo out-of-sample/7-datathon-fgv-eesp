@@ -138,3 +138,17 @@ s['ptax_chg_bps']=1e4*np.log(s.ptax_sell_brl_per_usd).diff(); print(s.round(4).t
 x=1e4*np.log(d.ptax_sell_brl_per_usd).diff()['2025-01-01':'2026-06-22']; print(x.abs().median().round(1), x.abs().quantile(.95).round(1))"
 ```
 
+
+## New strategies, round 2 (2 Nov, checked before proposing)
+
+| # | Gap | Strategy | Check done | Verdict |
+|---|---|---|---|---|
+| N1 | Inference precision ("p ≈ 0.001" on overlapping windows) | Report the non-overlapping version beside "larger than every one of 1,073 ordinary dates" | 30 non-overlapping clean windows, 0 exceedances for all 41 offsets: p = 0.032 | **Adopt** via P4-04 (new finding) |
+| N2 | Headline window contains other measures | Say the +94 bps is the month after the notice, a window that also holds the 26 Jun meeting (suspension kept, in-book arbitrage released, 24-hour-hold draft, E-12) and Res. 580 (1 Jul, E-10); report the first-day move (+130.6 bps, 23 → 24 Jun) as the only part that predates them | First-day move is 2026's largest daily rise, but 3 days since 2023 matched it, so it is support, not proof; the meeting day coincided with a fall (184 → 76 bps); a second peak on 3 Jul (+86.7 bps in a day) has no identified cause | **Adopt** via P4-04 |
+| N3 | Form vs content | On slide 5, set the notice beside its closest contrast: Res. 561 also closed a stablecoin channel (eFX settlement: "sendo vedado o uso de ativos virtuais"), but was published with 154 days' notice: +6.0 bps at announcement, −5.3 at effect (P3-12) | Text opened (E-06a). The size of the eFX channel is unknown, so this narrows, not settles, form vs content | **Adopt** as a contrast with that caveat |
+| N4 | Topic chosen after seeing the jump | The attribution is not only ours: the day after the notice, market operators quoted by the press tied the price move to it (E-05.6: "saiu de cerca de 0,1 acima do mercado para 0,7 após a notificação"; Exame, 25 Jun, headline "notificação do BC a bancos deixa criptomoedas 2% mais caras") | Quotes and URLs in `docs/sources.md` (E-05.2, E-05.6) | **Adopt** (slide 2, with the probe disclosure on slide 3) |
+| N5 | Cause of the fade | Look for a dated report that the funds' operations resumed in July | One extended search, 2 Nov: nothing found (not proof of absence) | **No strategy**; stays "not shown" |
+| N6 | One event | A dated prediction for Res. 574's reporting start (3 Nov), resolved before submission | A reporting-only rule over 4 PTAX days: a near-certain null, little evidence | **Reject** |
+
+What no strategy found here can fix: one shock in one country; form vs content; the cause of the fade; the marginal
+route. These stay in the "não mostramos" box.
