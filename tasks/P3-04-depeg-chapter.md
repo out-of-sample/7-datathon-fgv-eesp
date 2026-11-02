@@ -4,7 +4,7 @@ title: Depeg chapter v1 (the same mechanism in dollars)
 phase: P3
 status: review
 owner: CS 3
-working: Renzo (review)
+working: -
 due: 2026-11-03
 depends: P1-07
 ---
@@ -33,13 +33,31 @@ Turn P1-07 into 1-3 slides: the SVB weekend, and Kaplan-Meier curves only if the
 - `findings/F-019-depeg-chapter.md`
 
 ## Handoff
-- **State:** Completed and moved to `status: review`. Script executed end-to-end; 11 downward depeg events filtered and categorized; pre-committed rule verified ($11 < 12$ -> KM curves omitted, comparative case study adopted); tables and figures saved; finding F-019 written; polished draft slide text in Portuguese ready for deck insertion.
-- **Next step:** Review by Renzo/Jonathan and integration into Deck v1 (Slides 13 and 14).
-- **Open questions:** None.
-- **How to resume:** To re-run the entire pipeline and verify table/figure generation, run:
-  `py scripts/p3_04_depeg_chapter.py`
+<!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
+- **State:** reviewed by Renzo (2 Nov). **Data and design hold; sources and claims need work** (owner: Felipe / CS 3).
+  `scripts/p3_04_depeg_chapter.py` reproduces the tables (differences only at 10⁻¹³). It uses the v2 events (F-013): 11 falls
+  below $1 + the USDC SVB case from Bitstamp, with the $0.863 hourly close. A case table instead of curves, per the
+  ≥ 12 rule. Good.
+- **Changes requested:**
+  1. **Each case's "mechanism" needs a source** (rule: sources are opened, `prompt.md` §6), or a neutral label. Examples:
+     "boatos sobre solvência de custodiante" (FDUSD Apr 2025), "escrutínio regulatório" (TUSD Jan 2024),
+     "choque de demanda pós-eleição americana" (TUSD Nov 2024), "MIM/Abracadabra" (UST Jan 2022).
+     None is in `docs/sources.md`.
+  2. **F-019's title and claim overreach.**
+     - "11 downward depegs confirm that backing solvency, not open banking hours, determines survival" and "proving that
+       external reserve backing is a necessary condition" rest on categories assigned after the fact, with
+       n = 2 / 7 / 1 / 2 and one algorithmic case.
+     - Say instead: "in our 12 cases, the two closed-weekend cases recovered within 51–65 h; the one coin without
+       external reserves (UST) never recovered". That is a description, not a test.
+  3. **Category 4 "pré-deslistagem" (USDP Sep 2026).** The delisting is still `[verify]`; cite a source or call it
+     "end of data on Binance".
+  4. **SVB wording.** Recovery came with the Sunday deposit guarantee (D-13), before banks reopened. "Parity restored as soon
+     as redemption became credible" is fair; "redemption reopened" is not.
+- **Next step:** owner applies 1–4; then status → done.
+- **How to resume:** `.venv/bin/python scripts/p3_04_depeg_chapter.py`.
 
 ## Log
+- 2026-11-02, agent for Renzo: review done (Handoff): reproduces; mechanisms unsourced; F-019 claims overreach.
 - 2026-11-02, agent for Renzo: Renzo takes the review.
 - 2026-11-02, Felipe (Economist): claimed task; structured subtasks S1–S4; inspected `P1-07_v1_vs_v2.csv` and verified 11 USD-confirmed downward depeg events; checked pre-committed threshold ($11 < 12$), formally omitting Kaplan-Meier survival curves in accordance with `docs/01-depeg-recovery.md` §5 and decision log line 96; developed `scripts/p3_04_depeg_chapter.py`; created case table `P3-04_depeg_case_table.csv` and category summary `P3-04_category_summary.csv`; generated `P3-04_svb_weekend.png` and `P3-04_depeg_cases.png`; authored `findings/F-019-depeg-chapter.md`; drafted 2 chapter slides in Portuguese (`pt-BR`) in Result section; set status to review.
 

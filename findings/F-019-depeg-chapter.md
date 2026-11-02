@@ -80,4 +80,5 @@ Generated artifacts:
 Recommended for Slide 13 ("O mesmo mecanismo em dólares: o fim de semana do SVB") and Slide 14 ("Anatomia dos depegs: por que resgate e solvência importam") of the final presentation deck.
 
 ## History
+- 2026-11-02, Renzo (review, P3-04): reproduces with the v2 events. Requested: sources for each case's mechanism (none in sources.md); title/claim as description, not "confirm"/"proving" (n = 2/7/1/2, categories assigned after the fact); USDP delisting still [verify] (tasks/P3-04 → Handoff)
 - 2026-11-02, Felipe (Economist): created (exploratory) following execution of P3-04, incorporating the 11-event v2 screen, pre-committed KM threshold gate check ($11 < 12$), SVB weekend Bitstamp timeline, and 4-category comparative taxonomy.
