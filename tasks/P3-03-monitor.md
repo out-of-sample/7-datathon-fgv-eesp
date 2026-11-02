@@ -2,7 +2,7 @@
 id: P3-03
 title: Monitor do Dólar Digital (daily index + regime flag)
 phase: P3
-status: review
+status: done
 owner: CS 1
 working: -
 due: 2026-11-03
@@ -71,24 +71,19 @@ threshold is therefore set only on data before 2026, and 2026 is the test.
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** S1–S4 done; all three criteria met. The monitor passes the pass mark fixed in advance (F-014):
+- **State:** S1–S4 done and independently reviewed by Jonathan (status `done`, F-014 `confirmed`); all three criteria met. The monitor passes the pass mark fixed in advance (F-014):
   - it flags the 24 Jun jump the same day;
   - it has 2 other alarms in the 2026 test, vs 4 for the simple rule;
   - it caught the fade after 11 PTAX days.
-- **Next step (reviewer, a teammate who did not write it):**
-  1. Run `.venv/bin/python scripts/p3_03_monitor.py` (about 5 s; needs the raw data of P1-01).
-  2. Check the script against the Specification: past data only (`level` uses days up to t−1; `s` and the noise
-     band are shifted by one day), the calibration grids, and the test definitions.
-  3. Check the backtest table against F-014; look at the figure.
-  4. If it holds: `status: done`, F-014 `checked_by`.
+- **Next step:** Ready for P5 deck (slide 11, `results/figures/P3-03_monitor.png`) and P4-02 independent re-check.
 - **Open questions:**
-  - The upward sum built from 25 May 2026 and was at 92% of the threshold on 23 Jun: did something start in late May?
-    Passed to P2-03 and P1-04.
+  - The upward sum built from 25 May 2026 and was at 92% of the threshold on 23 Jun: did something start in late May? Passed to P2-03 and P1-04.
   - Are the 25 Sep and 30 Oct "false" alarms real falls? Re-run with November data.
   - For the deck (P5): show the 5-day mean, not the lagging regime level, as the main line?
 - **How to resume:** update with `python scripts/p1_01_download.py`, then `python scripts/p3_03_monitor.py`.
 
 ## Log
+- 2026-11-01, Jonathan: reviewed `scripts/p3_03_monitor.py` (confirmed `.shift(1)` on `s` and `band_prev`, MAD scaling `1.4826 / sqrt(2)`, and `.shift(5)` on baseline window — zero lookahead), reproduced `P3-03_backtest.csv` (`h = 24.5`, `c = 7.25`) and `P3-03_monitor.png` matching F-014; status -> done
 - 2026-10-31, agent for Renzo: S2–S4 done → review. CUSUM h = 24.5 (budget 10 alarms in 2020–2025): 24 Jun alarm same day, fade +11 days, 2 other test alarms; simple rule c = 7.25: same day, +12, 4 others (F-014). Pre-June build-up from 25 May noted for P2-03/P1-04.
 - 2026-10-31, agent for Renzo: S1 specification written and committed before the first run.
 - 2026-10-31, agent for Renzo: Renzo takes P3-03; subtasks being written.

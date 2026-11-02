@@ -24,7 +24,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Next actions
 
-1. Start P1 in parallel: Renzo → P3-03 monitor done → review (F-014); P3-02 after P2-03; P1-05, P2-01, P2-05 reviewed and done · Renzo covers CS 2 work (P1-03 done, P1-05 done, P2-02 blocked on P1-04) · Felipe → P1-04 ·
+1. Start P1 in parallel: Renzo -> P3-03 monitor reviewed and done (F-014 confirmed); P3-02 after P2-03; P1-05, P2-01, P2-05 reviewed and done · Renzo covers CS 2 work (P1-03 done, P1-05 done, P2-02 blocked on P1-04) · Felipe → P1-04 ·
    P1-07 done (v2 confirmed: 11 falls below $1, F-013); Jonathan -> P1-06 done (S6 manual screen: EUR, TRY, ZAR, MXN, COP); next: P3-03 review / P3-04 / P3-05.
 2. Everyone (and your agents): read [`docs/review-2026-10-31.md`](docs/review-2026-10-31.md) before the gate.
 3. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
@@ -86,13 +86,13 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | ⬜ todo | CS 2 | - | 0/3 | 0/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (0/8 closed)
+**P3 — Extensions** (1/8 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
 | [P3-01](tasks/P3-01-money-layer.md) | Cost of a digital dollar: bank route vs USDT route, per regime | ⬜ todo | Economist | - | – | 0/4 | 2026-11-03 | P2-03, P2-04 |
 | [P3-02](tasks/P3-02-btc-heterogeneity.md) | Did the 23 Jun notice also move the bitcoin premium? | ⬜ todo | CS 1 | - | – | 0/3 | 2026-11-03 | P1-01, P2-03 |
-| [P3-03](tasks/P3-03-monitor.md) | Monitor do Dólar Digital (daily index + regime flag) | 👀 review | CS 1 | - | 4/4 | 3/3 | 2026-11-03 | P1-02, P2-02 |
+| [P3-03](tasks/P3-03-monitor.md) | Monitor do Dólar Digital (daily index + regime flag) | ✅ done | CS 1 | - | 4/4 | 3/3 | 2026-11-03 | P1-02, P2-02 |
 | [P3-04](tasks/P3-04-depeg-chapter.md) | Depeg chapter v1 (the same mechanism in dollars) | ⬜ todo | CS 3 | - | – | 0/4 | 2026-11-03 | P1-07 |
 | [P3-05](tasks/P3-05-agentic-A-protocol-pilot.md) | Extension A - protocol, memory test and pilot on the three CLIs | ⬜ todo | CS 3 | - | 0/7 | 0/5 | 2026-11-02 | P1-01, P1-08 |
 | [P3-06](tasks/P3-06-agentic-A-runs-analysis.md) | Extension A - full runs and dispersion analysis | ⬜ todo | CS 3 | - | – | 0/5 | 2026-11-03 | P3-05, P2-06 |
@@ -135,11 +135,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-011](findings/F-011-blind-breaks.md) | A blind break test finds 24 Jun 2026 as the sharpest regime change in six years (+100 bps), followed by a partial reversal from 22 Jul | 🔍 exploratory | P2-02 | - |
 | [F-012](findings/F-012-stablecoin-depeg-events.md) | Automatic screening identifies 29 USD-confirmed independent depeg events across 7 stablecoin pairs | 🔍 exploratory | P1-07 | Renzo, Nattan |
 | [F-013](findings/F-013-depeg-count-v2.md) | After the review fixes, the depeg screen finds 11 falls below $1 (9 without a likely delisting), short of the 12 the chapter needs for recovery curves | ✔️ confirmed | P1-07 | Nattan |
-| [F-014](findings/F-014-monitor-backtest.md) | A real-time alarm calibrated on 2020–2025 flags the 24 Jun 2026 jump on the same day, with fewer false alarms than a simple rule | 🔍 exploratory | P3-03 | - |
+| [F-014](findings/F-014-monitor-backtest.md) | A real-time alarm calibrated on 2020–2025 flags the 24 Jun 2026 jump on the same day, with fewer false alarms than a simple rule | ✔️ confirmed | P3-03 | Jonathan |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-01 — Jonathan: P3-03 reviewed and verified (no lookahead, backtest & figure reproduced) -> done; F-014 confirmed
 Jonathan -> P1-06 done (S6 manual screen: EUR, TRY, ZAR, MXN, COP); next: P3-03 review / P3-04 / P3-05.
 - 2026-11-01 — Nattan: P1-07 reviewed and approved Renzo's v2 fixes → done; F-013 confirmed (11 falls below $1), F-012 exploratory (superseded by v2)
 - 2026-10-31 — agent for Renzo: P3-03 done → review: spec committed before the run; real-time CUSUM calibrated on 2020–2025 flags 24 Jun 2026 the same day, fade +11 days, 2 other test alarms vs 4 for the simple rule (F-014); premium already building from 25 May (note to P2-03, P1-04)
