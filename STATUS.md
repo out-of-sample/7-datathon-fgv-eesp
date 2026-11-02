@@ -114,7 +114,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P4-02](tasks/P4-02-independent-recheck.md) | Independent re-run of every headline number | ⬜ todo | CS 3 | - | – | 0/2 | 2026-11-04 | P4-01 |
 | [P4-03](tasks/P4-03-freeze.md) | Freeze results | ⬜ todo | Team | - | – | 0/4 | 2026-11-04 | P4-01, P4-02 |
 
-**P5 — Deck and submission** (0/6 closed)
+**P5 — Deck and submission** (0/7 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -124,6 +124,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P5-04](tasks/P5-04-scripts-txt.md) | Export scripts as .txt with headers | ⬜ todo | CS 2 | - | – | 0/2 | 2026-11-07 | P4-03 |
 | [P5-05](tasks/P5-05-annex.md) | Annex: sources, event table, AI-use disclosure | 🔄 doing | Economist | - | 4/4 | 2/2 | 2026-11-07 | P5-01 |
 | [P5-06](tasks/P5-06-submission.md) | Submit PDF and scripts | ⬜ todo | Team | - | – | 0/3 | 2026-11-08 | P5-02, P5-03, P5-04, P5-05 |
+| [P5-07](tasks/P5-07-story-notebook.md) | Story notebook - the whole project end to end (deck prototype) | 🔄 doing | CS 1 | Renzo | 0/2 | 0/3 | 2026-11-03 | P2-03, P2-04, P3-01, P4-01 |
 
 **Findings**
 
