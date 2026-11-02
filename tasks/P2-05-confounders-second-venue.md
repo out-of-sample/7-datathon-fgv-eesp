@@ -36,6 +36,7 @@ move, a Binance-only problem, or a data error.
 - **How to resume:** S3 was a news search (queries in the Log); everything else is in the script.
 
 ## Log
+- 2026-11-02, agent for Renzo: audit item 4 (docs/audit-2026-11-02.md): export window already widened to 25 May in the script (Felipe); table regenerated (49 days, was 44); header updated. No number in F-009 changes.
 - 2026-10-31, Jonathan: review complete; scripts/p2_05_checks.py executed cleanly; jump replicated across all 3 venues; figure verified; status -> done
 - 2026-10-31, agent for Renzo: S1–S4 done; F-009; status → review. S3 searches: "Binance Brasil depósito saque reais Pix
   suspenso junho 2026", "Binance BRL deposits withdrawals June 2026 announcement Brazil", "Foxbit julho 2026 volume

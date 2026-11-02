@@ -83,6 +83,7 @@ threshold is therefore set only on data before 2026, and 2026 is the test.
 - **How to resume:** update with `python scripts/p1_01_download.py`, then `python scripts/p3_03_monitor.py`.
 
 ## Log
+- 2026-11-02, agent for Renzo: audit item 5: `last_alarm` guard already applied (Felipe); re-run gives the same backtest table.
 - 2026-11-01, Jonathan: reviewed `scripts/p3_03_monitor.py` (confirmed `.shift(1)` on `s` and `band_prev`, MAD scaling `1.4826 / sqrt(2)`, and `.shift(5)` on baseline window — zero lookahead), reproduced `P3-03_backtest.csv` (`h = 24.5`, `c = 7.25`) and `P3-03_monitor.png` matching F-014; status -> done
 - 2026-10-31, agent for Renzo: S2–S4 done → review. CUSUM h = 24.5 (budget 10 alarms in 2020–2025): 24 Jun alarm same day, fade +11 days, 2 other test alarms; simple rule c = 7.25: same day, +12, 4 others (F-014). Pre-June build-up from 25 May noted for P2-03/P1-04.
 - 2026-10-31, agent for Renzo: S1 specification written and committed before the first run.

@@ -10,7 +10,7 @@ Event: 23 Jun 2026 (reported BCB notice; date [verify] in P1-04). Before = 20 PT
   20 PTAX days starting 24 Jun; 23 Jun itself is left out. Compared as changes, because venue levels differ.
 Inputs   data/processed/P1-02_premium_daily.csv, P1-02_premium_hourly.csv (run p1_02_premium.py first),
          data/raw/foxbit/USDTBRL-1h.csv, data/raw/mercadobitcoin/USDT-BRL-1h.csv
-Outputs  results/tables/P2-05_venues_daily.csv           daily premium per venue, Jun-Jul 2026
+Outputs  results/tables/P2-05_venues_daily.csv           daily premium per venue, 25 May - 31 Jul 2026
          results/figures/P2-05_hourly_22_26_jun.png      hourly premium vs last published PTAX, 3 venues
 Run      python scripts/p2_05_checks.py
 """
