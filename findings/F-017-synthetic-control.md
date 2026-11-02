@@ -12,8 +12,8 @@ A convex Synthetic Control estimator (Abadie, Diamond & Hainmueller 2010) constr
 
 In the **headline 5-donor specification** (EUR, TRY, ZAR, MXN, COP):
 1. **Pre-treatment Fit:** Pre-period RMSPE is **7.05 bps** across 140 common trading days, demonstrating that Synthetic Brazil tightly tracks Brazil's pre-shock premium. The synthetic weights place **63.6% on EUR, 17.9% on MXN, 13.4% on TRY, 4.5% on ZAR, and 0.7% on COP**.
-2. **Acute Treatment Gap:** In the 20 trading days following the shock (24 Jun – 21 Jul 2026), Brazil's premium exceeded Synthetic Brazil by **+109.3 bps** on average. The non-parametric Difference-in-Differences (DiD) baseline against an equal-weighted donor mean yields **+103.3 bps**.
-3. **Post-Adaptation Plateau Gap:** As domestic order books and OTC channels adapted (22 Jul – 30 Sep 2026, 45 common trading days), the gap narrowed to **+28.2 bps** (DiD: **+31.4 bps**).
+2. **Acute Treatment Gap:** Over 24 Jun – 21 Jul 2026 (17 days with data for Brazil and every donor), Brazil's premium exceeded Synthetic Brazil by **+109.3 bps** on average. The non-parametric Difference-in-Differences (DiD) baseline against an equal-weighted donor mean yields **+103.3 bps**.
+3. **After the spike:** over 22 Jul – 30 Sep 2026 (48 common days) the gap narrowed to **+28.2 bps** (DiD: **+31.4 bps**). The placebo test in P4-01 does not separate the after-spike level from ordinary drift (p = 0.24), so only the spike is a measured effect.
 4. **In-Space Placebo Inference:** Brazil ranks **#1 of 6** in post-to-pre RMSPE ratio (**9.31** vs donor placebos ranging from 0.78 to 1.22), #1 of 6 in acute treatment gap (+109.3 bps vs donor placebos between -16.6 and +67.8 bps), and #1 of 6 in acute RMSPE (117.95). The permutation p-value is **$p = 1/6 = 0.167$**, exactly at the discrete sample lower bound.
 
 ## Evidence
@@ -56,10 +56,15 @@ With $J = 5$ donor currencies, the non-parametric permutation p-value has a theo
 
 Therefore, our inference structure combines two complementary strategies:
 1. **Statistical Significance:** Established via the **within-Brazil 200-date placebo distribution** (P2-03, F-016), where $p = 1/201 = 0.0050$ ($p < 0.005$).
-2. **Causal Attribution & Macro Confounder Control:** Established via the **Synthetic Control & DiD counterfactual** (P2-04), where Brazil ranks #1 across all available international comparisons, demonstrating that global crypto or EM macro shocks do not explain the June 2026 breakout.
+2. **Comparison with other currencies:** the synthetic control and the DiD (P2-04) show that no comparison currency moved like Brazil. Over the spike their changes were −15.6 to +23.7 bps (EUR −1.3, TRY −11.9, ZAR +7.3, MXN −15.6, COP +23.7), against +103 to +109 for Brazil. A global crypto or emerging-market shock is therefore an unlikely explanation. With 5 donors this is supporting evidence (permutation p = 0.17), not a significance test.
 
 ## Reproduction
 ```bash
 python scripts/p2_04_synth.py
 ```
 Outputs: `results/tables/P2-04_synth_results.csv`, `results/tables/P2-04_synth_weights.csv`, `results/figures/P2-04_synthetic_control.png`.
+
+## History
+- 2026-11-02, agent for Renzo (review fixes, on Felipe's behalf, agreed by Renzo): day counts stated (17 acute, 48 plateau common days); "as domestic order books and OTC channels adapted" removed (no evidence; July fade unexplained); "causal attribution" softened to comparison with donors (p = 0.17); figure: neutral labels, no overlap, placebos with pre-fit > 5× Brazil's (COP, ZAR) left out of panel B and named in the legend (Abadie et al. 2010)
+- 2026-11-02, Renzo (review, P2-04): tables reproduce exactly; independent donor-average DiD matches (tasks/P2-04 → Handoff)
+- 2026-11-02, Felipe: created

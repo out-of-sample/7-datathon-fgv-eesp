@@ -84,13 +84,13 @@ print(f"Total PTAX days: {len(df_prem)}")
 print(f"Candidate clean placebo days outside event windows: {len(df_valid_placebos)}")
 
 # 3. Draw 200 random placebo dates matching weekday proportions (seed = 20261102)
-# Real events distribution across weekdays: Friday (7/23), Monday (6/23), Tuesday (6/23), Thursday (4/23)
-weekday_draw_counts = {
-    "Friday": 61,
-    "Monday": 52,
-    "Tuesday": 52,
-    "Thursday": 35
-}
+# Weekday quotas proportional to the weekdays of the event dates (largest remainder, total 200)
+ev_days = pd.Series([d.day_name() for d in mapped_event_dates]).value_counts()
+raw = ev_days / ev_days.sum() * 200
+weekday_draw_counts = raw.astype(int)
+weekday_draw_counts[(raw - weekday_draw_counts).sort_values(ascending=False).index[:200 - weekday_draw_counts.sum()]] += 1
+weekday_draw_counts = weekday_draw_counts.to_dict()
+print(f"Placebo weekday quotas (from {len(mapped_event_dates)} event dates): {weekday_draw_counts}")
 rng = np.random.default_rng(20261102)
 placebo_draw_dates = []
 for day, count in weekday_draw_counts.items():
@@ -124,6 +124,9 @@ for draw_id, dt in enumerate(placebo_draw_dates, 1):
 df_placebo_draws = pd.DataFrame(placebo_rows)
 df_placebo_draws.to_csv(RES_TAB / "P2-03_placebo_draws.csv", index=False)
 placebo_diffs_arr = np.array(placebo_diffs)
+# Deterministic check (review 2 Nov): every clean date, not a random 200
+all_clean_diffs = np.array([df_prem["premium_bps"].iloc[i + 1:i + 21].mean() - df_prem["premium_bps"].iloc[i - 20:i].mean()
+                            for i in valid_placebo_indices])
 print(f"Saved {len(df_placebo_draws)} placebo draws to results/tables/P2-03_placebo_draws.csv")
 print(f"Placebo diff summary (bps): min={placebo_diffs_arr.min():.2f}, mean={placebo_diffs_arr.mean():.2f}, "
       f"median={np.median(placebo_diffs_arr):.2f}, max={placebo_diffs_arr.max():.2f}, std={placebo_diffs_arr.std():.2f}")
@@ -146,8 +149,7 @@ for _, r in df_events.iterrows():
     if de not in ["N/A", "nan"]:
         entries.append(("effective", de))
     elif da not in ["N/A", "nan"] and de in ["N/A", "nan"]:
-        # E.g. unenacted draft proposal E-03
-        entries.append(("announcement", da))
+        # E.g. unenacted draft proposal E-03 (announcement already added above)
         entries.append(("effective", "N/A"))
 
     # Also handle E-06b future effective date
@@ -292,6 +294,7 @@ for _, r in df_events.iterrows():
             "p_param": p_param,
             "p_placebo_2s": round(p_placebo_2s, 4),
             "p_placebo_1s": round(p_placebo_1s, 4),
+            "p_placebo_all_clean_2s": round((np.sum(np.abs(all_clean_diffs) >= abs(diff_m)) + 1) / (len(all_clean_diffs) + 1), 4),
             "placebo_pctile": round(placebo_pctile, 1),
             "baseline_pre_mean_bps": round(pre_m, 2),
             "naive_rmse_bps": round(naive_rmse, 2),

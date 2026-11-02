@@ -326,10 +326,10 @@ ax1.plot(post_idx, data_p["eq_post"], color="#94a3b8", lw=1.2, linestyle=":")
 
 # Vertical shock line and adaptation line
 ax1.axvline(pd.Timestamp("2026-06-23"), color="#dc2626", lw=1.8, linestyle="-")
-ax1.text(pd.Timestamp("2026-06-23"), 170, "  23 Jun 2026\n  BCB Ofício Shock", color="#dc2626", fontsize=9, fontweight="bold")
+ax1.text(pd.Timestamp("2026-06-23"), 185, "  23 Jun 2026: BCB notice", color="#dc2626", fontsize=9, fontweight="bold")
 
 ax1.axvline(pd.Timestamp("2026-07-21"), color="#64748b", lw=1.2, linestyle="--")
-ax1.text(pd.Timestamp("2026-07-21"), 170, "  22 Jul 2026\n  Adaptation Plateau", color="#64748b", fontsize=8)
+ax1.text(pd.Timestamp("2026-07-21"), 140, "  22 Jul 2026: after the spike", color="#64748b", fontsize=8)
 
 ax1.set_title("Panel A: Actual vs Synthetic USDT Premium (Basis Points)", fontsize=11, fontweight="bold")
 ax1.set_ylabel("USDT Premium over Official FX (bps)", fontsize=10)
@@ -343,9 +343,14 @@ ax1.axvspan(pd.Timestamp("2026-07-22"), pd.Timestamp("2026-09-30"), color="#f1f5
 
 # Panel 2: Gap Path and In-Space Placebos
 # In-space placebos in gray
-for d_name, p_series in data_p["placebo_series"].items():
+# Abadie et al. (2010): drop placebos whose pre-period fit is more than 5x worse than Brazil's (review 2 Nov)
+br_pre_rmspe = float(np.sqrt(np.mean(np.square(data_p["gap_pre"]))))
+kept = {d: s for d, s in data_p["placebo_series"].items()
+        if np.sqrt(np.mean(np.square(s[s.index <= pd.Timestamp("2026-06-22")]))) <= 5 * br_pre_rmspe}
+for i, (d_name, p_series) in enumerate(kept.items()):
     ax2.plot(p_series.index, p_series.values, color="#94a3b8", lw=1, alpha=0.6,
-             label="In-space donor placebos (EUR, TRY, ZAR, MXN, COP)" if d_name == "EUR" else "")
+             label=f"Donor placebos with pre-fit within 5x Brazil's ({', '.join(kept)}; dropped: "
+                   f"{', '.join(sorted(set(data_p['placebo_series']) - set(kept))) or 'none'})" if i == 0 else "")
 
 # Brazil pre and post gap
 ax2.plot(pre_idx, data_p["gap_pre"], color="#2563eb", lw=2, label="Brazil Pre-Shock Gap (RMSPE = 7.05 bps)")

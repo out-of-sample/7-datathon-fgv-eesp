@@ -82,14 +82,14 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P1-08](tasks/P1-08-decision-agentic-budget.md) | Decide the API budget and models for extension A | ✅ done | Team | - | 3/3 | 1/1 | 2026-11-01 | - |
 | [P1-09](tasks/P1-09-donor-history-boundary.md) | Remove the Brazil-listing boundary from donor history | 👀 review | CS 2 | - | 2/2 | 3/3 | 2026-11-04 | P1-05 |
 
-**P2 — Core evidence** (2/6 closed)
+**P2 — Core evidence** (4/6 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
 | [P2-01](tasks/P2-01-noise-floor.md) | Noise floor (how big a premium is just trading friction) | ✅ done | CS 1 | - | 3/3 | 3/3 | 2026-11-01 | P1-02 |
 | [P2-02](tasks/P2-02-blind-break-test.md) | Blind structural-break test on the premium | 👀 review | CS 2 | - | 4/4 | 4/4 | 2026-11-01 | P1-02, P1-04 |
-| [P2-03](tasks/P2-03-event-studies.md) | Before/after test for every dated rule, with placebo dates | 👀 review | CS 2 | Renzo (applying review fixes) | 3/3 | 3/3 | 2026-11-02 | P1-02, P1-04 |
-| [P2-04](tasks/P2-04-synthetic-control.md) | Synthetic control for the 23 Jun 2026 shock | 👀 review | CS 2 | Renzo (applying review fixes) | 5/5 | 4/4 | 2026-11-02 | P1-05, P1-06, P2-03 |
+| [P2-03](tasks/P2-03-event-studies.md) | Before/after test for every dated rule, with placebo dates | ✅ done | CS 2 | - | 3/3 | 3/3 | 2026-11-02 | P1-02, P1-04 |
+| [P2-04](tasks/P2-04-synthetic-control.md) | Synthetic control for the 23 Jun 2026 shock | ✅ done | CS 2 | - | 5/5 | 4/4 | 2026-11-02 | P1-05, P1-06, P2-03 |
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | 👀 review | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
@@ -144,7 +144,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-013](findings/F-013-depeg-count-v2.md) | After the review fixes, the depeg screen finds 11 falls below $1 (9 without a likely delisting), short of the 12 the chapter needs for recovery curves | ✔️ confirmed | P1-07 | Nattan |
 | [F-014](findings/F-014-monitor-backtest.md) | A real-time alarm calibrated on 2020–2025 flags the 24 Jun 2026 jump on the same day, with fewer false alarms than a simple rule | ✔️ confirmed | P3-03 | Jonathan |
 | [F-015](findings/F-015-route-costs.md) | Across historical regimes USDT saved R$ 16k–20k per US$ 100k vs bank FX; the 23 Jun shock temporarily closed the gap vs import FX, while a 3.5% crypto IOF would eliminate the arbitrage advantage | ✔️ confirmed | P3-01 | - |
-| [F-016](findings/F-016-event-studies-placebos.md) | Before/after event study on all 13 Brazilian events finds only the 23 Jun 2026 BCB notice moved the premium (+93.9 bps, p < 0.005 vs 200 placebos) | 🔍 exploratory | P2-03 | - |
+| [F-016](findings/F-016-event-studies-placebos.md) | Of 13 dated Brazilian events, only the 23 Jun 2026 BCB notice moved the premium (+93.9 bps; beyond all 1,073 placebo dates, p ≈ 0.001) | 🔍 exploratory | P2-03 | - |
 | [F-017](findings/F-017-synthetic-control.md) | Synthetic control estimates a +109 bps acute treatment gap for the 23 Jun 2026 shock (Brazil ranks #1 of 6, ratio 9.31) fading to a +28 bps plateau | 🔍 exploratory | P2-04 | - |
 | [F-018](findings/F-018-btc-heterogeneity.md) | The 23 Jun 2026 BCB notice moved the Bitcoin premium in lockstep (+93.8 bps, p < 0.005), confirming market-wide import restrictions and frictionless triangular arbitrage | 🔍 exploratory | P3-02 | - |
 | [F-019](findings/F-019-depeg-chapter.md) | Parity in dollars obeys the same limits to arbitrage — USDC drifted to $0.805 when SVB shut redemption rails and recovered to $0.989 on Sunday's guarantee before banks reopened; 11 downward depegs confirm that backing solvency, not open banking hours, determines survival | 🔍 exploratory | P3-04 | - |

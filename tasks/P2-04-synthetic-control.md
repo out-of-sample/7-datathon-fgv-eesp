@@ -2,9 +2,9 @@
 id: P2-04
 title: Synthetic control for the 23 Jun 2026 shock
 phase: P2
-status: review
+status: done
 owner: CS 2
-working: Renzo (applying review fixes)
+working: -
 due: 2026-11-02
 depends: P1-05, P1-06, P2-03
 ---
@@ -54,10 +54,13 @@ Pre-committed before fitting:
   4. Figure: labels at the top of panel A overlap. In panel B, ZAR and COP fit poorly (pre-RMSPE 62–71 bps vs Brazil
      7.05) and swamp the picture. Abadie et al. (2010) drop placebos with pre-RMSPE > 5× the treated unit's; show that
      version, or say why not. "Shock"/"Adaptation Plateau" labels → neutral wording.
-- **Next step:** Felipe applies 1–4; then status → done.
+- **Fixes applied (2 Nov, agent for Renzo, agreed by Renzo):** 1–4 done in F-017 and the figure (panel B drops COP and ZAR,
+  pre-fit > 5× Brazil's; neutral labels). Tables unchanged. Status done.
+- **Next step:** none for P2-04.
 - **How to resume:** `.venv/bin/python scripts/p2_04_synth.py` (seconds).
 
 ## Log
+- 2026-11-02, agent for Renzo: review fixes 1–4 applied (F-017 text, figure); status → done.
 - 2026-11-02, agent for Renzo: Renzo applies the review fixes (agreed by Renzo; on behalf of Felipe).
 - 2026-11-02, agent for Renzo: review done (Handoff): reproduces exactly; DiD checked independently; text/figure changes requested.
 - 2026-11-02, agent for Renzo: Renzo takes the review.
