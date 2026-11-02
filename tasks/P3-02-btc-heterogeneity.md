@@ -4,7 +4,7 @@ title: Did the 23 Jun notice also move the bitcoin premium?
 phase: P3
 status: review
 owner: CS 1
-working: -
+working: Renzo (review)
 due: 2026-11-03
 depends: P1-01, P2-03
 ---
@@ -37,6 +37,7 @@ Compute the BTC/BRL premium over BTCUSDT x PTAX and run the same before/after te
 - **How to resume:** Re-run `python scripts/p3_02_btc.py` to regenerate all tables and figures.
 
 ## Log
+- 2026-11-02, agent for Renzo: Renzo takes the review.
 - 2026-11-02 — Felipe: Started P3-02. Downloaded raw klines for BTCBRL (102 files) and BTCUSDT (140 files); checked out master coverage table.
 - 2026-11-02 — Felipe: Wrote `scripts/p3_02_btc.py` computing PTAX-window BTC/BRL premium (USD-adjusted and cross-rate) and running before/after tests across all 13 Brazilian events against 200 placebos.
 - 2026-11-02 — Felipe: Evaluated E-05: BTC/USD premium jumped by +93.78 bps ($t = 5.82$, $p < 0.005$ vs 200 placebos), matching USDT (+93.91 bps) within 0.13 bps. Generated `results/figures/P3-02_btc_vs_usdt_premium.png`.
