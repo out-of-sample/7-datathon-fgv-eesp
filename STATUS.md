@@ -93,7 +93,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | 👀 review | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (3/8 closed)
+**P3 — Extensions** (3/13 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -105,6 +105,11 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-06](tasks/P3-06-agentic-A-runs-analysis.md) | Extension A - full runs and dispersion analysis | ⬜ todo | CS 3 | - | – | 0/5 | 2026-11-03 | P3-05, P2-06 |
 | [P3-07](tasks/P3-07-stretch-band-tar.md) | Stretch: threshold model of the no-arbitrage band | 👀 review | CS 2 | - | 3/3 | 3/3 | 2026-11-03 | P2-02 |
 | [P3-08](tasks/P3-08-subsidy-check-2025.md) | 2025 subsidy share for the 'Lições de 2025' slide | 👀 review | CS 3 | - | 3/3 | 2/2 | 2026-11-03 | - |
+| [P3-09](tasks/P3-09-notice-sources.md) | Every source on the 23 Jun 2026 BCB notice, opened and registered | 🔄 doing | CS 1 | Renzo | 0/3 | 0/3 | 2026-11-03 | P1-04 |
+| [P3-10](tasks/P3-10-stablecoin-imports.md) | Mechanism - did stablecoin imports fall when the premium jumped, and recover when it faded? | 🔄 doing | CS 1 | Renzo | 0/4 | 0/3 | 2026-11-03 | P1-02, P2-02 |
+| [P3-11](tasks/P3-11-money-moved.md) | So what (1) - how much money the spike moved, and to whom | ⬜ todo | Economist | - | 0/4 | 0/3 | 2026-11-03 | P2-03, P3-01 |
+| [P3-12](tasks/P3-12-which-rules-matter.md) | So what (2) - which rules moved the premium (published rules vs the confidential notice) | ⬜ todo | Economist | - | 0/3 | 0/3 | 2026-11-03 | P2-03 |
+| [P3-13](tasks/P3-13-prediction-res584.md) | So what (4) - a dated prediction for the 24-hour hold (Res. 584, 1 Jan 2027) read by the monitor | ⬜ todo | CS 1 | - | 0/3 | 0/2 | 2026-11-03 | P3-01, P3-03 |
 
 **P4 — Robustness and freeze** (1/3 closed)
 

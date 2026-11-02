@@ -67,7 +67,7 @@ Success criteria:
 **Dates:** Mon 2 – Tue 3 Nov. **Goal:** turn the evidence into what the jury uses: a money number, a
 solution, the dollar-side chapter, and (if go) the agentic robustness.
 
-Tasks: P3-01 to P3-08.
+Tasks: P3-01 to P3-13 (P3-09 to P3-13: the "so what" plan, `06-so-what.md`).
 
 Success criteria:
 - [ ] Cost of buying US$ 100k via bank vs USDT, per regime, with sources for every cost component
