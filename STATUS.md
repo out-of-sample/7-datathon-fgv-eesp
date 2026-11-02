@@ -87,7 +87,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P2-01](tasks/P2-01-noise-floor.md) | Noise floor (how big a premium is just trading friction) | ✅ done | CS 1 | - | 3/3 | 3/3 | 2026-11-01 | P1-02 |
 | [P2-02](tasks/P2-02-blind-break-test.md) | Blind structural-break test on the premium | 👀 review | CS 2 | - | 4/4 | 4/4 | 2026-11-01 | P1-02, P1-04 |
 | [P2-03](tasks/P2-03-event-studies.md) | Before/after test for every dated rule, with placebo dates | 👀 review | CS 2 | - | 3/3 | 3/3 | 2026-11-02 | P1-02, P1-04 |
-| [P2-04](tasks/P2-04-synthetic-control.md) | Synthetic control for the 23 Jun 2026 shock | 👀 review | CS 2 | - | 5/5 | 4/4 | 2026-11-02 | P1-05, P1-06, P2-03 |
+| [P2-04](tasks/P2-04-synthetic-control.md) | Synthetic control for the 23 Jun 2026 shock | 👀 review | CS 2 | Renzo (review) | 5/5 | 4/4 | 2026-11-02 | P1-05, P1-06, P2-03 |
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | 👀 review | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 

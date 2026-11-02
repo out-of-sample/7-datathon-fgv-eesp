@@ -4,7 +4,7 @@ title: Synthetic control for the 23 Jun 2026 shock
 phase: P2
 status: review
 owner: CS 2
-working: -
+working: Renzo (review)
 due: 2026-11-02
 depends: P1-05, P1-06, P2-03
 ---
@@ -47,6 +47,7 @@ Pre-committed before fitting:
 - **How to resume:** Re-run `python scripts/p2_04_synth.py`.
 
 ## Log
+- 2026-11-02, agent for Renzo: Renzo takes the review.
 - 2026-11-02, Felipe: Completed S1–S5 in `scripts/p2_04_synth.py`. Generated `results/tables/P2-04_synth_results.csv`, `results/tables/P2-04_synth_weights.csv`, `results/figures/P2-04_synthetic_control.png`. Written `findings/F-017-synthetic-control.md`. Status -> review.
 - 2026-11-01, Felipe (Economist gate call): (1) Inference structure: P2-03 within-Brazil placebo distribution serves as primary statistical p-value, while P2-04 synthetic control serves as cross-country counterfactual (rank 1 of 6 with EUR, TRY, ZAR, MXN, COP, or rank 1 of 7 if pre-period starts 1 Dec 2025 to include IDR), with the permutation p-value floor (1/6=0.167 or 1/7=0.143) explicitly acknowledged; (2) Report both the 20-day acute spike window (24 Jun – 21 Jul, ~109 bps) and the post-adaptation plateau (22 Jul – Oct, ~27 bps) separately, plus the full trajectory/gap path.
 - 2026-10-31, agent for Renzo (design issue for the gate): with J donors, the in-space placebo p-value cannot go below 1/(J+1). Current pool floor is 1/6 ≈ 0.17. Gate decided to use P2-03 200 within-Brazil placebos for statistical p-value and SC for cross-country attribution.
