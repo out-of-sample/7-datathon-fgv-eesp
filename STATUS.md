@@ -97,7 +97,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
-| [P3-01](tasks/P3-01-money-layer.md) | Cost of a digital dollar: bank route vs USDT route, per regime | 👀 review | Economist | Renzo (applying review fixes) | 5/5 | 4/4 | 2026-11-03 | P2-03, P2-04 |
+| [P3-01](tasks/P3-01-money-layer.md) | Cost of a digital dollar: bank route vs USDT route, per regime | 👀 review | Economist | - | 5/5 | 4/4 | 2026-11-03 | P2-03, P2-04 |
 | [P3-02](tasks/P3-02-btc-heterogeneity.md) | Did the 23 Jun notice also move the bitcoin premium? | ✅ done | CS 1 | - | 4/4 | 3/3 | 2026-11-03 | P1-01, P2-03 |
 | [P3-03](tasks/P3-03-monitor.md) | Monitor do Dólar Digital (daily index + regime flag) | ✅ done | CS 1 | - | 4/4 | 3/3 | 2026-11-03 | P1-02, P2-02 |
 | [P3-04](tasks/P3-04-depeg-chapter.md) | Depeg chapter v1 (the same mechanism in dollars) | ✅ done | CS 3 | - | 4/4 | 4/4 | 2026-11-03 | P1-07 |
@@ -143,7 +143,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-012](findings/F-012-stablecoin-depeg-events.md) | Automatic screening identifies 29 USD-confirmed independent depeg events across 7 stablecoin pairs | 🔍 exploratory | P1-07 | Renzo, Nattan |
 | [F-013](findings/F-013-depeg-count-v2.md) | After the review fixes, the depeg screen finds 11 falls below $1 (9 without a likely delisting), short of the 12 the chapter needs for recovery curves | ✔️ confirmed | P1-07 | Nattan |
 | [F-014](findings/F-014-monitor-backtest.md) | A real-time alarm calibrated on 2020–2025 flags the 24 Jun 2026 jump on the same day, with fewer false alarms than a simple rule | ✔️ confirmed | P3-03 | Jonathan |
-| [F-015](findings/F-015-route-costs.md) | Across historical regimes USDT saved R$ 16k–20k per US$ 100k vs bank FX; the 23 Jun shock temporarily closed the gap vs import FX, while a 3.5% crypto IOF would eliminate the arbitrage advantage | ✔️ confirmed | P3-01 | - |
+| [F-015](findings/F-015-route-costs.md) | The 23 Jun notice cost a buyer of digital dollars about R$ 5,050 per US$ 100k during the spike (+93.9 bps); after it, +11.5 bps (R$ 620) not distinguishable from noise. Bank-route comparisons depend on IOF and on an assumed 50 bps bank spread | 🔍 exploratory | P3-01 | - |
 | [F-016](findings/F-016-event-studies-placebos.md) | Of 13 dated Brazilian events, only the 23 Jun 2026 BCB notice moved the premium (+93.9 bps; beyond all 1,073 placebo dates, p ≈ 0.001) | 🔍 exploratory | P2-03 | - |
 | [F-017](findings/F-017-synthetic-control.md) | Synthetic control estimates a +109 bps acute treatment gap for the 23 Jun 2026 shock (Brazil ranks #1 of 6, ratio 9.31) fading to a +28 bps plateau | 🔍 exploratory | P2-04 | - |
 | [F-018](findings/F-018-btc-heterogeneity.md) | The Bitcoin premium jumped by the same +93.8 bps on 24 Jun 2026, as triangular arbitrage on Binance requires; the test cannot tell a stablecoin-specific shock from a crypto-wide one | 🔍 exploratory | P3-02 | - |

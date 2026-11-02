@@ -1,18 +1,27 @@
 ---
 id: F-015
-title: Across historical regimes USDT saved R$ 16k–20k per US$ 100k vs bank FX; the 23 Jun shock temporarily closed the gap vs import FX, while a 3.5% crypto IOF would eliminate the arbitrage advantage
-status: confirmed
+title: The 23 Jun notice cost a buyer of digital dollars about R$ 5,050 per US$ 100k during the spike (+93.9 bps); after it, +11.5 bps (R$ 620) not distinguishable from noise. Bank-route comparisons depend on IOF and on an assumed 50 bps bank spread
+status: exploratory
 task: P3-01
 date: 2026-11-01
 checked_by: -
 ---
 
 ## Claim
-For a Brazilian corporate treasurer acquiring US$ 100,000 (benchmark PTAX = R$ 5.3800), the digital dollar route (USDT via Binance, Foxbit, or Mercado Bitcoin) cost 19.4 to 101.4 bps all-in across pre-notice historical regimes, delivering R$ 16,199 to R$ 20,611 in net savings compared to traditional bank availability transfers (3.5% IOF, 402.5 bps).
+**What the notice cost (the project's question).** For someone buying US$ 100,000 in USDT on Binance (PTAX R$ 5.38):
+- during the spike, 24 Jun – 21 Jul 2026, the premium was 93.9 bps higher, an extra
+  **US$ 939 ≈ R$ 5,052** (F-016; placebo p ≈ 0.001);
+- after it, +11.5 bps (≈ R$ 621), which is not distinguishable from ordinary
+  drift (F-022).
 
-During the acute 20-day spike following the 23 Jun 2026 supervisory notice (Regime 5), the USDT route cost jumped to 119.2 bps (peaking at 180.0 bps on 24–25 Jun), surpassing the traditional 0% IOF commercial import route (52.5 bps) and briefly 1.1% investment remittances (162.5 bps), but retaining a R$ 15,242 savings margin over bank availability.
-
-In policy simulations, a proposed 3.5% crypto IOF (Scenario S1) raises USDT route costs to 386.9 bps, virtually evaporating the arbitrage advantage (reducing savings from R$ 19,669 down to R$ 839), while a 24-hour precautionary hold (Res. BCB 584/2026, Scenario S2) adds 10.0 bps if hedged (total 46.9 bps, remaining cheaper than 0% IOF bank FX) or 136.8 bps in unhedged 95% 1-day market risk (total 173.7 bps).
+**Context: bank routes.** The table also sets the USDT route (premium + 10 bps fee) beside bank FX routes:
+- **Bank FX routes:** 50 bps spread (an assumption; the VET data are not downloaded) + wire + the IOF in force.
+- **The IOF in force:** 1.1% on transfers to one's own account abroad before 23 May 2025, 3.5% after (R-02).
+- **The USDT route was cheaper in every period:** by R$ 3.3k–6.3k per US$ 100k in 2020 – mid-2025 (vs 1.1% IOF), and by
+  about R$ 20k after May 2025 (vs 3.5%).
+- **Not verified:** whether the USDT route is a lawful substitute for an FX transfer, and its tax treatment. The 23 Jun
+  notice is reported to target exactly this use (E-05). So these differences describe price gaps; they are not savings
+  to recommend (`prompt.md` §10). Whether the bank comparison appears in the deck at all is a team decision.
 
 ## Evidence
 Benchmark transaction: institutional acquisition of US$ 100,000; reference PTAX = R$ 5.3800 (base cost = R$ 538,000). Commercial bank spread: 50.0 bps (median corporate institutional spread in BCB Ranking do VET, R-01); SWIFT wire fee: US$ 25.00 flat (2.5 bps). Exchange trading fee: 10.0 bps (Binance VIP0 taker fee, R-04); on-chain transfer: 0.1 bps (1 USDT flat on TRC-20/TON). Domestic institutional VIP tiers: 6.0–8.0 bps taker, 2 USDT withdrawal (Foxbit R-05, Mercado Bitcoin R-06).
@@ -35,13 +44,12 @@ Benchmark transaction: institutional acquisition of US$ 100,000; reference PTAX 
 | **Scenario S2a: 24h Hold Hedged (Res. 584/2026)** | Policy Scenario | 26.8 | 10.0 | 10.0 | 0.1 | 46.9 | $469.00 | R$ 2,523.22 | R$ 19,131.28 |
 | **Scenario S2b: 24h Hold Unhedged (Res. 584/2026)** | Policy Scenario | 26.8 | 10.0 | 136.8 | 0.1 | 173.7 | $1,737.00 | R$ 9,345.06 | R$ 12,309.44 |
 
-### Economic Mechanism: Limits to Arbitrage and Regulatory Shadow Prices
-1. **The 350 bps IOF Umbrella**: Under Decreto 12.466/2025 and STF ADC 96 (R-02, R-03), corporate availability transfers incur a 3.5% IOF surcharge. This statutory wedge provides a 350 bps economic umbrella: any digital dollar route costing under 402.5 bps generates positive financial arbitrage for outbound capital.
-2. **Structural Channel Disruption**: In pre-notice Regime 4, mature order-book competition compressed the USDT premium to 9.3 bps, making digital dollars 33.1 bps cheaper even than 0% IOF commercial import FX (19.4 vs 52.5 bps). When the 23 Jun 2026 supervisory notice (E-05) constrained domestic fund crypto import rails, the sudden local supply restriction forced the premium to 109.1 bps (peaking at 169.9 bps). This temporarily closed the door against traditional commercial bank trade finance (52.5 bps), but USDT remained cheaper than general bank availability transfers (402.5 bps).
-3. **Liquidity Adaptation**: The entry into force of Res. BCB 580/2026 and the 7 Jul 2026 Foxbit–NovaDAX migration (M-04) catalyzed domestic order-book volume (Foxbit volume surged 6×, F-008), restoring local supply and settling the post-adaptation plateau at 26.8 bps (Regime 6, total cost 36.9 bps).
-4. **Policy Counterfactuals**:
-   - Imposing a 3.5% IOF on crypto purchases (Scenario S1) raises total costs to 386.9 bps, destroying 95.7% of corporate savings (shrinking from R$ 19,669 down to R$ 839).
-   - Under Res. BCB 584/2026 (Scenario S2), institutional treasurers who hedge the mandatory 24h hold incur only ~10 bps in B3 futures/perp carrying cost (46.9 bps total), preserving competitive efficiency against bank trade finance (52.5 bps). Unhedged treasurers absorb 136.8 bps of 1-day exchange-rate risk (173.7 bps total), eliminating cost competitiveness against 1.1% investment remittances.
+### Scenarios (labelled as such)
+- **S1, 3.5% IOF on crypto purchases (E-03, unenacted):** USDT route ≈ 387 bps, about the same as the 3.5% bank route.
+- **S2, 24 h hold (Res. BCB 584/2026, from 1 Jan 2027):**
+  - hedged: + 10 bps (assumed hedge cost, no source);
+  - unhedged: no expected cost, but a 95% one-day exchange-rate risk of about 130 bps (1.645 × sd of daily PTAX changes,
+    2025–26). A risk, not added to the cost.
 
 ### Reproduction
 ```powershell
@@ -60,5 +68,6 @@ Outputs:
 Slide 9: "Custo de um Dólar Digital no Brasil: Rota Bancária Tradicional vs USDT" (Headline Money Result).
 
 ## History
+- 2026-11-02, agent for Renzo (review fixes, on Felipe's behalf, agreed by Renzo): regimes 1–3 compared at the 1.1% IOF then in force (savings R$ 3.3–6.3k, were R$ 16–20k); "cost of the notice" rows added and made the headline; unhedged-hold risk no longer added as a cost; bank spread and hedge cost marked as assumptions; adaptation wording removed; status confirmed → exploratory
 - 2026-11-02, Renzo (review, P3-01): arithmetic correct, but regimes 1–3 (2020 – May 2025) are compared with 3.5% IOF although R-02 gives 1.1% then (savings ~5× too high for those regimes); the IOF-savings framing conflicts with prompt.md §10; bank spread, hedge cost and VaR are unsourced constants (VaR is a risk, not a cost). Suggest status exploratory until fixed (tasks/P3-01 → Handoff)
 - 2026-11-01, Felipe: Initialized and confirmed finding following completion and verification of `scripts/p3_01_costs.py`, `results/tables/P3-01_route_costs.csv`, and `results/figures/P3-01_route_costs.png`.

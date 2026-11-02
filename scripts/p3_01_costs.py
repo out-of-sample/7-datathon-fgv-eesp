@@ -75,7 +75,7 @@ if (TAB / "P2-05_venues_daily.csv").exists():
 
 # 2. Build Route Comparison Table
 # Traditional Bank Benchmarks
-BANK_SPREAD = 50.0      # Corporate FX spread: 50.0 bps (median institutional from BCB Ranking VET, R-01)
+BANK_SPREAD = 50.0      # ASSUMPTION: corporate FX spread 50 bps. Not computed: the VET data (R-01) are not downloaded
 WIRE_FEE_BPS = 2.5      # SWIFT Outbound Wire: US$ 25 flat on US$ 100k = 2.5 bps
 
 # Binance VIP0 fees: 10 bps trading fee; TRC20/TON withdrawal 1 USDT = 0.1 bps on US$ 100k
@@ -89,7 +89,10 @@ bank_avail_total_bps = BANK_SPREAD + WIRE_FEE_BPS + 350.0  # 402.5 bps
 bank_avail_cost_brl = (bank_avail_total_bps / 10_000.0) * NOTIONAL_USD * ptax_rate
 
 def add_route(route_id, category, regime_or_scenario, is_scenario, venue,
-              premium_bps, spread_bps, wire_onchain_bps, iof_hold_bps, notes):
+              premium_bps, spread_bps, wire_onchain_bps, iof_hold_bps, notes, avail_iof_bps=350.0):
+    # avail_iof_bps: IOF on the bank availability route in force in that period (R-02): 1.1% before 23 May 2025,
+    # 3.5% after (review 2 Nov: regimes 1-3 had been compared with 3.5%)
+    bank_avail_cost_brl = ((BANK_SPREAD + WIRE_FEE_BPS + avail_iof_bps) / 10_000.0) * NOTIONAL_USD * ptax_rate
     total_bps = premium_bps + spread_bps + wire_onchain_bps + iof_hold_bps
     total_pct = total_bps / 100.0
     cost_usd = (total_bps / 10_000.0) * NOTIONAL_USD
@@ -109,6 +112,7 @@ def add_route(route_id, category, regime_or_scenario, is_scenario, venue,
         "total_pct": round(total_pct, 3),
         "cost_usd_per_100k": round(cost_usd, 2),
         "cost_brl_per_100k": round(cost_brl, 2),
+        "bank_avail_iof_in_force_bps": avail_iof_bps,
         "savings_vs_bank_avail_brl": round(savings_vs_bank_avail_brl, 2),
         "notes": notes,
     })
@@ -134,17 +138,20 @@ add_route(
 add_route(
     "USDT_REGIME_1", "USDT Route (Historical)", "Regime 1: Oct 2020 - Jul 2021", False, "Binance (VIP0)",
     regime_means[1], BINANCE_FEE_BPS, ONCHAIN_FEE_BPS, 0.0,
-    "Early liquidity regime (Bai-Perron break 1; F-011); on-chain fee 1 USDT flat (R-04)"
+    "Regime 1 (F-011); bank comparison at 1.1% IOF (R-02); on-chain fee 1 USDT flat (R-04)",
+    avail_iof_bps=110.0
 )
 add_route(
     "USDT_REGIME_2", "USDT Route (Historical)", "Regime 2: Jul 2021 - Aug 2024", False, "Binance (VIP0)",
     regime_means[2], BINANCE_FEE_BPS, ONCHAIN_FEE_BPS, 0.0,
-    "Post-leverage cap & Capitual/Pix transition (M-01, E-07, F-011)"
+    "Regime 2 (F-011); bank comparison at 1.1% IOF (R-02)",
+    avail_iof_bps=110.0
 )
 add_route(
     "USDT_REGIME_3", "USDT Route (Historical)", "Regime 3: Aug 2024 - Jul 2025", False, "Binance (VIP0)",
     regime_means[3], BINANCE_FEE_BPS, ONCHAIN_FEE_BPS, 0.0,
-    "Post-CVM Termo de Compromisso (M-02, F-011); expanding domestic competition"
+    "Regime 3 (F-011); bank comparison at 1.1% IOF, in force for ~9.5 of its 11 months (3.5% from 23 May 2025)",
+    avail_iof_bps=110.0
 )
 add_route(
     "USDT_REGIME_4", "USDT Route (Historical)", "Regime 4: Jul 2025 - Jun 2026 (Pre-Notice Baseline)", False, "Binance (VIP0)",
@@ -162,9 +169,9 @@ add_route(
     "Acute 48-hour peak (Binance 155.4 bps on 24 Jun, 184.4 bps on 25 Jun; F-009, P2-05)"
 )
 add_route(
-    "USDT_REGIME_6", "USDT Route (Historical)", "Regime 6: 22 Jul - Oct 2026 (Post-Adaptation Plateau)", False, "Binance (VIP0)",
+    "USDT_REGIME_6", "USDT Route (Historical)", "Regime 6: 22 Jul - Oct 2026 (after the spike)", False, "Binance (VIP0)",
     regime_means[6], BINANCE_FEE_BPS, ONCHAIN_FEE_BPS, 0.0,
-    "New equilibrium after Foxbit-NovaDAX migration (M-04, F-008, F-011); 26.8 bps premium"
+    "After the spike (F-011); level not distinguishable from ordinary drift (F-022)"
 )
 
 # Domestic Onshore Venues in Regime 6 (Foxbit and Mercado Bitcoin VIP institutional tiers)
@@ -188,15 +195,30 @@ add_route(
 add_route(
     "SCENARIO_S2A_HOLD_HEDGED", "Policy Scenario", "Scenario S2a: 24h Hold Hedged (Res. 584/2026)", True, "Binance (VIP0)",
     regime_means[6], BINANCE_FEE_BPS, ONCHAIN_FEE_BPS, 10.0,
-    "[Scenario] Res. BCB 584/2026 24h hold hedged via B3 USD futures/perps (~10 bps funding & margin cost; R-07)"
+    "[Scenario] Res. BCB 584/2026 (R-07) 24h hold, hedged; hedge cost 10 bps is an ASSUMPTION without a source"
 )
+# Unhedged 24h hold: exposure, not a cost (expected cost ~0). 95% 1-day PTAX move from our data, 2025-26 (review 2 Nov)
+_r = np.log(p1_02["ptax_sell_brl_per_usd"]).diff().loc["2025-01-01":] * 1e4
+hold_risk_bps = float(1.645 * _r.std())
 add_route(
     "SCENARIO_S2B_HOLD_UNHEDGED", "Policy Scenario", "Scenario S2b: 24h Hold Unhedged (Res. 584/2026)", True, "Binance (VIP0)",
-    regime_means[6], BINANCE_FEE_BPS, ONCHAIN_FEE_BPS, 136.8,
-    "[Scenario] Res. BCB 584/2026 24h hold unhedged; 95% 1-day absolute PTAX VaR risk (136.8 bps; R-07)"
+    regime_means[6], BINANCE_FEE_BPS, ONCHAIN_FEE_BPS, 0.0,
+    f"[Scenario] Res. BCB 584/2026 (R-07) 24h hold, unhedged: no expected cost, but a 95% 1-day exchange-rate risk of "
+    f"{hold_risk_bps:.0f} bps (1.645 x sd of daily PTAX changes, 2025-26; P1-02). Risk is not added to the cost."
 )
+# Cost of the notice for a buyer of US$ 100k in USDT (the project's question): premium change, F-016 / F-022
+_e = pd.read_csv(TAB / "P2-03_event_table.csv")
+spike_bps = float(_e[(_e.event_id == "E-05") & (_e.eval_date_kind == "effective")].diff_bps.iloc[0])
+_d = p1_02["premium_bps"]; _i = _d.index.get_loc(pd.Timestamp("2026-06-23"))
+after_bps = float(_d.iloc[_i + 21:].mean() - _d.iloc[_i - 20:_i].mean())
+for rid, lab, v, note in [("NOTICE_COST_SPIKE", "Cost of the notice: spike (24 Jun - 21 Jul 2026)", spike_bps,
+                           "Premium change after E-05, [+1,+20] vs [-20,-1] (F-016); placebo p ~ 0.001"),
+                          ("NOTICE_COST_AFTER", "Cost of the notice: after the spike (22 Jul - 30 Oct 2026)", after_bps,
+                           "[+21,end] vs [-20,-1]; NOT distinguishable from ordinary drift (placebo p = 0.24, F-022)")]:
+    add_route(rid, "Cost of the notice", lab, False, "Binance (VIP0)", v, 0.0, 0.0, 0.0, note)
 
 df_routes = pd.DataFrame(rows)
+df_routes.loc[df_routes.category == "Cost of the notice", "savings_vs_bank_avail_brl"] = np.nan  # not a route
 TAB.mkdir(parents=True, exist_ok=True)
 df_routes.to_csv(TAB / "P3-01_route_costs.csv", index=False)
 print(f"Wrote {len(df_routes)} route cost rows to {TAB / 'P3-01_route_costs.csv'}")
@@ -244,10 +266,10 @@ plot_items = [
     ("SCENARIO_S2A_HOLD_HEDGED", "Cenário S2a: Retenção 24h com Hedge (Res. 584)", True),
     ("USDT_PEAK", "USDT Pico do Choque (24-25 Jun 2026)", False),
     ("USDT_REGIME_5", "USDT Regime 5: Choque Agudo 20d (24 Jun - 21 Jul)", False),
-    ("USDT_REGIME_1", "USDT Regime 1: Início da Liquidez (2020-2021)", False),
-    ("USDT_REGIME_2", "USDT Regime 2: Pós-Capped Alavancagem (2021-2024)", False),
-    ("USDT_REGIME_3", "USDT Regime 3: Pós-Termo CVM (2024-2025)", False),
-    ("USDT_REGIME_6", "USDT Regime 6: Platô Pós-Adaptação (Jul-Out 2026)", False),
+    ("USDT_REGIME_1", "USDT Regime 1 (out/2020-jul/2021; IOF 1,1%)", False),
+    ("USDT_REGIME_2", "USDT Regime 2 (jul/2021-ago/2024; IOF 1,1%)", False),
+    ("USDT_REGIME_3", "USDT Regime 3 (ago/2024-jul/2025; IOF 1,1%)", False),
+    ("USDT_REGIME_6", "USDT Regime 6: após o pico (jul-out/2026)", False),
     ("USDT_REGIME_4", "USDT Regime 4: Base Pré-Ofício (2025-2026)", False),
 ]
 
@@ -305,11 +327,11 @@ for i, (tot, r_id) in enumerate(zip(totals, [it[0] for it in plot_items])):
 
 # Reference vertical lines for Traditional Bank Routes
 ax.axvline(52.5, color="#27ae60", linestyle="--", linewidth=1.5, zorder=2)
-ax.text(46.0, -0.68, "Banco: Importação (0% IOF)\n52,5 bps (USD 525)", color="#27ae60",
+ax.text(30.0, -0.68, "Banco: Importação (0% IOF)\n52,5 bps (USD 525)", color="#27ae60",
         fontsize=8.3, fontweight="bold", va="bottom", ha="center")
 
 ax.axvline(162.5, color="#d35400", linestyle="--", linewidth=1.5, zorder=2)
-ax.text(175.0, -0.68, "Banco: Investimento (1,1% IOF)\n162,5 bps (USD 1.625)", color="#d35400",
+ax.text(195.0, -0.68, "Banco: Investimento (1,1% IOF)\n162,5 bps (USD 1.625)", color="#d35400",
         fontsize=8.3, fontweight="bold", va="bottom", ha="center")
 
 ax.axvline(402.5, color="#c0392b", linestyle="--", linewidth=1.5, zorder=2)

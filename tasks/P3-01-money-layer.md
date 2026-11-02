@@ -4,7 +4,7 @@ title: Cost of a digital dollar: bank route vs USDT route, per regime
 phase: P3
 status: review
 owner: Economist
-working: Renzo (applying review fixes)
+working: -
 due: 2026-11-03
 depends: P2-03, P2-04
 ---
@@ -83,10 +83,16 @@ Turn the premium into money for a Brazilian corporate treasurer: what US$ 100,00
   4. **Wording.** "Adaptation plateau", and "Res. BCB 580 and Foxbit–NovaDAX catalyzed … restoring local supply", have no
      evidence (P2-02: the fade is unexplained; Res. 580 has no opened source). Say "after the spike".
   5. **F-015 status.** It is `confirmed` with no checker; suggest `exploratory` until 1–4 are done.
-- **Next step:** Felipe (and the team, for the framing in 2) decides; then fix `scripts/p3_01_costs.py` and F-015.
+- **Fixes applied (2 Nov, agent for Renzo, agreed by Renzo):** 1 IOF by period (`bank_avail_iof_in_force_bps`); 3 risk not
+  added as a cost, constants marked ASSUMPTION; 4 neutral labels; 5 F-015 → exploratory; new rows `NOTICE_COST_SPIKE`
+  (93.9 bps ≈ R$ 5,052) and `NOTICE_COST_AFTER` (11.5 bps, not significant), made F-015's headline.
+- **Still open (team / Felipe):** 2, the framing. Should the bank comparison and the "economiza R$" labels in the figure
+  stay in the deck at all? Also: source the 50 bps bank spread (download VET data) and the hedge cost, or drop them.
+  Status stays review until the framing is decided.
 - **How to resume:** `python scripts/p3_01_costs.py`.
 
 ## Log
+- 2026-11-02, agent for Renzo: review fixes 1, 3, 4, 5 applied; framing (2) left for the team; status stays review.
 - 2026-11-02, agent for Renzo: Renzo applies the review fixes (agreed by Renzo; on behalf of Felipe).
 - 2026-11-02, agent for Renzo: review done (Handoff): arithmetic right; IOF anachronism for 2020–May 2025, framing, unsourced constants.
 - 2026-11-02, agent for Renzo: Renzo takes the review.
