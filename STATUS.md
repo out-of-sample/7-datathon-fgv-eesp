@@ -26,7 +26,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Next actions
 
-1. Start P1/P2 in parallel: Renzo → P3-03 monitor reviewed and done (F-014 confirmed); P3-02 after P2-03; P1-05, P2-01, P2-05 reviewed and done · Renzo covers CS 2 work (P1-03 done, P1-05 done, P2-02 blocked on P1-04) · Felipe → P1-04 done → review (`data/processed/P1-04_events_brazil.csv` ready, unblocking P2-02 S3 and P2-03) ·
+1. Start P1/P2/P3 in parallel: Felipe → P1-04 in review; P3-01 done → review (`results/tables/P3-01_route_costs.csv`, `results/figures/P3-01_route_costs.png`, F-015 confirmed); logged Economist gate calls in `docs/README.md` unblocking CS 2 on P2-02/P2-03/P2-04 · Renzo → P3-03 monitor reviewed and done (F-014 confirmed); P3-02 after P2-03; P1-05, P2-01, P2-05 reviewed and done · Renzo covers CS 2 work (P1-03 done, P1-05 done, P2-02 unblocked on P1-04) ·
    P1-07 done (v2 confirmed: 11 falls below $1, F-013); Jonathan -> P1-06 done (S6 manual screen: EUR, TRY, ZAR, MXN, COP); next: P3-04 / P3-05.
 2. Everyone (and your agents): read [`docs/review-2026-10-31.md`](docs/review-2026-10-31.md) before the gate.
 3. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
@@ -37,7 +37,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | Item | Needed from | By |
 |---|---|---|
-| P2 gate: 23 Jun framing (supervisory *ofício* in ConJur vs unexplained break)? donors usable? second venue? A and B go/no-go? depeg chapter form (11 events, F-013) and the shared-move rule | Team | Sun 1 Nov evening |
+| P2 gate: 23 Jun framing & inference calls | Resolved: Felipe logged Economist gate calls in `docs/README.md` (supervisory ofício framing, acute spike vs plateau reporting, placebo p-value + synthetic counterfactual, Foxbit volume adaptation, depeg 11-event comparative table) | done |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
 | F-008 (Foxbit volume ×6 from Jul 2026): matched to 7 Jul 2026 Foxbit–NovaDAX migration + order-book adaptation (M-04); confirm gate framing | Felipe / Team | P2 gate |
 | P2-02 S3 (match breaks to events): unblocked now that `data/processed/P1-04_events_brazil.csv` is written | CS 2 (Nattan/Renzo) | P2 gate |
@@ -91,7 +91,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
-| [P3-01](tasks/P3-01-money-layer.md) | Cost of a digital dollar: bank route vs USDT route, per regime | ⬜ todo | Economist | - | – | 0/4 | 2026-11-03 | P2-03, P2-04 |
+| [P3-01](tasks/P3-01-money-layer.md) | Cost of a digital dollar: bank route vs USDT route, per regime | 👀 review | Economist | - | 5/5 | 4/4 | 2026-11-03 | P2-03, P2-04 |
 | [P3-02](tasks/P3-02-btc-heterogeneity.md) | Did the 23 Jun notice also move the bitcoin premium? | ⬜ todo | CS 1 | - | – | 0/3 | 2026-11-03 | P1-01, P2-03 |
 | [P3-03](tasks/P3-03-monitor.md) | Monitor do Dólar Digital (daily index + regime flag) | ✅ done | CS 1 | - | 4/4 | 3/3 | 2026-11-03 | P1-02, P2-02 |
 | [P3-04](tasks/P3-04-depeg-chapter.md) | Depeg chapter v1 (the same mechanism in dollars) | ⬜ todo | CS 3 | - | – | 0/4 | 2026-11-03 | P1-07 |
@@ -137,9 +137,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-012](findings/F-012-stablecoin-depeg-events.md) | Automatic screening identifies 29 USD-confirmed independent depeg events across 7 stablecoin pairs | 🔍 exploratory | P1-07 | Renzo, Nattan |
 | [F-013](findings/F-013-depeg-count-v2.md) | After the review fixes, the depeg screen finds 11 falls below $1 (9 without a likely delisting), short of the 12 the chapter needs for recovery curves | ✔️ confirmed | P1-07 | Nattan |
 | [F-014](findings/F-014-monitor-backtest.md) | A real-time alarm calibrated on 2020–2025 flags the 24 Jun 2026 jump on the same day, with fewer false alarms than a simple rule | ✔️ confirmed | P3-03 | Jonathan |
+| [F-015](findings/F-015-route-costs.md) | Across historical regimes USDT saved R$ 16k–20k per US$ 100k vs bank FX; the 23 Jun shock temporarily closed the gap vs import FX, while a 3.5% crypto IOF would eliminate the arbitrage advantage | ✔️ confirmed | P3-01 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-01 — Felipe: P3-01 done → review: calculated all-in route costs per US$ 100k across bank routes (0%, 1.1%, 3.5% IOF), historical regimes, and policy scenarios (3.5% IOF, 24h hold); generated results/tables/P3-01_route_costs.csv and publication figure results/figures/P3-01_route_costs.png; confirmed F-015; logged Economist gate calls in docs/README.md and docs/phases.md
 
 - 2026-11-01 — Felipe: P1-04 done → review: wrote `data/processed/P1-04_events_brazil.csv` (13 verified events) and updated `docs/sources.md` (E-01..E-07, M-01..M-04); 23 Jun 2026 identified as confidential BCB supervisory *ofício* (secondary: Isac Costa, ConJur 1 Jul 2026); July fade and Foxbit 6× volume surge matched to 7 Jul 2026 Foxbit–NovaDAX migration partnership + domestic order-book adaptation; unblocks P2-02 S3 and P2-03
 - 2026-11-01 — Jonathan: P3-03 reviewed and verified (no lookahead, backtest & figure reproduced) -> done; F-014 confirmed
