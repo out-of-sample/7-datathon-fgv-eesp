@@ -1,0 +1,109 @@
+# Deck plan: 10 slides (proposal, 2 Nov 2026)
+
+For Felipe (deck owner, P5-01) and the team, from Renzo's agent. A proposal: the deck owner decides. It applies the
+binding decisions of 2 Nov (`docs/README.md`): at most 10 slides, "Lições de 2025" as a strip on the method slide,
+the four language levels of `docs/deck-notes-2026-11-02.md`, and delivery/rehearsal as part of the goal.
+
+## The 10 slides
+
+The cover counts as slide 1; references and registers go to the annex. Order follows Art. 7 of the regulation
+(motivação → delimitação → dados e metodologia → resultados → discussão). One message and one chart per slide;
+finding IDs go to small footnotes, not the body.
+
+| # | Title (pt-BR) | The one message | Chart | Language level | From deck v1 (14 slides) |
+|---|---|---|---|---|---|
+| 1 | **Quanto custa fechar a porta?** | A digital dollar stays near the official dollar only while an arbitrage channel is open. Brazilians bought about US$ 2.4 bn a month of stablecoins abroad (Jan–May 2026, F-024). The answer on the cover: **+94 bps for one month = R$ 5.052 por US$ 100 mil** | Parity equation + simple channel diagram | Measured (answer) | 1 |
+| 2 | **A porta que fechou: o ofício de 23/jun** | What the notice said (two outlets saw it; the BCB confirmed its view in a written LAI answer), who used the channel (funds, 0% IOF vs 3.5%), confidential and immediate. Timeline of the dated rules | Timeline of rules, notice marked | Consistent with the mechanism | 5 (first half), 6 (timeline) |
+| 3 | **Dados e método** | Six years matched to the PTAX window, 3 exchanges, 5 comparison currencies, BCB statistics. Design: blind break test, 1,073 placebo dates, synthetic control; what would falsify. **Strip "Lições de 2025":** naive baseline, placebo dates, count events not rows | Design diagram + H1/H0 table | – | 2, 3, 13 (strip) |
+| 4 | **O salto** (headline chart) | +93.9 bps after 23 Jun; the same on 3 exchanges (+93.3 to +94.9); a blind break test finds 24 Jun without being given the date | Daily premium 2025–26 with noise band; inset hourly 22–26 Jun, 3 exchanges | Measured | 3, 4 |
+| 5 | **Só o ofício moveu o preço** | Beyond all 1,073 placebo dates (p ≈ 0.001); the published rules stayed inside the ordinary range; the May 2025 IOF rise (1.1% → 3.5%) moved it only +13 bps (p = 0.38) | `P3-12_rules.png` | Measured; form vs content **not shown** | 6 |
+| 6 | **Não foi o real, nem o USDT, nem o mundo** | Synthetic control +109 bps (Brazil 1st of 6); USDT/USD and the real flat; BTC rose by the same amount, as triangular arbitrage requires | `P2-04_synthetic_control.png` | Measured | 7 |
+| 7 | **O mecanismo: as importações caíram** | Stablecoin purchases abroad fell 78% in July while the price rose: higher price, lower quantity ("coincidiu com"). Caveat: Res. 580 the same month | `P3-10_imports.png` | Consistent with the mechanism | 5 (second half) |
+| 8 | **Robusto, mas de um mês** | +74 to +128 bps across 22 variants; after 22 Jul not distinguishable from ordinary drift (p = 0.24). Box "**o que não mostramos**": lasting effect, cause of the fade, marginal route (F-028), form vs content | `P4-01_robustness_forest.png` | Measured + not shown | 8, 14 (limits) |
+| 9 | **Quanto custou e para quem** | R$ 106 mn on Binance (R$ 145 mn on 3 exchanges) moved from buyers to sellers in 4 weeks: like a ~0.95% tariff collected by the remaining suppliers, not the Treasury. Why not +350: the 3.5% route is a ceiling the premium never approached (F-028) | New: spike month vs 194 placebo months (`results/tables/P3-11_placebo.csv`) | Measured (transfer); route not shown | 10 |
+| 10 | **Implicações, previsão e limites** | Brazil: an abrupt closure produced an acute transfer that faded within a month (how is not known). Dated prediction for Res. 584, 1 Jan 2027 (`393a14a`); monitor prototype (one detection); limits; future work (Argentina, SVB) | Small prediction box | Prediction / prototype | 12, 14 |
+
+**To the annex:** cross-country premiums (v1 slide 9, illustrative), SVB and depeg cases (v1 slide 11, illustrative),
+monitor details (v1 slide 12), full "Lições de 2025" table (v1 slide 13), Band-TAR, bank route costs (Option A),
+source registers. The Option C vs A question mostly dissolves: slide 9 carries the transfer and the "ceiling" line,
+the bank-route table goes to the annex. The team confirms.
+
+## Observations: how strong this deck is
+
+**Strengths**
+- One question, one answer in reais ("R$ 5 mil por US$ 100 mil").
+- Layered identification: blind break test, placebo dates, three exchanges, synthetic control, BTC.
+- Slide 5 + F-028 tell one story: the 3.5% route did not move the premium when it was raised (May 2025) and the premium
+  never came near it after the notice. Two separate pieces of evidence say the ordinary bank route was not the
+  marginal one.
+- Visible honesty: pre-committed hypotheses, a "não mostramos" box, a dated prediction that can be proved wrong.
+- Live Brazilian policy: Res. 584 takes effect on 1 Jan 2027.
+
+**Weak points a juror can attack**
+1. **One event.** All causal evidence is about one shock; the published rules and placebo dates are contrasts, not
+   replications.
+2. **Thin mechanism.** One monthly observation (−78%), confounded with Res. 580; the notice's full text was never
+   published.
+3. **"Only a month."** The fade is unexplained, while imports stayed at a third of their earlier level.
+4. **Tempting policy lesson.** "Publish rules with notice" needs form and content separated; we cannot separate them.
+5. **Legal sensitivity.** 0% vs 3.5% IOF in front of bankers and regulators can read as tax avoidance; keep
+   `docs/02-dolar-cripto.md` §10 framing ("medimos fricções").
+6. **Too many numbers.** Three versions of the jump (93.9 / 109 / 128) and two of the money (106 / 145): one per
+   concept on the slide, the rest in the annex.
+7. **Delivery.** v1 slides are text-heavy and the oral time limit is unknown (it arrives by e-mail if we reach the
+   final). Speaker notes at ~60 s per slide; a marked cut order (compress slides 6 and 8 first).
+8. **Res. BCB 574 (22 Jun 2026)** is not in the event list (P3-16); slide 5's "only the notice" needs it handled.
+
+## Is the core research finished?
+
+Yes for analysis: no new estimate is needed for the core claim. Before the slides are final:
+
+| Item | Why | Size |
+|---|---|---|
+| P3-16 (Res. 574) | Slide 5 claims "only the notice" | < 1 h |
+| Team freeze of core numbers (P4-03) | Move the date, or freeze F-001..F-028 now and keep extensions as separate findings | decision |
+| Reviews: P1-04, F-015, F-028 | F-015 (R$ 5,052) is still exploratory; P1-04 is the event list | small |
+
+Suggested schedule: freeze core by Tue 3 Nov; deck v1 Thu 5; timed rehearsals Fri 6 – Sat 7; submit Sun 8 by 20:00.
+Side questions (Argentina, SVB, Extension A, 26 Jun meeting, 22 Jul fade) feed only the annex or slide 10's
+future-work line.
+
+## Strategies for the weak points, checked before proposing (2 Nov, Renzo's agent)
+
+Each idea was checked against our data or an opened source first. Numbers below are exploratory: any that reaches
+the deck goes into a finding with its command first.
+
+| # | Weak point | Strategy | Check done | Verdict |
+|---|---|---|---|---|
+| 1 | One event | Name the inference: the placebo-date p-value follows the logic of the sample-quantile (SQ) test for single-event studies (Gelbach, Helland & Klick 2013, *American Law and Economics Review* 15(2), 495–541; built for "regulation, antitrust rulings" and litigation events). Synthetic control is designed for one treated unit (L-08) | Paper record opened on IDEAS (https://ideas.repec.org/a/oup/amlawe/v15y2013i2p495-541.html): SQ test is "based on sample quantiles of pre-event fitted excess returns". Our statistic is a 20-day window difference, not a daily excess return, so write "na lógica do teste SQ", not "rodamos o teste SQ" | **Adopt** (one line on slide 3) |
+| 1b | One event | Use the 26 Jun meeting (in-book arbitrage "liberou") as a second, opposite move inside the episode | Hourly premium was already falling on 25 Jun afternoon (161 → 90 bps) before the meeting; no source gives the meeting time | **Reject** |
+| 1c | One event | Argentina as a replication | See the 2 Nov discussion: unification of a dual rate, IMF money the same weekend | **Reject** as a test; illustrative annex only |
+| 2 | Thin mechanism | Time the jump to the minute: did it start before the first public report (Cointelegraph, `datePublished` 24 Jun 2026 12:36 UTC = 09:36 BRT) or at the 09:00 open? Before the news would mean the notified institutions moved the price, not press-driven buyers | Hourly bar 24 Jun 09:00–10:00 BRT holds the jump (73 → 220 bps) and the news time; hourly cannot separate them. Only 1h Binance data are frozen; 1-minute USDTBRL for Jun 2026 needs a download | **Optional; needs Renzo's OK to download** |
+| 2b | Thin mechanism | Say when better data arrive: Res. BCB 574 (E-11) makes FX institutions report virtual-asset operations "realizadas a partir de 3 de novembro de 2026" | E-11 opened 2 Nov 2026 | **Adopt** (slide 10, future work) |
+| 3 | "Only a month" | Describe the fade as a gradual decay, not a 22 Jul event: the excess over the pre-notice level halved by 10 Jul, while imports stayed at a third (F-024) and Binance volume returned to its pre-notice level (55.2 vs 58.4 M USDT/day, F-024) | Daily premium: peak 185.9 bps on 3 Jul; first day with excess below half (85.4 bps): 10 Jul. Exchanges: 113 (8 Jul), 63 (15 Jul), 37 (27 Jul) bps, moving within ±4 bps of each other | **Adopt after a spec** (start date and half-time rule fixed before the finding; the 3 Jul peak is a post-hoc anchor) |
+| 3b | "Only a month" | Foxbit Infra relaunch (18 Jul, M-05) as the cause of the fade | Decline under way before 18 Jul; exchanges move in lockstep, no Foxbit lead | **Reject** |
+| 3c | "Only a month" | Band-TAR (F-021): band widened, arbitrage slowed | Band CI separates (1.61 [1.22, 5.13] vs 41.95 [9.96, 52.63] bps), but on 20 observations, regimes picked from the same data, and a band around the regime mean widens with volatility; slowing CI overlaps (half-life 1.60 [0.26, 2.10] vs ≤ 1 day) | **Not for the deck**; annex after P3-07 review |
+| 4 | Policy lesson (form vs content) | No recommendation; F-027's prediction is the forward test of "published rule with notice" | Res. 584 targets outgoing transfers (E-06b, art. 2-B), not the import channel: a partial test only, say so | **Adopt** |
+| 5 | Legal sensitivity | Describe the rule in the BCB's own words (LAI, E-05.3); "diferença de alíquota", never "arbitragem de IOF" (E-05.10's headline wording); Felipe checks each slide against §10 | Quotes exist in `docs/sources.md` | **Adopt** |
+| 6 | Too many numbers | One number per concept: +93.9 bps (pre-committed 20-day window, F-016); R$ 106 mn Binance (F-025 uses Binance alone because Foxbit's volume has open questions, F-008). Ranges only on slide 8 and the annex | F-025 text | **Adopt** |
+| 7 | Delivery | Action titles (each title states the result) so the PDF stands alone; notes at ~60 s per slide; two timed rehearsals with a timekeeper; a Q&A sheet of ~10 hard questions with 20-second answers and annex pointers (n = 1, Res. 574, Res. 580, why not 350, why PTAX window, real vs USDT, lasting effect, who got the money, legality, why BTC moved) | Regulation: first round judged on the PDF alone (`prompt.md` §2) | **Adopt** |
+| 8 | Res. 574 | P3-16: one annex line | Hourly premium on 22 Jun between −8 and 50 bps; daily 23.3 (22 Jun), 24.8 (23 Jun), 155.4 (24 Jun) | **Adopt** (< 1 h) |
+
+Housekeeping found: L-05..L-08 appear only in the annex (C.5), not in `docs/sources.md`; the annex gives Makarov &
+Schoar (2020) pp. 289–319, a search record says 293–319 `[verify]`.
+
+Commands for the checks above:
+```bash
+# hourly premium around the notice and the 26 Jun meeting (BRT)
+.venv/bin/python -c "
+import pandas as pd
+h=pd.read_csv('data/processed/P1-02_premium_hourly.csv',parse_dates=['time_utc']).set_index('time_utc')['premium_vs_last_ptax_bps']
+h.index=h.index.tz_localize('UTC').tz_convert('America/Sao_Paulo')
+print(h['2026-06-22 09:00':'2026-06-24 13:00'].round(0).to_string()); print(h['2026-06-25 08:00':'2026-06-26 17:00'].round(0).to_string())"
+# peak, half-time, venue lockstep
+.venv/bin/python -c "
+import pandas as pd
+p=pd.read_csv('data/processed/P1-02_premium_daily.csv',parse_dates=['date_brt']).set_index('date_brt')['premium_bps']
+x=p['2026-07-03':]-15.2; print(p['2026-06-24':].idxmax().date(), p['2026-06-24':].max().round(1), x[x<170.7/2].index[0].date())
+v=pd.read_csv('results/tables/P2-05_venues_daily.csv',parse_dates=[0],index_col=0); print(v.loc['2026-07-08':'2026-07-31'].round(0).to_string())"
+```
