@@ -4,7 +4,7 @@ title: Depeg chapter v1 (the same mechanism in dollars)
 phase: P3
 status: review
 owner: CS 3
-working: -
+working: Renzo (review)
 due: 2026-11-03
 depends: P1-07
 ---
@@ -40,6 +40,7 @@ Turn P1-07 into 1-3 slides: the SVB weekend, and Kaplan-Meier curves only if the
   `py scripts/p3_04_depeg_chapter.py`
 
 ## Log
+- 2026-11-02, agent for Renzo: Renzo takes the review.
 - 2026-11-02, Felipe (Economist): claimed task; structured subtasks S1–S4; inspected `P1-07_v1_vs_v2.csv` and verified 11 USD-confirmed downward depeg events; checked pre-committed threshold ($11 < 12$), formally omitting Kaplan-Meier survival curves in accordance with `docs/01-depeg-recovery.md` §5 and decision log line 96; developed `scripts/p3_04_depeg_chapter.py`; created case table `P3-04_depeg_case_table.csv` and category summary `P3-04_category_summary.csv`; generated `P3-04_svb_weekend.png` and `P3-04_depeg_cases.png`; authored `findings/F-019-depeg-chapter.md`; drafted 2 chapter slides in Portuguese (`pt-BR`) in Result section; set status to review.
 
 ## Result
