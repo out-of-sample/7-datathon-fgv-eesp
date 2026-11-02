@@ -4,7 +4,7 @@ title: Verified list of Brazilian rule changes and events
 phase: P1
 status: review
 owner: Economist
-working: -
+working: Renzo (review: source links)
 due: 2026-10-31
 depends: -
 ---
@@ -38,6 +38,7 @@ primary source. It feeds the event studies, the break matching, and is the human
 - **How to resume:** inspect `data/processed/P1-04_events_brazil.csv` and `docs/sources.md`
 
 ## Log
+- 2026-11-02, agent for Renzo: Renzo takes the review of the source links (5 broken links found; see docs/sources.md).
 - 2026-11-01, Felipe: S1–S5 completed (`status: review`). Wrote `data/processed/P1-04_events_brazil.csv` (13 rows: `E-01`, `E-01b`, `E-02`, `E-03`, `E-04`, `E-05`, `E-06a`, `E-06b`, `E-07`, `M-01`..`M-04`) and updated `docs/sources.md`. Unblocks `P2-02` S3 and `P2-03`.
 - 2026-11-01, Felipe: claimed P1-04 (S1–S4); launched regulatory-verifier subagents on E-01..E-07, the 23 Jun 2026 notice, and the July 2026 fade / blind break dates.
 - 2026-10-31, agent for Renzo (note from P3-03): the premium rises modestly from late May 2026 (weekly 10–22 bps vs 5.8 in Jan–Apr) before the 24 Jun jump. Anything in May–Jun 2026? (F-014)

@@ -73,7 +73,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P1-01](tasks/P1-01-raw-data-download.md) | Download and freeze the raw price data | ✅ done | CS 1 | - | 7/7 | 4/4 | 2026-10-31 | - |
 | [P1-02](tasks/P1-02-premium-v2.md) | Build the premium series v2 (time-matched, USDT/USD-adjusted) | ✅ done | CS 1 | - | 6/6 | 4/4 | 2026-10-31 | P1-01 |
 | [P1-03](tasks/P1-03-second-venue.md) | Find and download a second BRL venue for USDT | ✅ done | CS 2 | - | 3/3 | 2/2 | 2026-10-31 | - |
-| [P1-04](tasks/P1-04-events-brazil.md) | Verified list of Brazilian rule changes and events | 👀 review | Economist | - | 5/5 | 3/3 | 2026-10-31 | - |
+| [P1-04](tasks/P1-04-events-brazil.md) | Verified list of Brazilian rule changes and events | 👀 review | Economist | Renzo (review: source links) | 5/5 | 3/3 | 2026-10-31 | - |
 | [P1-05](tasks/P1-05-comparison-currencies.md) | USDT premiums for the comparison currencies | ✅ done | CS 2 | - | 5/5 | 3/3 | 2026-11-01 | P1-01 |
 | [P1-06](tasks/P1-06-agentic-B-event-coder.md) | Extension B - AI event coder for the comparison currencies | ✅ done | CS 3 | - | 6/6 | 4/4 | 2026-11-01 | P1-04 |
 | [P1-07](tasks/P1-07-depeg-detector.md) | Depeg detector and SVB-weekend figure (chapter) | ✅ done | Nattan | - | 7/7 | 3/3 | 2026-11-01 | P1-01 |
