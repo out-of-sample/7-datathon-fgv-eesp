@@ -1,6 +1,6 @@
 ---
 id: F-028
-title: We cannot identify which route set the price after the 23 Jun notice; the 3.5% route was a ceiling the premium never came near (at most +171 bps over the pre-notice level)
+title: We cannot identify which route set the price after the 23 Jun notice; the ordinary 3.5% route did not set it (the premium rose at most +171 bps, and raising that route's IOF in May 2025 moved it +13 bps)
 status: confirmed
 task: P3-15
 date: 2026-11-02
@@ -10,10 +10,16 @@ checked_by: -
 ## Claim
 **Why +94 bps and not +350.** The two numbers measure different things. +93.9 bps is the change in a market price
 (F-016). 350 bps is the IOF difference between the closed funds' route (0%) and an ordinary purchase of foreign
-currency (3.5%). The 3.5% route is a **ceiling**: if it had set the price, the premium would have risen about 350 bps.
-On no day after the notice did it come close. The highest daily premium was 185.9 bps on 3 Jul 2026, **+170.7 bps** over
-the pre-notice level of 15.2 bps. So on every day some USDT reached the market at a lower cost than the 3.5% route, or
-buyers who would have paid that much stopped buying. The data do not say which.
+currency (3.5%): a tax rate on one kind of FX transaction, not a price. Two observations say the ordinary 3.5% route
+was not the one setting the USDT price:
+1. after the notice the premium stayed far below +350 bps on every day: the highest daily premium was 185.9 bps on
+   3 Jul 2026, **+170.7 bps** over the pre-notice level of 15.2 bps;
+2. when that route's IOF itself rose by 240 bps (1.1% → 3.5%, decree of 22 May 2025), the premium moved **+13.2 bps**,
+   inside the range of ordinary dates (placebo p = 0.38, F-026).
+
+We cannot tell whether cheaper supply remained available, buyers bought less, or both. We do **not** call the 3.5%
+route a ceiling: a route caps the premium only if it can supply USDT legally and at scale, and no opened source shows
+that (route 3 in the table: "unknown").
 
 **Which route set the price: not identified** (outcome (b) of the rule committed in `6393330` before the comparison).
 Of six routes, one has an excess cost inside the spike's range: a remittance abroad "com finalidade de investimento"
@@ -26,7 +32,7 @@ books (0% IOF; on 26 Jun the BCB "'liberou'" that arbitrage, E-05.5), goods-impo
 Jan–May level (F-024, T2 = 0.32), consistent with the funds' channel staying closed. The BCB series counts all
 residents' purchases, not only funds'. Yet from 22 Jul to 30 Oct the premium never rose more than **+52.1 bps** above
 its pre-notice level, and its average level is not distinguishable from ordinary drift (+11.5 to +19.3 bps, placebo
-p = 0.24, F-022). So after July no route costing 110 bps or more (the 1.1% or the 3.5% route) was setting the price:
+p = 0.24, F-022). So after July neither the 1.1% nor the 3.5% route (110 and 350 bps over the closed route) was setting the price:
 either cheaper supply reached the market or demand fell. The data do not say which.
 
 ## Evidence
@@ -69,23 +75,28 @@ either cheaper supply reached the market or demand fell. The data do not say whi
   or unlawful for virtual assets. Framing rule (`docs/02-dolar-cripto.md` §10): we measure frictions and recommend no route.
 - **The rule was written knowing the numbers** (spike, range and F-015 totals). It fixed how they would be read before
   the comparison. It was not blind.
-- **The ceiling assumes the 3.5% route could carry virtual assets.** Brotto (E-05.10, opinion) compares the funds' 0%
-  with it ("vantagem de até 3,5%"). If that route could not carry them, the ceiling is higher and the argument is
-  stronger.
+- **May 2025 is not a clean test either.** The next day Dec. 12.467 kept 1.1% for investment remittances; Congress and
+  the STF suspended and then restored the decree (E-01b, −23.9 bps, p = 0.16). The funds' 0% route was untouched, so
+  the null fits a cheaper route setting the price then too.
+- **"Did not set the price" is not "could not supply".** Whether the 3.5% route can carry virtual assets is unknown
+  (Brotto, E-05.10, opinion, compares the funds' 0% with it: "vantagem de até 3,5%").
 - **Inciso number:** R-02 cites art. 15-B, XXI for the 3.5% rate and Brotto cites XXIV. The rate agrees. Planalto blocks
   automated requests; Felipe can check it in a browser.
 - Daily maxima are single days at the PTAX window. The +170.7 bps peak is description, not a test.
 
 ## Text for the deck (for Felipe, P5-01; level "not shown" for the marginal route)
 - **Slide 1** (replaces "o prêmio descola da paridade até o custo do próximo canal disponível"): "Quando uma regra fecha
-  a porta mais barata, o prêmio pode subir até o custo do próximo canal disponível; em 2026 ele subiu +94 bps, muito
-  abaixo dos 350 bps do canal bancário comum, e não identificamos qual canal passou a definir o preço."
+  a porta mais barata, o prêmio pode subir até o custo do próximo canal disponível; em 2026 ele subiu +94 bps, bem
+  menos que a diferença de alíquota de 3,5 pontos, e não identificamos qual canal passou a definir o preço."
 - **Slide 5** (the 0% vs 3,5% line): "Os fundos pagavam IOF-Câmbio zero, contra 3,5% na compra comum de moeda
-  estrangeira; esses 350 bps são um teto, não uma previsão: no pior dia (3/jul) o prêmio ficou 171 bps acima do nível
-  anterior ao ofício, e não sabemos se foi uma oferta mais barata ou a queda da demanda que o conteve."
+  estrangeira; o prêmio subiu bem menos que essa diferença (no pior dia, 3/jul, 171 bps acima do nível anterior), e
+  quando a alíquota da compra comum subiu de 1,1% para 3,5% em maio de 2025 o prêmio não se moveu (+13 bps): o canal
+  bancário comum não era o que definia o preço, e não sabemos se foi oferta mais barata ou menor demanda que o conteve."
 
 ## Used in deck
 Not yet. Proposed for Slides 1 and 5 (text above) and the annex (route table).
 
 ## History
+- 2026-11-02, agent for Renzo (after a second agent's review): "ceiling" removed (route 3's supply is unknown, so
+  it is not an established upper bound); May 2025 IOF evidence (F-026) added; deck sentences rewritten
 - 2026-11-02, agent for Renzo: created (P3-15); rule committed first (`6393330`).

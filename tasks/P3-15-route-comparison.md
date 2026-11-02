@@ -88,8 +88,8 @@ series counts all residents' purchases, not only funds').
 
 ## Handoff
 - **State:** done, in review. Rule committed first (`6393330`); route map `results/tables/P3-15_routes.md`; finding F-028.
-  Outcome (b): we cannot identify the marginal route. The 3.5% route is a ceiling the premium never came near
-  (highest day +170.7 bps over the pre-notice level, 3 Jul).
+  Outcome (b): we cannot identify the marginal route. The ordinary 3.5% route did not set the price (highest day
+  +170.7 bps over the pre-notice level, 3 Jul; May 2025 IOF rise moved the premium +13 bps). Not called a ceiling.
 - **Next step:** a teammate checks the table against the sources and re-runs the F-028 command; Felipe decides on the two
   pt-BR sentences (F-028, "Text for the deck") for Slides 1 and 5.
 - **Open questions:** (1) inciso of the 3.5% rate: R-02 says XXI, Brotto (E-05.10) says XXIV; Planalto blocks automated
@@ -100,6 +100,7 @@ series counts all residents' purchases, not only funds').
   R-01, R-02.
 
 ## Log
+- 2026-11-02, agent for Renzo: "ceiling"/"upper bound" wording corrected in F-028 and the route table (second agent's review)
 - 2026-11-02, agent for Renzo: S1, S3, S4 done; outcome (b); F-028; Res. 574 found and filed as P3-16; status review
 - 2026-11-02, agent for Renzo: Renzo takes the task (status doing); S2 rule written and committed before S1
 - 2026-11-02, agent for Renzo: created (todo) after the review of the "beyond a period study" proposals
@@ -108,5 +109,7 @@ series counts all residents' purchases, not only funds').
 Outcome (b), **we cannot identify the marginal route** (F-028). One route's excess cost falls inside the spike's range
 (remittance "com finalidade de investimento", 1.10% IOF, 110 bps over the closed route), but no opened source says it
 can carry virtual assets, and cheaper routes of unknown status stayed open (funds' own-account and in-book arbitrage,
-goods-import FX, USDT already abroad). The 3.5% route (350 bps) is a ceiling: the premium's highest day after the
+goods-import FX, USDT already abroad). The 3.5% route (350 bps) did not set the price: the premium's highest day after the
 notice was +170.7 bps over the pre-notice level (3 Jul), and +52.1 bps after 22 Jul. S3 holds with corrected wording.
+**Correction (2 Nov, after a second agent's review):** the rule's bound check says "upper bound"; that word is not
+supported, because route 3's supply is unknown. F-028 now says "did not set the price" and adds the May 2025 evidence.

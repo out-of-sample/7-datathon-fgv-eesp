@@ -44,9 +44,11 @@ of unknown status were open.
 | 24 Jun – 30 Oct 2026 | 91 | 185.9 bps | 3 Jul 2026 | **170.7 bps** | Yes |
 | 22 Jul – 30 Oct 2026 | 71 | 67.3 bps | 5 Oct 2026 | **52.1 bps** | Yes |
 
-The premium never came near the 3.5% route's excess cost on any day after the notice. That route was an upper
-bound that never became binding: on every day, some USDT was supplied at a lower cost, or buyers who would have paid 3.5%
-stopped buying. The data do not say which.
+The premium never came near the 3.5% route's excess cost on any day after the notice, so that route did not set the
+price at any time after the notice. It is **not** called an upper bound: that would need the route to supply USDT
+legally and at scale, and its supply column above is "unknown" (correction of 2 Nov after a second agent's review; the
+rule text in the task file used "upper bound"). Whether cheaper supply remained or buyers bought less, the data do not
+say.
 
 Command: see `findings/F-028-route-comparison.md`.
 
