@@ -97,7 +97,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
 | [P2-01](tasks/P2-01-noise-floor.md) | Noise floor (how big a premium is just trading friction) | ✅ done | CS 1 | - | 3/3 | 3/3 | 2026-11-01 | P1-02 |
-| [P2-02](tasks/P2-02-blind-break-test.md) | Blind structural-break test on the premium | 👀 review | CS 2 | - | 4/4 | 4/4 | 2026-11-01 | P1-02, P1-04 |
+| [P2-02](tasks/P2-02-blind-break-test.md) | Blind structural-break test on the premium | 👀 review | CS 2 | Felipe (review) | 4/4 | 4/4 | 2026-11-01 | P1-02, P1-04 |
 | [P2-03](tasks/P2-03-event-studies.md) | Before/after test for every dated rule, with placebo dates | ✅ done | CS 2 | - | 3/3 | 3/3 | 2026-11-02 | P1-02, P1-04 |
 | [P2-04](tasks/P2-04-synthetic-control.md) | Synthetic control for the 23 Jun 2026 shock | ✅ done | CS 2 | - | 5/5 | 4/4 | 2026-11-02 | P1-05, P1-06, P2-03 |
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
@@ -127,7 +127,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
 | [P4-01](tasks/P4-01-robustness.md) | Robustness battery for every headline number | ✅ done | CS 2 | - | 4/4 | 3/3 | 2026-11-04 | P2-02, P2-03, P2-04 |
-| [P4-02](tasks/P4-02-independent-recheck.md) | Independent re-run of every headline number | ⬜ todo | CS 3 | - | – | 0/2 | 2026-11-04 | P4-01 |
+| [P4-02](tasks/P4-02-independent-recheck.md) | Independent re-run of every headline number | 🔄 doing | CS 3 | Felipe | 0/3 | 0/2 | 2026-11-04 | P4-01 |
 | [P4-03](tasks/P4-03-freeze.md) | Freeze results | ⬜ todo | Team | - | – | 0/4 | 2026-11-04 | P4-01, P4-02 |
 
 **P5 — Deck and submission** (1/7 closed)
@@ -136,7 +136,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 |---|---|---|---|---|---|---|---|---|
 | [P5-01](tasks/P5-01-deck-v1.md) | Deck v1 (pt-BR) | 🔄 doing | Economist | - | 3/4 | 4/4 | 2026-11-05 | P4-03 |
 | [P5-02](tasks/P5-02-final-figures.md) | Final figures in one consistent style | ⬜ todo | CS 1 | - | – | 0/3 | 2026-11-06 | P5-01 |
-| [P5-03](tasks/P5-03-red-team.md) | Red-team review | ⬜ todo | Team | - | – | 0/2 | 2026-11-06 | P5-01 |
+| [P5-03](tasks/P5-03-red-team.md) | Red-team review | 🔄 doing | Team | Felipe | 0/3 | 0/2 | 2026-11-06 | P5-01 |
 | [P5-04](tasks/P5-04-scripts-txt.md) | Export scripts as .txt with headers | ⬜ todo | CS 2 | - | – | 0/2 | 2026-11-07 | P4-03 |
 | [P5-05](tasks/P5-05-annex.md) | Annex: sources, event table, AI-use disclosure | 🔄 doing | Economist | - | 4/4 | 2/2 | 2026-11-07 | P5-01 |
 | [P5-06](tasks/P5-06-submission.md) | Submit PDF and scripts | ⬜ todo | Team | - | – | 0/3 | 2026-11-08 | P5-02, P5-03, P5-04, P5-05 |

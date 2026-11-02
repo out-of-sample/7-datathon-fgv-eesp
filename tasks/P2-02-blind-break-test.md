@@ -4,7 +4,7 @@ title: Blind structural-break test on the premium
 phase: P2
 status: review
 owner: CS 2
-working: -
+working: Felipe (review)
 due: 2026-11-01
 depends: P1-02, P1-04
 ---
