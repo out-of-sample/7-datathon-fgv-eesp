@@ -38,7 +38,9 @@ R$ 106 mn on Binance alone, on about R$ 16 bn traded.
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
 - **State:** not started. Rough sizing script (not in the repo) gave R$ 145 mn / R$ 106 mn on Binance.
 - **Next step:** S1
-- **Open questions:** Foxbit volume quality (F-008): include it or report Binance alone as the headline?
+- **Open questions:** Foxbit volume quality (F-008): include it or report Binance alone as the headline? For the
+  interpretation: the closed channel paid zero IOF-Câmbio against 3.5% for ordinary buyers (E-05.10, `docs/sources.md`), and
+  F-024 measures the quantity that stopped (stablecoin purchases abroad −US$ 2.0 bn in July 2026).
 - **How to resume:** volumes are in the frozen raw files (`scripts/p1_03_second_venue.py` shows how to read them).
 
 ## Log

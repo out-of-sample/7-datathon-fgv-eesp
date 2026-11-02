@@ -28,6 +28,14 @@ report and official text about the notice, opens each one and adds it to `docs/s
 Order: P3-09 and P3-10 first (they decide the story), then P3-11, P3-12, P3-13. The numbers in this table are
 rough sizing from 2 Nov; they become findings only through the tasks.
 
+## Results so far (2 Nov)
+
+- **P3-09 (F-023):** the notice is documented by two outlets that had the document or an excerpt (Cointelegraph Brasil
+  24 Jun, Exame 25 Jun) and by the BCB's own LAI answer; reported price moves match our series.
+- **P3-10 (F-024):** stablecoin purchases abroad fell 78% in July 2026 (beyond the normal range, p = 0.02) while the premium
+  rose; they stayed at about a third of their earlier level through September while the premium fell back. The fade is
+  not explained by the import channel reopening. Res. BCB 580 (1 Jul 2026) is a second July event we cannot separate.
+
 ## Stop rules
 
 - If the BCB series does not reproduce the press numbers (US$ 2,540 mn Jun, US$ 572 mn Jul), stop P3-10 and

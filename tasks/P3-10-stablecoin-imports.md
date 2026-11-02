@@ -2,9 +2,9 @@
 id: P3-10
 title: Mechanism - did stablecoin imports fall when the premium jumped, and recover when it faded?
 phase: P3
-status: doing
+status: review
 owner: CS 1
-working: Renzo
+working: -
 due: 2026-11-03
 depends: P1-02, P2-02
 ---
@@ -36,17 +36,17 @@ US$ 2,540 mn for Jun and US$ 572 mn for Jul 2026, InvestNews 28 Aug. Aug and Sep
   Bitcoin has none). Description; the Binance volume change is ranked against the P2-03 placebo dates.
 
 ## Subtasks
-- [ ] S1 — Locate the BCB file or series, download it to `data/raw/bcb/`, add its checksum to
-  `data/raw/SHA256SUMS` and a D-row to `docs/sources.md`; check it reproduces the press figures. — doing: Renzo
-- [ ] S2 — `scripts/p3_10_imports.py`: T1, T2, T3; figure `results/figures/P3-10_imports.png`; table
-  `results/tables/P3-10_imports.csv`.
-- [ ] S3 — On-exchange volume and order flow (same script), table `results/tables/P3-10_order_flow.csv`.
-- [ ] S4 — Finding with the results whichever way they go.
+- [x] S1 — Locate the BCB file or series, download it to `data/raw/bcb/`, add its checksum to
+  `data/raw/SHA256SUMS` and a D-row to `docs/sources.md`; check it reproduces the press figures. — done: Renzo, 2 Nov (SGS 29644, D-16)
+- [x] S2 — `scripts/p3_10_imports.py`: T1, T2, T3; figure `results/figures/P3-10_imports.png`; table
+  `results/tables/P3-10_imports.csv`. — done: Renzo, 2 Nov
+- [x] S3 — On-exchange volume and order flow (same script), table `results/tables/P3-10_order_flow.csv`. — done: Renzo, 2 Nov
+- [x] S4 — Finding with the results whichever way they go. — done: Renzo, 2 Nov (F-024)
 
 ## Success criteria
-- [ ] Raw file frozen with checksum and source row; press figures reproduced (or the mismatch reported)
-- [ ] T1, T2 and T3 run exactly as specified above; deviations written in the log with the reason
-- [ ] Finding written with the command that reproduces every number
+- [x] Raw file frozen with checksum and source row; press figures reproduced (or the mismatch reported)
+- [x] T1, T2 and T3 run exactly as specified above; deviations written in the log with the reason
+- [x] Finding written with the command that reproduces every number
 
 ## Outputs
 - `data/raw/bcb/<file>`, `scripts/p3_10_imports.py`, `data/processed/P3-10_imports_monthly.csv`,
@@ -54,12 +54,21 @@ US$ 2,540 mn for Jun and US$ 572 mn for Jul 2026, InvestNews 28 Aug. Aug and Sep
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** specification written and committed before any download.
-- **Next step:** S1 — find the BCB series (external-sector statistics page or SGS).
-- **Open questions:** none
-- **How to resume:** read the specification above; do not change it after seeing Aug–Sep data without a log line.
+- **State:** done, in review (F-024). The BCB line is SGS 29644 (Tabela 11, "dos quais: criptoativos com passivo
+  correspondente"), frozen with the BCB press note of 27 Aug and the Oct tables file. T1: Jul 2026 −78%, p = 0.022
+  (T1b p = 0.046), beyond the normal range. T2: Aug–Sep at 32% of the Jan–May level, "partial (inconclusive)": imports
+  did not come back while the premium fell. S3: Binance volume +33% (placebo p = 0.34); Foxbit trades much larger.
+- **Next step:** a teammate re-runs `python scripts/p3_10_imports.py` and checks F-024 (P4-02 can include it).
+- **Open questions:** (1) how the BCB compiles the line (which transactions it sees) `[verify]`; (2) Res. BCB 580
+  (1 Jul 2026) is a second July event the monthly data cannot separate from the notice; (3) what replaced the import
+  channel during the fade is open (order-book arbitrage allowed on 26 Jun, E-05.5, is one candidate; its timing does
+  not match the 22 Jul fade).
+- **How to resume:** `python scripts/p3_10_imports.py`. Raw files in `data/raw/bcb/` (checksums in `data/raw/SHA256SUMS`).
 
 ## Log
+- 2026-11-02, agent for Renzo: S1–S4 done; F-024. Deviation: Aug and Sep 2026 values were printed while identifying the
+  series (after the specification commit `c6a1c1b`, before the script ran); tests and thresholds unchanged. Primary
+  series is SGS 29644, which reproduces the press figures; the BCB note's 2.6 bn for June (SGS now 2,542) is noted in F-024.
 - 2026-11-02, agent for Renzo: created with the specification (plan `docs/06-so-what.md`); Renzo takes S1.
 
 ## Result
