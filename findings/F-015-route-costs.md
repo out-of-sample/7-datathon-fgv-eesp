@@ -60,4 +60,5 @@ Outputs:
 Slide 9: "Custo de um Dólar Digital no Brasil: Rota Bancária Tradicional vs USDT" (Headline Money Result).
 
 ## History
+- 2026-11-02, Renzo (review, P3-01): arithmetic correct, but regimes 1–3 (2020 – May 2025) are compared with 3.5% IOF although R-02 gives 1.1% then (savings ~5× too high for those regimes); the IOF-savings framing conflicts with prompt.md §10; bank spread, hedge cost and VaR are unsourced constants (VaR is a risk, not a cost). Suggest status exploratory until fixed (tasks/P3-01 → Handoff)
 - 2026-11-01, Felipe: Initialized and confirmed finding following completion and verification of `scripts/p3_01_costs.py`, `results/tables/P3-01_route_costs.csv`, and `results/figures/P3-01_route_costs.png`.

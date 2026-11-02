@@ -4,7 +4,7 @@ title: Cost of a digital dollar: bank route vs USDT route, per regime
 phase: P3
 status: review
 owner: Economist
-working: Renzo (review)
+working: -
 due: 2026-11-03
 depends: P2-03, P2-04
 ---
@@ -59,12 +59,35 @@ Turn the premium into money for a Brazilian corporate treasurer: what US$ 100,00
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** ready for teammate review (`status: review`)
-- **Next step (reviewer):** Run `& "C:\Users\Felipe\AppData\Local\Programs\Python\Python314\python.exe" scripts/p3_01_costs.py`, verify that `results/tables/P3-01_route_costs.csv` matches the Result table below, inspect `results/figures/P3-01_route_costs.png`, and confirm `findings/F-015-route-costs.md`.
-- **Open questions:** None; all components map to verified primary regulatory sources (R-01..R-07) and historical break regimes (P2-02).
-- **How to resume / reuse:** Downstream deck tasks (P5-01 slide 9) read `results/tables/P3-01_route_costs.csv` and embed `results/figures/P3-01_route_costs.png`.
+- **State:** reviewed by Renzo (2 Nov). **Substantive changes needed before the deck** (owner: Felipe, economist call).
+  The arithmetic is right (total = premium + spread + fees + tax; R$ = bps × R$ 538,000).
+- **Changes requested:**
+  1. **Wrong IOF for 2020 – May 2025.** Every historical regime is compared with the 3.5% route, but R-02 itself says
+     transfers paid 1.1% before 23 May 2025. Regimes 1–3 should use 162.5 bps. Savings then fall about fivefold
+     (R1: 61 bps ≈ R$ 3.3k; R2: 98 bps ≈ R$ 5.3k; R3, mostly before May 2025: 118 bps ≈ R$ 6.3k). Only Regime 4 onward
+     faces 3.5% (R$ 20.6k). F-015's "R$ 16–20k across pre-notice regimes" is wrong for 2020–2025.
+  2. **Framing (prompt.md §10).** "Savings vs bank FX with 3.5% IOF" presents USDT as a way around the IOF. That is the
+     practice the 23 Jun notice is reported to target (Brotto, Cointelegraph Brasil 6 Jul: "impedir arbitragem de IOF").
+     The legal status of the USDT route (IOF, use as a substitute for an FX transfer) is not verified. Suggest the headline
+     money number be the project's own question: what the notice cost a buyer of digital dollars. The premium rose
+     +94 bps ≈ R$ 5.1k per US$ 100k during the spike, and about +17 bps ≈ R$ 0.9k afterwards. The bank routes become context,
+     stated neutrally, with the legal caveat.
+  3. **Unsourced constants.**
+     - Bank spread 50 bps "from VET": not computed; the VET data are not downloaded, and the open-data link returned 502.
+     - Hedge cost "~10 bps": no source.
+     - "VaR 136.8 bps": typed in, not computed. Our PTAX data give 1.645 × sd = 130–139 bps and a 95th percentile |1-day
+       move| of 128–167 bps. It is also a risk, not a cost (expected cost of an unhedged 24 h hold ≈ 0); show it apart from
+       the costs.
+     - R-07 (Res. 584) is cited for both numbers, but the regulation contains neither.
+     - Foxbit/MB VIP fees (R-05, R-06): those pages block scripts; open them by hand (rule: sources are opened).
+  4. **Wording.** "Adaptation plateau", and "Res. BCB 580 and Foxbit–NovaDAX catalyzed … restoring local supply", have no
+     evidence (P2-02: the fade is unexplained; Res. 580 has no opened source). Say "after the spike".
+  5. **F-015 status.** It is `confirmed` with no checker; suggest `exploratory` until 1–4 are done.
+- **Next step:** Felipe (and the team, for the framing in 2) decides; then fix `scripts/p3_01_costs.py` and F-015.
+- **How to resume:** `python scripts/p3_01_costs.py`.
 
 ## Log
+- 2026-11-02, agent for Renzo: review done (Handoff): arithmetic right; IOF anachronism for 2020–May 2025, framing, unsourced constants.
 - 2026-11-02, agent for Renzo: Renzo takes the review.
 - 2026-11-01, Felipe: Initialized S1 with full institutional specification (US$ 100k, PTAX R$ 5.3800), traditional banking routes (0%, 1.1%, 3.5% IOF), historical Bai-Perron regimes, 24-25 Jun peak shock, and policy scenarios (3.5% IOF proposal, 24h hold hedged vs unhedged).
 - 2026-11-01, Felipe: Implemented S2 (`scripts/p3_01_costs.py`) and generated `results/tables/P3-01_route_costs.csv`.
