@@ -4,7 +4,7 @@ title: Mechanism - did stablecoin imports fall when the premium jumped, and reco
 phase: P3
 status: review
 owner: CS 1
-working: -
+working: Felipe (review)
 due: 2026-11-03
 depends: P1-02, P2-02
 ---

@@ -4,7 +4,7 @@ title: Deck v1 (pt-BR)
 phase: P5
 status: doing
 owner: Economist
-working: -
+working: Felipe
 due: 2026-11-05
 depends: P4-03
 ---
@@ -39,7 +39,7 @@ Full deck draft following `docs/02-dolar-cripto.md` §9 and the definition of do
 - **How to resume:** Revisar o Slide 10 de `deck/deck_v1_ptbr.md` com o time antes do freeze de quarta-feira (04/nov).
 
 ## Log
-- 2026-11-02, Felipe: Reconstruído `deck/deck_v1_ptbr.md` (14 slides mapeados às 15 seções de `notebooks/p5_07_story.ipynb`) incorporando todas as revisões de 02/nov: pico de 1 mês como único efeito medido, pós-pico não significativo ($p_{\text{placebo}} = 0,24$), $p$-valores de placebo apenas, enquadramento neutro (`docs/02-dolar-cripto.md` §10), fontes abertas para depegs (`DP-01`–`DP-10`) e tarifas (`R-01`–`R-07`), e Opções C e A abertas no Slide 10. `working: -`.
+- 2026-11-02, Felipe: Reconstruído `deck/deck_v1_ptbr.md` (14 slides mapeados às 15 seções de `notebooks/p5_07_story.ipynb`) incorporando todas as revisões de 02/nov: pico de 1 mês como único efeito medido, pós-pico não significativo ($p_{\text{placebo}} = 0,24$), $p$-valores de placebo apenas, enquadramento neutro (`docs/02-dolar-cripto.md` §10), fontes abertas para depegs (`DP-01`–`DP-10`) e tarifas (`R-01`–`R-07`), e Opções C e A abertas no Slide 10. `working: Felipe`.
 - 2026-11-02, agent for Felipe: Felipe takes the deck rewrite after the 2 Nov reviews: rebuild on the P5-07 notebook flow (deck prototype), spike = measured effect, after-spike level reported as not shown (p = 0.24), placebo p only, sources/framing rules.
 - 2026-11-02, agent for Renzo (note for Felipe): sources fixed (docs/sources.md). In the deck, market events M-01–M-04 coincide with breaks, they do not explain them; the July fade is unexplained (P2-02 re-run); the 23 Jun notice can now cite two independent accounts plus the BCB's LAI answer (E-05).
 - 2026-11-02, Felipe: Estruturadas as sub-tarefas S1 a S4; elaborada a primeira versão de `deck/deck_v1_ptbr.md`.

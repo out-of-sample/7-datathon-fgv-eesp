@@ -4,7 +4,7 @@ title: Every source on the 23 Jun 2026 BCB notice, opened and registered
 phase: P3
 status: review
 owner: CS 1
-working: -
+working: Felipe (review)
 due: 2026-11-03
 depends: P1-04
 ---

@@ -4,7 +4,7 @@ title: Annex: sources, event table, AI-use disclosure
 phase: P5
 status: doing
 owner: Economist
-working: -
+working: Felipe
 due: 2026-11-07
 depends: P5-01
 ---
@@ -37,7 +37,7 @@ Annex slides: source register, event table with links, robustness tables, and a 
 - **How to resume:** Utilizar `deck/annex_v1_ptbr.md` como apêndice formal no material da submissão final.
 
 ## Log
-- 2026-11-02, Felipe: Atualizado `deck/annex_v1_ptbr.md` (Anexos A–E) com $p$-valores de placebos apenas, datas corrigidas de `P2-03`, tabela completa de `P3-01` (Anexo B.5, Opção A), tabela completa de depegs com fontes `DP-01`–`DP-10` (Anexo B.6) e URLs auditadas (Anexo C). `working: -`.
+- 2026-11-02, Felipe: Atualizado `deck/annex_v1_ptbr.md` (Anexos A–E) com $p$-valores de placebos apenas, datas corrigidas de `P2-03`, tabela completa de `P3-01` (Anexo B.5, Opção A), tabela completa de depegs com fontes `DP-01`–`DP-10` (Anexo B.6) e URLs auditadas (Anexo C). `working: Felipe`.
 - 2026-11-02, agent for Felipe: Felipe takes the annex update to match revised F-015…F-022 and the fixed sources.
 - 2026-11-02, agent for Renzo: correction: the M-03 row's p = 0.014 is the parametric p (placebo p 0.26). Show only placebo p-values in the annex (P2-03 review).
 - 2026-11-02, agent for Renzo: four broken event links in `deck/annex_v1_ptbr.md` replaced with the opened sources (docs/sources.md M-01–M-04). Event-study rows for M-02 (20 Aug) and M-03 (20 Jun announcement) rest on unsourced dates; update after the P2-03 re-run. Use "coincide com" rather than "explica" for M-01–M-04.
