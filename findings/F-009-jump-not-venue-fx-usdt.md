@@ -4,7 +4,7 @@ title: The 24 Jun 2026 jump appears on three exchanges by the same amount and is
 status: confirmed
 task: P2-05
 date: 2026-10-31
-checked_by: -
+checked_by: Jonathan
 ---
 
 ## Claim

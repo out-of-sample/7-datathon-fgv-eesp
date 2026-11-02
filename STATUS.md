@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-01 by Nattan · **Current phase:** P1 — Data foundation (started
+**Last updated:** 2026-11-01 by Jonathan · **Current phase:** P1 — Data foundation (started
 Sat 31 Oct) · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results freeze:** Wed 4 Nov
 
 This page is the team's dashboard. Read it first; update it at the end of every work session
@@ -25,7 +25,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 ## Next actions
 
 1. Start P1 in parallel: Renzo → P3-03 monitor done → review (F-014); P3-02 after P2-03; P1-05, P2-01, P2-05 reviewed and done · Renzo covers CS 2 work (P1-03 done, P1-05 done, P2-02 blocked on P1-04) · Felipe → P1-04 ·
-   P1-07 done (v2 confirmed: 11 falls below $1, F-013); Jonathan → P1-06 once P1-04 has the Brazil list.
+   P1-07 done (v2 confirmed: 11 falls below $1, F-013); Jonathan -> P1-06 done (S6 manual screen: EUR, TRY, ZAR, MXN, COP); next: P3-03 review / P3-04 / P3-05.
 2. Everyone (and your agents): read [`docs/review-2026-10-31.md`](docs/review-2026-10-31.md) before the gate.
 3. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
    (`prompt.md` §7).
@@ -128,9 +128,9 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-004](findings/F-004-usdt-own-dollar-price.md) | USDT's own dollar price explains only a few bps of the premium | 🔍 exploratory | P0-01 | - |
 | [F-005](findings/F-005-2025-model-lost-to-naive.md) | Our 2025 model lost to a naive "tomorrow = today" forecast | ✔️ confirmed | P0-01 | - |
 | [F-006](findings/F-006-usdcusdt-gap-fillable.md) | The Binance USDC/USDT gap (Sep 2022 – Mar 2023) can be filled; three USDT/USD series agree within ~1 bps | 🔍 exploratory | P1-02 | - |
-| [F-007](findings/F-007-noise-floor.md) | Trading friction on USDT/BRL is 2–10 bps; the premium is 4–11 times that every year, but only ~2 times it from Aug 2025 to Jun 2026 | ✔️ confirmed | P2-01 | - |
+| [F-007](findings/F-007-noise-floor.md) | Trading friction on USDT/BRL is 2–10 bps; the premium is 4–11 times that every year, but only ~2 times it from Aug 2025 to Jun 2026 | ✔️ confirmed | P2-01 | Jonathan |
 | [F-008](findings/F-008-foxbit-volume-jul-2026.md) | Foxbit's USDT/BRL volume rose about sixfold from July 2026, through bigger trades, not more trades | 🔍 exploratory | P1-03 | - |
-| [F-009](findings/F-009-jump-not-venue-fx-usdt.md) | The 24 Jun 2026 jump appears on three exchanges by the same amount and is not explained by the real, USDT/USD or a Binance event | ✔️ confirmed | P2-05 | - |
+| [F-009](findings/F-009-jump-not-venue-fx-usdt.md) | The 24 Jun 2026 jump appears on three exchanges by the same amount and is not explained by the real, USDT/USD or a Binance event | ✔️ confirmed | P2-05 | Jonathan |
 | [F-010](findings/F-010-donor-premiums.md) | Where residents cannot buy dollars freely (ARS, UAH) USDT costs 4-7% more than the official dollar; in open markets 0-1% | 🔍 exploratory | P1-05 | - |
 | [F-011](findings/F-011-blind-breaks.md) | A blind break test finds 24 Jun 2026 as the sharpest regime change in six years (+100 bps), followed by a partial reversal from 22 Jul | 🔍 exploratory | P2-02 | - |
 | [F-012](findings/F-012-stablecoin-depeg-events.md) | Automatic screening identifies 29 USD-confirmed independent depeg events across 7 stablecoin pairs | 🔍 exploratory | P1-07 | Renzo, Nattan |
@@ -140,6 +140,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+Jonathan -> P1-06 done (S6 manual screen: EUR, TRY, ZAR, MXN, COP); next: P3-03 review / P3-04 / P3-05.
 - 2026-11-01 — Nattan: P1-07 reviewed and approved Renzo's v2 fixes → done; F-013 confirmed (11 falls below $1), F-012 exploratory (superseded by v2)
 - 2026-10-31 — agent for Renzo: P3-03 done → review: spec committed before the run; real-time CUSUM calibrated on 2020–2025 flags 24 Jun 2026 the same day, fade +11 days, 2 other test alarms vs 4 for the simple rule (F-014); premium already building from 25 May (note to P2-03, P1-04)
 - 2026-10-31 — agent for Renzo: P1-07 S6–S7 → review: v2 next to v1, 24 of 29 pass, 11 falls below $1 (9 without USDP delisting), chapter short of 12 for curves (F-013); SVB v2 figure marks the 22:15 UTC guarantee (D-13)

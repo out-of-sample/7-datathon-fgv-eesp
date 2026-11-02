@@ -4,7 +4,7 @@ title: Trading friction on USDT/BRL is 2–10 bps; the premium is 4–11 times t
 status: confirmed
 task: P2-01
 date: 2026-10-31
-checked_by: -
+checked_by: Jonathan
 ---
 
 ## Claim
