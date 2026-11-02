@@ -2,9 +2,9 @@
 id: P3-15
 title: Why +94 bps and not +350 - which routes are comparable (clarification for the deck)
 phase: P3
-status: doing
+status: review
 owner: Economist
-working: Renzo
+working: -
 due: 2026-11-04
 depends: P3-01, P3-10
 ---
@@ -20,21 +20,21 @@ Why the comparison is not direct: +94 bps is a *change in a market price*; 350 b
 transfer abroad*. F-015 already says bank FX and buying USDT in Brazil are not operationally equivalent.
 
 ## Subtasks
-- [ ] S1 — Route map. One row per route that can bring dollars or USDT into Brazil, before and after 23 Jun 2026: funds'
+- [x] S1 — done: Renzo, 2 Nov — Route map. One row per route that can bring dollars or USDT into Brazil, before and after 23 Jun 2026: funds'
   FX import (IOF 0%, Decreto 6.306/2007 art. 15-B III; closed 23 Jun); ordinary availability abroad (3.5% from 23 May
   2025); investment remittance (1.1%); goods import (0%; not usable for crypto, Res. BCB 561 / eFX); arbitrage inside
   exchange order books (allowed 26 Jun, E-05.5); a person or firm moving USDT bought abroad to a Brazilian exchange.
   Columns: who can use it, cost (IOF + spread, from F-015 / R-01 / R-02), does it add USDT supply in Brazil (yes / no /
   unknown), status before / after the notice, source ID or `[not opened]`. Every cost from an opened source (`prompt.md` §6).
-- [ ] S2 — doing: Renzo — What the numbers can say. Write before comparing: (a) if exactly one open route's cost over the pre-notice
+- [x] S2 — done: Renzo, 2 Nov — What the numbers can say. Write before comparing: (a) if exactly one open route's cost over the pre-notice
   premium is close to the spike (+94 bps) and nothing cheaper was open, call it a *candidate* marginal route (compatible,
   not shown); (b) otherwise write "we cannot identify the marginal route". Then apply the rule to the S1 table.
-- [ ] S3 — The July-fade bound. Check this statement against F-022 and F-024 and keep it only if it holds: imports stayed
+- [x] S3 — done: Renzo, 2 Nov (kept, wording corrected in F-028) — The July-fade bound. Check this statement against F-022 and F-024 and keep it only if it holds: imports stayed
   at about a third of their Jan–May level in Aug–Sep (F-024), so the funds' channel stayed mostly closed, yet the premium
   after 22 Jul is not distinguishable from ordinary drift (+11.5 to +19.3 bps over the pre-notice level, placebo p = 0.24,
   F-022). So after July no route costing ~350 bps can have been the one setting the price: either a cheap route supplied
   USDT, or demand fell. The data do not say which.
-- [ ] S4 — Finding (next free F-number) with the S2 outcome and S3, and two pt-BR sentences for Felipe: one for Slide 1
+- [x] S4 — done: Renzo, 2 Nov (F-028) — Finding (next free F-number) with the S2 outcome and S3, and two pt-BR sentences for Felipe: one for Slide 1
   ("até o custo do próximo canal disponível") and one for Slide 5 (the 0% vs 3.5% line).
 
 ## S2 rule (committed before S1's costs are compared with the spike)
@@ -78,23 +78,35 @@ upper bound that never bound: it did not set the price at any time after the not
 series counts all residents' purchases, not only funds').
 
 ## Success criteria
-- [ ] `results/tables/P3-15_routes.md` exists; every cost cites an opened source or is marked `[not opened]`
-- [ ] The S2 rule is in this file (commit) before S1's costs are compared with +94 bps
-- [ ] A finding states outcome (a) or (b) and the S3 bound, with the commands or files that give each number
+- [x] `results/tables/P3-15_routes.md` exists; every cost cites an opened source or is marked `[not opened]`
+- [x] The S2 rule is in this file (commit `6393330`) before S1's costs are compared with +94 bps
+- [x] A finding states outcome (a) or (b) and the S3 bound, with the commands or files that give each number
 
 ## Outputs
 - `results/tables/P3-15_routes.md` (no script expected: numbers come from F-015, F-016, F-022, F-024)
-- `findings/F-0NN-route-comparison.md`
+- `findings/F-028-route-comparison.md`
 
 ## Handoff
-- **State:** Renzo (agent) on it. S2 rule committed (section above) before any comparison; S1 (route map) next.
-- **Next step:** S1: open the legal texts behind each route's cost and status, write `results/tables/P3-15_routes.md`.
-- **Open questions:** whether the order-book arbitrage of 26 Jun adds any USDT to Brazil or only moves it between books
-  (Cointelegraph 26 Jun, E-05.5, says it was allowed; it does not say how USDT entered). Felipe owns P3-01's route costs.
-- **How to resume:** read F-015 (route table), `docs/sources.md` rows E-05.5, E-05.10, R-01, R-02; F-022; F-024.
+- **State:** done, in review. Rule committed first (`6393330`); route map `results/tables/P3-15_routes.md`; finding F-028.
+  Outcome (b): we cannot identify the marginal route. The 3.5% route is a ceiling the premium never came near
+  (highest day +170.7 bps over the pre-notice level, 3 Jul).
+- **Next step:** a teammate checks the table against the sources and re-runs the F-028 command; Felipe decides on the two
+  pt-BR sentences (F-028, "Text for the deck") for Slides 1 and 5.
+- **Open questions:** (1) inciso of the 3.5% rate: R-02 says XXI, Brotto (E-05.10) says XXIV; Planalto blocks automated
+  requests, so Felipe should check in a browser. (2) Whether routes 2, 4, 5 can carry virtual assets: no opened source;
+  a legal answer would need a lawyer or a BCB/RFB text, not news. (3) Res. BCB 574 (22 Jun) is missing from the event
+  list: new task P3-16.
+- **How to resume:** read F-028 and `results/tables/P3-15_routes.md`; sources E-05.1, E-05.2, E-05.5, E-05.6, E-05.10,
+  R-01, R-02.
 
 ## Log
+- 2026-11-02, agent for Renzo: S1, S3, S4 done; outcome (b); F-028; Res. 574 found and filed as P3-16; status review
 - 2026-11-02, agent for Renzo: Renzo takes the task (status doing); S2 rule written and committed before S1
 - 2026-11-02, agent for Renzo: created (todo) after the review of the "beyond a period study" proposals
 
 ## Result
+Outcome (b), **we cannot identify the marginal route** (F-028). One route's excess cost falls inside the spike's range
+(remittance "com finalidade de investimento", 1.10% IOF, 110 bps over the closed route), but no opened source says it
+can carry virtual assets, and cheaper routes of unknown status stayed open (funds' own-account and in-book arbitrage,
+goods-import FX, USDT already abroad). The 3.5% route (350 bps) is a ceiling: the premium's highest day after the
+notice was +170.7 bps over the pre-notice level (3 Jul), and +52.1 bps after 22 Jul. S3 holds with corrected wording.
