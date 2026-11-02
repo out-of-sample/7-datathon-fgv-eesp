@@ -172,6 +172,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-024](findings/F-024-stablecoin-imports.md) | In July 2026 stablecoin purchases abroad fell 78% (BCB) while the premium rose; they stayed at about a third of their earlier level through September while the premium fell back | 🔍 exploratory | P3-10 | - |
 | [F-025](findings/F-025-money-moved.md) | In the four weeks after the notice, buyers of USDT/BRL paid about R$ 106 mn more on Binance (R$ 145 mn on three exchanges) than at the pre-notice premium; no ordinary month comes close | 🔍 exploratory | P3-11 | - |
 | [F-026](findings/F-026-which-rules-matter.md) | Of eight dated Brazilian rules, only the confidential, immediate notice of 23 Jun 2026 moved the premium detectably; the published rules, with 1 to 175 days of notice, stayed within the range of ordinary dates | 🔍 exploratory | P3-12 | - |
+| [F-027](findings/F-027-prediction-res584.md) | Prediction committed on 2 Nov 2026 - the 24-hour hold of Res. BCB 584 (from 1 Jan 2027) will not move the premium detectably; its cost to a USDT holder is about 9 bps | 🔍 exploratory | P3-13 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
