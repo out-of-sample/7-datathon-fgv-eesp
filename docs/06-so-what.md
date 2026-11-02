@@ -37,6 +37,8 @@ rough sizing from 2 Nov; they become findings only through the tasks.
   not explained by the import channel reopening. Res. BCB 580 (1 Jul 2026) is a second July event we cannot separate.
 - **P3-11 (F-025):** R$ 106 mn on Binance (R$ 145 mn on three exchanges) went from buyers to sellers in the four weeks
   after the notice, a tariff equivalent of about 95 bps; no ordinary month moved more than R$ 35 mn (p = 0.005).
+- **P3-12 (F-026):** of eight dated rules, only the confidential, immediate notice moved the premium beyond the range of
+  ordinary dates; the seven published rules (1–175 days of notice) stayed inside it. Form and content cannot be separated.
 
 ## Stop rules
 

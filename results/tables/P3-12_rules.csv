@@ -1,0 +1,9 @@
+event_id,label,instrument,published,announced,effective,notice_days,change_announcement_bps,p_announcement,change_effective_bps,p_effective,source,band_low_bps,band_high_bps
+E-01,"Decreto do IOF-Câmbio (3,5%)",decreto presidencial,True,2025-05-22,2025-05-23,1.0000,13.1800,0.3845,15.4400,0.3147,E-01,-34.9543,37.5770
+E-01b,Congresso e STF suspendem o decreto do IOF,decreto legislativo e liminar do STF,True,2025-06-27,2025-07-04,7.0000,-23.9200,0.1648,-24.8800,0.1527,E-01b,-34.9543,37.5770
+E-02,Res. BCB 519–521: marco dos ativos virtuais,resolução do BCB,True,2025-11-10,2026-02-02,84.0000,-3.7900,0.7477,-4.3100,0.7225,E-02,-34.9543,37.5770
+E-04,"Res. BCB 521, art. 4º: reporte ao BCB",resolução do BCB,True,2025-11-10,2026-05-04,175.0000,,,7.2400,0.6145,E-04,-34.9543,37.5770
+E-03,Proposta de IOF sobre compra de cripto,"proposta da Fazenda, não editada",True,2026-02-05,,,-2.1100,0.8408,,,E-03,-34.9543,37.5770
+E-06a,Res. BCB 561: stablecoins fora do eFX,resolução do BCB,True,2026-04-30,2026-10-01,154.0000,6.0400,0.6471,-5.3100,0.6778,E-06a,-34.9543,37.5770
+E-05,Ofício do BCB: câmbio de fundos para importar cripto,ofício de supervisão sigiloso,False,2026-06-23,2026-06-23,0.0000,,,93.9100,0.0009,"E-05.1, E-05.2",-34.9543,37.5770
+E-06b,Res. BCB 584: retenção de até 24 h,resolução do BCB,True,2026-08-07,2027-01-01,147.0000,-21.9900,0.1872,,,E-06b,-34.9543,37.5770
