@@ -88,8 +88,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 |---|---|---|---|---|---|---|---|---|
 | [P2-01](tasks/P2-01-noise-floor.md) | Noise floor (how big a premium is just trading friction) | ✅ done | CS 1 | - | 3/3 | 3/3 | 2026-11-01 | P1-02 |
 | [P2-02](tasks/P2-02-blind-break-test.md) | Blind structural-break test on the premium | 👀 review | CS 2 | - | 4/4 | 4/4 | 2026-11-01 | P1-02, P1-04 |
-| [P2-03](tasks/P2-03-event-studies.md) | Before/after test for every dated rule, with placebo dates | 👀 review | CS 2 | - | 3/3 | 3/3 | 2026-11-02 | P1-02, P1-04 |
-| [P2-04](tasks/P2-04-synthetic-control.md) | Synthetic control for the 23 Jun 2026 shock | 👀 review | CS 2 | - | 5/5 | 4/4 | 2026-11-02 | P1-05, P1-06, P2-03 |
+| [P2-03](tasks/P2-03-event-studies.md) | Before/after test for every dated rule, with placebo dates | 👀 review | CS 2 | Renzo (applying review fixes) | 3/3 | 3/3 | 2026-11-02 | P1-02, P1-04 |
+| [P2-04](tasks/P2-04-synthetic-control.md) | Synthetic control for the 23 Jun 2026 shock | 👀 review | CS 2 | Renzo (applying review fixes) | 5/5 | 4/4 | 2026-11-02 | P1-05, P1-06, P2-03 |
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | 👀 review | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
@@ -97,10 +97,10 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
-| [P3-01](tasks/P3-01-money-layer.md) | Cost of a digital dollar: bank route vs USDT route, per regime | 👀 review | Economist | - | 5/5 | 4/4 | 2026-11-03 | P2-03, P2-04 |
-| [P3-02](tasks/P3-02-btc-heterogeneity.md) | Did the 23 Jun notice also move the bitcoin premium? | 👀 review | CS 1 | - | 4/4 | 3/3 | 2026-11-03 | P1-01, P2-03 |
+| [P3-01](tasks/P3-01-money-layer.md) | Cost of a digital dollar: bank route vs USDT route, per regime | 👀 review | Economist | Renzo (applying review fixes) | 5/5 | 4/4 | 2026-11-03 | P2-03, P2-04 |
+| [P3-02](tasks/P3-02-btc-heterogeneity.md) | Did the 23 Jun notice also move the bitcoin premium? | 👀 review | CS 1 | Renzo (applying review fixes) | 4/4 | 3/3 | 2026-11-03 | P1-01, P2-03 |
 | [P3-03](tasks/P3-03-monitor.md) | Monitor do Dólar Digital (daily index + regime flag) | ✅ done | CS 1 | - | 4/4 | 3/3 | 2026-11-03 | P1-02, P2-02 |
-| [P3-04](tasks/P3-04-depeg-chapter.md) | Depeg chapter v1 (the same mechanism in dollars) | 👀 review | CS 3 | - | 4/4 | 4/4 | 2026-11-03 | P1-07 |
+| [P3-04](tasks/P3-04-depeg-chapter.md) | Depeg chapter v1 (the same mechanism in dollars) | 👀 review | CS 3 | Renzo (applying review fixes) | 4/4 | 4/4 | 2026-11-03 | P1-07 |
 | [P3-05](tasks/P3-05-agentic-A-protocol-pilot.md) | Extension A - protocol, memory test and pilot on the three CLIs | 🔄 doing | CS 3 | - | 3/7 | 2/5 | 2026-11-02 | P1-01, P1-08 |
 | [P3-06](tasks/P3-06-agentic-A-runs-analysis.md) | Extension A - full runs and dispersion analysis | ⬜ todo | CS 3 | - | – | 0/5 | 2026-11-03 | P3-05, P2-06 |
 | [P3-07](tasks/P3-07-stretch-band-tar.md) | Stretch: threshold model of the no-arbitrage band | 👀 review | CS 2 | - | 3/3 | 3/3 | 2026-11-03 | P2-02 |
@@ -110,7 +110,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
-| [P4-01](tasks/P4-01-robustness.md) | Robustness battery for every headline number | 👀 review | CS 2 | - | 4/4 | 3/3 | 2026-11-04 | P2-02, P2-03, P2-04 |
+| [P4-01](tasks/P4-01-robustness.md) | Robustness battery for every headline number | 👀 review | CS 2 | Renzo (applying review fixes) | 4/4 | 3/3 | 2026-11-04 | P2-02, P2-03, P2-04 |
 | [P4-02](tasks/P4-02-independent-recheck.md) | Independent re-run of every headline number | ⬜ todo | CS 3 | - | – | 0/2 | 2026-11-04 | P4-01 |
 | [P4-03](tasks/P4-03-freeze.md) | Freeze results | ⬜ todo | Team | - | – | 0/4 | 2026-11-04 | P4-01, P4-02 |
 

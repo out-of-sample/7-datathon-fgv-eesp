@@ -4,7 +4,7 @@ title: Cost of a digital dollar: bank route vs USDT route, per regime
 phase: P3
 status: review
 owner: Economist
-working: -
+working: Renzo (applying review fixes)
 due: 2026-11-03
 depends: P2-03, P2-04
 ---
@@ -87,6 +87,7 @@ Turn the premium into money for a Brazilian corporate treasurer: what US$ 100,00
 - **How to resume:** `python scripts/p3_01_costs.py`.
 
 ## Log
+- 2026-11-02, agent for Renzo: Renzo applies the review fixes (agreed by Renzo; on behalf of Felipe).
 - 2026-11-02, agent for Renzo: review done (Handoff): arithmetic right; IOF anachronism for 2020–May 2025, framing, unsourced constants.
 - 2026-11-02, agent for Renzo: Renzo takes the review.
 - 2026-11-01, Felipe: Initialized S1 with full institutional specification (US$ 100k, PTAX R$ 5.3800), traditional banking routes (0%, 1.1%, 3.5% IOF), historical Bai-Perron regimes, 24-25 Jun peak shock, and policy scenarios (3.5% IOF proposal, 24h hold hedged vs unhedged).

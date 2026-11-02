@@ -4,7 +4,7 @@ title: Synthetic control for the 23 Jun 2026 shock
 phase: P2
 status: review
 owner: CS 2
-working: -
+working: Renzo (applying review fixes)
 due: 2026-11-02
 depends: P1-05, P1-06, P2-03
 ---
@@ -58,6 +58,7 @@ Pre-committed before fitting:
 - **How to resume:** `.venv/bin/python scripts/p2_04_synth.py` (seconds).
 
 ## Log
+- 2026-11-02, agent for Renzo: Renzo applies the review fixes (agreed by Renzo; on behalf of Felipe).
 - 2026-11-02, agent for Renzo: review done (Handoff): reproduces exactly; DiD checked independently; text/figure changes requested.
 - 2026-11-02, agent for Renzo: Renzo takes the review.
 - 2026-11-02, Felipe: Completed S1–S5 in `scripts/p2_04_synth.py`. Generated `results/tables/P2-04_synth_results.csv`, `results/tables/P2-04_synth_weights.csv`, `results/figures/P2-04_synthetic_control.png`. Written `findings/F-017-synthetic-control.md`. Status -> review.

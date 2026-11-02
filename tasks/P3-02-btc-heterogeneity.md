@@ -4,7 +4,7 @@ title: Did the 23 Jun notice also move the bitcoin premium?
 phase: P3
 status: review
 owner: CS 1
-working: -
+working: Renzo (applying review fixes)
 due: 2026-11-03
 depends: P1-01, P2-03
 ---
@@ -48,6 +48,7 @@ Compute the BTC/BRL premium over BTCUSDT x PTAX and run the same before/after te
 - **How to resume:** `.venv/bin/python scripts/p3_02_btc.py`.
 
 ## Log
+- 2026-11-02, agent for Renzo: Renzo applies the review fixes (agreed by Renzo; on behalf of Felipe).
 - 2026-11-02, agent for Renzo: review done (Handoff): reproduces; lockstep is implied by triangular arbitrage (gap 0.36 bps), so F-018's interpretation must change; event table re-run with corrected P1-04 dates.
 - 2026-11-02, agent for Renzo: Renzo takes the review.
 - 2026-11-02 — Felipe: Started P3-02. Downloaded raw klines for BTCBRL (102 files) and BTCUSDT (140 files); checked out master coverage table.

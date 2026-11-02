@@ -4,7 +4,7 @@ title: Before/after test for every dated rule, with placebo dates
 phase: P2
 status: review
 owner: CS 2
-working: -
+working: Renzo (applying review fixes)
 due: 2026-11-02
 depends: P1-02, P1-04
 ---
@@ -50,6 +50,7 @@ The 23 Jun 2026 row is also the number the AI analysts (extension A) are compare
 - **How to resume:** `.venv/bin/python scripts/p2_03_events.py` (seconds).
 
 ## Log
+- 2026-11-02, agent for Renzo: Renzo applies the review fixes (agreed by Renzo; on behalf of Felipe).
 - 2026-11-02, agent for Renzo: review done (Handoff). Correction to my earlier note: the M-03 announcement p = 0.014 was the parametric p; its placebo p was 0.26, so it was never significant. Checks for item 7: all-dates placebo computed inline (1,073 clean dates).
 - 2026-11-02, agent for Renzo: Renzo takes the review.
 - 2026-11-02, agent for Renzo (note for Felipe): P1-04 dates corrected: M-02 effective 13 Aug 2024 (the 20 Aug "DOU" date had no source); M-03 has no announcement date (N/A; the 19/20 Jun date had no source; effective 27 Jun 2025 confirmed in our data). Rows for M-02 "vigência 20 Aug" and M-03 "anúncio 20 Jun" (p = 0.014) rest on unsourced dates: please re-run P2-03 and update F-016 and the annex.

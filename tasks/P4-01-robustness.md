@@ -4,7 +4,7 @@ title: Robustness battery for every headline number
 phase: P4
 status: review
 owner: CS 2
-working: -
+working: Renzo (applying review fixes)
 due: 2026-11-04
 depends: P2-02, P2-03, P2-04
 ---
@@ -49,6 +49,7 @@ Show that each headline survives reasonable changes: windows, premium definition
 - **How to resume:** `.venv/bin/python scripts/p4_01_robustness.py` (seconds).
 
 ## Log
+- 2026-11-02, agent for Renzo: Renzo applies the review fixes (agreed by Renzo; on behalf of Felipe).
 - 2026-11-02, agent for Renzo: review done (Handoff): reproduces; spike robust; plateau placebo p = 0.24 (all) / 0.14 (2025–26), so the lasting effect is not shown.
 - 2026-11-02, agent for Renzo: Renzo takes the review.
 - 2026-11-02, Felipe: completed P4-01 robustness battery. Implemented 51 specification tests across 6 dimensions covering event-study windows, premium definitions, 3 domestic exchange order books, Bai (1997) Theorem 1 vs Theorem 2 regime-specific heteroskedastic break CIs, Synthetic Control donor pools & Colombian Ley Emiliani holiday filter, and cross-asset BTC lockstep jump. Exported `results/tables/P4-01_robustness.csv`, generated publication figure `results/figures/P4-01_robustness_forest.png`, and wrote finding `findings/F-022-robustness-battery.md`. Status -> review.
