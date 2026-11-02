@@ -1,10 +1,10 @@
 ---
 id: F-016
 title: Of 13 dated Brazilian events, only the 23 Jun 2026 BCB notice moved the premium (+93.9 bps; beyond all 1,073 placebo dates, p ≈ 0.001)
-status: exploratory
+status: confirmed
 task: P2-03
 date: 2026-11-02
-checked_by: -
+checked_by: Renzo
 ---
 
 ## Claim

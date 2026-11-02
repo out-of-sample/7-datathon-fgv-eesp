@@ -1,10 +1,10 @@
 ---
 id: F-001
 title: The USDT/BRL premium over PTAX is real, not trading noise
-status: exploratory
+status: confirmed
 task: P0-01
 date: 2026-10-30
-checked_by: -
+checked_by: Felipe
 ---
 
 ## Claim
@@ -33,7 +33,7 @@ the "median hourly high-low range" line).
 One venue; no USDT/USD adjustment (see F-004); the hourly range is a rough noise proxy (P2-01 replaces it).
 
 ## Used in deck
-Not yet.
+Slide 3 ("Dados e medida: seis anos de histórico e quebras cegas") of `deck/deck_v1_ptbr.md`.
 
 ## History
 - 2026-10-31, agent for Renzo: supported by F-007 with proper spread estimators (2–10 bps): the premium is

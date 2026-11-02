@@ -1,10 +1,10 @@
 ---
 id: F-011
 title: A blind break test finds 24 Jun 2026 as the sharpest regime change in six years (+100 bps), followed by a partial reversal from 22 Jul
-status: exploratory
+status: confirmed
 task: P2-02
 date: 2026-10-31
-checked_by: -
+checked_by: Felipe
 ---
 
 ## Claim
@@ -44,7 +44,7 @@ breaks, which the pre-committed rule treats as over-selection, so the headline u
 
 Robustness (S4), same specification:
 - **Day-close timing** (BIC picks 6, headline 6): breaks on 23 Jun 2026 (12 Jun – 2 Jul, +90.0) matching E-05 (0 trading days, in 95% CI) and 21 Jul 2026 (−75.9). No Jul 2025 break; instead 2 Jan 2025 (−28.3), plus a Nov–Dec 2021 spike (+78.7, then −84.5) not seen in the main series. LWZ alone would keep only one break (Jan 2022): this variant is much noisier (AR(1) 0.26 vs 0.65).
-- **Coinbase USDT/USD** (from May 2021; BIC 8 → LWZ 7): 24 Jun 2026 (22–26 Jun, +101.3) matching E-05 (-1 trading day, in 95% CI) and 22 Jul 2026 (−83.9); also 8 Jul 2025 (−25.1; E-01b −2 days), 13 Aug 2024 (−21.3; coincides with M-02, 0 trading days), and two breaks only this series finds: 6 Jun 2022 (−32.0; E-07 Binance Pix suspension 17 Jun 2022 inside 95% CI) and 20 Dec 2022 (+23.8; FTX collapse 8-11 Nov 2022 inside 95% CI).
+- **Coinbase USDT/USD** (from May 2021; BIC 8 → LWZ 7): 24 Jun 2026 (22–26 Jun, +101.3) matching E-05 (-1 trading day, in 95% CI) and 22 Jul 2026 (−83.9); also 8 Jul 2025 (−25.1; E-01b −2 days), 13 Aug 2024 (−21.3; coincides with M-02, 0 trading days), and two breaks only this series finds: 6 Jun 2022 (−30.1; E-07 Binance Pix suspension 17 Jun 2022 inside 95% CI) and 20 Dec 2022 (+23.8; FTX collapse 8-11 Nov 2022 inside 95% CI).
 - Extra, not in the specification: a model allowed only one break puts it in Sep 2024 (main and Coinbase). The slow decline is the biggest feature of the whole sample; the June spike is the sharpest.
 - Reproduce: `python scripts/p2_02_breaks.py` (`results/tables/P2-02_breaks.csv`, `P2-02_criteria.csv`, `results/figures/P2-02_premium_breaks.png`).
 
@@ -56,7 +56,7 @@ Robustness (S4), same specification:
 - A mean shift is not a cause. Which breaks match rules is S3; causal claims need P2-03 and P2-04.
 
 ## Used in deck
-Not yet (candidate headline chart: "the algorithm finds 24 Jun on its own").
+Slide 4 and Slide 8 of `deck/deck_v1_ptbr.md` and Annex B.3 of `deck/annex_v1_ptbr.md`.
 
 ## History
 - 2026-11-02, agent for Renzo: matching re-run after the P1-04 source fixes (M-02 effective date 13 Aug, not 20 Aug; M-01 description cut to its source) and with the date-keyed label overrides removed, so every break follows the ±5-day rule. Break 2: −5 days (was 0); Break 5: unexplained (M-04 no longer attached). "Matches" → "coincides with". The table at HEAD came from an older script version (Coinbase break 1 was 19 Jul 2021; the script gives 1 Jun 2021, as on 31 Oct)

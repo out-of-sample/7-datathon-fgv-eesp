@@ -94,7 +94,7 @@ See the "Literature anchors" sections of `02-dolar-cripto.md`, `01-depeg-recover
 | ID | Reference | Used for | Status |
 |---|---|---|---|
 | L-01 | Corwin, S. A. & Schultz, P. (2012). A simple way to estimate bid-ask spreads from daily high and low prices. *Journal of Finance* 67(2), 719–760 | Noise floor (P2-01, F-007) | Formula verified against published paper (2 Nov audit) |
-| L-02 | Abdi, F. & Ranaldo, A. (2017). A simple estimation of bid-ask spreads from daily close, high, and low prices. *Review of Financial Studies* 30(12), 4437–4480 | Noise floor (P2-01, F-007) | [verify] formula implemented from memory; paper not opened |
+| L-02 | Abdi, F. & Ranaldo, A. (2017). A simple estimation of bid-ask spreads from daily close, high, and low prices. *Review of Financial Studies* 30(12), 4437–4480 | Noise floor (P2-01, F-007) | Formula verified against published paper (eq. 9 joint estimator $\hat{s} = \sqrt{\max\{0, \frac{4}{N}\sum (c_t - \eta_t)(c_t - \eta_{t+1})\}}$, RFS 30(12), p. 4442; 2 Nov audit) |
 | L-03 | Bai, J. (1997). Estimation of a change point in multiple regression models. *Review of Economics and Statistics* 79(4), 551–563 | Break-date confidence intervals (P2-02) | Formula verified against published paper (2 Nov audit) |
 | L-04 | Bai, J. & Perron, P. (2003). Computation and analysis of multiple structural change models. *Journal of Applied Econometrics* 18(1), 1–22; Liu, J., Wu, S. & Zidek, J. V. (1997). On segmented multivariate regression. *Statistica Sinica* 7, 497–525 | Break test, BIC and LWZ criteria (P2-02) | Formula verified against published paper (2 Nov audit) |
 

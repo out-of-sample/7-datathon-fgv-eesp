@@ -1,10 +1,10 @@
 ---
 id: F-004
 title: USDT's own dollar price explains only a few bps of the premium
-status: exploratory
+status: confirmed
 task: P0-01
 date: 2026-10-30
-checked_by: -
+checked_by: Felipe
 ---
 
 ## Claim
@@ -21,7 +21,7 @@ Reproduce: `python scripts/00_probe_premium.py <usdtbrl_dir> <ptax.json> <usdcus
 Assumes USDC = US$ 1; a direct USD quote (Kraken USDT/USD) is pending (P1-02).
 
 ## Used in deck
-Not yet.
+Slide 3 and Slide 4 of `deck/deck_v1_ptbr.md`.
 
 ## History
 - 2026-11-02, audit note: 00_probe_premium.py computed (USDCUSDT - 1) ([-4.8, +7.5] bps), which represents USDC deviation in USDT terms; for USDT/USD (1/USDCUSDT - 1, as implemented in p1_02_premium.py), this corresponds to [-7.5, +4.8] bps. Qualitative conclusion is unchanged.

@@ -68,7 +68,7 @@ US$ 2,540 mn for Jun and US$ 572 mn for Jul 2026, InvestNews 28 Aug. Aug and Sep
 ## Log
 - 2026-11-02, Felipe (review): Independently verified SHA-256 checksums of `sgs_29644.json`, `202608_Texto_de_estatisticas_do_setor_externo.pdf`, and `202610_Tabelas_de_estatisticas_do_setor_externo.xlsx` (`D-16`), and cross-checked T1 (-77.52%, p = 0.0217), T1b (-76.46%, p = 0.0460), T2 (0.3182, partial/inconclusive), T3 (r = -0.6163), and S3 order-flow tables via two independent reviewers. Integrated F-024 into Slide 5 of `deck/deck_v1_ptbr.md`. Status -> `done`.
 - 2026-11-02, agent for Renzo: S1–S4 done; F-024. Deviation: Aug and Sep 2026 values were printed while identifying the
-  series (after the specification commit `c6a1c1b`, before the script ran); tests and thresholds unchanged. Primary
+  series (after the specification commit `4f6f14e`, before the script ran); tests and thresholds unchanged. Primary
   series is SGS 29644, which reproduces the press figures; the BCB note's 2.6 bn for June (SGS now 2,542) is noted in F-024.
 - 2026-11-02, agent for Renzo: created with the specification (plan `docs/06-so-what.md`); Renzo takes S1.
 

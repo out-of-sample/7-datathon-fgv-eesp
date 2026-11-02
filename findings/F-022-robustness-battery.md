@@ -1,10 +1,10 @@
 ---
 id: F-022
 title: The 23 Jun 2026 spike is robust (+74 to +128 bps across 22 variants); the after-spike level (+11 to +34 bps) is not distinguishable from ordinary drift (placebo p = 0.24)
-status: exploratory
+status: confirmed
 task: P4-01
 date: 2026-11-02
-checked_by: -
+checked_by: Renzo
 ---
 
 ## Claim

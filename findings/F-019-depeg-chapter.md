@@ -1,10 +1,10 @@
 ---
 id: F-019
 title: In dollars too, a stablecoin left parity while its redemption channel was closed: USDC closed at $0.863 on the SVB weekend and was back at $0.989 an hour after Sunday's deposit guarantee, before banks reopened; 11 other falls below $1 form a case table (too few for curves)
-status: exploratory
+status: confirmed
 task: P3-04
 date: 2026-11-02
-checked_by: -
+checked_by: Renzo
 ---
 
 ## Claim

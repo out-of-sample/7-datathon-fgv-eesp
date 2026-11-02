@@ -1,10 +1,10 @@
 ---
 id: F-018
 title: The Bitcoin premium jumped by the same +93.8 bps on 24 Jun 2026, as triangular arbitrage on Binance requires; the test cannot tell a stablecoin-specific shock from a crypto-wide one
-status: exploratory
+status: confirmed
 task: P3-02
 date: 2026-11-02
-checked_by: -
+checked_by: Renzo
 ---
 
 ## Claim
@@ -47,9 +47,7 @@ Computed with Newey-West HAC standard errors (5 lags) and empirical p-values aga
 | E-06b | ann | 2026-08-07 | 2026-08-07 | 52.95 | 30.84 | -22.11 | 8.03 | -2.76 | 0.006 | 0.2289 | 11.0% | 23.55 | 8.10 | Res. BCB 584 (precautionary hold proposal) |
 | E-07 | eff | 2022-06-17 | 2022-06-17 | 53.21 | 48.09 | -5.12 | 7.49 | -0.68 | 0.494 | 0.6318 | 33.5% | 23.02 | 22.45 | Binance abrupt Pix suspension (Capitual) |
 | M-01 | eff | 2021-07-26 | 2021-07-26 | 78.65 | 61.88 | -16.77 | 11.69 | -1.44 | 0.151 | 0.2985 | 14.5% | 39.12 | 35.34 | Binance leverage cap & withdrawal limit |
-| M-02 | ann | 2024-08-13 | 2024-08-13 | 55.17 | 41.82 | -13.35 | 19.18 | -0.70 | 0.486 | 0.3682 | 17.5% | 23.74 | 19.63 | CVM Binance settlement approval |
-| M-02 | eff | 2024-08-20 | 2024-08-20 | 60.83 | 43.46 | -17.37 | 16.19 | -1.07 | 0.283 | 0.2886 | 14.0% | 25.56 | 18.75 | CVM Binance settlement DOU publication |
-| M-03 | ann | 2025-06-19 | 2025-06-20 | 37.26 | 20.16 | -17.11 | 6.90 | -2.48 | 0.013 | 0.2935 | 14.0% | 27.53 | 21.57 | Binance 10x tick size cut announcement |
+| M-02 | eff | 2024-08-13 | 2024-08-13 | 55.17 | 41.82 | -13.35 | 19.18 | -0.70 | 0.486 | 0.3682 | 17.5% | 23.74 | 19.63 | CVM Binance settlement approval |
 | M-03 | eff | 2025-06-27 | 2025-06-27 | 38.62 | 15.30 | -23.31 | 5.59 | -4.17 | $3.0 \times 10^{-5}$ | 0.2040 | 9.5% | 30.70 | 19.97 | Binance 10x tick size cut takes effect |
 | M-04 | eff | 2026-07-07 | 2026-07-07 | 70.65 | 60.13 | -10.52 | 28.47 | -0.37 | 0.712 | 0.4527 | 24.0% | 25.63 | 23.37 | Foxbit takes over NovaDAX clients (M-04) |
 

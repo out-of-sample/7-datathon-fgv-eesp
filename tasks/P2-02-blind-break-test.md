@@ -2,9 +2,9 @@
 id: P2-02
 title: Blind structural-break test on the premium
 phase: P2
-status: review
+status: done
 owner: CS 2
-working: Felipe (review)
+working: -
 due: 2026-11-01
 depends: P1-02, P1-04
 ---
@@ -17,7 +17,7 @@ then check which breaks match known events. If it finds 24 Jun 2026 on its own, 
 - [x] S1 — **Before running**, write the specification here: method (Bai-Perron via R `strucchange`, or Python
    `ruptures`), minimum segment = 20 trading days, maximum breaks = 8, number of breaks chosen by BIC. — done: Renzo, 31 Oct (Specification below)
 - [x] S2 — Run on the daily premium (P1-02). Report break dates with confidence intervals. — done: Renzo, 31 Oct
-- [x] S3 — Match breaks to the P1-04 events (within +/-5 trading days). List unmatched breaks as "unexplained". — done: Felipe, 2 Nov
+- [x] S3 — Match breaks to the P1-04 events (within +/-5 trading days). List unmatched breaks as "unexplained". — done: Felipe & Renzo, 2 Nov
 - [x] S4 — Robustness: the alternative time-matching variant of the premium. — done: Renzo, 31 Oct (also Coinbase USDT/USD)
 
 ## Success criteria
@@ -46,7 +46,7 @@ means the algorithm is given no event dates, and every choice below is fixed bef
   If BIC picks the maximum (8), we treat that as over-selection and the headline count is LWZ's; otherwise BIC's.
 - **Confidence intervals.** Bai (1997) for a mean shift: 95% CI = break ± 11.03 · ω² / δ² PTAX days, where δ is the
   change in mean at the break and ω² the long-run variance of the residuals of the chosen model (Newey–West, Bartlett
-  kernel, lag floor(4 (T/100)^(2/9)) = 7). Constants `[verify]` against Bai (1997) (L-03). Intervals reported in PTAX days
+  kernel, lag floor(4 (T/100)^(2/9)) = 7). Constants verified against Bai (1997) (L-03). Intervals reported in PTAX days
   and mapped to dates.
 - **What counts as "found 24 Jun 2026".** A headline break whose 95% CI contains 23 or 24 Jun 2026, or whose date is
   within ±5 PTAX days of 23 Jun 2026 (the S3 matching window).
@@ -62,12 +62,13 @@ means the algorithm is given no event dates, and every choice below is fixed bef
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** S1–S4 complete (`status: review`). S3 matching re-run on 2 Nov after P1-04 source fixes so every break follows the strict ±5-day rule (`F-011`).
-- **Next step:** Teammate (Nattan / Jonathan) reviews `results/tables/P2-02_breaks.csv` and `findings/F-011-blind-breaks.md` and marks `done`.
+- **State:** `done` (reviewed and independently re-run by Felipe in `P4-02`; `F-011` confirmed).
+- **Next step:** None (used on Slides 4 and 8 of `deck/deck_v1_ptbr.md` and Annex B.3 of `deck/annex_v1_ptbr.md`).
 - **Open questions:** Break 5 (22 Jul 2026, fade from 109.1 to 26.8 bps) has no verified event within ±5 trading days and is reported as `unexplained` (M-04 on 7 Jul is −11 trading days away; M-05 Foxbit Infra on 18 Jul is a market rebrand/claim, not a rule).
 - **How to resume:** `py scripts/p2_02_breaks.py`
 
 ## Log
+- 2026-11-02, Felipe (review, P4-02): Independently audited `scripts/p2_02_breaks.py` (Dynp L2 global optimum, BIC/LWZ penalties, Newey-West lag=7, Bai 1997 CI constant 11.03, and uniform ±5-day matching) and re-ran it from `P1-02_premium_daily.csv` and `P1-04_events_brazil.csv`. 100% exact reproduction of `P2-02_breaks.csv` and `P2-02_criteria.csv`. Fixed a minor prose typo in `F-011` line 47 (Coinbase Break 2: −30.1 bps vs −32.0 bps). Promoted `P2-02` to `done` and `F-011` to `confirmed` (`checked_by: Felipe`).
 - 2026-11-02, agent for Renzo: S3 re-run after the P1-04 source fixes. Removed the date-keyed overrides (Break 3, July fade) and the hand-written labels/markers so every break follows the ±5-day rule and labels come from the event table. Main series: Breaks 1–4 coincide with M-01 (0d), M-02 (−5d, was 0d with the unsourced 20 Aug date), E-01b (−2d), E-05 (−1d); Break 5 unexplained. The committed table had come from an older script version (Coinbase break 1 19 Jul 2021 vs 1 Jun 2021 now and on 31 Oct). F-011 updated.
 - 2026-11-02, Felipe: S3 matching completed using P1-04 verified events + non-rules; results/tables/P2-02_breaks.csv updated; script handles both local full data and table-based matching; status -> review
 - 2026-10-31, agent for Renzo: S2 and S4 run (F-011): 24 Jun 2026 found blind (CI 18–30 Jun, +99.8 bps) in all three series; partial reversal from 22 Jul. Status → blocked (S3 needs P1-04)
@@ -78,7 +79,7 @@ means the algorithm is given no event dates, and every choice below is fixed bef
   If the break test finds a break there, the tick change is a candidate explanation besides any rule.
 
 ## Result
-S3 complete. Breaks found blind (headline: LWZ, because BIC hit the cap of 8; F-011):
+S3 complete and reviewed (`done`). Breaks found blind (headline: LWZ, because BIC hit the cap of 8; F-011):
 
 | Break | First day of new regime | 95% CI | Mean before → after (bps) | Matched event (±5 PTAX days) |
 |---|---|---|---|---|

@@ -67,7 +67,7 @@ Comparação entre os livros de ofertas domésticos de `USDT/BRL` na janela ofic
 
 | Corretora | Pré 20d (bps) | Pós 20d (bps) | Salto 20d (bps) | Pré 16d Jun (bps) | Salto 16d Jun (bps) | Pico 24/jun (bps) | Pico 25/jun (bps) |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| **Binance (Líder Global/Local)** | 15,24 | 109,14 | **+93,91** | 12,96 | **+96,18** | 155,4 | 184,4 |
+| **Binance (Líder Global/Local)** | 15,24 | 109,14 | **+93,91** | 12,96 | **+96,18** | 155,4 | 184,3 |
 | **Foxbit (Nacional)** | 14,70 | 108,00 | **+93,30** | 12,85 | **+95,17** | 152,1 | 184,8 |
 | **Mercado Bitcoin (Nacional)** | 10,70 | 105,60 | **+94,90** | 7,13 | **+98,50** | 147,9 | 155,7 |
 | **Composto Igual-Ponderado (3 Venues)** | **13,55** | **107,58** | **+94,03** | **10,98** | **+96,62** | **151,8** | **175,0** |
@@ -122,7 +122,7 @@ Todas as 6 especificações de controle sintético e DiD (`results/tables/P2-04_
 | `USDT_REGIME_3` | Rota USDT | Regime 3: ago/2024–jul/2025 | Binance (VIP0) | 34,9 | 10,0 | 0,1 | 0,0 | **45,0** | **R$ 2.421,00** | 1,1% | Regime 3 (`F-011`); 1,1% vigente em ~9,5 dos 11 meses (`R-02`) |
 | `USDT_REGIME_4` | Rota USDT | Regime 4: jul/2025–22/jun/2026 (Pré-Ofício) | Binance (VIP0) | 9,3 | 10,0 | 0,1 | 0,0 | **19,4** | **R$ 1.043,72** | 3,5% | Pós-corte de tick (`M-03`, `F-007`); menor fricção histórica |
 | `USDT_REGIME_5` | Rota USDT | Regime 5: 24/jun–21/jul/2026 (Pico 20d) | Binance (VIP0) | 109,1 | 10,0 | 0,1 | 0,0 | **119,2** | **R$ 6.412,96** | 3,5% | Pós-ofício BCB (`E-05`, `F-011`) |
-| `USDT_PEAK` | Rota USDT | Pico de 48h: 24–25/jun/2026 | Binance (VIP0) | 169,9 | 10,0 | 0,1 | 0,0 | **180,0** | **R$ 9.682,66** | 3,5% | Média dos picos de 24/jun (155,4 bps) e 25/jun (184,4 bps, `F-009`) |
+| `USDT_PEAK` | Rota USDT | Pico de 48h: 24–25/jun/2026 | Binance (VIP0) | 169,9 | 10,0 | 0,1 | 0,0 | **180,0** | **R$ 9.682,66** | 3,5% | Média dos picos de 24/jun (155,4 bps) e 25/jun (184,3 bps, `F-009`) |
 | `USDT_REGIME_6` | Rota USDT | Regime 6: 22/jul–out/2026 (Pós-Pico) | Binance (VIP0) | 26,8 | 10,0 | 0,1 | 0,0 | **36,9** | **R$ 1.985,22** | 3,5% | Nível pós-pico (`F-011`; diferença pós-pico não significativa, `F-022`) |
 | `USDT_REGIME_6_FOXBIT` | Rota USDT | Regime 6: Foxbit VIP 6–7 Taker | Foxbit | 26,8 | 8,0 | 0,2 | 0,0 | **35,0** | **R$ 1.883,00** | 3,5% | Taxa taker VIP 6–7 (R$ 5M–25M) = 7–9 bps, ponto médio 8,0 bps (`R-05`) |
 | `USDT_REGIME_6_MB` | Rota USDT | Regime 6: Mercado Bitcoin VIP Maker | Mercado Bitcoin | 26,8 | 6,0 | 0,2 | 0,0 | **33,0** | **R$ 1.775,40** | 3,5% | 6,0 bps é taxa *maker* VIP (>R$ 10M); *taker* ativo (R$ 500k–10M) é **60,0 bps = 87,0 bps total** (`R-06`) |
@@ -151,14 +151,15 @@ Todas as 6 especificações de controle sintético e DiD (`results/tables/P2-04_
 
 **Parâmetros Estimados do Modelo Band-TAR por Regime (`results/tables/P3-07_band_tar.csv`, `F-021`):**
 
-| Regime | Período | N (dias) | Centro $\mu$ (bps) | Banda $\tau$ (bps) | $\rho_{\text{out}}$ | Meia-Vida (dias) | Piso C-S (bps) | Razão $\tau / \text{C-S}$ |
-|---|---|---:|---:|---:|---:|---:|---:|---:|
-| **Regime 1** | out/2020–jul/2021 | 200 | 91,3 | 22,5 | 0,583 | 1,29 | 8,9 | 2,52× |
-| **Regime 2** | jul/2021–ago/2024 | 768 | 54,5 | 6,6 | 0,683 | 1,82 | 5,0 | 1,33× |
-| **Regime 3** | ago/2024–jul/2025 | 225 | 34,9 | 6,4 | 0,889 | 5,89 | 5,7 | 1,12× |
-| **Regime 4 (Pré-Ofício)** | jul/2025–23/jun/2026 | 236 | **9,3** | **1,6** | **0,552** | **1,17** | 2,7 | **0,59×** |
-| **Regime 5 (Pico Agudo)** | 24/jun–21/jul/2026 | 20 | **109,1** | **42,0** | **0,664** | **1,69** | 3,6 | **11,83×** |
-| **Regime 6 (Pós-Pico)** | 22/jul–30/out/2026 | 71 | **26,8** | **9,4** | **0,813** | **3,34** | 2,4 | **3,94×** |
+| Regime | Período | N (dias) | Centro $\mu$ (bps) | Banda $c$ (bps) | $\beta_{\text{out}}$ | Meia-Vida (dias) | RMSE Band-TAR (bps) | Ganho vs Passeio Aleatório (%) | Ganho vs AR(1) Linear (%) |
+|---|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Regime 1** | out/2020–jul/2021 | 196 | 91,3 | 55,0 | -0,907 | 0,29 | 15,93 | +3,4% | +0,2% |
+| **Regime 2** | jul/2021–ago/2024 | 771 | 54,5 | 13,6 | -0,631 | 0,70 | 7,61 | +10,1% | +0,9% |
+| **Regime 3** | ago/2024–jul/2025 | 220 | 34,9 | 4,8 | -0,720 | 0,54 | 7,03 | +7,8% | +0,1% |
+| **Regime 4 (Pré-Ofício)** | jul/2025–23/jun/2026 | 242 | **9,3** | **1,6** | **-1,030** | **1,00** | **2,80** | **+2,5%** | **+0,1%** |
+| **Regime 5 (Pico Agudo)** | 24/jun–21/jul/2026 | 20 | **109,1** | **42,0** | **-1,489** | **1,00** | **12,96** | **+21,3%** | **+16,4%** |
+| **Regime 6 (Pós-Pico)** | 22/jul–30/out/2026 | 71 | **26,8** | **9,4** | **-0,987** | **0,16** | **5,34** | **+1,7%** | **+0,0%** |
+| **Pós-Ofício Agrupado (5+6)** | 24/jun–30/out/2026 | 91 | 44,9 | 32,4 | -0,352 | 1,60 | 9,99 | +20,3% | +10,8% |
 
 ### B.7. Mecanismo nas Estatísticas do BCB (`P3-10`, `F-024`) e Fluxo nas Corretoras
 
@@ -332,7 +333,7 @@ Em cumprimento aos mais elevados padrões éticos e à transparência metodológ
 2. **Protocolo de Análise Cega Independente (Tarefas `P1-08`, `P2-06`, `P3-05` — Extensão A):**
    - Antes de qualquer execução de agentes analistas independentes, a estimativa oficial da equipe (+93,91 bps no estudo de eventos e +109,31 bps no controle sintético) foi congelada em `results/agentic/team_estimate.json` (commit `80fc866`), e o pacote de dados anônimos (`results/agentic/bundle_SHA256SUMS.txt`) e o protocolo (`results/agentic/protocol.md`) foram fixados em git.
 3. **Auditoria Cruzada Paralela de Especificações, Citações e Inferência:**
-   - Revisões cruzadas independentes entre membros da equipe e subagentes paralelos verificaram cada script, checksum SHA-256 e tabela (`F-001` a `F-027`), substituindo $p$-valores paramétricos inflacionados por $p$-valores de placebos empíricos (`F-016`, `F-022`), documentando que o patamar pós-22 de julho (+11,5 a +19,3 bps) tem $p_{\text{placebo}} = 0,24$ (não significativo), pré-registrando os testes de queda de importações no BCB (`P3-10`, `c6a1c1b`), de transferência financeira (`P3-11`, `91f9c25`) e da previsão para 1º de janeiro de 2027 (`P3-13`, `393a14a`), e abrindo com citação textual todas as fontes de legislação, imprensa (`E-05.1`–`E-05.10`), tarifas (`R-01` a `R-07`) e casos de depeg (`DP-01` a `DP-10`).
+   - Revisões cruzadas independentes entre membros da equipe e subagentes paralelos verificaram cada script, checksum SHA-256 e tabela (`F-001` a `F-027`), substituindo $p$-valores paramétricos inflacionados por $p$-valores de placebos empíricos (`F-016`, `F-022`), documentando que o patamar pós-22 de julho (+11,5 a +19,3 bps) tem $p_{\text{placebo}} = 0,24$ (não significativo), pré-registrando os testes de queda de importações no BCB (`P3-10`, `4f6f14e`), de transferência financeira (`P3-11`, `91f9c25`) e da previsão para 1º de janeiro de 2027 (`P3-13`, `393a14a`), e abrindo com citação textual todas as fontes de legislação, imprensa (`E-05.1`–`E-05.10`), tarifas (`R-01` a `R-07`) e casos de depeg (`DP-01` a `DP-10`).
 
 ### E.4. Compromisso de Integridade dos Dados
 Declaramos expressamente que **nenhum dado numérico, data histórica, cotação cambial, dispositivo de lei ou resultado estatístico foi sintetizado artificialmente**. Toda a base empírica foi descarregada de repositórios públicos oficiais (Binance Vision, BCB Olinda e SGS, Coinbase, Bitstamp, BCE, BanRep, Planalto, STF, SEC, Federal Reserve e DeFiLlama), com checksums SHA-256 em `data/raw/SHA256SUMS` e scripts disponíveis para replicação integral pela banca examinadora.

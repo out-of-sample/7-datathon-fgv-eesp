@@ -1,10 +1,10 @@
 ---
 id: F-017
 title: Synthetic control estimates a +109 bps acute treatment gap for the 23 Jun 2026 shock (Brazil ranks #1 of 6, ratio 9.31) fading to a +28 bps plateau
-status: exploratory
+status: confirmed
 task: P2-04
 date: 2026-11-02
-checked_by: -
+checked_by: Renzo
 ---
 
 ## Claim
@@ -28,7 +28,7 @@ All specifications evaluate the acute window ($24\text{ Jun} - 21\text{ Jul}$) a
 | Strict 4-donor (ex-EUR) | BRL_ptax | Nov 25 – Jun 26 | 10.33 | 6.90 | +116.7 | +33.9 | +102.9 | +33.4 | 1/5 | 0.200 | TRY: 54.6%, MXN: 42.7%, ZAR: 2.6% |
 | Strict 4-donor [BRL_ecb] | BRL_ecb | Nov 25 – Jun 26 | 18.25 | 3.85 | +108.5 | +37.7 | +96.4 | +37.4 | 1/5 | 0.200 | MXN: 55.9%, TRY: 38.1%, COP: 3.6%, ZAR: 2.5% |
 | 6-donor (with IDR) | BRL_ptax | Dec 25 – Jun 26 | 7.19 | 9.20 | +109.9 | +28.6 | +104.7 | +35.7 | 1/7 | 0.143 | EUR: 58.0%, MXN: 21.7%, TRY: 15.4%, ZAR: 4.1%, COP: 0.5% |
-| 6-donor [BRL_ecb] | BRL_ecb | Dec 25 – Jun 26 | 16.90 | 3.88 | +102.1 | +32.6 | +98.2 | +39.7 | 1/7 | 0.143 | EUR: 52.3%, MXN: 39.1%, COP: 4.4%, ZAR: 3.4% |
+| 6-donor [BRL_ecb] | BRL_ecb | Dec 25 – Jun 26 | 16.90 | 3.88 | +102.1 | +32.6 | +98.2 | +39.7 | 1/7 | 0.143 | EUR: 52.3%, MXN: 39.1%, COP: 4.4%, ZAR: 3.4%, TRY: 0.7% |
 
 ### In-Space Placebo Breakdown (Headline 5-Donor Specification)
 Each donor is treated in turn, estimating optimal synthetic weights on the remaining 4 donors:
