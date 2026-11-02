@@ -4,7 +4,7 @@ title: Synthetic control for the 23 Jun 2026 shock
 phase: P2
 status: review
 owner: CS 2
-working: Renzo (review)
+working: -
 due: 2026-11-02
 depends: P1-05, P1-06, P2-03
 ---
@@ -41,12 +41,24 @@ Pre-committed before fitting:
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** Completed, in review. Script `scripts/p2_04_synth.py` reproduces all 6 specifications, tables, 2-panel figure, and in-space placebos.
-- **Next step:** Review by CS 2 (Nattan/Renzo) or CS 3 (Jonathan).
-- **Open questions:** None. All success criteria met.
-- **How to resume:** Re-run `python scripts/p2_04_synth.py`.
+- **State:** reviewed by Renzo (2 Nov). **The analysis holds; text and figure changes requested** (owner: Felipe).
+  `scripts/p2_04_synth.py` reproduces both tables exactly. Brazil is correctly left out of the placebo pools. An
+  independent donor-average DiD from `P1-05_donor_premiums_daily.csv` gives the same +103.3 bps acute / +31.4 plateau.
+  Donor changes over the acute window: EUR −1.3, TRY −11.9, ZAR +7.3, MXN −15.6, COP +23.7 bps; none moved like Brazil.
+- **Changes requested:**
+  1. F-017: "as domestic order books and OTC channels adapted" has no evidence (the July fade is unexplained, P2-02).
+     Say "after the spike".
+  2. F-017 "Causal attribution … demonstrating that global crypto or EM macro shocks do not explain": soften to "no donor
+     currency moved comparably", and keep p = 0.17 (1 of 6) visible. With 5 donors this is support, not proof.
+  3. Day counts: the acute window has 17 common days and the plateau 48 (F-017 says 20 and 45). State common days.
+  4. Figure: labels at the top of panel A overlap. In panel B, ZAR and COP fit poorly (pre-RMSPE 62–71 bps vs Brazil
+     7.05) and swamp the picture. Abadie et al. (2010) drop placebos with pre-RMSPE > 5× the treated unit's; show that
+     version, or say why not. "Shock"/"Adaptation Plateau" labels → neutral wording.
+- **Next step:** Felipe applies 1–4; then status → done.
+- **How to resume:** `.venv/bin/python scripts/p2_04_synth.py` (seconds).
 
 ## Log
+- 2026-11-02, agent for Renzo: review done (Handoff): reproduces exactly; DiD checked independently; text/figure changes requested.
 - 2026-11-02, agent for Renzo: Renzo takes the review.
 - 2026-11-02, Felipe: Completed S1–S5 in `scripts/p2_04_synth.py`. Generated `results/tables/P2-04_synth_results.csv`, `results/tables/P2-04_synth_weights.csv`, `results/figures/P2-04_synthetic_control.png`. Written `findings/F-017-synthetic-control.md`. Status -> review.
 - 2026-11-01, Felipe (Economist gate call): (1) Inference structure: P2-03 within-Brazil placebo distribution serves as primary statistical p-value, while P2-04 synthetic control serves as cross-country counterfactual (rank 1 of 6 with EUR, TRY, ZAR, MXN, COP, or rank 1 of 7 if pre-period starts 1 Dec 2025 to include IDR), with the permutation p-value floor (1/6=0.167 or 1/7=0.143) explicitly acknowledged; (2) Report both the 20-day acute spike window (24 Jun – 21 Jul, ~109 bps) and the post-adaptation plateau (22 Jul – Oct, ~27 bps) separately, plus the full trajectory/gap path.
