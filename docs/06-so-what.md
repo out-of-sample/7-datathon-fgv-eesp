@@ -39,6 +39,8 @@ rough sizing from 2 Nov; they become findings only through the tasks.
   after the notice, a tariff equivalent of about 95 bps; no ordinary month moved more than R$ 35 mn (p = 0.005).
 - **P3-12 (F-026):** of eight dated rules, only the confidential, immediate notice moved the premium beyond the range of
   ordinary dates; the seven published rules (1–175 days of notice) stayed inside it. Form and content cannot be separated.
+- **P3-13 (F-027):** prediction committed (`393a14a`): Res. 584's 24-hour hold (1 Jan 2027) only delays outgoing transfers
+  and costs a USDT holder about 9 bps, so the premium should not move detectably; checkable in Feb 2027.
 
 ## Stop rules
 

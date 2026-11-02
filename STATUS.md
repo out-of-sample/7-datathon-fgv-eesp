@@ -39,7 +39,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 1. Phase P1, P2, P3 (core), and P4-01 are complete (`done` or `review`):
    - **Deck & Annex (`P5-01`, `P5-05`, `P5-07`):** Story notebook `notebooks/p5_07_story.ipynb` (`P5-07`) is reviewed and `done`; `deck/deck_v1_ptbr.md` (14 slides) and `deck/annex_v1_ptbr.md` (Anexos A–E) are rebuilt on the 15-section prototype flow with placebo $p$-values only, opened/quoted sources (`R-01`..`R-07`, `DP-01`..`DP-10`, `M-05`), and **both Options C and A kept ready on Slide 10 / Anexo B.5** for the team's P3-01 choice.
    - **Depeg & Money Layer (`P3-09`, `P3-01`):** `P3-09` (`review`) opened and quoted primary sources for all 11 downward depegs + USDP Binance delisting (`DP-01`..`DP-10`) and restored mechanisms in `results/tables/P3-04_depeg_case_table.csv` (`F-019`); `P3-01` (`review`) validated all bank/exchange/hedge parameters (`R-01` BCB EE 48/2019 20 bps corporate spread, `R-01b` BB PJ SWIFT, `R-05` Foxbit, `R-06` MB maker vs taker, `R-07` 2.5 bps 1-day CIP carry) with neutral framing (`F-015`).
-   - **"So what" plan ([`docs/06-so-what.md`](docs/06-so-what.md)):** `P3-14`, `P3-10`, `P3-11` and `P3-12` in `review` (`F-023` to `F-026`); `P3-13` (dated prediction for Res. 584) `todo` before the freeze.
+   - **"So what" plan ([`docs/06-so-what.md`](docs/06-so-what.md)):** `P3-14`, `P3-10`, `P3-11`, `P3-12` and `P3-13` in `review` (`F-023` to `F-027`); plan complete, awaiting peer review.
    - **Next tasks before Wed 4 Nov freeze:** Team decides between Option C and Option A on Slide 10; Jonathan/Nattan run `P4-02` (independent re-check) and `P3-05`/`P3-06` (live CLI agent runs); peer-review tasks in `review`.
 2. Everyone (and your agents): read [`docs/review-2026-10-31.md`](docs/review-2026-10-31.md) and follow `prompt.md` §5–§7 (`sources are opened, not remembered`).
 3. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff (`prompt.md` §7).
@@ -119,7 +119,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-10](tasks/P3-10-stablecoin-imports.md) | Mechanism - did stablecoin imports fall when the premium jumped, and recover when it faded? | 👀 review | CS 1 | Felipe (review) | 4/4 | 3/3 | 2026-11-03 | P1-02, P2-02 |
 | [P3-11](tasks/P3-11-money-moved.md) | So what (1) - how much money the spike moved, and to whom | 👀 review | Economist | Felipe (review) | 4/4 | 3/3 | 2026-11-03 | P2-03, P3-01 |
 | [P3-12](tasks/P3-12-which-rules-matter.md) | So what (2) - which rules moved the premium (published rules vs the confidential notice) | 👀 review | Economist | Felipe (review) | 3/3 | 3/3 | 2026-11-03 | P2-03 |
-| [P3-13](tasks/P3-13-prediction-res584.md) | So what (4) - a dated prediction for the 24-hour hold (Res. 584, 1 Jan 2027) read by the monitor | 🔄 doing | CS 1 | Renzo | 0/3 | 0/2 | 2026-11-03 | P3-01, P3-03 |
+| [P3-13](tasks/P3-13-prediction-res584.md) | So what (4) - a dated prediction for the 24-hour hold (Res. 584, 1 Jan 2027) read by the monitor | 👀 review | CS 1 | - | 3/3 | 2/2 | 2026-11-03 | P3-01, P3-03 |
 | [P3-14](tasks/P3-14-notice-sources.md) | Every source on the 23 Jun 2026 BCB notice, opened and registered | 👀 review | CS 1 | Felipe (review) | 3/3 | 3/3 | 2026-11-03 | P1-04 |
 
 **P4 — Robustness and freeze** (1/3 closed)
