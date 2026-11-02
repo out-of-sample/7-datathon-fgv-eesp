@@ -89,7 +89,16 @@ def binance(pair):
     return k.sort_index().drop(columns=0).set_axis(["open", "high", "low", "close", "volume"], axis=1)
 
 
-uu = pd.read_csv(PROC / "P1-02_premium_hourly.csv", parse_dates=["time_utc"], index_col="time_utc").usdtusd_open_usd
+# Build uu directly from raw USDCUSDT (and BUSDUSDT gap filler) from START onward;
+# fallback to P1-02_premium_hourly.csv only if raw USDCUSDT zips are absent.
+usdc_zips = list((RAW / "binance" / "USDCUSDT").glob("*.zip"))
+if usdc_zips:
+    usdc_cand = binance("USDCUSDT")
+    busd_cand = binance("BUSDUSDT")
+    uu = (1 / usdc_cand["open"]).combine_first(1 / busd_cand["open"])
+    uu = uu.loc[START:END]
+else:
+    uu = pd.read_csv(PROC / "P1-02_premium_hourly.csv", parse_dates=["time_utc"], index_col="time_utc").usdtusd_open_usd
 FIX = {  # currency: (pair, time zone of the fix, local hours whose opens are averaged)
     "EUR": ("EURUSDT", "Europe/Berlin", [14]), "TRY": ("USDTTRY", "Europe/Berlin", [14]),
     "ZAR": ("USDTZAR", "Europe/Berlin", [14]), "MXN": ("USDTMXN", "Europe/Berlin", [14]),

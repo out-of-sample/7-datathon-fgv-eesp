@@ -134,7 +134,7 @@ out.index.name = "date"
 out.to_csv(PROC / "P3-03_monitor_daily.csv")
 last = out.iloc[-1]
 recent = out.alarm.iloc[-QUIET:].abs().sum() > 0
-last_alarm = out.index[out.alarm != 0][-1]
+last_alarm = out.index[out.alarm != 0][-1] if (out.alarm != 0).any() else None
 today = {"date": dates[-1].date(), "premium_bps": round(last.premium_bps, 1), "mean5_bps": round(last.mean5_bps, 1),
          "regime level_bps": round(last.level_bps, 1), "regime since": last.regime_start.date(),
          "cusum % of h": round(100 * max(last.cusum_pos, last.cusum_neg) / h), "alarm in last 10 days": recent}

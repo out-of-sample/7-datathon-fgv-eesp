@@ -1,0 +1,5 @@
+category_id,category_name,n_events,stablecoins,recovery_rate_pct,duration_recovered,trough_price_range_usd,core_economic_mechanism
+1,1. Fim de semana bancário / canal de resgate fechado,2,"USDC, USDP",100.0,58h (51h–65h),$0.863 – $0.974,Arbitragem bloqueada por horário bancário; paridade restaurada imediatamente após garantia de resgate.
+2,2. Fricção temporária de liquidez/resgate,7,"UST, TUSD, FDUSD",100.0,492h (21h–2719h),$0.954 – $0.992,Solvência mantida; atrito operacional/escrutínio atrasa arbitragem mas paridade é preservada.
+3,3. Colapso algorítmico / insolvência,1,UST,0.0,N/A (Censurado),$0.245 – $0.245,Insolvência patrimonial completa; espiral da morte sem colateral externo.
+4,4. Deriva pré-deslistagem,2,USDP,50.0,60h (60h–60h),$0.988 – $0.994,Secagem de liquidez secundária por deslistagem programada em exchange.

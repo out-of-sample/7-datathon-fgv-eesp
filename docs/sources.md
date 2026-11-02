@@ -17,6 +17,8 @@ Status: **checked** (opened and confirmed by us, with date) or **[verify]** (not
 | D-09 | The Block, 5 Sep 2022: "Binance to end support for USDC, two other stablecoins in favor of its own BUSD" | Cause of the USDCUSDT gap (auto-conversion from 29 Sep 2022) | https://www.theblock.co/post/167885/binance-to-end-support-for-usdc-other-stablecoins-in-favor-of-its-own-busd | secondary; Binance's own announcement not checked |
 | D-10 | Binance public market-data API | USDT/BRL tick size and live best bid/ask (spread sanity check, F-007) | `https://data-api.binance.vision/api/v3/{exchangeInfo,ticker/bookTicker}?symbol=USDTBRL` (api.binance.com refuses this location) | checked 31 Oct 2026 16:43 UTC (tickSize 0.0001; bid 5.3800 / ask 5.3804) |
 | D-06 | 2025 project repo | `raw_data/Y.csv` for the naive-baseline check | https://github.com/Renzo-Filho/6-datathon-fgv-eesp | checked 30 Oct 2026 |
+| D-14 | DeFiLlama Yields API | Historical daily APY, base APY (`apyBase`), reward APY (`apyReward`), and TVL for canonical Ethereum USDC lending pools (Aave V3, Aave V2, Compound V3, Compound V2) | `https://yields.llama.fi/pools` and `https://yields.llama.fi/chart/{pool_id}` (frozen in `data/raw/defillama/`) | checked 2 Nov 2026 (P3-08) |
+| D-15 | Federal Reserve Bank of New York (NY Fed) Markets API | Secured Overnight Financing Rate (SOFR) daily reference rate (`percentRate`, volume, percentiles) | `https://markets.newyorkfed.org/api/rates/secured/sofr/search.json?startDate=2023-02-01&endDate=2025-11-10` (frozen in `data/raw/defillama/sofr.json`) | checked 2 Nov 2026 (P3-08) |
 
 ### P1-05 independent review additions (31 Oct 2026)
 

@@ -1,0 +1,388 @@
+r"""P3-02: Did the 23 Jun 2026 BCB notice also move the Bitcoin premium? (Crypto import heterogeneity).
+
+Purpose:
+  Evaluates whether the 23 Jun 2026 BCB supervisory ofício (E-05) and other Brazilian regulatory events
+  affected only stablecoins (USDT) or the broader cryptocurrency import channel (BTC).
+  
+  Computes the PTAX-window (13:00–16:00 UTC / 10:00–13:00 BRT, identical 4 hourly open candles to P1-02):
+    (a) btc_usd_premium_bps: BTC/BRL / (BTCUSDT * USDTUSD * PTAX) - 1, in bps
+        (how much more Brazilians pay for BTC in BRL than world USD BTC converted at PTAX);
+    (b) btc_usdt_cross_bps: BTC/BRL / (BTCUSDT * PTAX) - 1, in bps
+        (the implied BRL/USDT cross-rate via BTC over PTAX);
+    (c) usdt_minus_btc_bps: direct USDT/BRL premium (P1-02) minus BTC premium, measuring cross-pair arbitrage.
+
+  Runs the exact P2-03 before/after event study across all 13 verified Brazilian events:
+    [-20, -1] vs [+1, +20] PTAX trading days, Newey-West HAC SEs (maxlags=5),
+    200 placebo dates (matching weekday frequencies, seed=20261102),
+    naive pre-period persistence baseline, and extended pre-trend ([-40, -21]) / plateau ([+21, +60]) windows.
+
+Inputs:
+  data/raw/binance/BTCBRL/*.zip
+  data/raw/binance/BTCUSDT/*.zip
+  data/processed/P1-02_premium_daily.csv
+  data/processed/P1-04_events_brazil.csv
+
+Outputs:
+  data/processed/P3-02_btc_premium_daily.csv
+  results/tables/P3-02_btc_events.csv
+  results/figures/P3-02_btc_vs_usdt_premium.png
+
+How to run:
+  python scripts/p3_02_btc.py
+"""
+
+from pathlib import Path
+import json
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import statsmodels.api as sm
+
+# Paths
+ROOT = Path(__file__).resolve().parent.parent
+RAW = ROOT / "data/raw"
+PROC = ROOT / "data/processed"
+RES_TAB = ROOT / "results/tables"
+RES_FIG = ROOT / "results/figures"
+
+RES_TAB.mkdir(parents=True, exist_ok=True)
+RES_FIG.mkdir(parents=True, exist_ok=True)
+PROC.mkdir(parents=True, exist_ok=True)
+
+WINDOW_UTC = [13, 14, 15, 16]
+
+def bps(ratio):
+    return (ratio - 1.0) * 1e4
+
+# 1. Load raw Binance klines for BTCBRL and BTCUSDT
+def load_binance_pair(pair):
+    files = sorted((RAW / "binance" / pair).glob("*.zip"))
+    if not files:
+        raise FileNotFoundError(f"No zip files found for {pair} in {RAW / 'binance' / pair}")
+    k = pd.concat(pd.read_csv(f, header=None, usecols=[0, 1, 4, 5]) for f in files)
+    k.index = pd.to_datetime(k[0].where(k[0] < 1e14, k[0] // 1000), unit="ms")
+    k = k.sort_index().drop(columns=0).set_axis(["open", "close", "volume"], axis=1)
+    k = k[~k.index.duplicated(keep="first")]
+    return k
+
+print("Loading Binance BTCBRL and BTCUSDT hourly klines...")
+btcbrl = load_binance_pair("BTCBRL")
+btcusdt = load_binance_pair("BTCUSDT")
+
+# Extract PTAX-window hourly candles (13, 14, 15, 16 UTC)
+win_brl = btcbrl[btcbrl.index.hour.isin(WINDOW_UTC)]
+win_usdt = btcusdt[btcusdt.index.hour.isin(WINDOW_UTC)]
+
+g_brl = win_brl.groupby(win_brl.index.normalize())
+g_usdt = win_usdt.groupby(win_usdt.index.normalize())
+
+# 2. Merge with P1-02 daily series
+print("Loading P1-02 daily premium series and P1-04 Brazilian events...")
+p1_02 = pd.read_csv(PROC / "P1-02_premium_daily.csv", parse_dates=["date_brt"], index_col="date_brt")
+df_events = pd.read_csv(PROC / "P1-04_events_brazil.csv")
+
+df = pd.DataFrame(index=p1_02.index)
+df["ptax_sell_brl_per_usd"] = p1_02["ptax_sell_brl_per_usd"]
+df["ptax_buy_brl_per_usd"] = p1_02["ptax_buy_brl_per_usd"]
+df["usdtusd_window_usd"] = p1_02["usdtusd_window_usd"]
+df["usdtbrl_window_brl"] = p1_02["usdtbrl_window_brl"]
+df["usdt_premium_bps"] = p1_02["premium_bps"]
+df["usdt_premium_unadj_bps"] = p1_02["premium_unadj_bps"]
+
+df["btcbrl_window_brl"] = g_brl.open.mean()
+df["btcusdt_window_usdt"] = g_usdt.open.mean()
+df["btc_window_hours"] = g_brl.open.count()
+
+# (a) btc_usd_premium_bps: BTC/BRL over (BTC/USDT * USDT/USD * PTAX)
+df["btc_usd_premium_bps"] = bps(
+    df["btcbrl_window_brl"] / (df["btcusdt_window_usdt"] * df["usdtusd_window_usd"] * df["ptax_sell_brl_per_usd"])
+)
+
+# (b) btc_usdt_cross_bps: BTC/BRL over (BTC/USDT * PTAX)
+df["btc_usdt_cross_bps"] = bps(
+    df["btcbrl_window_brl"] / (df["btcusdt_window_usdt"] * df["ptax_sell_brl_per_usd"])
+)
+
+# (c) Differences
+df["usdt_minus_btc_bps"] = df["usdt_premium_bps"] - df["btc_usdt_cross_bps"]
+df["usdt_minus_btc_usd_bps"] = df["usdt_premium_bps"] - df["btc_usd_premium_bps"]
+df["usdt_minus_btc_cross_bps"] = df["usdt_premium_unadj_bps"] - df["btc_usdt_cross_bps"]
+
+# Save daily processed dataset
+df.index.name = "date_brt"
+df.to_csv(PROC / "P3-02_btc_premium_daily.csv")
+print(f"Saved {len(df)} daily rows to {PROC / 'P3-02_btc_premium_daily.csv'}")
+
+# 3. Build Placebo Benchmark (matching P2-03 exactly)
+# Map events to blackout windows
+mapped_event_dates = set()
+for _, r in df_events.iterrows():
+    for col in ["date_announced", "date_effective"]:
+        val = str(r[col]).strip()
+        if val not in ["N/A", "nan"]:
+            sub = df.index[df.index >= pd.Timestamp(val)]
+            if len(sub) > 0:
+                mapped_event_dates.add(sub[0])
+
+blackout_dates = set()
+for ed in mapped_event_dates:
+    pos = df.index.get_loc(ed)
+    for p in range(max(0, pos - 20), min(len(df), pos + 21)):
+        blackout_dates.add(df.index[p])
+
+valid_placebo_indices = [
+    i for i in range(20, len(df) - 20)
+    if df.index[i] not in blackout_dates
+]
+valid_placebo_dates = df.index[valid_placebo_indices]
+df_valid_placebos = pd.DataFrame({
+    "date": valid_placebo_dates,
+    "day_name": [d.day_name() for d in valid_placebo_dates]
+})
+
+weekday_draw_counts = {
+    "Friday": 61,
+    "Monday": 52,
+    "Tuesday": 52,
+    "Thursday": 35
+}
+rng = np.random.default_rng(20261102)
+placebo_draw_dates = []
+for day, count in weekday_draw_counts.items():
+    pool = df_valid_placebos[df_valid_placebos["day_name"] == day]["date"].values
+    chosen = rng.choice(pool, size=count, replace=False)
+    placebo_draw_dates.extend(chosen)
+placebo_draw_dates = sorted(placebo_draw_dates)
+
+# Compute placebo diffs for btc_usd_premium_bps and btc_usdt_cross_bps
+placebo_diffs_usd = []
+placebo_diffs_cross = []
+for dt in placebo_draw_dates:
+    ts = pd.Timestamp(dt)
+    pos = df.index.get_loc(ts)
+    pre_u = df.iloc[pos - 20 : pos]["btc_usd_premium_bps"]
+    post_u = df.iloc[pos + 1 : pos + 21]["btc_usd_premium_bps"]
+    placebo_diffs_usd.append(float(post_u.mean() - pre_u.mean()))
+    
+    pre_c = df.iloc[pos - 20 : pos]["btc_usdt_cross_bps"]
+    post_c = df.iloc[pos + 1 : pos + 21]["btc_usdt_cross_bps"]
+    placebo_diffs_cross.append(float(post_c.mean() - pre_c.mean()))
+
+arr_placebo_usd = np.array(placebo_diffs_usd)
+arr_placebo_cross = np.array(placebo_diffs_cross)
+
+print(f"BTC USD Placebos (bps): min={arr_placebo_usd.min():.2f}, mean={arr_placebo_usd.mean():.2f}, "
+      f"max={arr_placebo_usd.max():.2f}, std={arr_placebo_usd.std():.2f}")
+
+# 4. Run Event Study across all 13 Brazilian events
+event_results = []
+
+for series_name, col_name, arr_placebos in [
+    ("BTC/USD Premium", "btc_usd_premium_bps", arr_placebo_usd),
+    ("BTC-Implied USDT Cross", "btc_usdt_cross_bps", arr_placebo_cross)
+]:
+    for _, r in df_events.iterrows():
+        eid = str(r["event_id"]).strip()
+        da = str(r["date_announced"]).strip()
+        de = str(r["date_effective"]).strip()
+        desc = str(r["description"]).strip()
+        etype = str(r["type"]).strip()
+        chan = str(r["channel_affected"]).strip()
+
+        entries = []
+        if da not in ["N/A", "nan"] and da != de:
+            entries.append(("announcement", da))
+        if de not in ["N/A", "nan"]:
+            entries.append(("effective", de))
+        elif da not in ["N/A", "nan"] and de in ["N/A", "nan"]:
+            entries.append(("announcement", da))
+
+        for kind, dt_str in entries:
+            if dt_str in ["N/A", "nan"]:
+                event_results.append({
+                    "series": series_name, "event_id": eid, "type": etype, "channel_affected": chan,
+                    "eval_date_kind": kind, "event_date": dt_str, "t0_ptax": "N/A",
+                    "pre_window": "N/A", "post_window": "N/A", "pre_mean_bps": np.nan, "post_mean_bps": np.nan,
+                    "diff_bps": np.nan, "se_hac_bps": np.nan, "t_stat": np.nan, "p_param": np.nan,
+                    "p_placebo_2s": np.nan, "p_placebo_1s": np.nan, "placebo_pctile": np.nan,
+                    "baseline_pre_mean_bps": np.nan, "naive_rmse_bps": np.nan, "post_regime_rmse_bps": np.nan,
+                    "status": "unenacted_draft" if eid == "E-03" else "not_applicable",
+                    "description": desc
+                })
+                continue
+
+            ts_raw = pd.Timestamp(dt_str)
+            sub = df.index[df.index >= ts_raw]
+            if len(sub) == 0:
+                event_results.append({
+                    "series": series_name, "event_id": eid, "type": etype, "channel_affected": chan,
+                    "eval_date_kind": kind, "event_date": dt_str, "t0_ptax": "N/A",
+                    "pre_window": "N/A", "post_window": "N/A", "pre_mean_bps": np.nan, "post_mean_bps": np.nan,
+                    "diff_bps": np.nan, "se_hac_bps": np.nan, "t_stat": np.nan, "p_param": np.nan,
+                    "p_placebo_2s": np.nan, "p_placebo_1s": np.nan, "placebo_pctile": np.nan,
+                    "baseline_pre_mean_bps": np.nan, "naive_rmse_bps": np.nan, "post_regime_rmse_bps": np.nan,
+                    "status": "outside_sample_future",
+                    "description": desc
+                })
+                continue
+
+            t0 = sub[0]
+            pos = df.index.get_loc(t0)
+            if pos < 20 or pos + 20 >= len(df):
+                event_results.append({
+                    "series": series_name, "event_id": eid, "type": etype, "channel_affected": chan,
+                    "eval_date_kind": kind, "event_date": dt_str, "t0_ptax": str(t0.date()),
+                    "pre_window": "N/A", "post_window": "N/A", "pre_mean_bps": np.nan, "post_mean_bps": np.nan,
+                    "diff_bps": np.nan, "se_hac_bps": np.nan, "t_stat": np.nan, "p_param": np.nan,
+                    "p_placebo_2s": np.nan, "p_placebo_1s": np.nan, "placebo_pctile": np.nan,
+                    "baseline_pre_mean_bps": np.nan, "naive_rmse_bps": np.nan, "post_regime_rmse_bps": np.nan,
+                    "status": "insufficient_window",
+                    "description": desc
+                })
+                continue
+
+            pre = df.iloc[pos - 20 : pos][col_name]
+            post = df.iloc[pos + 1 : pos + 21][col_name]
+            pre_m = float(pre.mean())
+            post_m = float(post.mean())
+            diff_m = post_m - pre_m
+
+            pre_win_str = f"{pre.index[0].date()}..{pre.index[-1].date()}"
+            post_win_str = f"{post.index[0].date()}..{post.index[-1].date()}"
+
+            y = np.concatenate([pre.values, post.values])
+            x = np.concatenate([np.zeros(len(pre)), np.ones(len(post))])
+            X = sm.add_constant(x)
+            model = sm.OLS(y, X).fit(cov_type="HAC", cov_kwds={"maxlags": 5})
+
+            se_hac = float(model.bse[1])
+            t_stat = float(model.tvalues[1])
+            p_param = float(model.pvalues[1])
+
+            n_more_extreme_2s = int(np.sum(np.abs(arr_placebos) >= np.abs(diff_m)))
+            p_placebo_2s = (n_more_extreme_2s + 1) / (len(arr_placebos) + 1)
+
+            if diff_m >= 0:
+                n_more_extreme_1s = int(np.sum(arr_placebos >= diff_m))
+            else:
+                n_more_extreme_1s = int(np.sum(arr_placebos <= diff_m))
+            p_placebo_1s = (n_more_extreme_1s + 1) / (len(arr_placebos) + 1)
+
+            placebo_pctile = float((np.sum(arr_placebos < diff_m) / len(arr_placebos)) * 100.0)
+
+            naive_rmse = float(np.sqrt(np.mean((post.values - pre_m) ** 2)))
+            post_rmse = float(np.sqrt(np.mean((post.values - post_m) ** 2)))
+
+            event_results.append({
+                "series": series_name,
+                "event_id": eid,
+                "type": etype,
+                "channel_affected": chan,
+                "eval_date_kind": kind,
+                "event_date": dt_str,
+                "t0_ptax": str(t0.date()),
+                "pre_window": pre_win_str,
+                "post_window": post_win_str,
+                "pre_mean_bps": round(pre_m, 2),
+                "post_mean_bps": round(post_m, 2),
+                "diff_bps": round(diff_m, 2),
+                "se_hac_bps": round(se_hac, 2),
+                "t_stat": round(t_stat, 2),
+                "p_param": p_param,
+                "p_placebo_2s": round(p_placebo_2s, 4),
+                "p_placebo_1s": round(p_placebo_1s, 4),
+                "placebo_pctile": round(placebo_pctile, 1),
+                "baseline_pre_mean_bps": round(pre_m, 2),
+                "naive_rmse_bps": round(naive_rmse, 2),
+                "post_regime_rmse_bps": round(post_rmse, 2),
+                "status": "evaluated",
+                "description": desc
+            })
+
+df_event_table = pd.DataFrame(event_results)
+df_event_table.to_csv(RES_TAB / "P3-02_btc_events.csv", index=False)
+print(f"Saved {len(df_event_table)} event rows to {RES_TAB / 'P3-02_btc_events.csv'}")
+
+# 5. Specialized E-05 (23 Jun 2026) Windows for BTC
+pos_e05 = df.index.get_loc(pd.Timestamp("2026-06-23"))
+print("\n" + "=" * 70)
+print("E-05 (23 Jun 2026) Comparison: USDT/BRL vs BTC/BRL (Extended Windows)")
+print("=" * 70)
+
+for sname, col in [
+    ("USDT/BRL Premium (P1-02)", "usdt_premium_bps"),
+    ("BTC/USD Premium (USD-adjusted)", "btc_usd_premium_bps"),
+    ("BTC/USDT Cross (unadjusted)", "btc_usdt_cross_bps"),
+    ("USDT minus BTC Spread (USD-adj)", "usdt_minus_btc_usd_bps"),
+    ("USDT minus BTC Spread (Cross)", "usdt_minus_btc_bps")
+]:
+    pt = df.iloc[pos_e05 - 40 : pos_e05 - 20][col]
+    pr = df.iloc[pos_e05 - 20 : pos_e05][col]
+    ac = df.iloc[pos_e05 + 1 : pos_e05 + 21][col]
+    pl40 = df.iloc[pos_e05 + 21 : pos_e05 + 61][col]
+    plfull = df.iloc[pos_e05 + 21 :][col]
+    print(f"\n{sname}:")
+    print(f"  Pre-trend [-40, -21]:  {pt.mean():6.2f} bps")
+    print(f"  Pre-window [-20, -1]:  {pr.mean():6.2f} bps (drift: {pr.mean() - pt.mean():+6.2f} bps)")
+    print(f"  Acute [+1, +20]:       {ac.mean():6.2f} bps (diff:  {ac.mean() - pr.mean():+6.2f} bps)")
+    print(f"  Plateau [+21, +60]:    {pl40.mean():6.2f} bps (diff:  {pl40.mean() - pr.mean():+6.2f} bps)")
+    print(f"  Plateau [+21, end]:    {plfull.mean():6.2f} bps (diff:  {plfull.mean() - pr.mean():+6.2f} bps)")
+
+# 6. Publication Figure: results/figures/P3-02_btc_vs_usdt_premium.png
+print("\nGenerating publication figure P3-02_btc_vs_usdt_premium.png...")
+BLUE, ORANGE, GREEN, INK, INK2, MUTED, GRID, SURFACE = (
+    "#2a78d6", "#eb6834", "#10b981", "#1f1e1c", "#52514e", "#b9b8b2", "#e2e8f0", "#fcfcfb"
+)
+plt.rcParams.update({
+    "figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "axes.edgecolor": GRID,
+    "axes.labelcolor": INK2, "xtick.color": INK2, "ytick.color": INK2, "axes.grid": True,
+    "grid.color": GRID, "grid.linewidth": 0.6, "axes.axisbelow": True,
+    "axes.spines.top": False, "axes.spines.right": False, "font.size": 10,
+    "legend.frameon": False, "savefig.dpi": 300, "savefig.bbox": "tight"
+})
+
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(12, 9), gridspec_kw={"height_ratios": [1.2, 1]})
+
+# Top panel: 2025-2026 overview
+sample_2025 = df.loc["2025-01-01":]
+ax1.plot(sample_2025.index, sample_2025["usdt_premium_bps"], color=BLUE, lw=1.6, label="Prêmio Dólar Digital (USDT/BRL vs PTAX)")
+ax1.plot(sample_2025.index, sample_2025["btc_usd_premium_bps"], color=ORANGE, lw=1.2, linestyle="--", alpha=0.9, label="Prêmio Bitcoin (BTC/BRL vs BTC/USD × PTAX)")
+ax1.axvline(pd.Timestamp("2026-06-23"), color=INK, linestyle=":", lw=1.5, label="23/06/2026: Ofício BCB (fundos/câmbio)")
+ax1.axhline(0, color=MUTED, lw=0.8, linestyle="-")
+
+ax1.set_title("A. Prêmio USDT/BRL e Prêmio BTC/BRL (2025–2026): Co-movimento e Choque Comum", fontsize=11, fontweight="bold", loc="left")
+ax1.set_ylabel("Prêmio sobre PTAX (bps)")
+ax1.legend(loc="upper left")
+
+# Annotation on top panel
+ax1.annotate(
+    "Salto simultâneo de +94 bps\nno USDT e no Bitcoin",
+    xy=(pd.Timestamp("2026-06-24"), 155),
+    xytext=(pd.Timestamp("2026-02-15"), 140),
+    arrowprops=dict(facecolor=INK, arrowstyle="->", lw=1.2),
+    fontsize=9, fontweight="bold", color=INK
+)
+
+# Bottom panel: Zoom around 23 Jun 2026 (May 2026 to Oct 2026) with difference spread
+zoom = df.loc["2026-05-01":"2026-10-30"]
+ax2.plot(zoom.index, zoom["usdt_premium_bps"], color=BLUE, lw=2.0, label="USDT/BRL")
+ax2.plot(zoom.index, zoom["btc_usd_premium_bps"], color=ORANGE, lw=1.8, linestyle="--", label="BTC/BRL (USD-ajustado)")
+ax2.plot(zoom.index, zoom["usdt_minus_btc_usd_bps"], color=GREEN, lw=1.2, label="Diferencial Arbitragem (USDT − BTC): ~0,4 bps")
+
+ax2.axvline(pd.Timestamp("2026-06-23"), color=INK, linestyle=":", lw=1.5)
+ax2.axvspan(pd.Timestamp("2026-06-24"), pd.Timestamp("2026-07-21"), color="#fee2e2", alpha=0.4, label="Janela aguda [+1, +20] (média ~109 bps)")
+ax2.axvspan(pd.Timestamp("2026-07-22"), pd.Timestamp("2026-09-16"), color="#f1f5f9", alpha=0.6, label="Platô de adaptação [+21, +60] (~34 bps)")
+ax2.axhline(0, color=MUTED, lw=0.8)
+
+ax2.set_title("B. Janela do Choque (Maio–Outubro 2026): Arbitragem Triangular e Fricção Mínima", fontsize=11, fontweight="bold", loc="left")
+ax2.set_ylabel("Prêmio sobre PTAX (bps)")
+ax2.set_xlabel("Data (dias PTAX)")
+ax2.legend(loc="upper left", ncol=2)
+
+plt.tight_layout()
+fig_path = RES_FIG / "P3-02_btc_vs_usdt_premium.png"
+fig.savefig(fig_path)
+plt.close(fig)
+print(f"Saved figure to {fig_path}")
+
+print("\nDone! P3-02 script executed successfully.")

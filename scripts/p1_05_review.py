@@ -42,11 +42,11 @@ assert (trm.vigenciadesde - pd.Timedelta(days=1)).equals(trm.vigenciadesde - pd.
 assert (trm.vigenciadesde.iloc[1:].reset_index(drop=True) ==
         (trm.vigenciahasta.iloc[:-1] + pd.Timedelta(days=1)).reset_index(drop=True)).all()
 rates["COP"] = pd.Series(trm.valor.to_numpy(), index=trm.vigenciadesde - pd.Timedelta(days=1))
-nbu = pd.DataFrame(json.loads((RAW / "fx_official/nbu_uah.json").read_text()))
+nbu = pd.DataFrame(json.loads((RAW / "fx_official/nbu_uah.json").read_bytes()))
 assert nbu.groupby("calcdate").rate.nunique().eq(1).all()
 nbu = nbu.drop_duplicates("calcdate")
 rates["UAH"] = pd.Series(nbu.rate.to_numpy(), index=pd.to_datetime(nbu.calcdate, dayfirst=True))
-bcra = json.loads((RAW / "fx_official/bcra_a3500.json").read_text())
+bcra = json.loads((RAW / "fx_official/bcra_a3500.json").read_bytes())
 assert bcra["metadata"]["resultset"]["count"] <= 3000
 ars = pd.DataFrame(bcra["results"][0]["detalle"])
 rates["ARS"] = pd.Series(ars.valor.to_numpy(), index=pd.to_datetime(ars.fecha))

@@ -26,7 +26,10 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Next actions
 
-1. Start P1/P2/P3 in parallel: Felipe → P1-04 in review; P3-01 in review (F-015 confirmed); logged Economist gate decisions in `docs/README.md` and completed repo-wide audit (`docs/audit-2026-11-02.md`) · CS 2 (Nattan/Renzo) → P2-02 S3 unblocked (status: todo; run S3 event matching in `scripts/p2_02_breaks.py`), unblocking P2-03 and P2-04; P1-03 done, P1-05 done · Renzo → P3-03 monitor reviewed and done (F-014 confirmed); P3-02 after P2-03; P2-01, P2-05 reviewed and done · Jonathan → P1-06 done (S6 manual screen); P1-07 done (v2 confirmed: 11 falls below $1, F-013); next: P3-04 / P3-05.
+1. Phase P1, P2, and non-agentic P3 tasks are now complete (`done` or `review`):
+   - **P2 core evidence ready for peer review:** P2-02 S3 (break matching), P2-03 (event studies + 200 placebos, F-016), P2-04 (synthetic control, F-017), P2-06 (frozen team estimate `80fc866`).
+   - **P3 extensions ready for peer review:** P3-01 (money layer route costs, F-015), P3-02 (BTC heterogeneity: +93.8 bps lockstep jump, F-018), P3-04 (depeg chapter SVB + 11-event table + pt-BR slide drafts, F-019), P3-07 (Band-TAR threshold model: band widened 26× on 24 Jun, F-021), P3-08 (2025 subsidy share: 53.6% of Compound V3 spread was COMP rewards, F-020), and P1-09 (donor boundary cleanup).
+   - **Next tasks:** Jonathan/Renzo → P3-05 & P3-06 (optional Extension A — 30 AI analysts pilot & runs, if go); Teammates → peer-review tasks in `review` (`P1-04`, `P1-09`, `P2-02`–`P2-04`, `P2-06`, `P3-01`–`P3-02`, `P3-04`, `P3-07`–`P3-08`) and proceed to P4 (`P4-01` robustness battery, `P4-02` independent re-check).
 2. Everyone (and your agents): read [`docs/review-2026-10-31.md`](docs/review-2026-10-31.md) before the gate.
 3. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff
    (`prompt.md` §7).
@@ -75,7 +78,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P1-06](tasks/P1-06-agentic-B-event-coder.md) | Extension B - AI event coder for the comparison currencies | ✅ done | CS 3 | - | 6/6 | 4/4 | 2026-11-01 | P1-04 |
 | [P1-07](tasks/P1-07-depeg-detector.md) | Depeg detector and SVB-weekend figure (chapter) | ✅ done | Nattan | - | 7/7 | 3/3 | 2026-11-01 | P1-01 |
 | [P1-08](tasks/P1-08-decision-agentic-budget.md) | Decide the API budget and models for extension A | ✅ done | Team | - | 3/3 | 1/1 | 2026-11-01 | - |
-| [P1-09](tasks/P1-09-donor-history-boundary.md) | Remove the Brazil-listing boundary from donor history | ⬜ todo | CS 2 | - | 0/2 | 0/3 | 2026-11-04 | P1-05 |
+| [P1-09](tasks/P1-09-donor-history-boundary.md) | Remove the Brazil-listing boundary from donor history | 👀 review | CS 2 | - | 2/2 | 3/3 | 2026-11-04 | P1-05 |
 
 **P2 — Core evidence** (2/6 closed)
 
@@ -93,13 +96,13 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
 | [P3-01](tasks/P3-01-money-layer.md) | Cost of a digital dollar: bank route vs USDT route, per regime | 👀 review | Economist | - | 5/5 | 4/4 | 2026-11-03 | P2-03, P2-04 |
-| [P3-02](tasks/P3-02-btc-heterogeneity.md) | Did the 23 Jun notice also move the bitcoin premium? | ⬜ todo | CS 1 | - | – | 0/3 | 2026-11-03 | P1-01, P2-03 |
+| [P3-02](tasks/P3-02-btc-heterogeneity.md) | Did the 23 Jun notice also move the bitcoin premium? | 👀 review | CS 1 | - | 4/4 | 3/3 | 2026-11-03 | P1-01, P2-03 |
 | [P3-03](tasks/P3-03-monitor.md) | Monitor do Dólar Digital (daily index + regime flag) | ✅ done | CS 1 | - | 4/4 | 3/3 | 2026-11-03 | P1-02, P2-02 |
-| [P3-04](tasks/P3-04-depeg-chapter.md) | Depeg chapter v1 (the same mechanism in dollars) | ⬜ todo | CS 3 | - | – | 0/4 | 2026-11-03 | P1-07 |
+| [P3-04](tasks/P3-04-depeg-chapter.md) | Depeg chapter v1 (the same mechanism in dollars) | 👀 review | CS 3 | - | 4/4 | 4/4 | 2026-11-03 | P1-07 |
 | [P3-05](tasks/P3-05-agentic-A-protocol-pilot.md) | Extension A - protocol, memory test and pilot on the three CLIs | ⬜ todo | CS 3 | - | 0/7 | 0/5 | 2026-11-02 | P1-01, P1-08 |
 | [P3-06](tasks/P3-06-agentic-A-runs-analysis.md) | Extension A - full runs and dispersion analysis | ⬜ todo | CS 3 | - | – | 0/5 | 2026-11-03 | P3-05, P2-06 |
-| [P3-07](tasks/P3-07-stretch-band-tar.md) | Stretch: threshold model of the no-arbitrage band | ⬜ todo | CS 2 | - | – | 0/3 | 2026-11-03 | P2-02 |
-| [P3-08](tasks/P3-08-subsidy-check-2025.md) | 2025 subsidy share for the 'Lições de 2025' slide | ⬜ todo | CS 3 | - | – | 0/2 | 2026-11-03 | - |
+| [P3-07](tasks/P3-07-stretch-band-tar.md) | Stretch: threshold model of the no-arbitrage band | 👀 review | CS 2 | - | 3/3 | 3/3 | 2026-11-03 | P2-02 |
+| [P3-08](tasks/P3-08-subsidy-check-2025.md) | 2025 subsidy share for the 'Lições de 2025' slide | 👀 review | CS 3 | - | 3/3 | 2/2 | 2026-11-03 | - |
 
 **P4 — Robustness and freeze** (0/3 closed)
 
@@ -141,10 +144,15 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-015](findings/F-015-route-costs.md) | Across historical regimes USDT saved R$ 16k–20k per US$ 100k vs bank FX; the 23 Jun shock temporarily closed the gap vs import FX, while a 3.5% crypto IOF would eliminate the arbitrage advantage | ✔️ confirmed | P3-01 | - |
 | [F-016](findings/F-016-event-studies-placebos.md) | Before/after event study on all 13 Brazilian events finds only the 23 Jun 2026 BCB notice moved the premium (+93.9 bps, p < 0.005 vs 200 placebos) | 🔍 exploratory | P2-03 | - |
 | [F-017](findings/F-017-synthetic-control.md) | Synthetic control estimates a +109 bps acute treatment gap for the 23 Jun 2026 shock (Brazil ranks #1 of 6, ratio 9.31) fading to a +28 bps plateau | 🔍 exploratory | P2-04 | - |
+| [F-018](findings/F-018-btc-heterogeneity.md) | The 23 Jun 2026 BCB notice moved the Bitcoin premium in lockstep (+93.8 bps, p < 0.005), confirming market-wide import restrictions and frictionless triangular arbitrage | 🔍 exploratory | P3-02 | - |
+| [F-019](findings/F-019-depeg-chapter.md) | Parity in dollars obeys the same limits to arbitrage — USDC drifted to $0.805 when SVB shut redemption rails and recovered to $0.989 on Sunday's guarantee before banks reopened; 11 downward depegs confirm that backing solvency, not open banking hours, determines survival | 🔍 exploratory | P3-04 | - |
+| [F-020](findings/F-020-subsidy-share-2025.md) | Between 37.5% and 53.6% of the 2025 DeFi spread over SOFR was token subsidies, not risk premium | 🔍 exploratory | P3-08 | - |
+| [F-021](findings/F-021-band-tar.md) | Threshold Band-TAR model reveals a 26-fold widening of the no-arbitrage band after the 23 Jun notice (1.6 to 42.0 bps) and deceleration of mean reversion | 🔍 exploratory | P3-07 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-02 — Felipe: P1-09, P3-02, P3-04, P3-07, P3-08 completed → review: BTC/BRL jumped +93.8 bps in lockstep with USDT/BRL (+93.9 bps, diff 0.13 bps, F-018); depeg chapter v1 figures, 11-event case table & pt-BR slide drafts completed (F-019); 2025 DeFiLlama subsidy check shows 53.6% of Compound V3 spread (37.5% TVL-weighted combined) came from COMP token rewards and 2025 test-period organic spread was -8.2 bps (F-020); Band-TAR model shows no-arbitrage band widened 26× from 1.6 bps to 42.0 bps on 24 Jun before settling at 9.4 bps (F-021); P1-09 resolved 2020 UAH boundary (0 discrepancies in P1-05 review)
 - 2026-11-02 — Felipe: P2-03, P2-04, P2-06 completed → review: evaluated all 13 Brazilian events (only 23 Jun 2026 moved premium: +93.9 bps, p < 0.005 vs 200 placebos, F-016); built synthetic control across 6 specs (+109.3 bps acute gap, +28.2 bps plateau gap, rank 1/6, ratio 9.31, F-017); froze team estimate in results/agentic/team_estimate.json
 - 2026-11-02 — Multi-agent audit: completed repository-wide technical, data, and literature consistency audit (`docs/audit-2026-11-02.md`); patched `scripts/p3_01_costs.py`, `scripts/board.py`, `.gitignore`; verified literature formulas L-01 to L-04; updated task and finding states
 - 2026-11-01 — Felipe: P3-01 done → review: calculated all-in route costs per US$ 100k across bank routes (0%, 1.1%, 3.5% IOF), historical regimes, and policy scenarios (3.5% IOF, 24h hold); generated results/tables/P3-01_route_costs.csv and publication figure results/figures/P3-01_route_costs.png; confirmed F-015; logged Economist gate calls in docs/README.md and docs/phases.md

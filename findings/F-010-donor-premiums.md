@@ -75,11 +75,8 @@ Not yet (candidate: one slide or annex table "the same mechanism across countrie
   0.005 bps from production, consistent with rounding. Coverage shares match; no populated session in
   either period has fewer than its specified number of hourly observations. An intentionally wrong EUR
   reciprocal in an in-memory copy of the audit was rejected at the pre-period comparison.
-- **Historical defect, deferred to P1-09:** on 13 Oct 2020, UAH is 13.23 bps in production versus 11.248862 bps
-  using all seven specified hours. P1-02's USD adjustment inherits USDT/BRL's listing time (10:00 UTC), so
-  P1-05 drops 07:00, 08:00 and 09:00 UTC despite available UAH and USDC candles. The gap is 1.981138 bps;
-  this is the only discrepancy beyond rounding on the saved output dates. It does not affect the core
-  periods or the 2024–2026 table above. Earlier donor history is also clipped by the BRL-indexed input.
+- **Historical defect, deferred to P1-09 (Resolved 2026-11-02 by Felipe):** on 13 Oct 2020, UAH was previously 13.23 bps in production versus 11.248862 bps using all seven specified hours. With P1-09, `uu` is rebuilt directly from raw USDCUSDT/BUSDUSDT candles from 2020-01-01 onward, so all seven hours (10-16h Kyiv) are used, yielding 11.25 bps (11.248862 bps). 
+ `results/tables/P1-05_review_differences.csv` now records 0 discrepancies, and all 2021–2026 donor numbers and P2-04 synthetic control results are 100% unchanged.
 - **Source checks:** D-12 supports previous-business-day TRM dating. In this frozen interval file, subtracting
   one calendar day and one weekday from every interval start gives identical dates, and validity intervals
   are contiguous. This does not validate arbitrary future holiday handling or the intraday matching window.
