@@ -41,13 +41,17 @@ for c_name, c in cf.items():
     # U2: monthly saver, Jan-Oct 2026
     y = d.loc["2026-01":"2026-10"]
     m = y.index.to_period("M")
-    for case, days in [("first PTAX day", y.groupby(m).head(1).index), ("last PTAX day", y.groupby(m).tail(1).index)]:
-        per = [cost(day, 10_000, c) for day in days]
-        for day, v in zip(days, per):
-            add("U2 monthly saver (US$ 10k/month)", f"{case} {day:%Y-%m}", c_name, v)
-        add("U2 monthly saver (US$ 10k/month)", f"{case} total", c_name, sum(per))
-    usd_day = y.groupby(m).transform("size").rdiv(10_000)  # US$ 10k per month spread over its PTAX days
-    add("U2 monthly saver (US$ 10k/month)", "every PTAX day total", c_name, sum(cost(day, usd_day[day], c) for day in y.index))
+    usd_day = y.groupby(m).ptax_sell_brl_per_usd.transform("size").rdiv(10_000)  # US$ 10k per month over its PTAX days
+    for case, days, usd in [("first PTAX day", y.groupby(m).head(1).index, 10_000),
+                            ("last PTAX day", y.groupby(m).tail(1).index, 10_000),
+                            ("every PTAX day", y.index, usd_day)]:
+        per = pd.Series([cost(day, usd if case != "every PTAX day" else usd[day], c) for day in days], index=days)
+        for mon, v in per.groupby(per.index.to_period("M")).sum().items():
+            add("U2 monthly saver (US$ 10k/month)", f"{case} {mon}", c_name, v)
+        # review fix (F-033): only purchases after t0 can carry a cost of the notice; earlier ones are a benchmark
+        add("U2 monthly saver (US$ 10k/month)", f"{case} purchases up to t0", c_name, per[:d.index[i0]].sum())
+        add("U2 monthly saver (US$ 10k/month)", f"{case} purchases after t0", c_name, per[d.index[i0 + 1]:].sum())
+        add("U2 monthly saver (US$ 10k/month)", f"{case} total", c_name, per.sum())
     if c_name == "post-spike (22 Jul-30 Oct)":
         continue  # U3 and U4 do not use a counterfactual
     # U3: already held USDT at t0
@@ -62,7 +66,7 @@ for c_name, c in cf.items():
 res = pd.DataFrame(rows)
 out = ROOT / "results/tables/P3-21_who_paid.csv"
 res.to_csv(out, index=False, float_format="%.0f")
-print(res[~res.case.str.match(r"(first|last) PTAX day \d")].round(0).to_string(index=False))
+print(res[~res.case.str.match(r"(first|last|every) PTAX day \d")].round(0).to_string(index=False))
 
 # Check against F-015 in bps: F-015 converts at a fixed reference PTAX of R$ 5.38, this script at each day's PTAX
 # (mean R$ 5.14 in the spike window), so in R$ the two differ by the PTAX ratio, not by the premium (deviation logged in P3-21).

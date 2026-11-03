@@ -1,0 +1,91 @@
+user,case,counterfactual,brl
+"U1 needed dollars in the spike (US$ 100k, one day)",mean,pre-notice (20 days),4842
+"U1 needed dollars in the spike (US$ 100k, one day)",min,pre-notice (20 days),1895
+"U1 needed dollars in the spike (US$ 100k, one day)",max,pre-notice (20 days),8824
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-01,pre-notice (20 days),-35
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-02,pre-notice (20 days),-62
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-03,pre-notice (20 days),-77
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-04,pre-notice (20 days),-35
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-05,pre-notice (20 days),-75
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-06,pre-notice (20 days),23
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-07,pre-notice (20 days),550
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-08,pre-notice (20 days),169
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-09,pre-notice (20 days),90
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-10,pre-notice (20 days),-55
+U2 monthly saver (US$ 10k/month),first PTAX day purchases up to t0,pre-notice (20 days),-261
+U2 monthly saver (US$ 10k/month),first PTAX day purchases after t0,pre-notice (20 days),753
+U2 monthly saver (US$ 10k/month),first PTAX day total,pre-notice (20 days),492
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-01,pre-notice (20 days),-54
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-02,pre-notice (20 days),-51
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-03,pre-notice (20 days),-49
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-04,pre-notice (20 days),-70
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-05,pre-notice (20 days),-2
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-06,pre-notice (20 days),598
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-07,pre-notice (20 days),144
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-08,pre-notice (20 days),67
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-09,pre-notice (20 days),7
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-10,pre-notice (20 days),-247
+U2 monthly saver (US$ 10k/month),last PTAX day purchases up to t0,pre-notice (20 days),-225
+U2 monthly saver (US$ 10k/month),last PTAX day purchases after t0,pre-notice (20 days),570
+U2 monthly saver (US$ 10k/month),last PTAX day total,pre-notice (20 days),345
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-01,pre-notice (20 days),-36
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-02,pre-notice (20 days),-54
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-03,pre-notice (20 days),-54
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-04,pre-notice (20 days),-53
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-05,pre-notice (20 days),-21
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-06,pre-notice (20 days),145
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-07,pre-notice (20 days),336
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-08,pre-notice (20 days),93
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-09,pre-notice (20 days),41
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-10,pre-notice (20 days),6
+U2 monthly saver (US$ 10k/month),every PTAX day purchases up to t0,pre-notice (20 days),-225
+U2 monthly saver (US$ 10k/month),every PTAX day purchases after t0,pre-notice (20 days),626
+U2 monthly saver (US$ 10k/month),every PTAX day total,pre-notice (20 days),402
+U3 held USDT at t0 (US$ 100k),sells t0+1 (24 Jun),none (vs premium at t0),6802
+U3 held USDT at t0 (US$ 100k),sells t0+5 (30 Jun),none (vs premium at t0),5487
+U3 held USDT at t0 (US$ 100k),sells t0+20 (21 Jul),none (vs premium at t0),1407
+U3 held USDT at t0 (US$ 100k),sells 30 Oct (30 Oct),none (vs premium at t0),-2992
+U4 bought on t0+1 and held (US$ 100k),value at t0+20 (21 Jul),none (vs premium at t0+1),-5223
+U4 bought on t0+1 and held (US$ 100k),value at 30 Oct (30 Oct),none (vs premium at t0+1),-10070
+"U1 needed dollars in the spike (US$ 100k, one day)",mean,post-spike (22 Jul-30 Oct),4249
+"U1 needed dollars in the spike (US$ 100k, one day)",min,post-spike (22 Jul-30 Oct),1308
+"U1 needed dollars in the spike (US$ 100k, one day)",max,post-spike (22 Jul-30 Oct),8227
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-01,post-spike (22 Jul-30 Oct),-98
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-02,post-spike (22 Jul-30 Oct),-123
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-03,post-spike (22 Jul-30 Oct),-137
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-04,post-spike (22 Jul-30 Oct),-94
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-05,post-spike (22 Jul-30 Oct),-132
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-06,post-spike (22 Jul-30 Oct),-35
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-07,post-spike (22 Jul-30 Oct),490
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-08,post-spike (22 Jul-30 Oct),110
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-09,post-spike (22 Jul-30 Oct),30
+U2 monthly saver (US$ 10k/month),first PTAX day 2026-10,post-spike (22 Jul-30 Oct),-115
+U2 monthly saver (US$ 10k/month),first PTAX day purchases up to t0,post-spike (22 Jul-30 Oct),-619
+U2 monthly saver (US$ 10k/month),first PTAX day purchases after t0,post-spike (22 Jul-30 Oct),515
+U2 monthly saver (US$ 10k/month),first PTAX day total,post-spike (22 Jul-30 Oct),-104
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-01,post-spike (22 Jul-30 Oct),-114
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-02,post-spike (22 Jul-30 Oct),-110
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-03,post-spike (22 Jul-30 Oct),-109
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-04,post-spike (22 Jul-30 Oct),-127
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-05,post-spike (22 Jul-30 Oct),-61
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-06,post-spike (22 Jul-30 Oct),539
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-07,post-spike (22 Jul-30 Oct),86
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-08,post-spike (22 Jul-30 Oct),7
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-09,post-spike (22 Jul-30 Oct),-52
+U2 monthly saver (US$ 10k/month),last PTAX day 2026-10,post-spike (22 Jul-30 Oct),-310
+U2 monthly saver (US$ 10k/month),last PTAX day purchases up to t0,post-spike (22 Jul-30 Oct),-521
+U2 monthly saver (US$ 10k/month),last PTAX day purchases after t0,post-spike (22 Jul-30 Oct),270
+U2 monthly saver (US$ 10k/month),last PTAX day total,post-spike (22 Jul-30 Oct),-251
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-01,post-spike (22 Jul-30 Oct),-98
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-02,post-spike (22 Jul-30 Oct),-114
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-03,post-spike (22 Jul-30 Oct),-114
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-04,post-spike (22 Jul-30 Oct),-111
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-05,post-spike (22 Jul-30 Oct),-79
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-06,post-spike (22 Jul-30 Oct),85
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-07,post-spike (22 Jul-30 Oct),277
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-08,post-spike (22 Jul-30 Oct),33
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-09,post-spike (22 Jul-30 Oct),-18
+U2 monthly saver (US$ 10k/month),every PTAX day 2026-10,post-spike (22 Jul-30 Oct),-53
+U2 monthly saver (US$ 10k/month),every PTAX day purchases up to t0,post-spike (22 Jul-30 Oct),-567
+U2 monthly saver (US$ 10k/month),every PTAX day purchases after t0,post-spike (22 Jul-30 Oct),375
+U2 monthly saver (US$ 10k/month),every PTAX day total,post-spike (22 Jul-30 Oct),-192

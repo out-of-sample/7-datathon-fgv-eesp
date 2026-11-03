@@ -64,18 +64,22 @@ no advice on how to trade; no tax-avoidance framing ("diferença de alíquota", 
 - `results/tables/P3-21_who_paid.csv`; finding F-0xx (next free number)
 
 ## Handoff
-- **State:** S1–S3 done 3 Nov. Script, table and F-033 (exploratory) committed. U1 matches F-015 in bps (93.91 vs 93.9),
-  but is 4.2% lower in R$: F-015 uses a fixed PTAX of R$ 5.38, the spike window averaged R$ 5.14 (the U1 check moved to bps,
-  disclosed in F-033). Criterion 2 is therefore met in bps only.
-- **Next step:** S4, pt-BR slide-9 table + one-sentence takeaway for Felipe; S5 Felipe's review.
-- **Open questions:** (1) Felipe: slide 9 takes this table? (2) Team: F-015 / cover say R$ 5,052 at PTAX 5.38; at the
-  window's PTAX it is ~R$ 4,830. Keep the reference rate (and state it) or switch? Decide before the freeze.
-- **How to resume:** `.venv/bin/python scripts/p3_21_who_paid.py`; numbers in `findings/F-033-who-paid.md`.
+- **State:** S1–S3 done and independently reviewed 3 Nov (Codex, see Review below): U1–U4 reproduce within R$ 1. Review fixes
+  applied: U2 split by purchase date + every-day monthly rows, lower-bound claim removed, U3/U4 called revaluations, CSV
+  committed, reviewer's scripts committed (`scripts/p3_21_review_rederive.py`, `scripts/p3_21_review_audit.py`, output
+  identical to the review). F-033 stays exploratory. Criterion 2 (within 2% in R$) is **not met**: 93.91 vs 93.9 bps, but
+  R$ 4,842 vs 5,052 (−4.2%) because F-015's R$ 5.38 is a Binance bid of 31 Oct (D-10), not a PTAX.
+- **Next step:** S4, pt-BR slide-9 table (use the "purchases after t0" U2 numbers) + one-sentence takeaway; S5 Felipe.
+- **Open questions:** (1) Team: accept the criterion checked in bps? (2) Felipe: cover R$ 5,052 (rate relabelled as a
+  Binance reference) or R$ 4,842 at daily PTAX (review recommends; ~12 files, list from `scripts/p3_21_review_audit.py`)?
+  Before the freeze. (3) Felipe: slide 9 takes this table?
+- **How to resume:** `.venv/bin/python scripts/p3_21_who_paid.py`; check with `.venv/bin/python scripts/p3_21_review_rederive.py`.
 
 ## Log
 - 2026-11-03, agent for Renzo: created at Renzo's request (brainstorm version 2: who paid and who gained).
 - 2026-11-03, agent for Renzo: claimed; post-spike counterfactual window pinned (22 Jul – 30 Oct, as F-015); Specification committed before any script (S1).
 - 2026-11-03, agent for Renzo: S2–S3: script + F-033; U1 vs F-015 differs 4.2% in R$ only because of F-015's fixed PTAX 5.38; check made in bps (deviation disclosed).
+- 2026-11-03, agent for Renzo: review fixes applied (U2 split by purchase date, every-day monthly rows, wording of F-033); CSV and the reviewer's two scripts committed with repo-relative paths.
 - 2026-11-03, Codex for Renzo (independent review): arithmetic reproduces; interpretation/reporting corrections requested below. Reviewed S1–S3 and prepared the cover decision for Felipe; S4/S5 remain open. Handoff preserved as requested; no analysis script, deck or F-015 changed; F-033 receives only a History entry.
 
 ## Result
