@@ -1,0 +1,9 @@
+test,term,estimate,ci_low,ci_high,n
+daily,x1 premium (mn USDT per bp),0.05120,0.01093,0.14831,70
+daily,x2 Foxbit-Binance gap (mn USDT per bp),0.70643,-0.19646,1.63106,70
+hinge,k threshold (bps),35.00000,20.00000,55.25000,70
+hinge,b slope above k (mn USDT per bp),0.05376,,,70
+daily placebo,x1 premium (mn USDT per bp),0.01900,-0.01099,0.04594,116
+daily placebo,x2 Foxbit-Binance gap (mn USDT per bp),0.06774,-0.02617,0.19699,116
+within-day,x1 premium (mn USDT per bp),0.00609,-0.01103,0.02536,350
+within-day,x2 Foxbit-Binance gap (mn USDT per bp),0.02932,-0.02992,0.09862,350

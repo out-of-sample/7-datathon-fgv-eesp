@@ -2,9 +2,9 @@
 id: P3-19
 title: Did seller-initiated trading on Foxbit respond to the premium over the official dollar (import arbitrage) or to the Foxbit–Binance gap (cross-venue arbitrage)?
 phase: P3
-status: doing
+status: review
 owner: CS 1
-working: agent for Renzo
+working: -
 due: 2026-11-04
 depends: P3-17
 ---
@@ -52,25 +52,31 @@ selling faded near a 50 bps premium, Foxbit − Binance premium −1.14 bps on a
 against a stale PTAX carries intraday FX moves, which bias the within-day x1 coefficient toward zero (noted, not fixed).
 
 ## Subtasks
-- [ ] S1 — Spec committed (this section) — doing: agent for Renzo
-- [ ] S2 — Script `scripts/p3_19_supply_response.py`, tables `results/tables/P3-19_*.csv`
-- [ ] S3 — Finding F-032 with the verdict under the rule; correct F-031's wording ("new supply", "new seller") per the review
+- [x] S1 — Spec committed (this section) — done: agent for Renzo, 2026-11-02 (`c032614`)
+- [x] S2 — done: agent for Renzo, 2026-11-02 — Script `scripts/p3_19_supply_response.py`, tables `results/tables/P3-19_*.csv`
+- [x] S3 — done: agent for Renzo, 2026-11-02 — Finding F-032 with the verdict under the rule; correct F-031's wording ("new supply", "new seller") per the review
 
 ## Success criteria
-- [ ] Spec committed before the statistics are computed
-- [ ] Daily, within-day, threshold and placebo results with CIs and the command that reproduces them
-- [ ] Verdict under the rule; language level "consistent with" at most
+- [x] Spec committed before the statistics are computed
+- [x] Daily, within-day, threshold and placebo results with CIs and the command that reproduces them
+- [x] Verdict under the rule; language level "consistent with" at most
 
 ## Outputs
 - `scripts/p3_19_supply_response.py`, `results/tables/P3-19_*.csv`, `findings/F-032-...md`
 
 ## Handoff
-- **State:** spec written; script not yet run.
-- **Next step:** S2.
+- **State:** S1–S3 done, status `review`. Verdict under the rule: **responds to the premium** (daily +0.051 mn USDT per bp,
+  CI +0.011 to +0.148; not the Foxbit–Binance gap; placebo not significant; threshold 35 bps, CI 20–55), with a weak
+  within-day leg (+0.006, CI includes 0). F-032 exploratory; F-031 wording corrected.
+- **Next step:** a teammate re-runs `python scripts/p3_19_supply_response.py` and compares with F-032; Felipe decides deck use.
 - **Open questions:** none.
-- **How to resume:** this file; F-031; `docs/improvements_log.md` (review of F-031).
+- **How to resume:** F-032; `results/tables/P3-19_results.csv`.
 
 ## Log
 - 2026-11-02, agent for Renzo: created at Renzo's request; spec written before any statistic
+- 2026-11-02, agent for Renzo: S2–S3 → review. Deviation: P2-05 table ends 31 Jul, so the Foxbit − Binance gap is rebuilt the same way from hourly opens (agrees on 49 overlapping days: mean abs diff 0.01 bps). F-032; F-031 wording corrected after the parallel review in `docs/improvements_log.md`
 
 ## Result
+Responds to the premium (rule met; within-day leg weak). Seller-initiated trading on Foxbit tracked the premium over the
+official dollar, not the Foxbit–Binance gap, and stopped being net positive near 35 bps, close to where the premium settled.
+Consistent with price-responsive arbitrage bringing USDT into Brazil; does not identify traders or show imports (F-032).

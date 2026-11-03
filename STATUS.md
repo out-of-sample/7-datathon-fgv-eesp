@@ -21,7 +21,7 @@ post-spike level (+11.5 to +19.3 bps; +28.2 bps synthetic) that is **not disting
 on 24–25 Jun (Cointelegraph Brasil, Exame) and the BCB confirmed its position in writing via LAI (F-023); BCB statistics
 show stablecoin purchases abroad fell 78% in July 2026 while the premium rose and stayed at a third of their earlier level
 through September (F-024); and buyers of USDT/BRL paid ~R$ 106 mn more on Binance (R$ 145 mn on three exchanges) in the
-four weeks after the notice (F-025), only the confidential, immediate 23 Jun notice moved the premium outside $[-35, +38]$ bps among 8 rules (F-026), and a dated prediction (`393a14a`) commits that Res. BCB 584's 24h hold on 1 Jan 2027 (~9.1 bps cost to an outgoing USDT holder) will not move the premium detectably (F-027). The 22 Jul fade matches no event within $\pm 5$ trading days (unexplained), and no public source shows the BCB let funds resume the stopped activity, so a reopening test cannot be run (F-030); post hoc, the fall came while a new, business-hours seller sold ~362 mn USDT net on Foxbit (30 Jun–21 Jul, F-031; who and why not identified); Foxbit's
+four weeks after the notice (F-025), only the confidential, immediate 23 Jun notice moved the premium outside $[-35, +38]$ bps among 8 rules (F-026), and a dated prediction (`393a14a`) commits that Res. BCB 584's 24h hold on 1 Jan 2027 (~9.1 bps cost to an outgoing USDT holder) will not move the premium detectably (F-027). The 22 Jul fade matches no event within $\pm 5$ trading days (unexplained), and no public source shows the BCB let funds resume the stopped activity, so a reopening test cannot be run (F-030); post hoc, the fall came with seller-initiated trading on Foxbit ~362 mn USDT above buyer-initiated, in business hours (30 Jun–21 Jul, F-031), which rose with the premium over the official dollar, not the Foxbit–Binance gap, and stopped being net positive near 35 bps (F-032; consistent with price-responsive arbitrage; who traded and whether USDT entered Brazil not identified); Foxbit's
 6× volume surge coincides with both its NovaDAX client partnership (M-04, 7 Jul) and the 18 Jul relaunch of its Foxbit
 Infra B2B desk (M-05, which fits the 5× larger trade size), cause open. All 11 downward depeg cases and bank/exchange
 route parameters now have opened, verbatim-quoted primary sources (`docs/sources.md`), and the deck
@@ -112,7 +112,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | 👀 review | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (9/18 closed)
+**P3 — Extensions** (9/19 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -134,6 +134,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-16](tasks/P3-16-res574-event-list.md) | Res. BCB 574 (published 22 Jun 2026, one day before the notice) is missing from the event list | ⬜ todo | Economist | - | 1/3 | 0/2 | 2026-11-04 | P1-04, P3-12 |
 | [P3-17](tasks/P3-17-channel-restoration.md) | Did the BCB let funds resume the activity the 23 Jun notice stopped, and did the premium fall when it did? (reopening test) | 👀 review | Economist | - | 6/6 | 5/5 | 2026-11-04 | P3-14, P3-15, P4-04 |
 | [P3-18](tasks/P3-18-onchain-foxbit-source.md) | Where did the USDT sold on Foxbit during the fade come from? (on-chain check of F-031) | ✖️ dropped | CS 1 | - | 0/4 | 0/2 | 2026-11-04 | P3-17 |
+| [P3-19](tasks/P3-19-supply-response.md) | Did seller-initiated trading on Foxbit respond to the premium over the official dollar (import arbitrage) or to the Foxbit–Binance gap (cross-venue arbitrage)? | 👀 review | CS 1 | - | 3/3 | 3/3 | 2026-11-04 | P3-17 |
 
 **P4 — Robustness and freeze** (2/4 closed)
 
@@ -190,11 +191,13 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-028](findings/F-028-route-comparison.md) | We cannot identify which route set the price after the 23 Jun notice; the ordinary 3.5% route did not set it (the premium rose at most +171 bps, and raising that route's IOF in May 2025 moved it +13 bps) | ✔️ confirmed | P3-15 | - |
 | [F-029](findings/F-029-headline-inference.md) | On non-overlapping windows the June change still beats every ordinary window (p = 0.03), and the two days before the 26 Jun meeting add +155 bps (p 0.02-0.04); but the +94 bps month also holds other BCB measures, and Res. 574 coincides with a +38 bps day before the notice | 🔍 exploratory | P4-04 | - |
 | [F-030](findings/F-030-no-verified-reopening.md) | No source shows the BCB let funds resume the FX imports the 23 Jun notice stopped, so the reopening test cannot be run; the fall from 22 Jul came while stablecoin purchases abroad stayed at a third of their earlier level | 🔍 exploratory | P3-17 | - |
-| [F-031](findings/F-031-who-traded-the-fade.md) | While the premium fell (30 Jun – 21 Jul 2026), an unprecedented business-hours seller sold about 362 mn USDT net on Foxbit; who it was and where the USDT came from are not identified | 🔍 exploratory | P3-17 | - |
+| [F-031](findings/F-031-who-traded-the-fade.md) | While the premium fell (30 Jun – 21 Jul 2026), seller-initiated trading on Foxbit exceeded buyer-initiated trading by about 362 mn USDT, in business hours and on a scale not seen in five years; who traded and whether USDT entered Brazil are not identified | 🔍 exploratory | P3-17 | - |
+| [F-032](findings/F-032-supply-response.md) | After the notice, seller-initiated trading on Foxbit rose with the premium over the official dollar, not with the Foxbit–Binance gap, and turned net positive above about 35 bps; the hour-by-hour evidence is weak | 🔍 exploratory | P3-19 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-02 — agent for Renzo: P3-19 → review (spec first, `c032614`): Foxbit seller-initiated trading tracked the premium over PTAX (+0.051 mn USDT per bp, CI +0.011 to +0.148), not the Foxbit–Binance gap; placebo before the notice not significant; net positive above ~35 bps (CI 20–55), where the premium settled; within-day leg weak (F-032). F-031 wording corrected after the parallel review (trade initiation, not "new supply")
 - 2026-11-02 — Renzo + agent: P3-18 dropped: Arkham's Foxbit entity holds only BTC and Tronscan has no Foxbit tag (control "binance" returns 50), so the Foxbit USDT source cannot be traced; F-031 caveat updated
 - 2026-11-02 — agent for Renzo: P3-17 pushed; new task `P3-18` (blocked): on-chain source of the Foxbit USDT, plan fixed before any download; Foxbit addresses not reachable without Arkham login or Tronscan key
 - 2026-11-02 — agent for Renzo: P3-17 S6 (post hoc, Renzo's question "what brought the market back?"): Foxbit net seller-initiated volume +361.9 mn USDT on business hours 30 Jun–21 Jul (largest day in 5 years before: 5.1 mn), ending at the 22 Jul break; Binance also net selling, so new supply to the BRL market; seller and source unknown (F-031); slow-moving capital framing (Duffie 2010, L-10)

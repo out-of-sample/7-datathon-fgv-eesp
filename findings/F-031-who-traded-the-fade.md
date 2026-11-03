@@ -1,6 +1,6 @@
 ---
 id: F-031
-title: While the premium fell (30 Jun – 21 Jul 2026), an unprecedented business-hours seller sold about 362 mn USDT net on Foxbit; who it was and where the USDT came from are not identified
+title: While the premium fell (30 Jun – 21 Jul 2026), seller-initiated trading on Foxbit exceeded buyer-initiated trading by about 362 mn USDT, in business hours and on a scale not seen in five years; who traded and whether USDT entered Brazil are not identified
 status: exploratory
 task: P3-17
 date: 2026-11-02
@@ -13,8 +13,10 @@ appeared on Foxbit. **From 30 Jun to 21 Jul, aggressive sellers (who hit existin
 361.9 mn USDT**, about US$ 362 mn. Before the notice, Foxbit's largest such day in five years was 5.1 mn USDT and no day
 passed 10 mn; in the 22 days of the wave, 12 did. The trades were large (median daily average 8,020 USDT, against 1,102 in
 May–June) and **97% of the volume was between 09:00 and 18:00 Brasília, 1% on weekends** (before: 82% and 8%). Foxbit's
-share of the three exchanges' volume went from 7% to 33%. On Binance, sellers also outweighed buyers (+29.0 mn USDT), so the
-Foxbit selling was not just USDT bought on Binance and resold on Foxbit: it was net new supply to the BRL market.
+share of the three exchanges' volume went from 7% to 33%. On Binance, seller-initiated trading also exceeded buyer-initiated
+trading (+29.0 mn USDT), so the Foxbit imbalance is not mirrored by aggressive buying on Binance. This does **not** show net
+new supply to the BRL market: the statistic only says which side crossed the spread, and a trader can buy passively on one
+exchange and sell aggressively on another (correction 2 Nov after review, `docs/improvements_log.md`).
 
 During the same three weeks the premium fell from its 3 Jul peak (185.9 bps) to about 50 bps. **The aggressive selling stopped
 around 22 Jul, the break date.** After that, Foxbit kept its large, business-hours trades and its 37% share, but buyers became
@@ -22,12 +24,13 @@ the aggressive side (−344.7 mn USDT net selling, 22 Jul – 30 Sep). The premi
 Aug 33.3, Sep 23.3 bps; May 10.9), while BCB-measured stablecoin purchases abroad rose slowly (Jul 572, Aug 702, Sep
 843 US$ mn; F-030).
 
-**What this does and does not say.** The premium did not just "find its way": it fell while a specific, new, large supplier
-was selling into it, and the supply reached the market through an exchange order book, the form of trading the BCB said on
-26 Jun it did not object to (E-05.5). The wave began two PTAX days after that meeting. This is the pattern Duffie (2010, L-10)
+**What this does and does not say.** The premium fell while seller-initiated trading of a size never seen before ran through
+an exchange order book, the form of trading the BCB said on 26 Jun it did not object to (E-05.5). Whether that was one trader
+or many, new or existing, and whether USDT entered Brazil, the data cannot say. F-032 tests whether this trading responded to
+the premium over the official dollar. The wave began two PTAX days after that meeting. This is the pattern Duffie (2010, L-10)
 calls slow-moving capital: "a sharp reaction to the shock and a subsequent and more extended reversal" as capital arrives.
-It is **not** shown that this seller caused the fall (sellers come in when the premium is high, and their selling pushes it
-down; both happen at once), and we cannot tell who the seller was: funds selling through the book, Foxbit's own desk
+It is **not** shown that this selling caused the fall (sellers come in when the premium is high, and their selling pushes it
+down; both happen at once), and we cannot tell who the sellers were: funds selling through the book, Foxbit's own desk
 (Foxbit Infra relaunched 18 Jul with "market making próprio", M-05), an FX-authorised importer (the Res. 599 channel, E-13),
 or several of them.
 
@@ -76,11 +79,13 @@ Net seller-initiated volume = volume − 2 × taker-buy volume (USDT, hourly can
   firms; it argues against many small holders selling (they would trade on weekends too), but does not rule out a few.
 
 ## Used in deck
-Not used (Felipe decides). Language level: **consistent with the mechanism** (new supply arriving through another channel),
-not "measured cause". Possible pt-BR line: "O prêmio recuou enquanto um vendedor novo, de grande porte e só em horário
-comercial, vendia cerca de US$ 362 milhões líquidos na Foxbit (30/jun–21/jul) — oferta por outro canal, não a reabertura
-do canal dos fundos. Quem vendeu e de onde vieram os USDT não sabemos."
+Not used (Felipe decides). Language level: **description** (timing of trading, not supply or cause); see F-032 for the
+price-response test. Possible pt-BR line: "Enquanto o prêmio recuava (30/jun–21/jul), as vendas agressivas superaram as
+compras agressivas em cerca de 362 milhões de USDT na Foxbit, em horário comercial e numa escala inédita em cinco anos. Quem
+negociou, e se houve entrada líquida de USDT no país, os dados não mostram."
 
 ## History
+- 2026-11-02, agent for Renzo: wording corrected after a parallel review (`docs/improvements_log.md`): seller-initiated
+  imbalance, not "net new supply" or "a new seller"; numbers unchanged; link to F-032
 - 2026-11-02, agent for Renzo: on-chain check (P3-18) dropped, no labelled Foxbit Tron wallets; caveat updated
 - 2026-11-02, agent for Renzo: created (P3-17 S6, post hoc at Renzo's request), status exploratory
