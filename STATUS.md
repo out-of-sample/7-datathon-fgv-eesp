@@ -110,7 +110,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | 👀 review | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (8/16 closed)
+**P3 — Extensions** (8/17 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -130,6 +130,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-14](tasks/P3-14-notice-sources.md) | Every source on the 23 Jun 2026 BCB notice, opened and registered | ✅ done | CS 1 | - | 3/3 | 3/3 | 2026-11-03 | P1-04 |
 | [P3-15](tasks/P3-15-route-comparison.md) | Why +94 bps and not +350 - which routes are comparable (clarification for the deck) | 👀 review | Economist | - | 4/4 | 3/3 | 2026-11-04 | P3-01, P3-10 |
 | [P3-16](tasks/P3-16-res574-event-list.md) | Res. BCB 574 (published 22 Jun 2026, one day before the notice) is missing from the event list | ⬜ todo | Economist | - | 1/3 | 0/2 | 2026-11-04 | P1-04, P3-12 |
+| [P3-17](tasks/P3-17-channel-restoration.md) | Did the BCB let funds resume the activity the 23 Jun notice stopped, and did the premium fall when it did? (reopening test) | ⬜ todo | Economist | - | 0/5 | 0/5 | 2026-11-04 | P3-14, P3-15, P4-04 |
 
 **P4 — Robustness and freeze** (2/4 closed)
 
@@ -189,6 +190,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-02 — agent for Renzo: new task `P3-17` (todo): did the BCB let funds resume the activity the 23 Jun notice stopped, and did the premium fall then? Spec-first, verdict supported/contradicted/unresolved; prompt for a second agent in `docs/agent-prompt-P3-17.md`
 - 2026-11-02 — agent for Renzo: P5-01 S5 → deck cut to 10 slides from the plan (`deck/deck_v1_ptbr.md`, HTML rebuilt), moved material in Anexo F, rehearsal sheet `deck/qa_ptbr.md`, P3-12 figure title reworded (table unchanged), L-09 registered; change record `docs/deck-changes-2026-11-02.md`; P4-04 criterion 3 met; Felipe reviews
 - 2026-11-02 — agent for Renzo: round-2 numbers re-validated independently (one misquote, two wordings and one count corrected); P4-04 → review: spec first (`f4071ef`), headline p = 0.032 on 30 non-overlapping windows, +155 bps in the two days before the 26 Jun meeting (p 0.02–0.04), Res. 574 coincides with +37.7 bps on 18→19 Jun (F-029); +93.9 bps kept as headline (Renzo)
 - 2026-11-02 — agent for Renzo: round-2 strategy checks (`docs/deck-plan-10-slides.md`): non-overlapping placebo p = 0.03; the headline window also holds the 26 Jun meeting (E-12, new source) and Res. 580; Res. 561 text opened (E-06a) as the closest form-vs-content contrast; new task `P4-04`
