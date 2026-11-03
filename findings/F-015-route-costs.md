@@ -1,10 +1,10 @@
 ---
 id: F-015
 title: The 23 Jun notice cost a buyer of digital dollars about R$ 5,050 per US$ 100k during the spike (+93.9 bps); after it, +11.5 bps (R$ 620) not distinguishable from noise. Bank-route comparisons are now sourced (BCB EE 48/2019 corporate spread 20 bps; statutory IOF by period)
-status: exploratory
+status: confirmed
 task: P3-01
 date: 2026-11-01
-checked_by: -
+checked_by: Jonathan
 ---
 
 ## Claim
@@ -63,6 +63,7 @@ Outputs:
 Slide 10 ("Quanto custou: R$ 5 mil por US$ 100 mil") of `deck/deck_v1_ptbr.md` and Annex B.5 / C.2 of `deck/annex_v1_ptbr.md` (keeping both presentation options open for the team: Option C on Slide 10 or Option A in Annex B.5).
 
 ## History
+- 2026-11-03, Jonathan: independently re-ran `scripts/p3_01_costs.py` from raw data; all 17 route/scenario rows and headline spike cost (+93.9 bps = R$ 5,052.36 per US$ 100k) reproduced exactly; status -> confirmed.
 - 2026-11-02, agent for Felipe (P3-01 S6–S7): opened and quoted primary sources for every parameter in `docs/sources.md` (`R-01` BCB Estudo Especial nº 48/2019 20 bps corporate spread median for >US$ 55.6k; `R-01b` Banco do Brasil Tarifas PJ R$ 100 SWIFT / R$ 440 online wire; `R-02` RIOF + Decretos 12.466/12.467; `R-05` Foxbit VIP 6–7 7–9 bps taker; `R-06` MB VIP 6 bps maker vs 60 bps taker; `R-07` 1-day CIP carry 2.5 bps); removed `"economiza R$"` from `P3-01_route_costs.png`; documented legal/operational comparability for both Slide 10 (Option C) and Annex B.5 (Option A)
 - 2026-11-02, agent for Renzo (review fixes, on Felipe's behalf, agreed by Renzo): regimes 1–3 compared at the 1.1% IOF then in force (savings R$ 3.3–6.3k, were R$ 16–20k); "cost of the notice" rows added and made the headline; unhedged-hold risk no longer added as a cost; bank spread and hedge cost marked as assumptions; adaptation wording removed; status confirmed → exploratory
 - 2026-11-02, Renzo (review, P3-01): arithmetic correct, but regimes 1–3 (2020 – May 2025) are compared with 3.5% IOF although R-02 gives 1.1% then (savings ~5× too high for those regimes); the IOF-savings framing conflicts with prompt.md §10; bank spread, hedge cost and VaR are unsourced constants (VaR is a risk, not a cost). Suggest status exploratory until fixed (tasks/P3-01 → Handoff)

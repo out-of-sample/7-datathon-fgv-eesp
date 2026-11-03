@@ -1,10 +1,10 @@
 ---
 id: F-021
 title: Threshold Band-TAR model reveals a 26-fold widening of the no-arbitrage band during the 24 Jun spike (1.6 to 42.0 bps) and deceleration of mean reversion
-status: exploratory
+status: confirmed
 task: P3-07
 date: 2026-11-02
-checked_by: -
+checked_by: Jonathan
 ---
 
 ## Claim
@@ -74,5 +74,6 @@ $$\Delta z_t = \beta_{\text{in}} z_{t-1} \cdot \mathbf{1}_{\{|z_{t-1}| \le c\}} 
 Slide 3 ("Dados e medida: seis anos de histórico e quebras cegas") and Annex B.6 of `deck/annex_v1_ptbr.md`.
 
 ## History
+- 2026-11-03, Jonathan: independently re-ran `scripts/p3_07_tar.py`; verified Band-TAR threshold widening from 1.6 bps (R4) to 42.0 bps (R5) and 1.60d post-notice half-life; status -> confirmed.
 - 2026-11-02, agent for Felipe: aligned R6 interpretation with F-022 (post-spike level not distinguishable from drift, placebo p = 0.24) and P2-02 (22 Jul fade unexplained within ±5d; M-04/M-05 only coincide)
 - 2026-11-02, Felipe: created (exploratory, task P3-07). All P2 criteria completed ahead of gate; Band-TAR estimated across all 6 regimes + pooled windows.

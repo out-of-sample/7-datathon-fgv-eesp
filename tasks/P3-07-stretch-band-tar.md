@@ -2,7 +2,7 @@
 id: P3-07
 title: Stretch: threshold model of the no-arbitrage band
 phase: P3
-status: review
+status: done
 owner: CS 2
 working: -
 due: 2026-11-03
@@ -35,6 +35,7 @@ Only if P2 is complete by Tue 3 Nov at noon: estimate a band-TAR model per regim
 - **How to resume:** run `python scripts/p3_07_tar.py` (takes ~15–20s for 500 bootstrap replications across all regimes).
 
 ## Log
+- 2026-11-03, Jonathan: independent re-run verified; status -> done.
 - 2026-11-02, Felipe: verified all P2 tasks complete ahead of the gate; implemented `scripts/p3_07_tar.py` estimating symmetric Band-TAR(1) models (Obstfeld & Taylor 1997) across 6 P2-02 regimes, pooled pre-notice, pooled post-notice, and full sample; completed 500 block-bootstrap replications for 95% CIs; conducted honest in-sample and out-of-sample RMSE evaluations vs Naive RW and Linear AR(1); generated `results/tables/P3-07_band_tar.csv` and 4-panel figure `results/figures/P3-07_band_tar.png`; authored `findings/F-021-band-tar.md`; set status to review.
 
 ## Result

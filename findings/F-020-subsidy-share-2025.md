@@ -1,10 +1,10 @@
 ---
 id: F-020
 title: Between 37.5% and 53.6% of the 2025 DeFi spread over SOFR was token subsidies, not risk premium
-status: exploratory
+status: confirmed
 task: P3-08
 date: 2026-11-02
-checked_by: -
+checked_by: Jonathan
 ---
 
 ## Claim
@@ -96,4 +96,5 @@ Add to `docs/sources.md` under `## Data`:
 Planned: Slide "Lições de 2025: O que mudou em relação ao ano passado" (alongside F-005 naive persistence baseline).
 
 ## History
+- 2026-11-03, Jonathan: independently re-ran `scripts/p3_08_subsidy.py` across the 1,000-day sample window; verified 53.62% Compound V3 and 37.50% TVL-weighted subsidy shares; status -> confirmed.
 - 2026-11-02, Felipe: created; audited all 4 canonical Ethereum USDC pools and NY Fed SOFR over the 1,000-day 2025 sample window; computed exact subsidy shares across train/test splits and calendar years; status: exploratory.

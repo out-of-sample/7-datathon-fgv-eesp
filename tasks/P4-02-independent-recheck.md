@@ -33,6 +33,7 @@ A teammate who did not produce a number re-runs its script from raw data and con
 - **How to resume:** See `results/review/P4-02_recheck.md`.
 
 ## Log
+- 2026-11-03, Jonathan (CS 3): Completed independent re-runs of Felipe-authored scripts (`p3_01_costs.py`, `p3_07_tar.py`, `p3_08_subsidy.py`), resolving the self-check review gap on `F-015`, `F-020`, and `F-021` -> all confirmed.
 - 2026-11-02, Felipe: Completed independent code and execution audit across all Renzo-authored scripts and findings (`F-001`–`F-004`, `F-006`, `F-008`, `F-010`, `F-011`), verified math correctness on `F-016`–`F-019`, `F-021`, `F-022`, synchronized finding headers (`status: confirmed`), resolved 3 minor finding table typos, and published full verification ledger in `results/review/P4-02_recheck.md`. Status -> `done`.
 
 ## Result

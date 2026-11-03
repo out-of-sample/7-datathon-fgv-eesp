@@ -112,18 +112,18 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | 👀 review | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (9/19 closed)
+**P3 — Extensions** (12/20 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
-| [P3-01](tasks/P3-01-money-layer.md) | Cost of a digital dollar: bank route vs USDT route, per regime | 👀 review | Economist | - | 7/7 | 4/4 | 2026-11-03 | P2-03, P2-04 |
+| [P3-01](tasks/P3-01-money-layer.md) | Cost of a digital dollar: bank route vs USDT route, per regime | ✅ done | Economist | - | 7/7 | 4/4 | 2026-11-03 | P2-03, P2-04 |
 | [P3-02](tasks/P3-02-btc-heterogeneity.md) | Did the 23 Jun notice also move the bitcoin premium? | ✅ done | CS 1 | - | 4/4 | 3/3 | 2026-11-03 | P1-01, P2-03 |
 | [P3-03](tasks/P3-03-monitor.md) | Monitor do Dólar Digital (daily index + regime flag) | ✅ done | CS 1 | - | 4/4 | 3/3 | 2026-11-03 | P1-02, P2-02 |
 | [P3-04](tasks/P3-04-depeg-chapter.md) | Depeg chapter v1 (the same mechanism in dollars) | ✅ done | CS 3 | - | 4/4 | 4/4 | 2026-11-03 | P1-07 |
 | [P3-05](tasks/P3-05-agentic-A-protocol-pilot.md) | Extension A - protocol, memory test and pilot on the three CLIs | 🔄 doing | CS 3 | - | 3/7 | 2/5 | 2026-11-02 | P1-01, P1-08 |
 | [P3-06](tasks/P3-06-agentic-A-runs-analysis.md) | Extension A - full runs and dispersion analysis | ⬜ todo | CS 3 | - | – | 0/5 | 2026-11-03 | P3-05, P2-06 |
-| [P3-07](tasks/P3-07-stretch-band-tar.md) | Stretch: threshold model of the no-arbitrage band | 👀 review | CS 2 | - | 3/3 | 3/3 | 2026-11-03 | P2-02 |
-| [P3-08](tasks/P3-08-subsidy-check-2025.md) | 2025 subsidy share for the 'Lições de 2025' slide | 👀 review | CS 3 | - | 3/3 | 2/2 | 2026-11-03 | - |
+| [P3-07](tasks/P3-07-stretch-band-tar.md) | Stretch: threshold model of the no-arbitrage band | ✅ done | CS 2 | - | 3/3 | 3/3 | 2026-11-03 | P2-02 |
+| [P3-08](tasks/P3-08-subsidy-check-2025.md) | 2025 subsidy share for the 'Lições de 2025' slide | ✅ done | CS 3 | - | 3/3 | 2/2 | 2026-11-03 | - |
 | [P3-09](tasks/P3-09-depeg-case-sources.md) | Open sources for the depeg case causes (restore them in the case table) | 👀 review | Economist | - | 2/2 | 2/2 | 2026-11-04 | P3-04 |
 | [P3-10](tasks/P3-10-stablecoin-imports.md) | Mechanism - did stablecoin imports fall when the premium jumped, and recover when it faded? | ✅ done | CS 1 | - | 4/4 | 3/3 | 2026-11-03 | P1-02, P2-02 |
 | [P3-11](tasks/P3-11-money-moved.md) | So what (1) - how much money the spike moved, and to whom | ✅ done | Economist | - | 4/4 | 3/3 | 2026-11-03 | P2-03, P3-01 |
@@ -135,6 +135,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-17](tasks/P3-17-channel-restoration.md) | Did the BCB let funds resume the activity the 23 Jun notice stopped, and did the premium fall when it did? (reopening test) | 👀 review | Economist | - | 6/6 | 5/5 | 2026-11-04 | P3-14, P3-15, P4-04 |
 | [P3-18](tasks/P3-18-onchain-foxbit-source.md) | Where did the USDT sold on Foxbit during the fade come from? (on-chain check of F-031) | ✖️ dropped | CS 1 | - | 0/4 | 0/2 | 2026-11-04 | P3-17 |
 | [P3-19](tasks/P3-19-supply-response.md) | Did seller-initiated trading on Foxbit respond to the premium over the official dollar (import arbitrage) or to the Foxbit–Binance gap (cross-venue arbitrage)? | 👀 review | CS 1 | - | 3/3 | 3/3 | 2026-11-04 | P3-17 |
+| [P3-20](tasks/P3-20-live-predictions.md) | Predictions registered before the data - Res. 574 reporting (3 Nov 2026) and Res. 589 ban on unauthorised counterparties (6 Nov 2026) | 🔄 doing | CS 1 | Renzo (agent) | 2/8 | 1/5 | 2026-11-16 | P1-02, P1-03, P3-03, P4-04 |
 
 **P4 — Robustness and freeze** (2/4 closed)
 
@@ -175,13 +176,13 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-012](findings/F-012-stablecoin-depeg-events.md) | Automatic screening identifies 29 USD-confirmed independent depeg events across 7 stablecoin pairs | 🔍 exploratory | P1-07 | Renzo, Nattan |
 | [F-013](findings/F-013-depeg-count-v2.md) | After the review fixes, the depeg screen finds 11 falls below $1 (9 without a likely delisting), short of the 12 the chapter needs for recovery curves | ✔️ confirmed | P1-07 | Nattan |
 | [F-014](findings/F-014-monitor-backtest.md) | A real-time alarm calibrated on 2020–2025 flags the 24 Jun 2026 jump on the same day, with fewer false alarms than a simple rule | ✔️ confirmed | P3-03 | Jonathan |
-| [F-015](findings/F-015-route-costs.md) | The 23 Jun notice cost a buyer of digital dollars about R$ 5,050 per US$ 100k during the spike (+93.9 bps); after it, +11.5 bps (R$ 620) not distinguishable from noise. Bank-route comparisons are now sourced (BCB EE 48/2019 corporate spread 20 bps; statutory IOF by period) | 🔍 exploratory | P3-01 | - |
+| [F-015](findings/F-015-route-costs.md) | The 23 Jun notice cost a buyer of digital dollars about R$ 5,050 per US$ 100k during the spike (+93.9 bps); after it, +11.5 bps (R$ 620) not distinguishable from noise. Bank-route comparisons are now sourced (BCB EE 48/2019 corporate spread 20 bps; statutory IOF by period) | ✔️ confirmed | P3-01 | Jonathan |
 | [F-016](findings/F-016-event-studies-placebos.md) | Of 13 dated Brazilian events, only the 23 Jun 2026 BCB notice moved the premium (+93.9 bps; beyond all 1,073 placebo dates, p ≈ 0.001) | ✔️ confirmed | P2-03 | Renzo |
 | [F-017](findings/F-017-synthetic-control.md) | Synthetic control estimates a +109 bps acute treatment gap for the 23 Jun 2026 shock (Brazil ranks #1 of 6, ratio 9.31) fading to a +28 bps plateau | ✔️ confirmed | P2-04 | Renzo |
 | [F-018](findings/F-018-btc-heterogeneity.md) | The Bitcoin premium jumped by the same +93.8 bps on 24 Jun 2026, as triangular arbitrage on Binance requires; the test cannot tell a stablecoin-specific shock from a crypto-wide one | ✔️ confirmed | P3-02 | Renzo |
 | [F-019](findings/F-019-depeg-chapter.md) | In dollars too, a stablecoin left parity while its redemption channel was closed: USDC closed at $0.863 on the SVB weekend and was back at $0.989 an hour after Sunday's deposit guarantee, before banks reopened; 11 other falls below $1 form a case table (too few for curves) | ✔️ confirmed | P3-04 | Renzo |
-| [F-020](findings/F-020-subsidy-share-2025.md) | Between 37.5% and 53.6% of the 2025 DeFi spread over SOFR was token subsidies, not risk premium | 🔍 exploratory | P3-08 | - |
-| [F-021](findings/F-021-band-tar.md) | Threshold Band-TAR model reveals a 26-fold widening of the no-arbitrage band during the 24 Jun spike (1.6 to 42.0 bps) and deceleration of mean reversion | 🔍 exploratory | P3-07 | - |
+| [F-020](findings/F-020-subsidy-share-2025.md) | Between 37.5% and 53.6% of the 2025 DeFi spread over SOFR was token subsidies, not risk premium | ✔️ confirmed | P3-08 | Jonathan |
+| [F-021](findings/F-021-band-tar.md) | Threshold Band-TAR model reveals a 26-fold widening of the no-arbitrage band during the 24 Jun spike (1.6 to 42.0 bps) and deceleration of mean reversion | ✔️ confirmed | P3-07 | Jonathan |
 | [F-022](findings/F-022-robustness-battery.md) | The 23 Jun 2026 spike is robust (+74 to +128 bps across 22 variants); the after-spike level (+11 to +34 bps) is not distinguishable from ordinary drift (placebo p = 0.24) | ✔️ confirmed | P4-01 | Renzo |
 | [F-023](findings/F-023-notice-sources-and-press-moves.md) | Two outlets saw the 23 Jun notice (or an excerpt) the next days, the BCB confirmed its position in writing, and the price moves they reported match our premium series | ✔️ confirmed | P3-14 | Felipe |
 | [F-024](findings/F-024-stablecoin-imports.md) | In July 2026 stablecoin purchases abroad fell 78% (BCB) while the premium rose; they stayed at about a third of their earlier level through September while the premium fell back | ✔️ confirmed | P3-10 | Felipe |

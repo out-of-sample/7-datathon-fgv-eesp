@@ -2,7 +2,7 @@
 id: P3-08
 title: 2025 subsidy share for the 'Lições de 2025' slide
 phase: P3
-status: review
+status: done
 owner: CS 3
 working: -
 due: 2026-11-03
@@ -40,6 +40,7 @@ Measure how much of last year's 'risk spread' was token rewards (DeFiLlama apyRe
 - **How to resume:** Run `py scripts/p3_08_subsidy.py` to regenerate outputs. Read `findings/F-020-subsidy-share-2025.md` for complete narrative.
 
 ## Log
+- 2026-11-03, Jonathan: independent re-run verified; status -> done.
 - 2026-11-02, Felipe: Started task P3-08. Identified canonical pools in DeFiLlama and 2025 repo. Downloaded and froze pool charts and NY Fed SOFR rate in `data/raw/defillama/`.
 - 2026-11-02, Felipe: Wrote `scripts/p3_08_subsidy.py`, generated `results/tables/P3-08_subsidy_2025.csv` and 4-panel publication figure `results/figures/P3-08_subsidy_share_2025.png`. Documented complete findings in `findings/F-020-subsidy-share-2025.md`. Status moved to `review`.
 

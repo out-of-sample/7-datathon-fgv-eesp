@@ -2,7 +2,7 @@
 id: P3-01
 title: Cost of a digital dollar: bank route vs USDT route, per regime
 phase: P3
-status: review
+status: done
 owner: Economist
 working: -
 due: 2026-11-03
@@ -58,6 +58,7 @@ Turn the premium into money for a Brazilian corporate treasurer: (1) headline co
 - **How to resume:** `py scripts/p3_01_costs.py`
 
 ## Log
+- 2026-11-03, Jonathan (peer review): independently re-ran scripts/p3_01_costs.py; all 17 rows reproduced and F-015 confirmed; status -> done.
 - 2026-11-02, agent for Felipe: S6–S7 completed (`status: review`). Opened and quoted primary sources (`R-01`, `R-01b`, `R-02`, `R-05`, `R-06`, `R-07` in `docs/sources.md`); updated `scripts/p3_01_costs.py`, `results/tables/P3-01_route_costs.csv`, `results/figures/P3-01_route_costs.png` (neutral labels, no "economiza"), and `findings/F-015-route-costs.md`. Both Option A (annex table) and Option C (slide) prepared for the team.
 - 2026-11-02, agent for Felipe: Felipe takes S6–S7 (bank route kept, reframed neutrally; source it before the team picks annex vs slide).
 - 2026-11-02, agent for Renzo (review fixes, on Felipe's behalf, agreed by Renzo): regimes 1–3 compared at 1.1% IOF (R-02; savings R$ 3.3–6.3k, were R$ 16–20k); cost of the notice added (`NOTICE_COST_SPIKE` R$ 5,052, `NOTICE_COST_AFTER` R$ 621 not significant) and made the headline in F-015; unhedged-hold risk no longer added as a cost; bank spread and hedge cost marked as assumptions; whether the bank comparison stays in the deck left to the team; working back to -
