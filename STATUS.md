@@ -63,6 +63,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | Headline wording (`P4-04`, review, F-029): applied on slides 4 and 5 of the 10-slide deck ("em 30 janelas que não se sobrepõem, p = 0,03"); the +94 bps month also holds the 26 Jun meeting (E-12) and Res. 580; two days before the meeting +155 bps (p 0.02–0.04); Res. 574 coincides with +38 bps on 18→19 Jun, so slide 5 cannot say "só o ofício moveu o preço" | Teammate re-run of F-029; Felipe for wording | before freeze |
 | Res. BCB 574 (DOU 22 Jun 2026, E-11) is not in the event list; F-026 says "eight rules". Add as event or caveat (`P3-16`); premium did not move on 22–23 Jun (23.3, 24.8 bps), jumped 24 Jun | Felipe + team | before freeze (Wed 4 Nov) |
 | P3-17 (review, F-030, F-031): no verified reopening of the funds' channel (test cannot be run); S4 check mixed; post hoc, an unprecedented business-hours seller on Foxbit during the fall (F-031, exploratory). Needs a teammate's re-check of the source table and script; deck sentence optional | a teammate who did not author it + Felipe | before freeze (Wed 4 Nov) |
+| P3-18 (blocked): on-chain check of where the Foxbit USDT came from (F-031) needs Foxbit wallet addresses from a citable source: Arkham login, a free Tronscan API key in `.env`, or a test deposit (team OK). Drop if not unblocked before freeze | Renzo (choose option) or anyone with an Arkham login | before freeze (Wed 4 Nov) |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
 | F-008 (Foxbit volume ×6 from Jul 2026): coincides with NovaDAX partnership (M-04, 7 Jul) and Foxbit Infra B2B relaunch (M-05, 18 Jul, fitting 5× larger trade size); kept as open cause in Slide 5 and F-008 | Resolved (cause kept open with M-04 and M-05 documented in `docs/sources.md` and `F-008`) | done |
 | P2-04 inference & donor pool | Resolved: combined within-Brazil 200 placebos (p < 0.005) + synthetic control across 6 specs (+109.3 bps acute gap, rank 1/6, ratio 9.31, F-017) | done |
@@ -111,7 +112,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | 👀 review | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (8/17 closed)
+**P3 — Extensions** (8/18 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -132,6 +133,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-15](tasks/P3-15-route-comparison.md) | Why +94 bps and not +350 - which routes are comparable (clarification for the deck) | 👀 review | Economist | - | 4/4 | 3/3 | 2026-11-04 | P3-01, P3-10 |
 | [P3-16](tasks/P3-16-res574-event-list.md) | Res. BCB 574 (published 22 Jun 2026, one day before the notice) is missing from the event list | ⬜ todo | Economist | - | 1/3 | 0/2 | 2026-11-04 | P1-04, P3-12 |
 | [P3-17](tasks/P3-17-channel-restoration.md) | Did the BCB let funds resume the activity the 23 Jun notice stopped, and did the premium fall when it did? (reopening test) | 👀 review | Economist | - | 6/6 | 5/5 | 2026-11-04 | P3-14, P3-15, P4-04 |
+| [P3-18](tasks/P3-18-onchain-foxbit-source.md) | Where did the USDT sold on Foxbit during the fade come from? (on-chain check of F-031) | ⛔ blocked | CS 1 | - | 0/4 | 0/2 | 2026-11-04 | P3-17 |
 
 **P4 — Robustness and freeze** (2/4 closed)
 
@@ -193,6 +195,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-02 — agent for Renzo: P3-17 pushed; new task `P3-18` (blocked): on-chain source of the Foxbit USDT, plan fixed before any download; Foxbit addresses not reachable without Arkham login or Tronscan key
 - 2026-11-02 — agent for Renzo: P3-17 S6 (post hoc, Renzo's question "what brought the market back?"): Foxbit net seller-initiated volume +361.9 mn USDT on business hours 30 Jun–21 Jul (largest day in 5 years before: 5.1 mn), ending at the 22 Jul break; Binance also net selling, so new supply to the BRL market; seller and source unknown (F-031); slow-moving capital framing (Duffie 2010, L-10)
 - 2026-11-02 — agent for Renzo: P3-17 S1–S5 → review: 893 BCB normativos and 115 press notes (20 Jun–31 Oct) screened, 12 dated candidates; no full or partial restoration of the funds' FX imports (BCB restated unlawful, published 29 Jul; Res. 599 of 9 Oct only labels authorised institutions' imports) → reopening test cannot be run (F-030). S4 under committed rule: mixed (purchases abroad R = 0.32; order flow reverts 3 of 4); sources E-13–E-16, E-05.11
 - 2026-11-02 — agent for Renzo: new task `P3-17` (todo): did the BCB let funds resume the activity the 23 Jun notice stopped, and did the premium fall then? Spec-first, verdict supported/contradicted/unresolved; prompt for a second agent in `docs/agent-prompt-P3-17.md`

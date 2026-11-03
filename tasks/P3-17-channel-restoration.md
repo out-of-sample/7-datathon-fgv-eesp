@@ -107,7 +107,7 @@ columns. S4 is therefore not blind; only its rule is fixed before the comparison
 - **Next step:** a teammate who did not do this work re-checks it: (1) open 3–4 rows of `results/tables/P3-17_candidates.md`
   and compare the quotes; (2) run `python scripts/p3_17_restoration.py` and compare the `B1`–`B3` lines with F-030 and `C0`–`C5` with F-031;
   (3) if it holds, F-030 `exploratory` → `confirmed` and this task → `done`; F-031 stays `exploratory` (post hoc).
-  Optional, needs the team's OK: on-chain USDT deposits to Foxbit (30 Jun – 21 Jul) to see where the coins came from.
+  On-chain follow-up (approved 2 Nov) is task `P3-18`, blocked on Foxbit wallet addresses.
 - **Open questions:** Felipe decides whether one sentence goes in the deck (suggested pt-BR line in F-030, "Used in deck").
   If anyone finds a source that funds or banks resumed (e.g. a CVM filing), add it as a new row; if it is full or partial
   restoration, the S2 test runs on its date unchanged.
