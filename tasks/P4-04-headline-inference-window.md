@@ -67,7 +67,7 @@ around every announced and effective date; positions 20 to N−21). t0 = 23 Jun 
 ## Success criteria
 - [x] Spec committed before the script runs, with the disclosure below
 - [x] A finding states the non-overlapping p range, the first-day rank, and the list of measures inside the window
-- [ ] The deck no longer shows "p ≈ 0.001" without the non-overlapping figure
+- [x] The deck no longer shows "p ≈ 0.001" without the non-overlapping figure (10-slide deck, 2 Nov: slide 4 and the P3-12 figure label)
 
 ## Outputs
 - `scripts/p4_04_inference.py`, `findings/F-029-headline-inference.md`, `results/tables/P4-04_nonoverlap.csv`,
@@ -119,6 +119,7 @@ PY
 - **How to resume:** read F-016, F-022, E-05.5, E-10, E-12 in `docs/sources.md`.
 
 ## Log
+- 2026-11-02, agent for Renzo: criterion 3 met in the 10-slide deck (P5-01 S5); F-029 slide-5 text date fixed
 - 2026-11-02, agent for Renzo: script run, F-029; decision rules 1 and 2 both met (A p = 0.032; B p = 0.020–0.040); Res. 574 coincides with +37.7 bps on 18→19 Jun (one other 2026 day as large); status review
 - 2026-11-02, agent for Renzo: Renzo takes the task; exploratory values re-validated (one misquote and two wordings corrected)
 - 2026-11-02, agent for Renzo: created (todo) from the deck-plan strategy checks

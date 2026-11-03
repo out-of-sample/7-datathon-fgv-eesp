@@ -1,5 +1,8 @@
 # Deck plan: 10 slides (proposal, 2 Nov 2026)
 
+**Applied to `deck/deck_v1_ptbr.md` on 2 Nov at Renzo's request;** what changed, two deviations and what is open:
+`docs/deck-changes-2026-11-02.md`.
+
 For Felipe (deck owner, P5-01) and the team, from Renzo's agent. A proposal: the deck owner decides. It applies the
 binding decisions of 2 Nov (`docs/README.md`): at most 10 slides, "Lições de 2025" as a strip on the method slide,
 the four language levels of `docs/deck-notes-2026-11-02.md`, and delivery/rehearsal as part of the goal.

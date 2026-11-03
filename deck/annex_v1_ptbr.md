@@ -10,8 +10,9 @@
 - **Anexo A:** Tabela Completa de Eventos Regulatórios e Microestruturais Brasileiros (`P2-03`, `P3-12`, Placebo $p$-valores)
 - **Anexo B:** Bateria Completa de Robustez, Custos por Rota e Transferência Agregada (`P3-01`, `P3-11`), Depegs (`P3-04`, `P3-09`), Importações BCB (`P3-10`) e Previsão Datada (`P3-13`)
 - **Anexo C:** Registro Completo de Fontes de Dados, Legislação, 10 Fontes de `E-05` (`P3-14`), Tarifas, Depegs e Literatura
-- **Anexo D:** Mapa de Reprodutibilidade de Scripts e Matriz de Rastreabilidade Ponta a Ponta (14 Slides / 15 Seções)
+- **Anexo D:** Mapa de Reprodutibilidade de Scripts e Matriz de Rastreabilidade Ponta a Ponta (deck de 10 slides)
 - **Anexo E:** Declaração Transparente de Uso de Ferramentas e Agentes de Inteligência Artificial
+- **Anexo F:** Material movido do deck de 14 slides (2/nov/2026): inferência do número principal e conteúdo da janela (`F-029`), Res. BCB 574, comparação internacional, SVB, monitor, Lições de 2025, placar das hipóteses
 
 ---
 
@@ -249,7 +250,7 @@ Todas as fontes citadas na pesquisa foram abertas, auditadas, citadas verbatim e
 | **DP-09** | `P1-07-USTUSDT-03` (UST, mai/2022) | [Federal Reserve Bank of Richmond *Economic Brief* EB 22-24](https://www.richmondfed.org/publications/research/economic_brief/2022/eb_22-24) | Retiradas maciças no Curve Pool e corrida ao Anchor Protocol em 07/05/2022, com expansão de LUNA de 0,4 bi para 32 bi em 4 dias. |
 | **DP-10** | `P1-07-USDPUSDT-09` e `10` (USDP, set/2026) | [Livecoins / Binance Announcement (10/09/2026)](https://livecoins.com.br/binance-anuncia-remocao-da-stablecoin-pax-dollar-usdp-e-anuncia-prazo-final-para-retiradas/) | Anúncio da Binance em 10/09/2026 determinando a remoção da stablecoin Pax Dollar (USDP) em 24/09/2026. |
 
-### C.5. Literatura Acadêmica de Fundamentação (`L-01` a `L-08`)
+### C.5. Literatura Acadêmica de Fundamentação (`L-01` a `L-09`)
 
 | ID | Referência Bibliográfica Completa | Aplicação na Pesquisa | Status |
 |---|---|---|---|
@@ -261,6 +262,7 @@ Todas as fontes citadas na pesquisa foram abertas, auditadas, citadas verbatim e
 | **L-06** | Makarov, I. & Schoar, A. (2020). Trading and arbitrage in cryptocurrency markets. *Journal of Financial Economics*, 135(2), 289–319. | Evidência de prêmios cripto entre jurisdições soberanas sob controles de capital (`P1-05`, `F-010`). | Auditado |
 | **L-07** | Obstfeld, M. & Taylor, A. M. (1997). Nonlinear aspects of goods-market arbitrage and adjustment: Heckscher's commodity points revisited. *JJIE*, 11(4), 441–479. | Modelagem Band-TAR da banda de não-arbitragem e velocidade de reversão (`P3-07`, `F-021`). | Auditado |
 | **L-08** | Abadie, A., Diamond, A. & Hainmueller, J. (2010). Synthetic control methods for comparative case studies. *JASA*, 105(490), 493–505. | Controle sintético convexo restrito ao simplex e inferência por placebos espaciais (`P2-04`, `F-017`). | Auditado |
+| **L-09** | Gelbach, J. B., Helland, E. & Klick, J. (2013). Valid inference in single-firm, single-event studies. *American Law and Economics Review*, 15(2), 495–541. | Nota de método do Anexo F.1: a comparação com datas placebo segue a lógica do teste SQ; não rodamos o teste deles. | Registro aberto (IDEAS), artigo não aberto |
 
 ---
 
@@ -291,24 +293,20 @@ Todos os códigos foram desenvolvidos em Python 3 linear e estruturados para exp
 | `scripts/p3_14_press_check.py` | `scripts/p3_14_press_check.py.txt` | `P1-02_premium_hourly.csv`, `P1-02_premium_daily.csv` | `P3-14_press_vs_series.csv` |
 | `scripts/p4_01_robustness.py` | `scripts/p4_01_robustness.py.txt` | Todas as tabelas de `P1`, `P2` e `P3` | `P4-01_robustness.csv`, `P4-01_robustness_forest.png` |
 
-### D.2. Matriz de Rastreabilidade Ponta a Ponta: Slide (`deck_v1_ptbr.md`) $\leftrightarrow$ Seção (`p5_07_story.ipynb`) $\leftrightarrow$ Achado $\leftrightarrow$ Saída
+### D.2. Matriz de Rastreabilidade Ponta a Ponta: Slide (`deck_v1_ptbr.md`, 10 slides) $\leftrightarrow$ Achado $\leftrightarrow$ Saída
 
-| Slide (`deck_v1_ptbr.md`) | Seção (`notebooks/p5_07_story.ipynb`) | Conceito / Métrica Principal | Finding ID | Código Gerador | Tabela / Figura Primária |
-|---|---|---|---|---|---|
-| **Slide 1 (Capa & Pergunta)** | **Seção 1:** *Quanto custa fechar a porta?* | Tese, prêmio USDT/PTAX, queda de 78% nas importações e R$ 106–145 mi | `F-001`, `F-015`, `F-024`, `F-025` | `scripts/p1_02_premium.py` | `P1-02_premium_daily.csv` |
-| **Slide 2 (Quatro Hipóteses)** | **Seção 2:** *O que esperávamos* | Desenho pré-comprometido $H_0$ a $H_3$ e commits Git | `F-007`, `F-016`, `F-017` | `docs/02-dolar-cripto.md` §5 | Tabela de Hipóteses |
-| **Slide 3 (Dados e Quebras Cegas)** | **Seção 3:** *Dados e medida* | Pareamento PTAX, piso C-S (2–10 bps) e Bai-Perron cego (+99,8 bps em 24/jun) | `F-004`, `F-006`, `F-007`, `F-011`, `F-021` | `scripts/p2_01_noise.py`, `p2_02_breaks.py`, `p3_07_tar.py` | `P2-02_breaks.csv`, `P2-02_premium_breaks.png` |
-| **Slide 4 (Salto em 3 Corretoras)** | **Seção 4:** *O salto: mesmo tamanho em três corretoras* | Replicação em Binance (+93,9), Foxbit (+93,3) e MB (+94,9 bps) e validação de imprensa | `F-009`, `F-023` | `scripts/p2_05_checks.py`, `p3_14_press_check.py` | `P2-05_hourly_22_26_jun.png`, `P3-14_press_vs_series.csv` |
-| **Slide 5 (A Porta que Fechou)** | **Seção 5 + `P3-14`/`P3-10`:** *A porta que fechou* | 10 fontes sobre o ofício de 23/jun (`E-05.1`–`E-05.10`) e queda de −78% nas compras externas no BCB (`SGS 29644`) | `F-023`, `F-024` | `scripts/p3_10_imports.py`, `p3_14_press_check.py` | `P3-10_imports.csv`, `P3-10_imports.png` |
-| **Slide 6 (Só o Ofício Sigiloso Moveu)** | **Seção 6 + `P3-12`:** *Só uma regra mexeu no preço* | As 8 regras datadas e 13 eventos contra as 1.073 datas limpas ($p = 0,0009$) | `F-016`, `F-026` | `scripts/p2_03_events.py`, `p3_12_rules.py` | `P3-12_rules.png`, `P2-03_placebo_dist.png` |
-| **Slide 7 (Controle Sintético & BTC)** | **Seção 7:** *Outros países não se mexeram* | Gap agudo de +109,3 bps (Rank 1/6, razão RMSPE 9,31; DiD +103,3 bps) e arbitragem triangular no BTC (+93,8 bps) | `F-017`, `F-018` | `scripts/p2_04_synth.py`, `p3_02_btc.py` | `P2-04_synth_results.csv`, `P2-04_synthetic_control.png` |
-| **Slide 8 (Pico de Um Mês)** | **Seção 8:** *Um pico de um mês* | 22 variantes agudas (+73,7 a +128,3 bps); pós-pico não significativo ($p_{\text{placebo}} = 0,24$) | `F-008`, `F-022`, `F-024` | `scripts/p4_01_robustness.py` | `P4-01_robustness.csv`, `P4-01_robustness_forest.png` |
-| **Slide 9 (Comparação Internacional)** | **Seção 9:** *Onde a porta está fechada, o prêmio é grande* | ARS e UAH (4–7%) vs mercados abertos (0–1%) | `F-010` | `scripts/p1_05_donors.py` | `P1-05_donor_premiums_daily.csv` |
-| **Slide 10 (Quanto Custou em R$)** | **Seção 10 + `P3-11`:** *Quanto custou* | +R$ 5.052/US$ 100k no pico e R$ 106,1 mi (Binance) / R$ 145,3 mi (3 exchanges) transferidos em 4 semanas ($p = 0,005$) + Opções C e A | `F-015`, `F-025` | `scripts/p3_01_costs.py`, `p3_11_money.py` | `P3-01_route_costs.png`, `P3-11_transfer.csv` |
-| **Slide 11 (Do Lado do Dólar / SVB)** | **Seção 11 + `P3-09`:** *Do lado do dólar: quando o resgate fecha* | USDC a US$ 0,863 c/ bancos fechados; US$ 0,989 1h após garantia + 11 quedas com fontes `DP-01`–`DP-10` | `F-013`, `F-019` | `scripts/p3_04_depeg_chapter.py` | `P3-04_svb_weekend.png`, `P3-04_depeg_case_table.csv` |
-| **Slide 12 (Monitor & Previsão 2027)** | **Seção 12 + `P3-13`:** *Monitor do Dólar Digital* | Alarme CUSUM sem look-ahead (atraso 0d em 24/jun) + previsão datada (`393a14a`) para a Res. BCB 584 em 01/01/2027 | `F-014`, `F-027` | `scripts/p3_03_monitor.py`, `p3_13_prediction.py` | `P3-03_monitor.png`, `P3-13_prediction.md` |
-| **Slide 13 (Lições de 2025)** | **Seção 13:** *Lições de 2025* | Modelo 2025 perdeu para Naive e 53,6% do spread Compound V3 era subsídio COMP | `F-005`, `F-020` | `scripts/p3_08_subsidy.py` | `P3-08_subsidy_2025.csv`, `P3-08_subsidy_share_2025.png` |
-| **Slide 14 (Placar e Limitações)** | **Seções 14–15:** *O que os testes mostraram e limitações* | Placar $H_0$–$H_3$, síntese do plano *so what* e 5 limites explícitos | `F-001`..`F-027` | `notebooks/p5_07_story.ipynb` | Síntese e Limitações |
+| Slide | Conceito / Métrica Principal | Finding ID | Código Gerador | Tabela / Figura Primária |
+|---|---|---|---|---|
+| **1 Quanto custa fechar a porta?** | +93,9 bps = R$ 5.052 por US$ 100 mil; US$ 2,4 bi/mês em stablecoins no exterior (jan–mai/2026) | `F-015`, `F-016`, `F-024` | `scripts/p3_01_costs.py`, `p3_10_imports.py` | `P3-01_route_costs.csv`, `P3-10_imports.csv` |
+| **2 A porta que fechou** | Canal dos fundos (IOF 0%), ofício de 23/jun, resposta LAI, linha do tempo das medidas | `F-023` | `scripts/p3_14_press_check.py` | `docs/sources.md` (`E-05.1`–`E-05.10`, `E-10`–`E-12`, `R-02`) |
+| **3 Dados e método** | 1.520 dias PTAX, piso 2–10 bps, três testes, hipóteses, Lições de 2025 | `F-001`, `F-002`, `F-005`, `F-007`, `F-011`, `F-016`, `F-017` | `scripts/p1_02_premium.py`, `p2_01_noise.py` | `P1-02_premium_daily.csv` |
+| **4 O salto** | +93,9 bps; três corretoras; quebra às cegas em 24/jun; 1.073 datas; 30 janelas sem sobreposição (p = 0,03); +155 bps antes de 26/jun | `F-009`, `F-011`, `F-016`, `F-022`, `F-029` | `scripts/p2_02_breaks.py`, `p2_05_checks.py`, `p4_04_inference.py` | `P2-02_premium_breaks.png`, `P2-05_hourly_22_26_jun.png`, `P4-04_nonoverlap.csv` |
+| **5 Oito regras testadas** | Regras publicadas na faixa comum; Res. 561; IOF 2025 +13,2 bps; Res. 574 +37,7 bps em 18→19/jun | `F-016`, `F-026`, `F-029` | `scripts/p3_12_rules.py` | `P3-12_rules.png`, `P3-12_rules.csv` |
+| **6 Não foi o real, nem o USDT, nem o mundo** | Controle sintético +109,3 bps (1º de 6); PTAX +0,68%; USDT/USD < 1 bp; BTC +93,8 bps | `F-009`, `F-017`, `F-018` | `scripts/p2_04_synth.py`, `p3_02_btc.py` | `P2-04_synthetic_control.png` |
+| **7 O mecanismo** | Compras de stablecoins no exterior −78% em jul/2026; 32% em ago–set | `F-024` | `scripts/p3_10_imports.py` | `P3-10_imports.png` |
+| **8 Robusto, mas de um mês** | 22 variantes (+73,7 a +128,3 bps); pós-pico p = 0,24; o que não mostramos | `F-011`, `F-022`, `F-024`, `F-026`, `F-028` | `scripts/p4_01_robustness.py` | `P4-01_robustness_forest.png` |
+| **9 Quanto custou e para quem** | R$ 106,1 mi (Binance) / R$ 145,3 mi (3 corretoras); por que +94 e não +350 bps | `F-015`, `F-025`, `F-026`, `F-028` | `scripts/p3_11_money.py` | `P3-11_transfer.csv`, `P3-11_placebo.csv`, `P3-15_routes.md` |
+| **10 Implicações, previsão e limites** | Monitor (atraso 0); previsão para a Res. 584 (`393a14a`); limites | `F-014`, `F-022`, `F-025`, `F-026`, `F-027`, `F-028`, `F-029` | `scripts/p3_03_monitor.py`, `p3_13_prediction.py` | `P3-13_prediction.md` |
 
 ---
 
@@ -337,3 +335,121 @@ Em cumprimento aos mais elevados padrões éticos e à transparência metodológ
 
 ### E.4. Compromisso de Integridade dos Dados
 Declaramos expressamente que **nenhum dado numérico, data histórica, cotação cambial, dispositivo de lei ou resultado estatístico foi sintetizado artificialmente**. Toda a base empírica foi descarregada de repositórios públicos oficiais (Binance Vision, BCB Olinda e SGS, Coinbase, Bitstamp, BCE, BanRep, Planalto, STF, SEC, Federal Reserve e DeFiLlama), com checksums SHA-256 em `data/raw/SHA256SUMS` e scripts disponíveis para replicação integral pela banca examinadora.
+
+---
+
+# Anexo F — Material Movido do Deck de 14 Slides e Notas de Inferência (2/nov/2026)
+
+O deck passou de 14 para 10 slides (regra da equipe de 2/nov). O que saiu dos slides está aqui, com a mesma
+linguagem de quatro níveis do deck: **medido**, **compatível com o mecanismo**, **ilustrativo** e **não mostrado**.
+Registro das mudanças: `docs/deck-changes-2026-11-02.md`.
+
+### F.1. Inferência do número principal e o que há dentro da janela (`P4-04`, `F-029`, nível: medido)
+
+**Janelas que se sobrepõem.** O $p = 0,0009$ de `F-016` compara a mudança de junho com 1.073 datas comuns cujas
+janelas de 40 dias úteis se sobrepõem (vizinhas compartilham 38 dias), o que exagera a precisão. Refizemos só com
+janelas sem nenhum dia em comum (especificação registrada antes do script, commit `f4071ef`). As janelas não
+compartilham dias, mas não são independentes, porque o prêmio é autocorrelacionado.
+
+| Estatística | Observado | Todas as 1.073 datas comuns | Janelas sem sobreposição |
+|---|---|---|---|
+| A: média [+1, +20] menos média [−20, −1] (número principal) | +93,9 bps | nenhuma tão grande; $p = 0,0009$; maior: 65,7 bps | 30 por sorteio; nenhuma tão grande em todos os 41 sorteios; $p = 0,032$ |
+| B: média [+1, +2] menos média [−20, −1] (antes da reunião de 26/jun) | +154,6 bps | 2 tão grandes; $p = 0,0028$ | 49 por sorteio; 0 a 1 tão grandes; $p$ entre 0,020 e 0,040 |
+
+A janela de B termina em +2 porque a reunião foi em +3 (o calendário, não o prêmio, define o fim); os valores de
+24–25/jun já tinham sido vistos e foram declarados na especificação. B é secundária a A.
+
+**Primeiro dia.** De 23 para 24/jun o prêmio subiu +130,6 bps, a maior alta diária de 2026. Entre 1.092 dias comuns,
+9 subiram tanto (6 em 2021, 1 em 2022, 1 em 2024, 1 em 2025, este com janela PTAX incerta por causa do Carnaval).
+
+**O que há dentro da janela [−20, +20] (prêmio no dia útil PTAX correspondente):**
+
+| Data | Medida | Fonte | Prêmio (bps) |
+|---|---|---|---|
+| 18/jun/2026 | Res. BCB 574 registrada no BCB (reporte a partir de 3/nov) | `E-11` | −4,7 |
+| 22/jun/2026 | Res. BCB 574 publicada no DOU | `E-11` | 23,3 |
+| 23/jun/2026 | Ofício do BCB ($t_0$) | `E-05` | 24,8 |
+| 26/jun/2026 | Reunião: suspensão mantida, arbitragem em livro liberada, minuta da retenção de 24 h | `E-05.5`, `E-12` | 75,6 |
+| 1/jul/2026 | Res. BCB 580 publicada (regras a partir de 1/jan/2027) | `E-10` | 121,1 |
+| 7/jul/2026 | Parceria Foxbit–NovaDAX | `M-04` | 138,7 |
+| 18/jul/2026 (sábado; PTAX de 20/jul) | Foxbit relança o braço B2B como Foxbit Infra | `M-05` | 66,9 |
+
+Um segundo pico em 3/jul (+86,7 bps em um dia) não tem causa identificada. Reproduzir:
+`python scripts/p4_04_inference.py` → `results/tables/P4-04_nonoverlap.csv`, `results/tables/P4-04_window_events.csv`.
+
+**Res. BCB 574 (`P3-16`, decisão da equipe pendente entre lista de eventos e ressalva).** A Resolução BCB nº 574
+(datada de 18/jun no registro do BCB, publicada no DOU em 22/jun) cria a obrigação de reportar operações com ativos
+virtuais realizadas a partir de 3/nov/2026; não restringe operações de junho. No dia seguinte à data de registro, o
+prêmio subiu 38 bps (de −4,7 para 32,9 bps, 18→19/jun; em 2026, antes do ofício, só um outro dia subiu tanto),
+recuou para 23,3 e 24,8 bps em 22 e 23/jun e saltou +131 bps em 24/jun, dia seguinte ao ofício. O conteúdo (só
+reporte) e a diferença de tamanho apontam o ofício como a explicação principal do salto de 24/jun; a Res. 574 pode
+ter movido o prêmio em dezenas de bps, e o teste de evento não separa as duas datas.
+
+**Nota de método.** A comparação com datas placebo segue a lógica do teste de quantis amostrais (SQ) para estudos de
+um único evento de Gelbach, Helland & Klick (2013, `L-09`), pensado para eventos como regulação e decisões judiciais.
+A estatística deles usa retornos anormais diários; a nossa é uma diferença de médias de 20 dias. Não rodamos o teste
+deles. O mesmo cuidado com sobreposição vale para o $p = 0,005$ da transferência em `F-025`: as 194 janelas de quatro
+semanas se sobrepõem, por isso o slide 9 mostra apenas que a maior delas foi R$ 35,5 milhões.
+
+### F.2. Comparação internacional (`P1-05`, `F-010`, nível: ilustrativo)
+
+O mesmo prêmio do USDT sobre a taxa oficial de cada banco central (média, bps; 2026 até 22/jun):
+
+| Moeda | 2025 | 2026 | Situação |
+|---|---|---|---|
+| ARS (Argentina) | 721 | 548 | Compra de dólar oficial racionada |
+| UAH (Ucrânia) | 490 | 412 | Controles da lei marcial (`E-09`) |
+| ZAR (África do Sul) | 97 | 68 | Aberto |
+| BRL (Brasil, PTAX) | 22 | 8 | Aberto |
+| EUR, TRY, MXN, PLN, IDR, COP | −69 a +36 | −7 a +22 | Abertos |
+
+Padrão descritivo compatível com a mesma lógica (onde o dólar oficial é racionado, o prêmio é grande), com duas
+moedas controladas e sem teste causal. **Argentina como trabalho futuro:** uma abertura de canal seria um teste no
+sentido oposto ao do Brasil, mas não rodamos esse teste nem registramos as fontes das datas candidatas.
+
+### F.3. O lado do dólar: o fim de semana do SVB (`P3-04`, `F-019`, nível: ilustrativo)
+
+Com os bancos americanos fechados de sexta 16h a segunda 9h30 (Nova York), o menor fechamento horário do USDC na
+Bitstamp foi US$ 0,863 (sábado 11/mar/2023, 07h UTC; mínima intra-hora US$ 0,805). A garantia aos depositantes do
+SVB saiu no domingo às 22h15 UTC (`D-13`); o USDC fechou aquela hora a US$ 0,989, antes de os bancos reabrirem.
+É uma segunda ilustração de por que o acesso crível ao dólar sustenta a paridade: o preço voltou com a confiança no
+resgate futuro, não com a reabertura de um canal, e acesso e confiança nas reservas não se separam. Não testa o canal
+de importação dos fundos. As outras 11 quedas abaixo de US$ 1 estão na tabela de B.6 (poucas para curvas de
+sobrevivência; a regra exigia ao menos 12).
+
+### F.4. Protótipo do Monitor do Dólar Digital (`P3-03`, `F-014`) e previsão (`P3-13`, `F-027`)
+
+| Regra (limiar fixado em 2020–2025) | Alarmes no treino | Atraso no salto de 24/jun/2026 | Atraso no recuo de 22/jul/2026 | Outros alarmes em 2026 |
+|---|---|---|---|---|
+| Monitor CUSUM ($h = 24,5$) | 9 (1,8 por ano) | 0 dias úteis | 11 dias úteis | 2 |
+| Regra simples (média de 5 dias vs 60 dias) | 10 (2,0 por ano) | 0 dias úteis | 12 dias úteis | 4 |
+
+É um protótipo com uma detecção real (24/jun), de um salto óbvio depois do fato; 2 contra 4 alarmes em 10 meses é
+uma contagem pequena. A previsão para a Res. BCB 584 está no slide 10; texto completo, regra de falsificação e limites
+em `results/tables/P3-13_prediction.md`.
+
+### F.5. Lições de 2025: o que mudamos no método (`F-005`, `F-020`)
+
+| Em 2025 (6º Datathon, 3º lugar) | Em 2026 | Evidência |
+|---|---|---|
+| O melhor modelo (K-Means + SVM, MAE 0,248, $R^2$ 0,622) perdeu para "amanhã = hoje" (MAE 0,169, $R^2$ 0,776), e isso não foi reportado | Toda estimativa ao lado de uma linha de base ingênua; o monitor é comparado a uma regra simples | `F-005`, `F-014` |
+| Linguagem causal a partir de agrupamento (K-Means) | Afirmações causais só com desenho (datas placebo, controle sintético) e só para o pico de um mês | `F-016`, `F-017`, `F-022` |
+| Spread DeFi sobre o SOFR tratado como prêmio de risco | Uma reanálise sugere que 37,5% a 53,6% desse spread em 2025 eram subsídios em tokens (achado `exploratory`, ainda sem revisão independente) | `F-020` |
+| Brasil só na introdução; testes escolhidos depois | O Brasil é a pergunta; hipóteses e regras de decisão registradas no Git antes de cada teste confirmatório | `docs/02-dolar-cripto.md` §5 |
+
+### F.6. Placar das hipóteses (deck de 14 slides, slide 14; reescrito)
+
+| Hipótese | Veredito | Evidência |
+|---|---|---|
+| **H1** (fechar o canal elevou o prêmio) | Sustentada para um pico de um mês: +93,9 bps, maior que em todas as 1.073 datas comuns (30 janelas sem sobreposição, $p = 0,03$), o mesmo em três corretoras, +109,3 bps contra o Brasil sintético. Efeito duradouro não mostrado ($p = 0,24$) | `F-009`, `F-016`, `F-017`, `F-022`, `F-029` |
+| **H2** (só o canal mais barato em uso importa) | Compatível: as sete regras publicadas ficaram na faixa comum; forma e conteúdo não se separam; a Res. 574 não é separável do ofício | `F-026`, `F-029` |
+| **H3** (repasse parcial do IOF de 2025) | Compatível: +13,2 a +15,4 bps ($p$ 0,31 a 0,38) diante de +240 bps de alíquota | `F-016`, `F-026` |
+| **H0** (real, USDT ou corretora) | Rejeitada para o salto de 24/jun/2026 | `F-009` |
+
+### F.7. Rotas e "por que +94 e não +350" (`P3-15`, `F-028`)
+
+A tabela de custos por rota para US$ 100 mil está em B.5 (Opção A, `F-015`) e o mapa de seis rotas, com a regra
+registrada antes da comparação (commit `6393330`), em `results/tables/P3-15_routes.md`. Resultado: não identificamos
+qual canal passou a definir o preço. Uma remessa "com finalidade de investimento" (IOF 1,10%, 110 bps acima do canal
+fechado) tem custo dentro da faixa do pico, mas nenhuma fonte aberta diz que ela pode trazer ativos virtuais, e canais
+mais baratos de situação desconhecida continuaram abertos: é uma coincidência de tamanho que não interpretamos.

@@ -72,11 +72,15 @@ the 24 Jun jump.
 - **Slide 4 or 8, footnote:** "A janela de 20 dias inclui a reunião de 26/jun (suspensão mantida, arbitragem em livro
   liberada, minuta da retenção de 24 h) e a Res. 580 (1/jul); um segundo pico em 3/jul não tem causa identificada."
 - **Slide 5** (replaces "Só o ofício moveu o preço"): "Das regras com data, só o ofício coincide com um movimento fora da
-  faixa das datas comuns. A Res. 574, datada quatro dias antes, coincide com uma alta de 38 bps em um dia (18→19/jun),
-  que o teste de evento não separa do ofício."
+  faixa das datas comuns. A Res. 574 (registro no BCB em 18/jun, DOU em 22/jun) coincide com uma alta de 38 bps em um
+  dia (18→19/jun), que o teste de evento não separa do ofício."
 
 ## Used in deck
-Not yet; proposed for slides 4, 5 and 8.
+`deck/deck_v1_ptbr.md` (10-slide version, 2 Nov): slide 4 (non-overlapping p = 0,03; +155 bps before the meeting; window
+contents), slide 5 (Res. 574 line), Annex F.1 (tables, method note). Slide 5's title says "entre as oito regras testadas",
+not "das regras com data", because Res. 574 is a dated rule that was not tested.
 
 ## History
+- 2026-11-02, agent for Renzo: deck text for slide 5 corrected: "datada quatro dias antes" matched neither the register
+  date (18 Jun, 5 calendar days before) nor the DOU date (22 Jun); now both dates are named. Used in deck updated.
 - 2026-11-02, agent for Renzo: created (P4-04). Exploratory values seen before the spec were disclosed in the task file.

@@ -24,8 +24,9 @@ through September (F-024); and buyers of USDT/BRL paid ~R$ 106 mn more on Binanc
 four weeks after the notice (F-025), only the confidential, immediate 23 Jun notice moved the premium outside $[-35, +38]$ bps among 8 rules (F-026), and a dated prediction (`393a14a`) commits that Res. BCB 584's 24h hold on 1 Jan 2027 (~9.1 bps cost to an outgoing USDT holder) will not move the premium detectably (F-027). The 22 Jul fade matches no event within $\pm 5$ trading days (unexplained); Foxbit's
 6× volume surge coincides with both its NovaDAX client partnership (M-04, 7 Jul) and the 18 Jul relaunch of its Foxbit
 Infra B2B desk (M-05, which fits the 5× larger trade size), cause open. All 11 downward depeg cases and bank/exchange
-route parameters now have opened, verbatim-quoted primary sources (`docs/sources.md`), and the 14-slide deck
-(`deck/deck_v1_ptbr.md`) and annex (`deck/annex_v1_ptbr.md`) are rebuilt on the `P5-07` story notebook flow (`done`).
+route parameters now have opened, verbatim-quoted primary sources (`docs/sources.md`), and the deck
+(`deck/deck_v1_ptbr.md`) is cut to **10 slides** (2 Nov; changes in `docs/deck-changes-2026-11-02.md`), with the moved material in
+Anexo F of `deck/annex_v1_ptbr.md`.
 Plan to answer "so what?": [`docs/06-so-what.md`](docs/06-so-what.md).
 
 Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
@@ -37,11 +38,11 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 ## Next actions
 
 1. Phase P1, P2, P3 (core), and P4-01 are complete (`done` or `review`):
-   - **Deck & Annex (`P5-01`, `P5-05`, `P5-07`):** Story notebook `notebooks/p5_07_story.ipynb` (`P5-07`) is reviewed and `done`; `deck/deck_v1_ptbr.md` (14 slides) and `deck/annex_v1_ptbr.md` (Anexos A–E) are rebuilt on the 15-section prototype flow with placebo $p$-values only, opened/quoted sources (`R-01`..`R-07`, `DP-01`..`DP-10`, `M-05`), and **both Options C and A kept ready on Slide 10 / Anexo B.5** for the team's P3-01 choice.
+   - **Deck & Annex (`P5-01`, `P5-05`, `P5-07`):** Story notebook `notebooks/p5_07_story.ipynb` (`P5-07`) is reviewed and `done`; `deck/deck_v1_ptbr.md` is cut to **10 slides** (2 Nov, Renzo's agent, P5-01 S5 → paused for Felipe's review); every change, two deviations from the plan and the open items are in `docs/deck-changes-2026-11-02.md`; moved material in Anexo F of `deck/annex_v1_ptbr.md`; bank-route table in Anexo B.5 (Option A, team to confirm); rehearsal sheet `deck/qa_ptbr.md`.
    - **Depeg & Money Layer (`P3-09`, `P3-01`):** `P3-09` (`review`) opened and quoted primary sources for all 11 downward depegs + USDP Binance delisting (`DP-01`..`DP-10`) and restored mechanisms in `results/tables/P3-04_depeg_case_table.csv` (`F-019`); `P3-01` (`review`) validated all bank/exchange/hedge parameters (`R-01` BCB EE 48/2019 20 bps corporate spread, `R-01b` BB PJ SWIFT, `R-05` Foxbit, `R-06` MB maker vs taker, `R-07` 2.5 bps 1-day CIP carry) with neutral framing (`F-015`).
    - **"So what" plan ([`docs/06-so-what.md`](docs/06-so-what.md)):** `P3-10`, `P3-11`, `P3-12`, `P3-13`, and `P3-14` are peer-reviewed and `done` (`F-023` to `F-027` confirmed and integrated into Slides 5, 6, 10, 12 and Annexes A, B.5, B.7, C).
    - **Deck language (2 Nov, Renzo):** four levels (measured / consistent with the mechanism / illustrative / not shown) and line-by-line suggestions for Slides 1, 6, 9, 11, 12, 14 in [`docs/deck-notes-2026-11-02.md`](docs/deck-notes-2026-11-02.md), for Felipe; `P3-15` (review): "why +94 bps and not +350" answered in F-028: the marginal route is not identified, and the ordinary 3.5% route did not set the price (highest day +171 bps over the pre-notice level; the May 2025 rise of that IOF moved the premium +13 bps); two pt-BR sentences for Slides 1 and 5 in F-028. Res. BCB 574 (published 22 Jun, one day before the notice) is missing from the event list: `P3-16` (todo).
-   - **Next tasks before Wed 4 Nov freeze:** Team decides between Option C and Option A on Slide 10; Jonathan/Nattan run `P4-02` (independent re-check) and `P3-05`/`P3-06` (live CLI agent runs); peer-review tasks in `review`.
+   - **Next tasks before Wed 4 Nov freeze:** Felipe reviews the 10-slide deck; team confirms Option A (bank routes in Anexo B.5); Jonathan/Nattan run `P4-02` (independent re-check) and `P3-05`/`P3-06` (live CLI agent runs); peer-review tasks in `review`.
 2. Everyone (and your agents): read [`docs/review-2026-10-31.md`](docs/review-2026-10-31.md) and follow `prompt.md` §5–§7 (`sources are opened, not remembered`).
 3. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff (`prompt.md` §7).
 
@@ -54,12 +55,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | Repository technical & consistency audit | Resolved: multi-agent audit report completed in `docs/audit-2026-11-02.md`; script bugs patched and literature citations verified | done |
 | P2-02 S3 (match breaks to events) | Resolved: S3 matching complete in `scripts/p2_02_breaks.py`, `results/tables/P2-02_breaks.csv` updated, and `results/figures/P2-02_premium_breaks.png` regenerated | done |
 | Lasting effect not shown: the +19 bps after the spike has placebo p = 0.24 (P4-01 review). Deck and money result should present the spike as the measured effect | Resolved in `deck/deck_v1_ptbr.md` (Slide 9 & 10), `deck/annex_v1_ptbr.md`, `F-015`, and `F-021`: 1-month spike (+93.9 bps = R$ 5,052/US$ 100k) is the only measured effect; post-spike level reported as not distinguishable from ordinary drift ($p = 0.24$) | done |
-| P3-01 framing: keep the bank-route comparison on Slide 10 (Option C, neutral framing) or in Annex B.5 only (Option A); Option B (drop) ruled out by Felipe | Team (both Options C and A are drafted and ready in `deck/deck_v1_ptbr.md` Slide 10 and `deck/annex_v1_ptbr.md` Anexo B.5) | before freeze (Wed 4 Nov) |
+| P3-01 framing: the 10-slide deck applies Option A (bank-route table in Anexo B.5 only; slide 9 keeps the money and the "why not +350" line). Option C would put it back on a slide | Team confirms | before freeze (Wed 4 Nov) |
 | Deferred to slide building (Renzo, 2 Nov): (1) money number on the slide, Binance alone R$ 106 mn or 3 exchanges R$ 145 mn (F-025); (2) Res. BCB 580 (1 Jul 2026, E-10) in the event list or only as a caveat (F-024) | Integrated in `deck/deck_v1_ptbr.md` (Slide 10 shows both R$ 106.1 mn Binance and R$ 145.3 mn 3 exchanges so the team can highlight either; Res. BCB 580 `E-10` included as explicit caveat on Slide 5 & Annex A/B.7) | done |
-| **CRITICAL: the deck must have at most 10 slides** (Renzo, 2 Nov). `deck/deck_v1_ptbr.md` has 14: choose which 4+ move to the annex or merge | Felipe (deck owner) + team | before deck v1 (Thu 5 Nov) |
-| Deck wording vs evidence (`docs/deck-notes-2026-11-02.md`): accept or reject the suggested changes on Slides 1, 6, 9, 11, 12, 14, and F-028's two sentences for Slides 1 and 5 (`P3-15`, review) | Felipe (deck owner) | before freeze (Wed 4 Nov) |
+| Deck at most 10 slides (Renzo, 2 Nov): **cut to 10** on 2 Nov by Renzo's agent at Renzo's request (P5-01 S5); Felipe (deck owner) reviews and may reverse any change listed in `docs/deck-changes-2026-11-02.md` | Felipe | before deck v1 (Thu 5 Nov) |
+| Deck wording vs evidence: the deck-notes suggestions and the F-028 / F-029 sentences are now applied in the 10-slide deck (table in `docs/deck-changes-2026-11-02.md`) | Felipe accepts or reverses | before freeze (Wed 4 Nov) |
 | Review gaps found 2 Nov: F-015 (R$ 5,052 on the cover) still `exploratory`; F-020 and F-021 re-checked by their own author in P4-02 (not independent). Deck plan (`docs/deck-plan-10-slides.md`): disclose that the jump was seen in the probe before the hypotheses; replace "p ≈ 0.001" on slides with "maior que todas as 1.073 datas comuns" (overlapping windows) | Team (a teammate who did not author them) + Felipe | before freeze |
-| Headline wording (`P4-04`, review, F-029): say "em 30 janelas que não se sobrepõem, p = 0,03", not "p ≈ 0.001"; the +94 bps month also holds the 26 Jun meeting (E-12) and Res. 580; two days before the meeting +155 bps (p 0.02–0.04); Res. 574 coincides with +38 bps on 18→19 Jun, so slide 5 cannot say "só o ofício moveu o preço" | Teammate re-run of F-029; Felipe for wording | before freeze |
+| Headline wording (`P4-04`, review, F-029): applied on slides 4 and 5 of the 10-slide deck ("em 30 janelas que não se sobrepõem, p = 0,03"); the +94 bps month also holds the 26 Jun meeting (E-12) and Res. 580; two days before the meeting +155 bps (p 0.02–0.04); Res. 574 coincides with +38 bps on 18→19 Jun, so slide 5 cannot say "só o ofício moveu o preço" | Teammate re-run of F-029; Felipe for wording | before freeze |
 | Res. BCB 574 (DOU 22 Jun 2026, E-11) is not in the event list; F-026 says "eight rules". Add as event or caveat (`P3-16`); premium did not move on 22–23 Jun (23.3, 24.8 bps), jumped 24 Jun | Felipe + team | before freeze (Wed 4 Nov) |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
 | F-008 (Foxbit volume ×6 from Jul 2026): coincides with NovaDAX partnership (M-04, 7 Jul) and Foxbit Infra B2B relaunch (M-05, 18 Jul, fitting 5× larger trade size); kept as open cause in Slide 5 and F-008 | Resolved (cause kept open with M-04 and M-05 documented in `docs/sources.md` and `F-008`) | done |
@@ -137,13 +138,13 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P4-01](tasks/P4-01-robustness.md) | Robustness battery for every headline number | ✅ done | CS 2 | - | 4/4 | 3/3 | 2026-11-04 | P2-02, P2-03, P2-04 |
 | [P4-02](tasks/P4-02-independent-recheck.md) | Independent re-run of every headline number | ✅ done | CS 3 | - | 3/3 | 2/2 | 2026-11-04 | P4-01 |
 | [P4-03](tasks/P4-03-freeze.md) | Freeze results | ⬜ todo | Team | - | – | 0/4 | 2026-11-04 | P4-01, P4-02 |
-| [P4-04](tasks/P4-04-headline-inference-window.md) | Honest inference and window contents for the +94 bps headline (non-overlapping windows, first-day move, other measures inside the window) | 👀 review | CS 2 | - | 3/3 | 2/3 | 2026-11-04 | P2-03, P4-01 |
+| [P4-04](tasks/P4-04-headline-inference-window.md) | Honest inference and window contents for the +94 bps headline (non-overlapping windows, first-day move, other measures inside the window) | 👀 review | CS 2 | - | 3/3 | 3/3 | 2026-11-04 | P2-03, P4-01 |
 
 **P5 — Deck and submission** (1/7 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
-| [P5-01](tasks/P5-01-deck-v1.md) | Deck v1 (pt-BR) | 🔄 doing | Economist | - | 3/4 | 4/4 | 2026-11-05 | P4-03 |
+| [P5-01](tasks/P5-01-deck-v1.md) | Deck v1 (pt-BR) | ⏸️ paused | Economist | - | 4/5 | 4/4 | 2026-11-05 | P4-03 |
 | [P5-02](tasks/P5-02-final-figures.md) | Final figures in one consistent style | ⬜ todo | CS 1 | - | – | 0/3 | 2026-11-06 | P5-01 |
 | [P5-03](tasks/P5-03-red-team.md) | Red-team review | 👀 review | Team | - | 3/3 | 2/2 | 2026-11-06 | P5-01 |
 | [P5-04](tasks/P5-04-scripts-txt.md) | Export scripts as .txt with headers | ⬜ todo | CS 2 | - | – | 0/2 | 2026-11-07 | P4-03 |
@@ -188,6 +189,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-02 — agent for Renzo: P5-01 S5 → deck cut to 10 slides from the plan (`deck/deck_v1_ptbr.md`, HTML rebuilt), moved material in Anexo F, rehearsal sheet `deck/qa_ptbr.md`, P3-12 figure title reworded (table unchanged), L-09 registered; change record `docs/deck-changes-2026-11-02.md`; P4-04 criterion 3 met; Felipe reviews
 - 2026-11-02 — agent for Renzo: round-2 numbers re-validated independently (one misquote, two wordings and one count corrected); P4-04 → review: spec first (`f4071ef`), headline p = 0.032 on 30 non-overlapping windows, +155 bps in the two days before the 26 Jun meeting (p 0.02–0.04), Res. 574 coincides with +37.7 bps on 18→19 Jun (F-029); +93.9 bps kept as headline (Renzo)
 - 2026-11-02 — agent for Renzo: round-2 strategy checks (`docs/deck-plan-10-slides.md`): non-overlapping placebo p = 0.03; the headline window also holds the 26 Jun meeting (E-12, new source) and Res. 580; Res. 561 text opened (E-06a) as the closest form-vs-content contrast; new task `P4-04`
 - 2026-11-02 — agent for Renzo: 10-slide plan (`docs/deck-plan-10-slides.md`) with checked strategies; after a second agent's review: F-028 no longer calls the 3.5% route a ceiling (adds May 2025 evidence), slide 6 "real flat" fixed (PTAX +68 bps on 24 Jun), P3-16 caveat by content + timing drafted, minute-timing and half-life ideas dropped; review gaps flagged (F-015 status, F-020/F-021 self-checked)

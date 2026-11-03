@@ -81,7 +81,7 @@ for yi, r in zip(y, t.itertuples()):
     ax.text(-62, yi + 0.12, r.label, ha="right", va="center", fontsize=9.5, color=INK, fontweight="bold" if r.event_id == "E-05" else None)
     ax.text(-62, yi - 0.22, f"{r.instrument}; {r.announced:%d/%m/%Y}; {notice}", ha="right", va="center", fontsize=8, color=INK2)
 e5 = t[t.event_id == "E-05"].iloc[0]
-ax.annotate(f"+{e5.change_effective_bps:.0f} pb\n(nenhuma data comum chega perto: p ≈ 0,001)", (e5.change_effective_bps, y[e5.name]),
+ax.annotate(f"+{e5.change_effective_bps:.0f} pb\n(maior que em todas as 1.073 datas comuns)", (e5.change_effective_bps, y[e5.name]),
             xytext=(-10, 0), textcoords="offset points", ha="right", va="center", fontsize=9, color=INK)
 ax.scatter([], [], s=70, facecolor=SURFACE, edgecolor=INK2, linewidth=2, label="no anúncio")
 ax.scatter([], [], s=70, color=INK2, label="na entrada em vigor")
@@ -89,7 +89,7 @@ ax.set_xlim(-60, 110)
 ax.set_yticks([])
 ax.set_ylim(-0.7, len(t) - 0.4)
 ax.set_xlabel("variação do prêmio do USDT sobre a PTAX: 20 dias úteis depois menos 20 antes (pontos-base)")
-ax.set_title("Só o ofício sigiloso moveu o prêmio de forma detectável; as regras publicadas ficaram na faixa das datas comuns", x=-0.62)
+ax.set_title("Entre as oito regras testadas, só o ofício sigiloso saiu da faixa das datas comuns", x=-0.62)
 ax.legend(loc="upper right", fontsize=8.5)
 fig.text(-0.36, -0.06, "Fonte: P2-03 (estudo de eventos com datas placebo); fontes de cada regra em docs/sources.md. Uma variação dentro "
          "da faixa cinza não seria detectável: \"sem efeito\" quer dizer \"sem efeito acima de ~35 pb\". As regras também diferem\n"

@@ -37,6 +37,7 @@ Annex slides: source register, event table with links, robustness tables, and a 
 - **How to resume:** Utilizar `deck/annex_v1_ptbr.md` como apêndice formal no material da submissão final.
 
 ## Log
+- 2026-11-02, agent for Renzo (P5-01 S5): added Anexo F (material moved off the slides: F-029 inference and window contents, Res. 574 note, method note with L-09, countries, SVB, monitor, Lições de 2025, hypothesis scoreboard, routes) and rewrote the D.2 matrix for the 10-slide deck; C.5 gains L-09. See `docs/deck-changes-2026-11-02.md`.
 - 2026-11-02, Felipe: Integrados `F-023` a `F-027` (`P3-10` a `P3-14`) nos Anexos A, B.5, B.7, C (`D-16`, `D-17`, `E-05.1`–`E-05.10`, `E-10`), D e E de `deck/annex_v1_ptbr.md`; verificado art. 15-B, III do Decreto 6.306/2007 no Planalto (zero tags `[verify]` em `docs/sources.md`). `working: -`.
 - 2026-11-02, Felipe: Atualizado `deck/annex_v1_ptbr.md` (Anexos A–E) com $p$-valores de placebos apenas, datas corrigidas de `P2-03`, tabela completa de `P3-01` (Anexo B.5, Opção A), tabela completa de depegs com fontes `DP-01`–`DP-10` (Anexo B.6) e URLs auditadas (Anexo C). `working: Felipe`.
 - 2026-11-02, agent for Felipe: Felipe takes the annex update to match revised F-015…F-022 and the fixed sources.
