@@ -2,9 +2,9 @@
 id: P4-04
 title: Honest inference and window contents for the +94 bps headline (non-overlapping windows, first-day move, other measures inside the window)
 phase: P4
-status: doing
+status: review
 owner: CS 2
-working: Renzo
+working: -
 due: 2026-11-04
 depends: P2-03, P4-01
 ---
@@ -26,12 +26,12 @@ Two weak points in how the headline is stated, found on 2 Nov while checking str
 Core findings F-001..F-027 stay unchanged until the team re-decides the freeze; this task writes a new finding.
 
 ## Subtasks
-- [ ] S1 — doing: Renzo — Spec, committed before the script: (a) the F-016 statistic on non-overlapping clean windows (same clean-date
+- [x] S1 — done: Renzo, 2 Nov (`f4071ef`) — Spec, committed before the script: (a) the F-016 statistic on non-overlapping clean windows (same clean-date
   rule as `scripts/p2_03_events.py`; stride 41 PTAX days; all 41 offsets; p = (k+1)/(n+1), report the range);
   (b) the first-day change 23 → 24 Jun against every clean one-day change, all years and per year; (c) a dated list of
   regulatory communications inside [+1, +20] with the premium path. Decision rule for the deck wording, written in S1.
-- [ ] S2 — `scripts/p4_04_inference.py` and finding F-0NN (next free number) with the commands.
-- [ ] S3 — Wording for Felipe (slides 4, 5, 8): e.g. "maior que a variação em todas as 1.073 datas comuns; em 30 janelas
+- [x] S2 — done: Renzo, 2 Nov (F-029) — `scripts/p4_04_inference.py` and finding F-0NN (next free number) with the commands.
+- [x] S3 — done: Renzo, 2 Nov (in F-029; Felipe decides) — Wording for Felipe (slides 4, 5, 8): e.g. "maior que a variação em todas as 1.073 datas comuns; em 30 janelas
   que não se sobrepõem, p = 0,03"; "+94 bps no mês seguinte ao ofício, janela que inclui a reunião de 26/jun e a Res. 580".
 
 ## S1 spec (committed before `scripts/p4_04_inference.py` exists)
@@ -65,12 +65,13 @@ around every announced and effective date; positions 20 to N−21). t0 = 23 Jun 
 5. The headline stays +93.9 bps (Renzo, 2 Nov).
 
 ## Success criteria
-- [ ] Spec committed before the script runs, with the disclosure below
-- [ ] A finding states the non-overlapping p range, the first-day rank, and the list of measures inside the window
+- [x] Spec committed before the script runs, with the disclosure below
+- [x] A finding states the non-overlapping p range, the first-day rank, and the list of measures inside the window
 - [ ] The deck no longer shows "p ≈ 0.001" without the non-overlapping figure
 
 ## Outputs
-- `scripts/p4_04_inference.py`, `findings/F-0NN-headline-inference.md`
+- `scripts/p4_04_inference.py`, `findings/F-029-headline-inference.md`, `results/tables/P4-04_nonoverlap.csv`,
+  `results/tables/P4-04_window_events.csv`
 
 ## Exploratory checks already seen (2 Nov, agent for Renzo; disclose in the spec)
 - Non-overlapping 20-day windows: n = 30 for every offset, k = 0 exceedances for every offset, p = 0.032.
@@ -111,14 +112,18 @@ PY
 ```
 
 ## Handoff
-- **State:** not started; exploratory values above.
-- **Next step:** S1 (spec), then S2.
+- **State:** S1–S3 done; F-029 written; review. Criterion 3 (deck wording) is Felipe's: the text is in F-029.
+- **Next step:** a teammate re-runs `python scripts/p4_04_inference.py` and checks F-029; Felipe applies the wording.
 - **Open questions:** cause of the 3 Jul second peak (no dated source found on 2 Nov; one extended search for a
   resumption of the funds' operations in July also found nothing).
 - **How to resume:** read F-016, F-022, E-05.5, E-10, E-12 in `docs/sources.md`.
 
 ## Log
+- 2026-11-02, agent for Renzo: script run, F-029; decision rules 1 and 2 both met (A p = 0.032; B p = 0.020–0.040); Res. 574 coincides with +37.7 bps on 18→19 Jun (one other 2026 day as large); status review
 - 2026-11-02, agent for Renzo: Renzo takes the task; exploratory values re-validated (one misquote and two wordings corrected)
 - 2026-11-02, agent for Renzo: created (todo) from the deck-plan strategy checks
 
 ## Result
+Decision rules applied (F-029): rule 1 met (A: p = 0.032 for every offset), rule 2 met (B: p = 0.020–0.040 for every
+offset). Res. 574 is not ruled out: +37.7 bps on 18 → 19 Jun, the PTAX day after its register date (only one other 2026
+day before the notice rose as much); the event study cannot separate it from the notice.

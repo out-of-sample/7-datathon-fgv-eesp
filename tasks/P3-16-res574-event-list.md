@@ -33,10 +33,12 @@ effect. Reproduce:
   Write the separation rule before any re-run.
 - [x] S3 — done: Renzo, 2 Nov (draft; Felipe decides) — One line for the deck or annex. Draft (pt-BR, annex):
   "A Resolução BCB nº 574 (datada de 18/jun no registro do BCB, publicada no DOU em 22/jun) cria a obrigação de
-  reportar operações com ativos virtuais realizadas a partir de 3/nov/2026; não restringe operações de junho. O prêmio
-  não se moveu entre 19 e 23/jun (32,9; 23,3; 24,8 bps) e saltou em 24/jun, dia seguinte ao ofício. Conteúdo e momento
-  tornam o ofício a explicação mais plausível; como uma janela de 20 dias após 22/jun contém o salto, o teste de evento
-  não separa as duas datas."
+  reportar operações com ativos virtuais realizadas a partir de 3/nov/2026; não restringe operações de junho. No dia
+  seguinte à data de registro, o prêmio subiu 38 bps (de −4,7 para 32,9 bps, 18→19/jun; em 2026, antes do ofício, só um
+  outro dia subiu tanto), recuou para 23,3 e 24,8 bps em 22 e 23/jun e saltou +131 bps em 24/jun, dia seguinte ao
+  ofício. O conteúdo (só reporte) e a diferença de tamanho apontam o ofício como a explicação principal do salto de
+  24/jun; a Res. 574 pode ter movido o prêmio em dezenas de bps, e o teste de evento não separa as duas datas."
+  (Corrected 2 Nov: the first draft said the premium "não se moveu entre 19 e 23/jun", which left out 18 → 19 Jun; F-029.)
 
 ## Success criteria
 - [ ] Res. 574 appears in the event list or as an explicit caveat, with source E-11
@@ -54,6 +56,7 @@ effect. Reproduce:
 - **How to resume:** read E-11 and E-05.10 in `docs/sources.md`; F-026; F-022 (break intervals).
 
 ## Log
+- 2026-11-02, agent for Renzo: S3 draft corrected: +37.7 bps on 18 → 19 Jun (F-029) added; the first draft started the window a day late
 - 2026-11-02, agent for Renzo: S3 drafted (caveat by content and timing, after a second agent's review)
 - 2026-11-02, agent for Renzo: created (todo) from P3-15
 
