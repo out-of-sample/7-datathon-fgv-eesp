@@ -2,9 +2,9 @@
 id: P3-21
 title: Who paid and who gained - the 23 Jun notice seen from five kinds of users of the digital dollar
 phase: P3
-status: todo
+status: doing
 owner: CS 1
-working: -
+working: Renzo (agent)
 due: 2026-11-04
 depends: P1-02, P3-03, P3-11
 ---
@@ -24,7 +24,7 @@ picking convenient dates.
 day. No download.
 
 **Counterfactual.** The premium had the notice not happened = the pre-notice level, the mean of the 20 PTAX days before
-t0 = 23 Jun 2026 (15.2 bps, F-025). Variant: the post-spike level as the counterfactual, to show how much depends on that
+t0 = 23 Jun 2026 (15.2 bps, F-025). Variant: the post-spike level as the counterfactual (mean premium of the PTAX days 22 Jul – 30 Oct 2026, the after-spike window of F-015), to show how much depends on that
 choice (F-022: the post-spike level is not distinguishable from drift).
 
 **Money.** For a purchase of US$ X on PTAX day d: extra cost in R$ = (premium_d − counterfactual) / 10,000 × X × PTAX_d.
@@ -36,7 +36,7 @@ as a limit, not modelled.
 
 | ID | Who | Rule | Reported |
 |---|---|---|---|
-| U1 | Needed dollars during the spike | Buys US$ 100k on one PTAX day in [t0+1, t0+20] | Average extra cost over the 20 days, and the range across days. Must reproduce F-015 (R$ 5,052) within 2% |
+| U1 | Needed dollars during the spike | Buys US$ 100k on one PTAX day in [t0+1, t0+20] | Average extra cost over the 20 days, and the range across days. Must reproduce F-015 (R$ 5,052, computed at a fixed PTAX of R$ 5.38) within 2%; daily PTAX used here, so a small gap is expected |
 | U2 | Monthly saver | Buys US$ 10k on the first PTAX day of each month, Jan–Oct 2026 (US$ 100k in total) | Extra cost per month and in total. Variants: last PTAX day of the month; equal amounts every PTAX day |
 | U3 | Already held USDT | Holds US$ 100k of USDT at t0 | Gain over the official dollar if sold on t0+1, t0+5, t0+20 or 30 Oct (fixed dates; never "at the peak") |
 | U4 | Bought in the panic | Buys US$ 100k on t0+1 (24 Jun: the day the press reported the notice and the real-time monitor fired, F-014, F-023) and holds | Loss over the official dollar at t0+20 and at 30 Oct |
@@ -46,15 +46,15 @@ as a limit, not modelled.
 no advice on how to trade; no tax-avoidance framing ("diferença de alíquota", never "brecha").
 
 ## Subtasks
-- [ ] S1 — Commit this Specification before writing the script (the commit order is the record)
-- [ ] S2 — `scripts/p3_21_who_paid.py`: U1–U4 and the variants → `results/tables/P3-21_who_paid.csv`; U1 reproduces F-015
+- [x] S1 — Commit this Specification before writing the script (the commit order is the record) — done: Renzo (agent), 2026-11-03
+- [ ] S2 — doing: Renzo (agent) — `scripts/p3_21_who_paid.py`: U1–U4 and the variants → `results/tables/P3-21_who_paid.csv`; U1 reproduces F-015
   within 2%
 - [ ] S3 — Finding (illustrative) with the command; figure only if Felipe wants one for slide 9
 - [ ] S4 — pt-BR slide-9 table and one-sentence takeaway for Felipe (deck owner), within the 10-slide limit
 - [ ] S5 — Review by Felipe (money layer owner, P3-11)
 
 ## Success criteria
-- [ ] Specification committed before the script's first run
+- [x] Specification committed before the script's first run
 - [ ] U1 reproduces F-015 (R$ 5,052 per US$ 100k) within 2%
 - [ ] Every number in a finding with its command; the counterfactual variant reported next to the main one
 - [ ] Felipe accepts or rejects the slide-9 replacement
@@ -72,6 +72,7 @@ no advice on how to trade; no tax-avoidance framing ("diferença de alíquota", 
 
 ## Log
 - 2026-11-03, agent for Renzo: created at Renzo's request (brainstorm version 2: who paid and who gained).
+- 2026-11-03, agent for Renzo: claimed; post-spike counterfactual window pinned (22 Jul – 30 Oct, as F-015); Specification committed before any script (S1).
 
 ## Result
 <!-- fill when done -->
