@@ -10,12 +10,14 @@ estilo FGV EESP / Banco Central, e painel lateral com as notas do orador.
 
 import os
 import re
+import sys
 import base64
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
-DECK_MD_PATH = ROOT_DIR / "deck" / "deck_v1_ptbr.md"
-OUTPUT_HTML_PATH = ROOT_DIR / "deck" / "deck_apresentacao.html"
+# Opcional: python scripts/build_deck_html.py deck/deck_v2_ptbr.md deck/deck_v2_apresentacao.html
+DECK_MD_PATH = ROOT_DIR / (sys.argv[1] if len(sys.argv) > 1 else "deck/deck_v1_ptbr.md")
+OUTPUT_HTML_PATH = ROOT_DIR / (sys.argv[2] if len(sys.argv) > 2 else "deck/deck_apresentacao.html")
 FIGURES_DIR = ROOT_DIR / "results" / "figures"
 
 def image_to_base64(img_path: Path) -> str:
@@ -39,7 +41,7 @@ def markdown_table_to_html(table_text: str) -> str:
     html = ['<div class="table-container"><table class="deck-table">']
     html.append("  <thead><tr>")
     for h in header_cols:
-        html.append(f"    <th>{h}</th>")
+        html.append(f"    <th>{inline_format(h)}</th>")
     html.append("  </tr></thead>")
     
     html.append("  <tbody>")
@@ -47,7 +49,7 @@ def markdown_table_to_html(table_text: str) -> str:
         cols = [c.strip() for c in r.strip("|").split("|")]
         html.append("    <tr>")
         for c in cols:
-            html.append(f"      <td>{c}</td>")
+            html.append(f"      <td>{inline_format(c)}</td>")
         html.append("    </tr>")
     html.append("  </tbody>")
     html.append("</table></div>")
@@ -61,7 +63,7 @@ def inline_format(text: str) -> str:
     # Code
     text = re.sub(r'`(.+?)`', r'<code>\1</code>', text)
     # Math $...$
-    text = re.sub(r'\$(.+?)\$', r'<span class="math">\1</span>', text)
+    text = re.sub(r'(?<![A-Za-z])\$([^$]+?)(?<![A-Za-z])\$', r'<span class="math">\1</span>', text)  # skip R$ and US$
     return text
 
 def parse_deck_markdown(md_text: str):

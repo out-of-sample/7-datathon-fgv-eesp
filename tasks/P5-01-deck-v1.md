@@ -53,6 +53,7 @@ Full deck draft following `docs/02-dolar-cripto.md` §9 and the definition of do
 - 2026-11-02, agent for Felipe: Felipe takes the deck rewrite after the 2 Nov reviews: rebuild on the P5-07 notebook flow (deck prototype), spike = measured effect, after-spike level reported as not shown (p = 0.24), placebo p only, sources/framing rules.
 - 2026-11-02, agent for Renzo (note for Felipe): sources fixed (docs/sources.md). In the deck, market events M-01–M-04 coincide with breaks, they do not explain them; the July fade is unexplained (P2-02 re-run); the 23 Jun notice can now cite two independent accounts plus the BCB's LAI answer (E-05).
 - 2026-11-02, Felipe: Estruturadas as sub-tarefas S1 a S4; elaborada a primeira versão de `deck/deck_v1_ptbr.md`.
+- 2026-11-03, agent for Renzo: deck v2 generated next to v1 (`deck/deck_v2_ptbr.md`, `deck/deck_v2_apresentacao.html`) from `docs/deck-proposal-2026-11-03.md` (slides 1, 9, 10; slide 8 line not applied); v1 untouched except its HTML rebuilt after two builder fixes (R$/US$ read as math; no bold/code in table cells). Felipe chooses v1 or v2.
 
 ## Result
 2/nov (Renzo's agent): deck cortado para 10 slides (`docs/deck-changes-2026-11-02.md`). Antes: apresentação completa em português (`deck/deck_v1_ptbr.md`, 14 slides) alinhada ao protótipo `notebooks/p5_07_story.ipynb` (`P5-07`), às regras de enquadramento e fontes abertas (`prompt.md` §5–§6, `docs/02-dolar-cripto.md` §10) e a todos os achados (`F-001` a `F-027`).

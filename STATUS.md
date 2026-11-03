@@ -206,6 +206,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-03 — agent for Renzo: deck v2 generated next to v1 (`deck/deck_v2_ptbr.md` + HTML via `scripts/build_deck_html.py deck/deck_v2_ptbr.md deck/deck_v2_apresentacao.html`); builder fixed (R$ amounts rendered as math, table cells unformatted), v1 HTML rebuilt; Felipe picks
 - 2026-11-03 — agent for Renzo: deck proposal after the 3 Nov decisions (`docs/deck-proposal-2026-11-03.md`, deck not edited): slide 9 = R$ 106 mn + four users (F-033), "+350" to annex; slide 10 = three dated predictions (Res. 574, 589, 584); stale "5 mil reais" in notes of slides 1 and 9; four decisions for Felipe
 - 2026-11-03 — agent for Renzo (Renzo's decision): cost of the notice now at each day's PTAX: R$ 4,842 per US$ 100k (was R$ 5,052 at a Binance bid of 5.38) and R$ 583 after; route rows keep 5.38 as a labelled reference rate; P3-01 script, CSV, figure, F-015, deck (cover, slide 9), annex B.5/D.2, notebook, HTML updated; decision logged; teammate re-check needed before the freeze
 - 2026-11-03 — agent for Renzo: P3-21 review (Codex) checked: reproduces within R$ 1; fixes applied (U2 split by purchase date: +R$ 753 after the notice, −R$ 261 before; revaluation wording; no lower bound); reviewer's scripts committed; F-015's 5.38 is a Binance bid, not PTAX (blocker for Felipe)
