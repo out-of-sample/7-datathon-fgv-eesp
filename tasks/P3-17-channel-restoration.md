@@ -2,9 +2,9 @@
 id: P3-17
 title: Did the BCB let funds resume the activity the 23 Jun notice stopped, and did the premium fall when it did? (reopening test)
 phase: P3
-status: todo
+status: doing
 owner: Economist
-working: -
+working: agent for Renzo
 due: 2026-11-04
 depends: P3-14, P3-15, P4-04
 ---
@@ -33,7 +33,7 @@ A "no verified restoration" verdict means the reopening test cannot be run; it d
 - These were seen before this spec; any candidate date they suggest is not a clean pre-registered hypothesis.
 
 ## Subtasks
-- [ ] S1 — Evidence trail (no prices yet). Search BCB communications and normativos, bank or fund disclosures (ABToken,
+- [ ] S1 — doing: agent for Renzo — Evidence trail (no prices yet). Search BCB communications and normativos, bank or fund disclosures (ABToken,
   fund managers, CVM), and contemporaneous press from 23 Jun to 30 Oct 2026. For each candidate: date published, date
   effective, operative quoted language, source opened (`prompt.md` §6), and one class: **full restoration | partial change |
   clarification | substitution through another channel | no verified change**. Write the table in
@@ -70,5 +70,6 @@ A "no verified restoration" verdict means the reopening test cannot be run; it d
 
 ## Log
 - 2026-11-02, agent for Renzo: created (todo) from Renzo's hypothesis; prompt for a second agent in `docs/agent-prompt-P3-17.md`
+- 2026-11-02, agent for Renzo: takes S1 (evidence trail; no prices looked at)
 
 ## Result
