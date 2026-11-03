@@ -2,9 +2,9 @@
 id: P3-17
 title: Did the BCB let funds resume the activity the 23 Jun notice stopped, and did the premium fall when it did? (reopening test)
 phase: P3
-status: doing
+status: review
 owner: Economist
-working: agent for Renzo
+working: -
 due: 2026-11-04
 depends: P3-14, P3-15, P4-04
 ---
@@ -78,36 +78,50 @@ columns. S4 is therefore not blind; only its rule is fixed before the comparison
   [+1,+20] PTAX days minus [−20,−1] (as F-016/F-029), plus the first-day change; placebo = clean dates of F-016 and the
   non-overlapping version of F-029; list other dated events in each window (E-05.5, E-10, E-11, E-12, M-04, M-05).
   Candidate set and class cutoffs are frozen in this commit; "credible" = any S1 row classed full or partial restoration.
-- [ ] S3 — Run for **every** credible candidate, including those with no price response. Corroboration: Binance/Foxbit/MB
+- [x] S3 — done: agent for Renzo, 2026-11-02 (no credible candidate, so no event test; corroboration data compared in S4) — Run for **every** credible candidate, including those with no price response. Corroboration: Binance/Foxbit/MB
   volume and order size (F-008, F-024 order-flow table) and the BCB monthly stablecoin-purchase series (`SGS 29644`,
   F-024). Script `scripts/p3_17_restoration.py`.
-- [ ] S4 — Competing explanations for the fall around 22 Jul: (1) the restricted channel resumed; (2) the premium fell
+- [x] S4 — done: agent for Renzo, 2026-11-02 — Competing explanations for the fall around 22 Jul: (1) the restricted channel resumed; (2) the premium fell
   without it (adaptation, alternative supply, changing demand). Write beforehand what each predicts in the volume,
   order-size, and BCB-series data, then compare. Falling prices cannot count as evidence for (1).
-- [ ] S5 — Finding F-0NN (next free) with verdict **supported | contradicted | unresolved**, and, if no date is verifiable,
+- [x] S5 — done: agent for Renzo, 2026-11-02 (F-030) — Finding F-0NN (next free) with verdict **supported | contradicted | unresolved**, and, if no date is verifiable,
   the sentence that the reopening test cannot be run.
 
 ## Success criteria
 - [x] Dated source table with quoted language, publication vs effective date, and a class per candidate; every link opened
 - [x] Spec committed before any price around a candidate is examined
-- [ ] Results for every credible candidate, with placebo p (all clean and non-overlapping) and other events in the window
-- [ ] Verdict stated; a missing restoration date reported as "test cannot be run", not as "no effect"
-- [ ] Deck language level stated (the fall's cause stays "not shown" unless the verdict is supported)
+- [x] Results for every credible candidate, with placebo p (all clean and non-overlapping) and other events in the window (none credible: nothing to run)
+- [x] Verdict stated; a missing restoration date reported as "test cannot be run", not as "no effect"
+- [x] Deck language level stated (the fall's cause stays "not shown" unless the verdict is supported)
 
 ## Outputs
 - `results/tables/P3-17_candidates.md`, `scripts/p3_17_restoration.py`, `results/tables/P3-17_*.csv`, `findings/F-0NN-...md`
 
 ## Handoff
-- **State:** task written and spec not yet started; nobody is working on it.
-- **Next step:** S1 (evidence trail), then commit S2 before any price work.
-- **Open questions:** none; Felipe decides deck use after S5. Core F-001..F-027 stay unchanged (freeze rule).
-- **How to resume:** read E-05.1, E-05.3, E-05.5, E-12 in `docs/sources.md`; F-011, F-024, F-028, F-029; prompt for the
-  agent in `docs/agent-prompt-P3-17.md`.
+- **State:** S1–S5 done, status `review`. Verdict **unresolved: the reopening test cannot be run** (no public source shows
+  the stopped activity resumed; F-030). S4 consistency check under the committed rule: **mixed** (purchases abroad stayed at
+  R = 0.32; exchange trade size and buyer share reverted on 3 of 4 venue-metrics; demand fall not supported).
+- **Next step:** a teammate who did not do this work re-checks it: (1) open 3–4 rows of `results/tables/P3-17_candidates.md`
+  and compare the quotes; (2) run `python scripts/p3_17_restoration.py` and compare the `B1`–`B3` lines with F-030;
+  (3) if it holds, F-030 `exploratory` → `confirmed` and this task → `done`.
+- **Open questions:** Felipe decides whether one sentence goes in the deck (suggested pt-BR line in F-030, "Used in deck").
+  If anyone finds a source that funds or banks resumed (e.g. a CVM filing), add it as a new row; if it is full or partial
+  restoration, the S2 test runs on its date unchanged.
+- **How to resume:** S2 spec and predictions are in this file; source table `results/tables/P3-17_candidates.md`; sources
+  E-13–E-16 and E-05.11 in `docs/sources.md`; script `scripts/p3_17_restoration.py` (part A needs internet, part B reads
+  `data/processed/P3-10_imports_monthly.csv` and `results/tables/P3-10_order_flow.csv`).
 
 ## Log
 - 2026-11-02, agent for Renzo: created (todo) from Renzo's hypothesis; prompt for a second agent in `docs/agent-prompt-P3-17.md`
 - 2026-11-02, agent for Renzo: takes S1 (evidence trail; no prices looked at)
 - 2026-11-02, agent for Renzo: S1 done. 12 candidates in `results/tables/P3-17_candidates.md` (BCB normativos and press notes 20 Jun–31 Oct screened by `scripts/p3_17_restoration.py` part A; votes 108 and 120/2026; REF Oct 2026; press). None is full or partial restoration: 2 clarifications (26 Jun meeting; Res. BCB 599 code for authorised institutions, 9 Oct), 1 possible substitution (Foxbit Infra, company claim), 9 no verified change; the BCB restated the activity is unlawful (LAI, published 29 Jul). New sources E-13–E-16, E-05.11
 - 2026-11-02, agent for Renzo: S2 spec committed (section above): credible set empty, so H4 is "unresolved: test cannot be run"; S4 predictions and reading rule fixed before the comparison
+- 2026-11-02, agent for Renzo: S3–S5 done → review. No credible candidate, no event test. S4: R = 0.32 (< 0.5), structure reverts 3 of 4, Binance volume −5.4% → mixed; F-030 (exploratory)
 
 ## Result
+**Unresolved: the reopening test cannot be run** (F-030). From 23 Jun to 30 Oct 2026 no BCB rule, BCB press note or press
+report says that funds were allowed to resume FX imports of crypto for clients; the only stated route back was a
+confidential, institution-by-institution alignment with the conduct supervisor, with no public completion date. The BCB
+restated in writing (published 29 Jul) that these operations lack legality under current rules. The fall from 22 Jul
+happened while purchases abroad stayed at a third of their earlier level (R = 0.32), while exchange order flow mostly
+returned to its pre-notice pattern: under the committed rule the evidence is mixed and the fall's cause stays **not shown**.

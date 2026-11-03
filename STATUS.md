@@ -21,7 +21,7 @@ post-spike level (+11.5 to +19.3 bps; +28.2 bps synthetic) that is **not disting
 on 24–25 Jun (Cointelegraph Brasil, Exame) and the BCB confirmed its position in writing via LAI (F-023); BCB statistics
 show stablecoin purchases abroad fell 78% in July 2026 while the premium rose and stayed at a third of their earlier level
 through September (F-024); and buyers of USDT/BRL paid ~R$ 106 mn more on Binance (R$ 145 mn on three exchanges) in the
-four weeks after the notice (F-025), only the confidential, immediate 23 Jun notice moved the premium outside $[-35, +38]$ bps among 8 rules (F-026), and a dated prediction (`393a14a`) commits that Res. BCB 584's 24h hold on 1 Jan 2027 (~9.1 bps cost to an outgoing USDT holder) will not move the premium detectably (F-027). The 22 Jul fade matches no event within $\pm 5$ trading days (unexplained); Foxbit's
+four weeks after the notice (F-025), only the confidential, immediate 23 Jun notice moved the premium outside $[-35, +38]$ bps among 8 rules (F-026), and a dated prediction (`393a14a`) commits that Res. BCB 584's 24h hold on 1 Jan 2027 (~9.1 bps cost to an outgoing USDT holder) will not move the premium detectably (F-027). The 22 Jul fade matches no event within $\pm 5$ trading days (unexplained), and no public source shows the BCB let funds resume the stopped activity, so a reopening test cannot be run (F-030); Foxbit's
 6× volume surge coincides with both its NovaDAX client partnership (M-04, 7 Jul) and the 18 Jul relaunch of its Foxbit
 Infra B2B desk (M-05, which fits the 5× larger trade size), cause open. All 11 downward depeg cases and bank/exchange
 route parameters now have opened, verbatim-quoted primary sources (`docs/sources.md`), and the deck
@@ -62,6 +62,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | Review gaps found 2 Nov: F-015 (R$ 5,052 on the cover) still `exploratory`; F-020 and F-021 re-checked by their own author in P4-02 (not independent). Deck plan (`docs/deck-plan-10-slides.md`): disclose that the jump was seen in the probe before the hypotheses; replace "p ≈ 0.001" on slides with "maior que todas as 1.073 datas comuns" (overlapping windows) | Team (a teammate who did not author them) + Felipe | before freeze |
 | Headline wording (`P4-04`, review, F-029): applied on slides 4 and 5 of the 10-slide deck ("em 30 janelas que não se sobrepõem, p = 0,03"); the +94 bps month also holds the 26 Jun meeting (E-12) and Res. 580; two days before the meeting +155 bps (p 0.02–0.04); Res. 574 coincides with +38 bps on 18→19 Jun, so slide 5 cannot say "só o ofício moveu o preço" | Teammate re-run of F-029; Felipe for wording | before freeze |
 | Res. BCB 574 (DOU 22 Jun 2026, E-11) is not in the event list; F-026 says "eight rules". Add as event or caveat (`P3-16`); premium did not move on 22–23 Jun (23.3, 24.8 bps), jumped 24 Jun | Felipe + team | before freeze (Wed 4 Nov) |
+| P3-17 (review, F-030): no verified reopening of the funds' channel (test cannot be run); S4 check mixed. Needs a teammate's re-check of the source table and script; deck sentence optional | a teammate who did not author it + Felipe | before freeze (Wed 4 Nov) |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
 | F-008 (Foxbit volume ×6 from Jul 2026): coincides with NovaDAX partnership (M-04, 7 Jul) and Foxbit Infra B2B relaunch (M-05, 18 Jul, fitting 5× larger trade size); kept as open cause in Slide 5 and F-008 | Resolved (cause kept open with M-04 and M-05 documented in `docs/sources.md` and `F-008`) | done |
 | P2-04 inference & donor pool | Resolved: combined within-Brazil 200 placebos (p < 0.005) + synthetic control across 6 specs (+109.3 bps acute gap, rank 1/6, ratio 9.31, F-017) | done |
@@ -130,7 +131,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-14](tasks/P3-14-notice-sources.md) | Every source on the 23 Jun 2026 BCB notice, opened and registered | ✅ done | CS 1 | - | 3/3 | 3/3 | 2026-11-03 | P1-04 |
 | [P3-15](tasks/P3-15-route-comparison.md) | Why +94 bps and not +350 - which routes are comparable (clarification for the deck) | 👀 review | Economist | - | 4/4 | 3/3 | 2026-11-04 | P3-01, P3-10 |
 | [P3-16](tasks/P3-16-res574-event-list.md) | Res. BCB 574 (published 22 Jun 2026, one day before the notice) is missing from the event list | ⬜ todo | Economist | - | 1/3 | 0/2 | 2026-11-04 | P1-04, P3-12 |
-| [P3-17](tasks/P3-17-channel-restoration.md) | Did the BCB let funds resume the activity the 23 Jun notice stopped, and did the premium fall when it did? (reopening test) | ⬜ todo | Economist | - | 0/5 | 0/5 | 2026-11-04 | P3-14, P3-15, P4-04 |
+| [P3-17](tasks/P3-17-channel-restoration.md) | Did the BCB let funds resume the activity the 23 Jun notice stopped, and did the premium fall when it did? (reopening test) | 👀 review | Economist | - | 5/5 | 5/5 | 2026-11-04 | P3-14, P3-15, P4-04 |
 
 **P4 — Robustness and freeze** (2/4 closed)
 
@@ -186,10 +187,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-027](findings/F-027-prediction-res584.md) | Prediction committed on 2 Nov 2026 - the 24-hour hold of Res. BCB 584 (from 1 Jan 2027) will not move the premium detectably; its cost to a USDT holder is about 9 bps | ✔️ confirmed | P3-13 | Felipe |
 | [F-028](findings/F-028-route-comparison.md) | We cannot identify which route set the price after the 23 Jun notice; the ordinary 3.5% route did not set it (the premium rose at most +171 bps, and raising that route's IOF in May 2025 moved it +13 bps) | ✔️ confirmed | P3-15 | - |
 | [F-029](findings/F-029-headline-inference.md) | On non-overlapping windows the June change still beats every ordinary window (p = 0.03), and the two days before the 26 Jun meeting add +155 bps (p 0.02-0.04); but the +94 bps month also holds other BCB measures, and Res. 574 coincides with a +38 bps day before the notice | 🔍 exploratory | P4-04 | - |
+| [F-030](findings/F-030-no-verified-reopening.md) | No source shows the BCB let funds resume the FX imports the 23 Jun notice stopped, so the reopening test cannot be run; the fall from 22 Jul came while stablecoin purchases abroad stayed at a third of their earlier level | 🔍 exploratory | P3-17 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-02 — agent for Renzo: P3-17 S1–S5 → review: 893 BCB normativos and 115 press notes (20 Jun–31 Oct) screened, 12 dated candidates; no full or partial restoration of the funds' FX imports (BCB restated unlawful, published 29 Jul; Res. 599 of 9 Oct only labels authorised institutions' imports) → reopening test cannot be run (F-030). S4 under committed rule: mixed (purchases abroad R = 0.32; order flow reverts 3 of 4); sources E-13–E-16, E-05.11
 - 2026-11-02 — agent for Renzo: new task `P3-17` (todo): did the BCB let funds resume the activity the 23 Jun notice stopped, and did the premium fall then? Spec-first, verdict supported/contradicted/unresolved; prompt for a second agent in `docs/agent-prompt-P3-17.md`
 - 2026-11-02 — agent for Renzo: P5-01 S5 → deck cut to 10 slides from the plan (`deck/deck_v1_ptbr.md`, HTML rebuilt), moved material in Anexo F, rehearsal sheet `deck/qa_ptbr.md`, P3-12 figure title reworded (table unchanged), L-09 registered; change record `docs/deck-changes-2026-11-02.md`; P4-04 criterion 3 met; Felipe reviews
 - 2026-11-02 — agent for Renzo: round-2 numbers re-validated independently (one misquote, two wordings and one count corrected); P4-04 → review: spec first (`f4071ef`), headline p = 0.032 on 30 non-overlapping windows, +155 bps in the two days before the 26 Jun meeting (p 0.02–0.04), Res. 574 coincides with +37.7 bps on 18→19 Jun (F-029); +93.9 bps kept as headline (Renzo)

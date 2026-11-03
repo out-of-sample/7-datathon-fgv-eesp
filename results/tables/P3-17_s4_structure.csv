@@ -1,0 +1,8 @@
+venue,metric,before,spike,after,log_after_before,log_after_spike,reverts
+Binance,avg_trade_usdt,1431.5069,1640.8999,1520.4839,0.06,-0.076,True
+Binance,buyer_initiated_share,0.5212,0.493,0.5108,-0.02,0.035,True
+Binance,volume_usdt_per_day,58406963.1138,77629392.7679,55226029.9368,-0.056,-0.341,True
+Foxbit,avg_trade_usdt,730.3334,4687.4767,6297.1694,2.154,0.295,False
+Foxbit,buyer_initiated_share,0.6213,0.3034,0.596,-0.042,0.675,True
+Foxbit,volume_usdt_per_day,4268647.5413,30655595.2855,31639520.1367,2.003,0.032,False
+Mercado Bitcoin,volume_usdt_per_day,953298.3562,1254791.7403,1377469.8581,0.368,0.093,False
