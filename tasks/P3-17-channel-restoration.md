@@ -33,7 +33,7 @@ A "no verified restoration" verdict means the reopening test cannot be run; it d
 - These were seen before this spec; any candidate date they suggest is not a clean pre-registered hypothesis.
 
 ## Subtasks
-- [ ] S1 — doing: agent for Renzo — Evidence trail (no prices yet). Search BCB communications and normativos, bank or fund disclosures (ABToken,
+- [x] S1 — done: agent for Renzo, 2026-11-02 — Evidence trail (no prices yet). Search BCB communications and normativos, bank or fund disclosures (ABToken,
   fund managers, CVM), and contemporaneous press from 23 Jun to 30 Oct 2026. For each candidate: date published, date
   effective, operative quoted language, source opened (`prompt.md` §6), and one class: **full restoration | partial change |
   clarification | substitution through another channel | no verified change**. Write the table in
@@ -52,7 +52,7 @@ A "no verified restoration" verdict means the reopening test cannot be run; it d
   the sentence that the reopening test cannot be run.
 
 ## Success criteria
-- [ ] Dated source table with quoted language, publication vs effective date, and a class per candidate; every link opened
+- [x] Dated source table with quoted language, publication vs effective date, and a class per candidate; every link opened
 - [ ] Spec committed before any price around a candidate is examined
 - [ ] Results for every credible candidate, with placebo p (all clean and non-overlapping) and other events in the window
 - [ ] Verdict stated; a missing restoration date reported as "test cannot be run", not as "no effect"
@@ -71,5 +71,6 @@ A "no verified restoration" verdict means the reopening test cannot be run; it d
 ## Log
 - 2026-11-02, agent for Renzo: created (todo) from Renzo's hypothesis; prompt for a second agent in `docs/agent-prompt-P3-17.md`
 - 2026-11-02, agent for Renzo: takes S1 (evidence trail; no prices looked at)
+- 2026-11-02, agent for Renzo: S1 done. 12 candidates in `results/tables/P3-17_candidates.md` (BCB normativos and press notes 20 Jun–31 Oct screened by `scripts/p3_17_restoration.py` part A; votes 108 and 120/2026; REF Oct 2026; press). None is full or partial restoration: 2 clarifications (26 Jun meeting; Res. BCB 599 code for authorised institutions, 9 Oct), 1 possible substitution (Foxbit Infra, company claim), 9 no verified change; the BCB restated the activity is unlawful (LAI, published 29 Jul). New sources E-13–E-16, E-05.11
 
 ## Result
