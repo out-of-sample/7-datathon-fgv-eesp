@@ -33,7 +33,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 [`docs/01-depeg-recovery.md`](docs/01-depeg-recovery.md) (chapter) ·
 [`docs/05-agentic-robustness.md`](docs/05-agentic-robustness.md) (optional AI extensions) ·
 [`docs/06-so-what.md`](docs/06-so-what.md) ("so what" extensions) ·
-[`docs/phases.md`](docs/phases.md) (phases and success criteria)
+[`docs/phases.md`](docs/phases.md) (phases and success criteria) ·
+[`docs/improvements_log.md`](docs/improvements_log.md) (ongoing strategy discussion, proposals and decisions)
 
 ## Next actions
 
@@ -50,6 +51,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | Item | Needed from | By |
 |---|---|---|
+| [Three-improvement proposal](docs/improvements-proposal.md): contribution audit, bounded recovery investigation, and PDF reader test; investigation and adoption are separate gates | Team: approve/revise/decline each workstream and accept owners; no new work assigned | Before any proposed execution; preserve 4 Nov freeze |
 | P2 gate: 23 Jun framing & inference calls | Resolved: Felipe logged Economist gate calls in `docs/README.md` (supervisory ofício framing, acute spike vs plateau reporting, placebo p-value + synthetic counterfactual, Foxbit volume adaptation, depeg 11-event comparative table) | done |
 | P3-01 (money layer): institutional bank vs USDT route costs | Resolved: Felipe completed P3-01 S1–S7 with opened primary sources (`R-01`..`R-07`, `results/tables/P3-01_route_costs.csv`, `results/figures/P3-01_route_costs.png`, `F-015`); status -> review | done |
 | Repository technical & consistency audit | Resolved: multi-agent audit report completed in `docs/audit-2026-11-02.md`; script bugs patched and literature citations verified | done |
@@ -64,6 +66,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | Res. BCB 574 (DOU 22 Jun 2026, E-11) is not in the event list; F-026 says "eight rules". Add as event or caveat (`P3-16`); premium did not move on 22–23 Jun (23.3, 24.8 bps), jumped 24 Jun | Felipe + team | before freeze (Wed 4 Nov) |
 | P3-17 (review, F-030, F-031): no verified reopening of the funds' channel (test cannot be run); S4 check mixed; post hoc, an unprecedented business-hours seller on Foxbit during the fall (F-031, exploratory). Needs a teammate's re-check of the source table and script; deck sentence optional | a teammate who did not author it + Felipe | before freeze (Wed 4 Nov) |
 | P3-18: on-chain source of the Foxbit USDT (F-031) | Dropped 2 Nov: no Foxbit Tron wallet labelled by Arkham or Tronscan; reopen only with a paid test deposit (team OK) | done |
+| `P3-20`: E1 registered (`9a522e9`). E2: apply the registered branch rule from the BCB's official list and venue statements, push by 5 Nov 23:59 | agent for Renzo | 5 Nov 23:59 |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
 | F-008 (Foxbit volume ×6 from Jul 2026): coincides with NovaDAX partnership (M-04, 7 Jul) and Foxbit Infra B2B relaunch (M-05, 18 Jul, fitting 5× larger trade size); kept as open cause in Slide 5 and F-008 | Resolved (cause kept open with M-04 and M-05 documented in `docs/sources.md` and `F-008`) | done |
 | P2-04 inference & donor pool | Resolved: combined within-Brazil 200 placebos (p < 0.005) + synthetic control across 6 specs (+109.3 bps acute gap, rank 1/6, ratio 9.31, F-017) | done |
@@ -112,7 +115,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | 👀 review | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (12/20 closed)
+**P3 — Extensions** (12/22 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -136,6 +139,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-18](tasks/P3-18-onchain-foxbit-source.md) | Where did the USDT sold on Foxbit during the fade come from? (on-chain check of F-031) | ✖️ dropped | CS 1 | - | 0/4 | 0/2 | 2026-11-04 | P3-17 |
 | [P3-19](tasks/P3-19-supply-response.md) | Did seller-initiated trading on Foxbit respond to the premium over the official dollar (import arbitrage) or to the Foxbit–Binance gap (cross-venue arbitrage)? | 👀 review | CS 1 | - | 3/3 | 3/3 | 2026-11-04 | P3-17 |
 | [P3-20](tasks/P3-20-live-predictions.md) | Predictions registered before the data - Res. 574 reporting (3 Nov 2026) and Res. 589 ban on unauthorised counterparties (6 Nov 2026) | 🔄 doing | CS 1 | Renzo (agent) | 2/8 | 1/5 | 2026-11-16 | P1-02, P1-03, P3-03, P4-04 |
+| [P3-21](tasks/P3-21-who-paid.md) | Who paid and who gained - the 23 Jun notice seen from five kinds of users of the digital dollar | ⬜ todo | CS 1 | - | 0/5 | 0/4 | 2026-11-04 | P1-02, P3-03, P3-11 |
+| [P3-22](tasks/P3-22-other-countries-qualify.md) | Other countries, stage 1 - qualify each case before any test (Ukraine Aug 2026, Argentina Apr 2025, EEA Mar 2025; Russia, Nigeria listed) | ⬜ todo | CS 2 | - | 0/4 | 0/3 | 2026-11-05 | P1-05, P1-06 |
 
 **P4 — Robustness and freeze** (2/4 closed)
 
@@ -198,7 +203,17 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-03 — agent for Renzo: P3-20 registered and pushed before the data (`9a522e9`, 02:55 Brasília); reference bands from the 30 Oct freeze (`ce283dc`; Binance 2-day band −75/+60 bps, so a null rules out only larger moves); Res. 520/589 and Voto 108 read: bank accounts and Pix are covered by the 6 Nov ban, status of providers in transition ambiguous, branch rule registered (`abc603f`). Next: data after the 4 Nov PTAX window; branch applied 5 Nov
+- 2026-11-03 — agent for Renzo: checked the second agent's review of the cross-country idea (accepted: Ukraine 1 Sep overlap, noise can bias, decomposition is not identification, EEA anticipation, nulls need a bound, past episodes are not predictions); applied the same fixes to the `P3-20` draft (overlap screen: Copom 3–4 Nov, US midterms, US jobs report 6 Nov; code isolation); new task `P3-22` (stage 1: qualify foreign cases, no outcomes, 4 h cap)
+- 2026-11-03 — agent for Renzo: two new task plans from the brainstorm: `P3-20` (draft, awaiting Renzo's review): predictions registered before the data for Res. 574 reporting (3 Nov) and the Res. 589 ban on unauthorised counterparties (6 Nov); `P3-21`: who paid and who gained, five users with rules fixed in advance (illustrative, slide-9 candidate). Nothing computed or downloaded
+- 2026-11-02 — agent for Renzo: reviewed proposed Ukraine/Argentina/EEA extension; source checks X-01–X-03 and critique in improvements log. Recommended event eligibility and measurement gates before tests; no P3-20 or outcome analysis created.
+
+- 2026-11-02 — agent for Renzo: second view added to `docs/improvements-proposal.md` §7: central question "which rules move the digital dollar's price" with five scored predictions, compared with §§1–6 (recovery-centred); disagreements listed; backbone choice added to the §8 gate; corrected own chat claim that net acquisitions doubled after the 2025 IOF (base was a dip, trend since 2024). Nothing adopted
+- 2026-11-02 — agent for Renzo: prepared `docs/improvements-proposal.md` for team approval; contribution audit, recovery review, PDF reader test, suggested owners, 17 person-hour cap and separate adoption gates. No proposed investigations executed.
+
 - 2026-11-02 — agent for Renzo: P3-19 → review (spec first, `c032614`): Foxbit seller-initiated trading tracked the premium over PTAX (+0.051 mn USDT per bp, CI +0.011 to +0.148), not the Foxbit–Binance gap; placebo before the notice not significant; net positive above ~35 bps (CI 20–55), where the premium settled; within-day leg weak (F-032). F-031 wording corrected after the parallel review (trade initiation, not "new supply")
+- 2026-11-02 — agent for Renzo: expanded the three proposed improvements in `docs/improvements_log.md` (contribution, recovery investigation, economic narrative); flagged that F-031's signed trading volume cannot identify a new seller or net imports; P3-18 dropped status recorded; links follow the log's rename. Discussion proposals only, no deck or finding verdict changed.
+
 - 2026-11-02 — Renzo + agent: P3-18 dropped: Arkham's Foxbit entity holds only BTC and Tronscan has no Foxbit tag (control "binance" returns 50), so the Foxbit USDT source cannot be traced; F-031 caveat updated
 - 2026-11-02 — agent for Renzo: P3-17 pushed; new task `P3-18` (blocked): on-chain source of the Foxbit USDT, plan fixed before any download; Foxbit addresses not reachable without Arkham login or Tronscan key
 - 2026-11-02 — agent for Renzo: P3-17 S6 (post hoc, Renzo's question "what brought the market back?"): Foxbit net seller-initiated volume +361.9 mn USDT on business hours 30 Jun–21 Jul (largest day in 5 years before: 5.1 mn), ending at the 22 Jul break; Binance also net selling, so new supply to the BRL market; seller and source unknown (F-031); slow-moving capital framing (Duffie 2010, L-10)

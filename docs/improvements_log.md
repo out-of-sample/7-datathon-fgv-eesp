@@ -155,3 +155,45 @@ Approval of an investigation will not establish its hypothesis or authorize a ne
 - **Source.** The Forbes Brasil column under E-03 was re-opened on 2 Nov via curl. Its quotes on the government's tax-arbitrage rationale and on the Receita figure (R$ 388 bn, over 70% in stablecoins) are in §7.2 but not yet in `sources.md`. The author is unconfirmed.
 
 A team gate (§8, first row) chooses the backbone.
+
+## 2026-11-02 — Review of proposed Ukraine / Argentina / EEA extension
+
+**Status: critique and revised recommendation only; no P3-20 created, predictions committed, or event outcomes examined.** Renzo requested analysis of a proposal to test channel opening/closing outside Brazil. Relevant source checks are X-01–X-03 in the source register; F-010, P1-05, P1-06 and the current decision log were read. Firecrawl CLI remains unavailable; the web tool was used.
+
+Recommendation: support a staged international extension, but do not call the current three-case design three clean independent confirmations. First qualify the mechanism and observable outcome of each event, then lock the analysis protocol, then run all eligible cases and report all exclusions and outcomes.
+
+- **Ukraine:** secondary reporting describes individual FX-access easing, making it a plausible candidate; primary instrument and exact channel still unverified. Ordinary-date placebos benchmark unusualness under comparability assumptions; they cannot remove a coincident war shock or endogenous policy timing. Secondary reporting also dates another bank FX-position change to 1 Sep, inside the proposed four-week window. Specify announcement/implementation dates and overlapping measures before running. Earlier-ending windows change the estimand and must be selected on institutional timing, not outcomes. Delisting announcement timing was not independently verified here.
+- **Argentina:** BCRA's 11 Apr announcement bundles access changes, exchange-rate bands and financing. Decomposing the premium into USDT/local-price, official-FX and USDT/USD legs explains arithmetic, not causal attribution. Wholesale-rate limitations cannot be solved by a footnote if the claim is about households' executable costs. Use a retail benchmark if verified or narrow the estimand to the official-reference gap. The latest team decision already reopens international research; the older future-work restriction is superseded, while the freeze choice remains pending.
+- **EEA:** Binance's primary announcement is 3 Mar, with spot implementation 31 Mar at 23:59 UTC and intermediate changes. A pre-window around implementation is already exposed to the announcement. Global EUR quotes do not identify the cost faced by EEA residents excluded from spot access. An equivalence test with a prespecified economically justified margin is necessary to support a small-effect claim; nonsignificance alone is inconclusive. Substitutes remaining available does not logically imply exactly zero global price response.
+- **Design discipline:** signs alone are insufficient. Lock selection/exclusions, mechanism, outcome and benchmark, announcement/effective dates, windows, calendar alignment, overlap screen, missingness/liquidity rules, inference, smallest meaningful effect, multiplicity policy and interpretation categories. Report rejected candidates with reasons; do not force an unsuitable event through identical code.
+- **Prior exposure:** F-010 already reports EUR volatility and ARS/UAH means; the donor-event screen already names these events. Ask about plots, tables, model fits and agent outputs, not just plots. Describe an unseen-window analysis as a retrospectively specified extension conditional on prior knowledge, not a prospective forecast or untouched holdout without evidence.
+- **Feasibility:** existing data reduces acquisition work but not exposure, benchmark or identification problems. P2-03's script is Brazil/PTAX-specific and writes core outputs; use isolated extension outputs. One person-day is an unvalidated estimate. Preferred sequence: qualify Ukraine and Argentina, treat EEA as a separate market-access boundary case, then authorize eligible event tests. Retain Brazil as the centre; international evidence supports the broader interpretation only to the extent each case permits.
+
+No findings or adopted conclusions were changed by this review. The main gain would be testing where the proposed mechanism applies and where it does not, rather than counting three favorable signs.
+
+## 2026-11-03 — Response to the review of the cross-country extension
+
+**Status: plan, not a team decision.** Renzo asked the first agent to check the 2 Nov review above and propose a plan.
+
+- **Accepted, checked against the repo and sources:**
+  - Ukraine's 1 Sep bank FX-position change falls inside a four-week window. The first agent had seen it in search results and not handled it.
+  - "More noise means less power, not bias" was wrong as stated: policy timing and war news can coincide with the event, and placebos cannot remove that.
+  - Decomposing Argentina's premium is accounting, not identification.
+  - The "future work only" line for Argentina is superseded by the "Research continues" row of the decision log.
+  - The EEA restriction was announced 3 Mar, four weeks before it took effect; its pre-window is exposed to the announcement, and a global quote is not EEA residents' access.
+  - A null result needs a stated bound.
+  - Calling past episodes "predictions" was wrong: only rules not yet in force allow true predictions.
+  - The prior-exposure check must cover tables, model fits and agent outputs. P1-06 already screened the EEA event.
+  - Core scripts write their outputs when run, so extension code must not import them.
+- **Applied to the first agent's own plan, P3-20** (predictions for 3 and 6 Nov), before registration:
+  - a screen of overlapping events: Copom meeting 3–4 Nov, US midterms 3 Nov, US jobs report 6 Nov at 10:30 Brasília (inside the PTAX window);
+  - null results stated as "no move larger than the band", never "no effect";
+  - code isolation, with an assert that the frozen rows reproduce;
+  - each venue and event reported on its own.
+- **Where the first agent differs:**
+  - The staged plan is right in shape but does not weigh the calendar. Five days remain before submission, with the deck, figures, scripts-as-.txt and rehearsal still open. Realistically only stage 1 (qualification) fits before 8 Nov; stages 2–3 are oral-final material at best.
+  - The same standard applies to the Brazil nulls (F-026) and to F-027. Their wording should state the bound ("não detectável acima de ~35 bps") at the freeze.
+- **Plan:**
+  1. P3-20: Renzo reviews; push before 10:00 Brasília on 3 Nov.
+  2. P3-21: who paid and who gained.
+  3. P3-22: stage 1 only, capped at 4 hours, no outcomes computed; the team gate decides each case.

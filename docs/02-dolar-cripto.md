@@ -2,6 +2,8 @@
 
 **Status:** **primary** (recommended 30 Oct after the probe; team confirmation pending in `README.md`).
 Project 1 (depeg recovery) becomes a 2–3 slide chapter showing the same mechanism on the dollar side.
+Strategic discussion with Renzo is recorded append-only in [`improvements_log.md`](improvements_log.md); proposals there
+remain proposals until the team adopts them.
 **Deck title (pt-BR draft):** "Quanto custa fechar a porta? O preço do dólar digital no Brasil"
 
 ## 1. Question and primary metric
