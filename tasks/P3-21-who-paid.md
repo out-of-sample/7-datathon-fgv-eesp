@@ -70,9 +70,8 @@ no advice on how to trade; no tax-avoidance framing ("diferença de alíquota", 
   identical to the review). F-033 stays exploratory. Criterion 2 (within 2% in R$) is **not met**: 93.91 vs 93.9 bps, but
   R$ 4,842 vs 5,052 (−4.2%) because F-015's R$ 5.38 is a Binance bid of 31 Oct (D-10), not a PTAX.
 - **Next step:** S4, pt-BR slide-9 table (use the "purchases after t0" U2 numbers) + one-sentence takeaway; S5 Felipe.
-- **Open questions:** (1) Team: accept the criterion checked in bps? (2) Felipe: cover R$ 5,052 (rate relabelled as a
-  Binance reference) or R$ 4,842 at daily PTAX (review recommends; ~12 files, list from `scripts/p3_21_review_audit.py`)?
-  Before the freeze. (3) Felipe: slide 9 takes this table?
+- **Open questions:** (1) Team: accept the criterion checked in bps? (2) Resolved 3 Nov (Renzo): cover and F-015 now
+  R$ 4,842 at daily PTAX, the same number as U1 here (decision log). (3) Felipe: slide 9 takes this table?
 - **How to resume:** `.venv/bin/python scripts/p3_21_who_paid.py`; check with `.venv/bin/python scripts/p3_21_review_rederive.py`.
 
 ## Log
@@ -80,6 +79,7 @@ no advice on how to trade; no tax-avoidance framing ("diferença de alíquota", 
 - 2026-11-03, agent for Renzo: claimed; post-spike counterfactual window pinned (22 Jul – 30 Oct, as F-015); Specification committed before any script (S1).
 - 2026-11-03, agent for Renzo: S2–S3: script + F-033; U1 vs F-015 differs 4.2% in R$ only because of F-015's fixed PTAX 5.38; check made in bps (deviation disclosed).
 - 2026-11-03, agent for Renzo: review fixes applied (U2 split by purchase date, every-day monthly rows, wording of F-033); CSV and the reviewer's two scripts committed with repo-relative paths.
+- 2026-11-03, agent for Renzo: cover/F-015 switched to daily PTAX (R$ 4,842), so U1 and the cover now agree; review script extended to the new rows (90 of 90 match).
 - 2026-11-03, Codex for Renzo (independent review): arithmetic reproduces; interpretation/reporting corrections requested below. Reviewed S1–S3 and prepared the cover decision for Felipe; S4/S5 remain open. Handoff preserved as requested; no analysis script, deck or F-015 changed; F-033 receives only a History entry.
 
 ## Result

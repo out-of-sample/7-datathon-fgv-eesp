@@ -3,6 +3,7 @@ Written by Codex for Renzo (review, 3 Nov 2026), copied from its scratch folder 
 Inputs   data/processed/P1-02_premium_daily.csv, results/tables/P3-21_who_paid.csv, results/tables/P3-11_transfer.csv
 Output   printed only (windows, monthly values, table comparison, U2 split by purchase date, cover conversions)
 Run      python scripts/p3_21_review_rederive.py
+Change   3 Nov 2026 (agent for Renzo): registers its own U2 split under the row names the author's CSV now uses
 """
 import csv
 import hashlib
@@ -51,6 +52,8 @@ for name, reference in refs.items():
         before = sum(money(r, usd, reference) for r, usd in all_trades if r[0] <= t0)
         after = sum(money(r, usd, reference) for r, usd in all_trades if r[0] > t0)
         print('U2_SPLIT', name, rule, 'through_t0', before, 'after_t0', after, 'total', before+after)
+        # added 3 Nov (agent for Renzo): compare the split rows that p3_21_who_paid.py now exports after the review
+        calc['U2', rule + ' purchases up to t0', name], calc['U2', rule + ' purchases after t0', name] = before, after
 for date, label in [('2026-06-24', 't0+1 (24 Jun)'), ('2026-06-30', 't0+5 (30 Jun)'), ('2026-07-21', 't0+20 (21 Jul)'), ('2026-10-30', '30 Oct (30 Oct)')]:
     calc['U3', 'sells '+label, 'none (vs premium at t0)'] = money(lookup[date], 100000, lookup[t0][1])
 for date, label in [('2026-07-21', 't0+20 (21 Jul)'), ('2026-10-30', '30 Oct (30 Oct)')]:

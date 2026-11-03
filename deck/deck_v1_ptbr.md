@@ -28,21 +28,21 @@ Perguntas difíceis e respostas de 20 segundos: `deck/qa_ptbr.md`. Material movi
 <!-- SLIDE 1 -->
 ## Slide 1 — Quanto custa fechar a porta?
 
-### Quando o Banco Central fechou um canal de entrada de dólares digitais, o prêmio do USDT sobre o dólar oficial subiu +94 bps por um mês: R$ 5.052 a mais a cada US$ 100 mil
+### Quando o Banco Central fechou um canal de entrada de dólares digitais, o prêmio do USDT sobre o dólar oficial subiu +94 bps por um mês: R$ 4.842 a mais a cada US$ 100 mil
 
 #### Layout Visual & Figura
 - **Figura:** nenhuma; o número da resposta em destaque.
-- **Legenda (10 segundos):** Quanto a mais os brasileiros pagaram por um dólar digital quando uma regra fechou um canal de arbitragem com o câmbio oficial? No mês seguinte ao ofício do BCB de 23/jun/2026, +93,9 bps: R$ 5.052 a cada US$ 100 mil.
+- **Legenda (10 segundos):** Quanto a mais os brasileiros pagaram por um dólar digital quando uma regra fechou um canal de arbitragem com o câmbio oficial? No mês seguinte ao ofício do BCB de 23/jun/2026, +93,9 bps: R$ 4.842 a cada US$ 100 mil, à PTAX de cada dia.
 
 #### Pontos Principais (pt-BR)
 - **A pergunta:** quanto a mais os brasileiros pagam por um dólar digital (USDT comprado com reais) do que pelo dólar oficial (PTAX) quando uma regra fecha um canal de arbitragem entre os dois mercados?
-- **A resposta:** no mês seguinte ao ofício do Banco Central de 23/jun/2026, o prêmio do USDT sobre a PTAX subiu **+93,9 bps** (de 15,2 para 109,1 bps): **R$ 5.052 a mais a cada US$ 100 mil**, durante um mês.
+- **A resposta:** no mês seguinte ao ofício do Banco Central de 23/jun/2026, o prêmio do USDT sobre a PTAX subiu **+93,9 bps** (de 15,2 para 109,1 bps): **R$ 4.842 a mais a cada US$ 100 mil**, em média, à PTAX de cada dia, durante um mês.
 - **Por que importa:** de janeiro a maio de 2026, residentes no Brasil compraram em média **US$ 2,4 bilhões por mês** em stablecoins no exterior (estatísticas do BCB).
 - *Fontes:* F-015, F-016, F-024.
 
 #### Notas do Orador & Rastreabilidade
 - **Notas:** "Nossa pergunta é simples: quanto custa fechar a porta? Quando uma regra fecha um dos canais que mantêm o dólar digital colado ao dólar oficial, quanto a mais os brasileiros pagam? Em 23 de junho de 2026, o Banco Central enviou um ofício que interrompeu de imediato um desses canais. No mês seguinte, o prêmio do USDT sobre a PTAX subiu 94 pontos-base: para quem comprava 100 mil dólares em USDT, cerca de 5 mil reais a mais. E não é um mercado pequeno: até maio, residentes compravam cerca de 2,4 bilhões de dólares por mês em stablecoins no exterior. A seguir mostramos qual porta fechou, como medimos o salto, por que não foi outra coisa, quanto custou e o que não conseguimos mostrar."
-- **Rastreabilidade:** `F-015` (R$ 5.052 = 93,9 bps × R$ 538.000; ainda `exploratory`), `F-016` (+93,9 bps), `F-024` (média jan–mai/2026 de US$ 2.428 mi, `D-16`).
+- **Rastreabilidade:** `F-015` (R$ 4.842 = média, nos 20 dias PTAX de 24/jun a 21/jul, do excesso de prêmio de cada dia × US$ 100 mil × PTAX do dia, média R$ 5,14; até 3/nov o deck usava R$ 5.052, convertido a uma cotação Binance de R$ 5,38 que não é PTAX; re-checagem da conversão por um colega pendente), `F-016` (+93,9 bps), `F-024` (média jan–mai/2026 de US$ 2.428 mi, `D-16`).
 
 ---
 
@@ -232,7 +232,7 @@ Perguntas difíceis e respostas de 20 segundos: `deck/qa_ptbr.md`. Material movi
 - **Legenda (10 segundos):** De 24/jun a 21/jul, compradores de USDT na Binance pagaram R$ 106 milhões acima do que pagariam ao prêmio anterior; em 194 janelas comuns de quatro semanas, o maior valor foi R$ 35,5 milhões.
 
 #### Pontos Principais (pt-BR)
-- **Por lote:** R$ 5.052 a mais a cada US$ 100 mil (+93,9 bps).
+- **Por lote:** R$ 4.842 a mais a cada US$ 100 mil (+93,9 bps, à PTAX de cada dia).
 - **No mercado:** de 24/jun a 21/jul, R$ 11,2 bilhões em USDT/BRL na Binance; os compradores pagaram em média 95 bps acima do prêmio anterior: **R$ 106 milhões** (R$ 145 milhões somando Foxbit e Mercado Bitcoin).
 - **Para quem:** cada real pago a mais por um comprador foi recebido por um vendedor. Funcionou como uma tarifa de ~0,95% sobre a compra de dólar digital, sem arrecadação. É uma transferência, não uma perda de bem-estar medida, e não inclui balcão (OTC) nem P2P.
 - **Por que +94 e não +350 bps?** 350 bps é a diferença de alíquota de IOF entre o canal fechado (0%) e a compra comum de moeda (3,5%): uma alíquota, não um preço. O prêmio nunca chegou perto (no pior dia, 3/jul, +171 bps sobre o nível anterior), e quando essa alíquota subiu de 1,1% para 3,5% em 2025 o prêmio mudou +13 bps. A compra comum não definia o preço; se foi oferta mais barata ou menos demanda que o conteve, não sabemos.
@@ -246,7 +246,7 @@ Perguntas difíceis e respostas de 20 segundos: `deck/qa_ptbr.md`. Material movi
 
 #### Notas do Orador & Rastreabilidade
 - **Notas:** "Em dinheiro: para um lote de 100 mil dólares, cerca de 5 mil reais a mais. No mercado, nas quatro semanas após o ofício, foram negociados 11,2 bilhões de reais em USDT na Binance, e os compradores pagaram 106 milhões a mais do que pagariam ao prêmio anterior; 145 milhões somando as três corretoras. Nenhuma janela comum de quatro semanas passou de 36 milhões. Esse dinheiro não foi para o governo: foi de quem comprava para quem vendia, como uma tarifa de quase 1% sem arrecadação. E por que 94 e não 350 pontos-base, a diferença de IOF? Porque 350 é uma alíquota, não um preço. O prêmio nunca chegou perto, e quando essa alíquota subiu em 2025 ele quase não se mexeu. A compra bancária comum não definia o preço."
-- **Rastreabilidade:** `F-015` (R$ 5.052; `exploratory`), `F-025` (R$ 106,1 mi e R$ 145,3 mi; 194 janelas, maior R$ 35,5 mi; as janelas se sobrepõem, por isso o slide não mostra o p = 0,005 de `F-025`), `F-028` (+170,7 bps; não identificado), `F-026` (+13,2 bps em mai/2025); tabela de rotas no Anexo B.5 e em `results/tables/P3-15_routes.md`; `scripts/p3_11_money.py`.
+- **Rastreabilidade:** `F-015` (R$ 4.842 à PTAX de cada dia; antes R$ 5.052 a R$ 5,38), `F-025` (R$ 106,1 mi e R$ 145,3 mi; 194 janelas, maior R$ 35,5 mi; as janelas se sobrepõem, por isso o slide não mostra o p = 0,005 de `F-025`), `F-028` (+170,7 bps; não identificado), `F-026` (+13,2 bps em mai/2025); tabela de rotas no Anexo B.5 e em `results/tables/P3-15_routes.md`; `scripts/p3_11_money.py`.
 
 ---
 

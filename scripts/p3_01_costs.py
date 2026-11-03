@@ -3,7 +3,10 @@ r"""P3-01: Cost of a digital dollar - bank route vs USDT route, per regime and s
 Purpose
   Turn the USDT/BRL premium and regulatory frictions into money terms for a Brazilian corporate treasurer:
   (1) Headline: the direct cost of the 23 Jun 2026 BCB notice on a US$ 100,000 USDT acquisition (+93.9 bps =
-      R$ 5,052 during the 20-day spike; +11.5 bps = R$ 621 after the spike, not distinguishable from drift).
+      R$ 4,842 during the 20-day spike; +11.5 bps = R$ 583 after the spike, not distinguishable from drift),
+      converted at each day's PTAX and averaged over the window (same convention as F-025 and F-033).
+      Route and scenario rows use one illustrative reference rate for all periods (REFERENCE_FX below).
+      Until 3 Nov 2026 every row, the headline included, used REFERENCE_FX labelled "PTAX" (R$ 5,052 / R$ 621).
   (2) Context: neutral comparison of total transaction frictions across traditional banking FX routes
       (PTAX + BCB corporate spread R-01 + SWIFT wire R-01b + statutory IOF R-02) and the digital dollar
       (USDT) route (exchange fee + network fee + market premium), evaluated across historical Bai-Perron
@@ -35,17 +38,19 @@ TAB = ROOT / "results/tables"
 FIG = ROOT / "results/figures"
 
 NOTIONAL_USD = 100_000.0
-BENCHMARK_PTAX = 5.3800  # Pre-committed reference FX (Binance live bid 5.3800 / ask 5.3804 from D-10)
+# Illustrative reference rate for comparing routes on a common basis. It is NOT a PTAX: it is the Binance USDT/BRL best
+# bid of 31 Oct 2026 16:43 UTC (D-10), used only so every route and scenario is in reais at one rate.
+REFERENCE_FX = 5.3800
 
 # 1. Inspect dynamic inputs if present
-ptax_rate = BENCHMARK_PTAX
+ptax_rate = REFERENCE_FX
 empirical_last_ptax = None
 if (PROC / "P1-02_premium_daily.csv").exists():
     try:
         p1_02 = pd.read_csv(PROC / "P1-02_premium_daily.csv", parse_dates=["date_brt"], index_col="date_brt")
         if "ptax_sell_brl_per_usd" in p1_02.columns:
             empirical_last_ptax = float(p1_02["ptax_sell_brl_per_usd"].dropna().iloc[-1])
-            print(f"Verified latest PTAX in P1-02_premium_daily.csv: R$ {empirical_last_ptax:.4f} (benchmark pre-committed to R$ {BENCHMARK_PTAX:.4f})")
+            print(f"Verified latest PTAX in P1-02_premium_daily.csv: R$ {empirical_last_ptax:.4f} (route reference rate R$ {REFERENCE_FX:.4f}, not a PTAX)")
     except Exception as e:
         print(f"Notice reading P1-02_premium_daily.csv: {e}")
 
@@ -223,14 +228,23 @@ for rid, lab, v, note in [
     add_route(rid, "Cost of the notice", lab, False, "Binance (VIP0)", v, 0.0, 0.0, 0.0, note)
 
 df_routes = pd.DataFrame(rows)
+df_routes["fx_brl_per_usd"] = REFERENCE_FX
+df_routes["fx_basis"] = "illustrative reference rate (Binance USDT/BRL bid 31 Oct 2026, D-10)"
+# Headline rows: excess premium of each PTAX day x that day's PTAX, averaged over the window (F-025, F-033 convention)
+_x = p1_02["ptax_sell_brl_per_usd"]; _pre = _d.iloc[_i - 20:_i].mean()
+for rid, sl in [("NOTICE_COST_SPIKE", slice(_i + 1, _i + 21)), ("NOTICE_COST_AFTER", slice(_i + 21, None))]:
+    brl = float(((_d.iloc[sl] - _pre) / 1e4 * NOTIONAL_USD * _x.iloc[sl]).mean())
+    k = df_routes.route_id == rid
+    df_routes.loc[k, ["cost_brl_per_100k", "fx_brl_per_usd", "fx_basis"]] = [round(brl, 2), round(float(_x.iloc[sl].mean()), 4),
+                                                                             "each day's PTAX, averaged over the window"]
 df_routes.loc[df_routes.category == "Cost of the notice", "savings_vs_bank_avail_brl"] = np.nan
 TAB.mkdir(parents=True, exist_ok=True)
 df_routes.to_csv(TAB / "P3-01_route_costs.csv", index=False)
 print(f"Wrote {len(df_routes)} route cost rows to {TAB / 'P3-01_route_costs.csv'}")
 
-print("\n=== P3-01 ROUTE COSTS SUMMARY (US$ 100,000; PTAX = R$ {:.4f}) ===".format(ptax_rate))
+print("\n=== P3-01 ROUTE COSTS SUMMARY (US$ 100,000; routes at reference rate R$ {:.4f}, headline at daily PTAX) ===".format(ptax_rate))
 cols_print = ["route_id", "regime_or_scenario", "premium_bps", "exchange_or_bank_spread_bps",
-              "iof_or_hold_bps", "total_bps", "cost_usd_per_100k", "cost_brl_per_100k"]
+              "iof_or_hold_bps", "total_bps", "cost_usd_per_100k", "cost_brl_per_100k", "fx_brl_per_usd"]
 print(df_routes[cols_print].to_string(index=False))
 
 # 3. Neutral Publication-Grade Visualization (results/figures/P3-01_route_costs.png)
@@ -347,7 +361,7 @@ ax.set_xlim(0, 525)
 fig.suptitle("Fricções de Transação por Canal e Regime: Rota USDT e Referenciais Bancários",
              fontsize=13.2, fontweight="bold", x=0.04, y=0.96, ha="left")
 fig.text(0.04, 0.912,
-         f"Custo do ofício de 23/jun na rota USDT: +93,9 bps (R\\$ 5.052 por US\\$ 100k) no pico de 20 dias | Spread bancário PJ >US\\$ 55k: 20 bps (BCB EE 48/2019)",
+         f"Custo do ofício de 23/jun na rota USDT: +93,9 bps (R\\$ 4.842 por US\\$ 100k, à PTAX de cada dia) no pico de 20 dias | Demais valores em R\\$ à taxa de referência ilustrativa de R\\$ 5,38 | Spread bancário PJ >US\\$ 55k: 20 bps (BCB EE 48/2019)",
          fontsize=9.6, color=INK2, ha="left")
 
 fig.legend(loc="lower center", ncol=4, bbox_to_anchor=(0.52, 0.02), fontsize=8.8)

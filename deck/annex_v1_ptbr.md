@@ -111,10 +111,15 @@ Todas as 6 especificações de controle sintético e DiD (`results/tables/P2-04_
 
 **2. Tabela Completa de 17 Linhas de Custos por Rota para US$ 100.000 (`results/tables/P3-01_route_costs.csv`, `F-015` — Opção A para a Equipe):**
 
+*Conversão para reais.* As duas linhas do custo do ofício usam a PTAX de cada dia (média de R$ 5,14 no pico e no pós-pico),
+como `F-025` e `F-033`. As demais linhas usam uma única taxa de referência ilustrativa de R$ 5,38, a cotação de compra
+USDT/BRL da Binance em 31/out/2026 (`D-10`), apenas para comparar rotas na mesma base; ela não é PTAX. Até 3/nov/2026 o
+custo do ofício também era convertido a R$ 5,38 (R$ 5.052 e R$ 621); os valores em bps não mudaram.
+
 | ID da Rota | Categoria | Regime / Cenário | Corretora / Canal | Prêmio (bps) | Spread / Taxa (bps) | SWIFT / Rede (bps) | IOF / Carry (bps) | Total (bps) | Custo Total (R$ / US$ 100k) | IOF Bancário Vigente | Notas e Fontes Primárias (`docs/sources.md`) |
 |---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---|
-| `NOTICE_COST_SPIKE` | **Custo do Ofício** | **Pico Agudo: 24/jun–21/jul/2026** | **Binance (VIP0)** | **+93,9** | **0,0** | **0,0** | **0,0** | **93,9** | **R$ 5.052,36** | — | **Efeito medido do ofício E-05 (`F-016`, $p_{\text{placebo}} \approx 0,001$)** |
-| `NOTICE_COST_AFTER` | Custo do Ofício | Pós-Pico: 22/jul–30/out/2026 | Binance (VIP0) | +11,5 | 0,0 | 0,0 | 0,0 | 11,5 | R$ 621,00 | — | Não distinguível de ruído (`F-022`, $p_{\text{placebo}} = 0,24$) |
+| `NOTICE_COST_SPIKE` | **Custo do Ofício** | **Pico Agudo: 24/jun–21/jul/2026** | **Binance (VIP0)** | **+93,9** | **0,0** | **0,0** | **0,0** | **93,9** | **R$ 4.842,04** | — | **Efeito medido do ofício E-05 (`F-016`, $p_{\text{placebo}} \approx 0,001$)** |
+| `NOTICE_COST_AFTER` | Custo do Ofício | Pós-Pico: 22/jul–30/out/2026 | Binance (VIP0) | +11,5 | 0,0 | 0,0 | 0,0 | 11,5 | R$ 583,10 | — | Não distinguível de ruído (`F-022`, $p_{\text{placebo}} = 0,24$) |
 | `BANK_IMPORT_0IOF` | Rota Bancária | Importação de Mercadorias (0% IOF) | Banco Comercial | 0,0 | 20,0 | 2,5 | 0,0 | **22,5** | **R$ 1.210,50** | 0,0% | RIOF Art. 15-B, I (`R-02`); spread PJ 20 bps (`R-01`; 52,5 bps c/ 50 bps); SWIFT US$ 25 (`R-01b`) |
 | `BANK_INVEST_11IOF` | Rota Bancária | Investimento / Disp. pré-mai/2025 (1,1% IOF) | Banco Comercial | 0,0 | 20,0 | 2,5 | 110,0 | **132,5** | **R$ 7.128,50** | 1,1% | Dec. 12.467/2025 (`R-02`); spread PJ 20 bps (`R-01`; 162,5 bps c/ 50 bps) |
 | `BANK_AVAIL_35IOF` | Rota Bancária | Disponibilidade pós-23/mai/2025 (3,5% IOF) | Banco Comercial | 0,0 | 20,0 | 2,5 | 350,0 | **372,5** | **R$ 20.040,50** | 3,5% | Dec. 12.466/2025 e STF ADC 96 (`R-02`, `R-03`; 402,5 bps c/ 50 bps) |
@@ -297,7 +302,7 @@ Todos os códigos foram desenvolvidos em Python 3 linear e estruturados para exp
 
 | Slide | Conceito / Métrica Principal | Finding ID | Código Gerador | Tabela / Figura Primária |
 |---|---|---|---|---|
-| **1 Quanto custa fechar a porta?** | +93,9 bps = R$ 5.052 por US$ 100 mil; US$ 2,4 bi/mês em stablecoins no exterior (jan–mai/2026) | `F-015`, `F-016`, `F-024` | `scripts/p3_01_costs.py`, `p3_10_imports.py` | `P3-01_route_costs.csv`, `P3-10_imports.csv` |
+| **1 Quanto custa fechar a porta?** | +93,9 bps = R$ 4.842 por US$ 100 mil (PTAX de cada dia); US$ 2,4 bi/mês em stablecoins no exterior (jan–mai/2026) | `F-015`, `F-016`, `F-024` | `scripts/p3_01_costs.py`, `p3_10_imports.py` | `P3-01_route_costs.csv`, `P3-10_imports.csv` |
 | **2 A porta que fechou** | Canal dos fundos (IOF 0%), ofício de 23/jun, resposta LAI, linha do tempo das medidas | `F-023` | `scripts/p3_14_press_check.py` | `docs/sources.md` (`E-05.1`–`E-05.10`, `E-10`–`E-12`, `R-02`) |
 | **3 Dados e método** | 1.520 dias PTAX, piso 2–10 bps, três testes, hipóteses, Lições de 2025 | `F-001`, `F-002`, `F-005`, `F-007`, `F-011`, `F-016`, `F-017` | `scripts/p1_02_premium.py`, `p2_01_noise.py` | `P1-02_premium_daily.csv` |
 | **4 O salto** | +93,9 bps; três corretoras; quebra às cegas em 24/jun; 1.073 datas; 30 janelas sem sobreposição (p = 0,03); +155 bps antes de 26/jun | `F-009`, `F-011`, `F-016`, `F-022`, `F-029` | `scripts/p2_02_breaks.py`, `p2_05_checks.py`, `p4_04_inference.py` | `P2-02_premium_breaks.png`, `P2-05_hourly_22_26_jun.png`, `P4-04_nonoverlap.csv` |

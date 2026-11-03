@@ -33,10 +33,10 @@ U2 split by purchase date (review fix): the registered totals compare January–
 so only the "after 23 Jun" amounts can relate to the notice.
 
 **Check against F-015.** U1's excess premium is 93.91 bps, the same as F-015 (93.9 bps). In reais U1 is 4.2% lower than
-F-015's R$ 5,052. F-015 converts at R$ 5.38, which it calls "reference PTAX" but is a **Binance USDT/BRL bid on 31 Oct 2026**
+F-015's former R$ 5,052. F-015 converted at R$ 5.38, which it called "reference PTAX" but is a **Binance USDT/BRL bid on 31 Oct 2026**
 (D-10, `scripts/p3_01_costs.py` line 38): a crypto price that contains the premium, four months after the spike. The actual
 PTAX averaged R$ 5.1418 in 24 Jun – 21 Jul: R$ 4,828 at the mean rate, **R$ 4,842 at each day's rate** (the convention of
-F-025 and this finding). The specified "within 2% in R$" criterion is **not met**; the script checks bps instead (team to accept).
+F-025 and this finding); on 3 Nov F-015, the cover and slide 9 switched to it (Renzo's decision). The specified "within 2% in R$" criterion is **not met**; the script checks bps instead (team to accept).
 
 Reproduce: `.venv/bin/python scripts/p3_21_who_paid.py` → `results/tables/P3-21_who_paid.csv` (per-month rows included).
 

@@ -1,6 +1,6 @@
 ---
 id: F-015
-title: The 23 Jun notice cost a buyer of digital dollars about R$ 5,050 per US$ 100k during the spike (+93.9 bps); after it, +11.5 bps (R$ 620) not distinguishable from noise. Bank-route comparisons are now sourced (BCB EE 48/2019 corporate spread 20 bps; statutory IOF by period)
+title: The 23 Jun notice cost a buyer of digital dollars about R$ 4,840 per US$ 100k during the spike (+93.9 bps, at each day's PTAX); after it, +11.5 bps (R$ 583) not distinguishable from noise. Bank-route comparisons are now sourced (BCB EE 48/2019 corporate spread 20 bps; statutory IOF by period)
 status: confirmed
 task: P3-01
 date: 2026-11-01
@@ -8,9 +8,9 @@ checked_by: Jonathan
 ---
 
 ## Claim
-**What the notice cost (the project's headline question).** For someone buying US$ 100,000 in USDT on Binance (PTAX R$ 5.38):
-- during the spike, 24 Jun – 21 Jul 2026, the premium was **+93.9 bps** higher, an extra **US$ 939 ≈ R$ 5,052** (F-016; placebo p ≈ 0.001);
-- after the spike, **+11.5 bps (≈ R$ 621)**, which is not distinguishable from ordinary drift (placebo p = 0.24, F-022).
+**What the notice cost (the project's headline question).** For someone buying US$ 100,000 in USDT on Binance, converted at each day's PTAX and averaged over the window:
+- during the spike, 24 Jun – 21 Jul 2026, the premium was **+93.9 bps** higher, an extra **US$ 939 ≈ R$ 4,842** (PTAX averaged R$ 5.1418; F-016; placebo p ≈ 0.001);
+- after the spike, **+11.5 bps (≈ R$ 583)**, which is not distinguishable from ordinary drift (placebo p = 0.24, F-022).
 
 **Context: bank routes (sourced, neutral comparison).** Setting the USDT route (premium + 10 bps fee) beside formal bank FX routes (for either a single slide or a neutral annex table):
 - **Bank FX spread:** **20.0 bps** (0.20%), the volume-weighted corporate FX spread across 25.1M primary contracts in BCB *Estudo Especial nº 48/2019* (`R-01`, where the 4th quartile > US$ 55,600 has a 15–25 bps median; a 50 bps upper bound adds R$ 1,614 per US$ 100k). Direct SWIFT wire communication fee is **US$ 25 (2.5 bps)** (`R-01b`, Banco do Brasil *Tabela de Tarifas PJ*: R$ 100 SWIFT event / R$ 440 full online wire order).
@@ -19,12 +19,12 @@ checked_by: Jonathan
 - **Legal and operational non-equivalence (`docs/02-dolar-cripto.md` §10):** a bank FX contract settles sovereign USD with Sisbacen registration and statutory IOF withheld at source (Lei 14.286/2021) and is required for formal customs clearance (Siscomex). Domestic USDT acquisition via Pix is purchase of a virtual asset (Lei 14.478/2022, reported under IN RFB 1.888/2019), carries private issuer and smart-contract risk, and cannot settle formal imports or eFX (Res. BCB 561/2026; BCB LAI response in `E-05`). These figures measure relative frictions across channels, not tax savings to recommend.
 
 ## Evidence
-Benchmark transaction: institutional acquisition of US$ 100,000; reference PTAX = R$ 5.3800 (base cost = R$ 538,000). Corporate bank spread: 20.0 bps (`R-01`, BCB EE 48/2019; 50.0 bps sensitivity noted); SWIFT wire fee: US$ 25.00 flat (2.5 bps, `R-01b`). Exchange trading fee: 10.0 bps (Binance VIP0 taker benchmark, `R-04`); on-chain transfer: 0.1 bps (1 USDT flat on TRC-20/TON). Domestic VIP tiers: Foxbit VIP 6–7 (R$ 5M–25M) is 7–9 bps taker (8.0 bps midpoint, `R-05`); Mercado Bitcoin VIP 6.0 bps is the passive *maker* fee (>R$ 10M), while active *taker* for R$ 500k–10M is 60.0 bps (`R-06`).
+Benchmark transaction: institutional acquisition of US$ 100,000; route and scenario rows in R$ at one illustrative reference rate of R$ 5.3800, the Binance USDT/BRL bid of 31 Oct 2026 (`D-10`; not a PTAX), so routes compare on a common basis; the two cost-of-the-notice rows at each day's PTAX (column `fx_basis`). Corporate bank spread: 20.0 bps (`R-01`, BCB EE 48/2019; 50.0 bps sensitivity noted); SWIFT wire fee: US$ 25.00 flat (2.5 bps, `R-01b`). Exchange trading fee: 10.0 bps (Binance VIP0 taker benchmark, `R-04`); on-chain transfer: 0.1 bps (1 USDT flat on TRC-20/TON). Domestic VIP tiers: Foxbit VIP 6–7 (R$ 5M–25M) is 7–9 bps taker (8.0 bps midpoint, `R-05`); Mercado Bitcoin VIP 6.0 bps is the passive *maker* fee (>R$ 10M), while active *taker* for R$ 500k–10M is 60.0 bps (`R-06`).
 
 | Route / Regime / Scenario | Category | Premium (bps) | Spread (bps) | IOF / CIP Carry (bps) | Network / Wire (bps) | Total (bps) | Cost (USD per 100k) | Cost (BRL per 100k) | Diff. vs Bank Avail. in Force (BRL) |
 |---|---|---|---|---|---|---|---|---|---|
-| **Cost of the notice: spike (24 Jun – 21 Jul 2026)** | **Headline** | **+93.9** | **0.0** | **0.0** | **0.0** | **+93.9** | **$939.10** | **R$ 5,052.36** | — |
-| **Cost of the notice: after spike (22 Jul – 30 Oct, p=0.24)** | **Headline** | **+11.5** | **0.0** | **0.0** | **0.0** | **+11.5** | **$115.43** | **R$ 621.00** | — |
+| **Cost of the notice: spike (24 Jun – 21 Jul 2026)** | **Headline** | **+93.9** | **0.0** | **0.0** | **0.0** | **+93.9** | **$939.10** | **R$ 4,842.04** | — |
+| **Cost of the notice: after spike (22 Jul – 30 Oct, p=0.24)** | **Headline** | **+11.5** | **0.0** | **0.0** | **0.0** | **+11.5** | **$115.43** | **R$ 583.10** | — |
 | **Bank Import (0% IOF)** | Bank Route | 0.0 | 20.0 | 0.0 | 2.5 | 22.5 | $225.00 | R$ 1,210.50 | R$ 18,830.00 |
 | **Bank Investment / Pre-May 2025 Avail. (1.1% IOF)** | Bank Route | 0.0 | 20.0 | 110.0 | 2.5 | 132.5 | $1,325.00 | R$ 7,128.50 | R$ 12,912.00 |
 | **Bank Availability Post-May 2025 (3.5% IOF)** | Bank Route | 0.0 | 20.0 | 350.0 | 2.5 | 372.5 | $3,725.00 | R$ 20,040.50 | R$ 0.00 |
@@ -63,6 +63,7 @@ Outputs:
 Slide 10 ("Quanto custou: R$ 5 mil por US$ 100 mil") of `deck/deck_v1_ptbr.md` and Annex B.5 / C.2 of `deck/annex_v1_ptbr.md` (keeping both presentation options open for the team: Option C on Slide 10 or Option A in Annex B.5).
 
 ## History
+- 2026-11-03, agent for Renzo (decided by Renzo; Felipe owns F-015): headline rows converted at each day's PTAX, R$ 5,052.36 → R$ 4,842.04 (spike) and R$ 621.00 → R$ 583.10 (after); the R$ 5.38 used until now is a Binance USDT/BRL bid (D-10), not a PTAX, found by the P3-21 review. bps unchanged; route rows keep R$ 5.38, now labelled an illustrative reference rate (option a). Status kept; the conversion needs a re-run by a teammate who did not make it.
 - 2026-11-03, Jonathan: independently re-ran `scripts/p3_01_costs.py` from raw data; all 17 route/scenario rows and headline spike cost (+93.9 bps = R$ 5,052.36 per US$ 100k) reproduced exactly; status -> confirmed.
 - 2026-11-02, agent for Felipe (P3-01 S6–S7): opened and quoted primary sources for every parameter in `docs/sources.md` (`R-01` BCB Estudo Especial nº 48/2019 20 bps corporate spread median for >US$ 55.6k; `R-01b` Banco do Brasil Tarifas PJ R$ 100 SWIFT / R$ 440 online wire; `R-02` RIOF + Decretos 12.466/12.467; `R-05` Foxbit VIP 6–7 7–9 bps taker; `R-06` MB VIP 6 bps maker vs 60 bps taker; `R-07` 1-day CIP carry 2.5 bps); removed `"economiza R$"` from `P3-01_route_costs.png`; documented legal/operational comparability for both Slide 10 (Option C) and Annex B.5 (Option A)
 - 2026-11-02, agent for Renzo (review fixes, on Felipe's behalf, agreed by Renzo): regimes 1–3 compared at the 1.1% IOF then in force (savings R$ 3.3–6.3k, were R$ 16–20k); "cost of the notice" rows added and made the headline; unhedged-hold risk no longer added as a cost; bank spread and hedge cost marked as assumptions; adaptation wording removed; status confirmed → exploratory

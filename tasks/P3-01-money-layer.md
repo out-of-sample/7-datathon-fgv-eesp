@@ -10,12 +10,12 @@ depends: P2-03, P2-04
 ---
 
 ## Goal
-Turn the premium into money for a Brazilian corporate treasurer: (1) headline cost of the 23 Jun 2026 BCB notice on a US$ 100,000 USDT purchase (+93.9 bps = R$ 5,052 during the 20-day spike), and (2) neutral, fully sourced comparison of transaction frictions across traditional bank routes (PTAX + BCB corporate spread `R-01` + SWIFT wire `R-01b` + statutory IOF `R-02`) vs the digital dollar route (USDT premium + exchange fees + network fee), plus explicitly labelled policy scenarios (3.5% crypto IOF proposal `E-03` and 24h precautionary hold under Res. BCB 584/2026 `R-07`). Plan: `docs/02-dolar-cripto.md` §7.6 & §10.
+Turn the premium into money for a Brazilian corporate treasurer: (1) headline cost of the 23 Jun 2026 BCB notice on a US$ 100,000 USDT purchase (+93.9 bps = R$ 4,842 during the 20-day spike, at each day's PTAX), and (2) neutral, fully sourced comparison of transaction frictions across traditional bank routes (PTAX + BCB corporate spread `R-01` + SWIFT wire `R-01b` + statutory IOF `R-02`) vs the digital dollar route (USDT premium + exchange fees + network fee), plus explicitly labelled policy scenarios (3.5% crypto IOF proposal `E-03` and 24h precautionary hold under Res. BCB 584/2026 `R-07`). Plan: `docs/02-dolar-cripto.md` §7.6 & §10.
 
 ## Pre-Run Specification
 1. **Benchmark Transaction**:
    - Notion: US$ 100,000 institutional/treasury acquisition.
-   - Reference FX: `PTAX = R$ 5.3800` (live bid/ask benchmark from Binance D-10; base BRL cost = R$ 538,000).
+   - Reference FX for route and scenario rows: R$ 5.3800, an illustrative rate (Binance USDT/BRL bid, D-10; not a PTAX). Cost-of-the-notice rows: each day's PTAX (changed 3 Nov 2026).
 2. **Traditional Bank Route Benchmarks (Sources R-01, R-01b, R-02, R-03 — opened 2 Nov 2026)**:
    - Commercial bank corporate spread: **20.0 bps (0.20%)** volume-weighted market average and midpoint of the 15–25 bps median for the 4th quartile (> US$ 55,600, covering US$ 100k) in BCB *Estudo Especial nº 48/2019* (`R-01`). (A 50.0 bps conservative upper bound adds 30 bps = R$ 1,614 per US$ 100k; BCB Ranking do VET covers retail PF only at 150–350 bps.)
    - Outbound SWIFT wire fee: **US$ 25 flat (2.5 bps on US$ 100k)** (`R-01b`, Banco do Brasil *Tabela de Tarifas PJ*: R$ 100.00 isolated SWIFT communication fee = US$ 18.59; R$ 440.00 full online wire order = US$ 81.78 / 8.2 bps).
@@ -66,8 +66,9 @@ Turn the premium into money for a Brazilian corporate treasurer: (1) headline co
 - 2026-11-02, Renzo (review): arithmetic checked; changes requested before `done` (see Review below); working back to -.
 - 2026-11-02, agent for Renzo: Renzo takes the review of P3-01.
 - 2026-11-01, Felipe: S1–S5 completed (`status: review`). Wrote and executed `scripts/p3_01_costs.py`, producing `results/tables/P3-01_route_costs.csv` (15 rows across bank benchmarks, 6 Bai-Perron regimes, 24–25 Jun peak, Foxbit/MB VIP tiers, and S1/S2a/S2b scenarios) and `results/figures/P3-01_route_costs.png`. Authored `findings/F-015-route-costs.md`.
+- 2026-11-03, agent for Renzo (Renzo's decision; Felipe to be told): headline converted at each day's PTAX (R$ 4,842 / R$ 583, were R$ 5,052 / R$ 621); `BENCHMARK_PTAX` renamed `REFERENCE_FX` and labelled a Binance bid; new CSV columns `fx_brl_per_usd`, `fx_basis`; route rows unchanged (option a).
 
 ## Result
-**Headline (cost of the notice):** The 23 Jun 2026 BCB supervisory notice raised the cost of acquiring US$ 100,000 via USDT by **+93.9 bps (US$ 939 ≈ R$ 5,052)** during the 20-day acute spike (24 Jun – 21 Jul 2026; placebo $p \approx 0.001$, `F-016`). After 22 Jul, the level was +11.5 bps (R$ 621) above the pre-notice window, which is not distinguishable from ordinary drift (placebo $p = 0.24$, `F-022`).
+**Headline (cost of the notice):** The 23 Jun 2026 BCB supervisory notice raised the cost of acquiring US$ 100,000 via USDT by **+93.9 bps (US$ 939 ≈ R$ 4,842 at each day's PTAX)** during the 20-day acute spike (24 Jun – 21 Jul 2026; placebo $p \approx 0.001$, `F-016`). After 22 Jul, the level was +11.5 bps (R$ 583) above the pre-notice window, which is not distinguishable from ordinary drift (placebo $p = 0.24$, `F-022`).
 
 **Context (sourced bank vs USDT route frictions, `F-015`):** Using the BCB's empirical corporate FX spread median of **20.0 bps** for contracts > US$ 55,600 (*Estudo Especial nº 48/2019*, `R-01`; 50 bps upper bound noted) and **US$ 25 (2.5 bps)** SWIFT wire (`R-01b`), formal bank FX costs **22.5 bps (R$ 1,211)** for goods imports (0% IOF), **132.5 bps (R$ 7,129)** for investment remittances / pre-May 2025 availability (1.1% IOF), and **372.5 bps (R$ 20,041)** for post-May 2025 general availability (3.5% IOF, `R-02`). An enacted 3.5% crypto IOF (`E-03`, Scenario S1) would raise the USDT route to **386.9 bps (R$ 20,815)**, while a 24-hour precautionary hold (`E-06b`, Scenario S2) adds **2.5 bps** when hedged via 1-day CIP carry (`R-07`) or exposes an unhedged buyer to **130 bps** of 95% 1-day FX risk.
