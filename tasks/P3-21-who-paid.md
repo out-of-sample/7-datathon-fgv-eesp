@@ -47,16 +47,16 @@ no advice on how to trade; no tax-avoidance framing ("diferença de alíquota", 
 
 ## Subtasks
 - [x] S1 — Commit this Specification before writing the script (the commit order is the record) — done: Renzo (agent), 2026-11-03
-- [ ] S2 — doing: Renzo (agent) — `scripts/p3_21_who_paid.py`: U1–U4 and the variants → `results/tables/P3-21_who_paid.csv`; U1 reproduces F-015
+- [x] S2 — done: Renzo (agent), 2026-11-03 — `scripts/p3_21_who_paid.py`: U1–U4 and the variants → `results/tables/P3-21_who_paid.csv`; U1 reproduces F-015
   within 2%
-- [ ] S3 — Finding (illustrative) with the command; figure only if Felipe wants one for slide 9
+- [x] S3 — done: Renzo (agent), 2026-11-03 (F-033) — Finding (illustrative) with the command; figure only if Felipe wants one for slide 9
 - [ ] S4 — pt-BR slide-9 table and one-sentence takeaway for Felipe (deck owner), within the 10-slide limit
 - [ ] S5 — Review by Felipe (money layer owner, P3-11)
 
 ## Success criteria
 - [x] Specification committed before the script's first run
 - [ ] U1 reproduces F-015 (R$ 5,052 per US$ 100k) within 2%
-- [ ] Every number in a finding with its command; the counterfactual variant reported next to the main one
+- [x] Every number in a finding with its command; the counterfactual variant reported next to the main one
 - [ ] Felipe accepts or rejects the slide-9 replacement
 
 ## Outputs
@@ -64,15 +64,18 @@ no advice on how to trade; no tax-avoidance framing ("diferença de alíquota", 
 - `results/tables/P3-21_who_paid.csv`; finding F-0xx (next free number)
 
 ## Handoff
-- **State:** plan written 3 Nov; nothing computed.
-- **Next step:** S1, commit the Specification; then S2.
-- **Open questions:** Felipe: does slide 9 take this table in place of the current one?
-- **How to resume:** read the Specification; the inputs are already frozen; `scripts/p3_11_money.py` has the pre-notice
-  level and the PTAX conversion to reuse.
+- **State:** S1–S3 done 3 Nov. Script, table and F-033 (exploratory) committed. U1 matches F-015 in bps (93.91 vs 93.9),
+  but is 4.2% lower in R$: F-015 uses a fixed PTAX of R$ 5.38, the spike window averaged R$ 5.14 (the U1 check moved to bps,
+  disclosed in F-033). Criterion 2 is therefore met in bps only.
+- **Next step:** S4, pt-BR slide-9 table + one-sentence takeaway for Felipe; S5 Felipe's review.
+- **Open questions:** (1) Felipe: slide 9 takes this table? (2) Team: F-015 / cover say R$ 5,052 at PTAX 5.38; at the
+  window's PTAX it is ~R$ 4,830. Keep the reference rate (and state it) or switch? Decide before the freeze.
+- **How to resume:** `.venv/bin/python scripts/p3_21_who_paid.py`; numbers in `findings/F-033-who-paid.md`.
 
 ## Log
 - 2026-11-03, agent for Renzo: created at Renzo's request (brainstorm version 2: who paid and who gained).
 - 2026-11-03, agent for Renzo: claimed; post-spike counterfactual window pinned (22 Jul – 30 Oct, as F-015); Specification committed before any script (S1).
+- 2026-11-03, agent for Renzo: S2–S3: script + F-033; U1 vs F-015 differs 4.2% in R$ only because of F-015's fixed PTAX 5.38; check made in bps (deviation disclosed).
 
 ## Result
 <!-- fill when done -->
