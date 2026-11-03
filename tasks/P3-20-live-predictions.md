@@ -119,6 +119,34 @@ files and findings F-001 to F-032 stay unchanged.
 | Mon 9 Nov | E2 S2 = 6 and 9 Nov: the E2 verdict, shown at the oral final (16 Nov) if we are finalists |
 | Early Dec | S20 for both, jointly (S7) |
 
+### S5 legal reading (3 Nov 2026) and the E2 branch rule (fixed now, applied on 5 Nov)
+Texts opened 3 Nov 2026 by the agent for Renzo through the BCB normativos API (Res. BCB 520 consolidated, Res. BCB 589)
+and the Voto PDF (both URLs in E-14):
+- Res. 520, art. 88 §6: providers that applied on time "podem manter a prestação dos serviços de ativos virtuais até a
+  conclusão do seu processo de autorização"; §7: those that did not apply "devem cessar a prestação de serviços de ativos
+  virtuais em até trinta dias após o fim do prazo". The deadline is 270 days from 2 Feb 2026, i.e. 30 Oct 2026.
+- Art. 91 as amended by Res. 589 (in force 1 Oct 2026): from 6 Nov, banks and payment institutions may not "realizar ou
+  viabilizar operações no mercado de ativos virtuais" with providers that "não estejam autorizadas a funcionar no país";
+  the words "ou em processo de autorização" are gone. Its single paragraph, kept by Res. 589, extends the ban to "abertura e
+  manutenção de contas de pagamento e realização de transações de pagamento" and "operações de câmbio". So **bank
+  accounts and Pix are covered**.
+- Voto 108/2026-BCB, §7: the delay to 6 Nov "permitirá que esta Autarquia sistematize e publique a lista oficial de
+  instituições em transição, incluindo as sociedades prestadoras de serviços de ativos virtuais [...] que [...]
+  protocolaram pedido de autorização"; §8: "fica expressamente vedado às instituições reguladas operar com contrapartes
+  que não estejam devidamente autorizadas, salvo nas exceções previstas na norma".
+- Reading: the ban is aimed at providers that are not on the BCB's official list, while providers in transition may keep
+  operating (§6). The text alone does not say whether a provider in transition counts as "devidamente autorizada" for
+  art. 91. A GSGA law-firm note (5 Oct 2026) restates the rule without settling this. No official list was found on 3 Nov.
+
+**Branch rule** (applied to each venue on 5 Nov from sources, never from prices; committed and pushed by 23:59):
+- **A** if the BCB's official list (or a BCB statement) shows the venue as authorised or in transition and allowed to keep
+  bank and Pix access → no detectable move for that venue (S2 inside the band).
+- **B** if the venue is absent from a published list, or a primary source (BCB, the venue itself, or a bank) says its
+  bank, Pix or FX access ends on 6 Nov → rise on that venue (S2 one-sided p < 0.05) and its gap to listed venues widens.
+- **C** if no list is published by 5 Nov 23:59 and there is no venue-specific statement → two-sided rule, no direction.
+- In every branch, the ban also cuts providers that never applied (offshore platforms serving Brazilians). That could
+  shift buyers and sellers onto the venues we measure, in a direction we cannot sign; it is reported as a limit.
+
 ## Subtasks
 - [x] S1 — Renzo reviews this Specification; agent commits and pushes it; hash recorded here. Deadline 10:00 Brasília, 3 Nov — done: Renzo, 3 Nov (`9a522e9`, pushed 05:55 UTC = 02:55 Brasília)
 - [x] S2 — `scripts/p3_20_live.py` part 1: reference distributions of S1, S2 and S20 at all clean dates from data up to
@@ -129,7 +157,7 @@ files and findings F-001 to F-032 stay unchanged.
   without changing the method; the 30 Oct series must reproduce exactly
 - [ ] S4 — E1 readout (S1 and S2, all venues, monitor alarm in [t0+1, t0+5] via `scripts/p3_03_monitor.py`) →
   `results/tables/P3-20_readout.csv`; finding written either way
-- [ ] S5 — E2 branch: read Res. BCB 520's transition rules and Res. 589 in full; open any BCB list of authorised or pending
+- [ ] S5 — E2 branch (rule fixed 3 Nov, see above; branch applied 5 Nov) — doing: Renzo. E2 branch: read Res. BCB 520's transition rules and Res. 589 in full; open any BCB list of authorised or pending
   providers and the exchanges' own statements; write the branch (A, B or C) with quotes; commit and push before 6 Nov 10:00
 - [ ] S6 — E2 early reading (S1, 6 Nov) for the PDF; E2 S2 on 9 Nov; update the finding
 - [ ] S7 — S20 for both events (early Dec); independent re-run by a teammate who did not write the script
@@ -152,7 +180,8 @@ files and findings F-001 to F-032 stay unchanged.
 ## Handoff
 - **State:** S1 registered (`9a522e9`); S2 reference committed (see log). No November data downloaded yet.
 - **Next step:** S3 after the 4 Nov PTAX window: download Binance/PTAX/Coinbase/Foxbit/Mercado Bitcoin into new files,
-  then add part 2 (`readout`) to `p3_20_live.py` with the assert on rows up to 30 Oct; S5 (E2 branch) by 5 Nov 23:59.
+  then add part 2 (`readout`) to `p3_20_live.py` with the assert on rows up to 30 Oct. On 5 Nov: look for the BCB's
+  official list and venue statements (Binance, Foxbit, Mercado Bitcoin), apply the branch rule, commit and push by 23:59.
 - **Open questions:** (1) Renzo: approve the Specification and the November download. (2) S5: does a pending application
   keep a provider operating after 6 Nov, and does art. 91 cover exchanges' bank accounts and Pix? (3) Res. 574 is still not
   in the P1-04 event list (P3-16); the clean-date rule uses that list as it stands.
@@ -160,6 +189,9 @@ files and findings F-001 to F-032 stay unchanged.
   `scripts/p4_04_inference.py`.
 
 ## Log
+- 2026-11-03, agent for Renzo: S5 part 1. Res. 520 art. 88 §6–7, art. 91 (Res. 589) and its single paragraph (accounts, Pix,
+  FX covered), and Voto 108 §7–8 read. Status of providers in transition is ambiguous and the BCB list is not out, so a
+  branch rule (A/B/C by venue, from sources only) is registered now; the branch is applied on 5 Nov.
 - 2026-11-03, agent for Renzo: S2 done. Reference from frozen data only (1,073 clean dates, 20 Nov 2020 – 30 Mar 2026; reproduces
   F-029: largest |S2| 202.8, |S20| 65.7). Binance bands: S1 −74.8/+75.0, **S2 −75.5/+59.8**, S20 −35.4/+37.7 bps. So a
   null on S2 rules out only moves beyond about 75 bps; the bands reflect 2020–26 volatility, wider than 2026's. Rule kept
