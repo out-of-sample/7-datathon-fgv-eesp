@@ -2,7 +2,7 @@
 id: P3-18
 title: Where did the USDT sold on Foxbit during the fade come from? (on-chain check of F-031)
 phase: P3
-status: blocked
+status: dropped
 owner: CS 1
 working: -
 due: 2026-11-04
@@ -27,7 +27,7 @@ address to Foxbit, so option 1 is closed. Addresses are **not** to be
 guessed. Ways to unblock, any one:
 1. ~~A teammate with an Arkham login opens the Foxbit entity~~ (done 2 Nov: no Tron addresses), copies the TRON (and Ethereum) addresses tagged as Foxbit with
    the tag text, and pastes them into S1 (quickest).
-2. Renzo creates a free Tronscan API key and puts it in `.env` as `TRONSCAN_API_KEY` (never in git); the agent searches tags.
+2. ~~Renzo creates a free Tronscan API key~~ (done 2 Nov: Tronscan has no Foxbit tag; see Log)
 3. A teammate's own Foxbit USDT (TRC-20) deposit address plus a small test deposit reveals the sweep address. Costs a few
    USDT and fees; outward-facing, so only with the team's OK.
 
@@ -62,9 +62,10 @@ guessed. Ways to unblock, any one:
 - `scripts/p3_18_onchain.py`, `data/raw/onchain/`, `results/tables/P3-18_*.csv`, update to `findings/F-031-who-traded-the-fade.md`
 
 ## Handoff
-- **State:** plan written; blocked on S1 (no keyless, citable source for Foxbit's wallet addresses).
-- **Next step:** option 2 (free Tronscan key in `.env`, then search Tronscan tags for Foxbit) or drop; Arkham (option 1) has no
-  Tron addresses for Foxbit.
+- **State:** dropped 2 Nov 2026. Neither Arkham nor Tronscan attributes any Tron address to Foxbit, so S1 cannot be done from
+  a citable source.
+- **Next step:** none. Reopen only via option 3 (a teammate's Foxbit deposit address plus a small test deposit to reveal the
+  sweep wallet), which costs money and needs the team's OK; the plan above then applies unchanged.
 - **Open questions:** which unblock option the team prefers (Renzo). If none before the freeze (Wed 4 Nov), drop the task;
   F-031 already states that the seller and the source of the USDT are unknown.
 - **How to resume:** read F-031 and `results/tables/P3-17_daily_flow.csv`; the wave dates and the 361.9 mn figure come
@@ -74,5 +75,8 @@ guessed. Ways to unblock, any one:
 - 2026-11-02, agent for Renzo: created from Renzo's approval of the on-chain check; blocked on Foxbit addresses (Arkham 403,
   Tronscan 401, Etherscan 403, no Foxbit proof-of-reserves page)
 - 2026-11-02, Renzo with agent: Arkham checked logged in: Foxbit entity has only BTC, no Tron/Ethereum addresses; option 1 closed
+- 2026-11-02, agent for Renzo: Tronscan tag search with Renzo's free key (key in untracked `.env`, 4 calls): `term=foxbit, type=address` → total 0; control `term=binance` → 50 tagged addresses (e.g. "Binance-Hot 5"); `term=fox` → 10 user-named addresses, none tagged, none Foxbit. Option 2 closed → dropped, as agreed with Renzo (try once, drop if no tag)
 
 ## Result
+Dropped: Foxbit's Tron wallets are not labelled by Arkham (entity holds only BTC) or Tronscan (no tag), so the source of the
+USDT sold on Foxbit (F-031) cannot be traced from a citable address list. F-031 keeps "seller and source unknown".

@@ -65,7 +65,8 @@ Net seller-initiated volume = volume − 2 × taker-buy volume (USDT, hourly can
 - **Post hoc, one episode.** The pattern was found by looking at the data after F-030; there is one fade, not many. Any
   timing coincidence counts as one event (`prompt.md` §5.5).
 - **Identity and source unknown.** The data show who crossed the spread, not who owned the orders or where their USDT came
-  from. On-chain deposits to Foxbit (not downloaded) or a statement from Foxbit would be needed; the BCB's code-99516 data
+  from. On-chain deposits to Foxbit cannot be traced: neither Arkham nor Tronscan labels any Foxbit Tron wallet (P3-18,
+  dropped); a statement from Foxbit would be needed; the BCB's code-99516 data
   (E-13) are not public.
 - **Order books only.** OTC desks and Binance P2P are not in the data; large flows may have moved there too.
 - **Taker side is not position.** A seller who posts passive orders on Binance and aggresses on Foxbit would show here as
@@ -81,4 +82,5 @@ comercial, vendia cerca de US$ 362 milhões líquidos na Foxbit (30/jun–21/jul
 do canal dos fundos. Quem vendeu e de onde vieram os USDT não sabemos."
 
 ## History
+- 2026-11-02, agent for Renzo: on-chain check (P3-18) dropped, no labelled Foxbit Tron wallets; caveat updated
 - 2026-11-02, agent for Renzo: created (P3-17 S6, post hoc at Renzo's request), status exploratory
