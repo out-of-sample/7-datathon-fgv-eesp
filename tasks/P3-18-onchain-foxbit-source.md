@@ -20,9 +20,12 @@ We need Foxbit's wallet addresses from a source we can open and quote (`prompt.m
 account or key: Arkham entity page (https://arkm.com/explorer/entity/foxbit: HTTP 403 to automated access, needs login);
 Tronscan tag search (https://apilist.tronscanapi.com/api/search/v2?term=foxbit: HTTP 401, needs a free API key); Etherscan
 labels and the acionista.com.br article on Arkham's Brazilian-exchange labels (Cloudflare 403); foxbit.com.br has no
-proof-of-reserves page (`/prova-de-reservas/`, `/proof-of-reserves/`, `/transparencia/`: 404). Addresses are **not** to be
+proof-of-reserves page (`/prova-de-reservas/`, `/proof-of-reserves/`, `/transparencia/`: 404). **Arkham checked by Renzo (logged in, 2 Nov 2026):** https://arkm.com/explorer/entity/foxbit exists ("Foxbit.com.br",
+tags "Centralized Exchange", "High Transacting", "267.1k Addresses", balance $0); with the Tron filter: "No assets found" and
+"No transfers match these filters"; the only asset shown on any network is BTC. Arkham attributes no Tron or Ethereum USDT
+address to Foxbit, so option 1 is closed. Addresses are **not** to be
 guessed. Ways to unblock, any one:
-1. A teammate with an Arkham login opens the Foxbit entity, copies the TRON (and Ethereum) addresses tagged as Foxbit with
+1. ~~A teammate with an Arkham login opens the Foxbit entity~~ (done 2 Nov: no Tron addresses), copies the TRON (and Ethereum) addresses tagged as Foxbit with
    the tag text, and pastes them into S1 (quickest).
 2. Renzo creates a free Tronscan API key and puts it in `.env` as `TRONSCAN_API_KEY` (never in git); the agent searches tags.
 3. A teammate's own Foxbit USDT (TRC-20) deposit address plus a small test deposit reveals the sweep address. Costs a few
@@ -60,7 +63,8 @@ guessed. Ways to unblock, any one:
 
 ## Handoff
 - **State:** plan written; blocked on S1 (no keyless, citable source for Foxbit's wallet addresses).
-- **Next step:** whoever has an Arkham login does option 1 of the Blocker; then an agent runs S2–S3 from the plan.
+- **Next step:** option 2 (free Tronscan key in `.env`, then search Tronscan tags for Foxbit) or drop; Arkham (option 1) has no
+  Tron addresses for Foxbit.
 - **Open questions:** which unblock option the team prefers (Renzo). If none before the freeze (Wed 4 Nov), drop the task;
   F-031 already states that the seller and the source of the USDT are unknown.
 - **How to resume:** read F-031 and `results/tables/P3-17_daily_flow.csv`; the wave dates and the 361.9 mn figure come
@@ -69,5 +73,6 @@ guessed. Ways to unblock, any one:
 ## Log
 - 2026-11-02, agent for Renzo: created from Renzo's approval of the on-chain check; blocked on Foxbit addresses (Arkham 403,
   Tronscan 401, Etherscan 403, no Foxbit proof-of-reserves page)
+- 2026-11-02, Renzo with agent: Arkham checked logged in: Foxbit entity has only BTC, no Tron/Ethereum addresses; option 1 closed
 
 ## Result
