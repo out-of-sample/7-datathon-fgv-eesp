@@ -64,7 +64,10 @@ only 5.4% below the pre-notice level (log change −0.056; the rule needed a fal
   return at scale; it does not say which importers were active.
 - **The structure test discriminates weakly** (observed after seeing the result): trade size and buyer share may simply
   follow the premium back once the shock fades, whatever happened to supply. Foxbit's trades stayed about 8.6 times larger
-  than before the notice, which fits new institutional flow (M-05) but is a single venue and timing only.
+  than before the notice, which fits new institutional flow (M-05) but is a single venue and timing only. The daily view
+  (F-031, post hoc) shows the Foxbit buyer-share "reversion" is not a return to the old structure: Foxbit kept large,
+  business-hours trades and a 37% share; only the side of its big flow flipped, from net selling (30 Jun – 21 Jul) to net
+  buying. Read "3 of 4 revert" with that in mind.
 - **Not blind.** R ≈ 0.32 (F-024) and Foxbit's larger trades (F-008) were known before the S2 rule was written (disclosed in
   the task file). The premium had already halved by 10 Jul, before the 22 Jul break, so a single reopening date would not
   fit the price path anyway.
@@ -77,5 +80,6 @@ carece de licitude. A queda do prêmio a partir de 22 de julho ocorreu com as co
 um terço do nível anterior."
 
 ## History
+- 2026-11-02, agent for Renzo: caveat on the structure test added after the post-hoc daily view (F-031); verdict unchanged
 - 2026-11-02, agent for Renzo: created (P3-17 S1–S5), status exploratory; needs a teammate's re-check of the source table
   and a re-run of the script

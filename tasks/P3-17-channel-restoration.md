@@ -86,6 +86,8 @@ columns. S4 is therefore not blind; only its rule is fixed before the comparison
   order-size, and BCB-series data, then compare. Falling prices cannot count as evidence for (1).
 - [x] S5 — done: agent for Renzo, 2026-11-02 (F-030) — Finding F-0NN (next free) with verdict **supported | contradicted | unresolved**, and, if no date is verifiable,
   the sentence that the reopening test cannot be run.
+- [x] S6 — done: agent for Renzo, 2026-11-02 (F-031) — **Post hoc, at Renzo's request after S5**: what traded while the premium
+  fell? Daily order flow on Binance and Foxbit (script part C). Not pre-registered; reported as description only.
 
 ## Success criteria
 - [x] Dated source table with quoted language, publication vs effective date, and a class per candidate; every link opened
@@ -98,12 +100,14 @@ columns. S4 is therefore not blind; only its rule is fixed before the comparison
 - `results/tables/P3-17_candidates.md`, `scripts/p3_17_restoration.py`, `results/tables/P3-17_*.csv`, `findings/F-0NN-...md`
 
 ## Handoff
-- **State:** S1–S5 done, status `review`. Verdict **unresolved: the reopening test cannot be run** (no public source shows
+- **State:** S1–S6 done, status `review`. Verdict **unresolved: the reopening test cannot be run** (no public source shows
   the stopped activity resumed; F-030). S4 consistency check under the committed rule: **mixed** (purchases abroad stayed at
-  R = 0.32; exchange trade size and buyer share reverted on 3 of 4 venue-metrics; demand fall not supported).
+  R = 0.32; exchange trade size and buyer share reverted on 3 of 4 venue-metrics; demand fall not supported). Post hoc (S6, F-031): the fall came with an unprecedented business-hours seller on Foxbit
+  (+361.9 mn USDT net, 30 Jun – 21 Jul); identity and source of the USDT unknown.
 - **Next step:** a teammate who did not do this work re-checks it: (1) open 3–4 rows of `results/tables/P3-17_candidates.md`
-  and compare the quotes; (2) run `python scripts/p3_17_restoration.py` and compare the `B1`–`B3` lines with F-030;
-  (3) if it holds, F-030 `exploratory` → `confirmed` and this task → `done`.
+  and compare the quotes; (2) run `python scripts/p3_17_restoration.py` and compare the `B1`–`B3` lines with F-030 and `C0`–`C5` with F-031;
+  (3) if it holds, F-030 `exploratory` → `confirmed` and this task → `done`; F-031 stays `exploratory` (post hoc).
+  Optional, needs the team's OK: on-chain USDT deposits to Foxbit (30 Jun – 21 Jul) to see where the coins came from.
 - **Open questions:** Felipe decides whether one sentence goes in the deck (suggested pt-BR line in F-030, "Used in deck").
   If anyone finds a source that funds or banks resumed (e.g. a CVM filing), add it as a new row; if it is full or partial
   restoration, the S2 test runs on its date unchanged.
@@ -117,6 +121,7 @@ columns. S4 is therefore not blind; only its rule is fixed before the comparison
 - 2026-11-02, agent for Renzo: S1 done. 12 candidates in `results/tables/P3-17_candidates.md` (BCB normativos and press notes 20 Jun–31 Oct screened by `scripts/p3_17_restoration.py` part A; votes 108 and 120/2026; REF Oct 2026; press). None is full or partial restoration: 2 clarifications (26 Jun meeting; Res. BCB 599 code for authorised institutions, 9 Oct), 1 possible substitution (Foxbit Infra, company claim), 9 no verified change; the BCB restated the activity is unlawful (LAI, published 29 Jul). New sources E-13–E-16, E-05.11
 - 2026-11-02, agent for Renzo: S2 spec committed (section above): credible set empty, so H4 is "unresolved: test cannot be run"; S4 predictions and reading rule fixed before the comparison
 - 2026-11-02, agent for Renzo: S3–S5 done → review. No credible candidate, no event test. S4: R = 0.32 (< 0.5), structure reverts 3 of 4, Binance volume −5.4% → mixed; F-030 (exploratory)
+- 2026-11-02, agent for Renzo: S6 (post hoc, Renzo asked what explains the fade): unprecedented business-hours net selling on Foxbit, +361.9 mn USDT 30 Jun – 21 Jul (max before: 5.1 mn/day), ending at the 22 Jul break; weekend test too noisy; F-031 (exploratory); Duffie (2010) registered as L-10; F-030 caveat on the structure test
 
 ## Result
 **Unresolved: the reopening test cannot be run** (F-030). From 23 Jun to 30 Oct 2026 no BCB rule, BCB press note or press

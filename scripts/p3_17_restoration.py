@@ -9,11 +9,17 @@ B        S4 consistency check for the fall from 22 Jul (rule fixed in the task f
          Per venue and metric (avg trade, buyer share): reverts if |log(after/before)| < |log(after/spike)|.
          Demand: Binance volume per day, log(after/before) < -0.29; buyer share after < before.
          No restoration test is run: the S2 credible set is empty.
+C        POST HOC (S6, asked after S4 was seen; not pre-registered): who traded while the premium fell? Daily order flow
+         on Binance and Foxbit, 1 May - 30 Sep 2026. Net seller-initiated volume = volume - 2 x taker-buy volume (USDT).
+         Phases: pre 1 May - 22 Jun, wave 30 Jun - 21 Jul, after 22 Jul - 30 Sep. Flows use UTC days, premium BRT dates.
 Inputs   https://www.bcb.gov.br/api/search/app/normativos/buscanormativos (normativos, retrieved at run time)
          https://www.bcb.gov.br/api/servico/sitebcb/notasimprensa and .../noticias (press notes and news)
          data/processed/P3-10_imports_monthly.csv, results/tables/P3-10_order_flow.csv (both from p3_10_imports.py)
+         data/processed/P1-02_premium_daily.csv, results/tables/P2-05_venues_daily.csv,
+         data/raw/binance/USDTBRL/*.zip, data/raw/foxbit/USDTBRL-1h.csv, data/raw/mercadobitcoin/USDT-BRL-1h.csv
 Outputs  results/tables/P3-17_bcb_screen.csv   one row per normativo or press note in the window
          results/tables/P3-17_s4_structure.csv one row per venue x metric with before/spike/after and the revert flag
+         results/tables/P3-17_daily_flow.csv   one row per day, premium and order flow by venue (part C)
 Run      python scripts/p3_17_restoration.py
 """
 import json
@@ -104,3 +110,78 @@ bs = st[st.metric == "buyer_initiated_share"]
 print(f"B3 demand: Binance volume log(after/before) = {b.loc[('Binance', 'volume_usdt_per_day'), 'log_after_before']:+.3f} "
       f"(fell > 25%: {b.loc[('Binance', 'volume_usdt_per_day'), 'log_after_before'] < -0.29}); buyer share after < before: "
       + ", ".join(f"{r.venue} {r.after < r.before}" for r in bs.itertuples()))
+
+# C (post hoc): order flow while the premium fell. Loading as in p3_10_imports.py
+RAW = ROOT / "data/raw"
+bz = pd.concat(pd.read_csv(z, header=None, usecols=[0, 1, 4, 5, 8, 9]) for z in sorted((RAW / "binance/USDTBRL").glob("*.zip")))
+t = bz[0].astype("int64")
+bz.index = pd.to_datetime(np.where(t > 1e14, t // 1000, t), unit="ms")  # Binance files from 2025 use microseconds
+bz = bz.rename(columns={1: "open", 4: "close", 5: "volume", 8: "trades", 9: "buyer_volume"}).sort_index()
+fz = pd.read_csv(RAW / "foxbit/USDTBRL-1h.csv")
+fz = pd.DataFrame({"open": fz.open.values, "close": fz.close.values, "volume": fz.volume_usdt.values, "trades": fz.trades.values,
+                   "buyer_volume": fz.taker_buy_volume_usdt.values}, index=pd.to_datetime(fz.open_time_ms, unit="ms"))
+fz = fz[fz.volume > 0].sort_index()
+mz = pd.read_csv(RAW / "mercadobitcoin/USDT-BRL-1h.csv")
+mz = pd.Series(mz.v.values, index=pd.to_datetime(mz.t, unit="s")).sort_index()
+
+# C0: sign check of the taker-buy field: hours with more buyer-initiated volume should have rising prices
+for name, h in [("Binance", bz.loc["2026"]), ("Foxbit", fz.loc["2026"])]:
+    h = h[h.volume > 1000]
+    print(f"\nC0 {name} 2026: corr(hourly buyer share, hourly return) = "
+          f"{(h.buyer_volume / h.volume).corr(h.close / h.open - 1):+.3f} (n = {len(h)} hours)")
+
+day = {k: v[["volume", "trades", "buyer_volume"]].resample("D").sum() for k, v in [("bin", bz), ("fox", fz)]}
+ven = pd.read_csv(TAB / "P2-05_venues_daily.csv", parse_dates=["date_brt"], index_col="date_brt")
+prem = pd.read_csv(ROOT / "data/processed/P1-02_premium_daily.csv", parse_dates=["date_brt"], index_col="date_brt").premium_bps
+fl = pd.DataFrame({"premium_bps": prem, "premium_binance": ven.Binance, "premium_foxbit": ven.Foxbit,
+                   "mb_volume_mn": mz.resample("D").sum() / 1e6})
+for k, v in day.items():
+    fl[f"{k}_volume_mn"] = v.volume / 1e6
+    fl[f"{k}_buyer_share"] = v.buyer_volume / v.volume
+    fl[f"{k}_avg_trade"] = v.volume / v.trades
+    fl[f"{k}_net_sell_mn"] = (v.volume - 2 * v.buyer_volume) / 1e6
+fl = fl["2026-05-01":"2026-09-30"]
+fl["fox_share"] = fl.fox_volume_mn / fl[["fox_volume_mn", "bin_volume_mn", "mb_volume_mn"]].sum(axis=1)
+fl.to_csv(TAB / "P3-17_daily_flow.csv", float_format="%.4f")
+
+# C1: was anything like the Foxbit selling seen before the notice?
+fd = day["fox"][day["fox"].volume > 0]
+fn = (fd.volume - 2 * fd.buyer_volume) / 1e6
+pre_f, wave_f = fn[:"2026-06-22"], fn["2026-06-30":"2026-07-21"]
+print(f"C1 Foxbit {pre_f.index[0]:%d %b %Y} - 22 Jun 2026 ({len(pre_f)} days): largest daily net selling {pre_f.max():.1f} mn USDT "
+      f"({pre_f.idxmax():%d %b %Y}), days above 10 mn: {(pre_f > 10).sum()} | wave: {(wave_f > 10).sum()} of {len(wave_f)} days")
+
+# C2: phases (weekdays for the daily means)
+PH = [("pre", "2026-05-01", "2026-06-22"), ("wave", "2026-06-30", "2026-07-21"), ("after", "2026-07-22", "2026-09-30")]
+wd = fl[fl.index.dayofweek < 5]
+for lab, a, z in PH:
+    s, h = wd[a:z], fz.loc[a:z]
+    brt = h.index - pd.Timedelta(hours=3)
+    print(f"C2 {lab:5} {a}..{z}: net selling per weekday, Binance {s.bin_net_sell_mn.mean():+.1f}, Foxbit {s.fox_net_sell_mn.mean():+.1f} "
+          f"mn USDT (total Foxbit {(h.volume - 2 * h.buyer_volume).sum() / 1e6:+.1f}, Binance {fl[a:z].bin_net_sell_mn.sum():+.1f}) | "
+          f"Foxbit avg trade median {s.fox_avg_trade.median():.0f} USDT, share {s.fox_share.mean():.2f}, "
+          f"09-18h BRT {h.volume[(brt.hour >= 9) & (brt.hour < 18)].sum() / h.volume.sum():.2f}, weekend "
+          f"{h.volume[brt.dayofweek >= 5].sum() / h.volume.sum():.3f} | Foxbit - Binance premium "
+          f"{(s.premium_foxbit - s.premium_binance).mean():+.2f} bps | premium {fl[a:z].premium_bps.mean():.1f} bps")
+
+# C3: within the episode (PTAX days 24 Jun - 31 Jul, n is one episode, not independent events)
+e = fl["2026-06-24":"2026-07-31"].dropna(subset=["premium_bps"]).copy()
+e["d"] = e.premium_bps.diff()
+for c in ["fox_net_sell_mn", "bin_net_sell_mn"]:
+    print(f"C3 {c}: corr with premium level {e.premium_bps.corr(e[c]):+.2f}; with same-day change {e.d.corr(e[c]):+.2f}; "
+          f"with next-day change {e.d.shift(-1).corr(e[c]):+.2f} (n = {e.d.notna().sum()} PTAX days)")
+print("C4 monthly mean premium, bps: " + "; ".join(f"{m:%b} {v:.1f}" for m, v in fl.premium_bps.resample("MS").mean().items()))
+
+# C5: weekend drift (Fri 17h -> Mon 09h BRT, both against Friday's PTAX); the big seller traded 1% of its volume on weekends
+hp = pd.read_csv(ROOT / "data/processed/P1-02_premium_hourly.csv", usecols=["time_utc", "premium_vs_last_ptax_bps", "ptax_last_date_brt"],
+                 parse_dates=["time_utc"], index_col="time_utc")
+wk = {}
+for fri in pd.date_range("2026-01-02", "2026-09-25", freq="W-FRI"):
+    a, z = fri + pd.Timedelta(hours=20), fri + pd.Timedelta(days=3, hours=12)
+    if a in hp.index and z in hp.index and hp.ptax_last_date_brt[a] == hp.ptax_last_date_brt[z]:
+        wk[fri] = hp.premium_vs_last_ptax_bps[z] - hp.premium_vs_last_ptax_bps[a]
+wk = pd.Series(wk)
+for lab, a, z in [("pre", "2026-01-01", "2026-06-22"), ("wave", "2026-06-30", "2026-07-21"), ("after", "2026-07-22", "2026-09-30")]:
+    s = wk[a:z]
+    print(f"C5 weekend change {lab:5}: n = {len(s)}, mean {s.mean():+.1f} bps, sd {s.std():.1f}; values {', '.join(f'{v:+.0f}' for v in s)}"
+          if len(s) < 6 else f"C5 weekend change {lab:5}: n = {len(s)}, mean {s.mean():+.1f} bps, sd {s.std():.1f}")
