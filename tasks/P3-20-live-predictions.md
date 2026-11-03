@@ -120,10 +120,11 @@ files and findings F-001 to F-032 stay unchanged.
 | Early Dec | S20 for both, jointly (S7) |
 
 ## Subtasks
-- [ ] S1 — Renzo reviews this Specification; agent commits and pushes it; hash recorded here. Deadline 10:00 Brasília, 3 Nov — doing: Renzo
-- [ ] S2 — `scripts/p3_20_live.py` part 1: reference distributions of S1, S2 and S20 at all clean dates from data up to
+- [x] S1 — Renzo reviews this Specification; agent commits and pushes it; hash recorded here. Deadline 10:00 Brasília, 3 Nov — done: Renzo, 3 Nov (`9a522e9`, pushed 05:55 UTC = 02:55 Brasília)
+- [x] S2 — `scripts/p3_20_live.py` part 1: reference distributions of S1, S2 and S20 at all clean dates from data up to
   30 Oct (Binance, Foxbit, Mercado Bitcoin, the two cross-venue gaps) → `results/tables/P3-20_reference.csv`; commit before
-  any download
+  any download — done: Renzo, 3 Nov (commit below; missing-data rule fixed here, before any November data: a pre-window
+  needs >= 15 of 20 days; S1 and S2 need every post day; S20 needs >= 15 of 20)
 - [ ] S3 — Download November data into new raw files with checksums; point `p1_02_premium.py` and the venue checks at them
   without changing the method; the 30 Oct series must reproduce exactly
 - [ ] S4 — E1 readout (S1 and S2, all venues, monitor alarm in [t0+1, t0+5] via `scripts/p3_03_monitor.py`) →
@@ -135,7 +136,7 @@ files and findings F-001 to F-032 stay unchanged.
 - [ ] S8 — pt-BR box for slide 10 with the registered prediction and whatever came out; Felipe places it
 
 ## Success criteria
-- [ ] Specification pushed before 10:00 Brasília on 3 Nov (hash and push time recorded); otherwise E1 relabelled as above
+- [x] Specification pushed before 10:00 Brasília on 3 Nov (hash and push time recorded); otherwise E1 relabelled as above
 - [ ] Reference distributions committed before any November data was downloaded (commit order in git)
 - [ ] E2 branch pushed before 10:00 Brasília on 6 Nov, with quotes from the legal text
 - [ ] E1 and E2 results in a finding with exact commands, reported whatever they show; nothing in the Specification
@@ -149,8 +150,9 @@ files and findings F-001 to F-032 stay unchanged.
 - Finding F-0xx (next free number at the time)
 
 ## Handoff
-- **State:** plan drafted 3 Nov about 02:45 Brasília; nothing committed, nothing downloaded or computed.
-- **Next step:** S1. Renzo reviews; then commit and push this file before 10:00 Brasília (13:00 UTC) on 3 Nov.
+- **State:** S1 registered (`9a522e9`); S2 reference committed (see log). No November data downloaded yet.
+- **Next step:** S3 after the 4 Nov PTAX window: download Binance/PTAX/Coinbase/Foxbit/Mercado Bitcoin into new files,
+  then add part 2 (`readout`) to `p3_20_live.py` with the assert on rows up to 30 Oct; S5 (E2 branch) by 5 Nov 23:59.
 - **Open questions:** (1) Renzo: approve the Specification and the November download. (2) S5: does a pending application
   keep a provider operating after 6 Nov, and does art. 91 cover exchanges' bank accounts and Pix? (3) Res. 574 is still not
   in the P1-04 event list (P3-16); the clean-date rule uses that list as it stands.
@@ -158,6 +160,10 @@ files and findings F-001 to F-032 stay unchanged.
   `scripts/p4_04_inference.py`.
 
 ## Log
+- 2026-11-03, agent for Renzo: S2 done. Reference from frozen data only (1,073 clean dates, 20 Nov 2020 – 30 Mar 2026; reproduces
+  F-029: largest |S2| 202.8, |S20| 65.7). Binance bands: S1 −74.8/+75.0, **S2 −75.5/+59.8**, S20 −35.4/+37.7 bps. So a
+  null on S2 rules out only moves beyond about 75 bps; the bands reflect 2020–26 volatility, wider than 2026's. Rule kept
+  as registered. Foxbit is far noisier (S2 −166/+129), Mercado Bitcoin tighter (S2 −43/+39). No November data downloaded.
 - 2026-11-03, agent for Renzo: Renzo approved the Specification and the November download; registration commit and push.
 - 2026-11-03 03:10 (Brasília), agent for Renzo: second agent's review of the cross-country plan applied here too: overlap
   screen (Copom 3–4 Nov, US midterms, US jobs report 6 Nov), null results worded as a bound and not as zero, code
