@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-02 by Renzo (agent) · **Current phase:** P4/P5 — Robustness, freeze and deck (started
+**Last updated:** 2026-11-03 by Renzo (agent) · **Current phase:** P4/P5 — Robustness, freeze and deck (started
 Mon 2 Nov) · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results freeze:** Wed 4 Nov
 
 This page is the team's dashboard. Read it first; update it at the end of every work session
@@ -205,6 +205,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-03 — Codex for Renzo: P3-21 independent review appended to task, F-033 History only: arithmetic reproduces; U2 causal interpretation, execution-cost bounds and transfer wording need correction. F-015's reference FX traces to a Binance quote, not PTAX; daily-PTAX cover recommendation and occurrence inventory prepared for Felipe/team. Deck, F-015 and analysis scripts unchanged; original Handoff preserved.
 - 2026-11-03 — agent for Renzo: P3-21 S1–S3: spec committed first (`79e15d1`); spike buyer +R$ 4,842 per US$ 100k, monthly saver +R$ 492 in the year, holder +R$ 6,802 if sold 24 Jun, panic buyer −R$ 10,070 by 30 Oct (F-033, illustration); F-015's R$ 5,052 uses PTAX 5.38, window PTAX 5.14 gives ~R$ 4,830 (team to decide)
 - 2026-11-03 — agent for Renzo: P3-20 registered and pushed before the data (`9a522e9`, 02:55 Brasília); reference bands from the 30 Oct freeze (`ce283dc`; Binance 2-day band −75/+60 bps, so a null rules out only larger moves); Res. 520/589 and Voto 108 read: bank accounts and Pix are covered by the 6 Nov ban, status of providers in transition ambiguous, branch rule registered (`abc603f`). Next: data after the 4 Nov PTAX window; branch applied 5 Nov
 - 2026-11-03 — agent for Renzo: checked the second agent's review of the cross-country idea (accepted: Ukraine 1 Sep overlap, noise can bias, decomposition is not identification, EEA anticipation, nulls need a bound, past episodes are not predictions); applied the same fixes to the `P3-20` draft (overlap screen: Copom 3–4 Nov, US midterms, US jobs report 6 Nov; code isolation); new task `P3-22` (stage 1: qualify foreign cases, no outcomes, 4 h cap)

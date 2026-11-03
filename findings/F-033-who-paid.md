@@ -47,3 +47,4 @@ Candidate for slide 9 (replacing its current table) if Felipe agrees; not used y
 
 ## History
 - 2026-11-03, agent for Renzo: created (P3-21 S2–S3).
+- 2026-11-03, Codex for Renzo (independent review): U1–U4 reproduce within R$ 1 using `.venv/bin/python /tmp/p3-21-review/rederive.py` (independent stdlib calculation; retained scratch location, hash, full results and command register in [P3-21 → Review](../tasks/P3-21-who-paid.md#review--2026-11-03-codex-for-renzo)). Interpretation/reporting corrections requested: U2 offsets post-notice costs with earlier purchases; held-position marks are not realised transfers; F-021 does not establish execution-cost lower bounds; every-day variant lacks monthly output; CSV was not committed. Original reais acceptance criterion still fails. The purported reference PTAX comes from D-10's Binance quote. Daily-PTAX cover recommendation is for Felipe/team to decide; body, status, deck and F-015 unchanged.
