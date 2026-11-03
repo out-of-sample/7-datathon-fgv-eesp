@@ -2,9 +2,9 @@
 id: P4-04
 title: Honest inference and window contents for the +94 bps headline (non-overlapping windows, first-day move, other measures inside the window)
 phase: P4
-status: todo
+status: doing
 owner: CS 2
-working: -
+working: Renzo
 due: 2026-11-04
 depends: P2-03, P4-01
 ---
@@ -15,22 +15,54 @@ Two weak points in how the headline is stated, found on 2 Nov while checking str
 
 1. **Precision.** "p ≈ 0.001" (F-016) counts 1,073 ordinary dates whose 20-day windows overlap (neighbours share 38 of
    40 days), so they behave like ~30 independent comparisons. With non-overlapping windows the June change still beats
-   every ordinary window, but the smallest possible p is about 0.03.
+   every ordinary window, but the smallest possible p is about 0.03. The windows share no days but are not fully
+   independent (the series is autocorrelated).
 2. **Window contents.** The pre-committed window [+1, +20] after 23 Jun (24 Jun – 21 Jul) also contains the 26 Jun
    meeting (suspension kept, in-book arbitrage released, a 24-hour-hold draft presented, E-05.5, E-12) and Res. BCB 580
    (1 Jul, E-10), and a second peak on 3 Jul with no identified cause. +93.9 bps is the average over "the notice and
-   what followed in the next weeks", not the notice alone. Only the first-day move (23 → 24 Jun) predates the meeting.
+   what followed in the next weeks", not the notice alone. Only the first-day move (23 → 24 Jun) predates the meeting
+   and Res. 580; it does not predate Res. 574 (register 18 Jun, DOU 22 Jun, E-11).
 
 Core findings F-001..F-027 stay unchanged until the team re-decides the freeze; this task writes a new finding.
 
 ## Subtasks
-- [ ] S1 — Spec, committed before the script: (a) the F-016 statistic on non-overlapping clean windows (same clean-date
+- [ ] S1 — doing: Renzo — Spec, committed before the script: (a) the F-016 statistic on non-overlapping clean windows (same clean-date
   rule as `scripts/p2_03_events.py`; stride 41 PTAX days; all 41 offsets; p = (k+1)/(n+1), report the range);
   (b) the first-day change 23 → 24 Jun against every clean one-day change, all years and per year; (c) a dated list of
   regulatory communications inside [+1, +20] with the premium path. Decision rule for the deck wording, written in S1.
 - [ ] S2 — `scripts/p4_04_inference.py` and finding F-0NN (next free number) with the commands.
 - [ ] S3 — Wording for Felipe (slides 4, 5, 8): e.g. "maior que a variação em todas as 1.073 datas comuns; em 30 janelas
   que não se sobrepõem, p = 0,03"; "+94 bps no mês seguinte ao ofício, janela que inclui a reunião de 26/jun e a Res. 580".
+
+## S1 spec (committed before `scripts/p4_04_inference.py` exists)
+
+**Data and clean dates.** `data/processed/P1-02_premium_daily.csv` (`premium_bps`), events from
+`data/processed/P1-04_events_brazil.csv`; clean-date rule identical to `scripts/p2_03_events.py` (blackout ±20 PTAX days
+around every announced and effective date; positions 20 to N−21). t0 = 23 Jun 2026, excluded from both windows.
+
+**Statistics**
+- **A (headline, F-016):** mean[+1, +20] − mean[−20, −1]. Non-overlapping placebo sets: for each offset o = 0..40, walk
+  the clean dates in order and keep one if its position is ≥ o and ≥ 41 positions after the last kept one (41-day
+  windows share no day). Per offset: n, k (two-sided |s| ≥ |e|, as F-016; one-sided also reported), p = (k+1)/(n+1).
+  Report min-max over offsets.
+- **B (secondary, before the 26 Jun meeting):** mean[+1, +2] − mean[−20, −1]. The window ends at +2 because the meeting
+  was at +3 (the event calendar, not the premium, sets it). Against all clean dates and against non-overlapping sets
+  (stride 23, offsets 0..22). Disclosure: 24 and 25 Jun values (155.4, 184.3 bps) already seen.
+- **C (description):** the one-day change 23 → 24 Jun against clean one-day changes, all years and per year, with
+  `ptax_window_uncertain` flags. No p-value on slides.
+- **D (description):** dated communications and market events within [−20, +20] PTAX days of t0, hand-listed from
+  `docs/sources.md` with IDs (E-11, E-05, E-05.5/E-12, E-10, M-04, M-05), with the premium on each date.
+
+**Decision rules for the deck (slides 4, 5, 8)**
+1. A: if every offset gives p ≤ 0.05, the slide says "maior que a variação em todas as 1.073 datas comuns; em N janelas
+   que não se sobrepõem, p = X" (N, X from the output). If any offset gives p > 0.05, report the range and remove the
+   significance wording from the slides.
+2. B: if every offset gives p ≤ 0.05, slide 4 or 8 may say "nos dois dias antes da reunião de 26/jun, +X bps"; otherwise
+   annex only, as description.
+3. C: annex only.
+4. D: one line on slide 4 or 8: "janela que inclui a reunião de 26/jun (minuta da retenção de 24 h) e a Res. 580
+   (1/jul)"; the full list in the annex.
+5. The headline stays +93.9 bps (Renzo, 2 Nov).
 
 ## Success criteria
 - [ ] Spec committed before the script runs, with the disclosure below
@@ -45,7 +77,10 @@ Core findings F-001..F-027 stay unchanged until the team re-decides the freeze; 
 - First-day change 23 → 24 Jun: +130.6 bps. Clean one-day changes (n = 1,092): 9 as large, all in 2021 (largest +210.0,
   23 Feb 2021). By year, days ≥ +130.6 (excluding 24 Jun): 2020 0, 2021 6, 2022 1, 2023 0, 2024 2 (max +300.2 on
   5 Aug 2024), 2025 1 (+132.2 on 5 Mar 2025), 2026 0 (max +86.7 on 3 Jul). Single days are noisy; uniqueness comes from
-  persistence.
+  persistence. 5 Mar 2025 spans Carnival (previous PTAX day 28 Feb) and is flagged `ptax_window_uncertain`.
+- Re-validated 2 Nov (independent re-run): the reimplemented clean-date rule reproduces F-016 exactly (1,073 dates,
+  +93.91, largest placebo +65.7, two-sided p = 0.0009); non-overlapping two-sided k = 0 for all offsets.
+- Also seen: premium 155.4 (24 Jun) and 184.3 (25 Jun), the two PTAX days before the 26 Jun meeting.
 - Premium path (bps): 23 Jun 24.8; 24 Jun 155.4; 25 Jun 184.3; 26 Jun 75.6 (meeting day); 29 Jun 139.8; 1 Jul 121.1
   (Res. 580 at 18:01); 2 Jul 99.2; 3 Jul 185.9; 6 Jul 177.0; 10 Jul 86.2.
 
@@ -83,6 +118,7 @@ PY
 - **How to resume:** read F-016, F-022, E-05.5, E-10, E-12 in `docs/sources.md`.
 
 ## Log
+- 2026-11-02, agent for Renzo: Renzo takes the task; exploratory values re-validated (one misquote and two wordings corrected)
 - 2026-11-02, agent for Renzo: created (todo) from the deck-plan strategy checks
 
 ## Result
