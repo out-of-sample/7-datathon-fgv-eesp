@@ -57,6 +57,8 @@ Reproduce: `python scripts/p3_19_supply_response.py` → `results/tables/P3-19_r
   USDT entered Brazil (F-031, corrected). The test only asks which price the imbalance followed.
 - **Daily relation and timing.** With a weak within-day leg, "the sellers reacted to price" cannot be fully separated from
   "they were active in the high-premium weeks for other reasons".
+- **Field meaning.** The taker-buy column matches Foxbit's API documentation (R-09: "Taker buy base volume"); no trade-level
+  records were reconciled with it.
 - **Small gap variation.** The Foxbit − Binance gap moves little (standard deviation 2.1 bps a day), so the test has less
   power to detect a response to it; "not explained by the gap" is not "the gap does not matter".
 - Simultaneity is reduced, not removed: the outcome (afternoon) comes after the premium (morning), but both can respond to
@@ -70,3 +72,4 @@ associação, não uma prova de causa."
 
 ## History
 - 2026-11-02, agent for Renzo: created (P3-19), status exploratory
+- 2026-11-02, agent for Renzo: caveat on field meaning added with source R-09; numbers unchanged

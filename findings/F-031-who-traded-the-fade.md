@@ -61,6 +61,9 @@ Net seller-initiated volume = volume − 2 × taker-buy volume (USDT, hourly can
 - **C5, weekend test (uninformative)**: if weekday-only supply held the price down, the premium should rise over weekends in
   the wave. Friday 17h → Monday 09h changes: wave −8, +21, −33 bps (n = 3); before the notice the same change already has
   a standard deviation of 51.5 bps (n = 25). Too noisy to say anything.
+- **Start date vs M-04**: the wave began on 30 Jun (+23.7 mn USDT net seller-initiated), seven days before the NovaDAX
+  partnership news of 7 Jul (M-04); NovaDAX clients moving to Foxbit cannot be what started it (they may have added to it
+  later; 6 Jul, +43.1 mn, is the largest day). Field mapping confirmed against Foxbit's API documentation (R-09).
 - **M-05 comparison**: Foxbit's share of the three exchanges, 4–18 Jul: 0.32 (`daily_flow.csv`). Foxbit claimed "mais de 41%
   do volume de USDT e USDC negociado no país" for the two weeks before 18 Jul: same order, not the same measure.
 
@@ -89,3 +92,4 @@ negociou, e se houve entrada líquida de USDT no país, os dados não mostram."
   imbalance, not "net new supply" or "a new seller"; numbers unchanged; link to F-032
 - 2026-11-02, agent for Renzo: on-chain check (P3-18) dropped, no labelled Foxbit Tron wallets; caveat updated
 - 2026-11-02, agent for Renzo: created (P3-17 S6, post hoc at Renzo's request), status exploratory
+- 2026-11-02, agent for Renzo: added start-date check against M-04 (wave began 30 Jun, before 7 Jul) and the Foxbit field-mapping source R-09
