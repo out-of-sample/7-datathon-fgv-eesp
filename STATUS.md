@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-03 by Renzo (agent) · **Current phase:** P4/P5 — Robustness, freeze and deck (started
+**Last updated:** 2026-11-04 by Felipe · **Current phase:** P4/P5 — Robustness, freeze and deck (started
 Mon 2 Nov) · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results freeze:** Wed 4 Nov
 
 This page is the team's dashboard. Read it first; update it at the end of every work session
@@ -205,6 +205,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-04 — Felipe: mentor session with David Wasserman (FGV/ex-QR) synthesized in docs/mentor-meeting-2026-11-04.md; confirmed econometric rigor and identified critical need for punchy "So what?" conclusion on Slide 10; mentor leads (Hyperliquid, BRLA, Coinnext, Ludolf) triaged
 
 - 2026-11-03 — agent for Renzo: deck v2 generated next to v1 (`deck/deck_v2_ptbr.md` + HTML via `scripts/build_deck_html.py deck/deck_v2_ptbr.md deck/deck_v2_apresentacao.html`); builder fixed (R$ amounts rendered as math, table cells unformatted), v1 HTML rebuilt; Felipe picks
 - 2026-11-03 — agent for Renzo: deck proposal after the 3 Nov decisions (`docs/deck-proposal-2026-11-03.md`, deck not edited): slide 9 = R$ 106 mn + four users (F-033), "+350" to annex; slide 10 = three dated predictions (Res. 574, 589, 584); stale "5 mil reais" in notes of slides 1 and 9; four decisions for Felipe
