@@ -19,6 +19,8 @@ Full deck draft following `docs/02-dolar-cripto.md` §9 and the definition of do
 - [x] S5: Cortar para 10 slides conforme `docs/deck-plan-10-slides.md`; material movido para o Anexo F; registro em `docs/deck-changes-2026-11-02.md`. — done: Renzo (agent), 2026-11-02
 - [ ] S4: Diagramação visual final e compilação em PDF após o congelamento oficial de P4-03 na quarta-feira.
 
+- [x] S6: Corrigir a síntese Flash, arquivar os dados públicos coletados e documentar a checagem exploratória BRLA. — done: Codex, 2026-11-04
+
 ## Success criteria
 - [x] Every slide's number links to a frozen finding
 - [x] One idea per slide
@@ -32,6 +34,7 @@ Full deck draft following `docs/02-dolar-cripto.md` §9 and the definition of do
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
+- **Flash follow-up:** Corrected dossier and meeting notes; public-source snapshots and checksums in `results/flash-mentor-leads/`. Reproduce F-034 with `python scripts/p5_01_flash_checks.py`. Validate the pool swaps, USDC/USD and a second pool before adding BRLA to the deck.
 - **State:** `deck/deck_v1_ptbr.md` now has **10 slides** (S5, Renzo's agent, 2 Nov, at Renzo's request), built from
   `docs/deck-plan-10-slides.md`. Every change, the two deviations from the plan (slide 5 title "entre as oito regras
   testadas"; no p-value on the money slide) and the moved material are listed in `docs/deck-changes-2026-11-02.md`.

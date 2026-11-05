@@ -52,7 +52,7 @@ ao congelamento), linha exploratória no slide 8 (não aplicada), Res. 574 no sl
 <!-- SLIDE 2 -->
 ## Slide 2 — A porta que fechou: o ofício de 23/jun
 
-### Um ofício sigiloso e de efeito imediato interrompeu o câmbio que fundos usavam para trazer cripto ao Brasil com IOF zero; no dia seguinte, operadores ouvidos pela imprensa já ligavam a alta de preço a ele
+### Um ofício de circulação inicialmente restrita e efeito imediato interrompeu o câmbio que fundos usavam para trazer cripto ao Brasil com IOF zero; no dia seguinte, operadores ouvidos pela imprensa já ligavam a alta de preço a ele
 
 #### Layout Visual & Figura
 - **Figura (a desenhar, `P5-02`):** linha do tempo das medidas de 2025–2026 com o ofício marcado e um diagrama do canal (fundo → câmbio com IOF 0% → compra de cripto no exterior → venda a corretoras no Brasil). Até lá, a tabela abaixo.
@@ -71,7 +71,7 @@ ao congelamento), linha exploratória no slide 8 (não aplicada), Res. 574 no sl
 | 22–23/mai/2025 | IOF da compra comum de moeda estrangeira sobe para 3,5% | Decreto, público | no dia seguinte |
 | 30/abr/2026 | Res. BCB 561: veda ativos virtuais na liquidação do eFX | Resolução, pública | 1/out/2026 |
 | 18/jun (registro BCB) e 22/jun/2026 (DOU) | Res. BCB 574: instituições de câmbio passam a reportar operações com ativos virtuais | Resolução, pública | reporte de operações a partir de 3/nov/2026 |
-| **23/jun/2026** | **Ofício do BCB: "imediata descontinuidade" do câmbio de fundos para importar ativos virtuais** | **Ofício sigiloso** | **imediato** |
+| **23/jun/2026** | **Ofício do BCB: "imediata descontinuidade" do câmbio de fundos para importar ativos virtuais** | **Ofício de circulação restrita** | **imediato** |
 | 26/jun/2026 | Reunião: suspensão mantida; arbitragem "dentro do livro de ordens" liberada; minuta da retenção de 24 h | Reunião com associações | — |
 | 1/jul/2026 | Res. BCB 580: prestadoras de serviços de ativos virtuais no regime prudencial (Tipo 3) | Resolução, pública | 1/jan/2027 |
 | 7/ago/2026 | Res. BCB 584: retenção de até 24 h em saídas a partir de US$ 10 mil | Resolução, pública | 1/jan/2027 |
@@ -136,7 +136,7 @@ ao congelamento), linha exploratória no slide 8 (não aplicada), Res. 574 no sl
 <!-- SLIDE 5 -->
 ## Slide 5 — Entre as oito regras testadas, só o ofício saiu da faixa comum
 
-### As regras publicadas, com dias ou meses de aviso, ficaram dentro da faixa das datas comuns; só o ofício sigiloso e imediato saiu dela
+### As regras publicadas, com dias ou meses de aviso, ficaram dentro da faixa das datas comuns; só o ofício de circulação restrita e efeito imediato saiu dela
 
 #### Layout Visual & Figura
 - **Imagem:** `results/figures/P3-12_rules.png` (mudança do prêmio em torno de cada regra, no anúncio e na vigência, contra a faixa de 95% das datas comuns).
@@ -147,11 +147,11 @@ ao congelamento), linha exploratória no slide 8 (não aplicada), Res. 574 no sl
 - **O IOF da compra comum subiu de 1,1% para 3,5% (maio/2025):** o prêmio mudou +13,2 bps (p = 0,38).
 - **O contraste mais próximo:** a Res. 561 vedou ativos virtuais na liquidação do eFX, mas foi publicada 154 dias antes de valer: +6,0 bps no anúncio, −5,3 na vigência. Não sabemos o tamanho do canal eFX; o contraste estreita, mas não resolve, a questão de forma ou conteúdo.
 - **Res. 574** (registro no BCB em 18/jun, DOU em 22/jun; reporte de operações a partir de 3/nov): não está entre as oito. No dia útil seguinte ao registro, o prêmio subiu 38 bps (18→19/jun). O teste de evento não a separa do ofício, porque toda janela depois dela contém o salto de 24/jun.
-- **Limites:** "dentro da faixa" quer dizer sem efeito acima de ~35 bps, não efeito zero. O ofício foi ao mesmo tempo a única regra sigilosa e imediata e a única que fechou o canal dos fundos: forma e conteúdo **não** se separam.
+- **Limites:** "dentro da faixa" quer dizer sem efeito acima de ~35 bps, não efeito zero. O ofício foi ao mesmo tempo a única medida de circulação restrita e efeito imediato e a única que fechou o canal dos fundos: forma e conteúdo **não** se separam.
 - *Fontes:* F-016, F-026, F-029; E-06a, E-11.
 
 #### Notas do Orador & Rastreabilidade
-- **Notas:** "Se o ofício moveu o prêmio, outras regras sobre cripto e câmbio também moveram? Testamos as oito regras brasileiras com data, com a mesma conta. As sete publicadas, com um dia a seis meses de aviso, ficaram dentro da faixa das datas comuns. Inclusive a Resolução 561, que vedou ativos virtuais no eFX mas avisou com cinco meses, e o aumento do IOF de 2025, de 1,1% para 3,5%, que mexeu só 13 pontos-base. Só o ofício, sigiloso e imediato, saiu da faixa. Duas ressalvas. A Resolução 574, de reporte, saiu dias antes; houve uma alta de 38 pontos-base no dia seguinte ao registro dela, e o teste não consegue separá-la do ofício. E não sabemos se o que pesou foi a forma, sigilo e efeito imediato, ou o conteúdo, porque o ofício tinha os dois."
+- **Notas:** "Se o ofício moveu o prêmio, outras regras sobre cripto e câmbio também moveram? Testamos as oito regras brasileiras com data, com a mesma conta. As sete publicadas, com um dia a seis meses de aviso, ficaram dentro da faixa das datas comuns. Inclusive a Resolução 561, que vedou ativos virtuais no eFX mas avisou com cinco meses, e o aumento do IOF de 2025, de 1,1% para 3,5%, que mexeu só 13 pontos-base. Só o ofício, de circulação restrita e efeito imediato, saiu da faixa. Duas ressalvas. A Resolução 574, de reporte, saiu dias antes; houve uma alta de 38 pontos-base no dia seguinte ao registro dela, e o teste não consegue separá-la do ofício. E não sabemos se o que pesou foi a forma, circulação restrita e efeito imediato, ou o conteúdo, porque o ofício tinha os dois."
 - **Rastreabilidade:** `F-016` (tabela de eventos, p contra 1.073 datas), `F-026` (oito regras, faixa −35,0 a +37,6 bps dos 200 sorteios), `F-029` (Res. 574: +37,7 bps em 18→19/jun); `E-06a` (texto da Res. 561 aberto), `E-11` (Res. 574); `P3-16` (Res. 574 fora da lista de eventos, decisão da equipe pendente); `scripts/p3_12_rules.py`.
 
 ---
@@ -216,7 +216,7 @@ ao congelamento), linha exploratória no slide 8 (não aplicada), Res. 574 no sl
   - um efeito duradouro (p = 0,24);
   - a causa do recuo: nenhum evento datado a até 5 dias úteis de 22/jul, e as compras no exterior não voltaram;
   - qual canal passou a definir o preço depois do ofício;
-  - se o que pesou foi a forma do ofício (sigiloso, imediato) ou o conteúdo (fechar o canal dos fundos).
+  - se o que pesou foi a forma do ofício (circulação inicialmente restrita, efeito imediato) ou o conteúdo (fechar o canal dos fundos).
 - *Fontes:* F-011, F-022, F-024, F-026, F-028.
 
 #### Notas do Orador & Rastreabilidade

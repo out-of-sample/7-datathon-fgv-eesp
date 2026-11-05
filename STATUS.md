@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-04 by agent for Renzo (P4-03 freeze; P3-24, P3-25, P5-08 created) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-04 by Codex (P5-01 Flash corrections) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 tag `results-frozen` (F-001 to F-033)
 
@@ -168,7 +168,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
-| [P5-01](tasks/P5-01-deck-v1.md) | Deck v1 (pt-BR) | ⏸️ paused | Economist | - | 4/5 | 4/4 | 2026-11-05 | P4-03 |
+| [P5-01](tasks/P5-01-deck-v1.md) | Deck v1 (pt-BR) | ⏸️ paused | Economist | - | 5/6 | 4/4 | 2026-11-05 | P4-03 |
 | [P5-02](tasks/P5-02-final-figures.md) | Final figures in one consistent style | ⬜ todo | CS 1 | - | – | 0/3 | 2026-11-06 | P5-01 |
 | [P5-03](tasks/P5-03-red-team.md) | Red-team review | 👀 review | Team | - | 3/3 | 2/2 | 2026-11-06 | P5-01 |
 | [P5-04](tasks/P5-04-scripts-txt.md) | Export scripts as .txt with headers | ⬜ todo | CS 2 | - | – | 0/2 | 2026-11-07 | P4-03 |
@@ -214,10 +214,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-031](findings/F-031-who-traded-the-fade.md) | While the premium fell (30 Jun – 21 Jul 2026), seller-initiated trading on Foxbit exceeded buyer-initiated trading by about 362 mn USDT, in business hours and on a scale not seen in five years; who traded and whether USDT entered Brazil are not identified | 🔍 exploratory | P3-17 | - |
 | [F-032](findings/F-032-supply-response.md) | After the notice, seller-initiated trading on Foxbit rose with the premium over the official dollar, not with the Foxbit–Binance gap, and turned net positive above about 35 bps; the hour-by-hour evidence is weak | 🔍 exploratory | P3-19 | - |
 | [F-033](findings/F-033-who-paid.md) | Illustration - a buyer during the spike paid about R$ 4,840 more per US$ 100k; a monthly saver's purchases after the notice cost about R$ 750 more; a USDT holder's position was revalued up by R$ 6,800 the next day, and a panic buyer's position down by R$ 10,000 by 30 Oct | 🔍 exploratory | P3-21 | - |
+| [F-034](findings/F-034-flash-brla-price-check.md) | Exploratory Polygon BRLA price check using the PTAX window | 🔍 exploratory | P5-01 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-04 — Codex: corrected Flash dossier, mentor notes and conclusions; archived public-source snapshots with checksums; F-034 exploratory; BRLA route and historical supply mechanism unresolved.
 - 2026-11-04 — agent for Renzo: results frozen (P4-03, Renzo's decision): 27 findings → `frozen`, 6 exploratory keep their label, tag `results-frozen`; link check: no broken citation (11 sites refuse scripts). Competing-rails follow-up adopted: new tasks `P3-24` (BRLA as a fourth venue, Felipe; Renzo reviews all his mentor-lead work), `P3-25` (venue mix after recovery, Renzo), `P5-08` (Slide 10 within the evidence, Felipe); E1 band corrected to S2 (−75.5/+59.8 bps)
 
 - 2026-11-04 — Felipe: flash subagent fleet gathered and verified all mentor leads in docs/flash-findings-mentor-leads.md (BRLA implied FX jumped +85 bps & supply shrank 49%; Hyperliquid EWZ time-matched basis was 0 bps; Coinext closed due to BCB capital tier, not the ofício; Ludolf identified as Alexandre Ludolf, QR Asset/FGV)
