@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-05 by Codex for Renzo (P3-16 caveat for review) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-05 by agent for Renzo (P3-20 last E2 check: branch C stands) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 tag `results-frozen` (F-001 to F-033)
 
@@ -228,6 +228,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-05 — agent for Renzo: P3-20 S5 last E2 check at 12:40 in a real browser (BCB news page + all 105 normative acts 20 Oct–5 Nov): no applicant list, no statement on bank access → branch C stands; re-check before 23:59 optional
 - 2026-11-05 — agent for Renzo: P5-09 → review: deck v3 in Claude Slides (link in the task; Renzo shares it), mentor-deck design, 10 slides + references page, a methods slide with formulas and Crossref-checked references, five charts redrawn from frozen data (`scripts/p5_09_deck_figures.py`), no task/finding IDs on slides; uses exploratory F-035 (E1) and F-037 (BRLA), to drop if their checks fail
 - 2026-11-05 — agent for Renzo: submission format is GitHub link + 10-slide PDF (no `.txt` scripts, decision log); rest of P5-04 assigned to Nattan or Jonathan
 - 2026-11-05 — agent for Renzo: P3-24 spec 2 (`403ca9d`, before the pulls): the Polygon pool is 92% of on-chain BRLA–dollar volume (65% after) but only 0.35% of Binance's; on a Curve pool BRLA kept its value against BRZ (−3.4 bps, ±22) while the dollar route rose +111: the stress was on the dollar side (F-037). Reviews: P3-16 passes; P5-04 passes with two gaps (annex and download scripts not exported)

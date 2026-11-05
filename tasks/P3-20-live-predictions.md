@@ -212,9 +212,9 @@ last data seen are the E1 windows of 3–4 Nov (F-035). Sources opened 5 Nov and
 - **State:** E1 read out (F-035, exploratory): Binance S2 +2.1 bps, p = 0.90 (non-overlapping 0.92); Foxbit −1.9, p = 0.92;
   prediction held. Mercado Bitcoin's November pull failed (Cloudflare 302 to our script), so MB and the MB gap are
   "missing". E2 pending.
-- **Next step:** (1) Before 23:59 Thu 5 Nov: one last check of bcb.gov.br (notícias / comunicados) for the list or a
-  statement on bank access for providers in transition; if found, re-apply the branch from it and commit before 23:59
-  (otherwise C stands). (2) Fri 6 Nov after 13:30 Brasília: `python scripts/p3_20_live.py download` then `readout`; E2 S1 is
+- **Next step:** (1) Done 5 Nov ~12:40 Brasília: last BCB check in a real browser found no list and no bank-access
+  statement, so **branch C stands as of 12:40**. Anything the BCB publishes until 23:59 still counts: an optional
+  re-check late this evening reruns the same search (Busca de normas, all types, period up to 5 Nov; news page). (2) Fri 6 Nov after 13:30 Brasília: `python scripts/p3_20_live.py download` then `readout`; E2 S1 is
   the early reading (the only E2 number for the PDF), reported two-sided; add the BCB list (expected 6 Nov) next to it.
   (3) Mon 9 Nov after 13:30: E2 S2 verdict.
 - **Open questions:** (1) Mercado Bitcoin: **5 Nov ~00:18 Brasília, Renzo's browser shows "Plataforma em manutenção"**, so the
@@ -235,6 +235,13 @@ last data seen are the E1 windows of 3–4 Nov (F-035). Sources opened 5 Nov and
   `_to_<UTC hour>`; a later pull wins for the same hour.
 
 ## Log
+- 2026-11-05 12:40 (Brasília), agent for Renzo: S5 last check, done in a real browser (Playwright Firefox),
+  which reads the JavaScript pages the scripts could not. (a) bcb.gov.br/noticias: latest news 5 Nov 11:51 (credit-offer
+  rules) and press notes up to 4 Nov (Copom); nothing on virtual-asset providers. (b) Busca de normas, all types,
+  20 Oct – 5 Nov: 105 acts (latest Comunicado 46.236, 5 Nov 11:47); none mentions virtual assets, SPSAV/PSAV, providers in
+  transition or bank access (the closest, Comunicado 46.218 of 3 Nov, lifts a court asset freeze). (c) Web search: the
+  only "lista completa" (BeInCrypto, 31 Oct) is the outlet's own compilation, not a BCB list; press still says the BCB
+  list is due Fri 6 Nov. **Branch C stands** for all three venues as of 12:40; the cutoff is still 23:59.
 - 2026-11-05 01:40 (Brasília), agent for Renzo: S5 re-check (Renzo asked). No BCB list of applicants and no BCB statement on
   banks serving providers in transition found: web searches (news, bcb.gov.br) found nothing after E-17; the BCB news page
   needs JavaScript (not readable by script); the BCB normativos register shows no Resolução BCB after Res. 604 (27 Oct,
