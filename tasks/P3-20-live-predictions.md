@@ -187,7 +187,9 @@ and the Voto PDF (both URLs in E-14):
   three venues' own statements; apply the registered branch rule (A/B/C per venue, from sources only, never prices);
   commit and push. Then S6 on Fri 6 Nov after 13:30 Brasília: `python scripts/p3_20_live.py download` and `readout`
   (E2 S1 = early reading, the only E2 number for the PDF).
-- **Open questions:** (1) Mercado Bitcoin: retried 5 Nov 02:30 Brasília, still HTTP 302 with no Location on every
+- **Open questions:** (1) Mercado Bitcoin: **5 Nov ~02:40 Brasília, Renzo's browser shows "Plataforma em manutenção"**, so the
+  302 is MB's maintenance page, not a block on us. Retry `python scripts/p3_20_live.py download` after maintenance (the
+  browser steps below are the fallback). Earlier: retried 5 Nov 02:30 Brasília, still HTTP 302 with no Location on every
   endpoint, also with curl's default agent: Cloudflare is challenging this machine's connection, which only a real
   browser passes (the 31 Oct frozen pull worked). **Fix (Renzo, ~2 min, after 14:00 Brasília so the day's PTAX window
   is complete):** open
