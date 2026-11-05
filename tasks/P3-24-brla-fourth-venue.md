@@ -64,6 +64,27 @@ measure BRLA's peg). It is the cost of getting dollars through Pix → BRLA → 
 
 **Claim ceiling** unchanged (below). Report whatever S20 shows, including a BRLA move much smaller or larger than USDT's.
 
+### Specification 2 (5 Nov 2026 ~01:40 Brasília, before any Curve or Celo price is downloaded): scale and the reais side
+Added at Renzo's request after the pool census. No price from these two pools has been seen; only their names, tokens,
+creation dates and (for Celo) June trading-day counts and volumes.
+- **Scale (adds to F-037):** for 25 May–22 Jun and 24 Jun–21 Jul (calendar days, pools trade every day), summed US$
+  volume per pool: Polygon USDC/BRLA (D-19), Gnosis, Base (Flash bundle) and Celo BRLA/USD₮ `0x14e577e42d45fd2200a9b0e31d87fe826467111a`
+  (downloaded now); share of the Polygon pool in their total; and Polygon's volume against Binance USDT/BRL volume on the
+  same days (`usdtbrl_volume_usdt` in `P1-02_premium_hourly.csv`, USDT ≈ US$).
+- **Reais side (mentor's "did BRLA depeg?"):** Curve pool on Polygon `0xc89f31f74573cc19fffc06108601c1ac71ba9735`
+  (TESOURO / BRZ / stBRZ / BRLA, created 20 Nov 2025). Quantity: BRLA price in BRZ = (daily close US$ price of BRLA in this
+  pool) / (daily close US$ price of BRZ in this pool), both from GeckoTerminal OHLCV `currency=usd&token=<address>`, in bps
+  ((ratio − 1) × 10,000). BRZ (Transfero) and BRLA (Avenia) both claim R$ 1 backing, so a gap means one of them moved
+  against the other in reais; it cannot say which, and it is not BRLA against fiat BRL.
+- **Statistic:** S20 on PTAX days as in the primary (pre 25 May–22 Jun, post 24 Jun–21 Jul), next to the dollar route's
+  +111.0 bps. **Testable** only if the pool has a daily candle on at least 15 of the 20 PTAX days on each side; otherwise
+  reported as "not testable".
+- **Reading, fixed now:** |S20| ≤ 22 bps (a fifth of the dollar route's move) → "BRLA kept its value against BRZ while the
+  dollar route rose: the stress was on the dollar side". |S20| > 22 bps → one of the two reais tokens moved in reais; the
+  dollar-side reading weakens and both are reported. Daily range in each window reported either way.
+- **Limits stated in advance:** GeckoTerminal's US$ prices are derived from its own routing; a ratio cancels the dollar leg
+  only if both tokens are priced the same way; a multi-asset pool's BRLA price may be stale on days BRLA did not trade.
+
 ## Subtasks
 - [x] S1 — Felipe: push the mentor-lead work from his local scratch (`scratch/mentor-leads/`): download script(s), the five
   reports (`brla`, `hyperliquid`, `coinnext`, `b3-fx`, `context`) under `docs/mentor-leads/`, raw files under
