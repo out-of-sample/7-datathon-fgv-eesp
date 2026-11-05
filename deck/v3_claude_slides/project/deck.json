@@ -1,0 +1,19 @@
+{
+  "v": 4,
+  "createdOnFiles": {"v": 1, "at": "2026-11-05T05:17:44Z"},
+  "lists": "css",
+  "title": "Quanto custa fechar a porta — deck v3",
+  "order": ["capa", "porta", "metodos", "salto", "regras", "alternativas", "mecanismo", "custo", "limites", "conclusao", "referencias"],
+  "sections": {
+    "s1": {"description": "Pergunta, resposta e a porta que fechou", "start": "capa"},
+    "s2": {"description": "Dados e métodos", "start": "metodos"},
+    "s3": {"description": "Resultados: o salto, as regras, as outras explicações, o mecanismo e o custo", "start": "salto"},
+    "s4": {"description": "Discussão: limites, previsões e o que isso significa", "start": "limites"},
+    "s5": {"description": "Anexo: referências e fontes", "start": "referencias"}
+  },
+  "faces": {
+    "source-serif-4": {"family": "Source Serif 4", "href": "https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&display=swap"},
+    "ibm-plex-sans": {"family": "IBM Plex Sans", "href": "https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"}
+  },
+  "designSystems": []
+}

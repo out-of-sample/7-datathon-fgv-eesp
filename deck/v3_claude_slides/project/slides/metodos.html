@@ -1,0 +1,53 @@
+<section id="metodos" data-transition="fade" style="background:#F6F4EF;color:#3D4A5C;font-family:'IBM Plex Sans', Arial, sans-serif;padding:120px 128px 160px;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#B5481F">Dados e métodos</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#14213D">Seis técnicas, cada regra registrada antes de rodar</h2>
+</div>
+<div style="display:flex;gap:24px;background:#ECE8DF;border-radius:12px;padding:12px 28px">
+<p style="flex:1;font-size:24px;line-height:1.35;color:#3D4A5C"><b>1.520 dias úteis</b> de PTAX, out/2020 a out/2026</p>
+<p style="flex:1;font-size:24px;line-height:1.35;color:#3D4A5C"><b>3 corretoras:</b> Binance, Foxbit, Mercado Bitcoin</p>
+<p style="flex:1;font-size:24px;line-height:1.35;color:#3D4A5C"><b>5 moedas</b> sem o choque: EUR, MXN, TRY, ZAR, COP</p>
+<p style="flex:1;font-size:24px;line-height:1.35;color:#3D4A5C"><b>8 regras</b> com data e compras no exterior (BCB)</p>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px">
+<div style="display:flex;flex-direction:column;gap:8px;background:#FBFAF7;border:1px solid #E3DED4;border-radius:12px;padding:22px 26px">
+<h3 style="font-size:28px;font-weight:600;line-height:1.2;color:#14213D">1 · Prêmio e piso de ruído</h3>
+<p style="font-size:24px;font-weight:600;line-height:1.35;color:#B5481F">prêmio = USDT/BRL ÷ (PTAX × USDT/USD) − 1</p>
+<p style="font-size:24px;line-height:1.35;color:#3D4A5C">nas horas em que o BCB calcula a PTAX; custo de negociar: 2 a 10 bps</p>
+<p style="font-size:24px;font-style:italic;line-height:1.35;color:#5B6573">Corwin e Schultz (2012)</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FBFAF7;border:1px solid #E3DED4;border-radius:12px;padding:22px 26px">
+<h3 style="font-size:28px;font-weight:600;line-height:1.2;color:#14213D">2 · Quebras sem datas</h3>
+<p style="font-size:24px;font-weight:600;line-height:1.35;color:#B5481F">min Σ (prêmio − média do regime)²</p>
+<p style="font-size:24px;line-height:1.35;color:#3D4A5C">procura a mudança mais forte em seis anos sem saber do ofício; IC de 95% da data</p>
+<p style="font-size:24px;font-style:italic;line-height:1.35;color:#5B6573">Bai (1997); Bai e Perron (2003)</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FBFAF7;border:1px solid #E3DED4;border-radius:12px;padding:22px 26px">
+<h3 style="font-size:28px;font-weight:600;line-height:1.2;color:#14213D">3 · Contra datas comuns</h3>
+<p style="font-size:24px;font-weight:600;line-height:1.35;color:#B5481F">Δ = média[+1,+20] − média[−20,−1]</p>
+<p style="font-size:24px;line-height:1.35;color:#3D4A5C">p = (k+1)/(n+1) em 1.073 datas sem regra; e em 30 janelas sem sobreposição</p>
+<p style="font-size:24px;font-style:italic;line-height:1.35;color:#5B6573">lógica de Gelbach, Helland e Klick (2013)</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FBFAF7;border:1px solid #E3DED4;border-radius:12px;padding:22px 26px">
+<h3 style="font-size:28px;font-weight:600;line-height:1.2;color:#14213D">4 · Brasil sintético</h3>
+<p style="font-size:24px;font-weight:600;line-height:1.35;color:#B5481F">min (y − Xw)², w ≥ 0, Σw = 1</p>
+<p style="font-size:24px;line-height:1.35;color:#3D4A5C">cinco moedas sem o choque recriam o Brasil antes de 23/jun; permutação</p>
+<p style="font-size:24px;font-style:italic;line-height:1.35;color:#5B6573">Abadie, Diamond e Hainmueller (2010)</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#FBFAF7;border:1px solid #E3DED4;border-radius:12px;padding:22px 26px">
+<h3 style="font-size:28px;font-weight:600;line-height:1.2;color:#14213D">5 · Dinheiro transferido</h3>
+<p style="font-size:24px;font-weight:600;line-height:1.35;color:#B5481F">T = Σ (prêmio − prêmio pré) × volume</p>
+<p style="font-size:24px;line-height:1.35;color:#3D4A5C">em R$, de quem comprava para quem vendia; contra 194 janelas comuns</p>
+<p style="font-size:24px;font-style:italic;line-height:1.35;color:#5B6573">volume da Binance; PTAX do dia</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px;background:#14213D;border:1px solid #14213D;border-radius:12px;padding:22px 26px">
+<h3 style="font-size:28px;font-weight:600;line-height:1.2;color:#F6F4EF">6 · Linha de base e registro</h3>
+<p style="font-size:24px;font-weight:600;line-height:1.35;color:#F0A57E">em 2025, nosso modelo perdeu para “amanhã = hoje”</p>
+<p style="font-size:24px;line-height:1.35;color:#C9D1DE">agora: linha de base em tudo; hipóteses no Git antes dos dados</p>
+<p style="font-size:24px;font-style:italic;line-height:1.35;color:#C9D1DE">Lições de 2025</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1500px;font-size:24px;color:#5B6573">Vimos o salto na sondagem inicial, antes das hipóteses: a data do ofício vem da imprensa e do BCB, não do gráfico</p>
+<p style="position:absolute;right:128px;bottom:64px;width:80px;font-size:24px;color:#5B6573;text-align:right">3</p>
+<aside>Seis técnicas, cada uma com uma referência publicada. Um: medimos o prêmio nas mesmas horas em que o BCB calcula a PTAX e descontamos o preço do USDT em dólar; o custo de negociar, de 2 a 10 pontos-base, é o piso de ruído. Dois: um teste de quebras estruturais procura a mudança mais forte em seis anos sem receber nenhuma data. Três: a mudança da média nos 20 dias úteis depois de cada regra contra os 20 antes, comparada com a mesma conta em 1.073 datas sem regra; como janelas vizinhas compartilham dias, refazemos com 30 janelas sem sobreposição. Seguimos a lógica do teste de quantis de Gelbach, Helland e Klick para eventos únicos, sem rodar o teste deles. Quatro: um Brasil sintético feito de cinco moedas sem o choque. Cinco: o dinheiro que passou de compradores a vendedores. Seis, a lição de 2025: toda estimativa tem linha de base ingênua, e hipóteses, regras de decisão e previsões foram registradas no Git antes de cada teste. Uma transparência: o salto apareceu na sondagem inicial, antes das hipóteses; por isso a data vem de fontes externas. Código de cada número no repositório.</aside>
+</section>

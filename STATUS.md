@@ -62,6 +62,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | `P5-04`: **submission is GitHub link + 10-slide PDF, no `.txt` to the jury (Renzo, 5 Nov)**. Remaining: map every deck/annex claim to its script (annex and download scripts included), re-run after Felipe picks the deck | **Nattan or Jonathan** | Sat 7 Nov |
 | `P3-25` / F-036: the retrospective three-venue composition comparison and four-firm exit audit are ready. Another Claude agent should run the exact command and review the claim; Nattan or Jonathan then signs off the teammate re-run before any slide use | Independent Claude review, then teammate re-run; Felipe for deck placement | Fri 6 Nov morning |
 | `P3-24`: Felipe pushed the Flash data (`79b71f1`; F-034 reproduces, 44/44 checksums). **5 Nov: the bundle moved to `data/raw/flash-mentor-leads/` (out of git); after pulling, restore it with the command in `data/README.md`** (note for Felipe's agents in the P3-24 Handoff). S2–S4 done by Renzo's agent (5 Nov, F-037): Pix → BRLA → USDC route +111 bps vs USDT +94 on the same days; supply fall not a run. **Felipe reviews (S5)** | Felipe (review) | Fri 6 Nov morning |
+| `P5-09`: deck v3 (Claude Slides) ready next to v1/v2; slides 6, 9 and 10 use exploratory F-037 (BRLA) and F-035 (E1). Pick a version; keep or drop the references page | Felipe (pick + review); Renzo shares the link | before red team (Fri 6 Nov) |
 | Slide 10 conclusion (`P5-08`): pick the architecture (Felipe's plan recommends "Private Tariff" + recovery line) and apply the known wording fixes | Felipe; Renzo checks | before red team (Fri 6 Nov) |
 | [Three-improvement proposal](docs/improvements-proposal.md): contribution audit, bounded recovery investigation, and PDF reader test; investigation and adoption are separate gates | Team: approve/revise/decline each workstream and accept owners; no new work assigned | Before any proposed execution; preserve 4 Nov freeze |
 | P2 gate: 23 Jun framing & inference calls | Resolved: Felipe logged Economist gate calls in `docs/README.md` (supervisory ofício framing, acute spike vs plateau reporting, placebo p-value + synthetic counterfactual, Foxbit volume adaptation, depeg 11-event comparative table) | done |
@@ -168,7 +169,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P4-03](tasks/P4-03-freeze.md) | Freeze results | ✅ done | Team | - | 4/4 | 4/4 | 2026-11-04 | P4-01, P4-02 |
 | [P4-04](tasks/P4-04-headline-inference-window.md) | Honest inference and window contents for the +94 bps headline (non-overlapping windows, first-day move, other measures inside the window) | 👀 review | CS 2 | - | 3/3 | 3/3 | 2026-11-04 | P2-03, P4-01 |
 
-**P5 — Deck and submission** (1/8 closed)
+**P5 — Deck and submission** (1/9 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -180,6 +181,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P5-06](tasks/P5-06-submission.md) | Submit PDF and scripts | ⬜ todo | Team | - | – | 0/3 | 2026-11-08 | P5-02, P5-03, P5-04, P5-05 |
 | [P5-07](tasks/P5-07-story-notebook.md) | Story notebook - the whole project end to end (deck prototype) | ✅ done | CS 1 | - | 3/3 | 3/3 | 2026-11-03 | P2-03, P2-04, P3-01, P4-01 |
 | [P5-08](tasks/P5-08-slide10-conclusion.md) | Slide 10 conclusion - answer "so what?" in economic terms, sentence by sentence within the evidence | ⬜ todo | Economist | - | 0/4 | 0/3 | 2026-11-06 | P3-20, P3-24, P3-25 |
+| [P5-09](tasks/P5-09-deck-v3-claude-slides.md) | Deck v3 - the 10-slide deck rebuilt in Claude Slides, in the mentor deck's design, with a methods slide and checked references | 👀 review | CS 1 | - | 4/5 | 3/4 | 2026-11-06 | P5-01, P4-03 |
 
 **Findings**
 
@@ -226,6 +228,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-05 — agent for Renzo: P5-09 → review: deck v3 in Claude Slides (link in the task; Renzo shares it), mentor-deck design, 10 slides + references page, a methods slide with formulas and Crossref-checked references, five charts redrawn from frozen data (`scripts/p5_09_deck_figures.py`), no task/finding IDs on slides; uses exploratory F-035 (E1) and F-037 (BRLA), to drop if their checks fail
 - 2026-11-05 — agent for Renzo: submission format is GitHub link + 10-slide PDF (no `.txt` scripts, decision log); rest of P5-04 assigned to Nattan or Jonathan
 - 2026-11-05 — agent for Renzo: P3-24 spec 2 (`403ca9d`, before the pulls): the Polygon pool is 92% of on-chain BRLA–dollar volume (65% after) but only 0.35% of Binance's; on a Curve pool BRLA kept its value against BRZ (−3.4 bps, ±22) while the dollar route rose +111: the stress was on the dollar side (F-037). Reviews: P3-16 passes; P5-04 passes with two gaps (annex and download scripts not exported)
 

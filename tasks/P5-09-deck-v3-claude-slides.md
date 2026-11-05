@@ -2,9 +2,9 @@
 id: P5-09
 title: Deck v3 - the 10-slide deck rebuilt in Claude Slides, in the mentor deck's design, with a methods slide and checked references
 phase: P5
-status: doing
+status: review
 owner: CS 1
-working: Renzo (agent)
+working: -
 due: 2026-11-06
 depends: P5-01, P4-03
 ---
@@ -19,27 +19,46 @@ gives one slide to methods and techniques, cites papers that were opened, and pu
 - [x] S1 — Inputs read: decks v1/v2, 10-slide plan, mentor deck (PDF in Renzo's Downloads, 17 slides), mentor notes; past
   winners' decks (FGV pages, 2023 and 2024 podiums) reviewed for design lessons — done: Renzo (agent), 5 Nov
 - [x] S2 — References checked against Crossref/BIS (list in Log) — done: Renzo (agent), 5 Nov
-- [ ] S3 — Charts redrawn in the deck palette from frozen data (`scripts/p5_09_deck_figures.py`) — doing: Renzo (agent)
-- [ ] S4 — Slides written and published in Claude Slides (10 + one references page) — doing: Renzo (agent)
+- [x] S3 — Charts redrawn in the deck palette from frozen data (`scripts/p5_09_deck_figures.py`) — done: Renzo (agent), 5 Nov
+- [x] S4 — Slides written and published in Claude Slides (10 + one references page) — done: Renzo (agent), 5 Nov
 - [ ] S5 — Felipe (deck owner) reviews; team picks v1, v2 or v3
 
 ## Success criteria
-- [ ] 10 content slides (references page marked as annex), pt-BR, no task/finding IDs on any slide
+- [x] 10 content slides (references page marked as annex), pt-BR, no task/finding IDs on any slide
 - [ ] Every number on a slide matches a finding (map in Handoff); exploratory ones are labelled in the speaker notes
-- [ ] One slide shows the methods with formulas and opened references
-- [ ] Charts regenerate from `scripts/p5_09_deck_figures.py` using only frozen data or registered outputs
+- [x] One slide shows the methods with formulas and opened references
+- [x] Charts regenerate from `scripts/p5_09_deck_figures.py` using only frozen data or registered outputs
 
 ## Outputs
 - `scripts/p5_09_deck_figures.py` → `results/figures/P5-09_*.png`
 - Claude Slides deck (link in Handoff)
 
 ## Handoff
-- **State:** inputs read, references checked, building charts and slides.
-- **Next step:** S3, then S4.
-- **Open questions:** Felipe: v3 vs v1/v2. Team: keep the references page as an 11th page (annex) or drop it.
-- **How to resume:** `.venv/bin/python scripts/p5_09_deck_figures.py`.
+- **State:** deck v3 published (private Claude Slides artifact, Renzo's account):
+  https://claude.ai/artifact/1jP7676AnonbDt2kRQ5Fyu — 10 slides + page "A" (references, annex). Slide sources copied to
+  `deck/v3_claude_slides/project/` (one HTML per slide + `deck.json`); charts `results/figures/P5-09_*.png`.
+  Teammates can open the link only after Renzo shares it (Share menu); export to PDF/PPTX from the deck page.
+- **Slides:** 1 cover with the answer (+93,9 bps; R$ 4.842 / US$ 100k; R$ 106 mi) · 2 the channel that closed (+ parity,
+  BCB LAI quote, Shleifer–Vishny) · 3 methods (six techniques, formulas, references, Lições de 2025) · 4 the jump (series +
+  1,073 dates) · 5 eight rules · 6 other explanations (incl. BRLA route, 22 variants) · 7 imports −78% · 8 money and four
+  users · 9 four limits + three registered predictions (E1 result) · 10 conclusion (three implications, contribution) · A references.
+- **Number trace:** F-016 (+93,9; 15,2 → 109,1; 1.073 dates, max +65,7), F-009 (three venues, PTAX +0,68%, USDT/USD), F-011/
+  F-022 (break 24 Jun, CI 18–30 Jun; 22 variants +74 to +128; p = 0,24 after), F-029 (30 windows p = 0,03; exploratory),
+  F-026 (eight rules, band −35/+38), F-017 (+109, 1st of 6), F-018 (BTC +93,8), F-037 (BRLA +111; 0,2–0,35%; exploratory,
+  Felipe's review pending), F-024 (−78%, p = 0,02; one third in Aug–Sep; US$ 2,4 bn/month), F-025 (R$ 106 / 145 mi; 194
+  windows, max 35,5; ~95 bps), F-015/F-033 (four users; exploratory), F-035 (E1 +2,1, p = 0,90; exploratory, teammate re-run
+  pending), F-027 (Res. 584 band, ~9 bps), F-028 (+171 max), F-014 (monitor), P3-20 S5 (E2 branch C).
+- **Next step:** S5 — Felipe compares v1/v2/v3 and picks; whoever finalises exports the PDF from the deck page.
+- **Open questions:** (1) Felipe/team: keep page "A" (references) as an annex page after slide 10, or drop it (citations stay
+  on the slides). (2) Slides 6 and 10 use F-037 (BRLA) and slide 9 uses F-035 (E1), both exploratory: keep only if Felipe's
+  P3-24 review and a teammate's re-run of F-035 pass before submission; otherwise remove the BRLA row/column and write
+  "conferência em 4/nov" without the result. (3) Annex C.5 gives Makarov & Schoar pp. 289–319; Crossref says 293–319 (Felipe's annex).
+- **How to resume:** charts: `PLEX_DIR=<folder with IBMPlexSans-*.ttf> .venv/bin/python scripts/p5_09_deck_figures.py`
+  (without PLEX_DIR the labels fall back to the default sans). Edit a slide in `deck/v3_claude_slides/project/slides/` and
+  republish it to the same artifact URL, or ask Renzo's agent.
 
 ## Log
+- 2026-11-05 02:40, agent for Renzo: S3–S4 done → review. Five charts redrawn from frozen data (asserts check 15,2/109,1, 1.073 dates and max 65,7, −78%, R$ 106,1 mi and 194 windows); 10 slides + references page published; no task or finding IDs on slides (Renzo); references registered in docs/sources.md (L-05, L-06, L-08, L-14, re-check row).
 - 2026-11-05, agent for Renzo: task created at Renzo's request ("v3 of the 10-slide deck using Claude Slides"). References
   checked on Crossref (DOI records opened 5 Nov): Shleifer & Vishny 1997 JF 52(1) 35–55; Makarov & Schoar 2020 JFE 135(2)
   **293–319** (the annex's 289 is wrong); Abadie, Diamond & Hainmueller 2010 JASA 105(490) 493–505; Bai 1997 REStat 79(4)
