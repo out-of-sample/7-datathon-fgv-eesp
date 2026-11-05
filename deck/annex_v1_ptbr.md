@@ -382,13 +382,14 @@ A janela de B termina em +2 porque a reunião foi em +3 (o calendário, não o p
 Um segundo pico em 3/jul (+86,7 bps em um dia) não tem causa identificada. Reproduzir:
 `python scripts/p4_04_inference.py` → `results/tables/P4-04_nonoverlap.csv`, `results/tables/P4-04_window_events.csv`.
 
-**Res. BCB 574 (`P3-16`, decisão da equipe pendente entre lista de eventos e ressalva).** A Resolução BCB nº 574
+**Res. BCB 574 (`P3-16`, ressalva fora das oito regras testadas).** A Resolução BCB nº 574
 (datada de 18/jun no registro do BCB, publicada no DOU em 22/jun) cria a obrigação de reportar operações com ativos
 virtuais realizadas a partir de 3/nov/2026; não restringe operações de junho. No dia seguinte à data de registro, o
-prêmio subiu 38 bps (de −4,7 para 32,9 bps, 18→19/jun; em 2026, antes do ofício, só um outro dia subiu tanto),
-recuou para 23,3 e 24,8 bps em 22 e 23/jun e saltou +131 bps em 24/jun, dia seguinte ao ofício. O conteúdo (só
-reporte) e a diferença de tamanho apontam o ofício como a explicação principal do salto de 24/jun; a Res. 574 pode
-ter movido o prêmio em dezenas de bps, e o teste de evento não separa as duas datas.
+prêmio subiu 38 bps (de −4,7 para 32,9 bps, 18→19/jun), ficou em 23,3 e 24,8 bps em 22 e 23/jun e saltou +131 bps
+em 24/jun, dia seguinte ao ofício. A alta de 18→19/jun, após um valor baixo em 18/jun, não identifica efeito da
+resolução. A coincidência do salto maior com o dia seguinte ao ofício e o conteúdo apenas de reporte da Res. 574
+favorecem o ofício como hipótese para 24/jun, mas não permitem atribuir uma parcela causal a cada medida. As janelas
+de 20 dias se sobrepõem; por decisão de Renzo, a Res. 574 fica como ressalva, sem nona linha nem nova estimativa.
 
 **Nota de método.** A comparação com datas placebo segue a lógica do teste de quantis amostrais (SQ) para estudos de
 um único evento de Gelbach, Helland & Klick (2013, `L-09`), pensado para eventos como regulação e decisões judiciais.

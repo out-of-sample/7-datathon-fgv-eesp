@@ -24,7 +24,7 @@ Perguntas difíceis e respostas de 20 segundos: `deck/qa_ptbr.md`. Material movi
 `deck/annex_v1_ptbr.md`. O que mudou em relação à versão de 14 slides: `docs/deck-changes-2026-11-02.md`.
 **Versão 2 (3/nov/2026):** aplica a proposta `docs/deck-proposal-2026-11-03.md` (slides 1, 9 e 10); a versão 1 continua em
 `deck/deck_v1_ptbr.md`. Pendentes da equipe: tabela de pessoas no slide 9, resultado da Res. 574 no slide 10 (exceção
-ao congelamento), linha exploratória no slide 8 (não aplicada), Res. 574 no slide 5 (`P3-16`).
+ao congelamento), linha exploratória no slide 8 (não aplicada). A ressalva da Res. 574 no slide 5 segue `P3-16`.
 
 ---
 
@@ -146,13 +146,13 @@ ao congelamento), linha exploratória no slide 8 (não aplicada), Res. 574 no sl
 - **Sete regras publicadas** (o decreto do IOF, sua suspensão, quatro resoluções do BCB e uma proposta de IOF sobre cripto que não chegou a valer), com 1 a 175 dias de aviso: mudanças de −24,9 a +15,4 bps, todas dentro da faixa comum.
 - **O IOF da compra comum subiu de 1,1% para 3,5% (maio/2025):** o prêmio mudou +13,2 bps (p = 0,38).
 - **O contraste mais próximo:** a Res. 561 vedou ativos virtuais na liquidação do eFX, mas foi publicada 154 dias antes de valer: +6,0 bps no anúncio, −5,3 na vigência. Não sabemos o tamanho do canal eFX; o contraste estreita, mas não resolve, a questão de forma ou conteúdo.
-- **Res. 574** (registro no BCB em 18/jun, DOU em 22/jun; reporte de operações a partir de 3/nov): não está entre as oito. No dia útil seguinte ao registro, o prêmio subiu 38 bps (18→19/jun). O teste de evento não a separa do ofício, porque toda janela depois dela contém o salto de 24/jun.
+- **Res. 574, fora das oito testadas:** registrada em 18/jun e publicada em 22/jun, exige reporte de operações realizadas a partir de 3/nov; não restringe operações em junho. O prêmio subiu 38 bps em 18→19/jun e 131 bps em 23→24/jun. A primeira alta não identifica efeito da resolução, e as janelas de 20 dias da resolução e do ofício se sobrepõem.
 - **Limites:** "dentro da faixa" quer dizer sem efeito acima de ~35 bps, não efeito zero. O ofício foi ao mesmo tempo a única medida de circulação restrita e efeito imediato e a única que fechou o canal dos fundos: forma e conteúdo **não** se separam.
 - *Fontes:* F-016, F-026, F-029; E-06a, E-11.
 
 #### Notas do Orador & Rastreabilidade
-- **Notas:** "Se o ofício moveu o prêmio, outras regras sobre cripto e câmbio também moveram? Testamos as oito regras brasileiras com data, com a mesma conta. As sete publicadas, com um dia a seis meses de aviso, ficaram dentro da faixa das datas comuns. Inclusive a Resolução 561, que vedou ativos virtuais no eFX mas avisou com cinco meses, e o aumento do IOF de 2025, de 1,1% para 3,5%, que mexeu só 13 pontos-base. Só o ofício, de circulação restrita e efeito imediato, saiu da faixa. Duas ressalvas. A Resolução 574, de reporte, saiu dias antes; houve uma alta de 38 pontos-base no dia seguinte ao registro dela, e o teste não consegue separá-la do ofício. E não sabemos se o que pesou foi a forma, circulação restrita e efeito imediato, ou o conteúdo, porque o ofício tinha os dois."
-- **Rastreabilidade:** `F-016` (tabela de eventos, p contra 1.073 datas), `F-026` (oito regras, faixa −35,0 a +37,6 bps dos 200 sorteios), `F-029` (Res. 574: +37,7 bps em 18→19/jun); `E-06a` (texto da Res. 561 aberto), `E-11` (Res. 574); `P3-16` (Res. 574 fora da lista de eventos, decisão da equipe pendente); `scripts/p3_12_rules.py`.
+- **Notas:** "Se o ofício moveu o prêmio, outras regras sobre cripto e câmbio também moveram? Testamos as oito regras brasileiras com data, com a mesma conta. As sete publicadas, com um dia a seis meses de aviso, ficaram dentro da faixa das datas comuns. Inclusive a Resolução 561, que vedou ativos virtuais no eFX mas avisou com cinco meses, e o aumento do IOF de 2025, de 1,1% para 3,5%, que mexeu só 13 pontos-base. Só o ofício, de circulação restrita e efeito imediato, saiu da faixa. Duas ressalvas. A Resolução 574, de reporte para operações a partir de novembro, foi publicada em 22 de junho, fora das oito testadas. A alta de 38 pontos-base após a data de registro não identifica seu efeito; as janelas dela e do ofício se sobrepõem. E não sabemos se o que pesou foi a forma, circulação restrita e efeito imediato, ou o conteúdo, porque o ofício tinha os dois."
+- **Rastreabilidade:** `F-016` (tabela de eventos, p contra 1.073 datas), `F-026` (oito regras, faixa −35,0 a +37,6 bps dos 200 sorteios), `F-029` (Res. 574: +37,7 bps em 18→19/jun); `E-06a` (texto da Res. 561 aberto), `E-11` (Res. 574); `P3-16` (ressalva explícita, sem nona linha de evento); `scripts/p3_12_rules.py`.
 
 ---
 

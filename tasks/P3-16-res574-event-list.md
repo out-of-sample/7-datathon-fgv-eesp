@@ -2,9 +2,9 @@
 id: P3-16
 title: Res. BCB 574 (published 22 Jun 2026, one day before the notice) is missing from the event list
 phase: P3
-status: doing
+status: review
 owner: Economist
-working: Codex for Renzo
+working: -
 due: 2026-11-04
 depends: P1-04, P3-12
 ---
@@ -39,26 +39,29 @@ effect. Reproduce:
   ofício. O conteúdo (só reporte) e a diferença de tamanho apontam o ofício como a explicação principal do salto de
   24/jun; a Res. 574 pode ter movido o prêmio em dezenas de bps, e o teste de evento não separa as duas datas."
   (Corrected 2 Nov: the first draft said the premium "não se moveu entre 19 e 23/jun", which left out 18 → 19 Jun; F-029.)
-- [ ] S4 — Verify E-11 and the price dates, then make the deck/annex caveat explicit and prepare independent Claude review. — doing: Codex for Renzo, 2026-11-05
+- [x] S4 — Verify E-11 and the price dates, then make the deck/annex caveat explicit and prepare independent Claude review. — done: Codex for Renzo, 2026-11-05
 
 ## Success criteria
-- [ ] Res. 574 appears in the event list or as an explicit caveat, with source E-11
-- [ ] The deck or annex says why the 24 Jun jump is attributed to the 23 Jun notice and not to Res. 574
+- [x] Res. 574 appears as an explicit caveat, with source E-11
+- [x] The deck and annex explain why the notice is the better hypothesis for the 24 Jun jump while neither rule's separate causal effect is identified
 
 ## Outputs
-- `data/processed/P1-04_events_brazil.csv` row or a caveat in F-026 / the annex
+- Caveat in `findings/F-026-which-rules-matter.md`, `deck/annex_v1_ptbr.md`, and slide 5 of both deck drafts; no event row or re-estimation
+- Independent review instructions: `docs/agent-prompt-P3-16-review.md`
 
 ## Handoff
-- **State:** Renzo chose the explicit caveat path on 5 Nov; Codex claimed S4. S3 was drafted earlier. Source E-11 is registered in `docs/sources.md`.
-- **Next step:** verify the official text and date, audit the price path, and finish the caveat in the deck/annex.
+- **State:** Caveat route implemented; official E-11 and price dates checked. Frozen eight-rule results unchanged. Awaiting independent Claude review before done.
+- **Next step:** Claude reviews `docs/agent-prompt-P3-16-review.md`; Felipe checks final slide wording as deck owner.
 - **Open questions:** whether any other rule was published between 15 and 30 Jun 2026; nobody has searched the BCB
   register for that window systematically.
 - **How to resume:** read E-11 and E-05.10 in `docs/sources.md`; F-026; F-022 (break intervals).
 
 ## Log
+- 2026-11-05, Codex for Renzo: checked E-11 against the official BCB text and the daily premium (18 Jun −4.75; 19 Jun 32.92; 22 Jun 23.29; 23 Jun 24.84; 24 Jun 155.40 bps). Added explicit caveats to F-026, annex, and both deck drafts; no event row, script change, or estimate. Sent to Claude review through the task handoff.
 - 2026-11-05, Renzo + Codex: Renzo chose the caveat path for P3-16; Codex takes S4 and will request an independent Claude review. The frozen eight-rule calculation is retained.
 - 2026-11-02, agent for Renzo: S3 draft corrected: +37.7 bps on 18 → 19 Jun (F-029) added; the first draft started the window a day late
 - 2026-11-02, agent for Renzo: S3 drafted (caveat by content and timing, after a second agent's review)
 - 2026-11-02, agent for Renzo: created (todo) from P3-15
 
 ## Result
+Res. 574 is a reporting obligation for operations from 3 Nov, registered 18 Jun and published 22 Jun. The 18→19 Jun rise was 37.7 bps, but is not an identified effect. The 23→24 Jun jump was 130.6 bps; its timing and the different content favor the notice as a hypothesis. The event windows overlap, so individual causal effects are not identified. Renzo chose explicit caveats while preserving the frozen eight-rule calculation.

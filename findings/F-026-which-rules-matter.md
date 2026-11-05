@@ -35,6 +35,11 @@ Ordinary-date range = 2.5–97.5% of the 200 P2-03 placebo draws: −35.0 to +37
 Reproduce: `python scripts/p3_12_rules.py` → `results/tables/P3-12_rules.csv`, `results/figures/P3-12_rules.png`.
 
 ## Caveats
+- **Res. BCB 574 omitted from the frozen eight-rule comparison.** Registered by the BCB on 18 Jun and published on
+  22 Jun 2026 (E-11), it requires reporting of virtual-asset operations carried out from 3 Nov. The premium rose
+  37.7 bps on 18→19 Jun (F-029), but that one-day rebound does not identify the resolution's effect. A 20-day window
+  around its publication includes the 24 Jun jump after the notice, so the event test cannot separate the two.
+  Renzo chose an explicit deck/annex caveat in P3-16, without changing this frozen estimate.
 - **Form and content move together.** The notice was the only confidential, immediate rule *and* the only one that
   closed the funds' import channel (F-024). The chart cannot say which of the two mattered.
 - **"No effect" means "no effect above about 35 bps".** Smaller effects would not be detected.
@@ -48,5 +53,6 @@ Reproduce: `python scripts/p3_12_rules.py` → `results/tables/P3-12_rules.csv`,
 Slide 6 (`deck/deck_v1_ptbr.md`) & Anexo A (`deck/annex_v1_ptbr.md`).
 
 ## History
+- 2026-11-05, Codex for Renzo (P3-16): added the E-11 omission caveat after Renzo chose the caveat route; estimate and eight-row table unchanged, independent Claude review requested.
 - 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-02, agent for Renzo: created (P3-12).

@@ -91,6 +91,7 @@ regime), a "solution" deliverable (a daily monitor), and a causal design the aca
 
 | Date | Decision | Who |
 |---|---|---|
+| 5 Nov | P3-16: keep the frozen eight-rule event comparison; disclose Res. BCB 574 as an explicit caveat in slide 5, annex and F-026. Its 20-day window overlaps the 23 Jun notice, so no separate event estimate or ninth row is claimed | Renzo |
 | 30 Oct | Shortlist reduced to projects 1–4 above | Team |
 | 30 Oct | Probe passed for project 2 (premium far above noise; sharp break on 24 Jun 2026) | Probe script |
 | 30 Oct | Confirmed project 2 as primary and project 1 as a chapter | Team |
