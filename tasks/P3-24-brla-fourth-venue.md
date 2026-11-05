@@ -2,9 +2,9 @@
 id: P3-24
 title: BRLA as a fourth venue - did the on-chain route (Pix → BRLA → USDC) pay the same premium after the 23 Jun notice?
 phase: P3
-status: todo
+status: doing
 owner: Economist
-working: -
+working: Renzo (agent)
 due: 2026-11-06
 depends: P2-03, P2-05
 ---
@@ -29,27 +29,27 @@ uses, so no new choice is made after seeing the data.
   reports (`brla`, `hyperliquid`, `coinnext`, `b3-fx`, `context`) under `docs/mentor-leads/`, raw files under
   `data/raw/brla/` (and `data/raw/hyperliquid/`, `data/raw/rfb/`) with source URL and retrieval date, checksums appended to
   `data/raw/SHA256SUMS`. Raw data stays out of git (`.gitignore`); the script must re-download it
-- [ ] S2 — Felipe: write the spec here before the S3 re-run: token contract, chain and decimals; the pool address; the
+- [ ] S2 — doing: Renzo (agent). Write the spec here before the S3 re-run: token contract, chain and decimals; the pool address; the
   quantity (BRLA-implied BRL per USDC, USDC/USD-adjusted as in P1-02, over PTAX, in bps; PTAX window 10–13h or daily close,
   stated); windows as P2-03 (S20: mean of [t0+1, t0+20] minus mean of [t0−20, t0−1], t0 = 23 Jun 2026) and the acute window
   as F-016; qualification checks fixed before the run (pool history, daily USDC volume, share of hours with no trade, gaps);
   placebo dates only if the pool has at least 250 PTAX days of history before 23 Jun
-- [ ] S3 — Felipe: `scripts/p3_24_brla.py` (header: purpose, inputs, outputs, how to run) → `data/processed/P3-24_brla_daily.csv`,
+- [ ] S3 — Renzo (agent): `scripts/p3_24_brla.py` (header: purpose, inputs, outputs, how to run) → `data/processed/P3-24_brla_daily.csv`,
   `results/figures/P3-24_brla_vs_usdt.png` (BRLA route vs Binance premium, same axes); finding F-034, exploratory, written
   whatever it shows, with the qualification checks and the comparison with +93.9 bps
-- [ ] S4 — Felipe: the supply fall. Open the issuer's statements and a chain explorer for the 111.4 mn BRLA burned on Celo
+- [ ] S4 — Renzo (agent): the supply fall. Open the issuer's statements and a chain explorer for the 111.4 mn BRLA burned on Celo
   around 24 Jun: redemptions for reais, or tokens moved between chains (bridge or migration)? Register every source in
   `docs/sources.md` under `prompt.md` §6 (opened, one quoted line, who and when). Until a source says redemptions, the deck
   does not say "corrida" or "resgate"
-- [ ] S5 — Renzo: independent review of everything Felipe pushed in S1–S4 (BRLA, Hyperliquid, Coinext, RFB/B3): re-download,
-  checksums match, script runs top to bottom, numbers reproduce within 1 bps, every source opens and its quote matches,
-  claims stay within the ceiling below. Review appended to this file; F-034 `checked_by` — reserved: Renzo
+- [ ] S5 — Felipe: independent review of S2–S4 (done by Renzo's agent): script runs top to bottom, numbers reproduce within
+  1 bps, every source opens and its quote matches, claims stay within the ceiling below. Review appended to this file;
+  F-034 `checked_by` — reserved: Felipe (changed 5 Nov at Renzo's decision; Renzo did the analysis, so he cannot review it)
 
 ## Success criteria
 - [ ] Raw files re-download with matching checksums; `python scripts/p3_24_brla.py` runs top to bottom on a clean clone
 - [ ] Spec committed before the S3 run (git order), with the disclosure above
 - [ ] F-034 written with the exact command; the claim says "route cost", never "depeg"; supply fall worded by its source
-- [ ] Renzo (S5) reproduces the numbers within 1 bps and every new source opens
+- [ ] Felipe (S5) reproduces the numbers within 1 bps and every new source opens
 
 ## Claim ceiling
 - Allowed if it survives: "A rota on-chain (Pix → BRLA → USDC) pagou um prêmio de mesma ordem: o gargalo foi a entrada de
@@ -86,6 +86,8 @@ uses, so no new choice is made after seeing the data.
   integrity: `grep flash-mentor-leads data/raw/SHA256SUMS | sha256sum -c` (44 OK).
 
 ## Log
+- 2026-11-05 00:58 (Brasília), agent for Renzo: Renzo takes S2–S4 (Renzo's decision, 5 Nov); reviewer becomes Felipe (S5).
+  **Felipe: please do not start S2–S4; your part is the review.**
 - 2026-11-05 00:13 (Brasília), agent for Renzo (Renzo's decision): Flash bundle moved from `results/flash-mentor-leads/` to
   `data/raw/flash-mentor-leads/` (out of git), checksums appended to `data/raw/SHA256SUMS`, restore from `79b71f1` tested
   (identical except `.gitattributes`, not copied), script path and links updated (F-034, dossier, P5-01), F-034 re-run

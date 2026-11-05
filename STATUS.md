@@ -156,7 +156,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-21](tasks/P3-21-who-paid.md) | Who paid and who gained - the 23 Jun notice seen from five kinds of users of the digital dollar | 🔄 doing | CS 1 | Renzo (agent) | 3/5 | 2/4 | 2026-11-04 | P1-02, P3-03, P3-11 |
 | [P3-22](tasks/P3-22-other-countries-qualify.md) | Other countries, stage 1 - qualify each case before any test (Ukraine Aug 2026, Argentina Apr 2025, EEA Mar 2025; Russia, Nigeria listed) | ⬜ todo | CS 2 | - | 0/4 | 0/3 | 2026-11-05 | P1-05, P1-06 |
 | [P3-23](tasks/P3-23-research-agenda-ranking.md) | Record the competing-rails research agenda and rank datathon extensions | 👀 review | CS 1 | - | 3/3 | 3/4 | 2026-11-05 | - |
-| [P3-24](tasks/P3-24-brla-fourth-venue.md) | BRLA as a fourth venue - did the on-chain route (Pix → BRLA → USDC) pay the same premium after the 23 Jun notice? | ⬜ todo | Economist | - | 0/5 | 0/4 | 2026-11-06 | P2-03, P2-05 |
+| [P3-24](tasks/P3-24-brla-fourth-venue.md) | BRLA as a fourth venue - did the on-chain route (Pix → BRLA → USDC) pay the same premium after the 23 Jun notice? | 🔄 doing | Economist | Renzo (agent) | 0/5 | 0/4 | 2026-11-06 | P2-03, P2-05 |
 | [P3-25](tasks/P3-25-recovery-composition.md) | The premium recovered - did the market? Venue shares and exchange exits in 2026 | 👀 review | CS 1 | - | 4/5 | 3/4 | 2026-11-06 | P1-03, P3-17 |
 
 **P4 — Robustness and freeze** (3/4 closed)
