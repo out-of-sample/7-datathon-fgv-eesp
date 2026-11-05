@@ -110,6 +110,15 @@ See the "Literature anchors" sections of `02-dolar-cripto.md`, `01-depeg-recover
 | L-10 | Duffie, D. (2010). Presidential Address: Asset Price Dynamics with Slow-Moving Capital. *Journal of Finance* 65(4), 1237–1267. DOI 10.1111/j.1540-6261.2010.01569.x. IDEAS record: https://ideas.repec.org/a/bla/jfinan/v65y2010i4p1237-1267.html | Framing of the fade after the 23 Jun shock (F-031) | IDEAS record opened 2 Nov 2026 (agent for Renzo, P3-17); abstract quote: "The pattern of price responses to supply or demand shocks typically involves a sharp reaction to the shock and a subsequent and more extended reversal." Full paper not opened |
 | L-11 | Aldasoro, I., Beltrán, P. & Grinberg, F. (2026). Stablecoin flows and spillovers to FX markets. BIS Working Paper 1340, published 27 Mar 2026. `https://www.bis.org/publications/working-paper-1340-stablecoin-flows-and-spillovers-fx-markets` | Literature context for stablecoin/fiat parity gaps, constrained arbitrage, and the limits of a novelty claim | Page opened 2 Nov 2026 (Codex, project-story discussion); quote: "we document large and persistent price gaps (or parity deviations) between buying dollar exposure via stablecoins and via traditional markets". Abstract and summary opened; full paper not read |
 
+Additional literature opened for P3-23 (4 Nov 2026):
+
+| ID | Reference | Used for | Status |
+|---|---|---|---|
+| L-12 | Du, W., Huang, C. & Scharfstein, D. (2026). Competing rails for crossborder payments: banks, fintechs, and stablecoins. BIS Working Paper 1385. https://www.bis.org/publications/working-paper-1385-competing-rails-crossborder-payments-banks-fintechs-and-stablecoins | Updated literature anchor for the research agenda, not a source for our Brazilian event estimate | Opened 4 Nov 2026 (Codex for Renzo). Page publication date: 19 October 2026. Quote: "We construct harmonized all-in costs measures across these three rails for different corridors and payment values." Revised paper and discussion examined in preceding brainstorm; do not mix its tables with the supplied February draft. |
+| L-13 | Graf von Luckner, C. M., Koepke, R. & Sgherri, S. (2024). Crypto as a Marketplace for Capital Flight. IMF WP/24/133. https://www.imf.org/-/media/files/publications/wp/2024/english/wpiea2024133-print-pdf.pdf | Distinguish crypto trading from underlying capital movements; proposed stock/flow investigation | PDF opened 4 Nov 2026 (Codex for Renzo), abstract and conceptual discussion. Quote: "crypto markets serve as marketplaces for capital flight that already took place". Not evidence identifying flows in our episode. |
+
+P3-23 access limitation: *Deconstructing the Stablecoin Sandwich* (IMF, 30 Oct 2026) was found through its official indexed abstract. The landing page returned 403; the full paper was not read. It is explicitly marked abstract-only in the agenda and is not registered here as an opened paper.
+
 ## Route costs and fees (P3-01)
 
 | ID | Source | What | Access | Status |
@@ -129,6 +138,8 @@ See the "Literature anchors" sections of `02-dolar-cripto.md`, `01-depeg-recover
 |---|---|---|---|
 | R-08 | Coinbase, Coinbase Advanced fees: https://help.coinbase.com/en-gb/coinbase/trading-and-funding/advanced-trade/advanced-trade-fees | General maker/taker distinction for the improvements discussion; trade initiation is not an inventory or cross-border flow measure. Does not verify Foxbit API field mapping; no Coinbase fee rate used | Opened 2 Nov 2026 (agent for Renzo); quote: "Taker orders: Orders filled immediately at market price" |
 | R-09 | Foxbit REST v3 documentation, candlesticks endpoint: https://docs.foxbit.com.br/rest/v3/ | Field map of the candle array used in `data/raw/foxbit/USDTBRL-1h.csv`: index 6 base volume (USDT), 7 quote volume, 8 number of trades, 9 "Taker buy base volume", 10 "Taker buy quote volume". Confirms the column mapping of F-031/F-032; does not define the taker rule beyond the field name, and no trade-level records were reconciled | Opened 2 Nov 2026 (agent for Renzo); quote: "9 | Taker buy base volume" |
+| R-10 | Avenia, PIX2STABLE / STABLE2PIX integration guide: https://integration-guide.avenia.io/docs/Usecases/pix2Stable&stable2pix/ | Potential quote, fee and execution-state schema for future research; examples use sandbox endpoints, not observed transactions | Opened 4 Nov 2026 (Codex for Renzo). Quote: "Note: The status can be in: UNPAID PROCESSING PAID FAILED PARTIAL-FAILED". No API access, historical data, partnership or production performance established. |
+| R-11 | Avenia platform terms: https://app.avenia.io/Avenia-TC.pdf | Distinguish BRLA backing commitment from price stabilization on external venues; H4 design | PDF opened 4 Nov 2026 (Codex for Renzo), section 4.2, PDF page 19. Quote: "does not commit to stabilizing the value of BRLA on third-party trading platforms". Current terms do not establish historical June redemption conditions. |
 
 ## Depeg case sources (P3-04 / P3-09)
 

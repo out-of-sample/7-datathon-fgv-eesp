@@ -25,6 +25,11 @@ in the append-only [`improvements log`](improvements_log.md).
 **Pending team review:** [proposal to test contribution, recovery and presentation](improvements-proposal.md).
 It specifies investigations, deliverables, stop rules and adoption gates; no execution or framing decision is recorded yet.
 
+**Research brainstorm (4 Nov, Renzo):** [Competing-rails research agenda](competing-rails-research-agenda.md)
+records six directions in English; [datathon ranking and investigation plans](competing-rails-datathon-ranking.md)
+checks their incremental contribution, data requirements and claim limits. Proposals for discussion, not adopted scope;
+includes evidence-based comments on the [research/conclusions memo](plan-research-and-conclusions.md).
+
 **Unifying idea: limits to arbitrage.** A digital dollar should trade at parity with the dollar
 (USD for a stablecoin, PTAX-converted BRL for USDT/BRL). Parity is enforced by an arbitrage channel: issuer
 redemption, or the official FX market. Hypothesis: deviations are larger and last longer when that channel is

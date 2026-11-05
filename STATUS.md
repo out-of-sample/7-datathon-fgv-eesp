@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-04 by Felipe · **Current phase:** P4/P5 — Robustness, freeze and deck (started
+**Last updated:** 2026-11-04 by Codex for Renzo (P3-23 documentation) · **Current phase:** P4/P5 — Robustness, freeze and deck (started
 Mon 2 Nov) · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results freeze:** Wed 4 Nov
 
 This page is the team's dashboard. Read it first; update it at the end of every work session
@@ -117,7 +117,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | 👀 review | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (12/22 closed)
+**P3 — Extensions** (12/23 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -143,6 +143,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-20](tasks/P3-20-live-predictions.md) | Predictions registered before the data - Res. 574 reporting (3 Nov 2026) and Res. 589 ban on unauthorised counterparties (6 Nov 2026) | 🔄 doing | CS 1 | Renzo (agent) | 2/8 | 1/5 | 2026-11-16 | P1-02, P1-03, P3-03, P4-04 |
 | [P3-21](tasks/P3-21-who-paid.md) | Who paid and who gained - the 23 Jun notice seen from five kinds of users of the digital dollar | 🔄 doing | CS 1 | Renzo (agent) | 3/5 | 2/4 | 2026-11-04 | P1-02, P3-03, P3-11 |
 | [P3-22](tasks/P3-22-other-countries-qualify.md) | Other countries, stage 1 - qualify each case before any test (Ukraine Aug 2026, Argentina Apr 2025, EEA Mar 2025; Russia, Nigeria listed) | ⬜ todo | CS 2 | - | 0/4 | 0/3 | 2026-11-05 | P1-05, P1-06 |
+| [P3-23](tasks/P3-23-research-agenda-ranking.md) | Record the competing-rails research agenda and rank datathon extensions | 👀 review | CS 1 | - | 3/3 | 3/4 | 2026-11-05 | - |
 
 **P4 — Robustness and freeze** (2/4 closed)
 
@@ -205,6 +206,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-04 — Codex for Renzo: P3-23 English [research agenda](docs/competing-rails-research-agenda.md) and [datathon ranking](docs/competing-rails-datathon-ranking.md): six hypotheses, checked prerequisites, executable investigation plans and review comments on the new strategy memo. Recommended order H2/H1/H3/H5/H4/H6; no new outcomes or scope adoption. P3-20 readout not implemented yet; E2 primary verdict needs 9 Nov; placebo reference bands are not causal effect bounds.
 
 - 2026-11-04 — Felipe: research and conclusion strategic plan drafted in docs/plan-research-and-conclusions.md; triaged mentor leads and formulated three candidate conclusion architectures ("Private Tariff", "Limits to Arbitrage", "Shadow Macro Rail") to overhaul Slide 10
 - 2026-11-04 — Felipe: mentor session with David Wasserman (FGV/ex-QR) synthesized in docs/mentor-meeting-2026-11-04.md; confirmed econometric rigor and identified critical need for punchy "So what?" conclusion on Slide 10; mentor leads (Hyperliquid, BRLA, Coinnext, Ludolf) triaged

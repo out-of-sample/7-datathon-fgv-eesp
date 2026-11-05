@@ -197,3 +197,16 @@ No findings or adopted conclusions were changed by this review. The main gain wo
   1. P3-20: Renzo reviews; push before 10:00 Brasília on 3 Nov.
   2. P3-21: who paid and who gained.
   3. P3-22: stage 1 only, capped at 4 hours, no outcomes computed; the team gate decides each case.
+
+## 2026-11-04 — Competing-rails agenda recorded and datathon directions ranked
+
+**Status: documentation requested by Renzo; investigation recommendations, not adopted conclusions.** Renzo asked to preserve the preceding brainstorm in English for the team and its agents, then rank the hypotheses within datathon scope and validate the assessment. Task: P3-23.
+
+- The [research agenda](competing-rails-research-agenda.md) records six directions: recovery mechanisms, channel-specific predictions, executable-payment performance, BRL stablecoin architecture, user incidence, and conventional-FX spillovers. It preserves the original request not to constrain the long-run agenda by time or feasibility.
+- The separate [datathon ranking](competing-rails-datathon-ranking.md) recommends H2, H1, H3, H5, H4, H6, based on incremental information and what available observations identify. It gives procedures, outputs and failure conditions for each. No new extension outcomes were computed or downloaded.
+- Checks covered current tasks, actual CSV schemas and frozen output tables, the implemented P3-20 command dispatcher, cost-accounting endpoints, and opened official/literature sources. The IMF sandwich paper remains indexed-abstract-only; its landing page returned 403. This is prerequisite/design validation, not empirical confirmation of the hypotheses.
+- Sync brought in Felipe's research/conclusions memo (`7204a38`). Its proposals are cross-referenced rather than overwritten. Review notes address unresolved Foxbit attribution, net versus gross acquisitions, BRLA peg logic, profit/welfare and tax claims, and form-versus-content identification.
+- Important P3-20 checks: only `reference` is implemented; E1 readout must still be built under the existing task; S2's Binance reference quantiles are −75.5/+59.8 bps, not S20's −35.4/+37.7; E2's primary two-day verdict requires 9 Nov, after PDF submission. These numbers are existing registered outputs, not new estimates. No November prices were inspected.
+- Inference refinement to earlier discussion: a non-significant result inside ordinary-date quantiles does not itself establish a bound on a causal effect. Report the registered p-value and reference variability; formal equivalence requires a separate justified design. Preserve the registered prediction, including its failures and conceptual limitations.
+
+The two documents are linked from `docs/README.md` and STATUS. Core findings, active task specifications, the deck, and Felipe's memo were not changed. Next: team review of the ranking, and separate task/specification records for any adopted analysis.
