@@ -23,7 +23,7 @@ When a plan, result, or claim is weak, say so directly, explain why, and propose
 | Theme | Real problems in the crypto-asset and digital-currency ecosystem |
 | Stated goal of the event (Art. 1) | "Desenvolver e aplicar conceitos econômicos, combinando a prática à teoria" |
 | Data (Art. 6) | Any data source is allowed **if cited** |
-| Deliverable (Art. 7) | **One PDF presentation** + scripts as **`.txt` files** (preferably Python, R or Stata) |
+| Deliverable (Art. 7) | **One PDF presentation** + scripts as **`.txt` files** (preferably Python, R or Stata). **Team decision 5 Nov (Renzo): submit the GitHub link + 10-slide PDF; no `.txt` export** |
 | **Deck length (team rule, 2 Nov)** | **At most 10 slides.** Anything else goes to the annex |
 | Recommended deck structure (Art. 7) | Motivação → Delimitação do problema → Dados e metodologia → Resultados → Discussão e implicações |
 | Supplementary material (Art. 8) | Tables and annexes may be included |

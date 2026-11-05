@@ -59,7 +59,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | Item | Needed from | By |
 |---|---|---|
-| `P5-04`: script exports and clean replay are ready. Independent Claude review should check the script/claim map and P2-03 reproducibility fix; final PDF reconciliation follows Felipe's deck selection and P5-02 figures | Claude reviewer, then Felipe and P5-02 owner | Sat 7 Nov |
+| `P5-04`: **submission is GitHub link + 10-slide PDF, no `.txt` to the jury (Renzo, 5 Nov)**. Remaining: map every deck/annex claim to its script (annex and download scripts included), re-run after Felipe picks the deck | **Nattan or Jonathan** | Sat 7 Nov |
 | `P3-25` / F-036: the retrospective three-venue composition comparison and four-firm exit audit are ready. Another Claude agent should run the exact command and review the claim; Nattan or Jonathan then signs off the teammate re-run before any slide use | Independent Claude review, then teammate re-run; Felipe for deck placement | Fri 6 Nov morning |
 | `P3-24`: Felipe pushed the Flash data (`79b71f1`; F-034 reproduces, 44/44 checksums). **5 Nov: the bundle moved to `data/raw/flash-mentor-leads/` (out of git); after pulling, restore it with the command in `data/README.md`** (note for Felipe's agents in the P3-24 Handoff). S2–S4 done by Renzo's agent (5 Nov, F-037): Pix → BRLA → USDC route +111 bps vs USDT +94 on the same days; supply fall not a run. **Felipe reviews (S5)** | Felipe (review) | Fri 6 Nov morning |
 | Slide 10 conclusion (`P5-08`): pick the architecture (Felipe's plan recommends "Private Tariff" + recovery line) and apply the known wording fixes | Felipe; Renzo checks | before red team (Fri 6 Nov) |
@@ -226,6 +226,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-05 — agent for Renzo: submission format is GitHub link + 10-slide PDF (no `.txt` scripts, decision log); rest of P5-04 assigned to Nattan or Jonathan
 - 2026-11-05 — agent for Renzo: P3-24 spec 2 (`403ca9d`, before the pulls): the Polygon pool is 92% of on-chain BRLA–dollar volume (65% after) but only 0.35% of Binance's; on a Curve pool BRLA kept its value against BRZ (−3.4 bps, ±22) while the dollar route rose +111: the stress was on the dollar side (F-037). Reviews: P3-16 passes; P5-04 passes with two gaps (annex and download scripts not exported)
 
 - 2026-11-05 — Codex for Renzo: P3-16 → review; E-11 and daily premium checked; Renzo chose explicit Res. 574 caveat in both deck drafts, annex and F-026, preserving frozen eight-rule results; Claude review brief ready.

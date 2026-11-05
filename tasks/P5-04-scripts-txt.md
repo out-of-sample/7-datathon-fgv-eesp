@@ -28,12 +28,21 @@ Prepare the code deliverable: each script as .txt with purpose, inputs, outputs 
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **State:** implementation complete and ready for independent Claude review. The 18 exports cover both existing 10-slide drafts; an isolated run of 19 commands passed. Six existing deck charts match pixel for pixel. Frozen P2-03 placebo and P3-11 money tables match byte for byte.
-- **Next step:** send `docs/agent-prompt-P5-04-review.md` to Renzo's Claude agent. After Felipe selects the final deck and P5-02 adds or replaces figures, reconcile the PDF against `submission/README.md`, add any new scripts, then mark P5-04 done.
-- **Open questions:** v1 vs v2 is still Felipe's choice. P5-02's planned visuals are not present. P3-20 E2's observation window is not complete. The checked-in P2-03 event table has an older E-05 description; current event codes and numbers reproduce within float rounding.
-- **How to resume:** run `.venv/bin/python scripts/p5_04_export.py` after any source-script change; then `.venv/bin/python scripts/p5_04_reproduce.py` (about 2 minutes), inspect `submission/reproduction.json`, and compare final PDF figures/claims to `submission/README.md`.
+- **Assigned (5 Nov, Renzo):** Nattan or Jonathan, whoever takes it first (claim it: `working: <name>`).
+- **Scope changed (5 Nov, Renzo, decision log):** the submission is the **GitHub link + the 10-slide PDF**; no `.txt`
+  scripts go to the jury. The repo itself is the code deliverable, so the job is now: a juror who opens the repo can find
+  and re-run the script behind every deck/annex number.
+- **State:** 18 exports + clean replay pass (review 5 Nov 01:25, two gaps in Log). `submission/scripts/*.txt` can stay as
+  a convenience or be removed; not required.
+- **Next step:** (1) in `submission/README.md` (or the repo README), map each deck/annex claim to its `scripts/*.py`,
+  including the annex scripts `p3_04_depeg_chapter`, `p3_07_tar`, `p3_08_subsidy`, `p3_14_press_check` and the download
+  scripts `p1_01_download`, `p1_03_second_venue` as the documented first step; add `p3_24_brla` / `p3_25_composition`
+  only if Felipe puts F-037 / F-036 in the PDF; (2) after Felipe picks v1/v2 and P5-02 lands, re-run
+  `scripts/p5_04_reproduce.py` and check the final PDF figures against it; (3) mark done.
+- **How to resume:** `.venv/bin/python scripts/p5_04_export.py` then `.venv/bin/python scripts/p5_04_reproduce.py` (~2 min).
 
 ## Log
+- 2026-11-05 01:55 (Brasília), agent for Renzo: Renzo assigned the rest to Nattan or Jonathan; submission format is GitHub link + 10-slide PDF, no `.txt` scripts to the jury; Handoff rewritten.
 - 2026-11-05 01:25 (Brasília), agent for Renzo (Claude, independent review per `docs/agent-prompt-P5-04-review.md`): **passes
   for what it covers, with two gaps.** Checked: export script changes only ROOT, the monitor lookup and whitespace; all 18
   header SHA-256 match the current `scripts/*.py`; `reproduction.json` shows 19 commands exit 0 and six figures with pixel
