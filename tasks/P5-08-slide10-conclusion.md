@@ -43,12 +43,14 @@ sentence is strong and each one traces to a frozen finding or a reviewed new one
 
 ## Handoff
 - **State:** task created 4 Nov; nothing drafted. Felipe's plan §5 has a first draft that needs the S1 fixes.
+- **Discussion input:** Felipe's 4 Nov request for a practical conclusion is recorded in `docs/improvements_log.md` under "a useful conclusion without a forecasting claim". Proposed local-access-cost / historical-stress framing is not adopted; deck unchanged. F-035 is now available but awaits independent review; its placebo band must not be described as a causal-effect bound.
 - **Next step:** S1 (Felipe), after the E1 result is in (P3-20 S4, expected 5 Nov).
 - **Open questions:** Felipe and team: one headline (Private Tariff) with the recovery as a second line, as Felipe's plan
   recommends, or another architecture?
 - **How to resume:** read `docs/plan-research-and-conclusions.md` §4–5 and the ranking doc's last table side by side.
 
 ## Log
+- 2026-11-04, Codex for Felipe: strategic discussion and one Luna critique recorded; no S1–S4 execution or conclusion adoption. Pulled through `82f5494` and incorporated exploratory F-035 into the assessment.
 - 2026-11-04, agent for Renzo: task created from the competing-rails follow-up (decision log, 4 Nov). Owner Felipe (deck
   owner); Renzo reviews (S4).
 

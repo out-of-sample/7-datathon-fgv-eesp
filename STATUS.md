@@ -220,6 +220,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-04 — Codex for Felipe: P5-08 strategic discussion in `docs/improvements_log.md`: local access cost and historical stress scenario as a practical conclusion; index is monitoring, not validated foresight. Mentor/Flash limits and latest F-035 checked; no deck, frozen result or adopted scope changed.
+
 - 2026-11-05 — agent for Renzo: checked Felipe's `79b71f1` (44/44 checksums, F-034 reproduces; finding numbers now F-034 BRLA, F-035 P3-20, F-036 P3-25). P3-20 E1 readout, code pushed before the data (`30de591`): Binance S2 +2.1 bps, p = 0.90 (non-overlapping 0.92), Foxbit −1.9 (0.92); registered prediction held (F-035); Mercado Bitcoin pull blocked (Cloudflare 302)
 
 - 2026-11-04 — Codex: corrected Flash dossier, mentor notes and conclusions; archived public-source snapshots with checksums; F-034 exploratory; BRLA route and historical supply mechanism unresolved.
