@@ -1,0 +1,17 @@
+event,t0,series,statistic,post_days,status,observed_bps,n_ref,k,p_two_sided,band_lo_bps,band_hi_bps,p_nonoverlap_min,p_nonoverlap_max,n_nonoverlap
+E1,2026-10-30,Binance,S1,2026-11-03..2026-11-03,observed,47.9,1073.0,127.0,0.1192,-74.8,75.0,,,
+E1,2026-10-30,Binance,S2,2026-11-03..2026-11-04,observed,2.1,1073.0,962.0,0.8966,-75.5,59.8,0.92,0.92,49.0
+E1,2026-10-30,Binance,S20,2026-11-03..2026-11-04,pending: 2 of 20 post days,,,,,,,,,
+E1,2026-10-30,Foxbit,S1,2026-11-03..2026-11-03,observed,-2.0,958.0,895.0,0.9343,-164.7,162.9,,,
+E1,2026-10-30,Foxbit,S2,2026-11-03..2026-11-04,observed,-1.9,958.0,884.0,0.9228,-166.0,128.7,0.956,0.956,44.0
+E1,2026-10-30,Foxbit,S20,2026-11-03..2026-11-04,pending: 2 of 20 post days,,,,,,,,,
+E1,2026-10-30,Mercado Bitcoin,S1,2026-11-03..2026-11-03,missing: 0 of 1 post days have a price,,,,,,,,,
+E1,2026-10-30,Mercado Bitcoin,S2,2026-11-03..2026-11-04,missing: 0 of 2 post days have a price,,,,,,,,,
+E1,2026-10-30,Mercado Bitcoin,S20,2026-11-03..2026-11-04,pending: 2 of 20 post days,,,,,,,,,
+E1,2026-10-30,gap_foxbit,S1,2026-11-03..2026-11-03,observed,-50.0,958.0,188.0,0.1971,-155.5,143.0,,,
+E1,2026-10-30,gap_foxbit,S2,2026-11-03..2026-11-04,observed,-4.0,958.0,581.0,0.6069,-165.6,130.8,0.556,0.556,44.0
+E1,2026-10-30,gap_foxbit,S20,2026-11-03..2026-11-04,pending: 2 of 20 post days,,,,,,,,,
+E1,2026-10-30,gap_mb,S1,2026-11-03..2026-11-03,missing: 0 of 1 post days have a price,,,,,,,,,
+E1,2026-10-30,gap_mb,S2,2026-11-03..2026-11-04,missing: 0 of 2 post days have a price,,,,,,,,,
+E1,2026-10-30,gap_mb,S20,2026-11-03..2026-11-04,pending: 2 of 20 post days,,,,,,,,,
+E2,,,,,pending: no PTAX day on or after 2026-11-06 yet,,,,,,,,,

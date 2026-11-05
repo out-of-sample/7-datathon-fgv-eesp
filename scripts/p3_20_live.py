@@ -252,6 +252,10 @@ def readout():
                     rows.append(row | dict(status=f"pending: {len(post)} of {need} post days"))
                     continue
                 obs, ref = stat(v[series], i, name), vals[(vals.series == series) & (vals.statistic == name)]
+                if np.isnan(obs):  # the registered missing-data rule failed for this series (e.g. no venue data)
+                    rows.append(row | dict(status=f"missing: {int(v[series].iloc[i + 1:i + 1 + need].count())} of "
+                                                  f"{need} post days have a price"))
+                    continue
                 s = ref.value_bps.to_numpy()
                 k = int((np.abs(s) >= abs(obs)).sum())
                 row |= dict(status="observed", observed_bps=round(obs, 1), n_ref=len(s), k=k,

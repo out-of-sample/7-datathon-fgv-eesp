@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-04 by Codex (P5-01 Flash corrections) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-05 by agent for Renzo (P3-20 E1 readout, F-035) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 tag `results-frozen` (F-001 to F-033)
 
@@ -48,7 +48,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
    - **Depeg & Money Layer (`P3-09`, `P3-01`):** `P3-09` (`review`) opened and quoted primary sources for all 11 downward depegs + USDP Binance delisting (`DP-01`..`DP-10`) and restored mechanisms in `results/tables/P3-04_depeg_case_table.csv` (`F-019`); `P3-01` (`review`) validated all bank/exchange/hedge parameters (`R-01` BCB EE 48/2019 20 bps corporate spread, `R-01b` BB PJ SWIFT, `R-05` Foxbit, `R-06` MB maker vs taker, `R-07` 2.5 bps 1-day CIP carry) with neutral framing (`F-015`).
    - **"So what" plan ([`docs/06-so-what.md`](docs/06-so-what.md)):** `P3-10`, `P3-11`, `P3-12`, `P3-13`, and `P3-14` are peer-reviewed and `done` (`F-023` to `F-027` confirmed and integrated into Slides 5, 6, 10, 12 and Annexes A, B.5, B.7, C).
    - **Deck language (2 Nov, Renzo):** four levels (measured / consistent with the mechanism / illustrative / not shown) and line-by-line suggestions for Slides 1, 6, 9, 11, 12, 14 in [`docs/deck-notes-2026-11-02.md`](docs/deck-notes-2026-11-02.md), for Felipe; `P3-15` (review): "why +94 bps and not +350" answered in F-028: the marginal route is not identified, and the ordinary 3.5% route did not set the price (highest day +171 bps over the pre-notice level; the May 2025 rise of that IOF moved the premium +13 bps); two pt-BR sentences for Slides 1 and 5 in F-028. Res. BCB 574 (published 22 Jun, one day before the notice) is missing from the event list: `P3-16` (todo).
-   - **Thu 5 Nov (after the 4 Nov freeze):** Renzo's agent: `P3-20` S3–S4 (E1 readout, judged on the S2 band −75.5/+59.8 bps) and S5 (E2 branch pushed by 23:59); Renzo: `P3-25` (4 h cap); Felipe: push the mentor-lead data and scripts (`P3-24` S1–S4), then draft Slide 10 (`P5-08`); Renzo reviews all of Felipe's pushed mentor-lead work (`P3-24` S5) and Slide 10 (`P5-08` S4) before the red team (Fri 6).
+   - **Thu 5 Nov (after the 4 Nov freeze):** Renzo's agent: `P3-20` S3–S4 done (E1 held: +2.1 bps, p = 0.90, F-035) and S5 (E2 branch pushed by 23:59); Renzo: `P3-25` (4 h cap); Felipe: push the mentor-lead data and scripts (`P3-24` S1–S4), then draft Slide 10 (`P5-08`); Renzo reviews all of Felipe's pushed mentor-lead work (`P3-24` S5) and Slide 10 (`P5-08` S4) before the red team (Fri 6).
    - Still open from before the freeze: team confirms Option A (bank routes in Anexo B.5); `P3-05`/`P3-06` (live CLI agent runs); peer-review tasks in `review`.
 2. Everyone (and your agents): read [`docs/review-2026-10-31.md`](docs/review-2026-10-31.md) and follow `prompt.md` §5–§7 (`sources are opened, not remembered`).
 3. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff (`prompt.md` §7).
@@ -74,7 +74,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | Res. BCB 574 (DOU 22 Jun 2026, E-11) is not in the event list; F-026 says "eight rules". Add as event or caveat (`P3-16`); premium did not move on 22–23 Jun (23.3, 24.8 bps), jumped 24 Jun | Felipe + team | before freeze (Wed 4 Nov) |
 | P3-17 (review, F-030, F-031): no verified reopening of the funds' channel (test cannot be run); S4 check mixed; post hoc, an unprecedented business-hours seller on Foxbit during the fall (F-031, exploratory). Needs a teammate's re-check of the source table and script; deck sentence optional | a teammate who did not author it + Felipe | before freeze (Wed 4 Nov) |
 | P3-18: on-chain source of the Foxbit USDT (F-031) | Dropped 2 Nov: no Foxbit Tron wallet labelled by Arkham or Tronscan; reopen only with a paid test deposit (team OK) | done |
-| `P3-20`: E1 registered (`9a522e9`). E2: apply the registered branch rule from the BCB's official list and venue statements, push by 5 Nov 23:59 | agent for Renzo | 5 Nov 23:59 |
+| `P3-20`: E1 read out (F-035): Binance +2.1 bps on 3–4 Nov, p = 0.90, prediction held (null rules out only moves beyond ~75 bps); Mercado Bitcoin's November pull blocked by a Cloudflare redirect (retry or save from a browser). Needs a teammate's re-run before Slide 10. E2: apply the registered branch rule from the BCB's official list and venue statements, push by 5 Nov 23:59 | agent for Renzo (E2); a teammate (re-run) | 5 Nov 23:59 |
 | F-015 / cover: switched 3 Nov (Renzo) to R$ 4,842 per US$ 100k at each day's PTAX (was R$ 5,052 at a Binance bid of R$ 5.38, D-10); route rows keep R$ 5.38 as a labelled illustrative rate (option a). **Needs:** a teammate who did not make the change re-runs `scripts/p3_01_costs.py` and checks the deck; Felipe (owner of F-015, P3-01, deck) informed | teammate re-check + Felipe | before freeze (Wed 4 Nov) |
 | Deck proposal (`docs/deck-proposal-2026-11-03.md`): slide 9 users' table, slide 10 three predictions (Res. 574 readout after the freeze needs an exception), slide 8 fade line, slide 5 Res. 574 | Felipe + team | before deck v1 (Thu 5 Nov) |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
@@ -148,12 +148,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-17](tasks/P3-17-channel-restoration.md) | Did the BCB let funds resume the activity the 23 Jun notice stopped, and did the premium fall when it did? (reopening test) | 👀 review | Economist | - | 6/6 | 5/5 | 2026-11-04 | P3-14, P3-15, P4-04 |
 | [P3-18](tasks/P3-18-onchain-foxbit-source.md) | Where did the USDT sold on Foxbit during the fade come from? (on-chain check of F-031) | ✖️ dropped | CS 1 | - | 0/4 | 0/2 | 2026-11-04 | P3-17 |
 | [P3-19](tasks/P3-19-supply-response.md) | Did seller-initiated trading on Foxbit respond to the premium over the official dollar (import arbitrage) or to the Foxbit–Binance gap (cross-venue arbitrage)? | 👀 review | CS 1 | - | 3/3 | 3/3 | 2026-11-04 | P3-17 |
-| [P3-20](tasks/P3-20-live-predictions.md) | Predictions registered before the data - Res. 574 reporting (3 Nov 2026) and Res. 589 ban on unauthorised counterparties (6 Nov 2026) | 🔄 doing | CS 1 | Renzo (agent) | 2/8 | 1/5 | 2026-11-16 | P1-02, P1-03, P3-03, P4-04 |
+| [P3-20](tasks/P3-20-live-predictions.md) | Predictions registered before the data - Res. 574 reporting (3 Nov 2026) and Res. 589 ban on unauthorised counterparties (6 Nov 2026) | 🔄 doing | CS 1 | Renzo (agent) | 4/8 | 2/5 | 2026-11-16 | P1-02, P1-03, P3-03, P4-04 |
 | [P3-21](tasks/P3-21-who-paid.md) | Who paid and who gained - the 23 Jun notice seen from five kinds of users of the digital dollar | 🔄 doing | CS 1 | Renzo (agent) | 3/5 | 2/4 | 2026-11-04 | P1-02, P3-03, P3-11 |
 | [P3-22](tasks/P3-22-other-countries-qualify.md) | Other countries, stage 1 - qualify each case before any test (Ukraine Aug 2026, Argentina Apr 2025, EEA Mar 2025; Russia, Nigeria listed) | ⬜ todo | CS 2 | - | 0/4 | 0/3 | 2026-11-05 | P1-05, P1-06 |
 | [P3-23](tasks/P3-23-research-agenda-ranking.md) | Record the competing-rails research agenda and rank datathon extensions | 👀 review | CS 1 | - | 3/3 | 3/4 | 2026-11-05 | - |
 | [P3-24](tasks/P3-24-brla-fourth-venue.md) | BRLA as a fourth venue - did the on-chain route (Pix → BRLA → USDC) pay the same premium after the 23 Jun notice? | ⬜ todo | Economist | - | 0/5 | 0/4 | 2026-11-06 | P2-03, P2-05 |
-| [P3-25](tasks/P3-25-recovery-composition.md) | The premium recovered - did the market? Venue shares and exchange exits in 2026 | ⬜ todo | CS 1 | - | 0/5 | 0/4 | 2026-11-06 | P1-03, P3-17 |
+| [P3-25](tasks/P3-25-recovery-composition.md) | The premium recovered - did the market? Venue shares and exchange exits in 2026 | 🔄 doing | CS 1 | Renzo (Codex) | 0/5 | 0/4 | 2026-11-06 | P1-03, P3-17 |
 
 **P4 — Robustness and freeze** (3/4 closed)
 
@@ -215,9 +215,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-032](findings/F-032-supply-response.md) | After the notice, seller-initiated trading on Foxbit rose with the premium over the official dollar, not with the Foxbit–Binance gap, and turned net positive above about 35 bps; the hour-by-hour evidence is weak | 🔍 exploratory | P3-19 | - |
 | [F-033](findings/F-033-who-paid.md) | Illustration - a buyer during the spike paid about R$ 4,840 more per US$ 100k; a monthly saver's purchases after the notice cost about R$ 750 more; a USDT holder's position was revalued up by R$ 6,800 the next day, and a panic buyer's position down by R$ 10,000 by 30 Oct | 🔍 exploratory | P3-21 | - |
 | [F-034](findings/F-034-flash-brla-price-check.md) | Exploratory Polygon BRLA price check using the PTAX window | 🔍 exploratory | P5-01 | - |
+| [F-035](findings/F-035-e1-res574-readout.md) | Registered prediction E1 held - in the first two windows under Res. BCB 574's reporting (3–4 Nov 2026) the premium moved +2.1 bps on Binance (p = 0.90), no move of the June kind; a null that rules out only moves beyond about 75 bps | 🔍 exploratory | P3-20 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-05 — agent for Renzo: checked Felipe's `79b71f1` (44/44 checksums, F-034 reproduces; finding numbers now F-034 BRLA, F-035 P3-20, F-036 P3-25). P3-20 E1 readout, code pushed before the data (`30de591`): Binance S2 +2.1 bps, p = 0.90 (non-overlapping 0.92), Foxbit −1.9 (0.92); registered prediction held (F-035); Mercado Bitcoin pull blocked (Cloudflare 302)
 
 - 2026-11-04 — Codex: corrected Flash dossier, mentor notes and conclusions; archived public-source snapshots with checksums; F-034 exploratory; BRLA route and historical supply mechanism unresolved.
 - 2026-11-04 — agent for Renzo: results frozen (P4-03, Renzo's decision): 27 findings → `frozen`, 6 exploratory keep their label, tag `results-frozen`; link check: no broken citation (11 sites refuse scripts). Competing-rails follow-up adopted: new tasks `P3-24` (BRLA as a fourth venue, Felipe; Renzo reviews all his mentor-lead work), `P3-25` (venue mix after recovery, Renzo), `P5-08` (Slide 10 within the evidence, Felipe); E1 band corrected to S2 (−75.5/+59.8 bps)

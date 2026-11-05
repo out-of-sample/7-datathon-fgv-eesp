@@ -1412,3 +1412,15 @@ a22c1fcbc3556731fbc8e0bf9c2543e858f9c35744b6b87c54e39713aa55db08  data/raw/fx_of
 f992dcb1625825f8ed2ccf7c7404054617fa39d34581f22b6cc350353cdefcb0  data/raw/bcb/202608_Texto_de_estatisticas_do_setor_externo.pdf
 8888aaef2ee5279a8e2f247c0c417247caa24733a659b90e04b618742de71c3a  data/raw/bcb/202610_Tabelas_de_estatisticas_do_setor_externo.xlsx
 be93f600465a80fb9b7cd3e0a92f7400a862889d3936fc9d8dfc88eb0af2692b  data/raw/bcb/sgs_432.json
+5767572fc6f2f3925fd776625fb51520780b0ba91c61fbb2c481a0ac72b46e9a  data/raw/live/binance/USDCUSDT/USDCUSDT-1h-2026-10-31.zip
+34cedc9e5a53a228919e6bf199aef9db6d34a3e7fc08dbaee0d89d6d4fb35976  data/raw/live/binance/USDCUSDT/USDCUSDT-1h-2026-11-01.zip
+026223aeae7cba67290c809fea4e032852e523f7f2d56841ab528331a1ca1c48  data/raw/live/binance/USDCUSDT/USDCUSDT-1h-2026-11-02.zip
+4e41b58cd4316a5ec3e7330a624aad95978834fd6db155f9d3b23e94e36bf097  data/raw/live/binance/USDCUSDT/USDCUSDT-1h-2026-11-03.zip
+8e7b4870a701d5e0185234ff4b70ed87168cdaae15dc4b882542c57e7a1df754  data/raw/live/binance/USDCUSDT/USDCUSDT-1h-2026-11-04.zip
+61ea4a414549d48c0cf6e2c140106a24151ddf49e80986f2bebc5b152263a443  data/raw/live/binance/USDTBRL/USDTBRL-1h-2026-10-31.zip
+1dba2f2c21c7dc1e4966e3d2c53c09e32f918b511bc454860387ee00393ba04e  data/raw/live/binance/USDTBRL/USDTBRL-1h-2026-11-01.zip
+0131979153e6d73282bdcb5035712f9d2c327f64a5b6a924aaa0d09bfa0b88b6  data/raw/live/binance/USDTBRL/USDTBRL-1h-2026-11-02.zip
+830ced87df239e1e933da914f396a9003d2669aee0fbf8ae41a0407590855ad9  data/raw/live/binance/USDTBRL/USDTBRL-1h-2026-11-03.zip
+b17e62d4774b440d5f16d941f3eba631aba96654101bfbc61a4bf285a63e5b2e  data/raw/live/binance/USDTBRL/USDTBRL-1h-2026-11-04.zip
+86a90ac294b53b85d18715e83c5b91f2e1772f10521adf288ec8e80b485e7fff  data/raw/live/bcb/ptax_to_20261105T01.json
+64b168a1fae381386d4e6547766b2189eb9e73b00a9c86ccddd89844361cfd73  data/raw/live/foxbit/USDTBRL-1h_to_20261105T01.csv

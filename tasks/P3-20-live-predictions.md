@@ -153,10 +153,11 @@ and the Voto PDF (both URLs in E-14):
   30 Oct (Binance, Foxbit, Mercado Bitcoin, the two cross-venue gaps) → `results/tables/P3-20_reference.csv`; commit before
   any download — done: Renzo, 3 Nov (commit below; missing-data rule fixed here, before any November data: a pre-window
   needs >= 15 of 20 days; S1 and S2 need every post day; S20 needs >= 15 of 20)
-- [ ] S3 — Download November data into new raw files with checksums; point `p1_02_premium.py` and the venue checks at them
-  without changing the method; the 30 Oct series must reproduce exactly — doing: Renzo (agent)
-- [ ] S4 — E1 readout (S1 and S2, all venues, monitor alarm in [t0+1, t0+5] via `scripts/p3_03_monitor.py`) →
-  `results/tables/P3-20_readout.csv`; finding written either way
+- [x] S3 — Download November data into new raw files with checksums; point `p1_02_premium.py` and the venue checks at them
+  without changing the method; the 30 Oct series must reproduce exactly — done: Renzo (agent), 5 Nov (Binance, PTAX,
+  Foxbit; Mercado Bitcoin's API returned a Cloudflare redirect, retry pending; Coinbase not needed by any statistic)
+- [x] S4 — E1 readout (S1 and S2, all venues, monitor alarm in [t0+1, t0+5] via `scripts/p3_03_monitor.py`) →
+  `results/tables/P3-20_readout.csv`; finding written either way — done: Renzo (agent), 5 Nov (F-035)
 - [ ] S5 — E2 branch (rule fixed 3 Nov, see above; branch applied 5 Nov) — doing: Renzo. E2 branch: read Res. BCB 520's transition rules and Res. 589 in full; open any BCB list of authorised or pending
   providers and the exchanges' own statements; write the branch (A, B or C) with quotes; commit and push before 6 Nov 10:00
 - [ ] S6 — E2 early reading (S1, 6 Nov) for the PDF; E2 S2 on 9 Nov; update the finding
@@ -165,7 +166,8 @@ and the Voto PDF (both URLs in E-14):
 
 ## Success criteria
 - [x] Specification pushed before 10:00 Brasília on 3 Nov (hash and push time recorded); otherwise E1 relabelled as above
-- [ ] Reference distributions committed before any November data was downloaded (commit order in git)
+- [x] Reference distributions committed before any November data was downloaded (commit order in git: `ce283dc`, then
+      readout code `30de591`, then the first download on 5 Nov)
 - [ ] E2 branch pushed before 10:00 Brasília on 6 Nov, with quotes from the legal text
 - [ ] E1 and E2 results in a finding with exact commands, reported whatever they show; nothing in the Specification
   changed after registration
@@ -178,17 +180,27 @@ and the Voto PDF (both URLs in E-14):
 - Finding F-035 (reserved 4 Nov; F-034 is the BRLA check, P3-25 holds F-036)
 
 ## Handoff
-- **State:** S1 registered (`9a522e9`); S2 reference committed (see log). No November data downloaded yet.
-- **Next step:** S3 after the 4 Nov PTAX window: download Binance/PTAX/Coinbase/Foxbit/Mercado Bitcoin into new files,
-  then add part 2 (`readout`) to `p3_20_live.py` with the assert on rows up to 30 Oct. On 5 Nov: look for the BCB's
-  official list and venue statements (Binance, Foxbit, Mercado Bitcoin), apply the branch rule, commit and push by 23:59.
-- **Open questions:** (1) Renzo: approve the Specification and the November download. (2) S5: does a pending application
-  keep a provider operating after 6 Nov, and does art. 91 cover exchanges' bank accounts and Pix? (3) Res. 574 is still not
-  in the P1-04 event list (P3-16); the clean-date rule uses that list as it stands.
-- **How to resume:** read the Specification. S2 copies (does not import) `stat()` and the clean-date block of
-  `scripts/p4_04_inference.py`.
+- **State:** E1 read out (F-035, exploratory): Binance S2 +2.1 bps, p = 0.90 (non-overlapping 0.92); Foxbit −1.9, p = 0.92;
+  prediction held. Mercado Bitcoin's November pull failed (Cloudflare 302 to our script), so MB and the MB gap are
+  "missing". E2 pending.
+- **Next step:** S5, by 23:59 Thu 5 Nov: look for the BCB's official list of authorised / in-transition providers and the
+  three venues' own statements; apply the registered branch rule (A/B/C per venue, from sources only, never prices);
+  commit and push. Then S6 on Fri 6 Nov after 13:30 Brasília: `python scripts/p3_20_live.py download` and `readout`
+  (E2 S1 = early reading, the only E2 number for the PDF).
+- **Open questions:** (1) Mercado Bitcoin: retry the API later; if it still redirects, Renzo saves the API JSON from a
+  browser (no user-agent workaround in scripts). (2) A teammate who did not write `p3_20_live.py` re-runs E1 (criterion 5)
+  before it goes on Slide 10 (P5-08 S2).
+- **How to resume:** `python scripts/p3_20_live.py readout` reproduces F-035 from `data/raw/live/` (checksums in
+  `data/raw/SHA256SUMS`; `grep data/raw/live data/raw/SHA256SUMS | sha256sum -c`). Each `download` writes new files named
+  `_to_<UTC hour>`; a later pull wins for the same hour.
 
 ## Log
+- 2026-11-05 01:10 (Brasília), agent for Renzo: S3 + S4. Downloaded Binance USDTBRL/USDCUSDT 31 Oct – 4 Nov (Binance
+  checksums OK), PTAX to 4 Nov (October rows equal the freeze), Foxbit to 5 Nov 01h UTC; Mercado Bitcoin returned HTTP 302
+  (Cloudflare) and was not worked around. Fixed one readout bug before the first run (a series with no November price
+  scored k = 0). P1-02 reproduced exactly on 1,520 days. E1: Binance S2 +2.1 bps (p = 0.897, non-overlapping 0.920),
+  Foxbit −1.9 (0.923), Foxbit gap −4.0 (0.607); S1 +47.9 (p = 0.12, not the verdict: 30 Oct was a Binance-only dip, gap
+  +49 bps). Prediction "no detectable move" held (F-035).
 - 2026-11-05 00:35, agent for Renzo: S3/S4 code committed before any November data was downloaded: `download` writes to
   `data/raw/live/` (separate folder, so the core scripts' globs never pick up November files); `readout` rebuilds the
   P1-02 premium from raw (formula copied), asserts equality on all 1,520 days to 30 Oct (passes on frozen data), and the
