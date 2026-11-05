@@ -154,7 +154,7 @@ and the Voto PDF (both URLs in E-14):
   any download — done: Renzo, 3 Nov (commit below; missing-data rule fixed here, before any November data: a pre-window
   needs >= 15 of 20 days; S1 and S2 need every post day; S20 needs >= 15 of 20)
 - [ ] S3 — Download November data into new raw files with checksums; point `p1_02_premium.py` and the venue checks at them
-  without changing the method; the 30 Oct series must reproduce exactly
+  without changing the method; the 30 Oct series must reproduce exactly — doing: Renzo (agent)
 - [ ] S4 — E1 readout (S1 and S2, all venues, monitor alarm in [t0+1, t0+5] via `scripts/p3_03_monitor.py`) →
   `results/tables/P3-20_readout.csv`; finding written either way
 - [ ] S5 — E2 branch (rule fixed 3 Nov, see above; branch applied 5 Nov) — doing: Renzo. E2 branch: read Res. BCB 520's transition rules and Res. 589 in full; open any BCB list of authorised or pending
@@ -189,6 +189,12 @@ and the Voto PDF (both URLs in E-14):
   `scripts/p4_04_inference.py`.
 
 ## Log
+- 2026-11-05 00:35, agent for Renzo: S3/S4 code committed before any November data was downloaded: `download` writes to
+  `data/raw/live/` (separate folder, so the core scripts' globs never pick up November files); `readout` rebuilds the
+  P1-02 premium from raw (formula copied), asserts equality on all 1,520 days to 30 Oct (passes on frozen data), and the
+  rebuilt venue series reproduce every stored reference value within 0.001 bps. Monitor: the CUSUM's 30 Oct down-alarm
+  (P3-03 false alarm) starts its 10-day pause, so no alarm is possible in [t0+1, t0+5] for E1 by construction. Coinbase
+  USDT/USD not pulled: no registered statistic uses it.
 - 2026-11-03, agent for Renzo: S5 part 1. Res. 520 art. 88 §6–7, art. 91 (Res. 589) and its single paragraph (accounts, Pix,
   FX covered), and Voto 108 §7–8 read. Status of providers in transition is ambiguous and the BCB list is not out, so a
   branch rule (A/B/C by venue, from sources only) is registered now; the branch is applied on 5 Nov.
