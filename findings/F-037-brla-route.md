@@ -35,6 +35,11 @@ Reproduce: restore the Flash bundle if needed (`data/README.md` → Flash mentor
 | Gnosis pool USDC.e/BRLA, daily close (r3) | 28.0 | 122.8 | +94.9 | +93.9 | US$ 8k, **fails liquidity** |
 | Base pool BRLA/USDC, daily close (r3) | – | – | not computed: 10 of 20 days before | – | US$ 2k, **fails liquidity**; contract not confirmed |
 
+- **Pool census (5 Nov, GeckoTerminal, D-19):** 31 BRLA pools on Polygon, Celo, Gnosis and Base. The Polygon USDC pool
+  is the only BRLA–dollar pool that traded on most June days. Celo BRLA/USD₮ (Uniswap v3, `0x14e5…111a`) traded on 4 of 29
+  days before and 3 of 28 after (median ~US$ 0.8–1k on those days): not testable. Curve pools (TESOURO/BRZ/stBRZ/BRLA,
+  BRLA/BRZ/BRL1) swap reais tokens for reais tokens, not a dollar route. The rest hold under ~US$ 5k. The three pools
+  in the table came from Felipe's bundle; the census was run after the result, at Renzo's question, and adds no testable pool.
 - **Data checks:** every PTAX day in both windows has all 4 window hours; USDC/USD in the window 0.99967 before, 0.99970
   after (so r1 ≈ primary). Window prices more than 300 bps from Binance's BRL per USDC: 2 of 845, both on Saturday 6 Jun
   (not a PTAX day, not used). The route's level sits above Binance's (May mean 24.5 vs 10.9 bps; Aug–Sep 38.2 vs 28.3):

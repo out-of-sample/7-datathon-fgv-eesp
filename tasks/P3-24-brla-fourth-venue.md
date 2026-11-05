@@ -128,6 +128,9 @@ measure BRLA's peg). It is the cost of getting dollars through Pix → BRLA → 
 - **How to resume:** `python scripts/p3_24_brla.py` (needs the restored bundle and the P1-02 processed files).
 
 ## Log
+- 2026-11-05 01:25 (Brasília), agent for Renzo: pool census at Renzo's question ("only one liquid pool?"): 31 BRLA pools on
+  4 chains; only the Polygon USDC pool trades on most June days; Celo BRLA/USDT 4/29 and 3/28 days; Curve pools are BRL↔BRL.
+  Added to F-037 Evidence. A BRLA-vs-BRZ peg check on the Curve basket pool is possible (H4, first margin) but not done.
 - 2026-11-05 01:45 (Brasília), agent for Renzo: S2 spec committed (`b57af33`) after checking coverage, liquidity and pool
   metadata only; GeckoTerminal public API refuses data older than 180 days. Contracts: Polygon and Gnosis confirmed by
   CoinGecko's BRLA Digital record, Base not. S3: primary +111.0 bps vs Binance +93.9 on the same days; r1 +110.8, r2 +88.3,

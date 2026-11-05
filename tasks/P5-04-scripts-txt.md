@@ -34,6 +34,17 @@ Prepare the code deliverable: each script as .txt with purpose, inputs, outputs 
 - **How to resume:** run `.venv/bin/python scripts/p5_04_export.py` after any source-script change; then `.venv/bin/python scripts/p5_04_reproduce.py` (about 2 minutes), inspect `submission/reproduction.json`, and compare final PDF figures/claims to `submission/README.md`.
 
 ## Log
+- 2026-11-05 01:25 (Brasília), agent for Renzo (Claude, independent review per `docs/agent-prompt-P5-04-review.md`): **passes
+  for what it covers, with two gaps.** Checked: export script changes only ROOT, the monitor lookup and whitespace; all 18
+  header SHA-256 match the current `scripts/*.py`; `reproduction.json` shows 19 commands exit 0 and six figures with pixel
+  difference 0; the P2-03 weekday-order fix reproduces `P2-03_placebo_draws.csv` byte for byte under PYTHONHASHSEED 0, 1, 7
+  and 42 (the bug was real: datetime hashes are seeded per process); F-016 and F-025 disclose it as a bug fix, numbers
+  unchanged. **Gap 1:** the annex (`deck/annex_v1_ptbr.md`) names four scripts not exported: `p3_04_depeg_chapter`
+  (F-019), `p3_07_tar` (F-021), `p3_08_subsidy` (F-020), `p3_14_press_check` (F-023); if the annex goes into the PDF
+  they must be exported (and `p1_07_depeg_v2` behind F-013/F-019 checked). **Gap 2:** no data-download script is
+  exported (`p1_01_download`, `p1_03_second_venue`; P3-20's `download` mode is in its export but omitted from the run), so
+  a juror cannot rebuild `data/raw/`; export them as a documented first step even though the reproduction check copies
+  frozen files. Also new since: `p3_24_brla` (F-037) and `p3_25_composition` (F-036) if their lines reach the PDF.
 - 2026-11-05, Codex for Renzo: P5-04 → review. Exported 18 scripts for both deck drafts. A clean temporary re-run passed 19 commands; all six existing deck figures match pixel for pixel. Found and fixed P2-03's variable weekday draw order, preserving frozen placebo and money tables. Claude review brief prepared; final-deck reconciliation remains for the reviewer/team.
 - 2026-11-05, Renzo + Codex: Renzo assigned P5-04 to Codex; owner moved from CS 2 to CS 1, four subtasks written and shown before execution.
 

@@ -57,6 +57,13 @@ effect. Reproduce:
 - **How to resume:** read E-11 and E-05.10 in `docs/sources.md`; F-026; F-022 (break intervals).
 
 ## Log
+- 2026-11-05 01:25 (Brasília), agent for Renzo (Claude, independent review per `docs/agent-prompt-P3-16-review.md`): **pass.**
+  E-11 matches the BCB text (register 18/6/2026 18:01; "realizadas a partir de 3 de novembro de 2026"; "entra em vigor na
+  data de sua publicação"); no draft calls it a June ban. Premium 18, 19, 22, 23, 24 Jun = −4.75, 32.92, 23.29, 24.84,
+  155.40 bps; one-day changes +37.7 and +130.6 reproduce. Slide 5 (both drafts), annex F.1 and F-026 word the notice as
+  the better hypothesis, state the overlapping windows, and claim no ninth estimate; `ce3ad79` changed no event list,
+  P3-12 output or script. F-026 is frozen and the change is a disclosed caveat in its History: acceptable. Note: the BRLA
+  route (F-037) also rose on 18→19 Jun (+46 bps), so that day's move was not Binance-only. Felipe owns the final wording.
 - 2026-11-05, Codex for Renzo: checked E-11 against the official BCB text and the daily premium (18 Jun −4.75; 19 Jun 32.92; 22 Jun 23.29; 23 Jun 24.84; 24 Jun 155.40 bps). Added explicit caveats to F-026, annex, and both deck drafts; no event row, script change, or estimate. Sent to Claude review through the task handoff.
 - 2026-11-05, Renzo + Codex: Renzo chose the caveat path for P3-16; Codex takes S4 and will request an independent Claude review. The frozen eight-rule calculation is retained.
 - 2026-11-02, agent for Renzo: S3 draft corrected: +37.7 bps on 18 → 19 Jun (F-029) added; the first draft started the window a day late
