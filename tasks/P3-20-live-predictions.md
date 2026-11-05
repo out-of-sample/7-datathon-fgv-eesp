@@ -235,6 +235,13 @@ last data seen are the E1 windows of 3–4 Nov (F-035). Sources opened 5 Nov and
   `_to_<UTC hour>`; a later pull wins for the same hour.
 
 ## Log
+- 2026-11-05 01:40 (Brasília), agent for Renzo: S5 re-check (Renzo asked). No BCB list of applicants and no BCB statement on
+  banks serving providers in transition found: web searches (news, bcb.gov.br) found nothing after E-17; the BCB news page
+  needs JavaScript (not readable by script); the BCB normativos register shows no Resolução BCB after Res. 604 (27 Oct,
+  unrelated; Res. 602 of 23 Oct is about consent for marketing offers); Comunicados could not be queried through that API
+  (not checked). Livecoins (29 Oct) says the BCB had not clarified "viabilizar" in art. 91 and that no public list was
+  confirmed. **Branch C stands.** One more check is allowed until 23:59 today; the BCB told Bitnotícias the list comes on
+  Friday 6 Nov, after the cutoff.
 - 2026-11-05 00:20 (Brasília), agent for Renzo: S5 applied from sources only (E-17 to E-21, opened 5 Nov): no BCB list
   yet (due "na sexta-feira", 6 Nov, per the BCB to Bitnotícias); Binance, Foxbit and Mercado Bitcoin filed (23, 29, 27 Oct);
   MB shown "em processo de autorização" in BCB notices (via Bitnotícias); no source on bank/Pix access for pending
