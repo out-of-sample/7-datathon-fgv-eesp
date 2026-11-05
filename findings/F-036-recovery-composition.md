@@ -30,7 +30,8 @@ share is a ratio of period sums, not an average of hourly or daily shares.
 | Wave, 24 Jun–21 Jul 2026 | 27.99% | 858.3 million USDT | 672 / 672 | 12 | 4,019 USDT | 96.46% |
 | After, 22 Jul–30 Oct 2026 | 34.74% | 3,334.5 million USDT | 2,421 / 2,424 | 16 | 5,308 USDT | 96.07% |
 
-The after period loses only three common hours because Binance and Foxbit each lack those hours. The 1,048 historical
+The after period loses three hours because the 30 Oct freeze ends at 23h UTC (20h Brasília): 21–23h Brasília on 30 Oct are not in the frozen data, for any venue. Binance's own volume rose (53.6 → 60.3 million USDT per day) while Foxbit's rose from 4.0 to 33.0 million per day, so
+the share change is Foxbit growing about eightfold, not the other venues shrinking. The 1,048 historical
 reference pairs are **overlapping**, not 1,048 independent events, so 0/1,048 is a descriptive comparison and not a
 causal or independent-sample p-value. Their signed changes range from −6.40 to +4.60 percentage points; the 2.5th and
 97.5th percentiles are −4.70 and +4.29 points. The actual before/after windows have a wave between them; the
@@ -44,7 +45,7 @@ observed exchanges. Every firm source below is opened and quoted in `docs/source
 
 | Firm | Timing relative to 23 Jun 2026 and 30 Oct licence deadline | Firm's own account | Relation to Foxbit |
 |---|---|---|---|
-| NovaDAX | The firm page is dated 9 Jun, **before** 23 Jun and the deadline; press reported its statement on 8 Jun. Trading ended 1 Jul. | A long-term assessment led it to discontinue brokerage in Brazil (M-07); it does not name the June notice. | The Foxbit client partnership was announced 7 Jul (M-04), after the 30 Jun onset of large Foxbit seller-initiated trading (F-031). |
+| NovaDAX | The firm page was released on 8 Jun (page metadata `releasedAt`; updated 9 Jun), **before** 23 Jun and the deadline; Exame published its statement on 8 Jun 2026, 09h44. Trading ended 1 Jul. | A long-term assessment led it to discontinue brokerage in Brazil (M-07); it does not name the June notice. | The Foxbit client partnership was announced 7 Jul (M-04), after the 30 Jun onset of large Foxbit seller-initiated trading (F-031). |
 | Bitnuvem | Its shutdown process began **Oct 2025**, before both dates. The current public page has no publication date. | Large international competitors and an increasingly unfavorable national regulatory setting for fintechs (M-08); it does not identify the June notice. | Client destination not established in the opened statement. |
 | Digitra | The company page's publication metadata says **20 Aug 2026**, after 23 Jun and before 30 Oct. | It decided not to apply for authorization and to end retail trading/custody in an orderly way (M-09). | Its notice offers Foxbit as a voluntary transfer destination. This can affect the later after period, not the June onset. |
 | Coinext | Its FAQ says new account openings and deposits stopped **3 Sep 2026**, after 23 Jun and before 30 Oct; the page itself is undated. | It says it did not meet the regulatory minimum capital for an authorization request (M-10). | Its FAQ suggests Mercado Bitcoin or OKX as optional destinations, not Foxbit. |
@@ -76,5 +77,12 @@ o mercado: balcão, P2P e plataformas offshore ficam fora. A mudança de partici
 demanda ou migração de clientes. Os dados não identificam quem trouxe dólares nem atribuem a mudança ao ofício."**
 
 ## History
+- 2026-11-05, agent for Renzo (Claude, independent review of Codex's work): reproduces byte for byte (CSVs and PNG); a
+  separate rebuild from the raw files (own code, BRT resample) gives 6.80% and 34.74%. Sensitivity, not the registered
+  rule: keeping the episode's 29-day gap between windows, 1,018 pairs, signed change −7.06 to +5.37 pp, none as large.
+  Corrections: NovaDAX page released 8 Jun (was "dated 9 Jun", the update date); the three lost hours are the freeze
+  cutoff, not missing data; per-day volumes added. Sources: M-07 (NovaDAX page and Exame), M-09, M-10 quotes and dates
+  verified; M-08 (Bitnuvem) could not be reopened (TLS handshake error, 5 Nov), so its quote is not re-verified. Claims stay
+  within the task's ceiling. Status stays exploratory until a teammate (Nattan or Jonathan) re-runs it
 - 2026-11-05, Codex for Renzo: created from the registered P3-25 comparison and opened firm statements; awaiting
   independent re-run by Renzo's other Claude agent (or Nattan/Jonathan).

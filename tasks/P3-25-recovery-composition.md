@@ -80,24 +80,30 @@ H1 (datathon subset) in `docs/competing-rails-datathon-ranking.md`, rank 2. **Ca
 - Finding F-036; exits in `docs/sources.md`
 
 ## Handoff
-- **State:** implementation and source audit complete; F-036 is exploratory and not in the deck. Four firm sources
-  opened and registered as M-07 to M-10. The fixed spec preceded the script in git (`70c23e4`). The script output
-  says Foxbit share 6.80% pre, 27.99% wave, 34.74% after on shared hours. Ready for another Claude agent to review.
-- **Next step (independent Claude review):** pull the committed result, run
-  `.venv/bin/python scripts/p3_25_composition.py`, compare the three output files with the committed copies, then
-  audit F-036 against the CSV and the four firm pages M-07 to M-10. Check the UTC→Brasília conversion, Binance's
-  millisecond/microsecond timestamps, the Mercado Bitcoin no-candle=zero rule, the 1,048 overlapping reference
-  windows and their exclusion of 24 Jun, and the distinction between descriptive composition and cause. Inspect
-  the chart at reading size. Record findings here, including any discrepancy; do not silently edit the fixed spec
-  or F-001–F-033. If the review passes, ask Nattan or Jonathan to perform the teammate re-run required by S5.
-  A ready review brief is in `docs/agent-prompt-P3-25-review.md`.
-- **Open questions:** Coinext and Bitnuvem pages do not show an original publication date; F-036 uses the dated
-  service changes they state. Felipe decides whether the reviewed line merits slide 8/10 or only the annex.
-- **How to resume:** source data are the frozen files listed in the script header; the script writes only P3-25
-  outputs. F-031 explains why its earlier 7/33/37% daily-share averages differ from this task's ratio of summed
-  USDT volumes.
+- **State:** independent review by Renzo's Claude agent **passed** (5 Nov; details in the Log and F-036 History). Outputs
+  reproduce byte for byte; a separate rebuild from raw gives the same shares; spec `70c23e4` precedes the script. Two
+  factual fixes applied to F-036 (NovaDAX released 8 Jun, not 9; the 3 lost hours are the freeze cutoff) and M-07/M-08
+  updated in `docs/sources.md`.
+- **Next step:** S5, teammate re-run by Nattan or Jonathan: `.venv/bin/python scripts/p3_25_composition.py`, then
+  `git status results/` must show no change. Then status `done` and F-036 `confirmed`. Felipe decides slide 8/10 or annex
+  (P5-08 S3).
+- **Open questions:** Bitnuvem (M-08) could not be reopened (TLS error); its exit began in Oct 2025, so no claim depends on
+  it. Exame's subheading says NovaDAX had already cut staff in Dec 2025 "diante da nova regulação do BC": the licensing
+  regime, not the June notice.
+- **How to resume:** run the script; review commands and sensitivity code are in the Log entry of 5 Nov.
 
 ## Log
+- 2026-11-05 02:30, agent for Renzo (Claude, review of Codex's work, following `docs/agent-prompt-P3-25-review.md`):
+  (1) git order OK: spec `70c23e4` before script and outputs `d73d47f`; post hoc disclosed. (2) Re-run reproduces all
+  three outputs byte for byte; independent rebuild (own code: BRT resample, inner join of Binance and Foxbit rows, MB
+  missing = 0) gives 6.80% / 34.74%. Per-day volumes: Binance 53.6 → 60.3 mn USDT, Foxbit 4.0 → 33.0, MB 1.28 → 1.72, so
+  the change is Foxbit's growth. (3) UTC→BRT, ms/µs switch, common hours, MB zero rule and the 24 Jun exclusion are
+  correct; the 3 hours lost in "after" are 21–23h BRT on 30 Oct, past the 23h UTC freeze. Reference windows overlap and
+  are adjacent (finding says so); sensitivity with the episode's 29-day gap: 1,018 pairs, −7.06 to +5.37 pp, none near
+  27.94. Foxbit's quarterly share 2023–Q2 2026 stayed between 1.7% and 8.7%. (4) M-07 NovaDAX page `releasedAt`
+  2026-06-08 (corrected from 9 Jun), Exame quote verbatim (8 Jun 2026, 09h44); M-09 quote and `published_time`
+  2026-08-20 OK, names Foxbit; M-10 quote and "3 de setembro de 2026" OK; M-08 Bitnuvem not reachable (TLS error). No
+  exit attributed to the notice. (5) Figure reproduces; the slide sentence and annex paragraph stay within the ceiling.
 - 2026-11-05, Codex for Renzo: S2–S4 completed; outputs and F-036 written, four company statements opened and
   quoted. Presented the result as a three-venue descriptive comparison. Set to review for Renzo's other Claude agent;
   teammate re-run remains a separate criterion before `done`.

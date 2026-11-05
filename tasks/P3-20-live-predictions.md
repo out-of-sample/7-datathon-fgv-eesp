@@ -187,8 +187,16 @@ and the Voto PDF (both URLs in E-14):
   three venues' own statements; apply the registered branch rule (A/B/C per venue, from sources only, never prices);
   commit and push. Then S6 on Fri 6 Nov after 13:30 Brasília: `python scripts/p3_20_live.py download` and `readout`
   (E2 S1 = early reading, the only E2 number for the PDF).
-- **Open questions:** (1) Mercado Bitcoin: retry the API later; if it still redirects, Renzo saves the API JSON from a
-  browser (no user-agent workaround in scripts). (2) A teammate who did not write `p3_20_live.py` re-runs E1 (criterion 5)
+- **Open questions:** (1) Mercado Bitcoin: retried 5 Nov 02:30 Brasília, still HTTP 302 with no Location on every
+  endpoint, also with curl's default agent: Cloudflare is challenging this machine's connection, which only a real
+  browser passes (the 31 Oct frozen pull worked). **Fix (Renzo, ~2 min, after 14:00 Brasília so the day's PTAX window
+  is complete):** open
+  `https://api.mercadobitcoin.net/api/v4/candles?symbol=USDT-BRL&resolution=1h&from=1793404800&to=1794009600`
+  (31 Oct – 7 Nov 2026 UTC) in a browser, save the JSON as `data/raw/live/mercadobitcoin/USDT-BRL-1h_browser_<YYYYMMDD>.json`,
+  then convert it to the readout's format:
+  `.venv/bin/python -c "import json,sys,pandas as pd; f=sys.argv[1]; r=json.load(open(f)); pd.DataFrame({k: r[k] for k in 'tohlcv'}).to_csv(f.replace('_browser_', '_to_browser_').replace('.json', '.csv'), index=False)" data/raw/live/mercadobitcoin/USDT-BRL-1h_browser_<YYYYMMDD>.json`
+  and append both files to `data/raw/SHA256SUMS`. Then `python scripts/p3_20_live.py readout`. If the browser also gets a
+  challenge page, try another network (phone hotspot) and run `python scripts/p3_20_live.py download` as usual. (2) A teammate who did not write `p3_20_live.py` re-runs E1 (criterion 5)
   before it goes on Slide 10 (P5-08 S2).
 - **How to resume:** `python scripts/p3_20_live.py readout` reproduces F-035 from `data/raw/live/` (checksums in
   `data/raw/SHA256SUMS`; `grep data/raw/live data/raw/SHA256SUMS | sha256sum -c`). Each `download` writes new files named
