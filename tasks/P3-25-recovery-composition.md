@@ -2,9 +2,9 @@
 id: P3-25
 title: The premium recovered - did the market? Venue shares and exchange exits in 2026
 phase: P3
-status: todo
+status: doing
 owner: CS 1
-working: -
+working: Renzo (Codex)
 due: 2026-11-06
 depends: P1-03, P3-17
 ---
@@ -20,7 +20,7 @@ H1 (datathon subset) in `docs/competing-rails-datathon-ranking.md`, rank 2. **Ca
 **Post hoc.** The periods were chosen with knowledge of the episode (F-031). The spec reuses them and adds no new date.
 
 ## Subtasks
-- [ ] S1 — Spec, committed before any new number: primary measure = Foxbit volume / (Binance + Foxbit + Mercado Bitcoin)
+- [ ] S1 — doing: Renzo (Codex), 5 Nov. Spec, committed before any new number: primary measure = Foxbit volume / (Binance + Foxbit + Mercado Bitcoin)
   volume, summed in USDT over hours all three cover (Mercado Bitcoin omits no-trade hours: missing = 0 volume, counted and
   reported); periods pre 1 May–22 Jun, wave 24 Jun–21 Jul, after 22 Jul–30 Oct 2026 (data end of the 30 Oct freeze);
   statistic = after-minus-pre share; reference = the same statistic for every pair of contiguous windows with the same
@@ -40,6 +40,29 @@ H1 (datathon subset) in `docs/competing-rails-datathon-ranking.md`, rank 2. **Ca
 - [ ] S5 — One pt-BR sentence for Felipe (slide 8 or 10) and an annex paragraph; a teammate who did not write the script
   re-runs it (Nattan or Jonathan)
 
+## Fixed specification (5 Nov, before P3-25 calculation)
+- **Status:** retrospective. The phase dates and the first Foxbit-share figures were already seen in F-031. No causal
+  inference follows from this comparison.
+- **Clock and coverage:** index raw candles by their UTC open hour, then use the corresponding Brasília calendar date
+  (UTC−3 in 2026) for all period boundaries. Use every complete hour from the first Mercado Bitcoin candle through
+  30 Oct 2026 for which Binance and Foxbit have observations. Mercado Bitcoin's omitted no-trade hours are zero volume,
+  but count and report them; report missing Binance/Foxbit hours separately. No forward fill of volume.
+- **Volume and share:** use USDT base-asset volume. For each window, sum each venue's hourly USDT volume over the same
+  retained hours, then Foxbit share = Foxbit sum / sum of the three venue sums. Do not average hourly or daily shares.
+- **Episode windows (inclusive BRT dates):** pre 1 May–22 Jun 2026, wave 24 Jun–21 Jul, after 22 Jul–30 Oct. Primary
+  statistic = after share minus pre share in percentage points. Show the three shares, venue volumes and retained-hour
+  counts so coverage changes are visible.
+- **Historical reference:** for each BRT start date after Mercado Bitcoin begins, form adjacent windows with the same
+  calendar-day lengths as pre and after. Retain only pairs with the same common-hour rule and with neither window
+  touching 24 Jun 2026. Report the full empirical distribution and the fraction of pairs whose absolute share change
+  is at least the episode's. Adjacent windows are a descriptive benchmark, not independent policy events or a causal
+  test. The reference uses no new choice of episode dates.
+- **Secondary measures:** Foxbit median daily average trade size (USDT volume / trade count, on days with trades) and
+  its 09:00–18:00 Brasília volume share, each for pre/wave/after. These describe Foxbit only. The chart overlays the
+  frozen daily premium and daily three-venue Foxbit share, with the same BRT date axis and explicit units.
+- **Exit evidence:** quote each firm's own dated statement where available. If one cannot be opened or does not state a
+  cause, record that limitation; an exit timing comparison is descriptive and cannot attribute an exit to the notice.
+
 ## Success criteria
 - [ ] Spec committed before `p3_25_composition.py` produced any number (git order)
 - [ ] F-036 written with the exact command, reported whatever the share comparison shows
@@ -57,14 +80,18 @@ H1 (datathon subset) in `docs/competing-rails-datathon-ranking.md`, rank 2. **Ca
 - Finding F-036; exits in `docs/sources.md`
 
 ## Handoff
-- **State:** task created 4 Nov; owner Renzo (CS 1), starts 5 Nov. Nothing computed.
-- **Next step:** S1. Read F-031 (table C2) and `scripts/p3_17_restoration.py` part C, which already sums the three venues'
-  volume; reuse its loading code, write the spec here, commit, then S2.
+- **State:** claimed 5 Nov by Codex for Renzo. The retrospective S1 measurement rule is written above; no P3-25
+  calculation has run.
+- **Next step:** commit and push this claim/spec, then S2. Read F-031 (table C2) and
+  `scripts/p3_17_restoration.py` part C for the venue loading code.
 - **Open questions:** S3 needs Felipe's `coinnext` report (P3-24 S1); if it is not pushed by the time S3 starts, search the
   four firms' announcements directly.
 - **How to resume:** `.venv/bin/python scripts/p3_17_restoration.py` reproduces F-031 first (sanity check).
 
 ## Log
+- 2026-11-05, Codex for Renzo: claimed P3-25 and fixed the retrospective comparison rule before calculating new numbers.
+  A parallel P3-20 session has uncommitted files; `git pull --rebase` cannot run while those edits are present, so no
+  other worker's files were stashed or changed.
 - 2026-11-04, agent for Renzo: task created from the competing-rails follow-up (decision log, 4 Nov). Renzo owns it.
 
 ## Result
