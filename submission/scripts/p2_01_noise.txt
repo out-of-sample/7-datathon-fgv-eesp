@@ -1,0 +1,113 @@
+# Purpose: Trading-friction noise floor.
+# Inputs: P1-02 daily and hourly CSVs.
+# Outputs: data/processed/P2-01_noise_floor_daily.csv and P2-01 figures.
+# How to run: .venv/bin/python submission/scripts/p2_01_noise.txt
+# Source: scripts/p2_01_noise.py (SHA-256 d7c620d30c7e620363efce91711905813d89216fd81cd2b2859298dc0a05b415).
+# Run from the repository root with the frozen data/raw/ folder present.
+
+r"""P2-01: noise floor - how big a premium is just trading friction (the bid-ask spread of USDT/BRL on Binance).
+
+Estimators, from hourly high/low/close (bars are 1 h; "period" below = one hour, aggregated per UTC day)
+  Corwin-Schultz (2012), CS: from the high-low ranges of two consecutive hours,
+      beta = ln(H_t/L_t)^2 + ln(H_t+1/L_t+1)^2,  gamma = ln(max(H_t,H_t+1) / min(L_t,L_t+1))^2,
+      alpha = (sqrt(2 beta) - sqrt(beta)) / (3 - 2 sqrt 2) - sqrt(gamma / (3 - 2 sqrt 2)),
+      S = 2 (e^alpha - 1) / (1 + e^alpha); negative pair estimates set to 0, then the day's mean (as in the paper).
+      No overnight adjustment: crypto trades 24/7.
+  Abdi-Ranaldo (2017), AR: from closes and mid-ranges, eta_t = (ln H_t + ln L_t) / 2,
+      S = sqrt(max(4 * mean_day[(ln C_t - eta_t)(ln C_t - eta_t+1)], 0)).
+  Naive baseline: the median hourly range (H - L) / C, as in the probe (F-001). It includes price moves, so it
+  overstates the spread.
+  Both estimators give the FULL proportional spread (ask - bid) / mid, i.e. the cost of a round trip.
+Noise band (S3): +/- the 21-day rolling median of the larger of the two daily estimates (conservative).
+Inputs   data/processed/P1-02_premium_hourly.csv, data/processed/P1-02_premium_daily.csv (run p1_02_premium.py first)
+Outputs  data/processed/P2-01_noise_floor_daily.csv     one row per UTC day: spreads, range, tick, band
+         results/figures/P2-01_premium_noise_band.png   daily premium with the band shaded
+         results/figures/P2-01_spread_estimators.png    monthly medians: CS, AR, naive range, tick
+Run      python scripts/p2_01_noise.py   (prints the yearly tables used in finding F-007)
+"""
+from pathlib import Path
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+ROOT = Path(__file__).resolve().parents[2]
+PROC, FIG = ROOT / "data/processed", ROOT / "results/figures"
+PROBE_RANGE = {2020: 24.0, 2021: 29.1, 2022: 18.7, 2023: 12.2, 2024: 12.0, 2025: 11.0, 2026: 7.4}  # F-001, to 30 Sep 2026
+
+h = pd.read_csv(PROC / "P1-02_premium_hourly.csv", parse_dates=["time_utc"], index_col="time_utc").asfreq("h")  # gaps -> NaN
+d = pd.read_csv(PROC / "P1-02_premium_daily.csv", parse_dates=["date_brt"], index_col="date_brt")
+H, L, C = np.log(h.usdtbrl_high_brl), np.log(h.usdtbrl_low_brl), np.log(h.usdtbrl_close_brl)
+day = h.index.normalize()
+
+k = 3 - 2 * np.sqrt(2)
+beta = (H - L) ** 2 + (H.shift(-1) - L.shift(-1)) ** 2
+gamma = (np.maximum(H, H.shift(-1)) - np.minimum(L, L.shift(-1))) ** 2
+alpha = (np.sqrt(2 * beta) - np.sqrt(beta)) / k - np.sqrt(gamma / k)
+cs = (2 * (np.exp(alpha) - 1) / (1 + np.exp(alpha))).clip(lower=0)
+eta = (H + L) / 2
+ar_prod = (C - eta) * (C - eta.shift(-1))
+hl_range = (h.usdtbrl_high_brl - h.usdtbrl_low_brl) / h.usdtbrl_close_brl
+decimals = h.usdtbrl_close_brl.dropna().map(lambda v: len(f"{v:.6f}".rstrip("0").split(".")[1]))
+fine_from = decimals[decimals > 3].index.min().normalize()  # Binance cut the tick from 0.001 to 0.0001 BRL (27 Jun 2025)
+tick = pd.Series(np.where(h.index < fine_from, 1e-3, 1e-4), h.index).groupby(day).first()
+
+n = pd.DataFrame({
+    "hours": h.usdtbrl_close_brl.groupby(day).count(),
+    "spread_cs_bps": cs.groupby(day).mean() * 1e4,
+    "spread_ar_bps": np.sqrt((4 * ar_prod.groupby(day).mean()).clip(lower=0)) * 1e4,
+    "range_median_bps": hl_range.groupby(day).median() * 1e4,
+    "tick_bps": tick / h.usdtbrl_close_brl.groupby(day).median() * 1e4})
+n = n[n.hours > 0]
+n.index.name = "date_utc"
+n["noise_band_bps"] = n[["spread_cs_bps", "spread_ar_bps"]].max(axis=1).rolling(21, min_periods=10).median()
+n.to_csv(PROC / "P2-01_noise_floor_daily.csv")
+
+# Yearly comparison: estimators vs naive range vs tick, and the premium against the band
+y = n.groupby(n.index.year)
+band = n.noise_band_bps.reindex(d.index)  # UTC day of the PTAX window = Brasília PTAX date
+inside = d.premium_bps.abs() <= band
+t = pd.DataFrame({"days": y.size(), "cs_bps": y.spread_cs_bps.median(), "ar_bps": y.spread_ar_bps.median(),
+                  "range_bps": hl_range.groupby(hl_range.index.year).median() * 1e4, "tick_bps": y.tick_bps.median(),
+                  "premium_median_bps": d.premium_bps.groupby(d.index.year).median(),
+                  "premium_inside_band_pct": inside.groupby(d.index.year).mean() * 100})
+t["premium_over_band"] = t.premium_median_bps / band.groupby(d.index.year).median()
+print(t.round(1).to_string())
+probe = hl_range[:"2026-09-30"].groupby(hl_range[:"2026-09-30"].index.year).median() * 1e4
+print("naive range vs probe (F-001), bps:", (probe - pd.Series(PROBE_RANGE)).round(1).to_dict())
+lo = d["2025-08-01":"2026-06-22"]
+print(f"low regime 1 Aug 2025 - 22 Jun 2026: median premium {lo.premium_bps.median():.1f} bps, "
+      f"median band {band[lo.index].median():.1f} bps, days inside band {inside[lo.index].mean():.0%}")
+hi = d["2026-06-24":"2026-07-31"]
+print(f"24 Jun - 31 Jul 2026: median premium {hi.premium_bps.median():.1f} bps, median band {band[hi.index].median():.1f} bps, "
+      f"days inside band {inside[hi.index].mean():.0%}")
+
+# Figures (palette: dataviz reference slots 1-3, validated)
+BLUE, ORANGE, AQUA = "#2a78d6", "#eb6834", "#1baf7a"
+INK2, MUTED, GRID, SURFACE = "#52514e", "#b9b8b2", "#e4e3df", "#fcfcfb"
+plt.rcParams.update({"figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "axes.edgecolor": GRID, "axes.labelcolor": INK2,
+                     "xtick.color": INK2, "ytick.color": INK2, "axes.grid": True, "grid.color": GRID, "grid.linewidth": 0.6,
+                     "axes.axisbelow": True, "axes.spines.top": False, "axes.spines.right": False, "font.size": 10,
+                     "axes.titlesize": 12, "axes.titleweight": "bold", "axes.titlelocation": "left",
+                     "legend.frameon": False, "savefig.dpi": 150, "savefig.bbox": "tight"})
+
+fig, ax = plt.subplots(figsize=(11, 4.2))
+ax.fill_between(band.index, -band, band, color=ORANGE, alpha=0.25, linewidth=0, label="noise band: ± typical spread")
+ax.plot(d.index, d.premium_bps, color=MUTED, linewidth=0.7, label="daily premium")
+ax.plot(d.index, d.premium_bps.rolling(21, min_periods=10).median(), color=BLUE, linewidth=2, label="21-day rolling median")
+ax.axhline(0, color=INK2, linewidth=0.8)
+ax.set_ylabel("premium (bps)")
+ax.set_title("USDT/BRL premium over PTAX and the trading-friction band (bps)")
+ax.legend(loc="upper right")
+fig.savefig(FIG / "P2-01_premium_noise_band.png")
+
+m = n.groupby(n.index.to_period("M"))[["spread_cs_bps", "spread_ar_bps", "range_median_bps", "tick_bps"]].median()
+m.index = m.index.to_timestamp()
+fig, ax = plt.subplots(figsize=(11, 4.2))
+for col, color, name in [("range_median_bps", AQUA, "naive: median hourly range"), ("spread_cs_bps", BLUE, "Corwin–Schultz"),
+                         ("spread_ar_bps", ORANGE, "Abdi–Ranaldo")]:
+    ax.plot(m.index, m[col], color=color, linewidth=2, label=name)
+ax.step(m.index, m.tick_bps, where="post", color=INK2, linewidth=1, linestyle="--", label="one price tick")
+ax.set_ylabel("bps")
+ax.set_title("USDT/BRL spread estimates vs the naive hourly range (monthly medians of daily values)")
+ax.legend(loc="upper right")
+fig.savefig(FIG / "P2-01_spread_estimators.png")

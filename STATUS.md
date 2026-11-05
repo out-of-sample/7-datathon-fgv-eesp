@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-05 by Codex for Renzo (P3-25, F-036 for review) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-05 by Codex for Renzo (P5-04 script exports for review) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 tag `results-frozen` (F-001 to F-033)
 
@@ -50,6 +50,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
    - **"So what" plan ([`docs/06-so-what.md`](docs/06-so-what.md)):** `P3-10`, `P3-11`, `P3-12`, `P3-13`, and `P3-14` are peer-reviewed and `done` (`F-023` to `F-027` confirmed and integrated into Slides 5, 6, 10, 12 and Annexes A, B.5, B.7, C).
    - **Deck language (2 Nov, Renzo):** four levels (measured / consistent with the mechanism / illustrative / not shown) and line-by-line suggestions for Slides 1, 6, 9, 11, 12, 14 in [`docs/deck-notes-2026-11-02.md`](docs/deck-notes-2026-11-02.md), for Felipe; `P3-15` (review): "why +94 bps and not +350" answered in F-028: the marginal route is not identified, and the ordinary 3.5% route did not set the price (highest day +171 bps over the pre-notice level; the May 2025 rise of that IOF moved the premium +13 bps); two pt-BR sentences for Slides 1 and 5 in F-028. Res. BCB 574 (published 22 Jun, one day before the notice) is missing from the event list: `P3-16` (todo).
    - **Thu 5 Nov (after the 4 Nov freeze):** Renzo's agent: `P3-20` S3–S4 done (E1 held: +2.1 bps, p = 0.90, F-035) and S5 (E2 branch pushed by 23:59); `P3-25` implementation done, F-036 exploratory, independent Claude review then teammate re-run pending; Felipe: push the mentor-lead data and scripts (`P3-24` S1–S4), then draft Slide 10 (`P5-08`); Renzo reviews all of Felipe's pushed mentor-lead work (`P3-24` S5) and Slide 10 (`P5-08` S4) before the red team (Fri 6).
+   - **Submission scripts (`P5-04`):** 18 `.txt` exports now cover the computed claims in both current 10-slide drafts. Isolated replay of 19 commands reproduces all six existing deck charts pixel for pixel; Claude review brief in `docs/agent-prompt-P5-04-review.md`. Reconcile the final PDF after Felipe chooses a draft and `P5-02` finishes any replacement figures.
    - Still open from before the freeze: team confirms Option A (bank routes in Anexo B.5); `P3-05`/`P3-06` (live CLI agent runs); peer-review tasks in `review`.
 2. Everyone (and your agents): read [`docs/review-2026-10-31.md`](docs/review-2026-10-31.md) and follow `prompt.md` §5–§7 (`sources are opened, not remembered`).
 3. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff (`prompt.md` §7).
@@ -58,6 +59,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 | Item | Needed from | By |
 |---|---|---|
+| `P5-04`: script exports and clean replay are ready. Independent Claude review should check the script/claim map and P2-03 reproducibility fix; final PDF reconciliation follows Felipe's deck selection and P5-02 figures | Claude reviewer, then Felipe and P5-02 owner | Sat 7 Nov |
 | `P3-25` / F-036: the retrospective three-venue composition comparison and four-firm exit audit are ready. Another Claude agent should run the exact command and review the claim; Nattan or Jonathan then signs off the teammate re-run before any slide use | Independent Claude review, then teammate re-run; Felipe for deck placement | Fri 6 Nov morning |
 | `P3-24`: Felipe pushed the Flash data (`79b71f1`; F-034 reproduces, 44/44 checksums). **5 Nov: the bundle moved to `data/raw/flash-mentor-leads/` (out of git); after pulling, restore it with the command in `data/README.md`** (note for Felipe's agents in the P3-24 Handoff). Next: Felipe S2–S4 (spec, USDC/USD, second pool, placebo windows, supply fall); Renzo reviews (S5) | Felipe, then Renzo (review) | Fri 6 Nov morning |
 | Slide 10 conclusion (`P5-08`): pick the architecture (Felipe's plan recommends "Private Tariff" + recovery line) and apply the known wording fixes | Felipe; Renzo checks | before red team (Fri 6 Nov) |
@@ -173,7 +175,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P5-01](tasks/P5-01-deck-v1.md) | Deck v1 (pt-BR) | ⏸️ paused | Economist | - | 5/6 | 4/4 | 2026-11-05 | P4-03 |
 | [P5-02](tasks/P5-02-final-figures.md) | Final figures in one consistent style | ⬜ todo | CS 1 | - | – | 0/3 | 2026-11-06 | P5-01 |
 | [P5-03](tasks/P5-03-red-team.md) | Red-team review | 👀 review | Team | - | 3/3 | 2/2 | 2026-11-06 | P5-01 |
-| [P5-04](tasks/P5-04-scripts-txt.md) | Export scripts as .txt with headers | 🔄 doing | CS 1 | Codex for Renzo | 0/4 | 0/2 | 2026-11-07 | P4-03 |
+| [P5-04](tasks/P5-04-scripts-txt.md) | Export scripts as .txt with headers | 👀 review | CS 1 | - | 4/4 | 2/2 | 2026-11-07 | P4-03 |
 | [P5-05](tasks/P5-05-annex.md) | Annex: sources, event table, AI-use disclosure | 🔄 doing | Economist | - | 4/4 | 2/2 | 2026-11-07 | P5-01 |
 | [P5-06](tasks/P5-06-submission.md) | Submit PDF and scripts | ⬜ todo | Team | - | – | 0/3 | 2026-11-08 | P5-02, P5-03, P5-04, P5-05 |
 | [P5-07](tasks/P5-07-story-notebook.md) | Story notebook - the whole project end to end (deck prototype) | ✅ done | CS 1 | - | 3/3 | 3/3 | 2026-11-03 | P2-03, P2-04, P3-01, P4-01 |
@@ -223,6 +225,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-05 — Codex for Renzo: P5-04 → review; exported 18 analysis scripts as executable `.txt` with headers and run order, isolated replay passed 19 commands and all six current deck charts matched pixel for pixel; fixed P2-03's variable weekday draw order to preserve the frozen placebo and money tables, disclosed in F-016/F-025; Claude review brief ready.
 - 2026-11-05 — agent for Renzo: P3-20 S5, E2 branch applied from sources only: no BCB list yet (due 6 Nov per the BCB to Bitnotícias), Binance/Foxbit/MB filed (23/29/27 Oct), no source on banks serving applicants after 6 Nov → branch C (two-sided) for all venues; sources E-17–E-21; Mercado Bitcoin's 302 was a maintenance page (retry later); slide 10 row for Res. 589 needs "ramo C" (P5-08)
 
 - 2026-11-05 — agent for Renzo: Felipe's Flash bundle moved to `data/raw/flash-mentor-leads/` (out of git; restore command in `data/README.md`; note for his agents in P3-24); P3-25 (Codex) independently reviewed: passes, reproduces byte for byte, 6.80% → 34.74% rebuilt separately, NovaDAX date corrected to 8 Jun, Bitnuvem source unreachable; teammate re-run pending. Mercado Bitcoin still blocked by Cloudflare: browser-save instructions in P3-20 Handoff

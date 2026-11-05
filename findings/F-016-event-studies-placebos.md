@@ -67,6 +67,7 @@ python scripts/p2_03_events.py
 Outputs: `results/tables/P2-03_event_table.csv`, `results/tables/P2-03_placebo_draws.csv`, `results/figures/P2-03_placebo_dist.png`, `results/agentic/team_estimate.json`.
 
 ## History
+- 2026-11-05, Codex for Renzo (P5-04): disclosed reproducibility bug fix in `scripts/p2_03_events.py`: the set iteration changed the order in which a seeded RNG sampled weekdays. Fixed the weekday order to reproduce the frozen 2 Nov draws. The +93.9 bps estimate and all-clean-date p = 0.0009 are unchanged.
 - 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-02, agent for Renzo (review fixes, on Felipe's behalf, agreed by Renzo): table re-run with corrected P1-04 dates and placebo-only p-values; all-clean-dates p added; unsourced "BCB inquiries circulated" removed; RMSE "baseline" replaced; interpretation marked as hypotheses; title updated
 - 2026-11-02, Renzo (review, P2-03): numbers reproduced; headline holds; text changes requested (tasks/P2-03 → Handoff)

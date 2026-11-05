@@ -85,7 +85,10 @@ print(f"Candidate clean placebo days outside event windows: {len(df_valid_placeb
 
 # 3. Draw 200 random placebo dates matching weekday proportions (seed = 20261102)
 # Weekday quotas proportional to the weekdays of the event dates (largest remainder, total 200)
-ev_days = pd.Series([d.day_name() for d in mapped_event_dates]).value_counts()
+# The set's iteration order varies between Python processes. Keep the weekday
+# order of the frozen 2 Nov draw so the fixed RNG seed reproduces that draw.
+weekday_order = ["Friday", "Thursday", "Monday", "Tuesday", "Wednesday", "Saturday", "Sunday"]
+ev_days = pd.Series([d.day_name() for d in mapped_event_dates]).value_counts().reindex(weekday_order).dropna().astype(int)
 raw = ev_days / ev_days.sum() * 200
 weekday_draw_counts = raw.astype(int)
 weekday_draw_counts[(raw - weekday_draw_counts).sort_values(ascending=False).index[:200 - weekday_draw_counts.sum()]] += 1

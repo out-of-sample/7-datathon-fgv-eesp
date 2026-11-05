@@ -1,0 +1,49 @@
+# Purpose: Res. 584 dated prediction inputs.
+# Inputs: Frozen BCB SGS 432, P1-02, P2-03 and P3-03 outputs.
+# Outputs: Printed prediction figures; recorded in results/tables/P3-13_prediction.md.
+# How to run: .venv/bin/python submission/scripts/p3_13_prediction.txt
+# Source: scripts/p3_13_prediction.py (SHA-256 c0ab1e1e9a56f6f65e885cf4377e3313e8fedc98a41175d9411ea4a02d27efba).
+# Run from the repository root with the frozen data/raw/ folder present.
+
+r"""P3-13: numbers behind the dated prediction for Res. BCB 584 (24-hour hold from 1 Jan 2027).
+Res. 584 (art. 2-B of Res. 142) holds for 24 h transfers of virtual assets above US$ 10,000 (per operation or per client
+per day) that leave a Brazilian provider for a foreign entity or a self-custody wallet. It does not touch transfers
+coming in. A trader caught by it holds USDT, not reais, for one day, so the cost is one day of financing plus one day of
+USDT/USD price risk.
+
+Financing  Selic target on the latest date <= 2 Nov 2026 (SGS 432), one business day = Selic / 252.
+USDT risk  1.645 x sd of daily changes in USDT/USD (P1-02, usdtusd_window_usd), PTAX days 2025-01-01 .. 2026-10-30.
+BRL risk   the same for PTAX (what a trader would carry only if the hold left them exposed in reais; P3-01 S2b uses it).
+Band       2.5-97.5% of the 200 P2-03 placebo draws: changes inside it are not detectable.
+Monitor    CUSUM test false-alarm rate (P3-03) -> chance of a false alarm in a 25-PTAX-day window.
+Inputs     data/raw/bcb/sgs_432.json (frozen 2 Nov 2026), data/processed/P1-02_premium_daily.csv,
+           results/tables/P2-03_placebo_draws.csv, results/tables/P3-03_backtest.csv
+Outputs    printed numbers, copied into results/tables/P3-13_prediction.md
+Run        python scripts/p3_13_prediction.py
+"""
+import json
+from pathlib import Path
+
+import numpy as np
+import pandas as pd
+
+ROOT = Path(__file__).resolve().parents[2]
+sel = pd.Series({pd.to_datetime(r["data"], dayfirst=True): float(r["valor"])
+                 for r in json.loads((ROOT / "data/raw/bcb/sgs_432.json").read_text())}).sort_index()
+selic = sel[:"2026-11-02"].iloc[-1]
+fin_bps = selic / 100 / 252 * 1e4
+
+d = pd.read_csv(ROOT / "data/processed/P1-02_premium_daily.csv", parse_dates=["date_brt"]).set_index("date_brt")["2025-01-01":]
+usdt_bps = 1.645 * np.log(d.usdtusd_window_usd).diff().std() * 1e4
+brl_bps = 1.645 * np.log(d.ptax_sell_brl_per_usd).diff().std() * 1e4
+band = pd.read_csv(ROOT / "results/tables/P2-03_placebo_draws.csv").placebo_diff_bps.quantile([0.025, 0.975]).values
+bt = pd.read_csv(ROOT / "results/tables/P3-03_backtest.csv").set_index("rule")
+fa_per_year = bt.loc["CUSUM", "test false alarms per year"]
+p_false = 1 - np.exp(-fa_per_year * 25 / 252)
+
+print(f"Selic target on {sel[:'2026-11-02'].index[-1].date()}: {selic:.2f}% a.a. -> one business day of financing: {fin_bps:.1f} bps")
+print(f"95% one-day USDT/USD risk (1.645 sd, {len(d)} PTAX days 2025-26): {usdt_bps:.1f} bps")
+print(f"one-day cost of the hold for a USDT holder (financing + USDT risk): {fin_bps + usdt_bps:.1f} bps")
+print(f"for comparison, 95% one-day BRL risk (PTAX): {brl_bps:.1f} bps")
+print(f"ordinary-date band (P2-03 placebo, 2.5-97.5%): {band[0]:.1f} to {band[1]:.1f} bps")
+print(f"CUSUM false alarms per year in test: {fa_per_year}; chance of >= 1 false alarm in 25 PTAX days: {p_false:.2f}")

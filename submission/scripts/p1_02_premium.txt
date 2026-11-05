@@ -1,0 +1,108 @@
+# Purpose: Core USDT/BRL premium and PTAX alignment.
+# Inputs: Frozen Binance, Coinbase and PTAX files in data/raw/.
+# Outputs: data/processed/P1-02_premium_{daily,hourly}.csv.
+# How to run: .venv/bin/python submission/scripts/p1_02_premium.txt
+# Source: scripts/p1_02_premium.py (SHA-256 29747eb0c96889e6f1c8e83b686edbcf19cf4efb03517f933fcfcde20120bd8b).
+# Run from the repository root with the frozen data/raw/ folder present.
+
+r"""P1-02: premium series v2 - how much more USDT costs in reais than the official dollar (PTAX), in bps.
+
+Definition
+  premium = USDTBRL / (PTAX x USDTUSD) - 1, times 10,000 (basis points)
+  USDTBRL  Binance USDT/BRL, BRL per USDT
+  PTAX     BCB closing PTAX, sell rate, BRL per USD
+  USDTUSD  USD per USDT = 1 / USDCUSDT (Binance; assumes USDC = US$ 1), or 1 / BUSDUSDT where Binance has no USDC
+           (26 Sep 2022 - 11 Mar 2023). Robustness: Coinbase USDT/USD, a direct dollar quote from 4 May 2021 (F-006).
+Timing
+  PTAX averages four windows at 10, 11, 12 and 13h Brasília = 13, 14, 15 and 16h UTC. Main series: mean of the hourly
+  OPEN prices at 13, 14, 15 and 16 UTC (the first trade of each window hour). Alternative: day close, the close of
+  the 23h UTC candle (24h UTC = 21h Brasília).
+Inputs   data/raw/binance/{USDTBRL,USDCUSDT,BUSDUSDT}/*.zip, data/raw/coinbase/USDT-USD-1h.csv, data/raw/bcb/ptax.json
+Outputs  data/processed/P1-02_premium_daily.csv   one row per PTAX day with USDT/BRL prices in the window
+         data/processed/P1-02_premium_hourly.csv  one row per USDT/BRL hour; premium against the last PTAX published
+                                                  before the candle closed (no look-ahead; mixes in FX moves since then)
+         column dictionary: tasks/P1-02-premium-v2.md -> Result
+Run      python scripts/p1_02_premium.py   (prints yearly means and checks them against the day-0 probe, F-001)
+"""
+import json
+from pathlib import Path
+import pandas as pd
+from dateutil.easter import easter
+
+ROOT = Path(__file__).resolve().parents[2]
+RAW, OUT = ROOT / "data/raw", ROOT / "data/processed"
+WINDOW_UTC = [13, 14, 15, 16]
+PROBE_UNADJ = {2020: 101.2, 2021: 82.3, 2022: 45.2, 2023: 57.6, 2024: 48.6, 2025: 23.3, 2026: 20.4}  # F-001, to 30 Sep 2026
+
+
+def binance(pair):
+    k = pd.concat(pd.read_csv(f, header=None, usecols=range(6)) for f in sorted((RAW / "binance" / pair).glob("*.zip")))
+    k.index = pd.to_datetime(k[0].where(k[0] < 1e14, k[0] // 1000), unit="ms")  # microseconds from 2025
+    return k.sort_index().drop(columns=0).set_axis(["open", "high", "low", "close", "volume"], axis=1)
+
+
+bps = lambda ratio: (ratio - 1) * 1e4
+brl, usdc, busd = binance("USDTBRL"), binance("USDCUSDT"), binance("BUSDUSDT")
+cb = pd.read_csv(RAW / "coinbase/USDT-USD-1h.csv")
+cb.index = pd.to_datetime(cb.time_unix_utc, unit="s")
+
+p = pd.DataFrame(json.loads((RAW / "bcb/ptax.json").read_bytes())["value"])
+p["published_brt"] = pd.to_datetime(p.dataHoraCotacao)
+p["date_brt"] = p.published_brt.dt.normalize()
+p = p.drop_duplicates("date_brt", keep="last").set_index("date_brt")  # 2025-04-23 appears twice with identical rates
+p["published_utc"] = p.published_brt + pd.Timedelta(hours=3)  # Brasília is UTC-3 all year since 2019
+
+# Hourly series on the USDT/BRL clock
+h = brl.add_prefix("usdtbrl_").add_suffix("_brl").rename(columns={"usdtbrl_volume_brl": "usdtbrl_volume_usdt"})
+h.index.name = "time_utc"
+on_usdc, on_busd = h.index.isin(usdc.index), h.index.isin(busd.index)
+for col in ["open", "close"]:
+    h[f"usdtusd_{col}_usd"] = (1 / usdc[col]).reindex(h.index).fillna((1 / busd[col]).reindex(h.index))
+    h[f"usdtusd_cb_{col}_usd"] = cb[col].reindex(h.index)
+h["usdtusd_src"] = pd.Series(on_usdc, h.index).map({True: "USDC", False: None}).fillna(
+    pd.Series(on_busd, h.index).map({True: "BUSD", False: ""}))
+last = pd.merge_asof(pd.DataFrame({"t": h.index + pd.Timedelta(hours=1)}),  # PTAX known when the candle closes
+                     p.reset_index().sort_values("published_utc"), left_on="t", right_on="published_utc")
+h["ptax_last_date_brt"] = last.date_brt.values
+h["ptax_last_sell_brl_per_usd"] = last.cotacaoVenda.values
+h["premium_vs_last_ptax_bps"] = bps(h.usdtbrl_close_brl / (h.ptax_last_sell_brl_per_usd * h.usdtusd_close_usd))
+
+# Daily series on PTAX days
+win = h[h.index.hour.isin(WINDOW_UTC)]
+g = win.groupby(win.index.normalize())
+eod = h[h.index.hour == 23].set_axis(h.index[h.index.hour == 23].normalize())
+d = pd.DataFrame({"ptax_sell_brl_per_usd": p.cotacaoVenda, "ptax_buy_brl_per_usd": p.cotacaoCompra,
+                  "ptax_published_brt": p.published_brt,
+                  "window_hours": g.usdtbrl_open_brl.count(),
+                  "usdtbrl_window_brl": g.usdtbrl_open_brl.mean(),
+                  "usdtusd_window_usd": g.usdtusd_open_usd.mean(),
+                  "usdtusd_window_src": g.usdtusd_src.agg(lambda s: "+".join(sorted(set(s) - {""}))),
+                  "usdtusd_cb_window_usd": g.usdtusd_cb_open_usd.mean(),
+                  "usdtbrl_dayclose_brl": eod.usdtbrl_close_brl,
+                  "usdtusd_dayclose_usd": eod.usdtusd_close_usd}).loc[p.index]
+d = d[d.window_hours > 0].copy()  # drops PTAX days before USDT/BRL was listed (13 Oct 2020)
+d.index.name = "date_brt"
+d["window_hours"] = d.window_hours.astype(int)
+ash_wednesday = {pd.Timestamp(easter(y)) - pd.Timedelta(days=46) for y in d.index.year.unique()}
+d["ptax_window_uncertain"] = ((d.index.month == 12) & d.index.day.isin([24, 31])) | d.index.isin(ash_wednesday)
+d["premium_bps"] = bps(d.usdtbrl_window_brl / (d.ptax_sell_brl_per_usd * d.usdtusd_window_usd))
+d["premium_cb_bps"] = bps(d.usdtbrl_window_brl / (d.ptax_sell_brl_per_usd * d.usdtusd_cb_window_usd))
+d["premium_unadj_bps"] = bps(d.usdtbrl_window_brl / d.ptax_sell_brl_per_usd)
+d["premium_dayclose_bps"] = bps(d.usdtbrl_dayclose_brl / (d.ptax_sell_brl_per_usd * d.usdtusd_dayclose_usd))
+
+OUT.mkdir(parents=True, exist_ok=True)
+d.to_csv(OUT / "P1-02_premium_daily.csv")
+h.to_csv(OUT / "P1-02_premium_hourly.csv")
+print(f"daily: {len(d)} PTAX days {d.index.min().date()} .. {d.index.max().date()}; hourly: {len(h)} hours")
+print("missing premium_bps:", d.premium_bps.isna().sum(), "| window_hours < 4:", (d.window_hours < 4).sum(),
+      "| ptax_window_uncertain:", d.ptax_window_uncertain.sum(), "| USDT/USD source:", d.usdtusd_window_src.value_counts().to_dict())
+
+cols = ["premium_bps", "premium_cb_bps", "premium_unadj_bps", "premium_dayclose_bps"]
+y = d.groupby(d.index.year)
+print(pd.concat([y.size().rename("days"), y[cols].mean().round(1), y.premium_bps.median().round(1).rename("median_bps")], axis=1).to_string())
+
+# S5 check: the unadjusted premium must reproduce the probe's yearly means (probe data ended 30 Sep 2026)
+s = d[:"2026-09-30"].groupby(d[:"2026-09-30"].index.year).premium_unadj_bps.mean()
+diff = (s - pd.Series(PROBE_UNADJ)).round(1)
+print("unadjusted vs probe (F-001), bps:", diff.to_dict())
+assert diff.abs().max() <= 5, "premium v2 does not reproduce the probe within 5 bps"

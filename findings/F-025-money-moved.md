@@ -51,5 +51,6 @@ Specification committed before the script (`91f9c25`).
 Slide 10 (`deck/deck_v1_ptbr.md`) & Anexo B.5 (`deck/annex_v1_ptbr.md`).
 
 ## History
+- 2026-11-05, Codex for Renzo (P5-04): disclosed upstream placebo reproducibility fix in `scripts/p2_03_events.py`. Without a fixed weekday order, a fresh process can yield a different largest placebo transfer (R$ 37.6 mn rather than the frozen R$ 35.5 mn); the explicit order reproduces the frozen draw and leaves the headline R$ 106.1 mn unchanged.
 - 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-02, agent for Renzo: created (P3-11).

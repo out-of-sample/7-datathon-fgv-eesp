@@ -1,0 +1,206 @@
+{
+  "run_utc": "2026-11-05T03:33:53.471052+00:00",
+  "commands": [
+    {
+      "script": "p1_02_premium",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": " 252         22.2            23.1               23.3                  28.6        18.2\n2026       208         24.0            25.9               19.2                  34.9        13.1\nunadjusted vs probe (F-001), bps: {2020: -0.0, 2021: 0.0, 2022: -0.0, 2023: 0.0, 2024: -0.0, 2025: -0.0, 2026: 0.0}\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p1_05_donors",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": "2022: PTAX   46.8  ECB   49.1  corr 0.730\n  2023: PTAX   56.2  ECB   60.3  corr 0.723\n  2024: PTAX   49.3  ECB   55.8  corr 0.774\n  2025: PTAX   22.2  ECB   24.4  corr 0.522\n  2026: PTAX   24.1  ECB   29.7  corr 0.785\n  23 Jun 2026 jump (20 days after - 20 before): PTAX +93.9 bps, ECB-way +82.5 bps\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p2_01_noise",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": "nge vs probe (F-001), bps: {2020: -0.0, 2021: 0.0, 2022: 0.0, 2023: 0.0, 2024: -0.0, 2025: -0.0, 2026: -0.0}\nlow regime 1 Aug 2025 - 22 Jun 2026: median premium 8.4 bps, median band 3.9 bps, days inside band 17%\n24 Jun - 31 Jul 2026: median premium 80.9 bps, median band 3.8 bps, days inside band 0%\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p2_02_breaks",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": "extra: one-break model at 2022-01-28\n\nS4b: Coinbase USDT/USD (premium_cb_bps): 1382 days 2021-05-04..2026-10-30; BIC picks 8, LWZ picks 7, headline 7; long-run sd of residuals 41.8 bps; extra: one-break model at 2024-09-20\nSaved figure to /tmp/p5-04-02cp6gtk/results/figures/P2-02_premium_breaks.png\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p2_03_events",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": "07-22..2026-09-16, 40d): 34.54 bps (diff = +19.31 bps)\nFull plateau [+21, end] (2026-07-22..2026-10-30, 71d): 26.78 bps (diff = +11.54 bps)\nSaved figure to /tmp/p5-04-02cp6gtk/results/figures/P2-03_placebo_dist.png\nSaved frozen team estimate to /tmp/p5-04-02cp6gtk/results/agentic/team_estimate.json\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p2_04_synth",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": "3.88            102.10               32.61              98.24          1/7                0.143   EUR: 52.3%, TRY: 0.7%, ZAR: 3.4%, MXN: 39.1%, COP: 4.4%\n\nGenerating 2-panel synthetic control figure...\nSaved synthetic control figure to /tmp/p5-04-02cp6gtk/results/figures/P2-04_synthetic_control.png\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p2_05_checks",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": "25.0   222.0            222.0\n2026-06-24 14:00:00    246.0   236.0            231.0\n2026-06-24 15:00:00    209.0   207.0            206.0\n2026-06-24 16:00:00    114.0   120.0            107.0\n2026-06-24 17:00:00    144.0   144.0            139.0\n2026-06-24 18:00:00    134.0   136.0            129.0\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p3_01_costs",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": "OTICE_COST_AFTER Cost of the notice: after the spike (22 Jul - 30 Oct 2026)         11.5                          0.0              0.0       11.5             115.43             583.10          5.1363\nSaved neutral publication-grade figure to /tmp/p5-04-02cp6gtk/results/figures/P3-01_route_costs.png\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p3_02_btc",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": " Plateau [+21, +60]:      5.95 bps (diff:   -2.07 bps)\n  Plateau [+21, end]:      6.32 bps (diff:   -1.70 bps)\n\nGenerating publication figure P3-02_btc_vs_usdt_premium.png...\nSaved figure to /tmp/p5-04-02cp6gtk/results/figures/P3-02_btc_vs_usdt_premium.png\n\nDone! P3-02 script executed successfully.\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p3_03_monitor",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": "21  nearest P2-02 break 2025-07-08 (-10 PTAX days)\n\nToday: {'date': datetime.date(2026, 10, 30), 'premium_bps': np.float64(-30.3), 'mean5_bps': np.float64(-4.6), 'regime level_bps': np.float64(22.0), 'regime since': datetime.date(2026, 8, 21), 'cusum % of h': 102, 'alarm in last 10 days': np.True_}\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p3_10_imports",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": "297.169                  0.596\nafter [+21,+60] 2026-07-22 2026-09-16 Mercado Bitcoin          1377469.858             NaN             NaN                    NaN\n\nBinance volume change, spike vs before: +33% (log 0.285); placebo dates with a change at least as large (two-sided): 68 of 200, p = 0.343\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p3_11_money",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": "      volume_brl_bn  transfer_brl_mn  tariff_equivalent_bps\n0.05           1.02            -6.05                 -24.10\n0.50           2.38             0.01                   0.07\n0.95           6.54            11.34                  35.51\nlargest placebo transfer: R$ 35.5 mn; smallest: R$ -16.4 mn\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p3_12_rules",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": "3 2026-06-23          0.0                      NaN             NaN                 93.91        0.001 E-05.1, E-05.2\n   E-06b                     resolução do BCB       True 2026-08-07 2027-01-01        147.0                   -21.99           0.187                   NaN          NaN          E-06b\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p3_13_prediction",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": "26): 3.7 bps\none-day cost of the hold for a USDT holder (financing + USDT risk): 9.1 bps\nfor comparison, 95% one-day BRL risk (PTAX): 130.5 bps\nordinary-date band (P2-03 placebo, 2.5-97.5%): -35.0 to 37.6 bps\nCUSUM false alarms per year in test: 2.4; chance of >= 1 false alarm in 25 PTAX days: 0.21\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p3_21_who_paid",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": " purchases after t0 post-spike (22 Jul-30 Oct)    375.0\n                  U2 monthly saver (US$ 10k/month)              every PTAX day total post-spike (22 Jul-30 Oct)   -192.0\n\nU1 excess 93.91 bps vs F-015 93.9 bps; U1 mean R$ 4,842 at daily PTAX (mean 5.1418) vs F-015 R$ 5,052 at PTAX 5.38: -4.2%\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p4_01_robustness",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": " Dimension 5: Synthetic control variations...\nRunning Dimension 6: Cross-asset & noise floor bounds...\nExported 53 robustness rows to results/tables/P4-01_robustness.csv\nGenerating results/figures/P4-01_robustness_forest.png...\nSaved publication figure to results/figures/P4-01_robustness_forest.png\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p4_04_inference",
+      "args": [],
+      "exit_code": 0,
+      "stdout_tail": "0:00'): 75.6, Timestamp('2026-06-29 00:00:00'): 139.8, Timestamp('2026-06-30 00:00:00'): 130.8, Timestamp('2026-07-01 00:00:00'): 121.1, Timestamp('2026-07-02 00:00:00'): 99.2, Timestamp('2026-07-03 00:00:00'): 185.9, Timestamp('2026-07-06 00:00:00'): 177.0, Timestamp('2026-07-07 00:00:00'): 138.7}\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p3_20_live",
+      "args": [
+        "reference"
+      ],
+      "exit_code": 0,
+      "stdout_tail": "gap_mb        S1  554 2023-04-03 2026-03-30        -36.1         39.2            39.2    19.3\n         gap_mb        S2  554 2023-04-03 2026-03-30        -23.8         23.1            23.8    11.6\n         gap_mb       S20  554 2023-04-03 2026-03-30        -16.6         18.8            18.8     7.5\n",
+      "stderr_tail": ""
+    },
+    {
+      "script": "p3_20_live",
+      "args": [
+        "readout"
+      ],
+      "exit_code": 0,
+      "stdout_tail": "   NaN          NaN               NaN               NaN           NaN\n   E2        NaN             NaN       NaN                    NaN pending: no PTAX day on or after 2026-11-06 yet           NaN    NaN   NaN          NaN          NaN          NaN               NaN               NaN           NaN\n",
+      "stderr_tail": ""
+    }
+  ],
+  "figures": [
+    {
+      "file": "P2-02_premium_breaks.png",
+      "exists": true,
+      "same_shape": true,
+      "mean_absolute_pixel_difference": 0.0
+    },
+    {
+      "file": "P2-05_hourly_22_26_jun.png",
+      "exists": true,
+      "same_shape": true,
+      "mean_absolute_pixel_difference": 0.0
+    },
+    {
+      "file": "P3-12_rules.png",
+      "exists": true,
+      "same_shape": true,
+      "mean_absolute_pixel_difference": 0.0
+    },
+    {
+      "file": "P2-04_synthetic_control.png",
+      "exists": true,
+      "same_shape": true,
+      "mean_absolute_pixel_difference": 0.0
+    },
+    {
+      "file": "P3-10_imports.png",
+      "exists": true,
+      "same_shape": true,
+      "mean_absolute_pixel_difference": 0.0
+    },
+    {
+      "file": "P4-01_robustness_forest.png",
+      "exists": true,
+      "same_shape": true,
+      "mean_absolute_pixel_difference": 0.0
+    }
+  ],
+  "tables": [
+    {
+      "file": "P2-03_placebo_draws.csv",
+      "exists": true,
+      "same_bytes": true,
+      "same_values": true
+    },
+    {
+      "file": "P2-03_event_table.csv",
+      "exists": true,
+      "same_bytes": false,
+      "same_values": true
+    },
+    {
+      "file": "P3-11_transfer.csv",
+      "exists": true,
+      "same_bytes": true,
+      "same_values": true
+    },
+    {
+      "file": "P3-11_placebo.csv",
+      "exists": true,
+      "same_bytes": true,
+      "same_values": true
+    }
+  ]
+}

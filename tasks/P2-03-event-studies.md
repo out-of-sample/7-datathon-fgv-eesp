@@ -53,6 +53,7 @@ The 23 Jun 2026 row is also the number the AI analysts (extension A) are compare
 - **How to resume:** `.venv/bin/python scripts/p2_03_events.py` (seconds).
 
 ## Log
+- 2026-11-05, Codex for Renzo (P5-04 reproduction fix): the fixed seed did not fix weekday sampling because `mapped_event_dates` is a set. An explicit weekday order now matches the frozen 2 Nov placebo draw; the event estimates and finding numbers are unchanged. Exported scripts and deck figures were re-checked in P5-04.
 - 2026-11-02, agent for Renzo: review fixes 1–7 applied (code + F-016); status → done.
 - 2026-11-02, agent for Renzo: Renzo applies the review fixes (agreed by Renzo; on behalf of Felipe).
 - 2026-11-02, agent for Renzo: review done (Handoff). Correction to my earlier note: the M-03 announcement p = 0.014 was the parametric p; its placebo p was 0.26, so it was never significant. Checks for item 7: all-dates placebo computed inline (1,073 clean dates).

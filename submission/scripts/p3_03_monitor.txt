@@ -1,0 +1,182 @@
+# Purpose: CUSUM monitor and its reported backtest.
+# Inputs: Frozen raw data via exported P1-02 and P2-01 scripts.
+# Outputs: results/tables/P3-03_backtest.csv and P3-03 figure.
+# How to run: .venv/bin/python submission/scripts/p3_03_monitor.txt
+# Source: scripts/p3_03_monitor.py (SHA-256 285045837b1108fc9841e4c0a5fd0ce92244b936a8a10b825bfc7b3d1aa645b6).
+# Run from the repository root with the frozen data/raw/ folder present.
+
+r"""P3-03: Monitor do Dólar Digital. Daily USDT/BRL premium index, current regime and a break alarm that uses
+past data only. Specification fixed before the first run: tasks/P3-03-monitor.md -> Specification (S1).
+
+Index    premium_bps (P1-02: USDT/BRL over PTAX, USDT/USD-adjusted), and its 5-day mean.
+Regime   level = mean premium since the regime began, days up to yesterday only.
+Alarm    CUSUM. z = (y_t - level_t) / s_t, s_t = 1.4826 MAD(daily changes, previous 60 PTAX days) / sqrt(2).
+         S+ = max(0, S+ + z - k), S- = max(0, S- - z - k), k = 0.5. Alarm when max(S+, S-) > h; direction = sign.
+         After an alarm on day t: the new regime starts the day after the alarming sum was last 0; both sums reset
+         and stay at 0 for days t+1..t+10 (warm-up, no alarms); they resume on t+11. The first regime starts on the
+         first day and the sums start once s_t exists (61st day).
+         h = smallest of 1, 1.5, ..., 30 with at most 2 alarms per year in training (13 Oct 2020 - 31 Dec 2025).
+Baseline alarm when |mean(last 5 days) - mean(60 days before them)| > c x noise band of the previous day (P2-01),
+         same 10-day pause; c = smallest of 0.5, 0.75, ..., 10 with the same alarm budget in training.
+Test     1 Jan - 30 Oct 2026. Targets (P2-02, hindsight benchmark): jump from 24 Jun 2026 (up), fade from 22 Jul 2026
+         (down). Detected = first alarm in the right direction within [-5, +20] PTAX days; delay in PTAX days.
+         Every other test alarm is a false alarm.
+Inputs   raw data via scripts/p1_02_premium.py and scripts/p2_01_noise.py (re-run here first)
+Outputs  data/processed/P3-03_monitor_daily.csv   one row per PTAX day: index, level, sums, alarms (both rules)
+         results/tables/P3-03_backtest.csv        per rule: parameter, alarms, delays, false alarms
+         results/figures/P3-03_monitor.png        last 12 months + "today" box (pt-BR, for the slide)
+Run      python scripts/p3_03_monitor.py   (update: python scripts/p1_01_download.py first)
+"""
+import contextlib
+import io
+import runpy
+from unittest import mock
+from pathlib import Path
+
+import matplotlib.dates as mdates
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+ROOT = Path(__file__).resolve().parents[2]
+PROC, TAB, FIG = ROOT / "data/processed", ROOT / "results/tables", ROOT / "results/figures"
+K, WIN, QUIET, BUDGET_PER_YEAR = 0.5, 60, 10, 2
+TRAIN_END, TEST_START = pd.Timestamp("2025-12-31"), pd.Timestamp("2026-01-01")
+TARGETS = {"jump 24 Jun 2026": (pd.Timestamp("2026-06-24"), 1), "fade 22 Jul 2026": (pd.Timestamp("2026-07-22"), -1)}
+P2_02_TRAIN_BREAKS = pd.to_datetime(["2021-07-26", "2024-08-20", "2025-07-08"])
+
+# 1. Rebuild the premium and the noise band from raw data (their printed tables and figures are not needed here)
+for script in ("p1_02_premium.py", "p2_01_noise.py"):
+    with contextlib.redirect_stdout(io.StringIO()), mock.patch("matplotlib.figure.Figure.savefig"):
+        runpy.run_path(str(ROOT / "submission/scripts" / script.replace(".py", ".txt")), run_name="__main__")
+    plt.close("all")
+d = pd.read_csv(PROC / "P1-02_premium_daily.csv", parse_dates=["date_brt"], index_col="date_brt")
+n = pd.read_csv(PROC / "P2-01_noise_floor_daily.csv", parse_dates=["date_utc"], index_col="date_utc")
+y = d.premium_bps.to_numpy()
+T, dates = len(y), d.index
+band_prev = n.noise_band_bps.reindex(dates).shift(1).to_numpy()
+mad = lambda x: np.median(np.abs(x - np.median(x)))
+s = (d.premium_bps.diff().rolling(WIN).apply(mad, raw=True).shift(1) * 1.4826 / np.sqrt(2)).to_numpy()
+train = dates <= TRAIN_END
+budget = int(BUDGET_PER_YEAR * (dates[train][-1] - dates[0]).days / 365.25)
+
+
+def cusum(h):
+    """Run the monitor over the whole sample; returns per-day level, sums, alarm (+1/-1/0) and regime start."""
+    level, sp_, sm_, alarm, rstart = (np.full(T, np.nan), np.zeros(T), np.zeros(T), np.zeros(T, int), np.zeros(T, int))
+    start, sp, sm, resume, zero_p, zero_m = 0, 0.0, 0.0, 0, 0, 0
+    for t in range(T):
+        rstart[t] = start
+        if t > start:
+            level[t] = y[start:t].mean()
+        if t < resume or np.isnan(s[t]) or t == start:
+            zero_p = zero_m = t
+            continue
+        z = (y[t] - level[t]) / s[t]
+        sp, sm = max(0.0, sp + z - K), max(0.0, sm - z - K)
+        zero_p, zero_m = (t if sp == 0 else zero_p), (t if sm == 0 else zero_m)
+        sp_[t], sm_[t] = sp, sm
+        if max(sp, sm) > h:
+            alarm[t] = 1 if sp >= sm else -1
+            start = (zero_p if sp >= sm else zero_m) + 1
+            sp = sm = 0.0
+            resume = t + QUIET + 1
+    return pd.DataFrame({"level_bps": level, "cusum_pos": sp_, "cusum_neg": sm_, "alarm": alarm,
+                         "regime_start": dates[rstart]}, index=dates)
+
+
+def baseline(c):
+    gap = (d.premium_bps.rolling(5).mean() - d.premium_bps.shift(5).rolling(WIN).mean()).to_numpy()
+    alarm, resume = np.zeros(T, int), 0
+    for t in range(T):
+        if t >= resume and abs(gap[t]) > c * band_prev[t]:  # NaN compares False
+            alarm[t], resume = int(np.sign(gap[t])), t + QUIET + 1
+    return alarm
+
+
+def calibrate(run, grid):
+    for p in grid:
+        a = run(p)
+        a = a.alarm.to_numpy() if isinstance(a, pd.DataFrame) else a
+        if (a[train] != 0).sum() <= budget:
+            return p, a
+    raise RuntimeError("no parameter on the grid meets the alarm budget")
+
+
+def evaluate(alarm):
+    idx, used, row = np.flatnonzero(alarm), set(), {}
+    for name, (day, sign) in TARGETS.items():
+        i = dates.get_loc(day)
+        hit = [j for j in idx if i - 5 <= j <= i + 20 and alarm[j] == sign]
+        row[f"{name}: alarm"] = dates[hit[0]].date() if hit else "not detected"
+        row[f"{name}: delay (PTAX days)"] = hit[0] - i if hit else np.nan
+        used |= set(hit[:1])
+    test = [j for j in idx if dates[j] >= TEST_START]
+    false = [j for j in test if j not in used]
+    years = (dates[-1] - TEST_START).days / 365.25
+    return row | {"train alarms": int((alarm[train] != 0).sum()), "test alarms": len(test), "test false alarms": len(false),
+                  "test false alarms per year": round(len(false) / years, 1),
+                  "false alarm dates": " ".join(f"{dates[j].date()}({'+' if alarm[j] > 0 else '-'})" for j in false)}
+
+
+h, _ = calibrate(cusum, np.arange(1, 30.01, 0.5))
+m = cusum(h)
+c, b = calibrate(baseline, np.arange(0.5, 10.01, 0.25))
+res = pd.DataFrame([{"rule": "CUSUM", "parameter": f"h = {h}"} | evaluate(m.alarm.to_numpy()),
+                    {"rule": "simple (5d vs 60d mean, x noise band)", "parameter": f"c = {c}"} | evaluate(b)])
+res.insert(2, "alarm budget in training", budget)
+TAB.mkdir(parents=True, exist_ok=True)
+res.to_csv(TAB / "P3-03_backtest.csv", index=False)
+print(f"Training 13 Oct 2020 - 31 Dec 2025: budget {budget} alarms; test 1 Jan - {dates[-1].date()}\n")
+print(res.T.to_string(header=False))
+
+print("\nTraining alarms (CUSUM), next to the P2-02 breaks (hindsight):")
+for j in np.flatnonzero(m.alarm.to_numpy() * train):
+    gap = min(P2_02_TRAIN_BREAKS, key=lambda x: abs(x - dates[j]))
+    print(f"  {dates[j].date()} {'up' if m.alarm.iloc[j] > 0 else 'down':4}  regime from {m.regime_start.iloc[j].date()}"
+          f"  nearest P2-02 break {gap.date()} ({dates.get_loc(gap) - j:+d} PTAX days)")
+
+out = m.assign(premium_bps=y, mean5_bps=d.premium_bps.rolling(5).mean(), h=h, baseline_alarm=b)
+out.index.name = "date"
+out.to_csv(PROC / "P3-03_monitor_daily.csv")
+last = out.iloc[-1]
+recent = out.alarm.iloc[-QUIET:].abs().sum() > 0
+last_alarm = out.index[out.alarm != 0][-1] if (out.alarm != 0).any() else None
+today = {"date": dates[-1].date(), "premium_bps": round(last.premium_bps, 1), "mean5_bps": round(last.mean5_bps, 1),
+         "regime level_bps": round(last.level_bps, 1), "regime since": last.regime_start.date(),
+         "cusum % of h": round(100 * max(last.cusum_pos, last.cusum_neg) / h), "alarm in last 10 days": recent}
+print("\nToday:", today)
+
+# 2. Figure: last 12 months, alarms, "today" box
+BLUE, ORANGE, INK, INK2, MUTED, GRID, SURFACE = "#2a78d6", "#eb6834", "#1f1e1c", "#52514e", "#b9b8b2", "#e4e3df", "#fcfcfb"
+plt.rcParams.update({"figure.facecolor": SURFACE, "axes.facecolor": SURFACE, "axes.edgecolor": GRID, "axes.labelcolor": INK2,
+                     "xtick.color": INK2, "ytick.color": INK2, "axes.grid": True, "grid.color": GRID, "grid.linewidth": 0.6,
+                     "axes.axisbelow": True, "axes.spines.top": False, "axes.spines.right": False, "font.size": 10,
+                     "axes.titlesize": 12, "axes.titleweight": "bold", "axes.titlelocation": "left",
+                     "legend.frameon": False, "savefig.dpi": 200, "savefig.bbox": "tight"})
+w = out[dates[-1] - pd.DateOffset(months=12):]
+bw = n.noise_band_bps.reindex(w.index)
+fig, ax = plt.subplots(figsize=(11, 5))
+ax.fill_between(w.index, -bw, bw, color=ORANGE, alpha=.2, linewidth=0, label="faixa de ruído (custo de negociar, P2-01)")
+ax.plot(w.index, w.premium_bps, color=MUTED, lw=.8, label="prêmio diário")
+ax.plot(w.index, w.mean5_bps, color=BLUE, lw=2, label="média de 5 dias")
+ax.plot(w.index, w.level_bps, color=INK, lw=1.2, drawstyle="steps-post", label="nível do regime atual (só dados passados)")
+for t, a in w.alarm[w.alarm != 0].items():  # triangle points the way the premium moved
+    ax.scatter(t, w.mean5_bps[t], marker="^" if a > 0 else "v", s=90, color=INK, edgecolor=SURFACE, linewidth=1.5, zorder=4)
+    ax.annotate(f"alarme {t:%d/%m}", (t, w.mean5_bps[t]), xytext=(-10, 0) if a > 0 else (0, -18), textcoords="offset points", va="center" if a > 0 else "baseline",
+                ha="right" if a > 0 or t == w.index[-1] else "center", fontsize=8, color=INK2)
+ax.axhline(0, color=INK2, lw=.8)
+ax.xaxis.set_major_formatter(mdates.DateFormatter("%m/%Y"))
+ax.set_ylabel("prêmio do USDT sobre a PTAX (pontos-base)")
+ax.set_title("Monitor do Dólar Digital: quanto o dólar cripto custa acima do oficial")
+box = (f"Hoje ({today['date']:%d/%m/%Y})\nprêmio, média 5 dias: {today['mean5_bps']:.0f} pb\n"
+       f"regime desde {today['regime since']:%d/%m/%Y}: {today['regime level_bps']:.0f} pb\n"
+       + (f"alarme em {last_alarm:%d/%m}: {'alta' if out.alarm[last_alarm] > 0 else 'queda'}" if recent else "sem alarme nos últimos 10 dias")
+       + f"\nsoma do CUSUM hoje: {today['cusum % of h']}% do limite")
+ax.text(0.01, 0.97, box, transform=ax.transAxes, va="top", fontsize=9, color=INK,
+        bbox={"boxstyle": "round,pad=0.5", "facecolor": "white", "edgecolor": GRID})
+ax.legend(loc="upper right", fontsize=8)
+fig.text(0.01, -0.02, "Fonte: Binance (USDT/BRL), BCB (PTAX); cálculo da equipe. Alarme: CUSUM calibrado em 2020–2025 "
+         "(no máximo 2 alarmes/ano), testado em 2026.", fontsize=8, color=INK2)
+FIG.mkdir(parents=True, exist_ok=True)
+fig.savefig(FIG / "P3-03_monitor.png")
