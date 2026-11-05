@@ -61,7 +61,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 |---|---|---|
 | `P5-04`: script exports and clean replay are ready. Independent Claude review should check the script/claim map and P2-03 reproducibility fix; final PDF reconciliation follows Felipe's deck selection and P5-02 figures | Claude reviewer, then Felipe and P5-02 owner | Sat 7 Nov |
 | `P3-25` / F-036: the retrospective three-venue composition comparison and four-firm exit audit are ready. Another Claude agent should run the exact command and review the claim; Nattan or Jonathan then signs off the teammate re-run before any slide use | Independent Claude review, then teammate re-run; Felipe for deck placement | Fri 6 Nov morning |
-| `P3-24`: Felipe pushed the Flash data (`79b71f1`; F-034 reproduces, 44/44 checksums). **5 Nov: the bundle moved to `data/raw/flash-mentor-leads/` (out of git); after pulling, restore it with the command in `data/README.md`** (note for Felipe's agents in the P3-24 Handoff). Next: Felipe S2–S4 (spec, USDC/USD, second pool, placebo windows, supply fall); Renzo reviews (S5) | Felipe, then Renzo (review) | Fri 6 Nov morning |
+| `P3-24`: Felipe pushed the Flash data (`79b71f1`; F-034 reproduces, 44/44 checksums). **5 Nov: the bundle moved to `data/raw/flash-mentor-leads/` (out of git); after pulling, restore it with the command in `data/README.md`** (note for Felipe's agents in the P3-24 Handoff). S2–S4 done by Renzo's agent (5 Nov, F-037): Pix → BRLA → USDC route +111 bps vs USDT +94 on the same days; supply fall not a run. **Felipe reviews (S5)** | Felipe (review) | Fri 6 Nov morning |
 | Slide 10 conclusion (`P5-08`): pick the architecture (Felipe's plan recommends "Private Tariff" + recovery line) and apply the known wording fixes | Felipe; Renzo checks | before red team (Fri 6 Nov) |
 | [Three-improvement proposal](docs/improvements-proposal.md): contribution audit, bounded recovery investigation, and PDF reader test; investigation and adoption are separate gates | Team: approve/revise/decline each workstream and accept owners; no new work assigned | Before any proposed execution; preserve 4 Nov freeze |
 | P2 gate: 23 Jun framing & inference calls | Resolved: Felipe logged Economist gate calls in `docs/README.md` (supervisory ofício framing, acute spike vs plateau reporting, placebo p-value + synthetic counterfactual, Foxbit volume adaptation, depeg 11-event comparative table) | done |
@@ -148,7 +148,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-13](tasks/P3-13-prediction-res584.md) | So what (4) - a dated prediction for the 24-hour hold (Res. 584, 1 Jan 2027) read by the monitor | ✅ done | CS 1 | - | 3/3 | 2/2 | 2026-11-03 | P3-01, P3-03 |
 | [P3-14](tasks/P3-14-notice-sources.md) | Every source on the 23 Jun 2026 BCB notice, opened and registered | ✅ done | CS 1 | - | 3/3 | 3/3 | 2026-11-03 | P1-04 |
 | [P3-15](tasks/P3-15-route-comparison.md) | Why +94 bps and not +350 - which routes are comparable (clarification for the deck) | 👀 review | Economist | - | 4/4 | 3/3 | 2026-11-04 | P3-01, P3-10 |
-| [P3-16](tasks/P3-16-res574-event-list.md) | Res. BCB 574 (published 22 Jun 2026, one day before the notice) is missing from the event list | ⬜ todo | Economist | - | 1/3 | 0/2 | 2026-11-04 | P1-04, P3-12 |
+| [P3-16](tasks/P3-16-res574-event-list.md) | Res. BCB 574 (published 22 Jun 2026, one day before the notice) is missing from the event list | 🔄 doing | Economist | Codex for Renzo | 4/4 | 2/2 | 2026-11-04 | P1-04, P3-12 |
 | [P3-17](tasks/P3-17-channel-restoration.md) | Did the BCB let funds resume the activity the 23 Jun notice stopped, and did the premium fall when it did? (reopening test) | 👀 review | Economist | - | 6/6 | 5/5 | 2026-11-04 | P3-14, P3-15, P4-04 |
 | [P3-18](tasks/P3-18-onchain-foxbit-source.md) | Where did the USDT sold on Foxbit during the fade come from? (on-chain check of F-031) | ✖️ dropped | CS 1 | - | 0/4 | 0/2 | 2026-11-04 | P3-17 |
 | [P3-19](tasks/P3-19-supply-response.md) | Did seller-initiated trading on Foxbit respond to the premium over the official dollar (import arbitrage) or to the Foxbit–Binance gap (cross-venue arbitrage)? | 👀 review | CS 1 | - | 3/3 | 3/3 | 2026-11-04 | P3-17 |
@@ -156,7 +156,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-21](tasks/P3-21-who-paid.md) | Who paid and who gained - the 23 Jun notice seen from five kinds of users of the digital dollar | 🔄 doing | CS 1 | Renzo (agent) | 3/5 | 2/4 | 2026-11-04 | P1-02, P3-03, P3-11 |
 | [P3-22](tasks/P3-22-other-countries-qualify.md) | Other countries, stage 1 - qualify each case before any test (Ukraine Aug 2026, Argentina Apr 2025, EEA Mar 2025; Russia, Nigeria listed) | ⬜ todo | CS 2 | - | 0/4 | 0/3 | 2026-11-05 | P1-05, P1-06 |
 | [P3-23](tasks/P3-23-research-agenda-ranking.md) | Record the competing-rails research agenda and rank datathon extensions | 👀 review | CS 1 | - | 3/3 | 3/4 | 2026-11-05 | - |
-| [P3-24](tasks/P3-24-brla-fourth-venue.md) | BRLA as a fourth venue - did the on-chain route (Pix → BRLA → USDC) pay the same premium after the 23 Jun notice? | 🔄 doing | Economist | Renzo (agent) | 0/5 | 0/4 | 2026-11-06 | P2-03, P2-05 |
+| [P3-24](tasks/P3-24-brla-fourth-venue.md) | BRLA as a fourth venue - did the on-chain route (Pix → BRLA → USDC) pay the same premium after the 23 Jun notice? | 👀 review | Economist | - | 4/5 | 3/4 | 2026-11-06 | P2-03, P2-05 |
 | [P3-25](tasks/P3-25-recovery-composition.md) | The premium recovered - did the market? Venue shares and exchange exits in 2026 | 👀 review | CS 1 | - | 4/5 | 3/4 | 2026-11-06 | P1-03, P3-17 |
 
 **P4 — Robustness and freeze** (3/4 closed)
@@ -221,9 +221,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-034](findings/F-034-flash-brla-price-check.md) | Exploratory Polygon BRLA price check using the PTAX window | 🔍 exploratory | P5-01 | - |
 | [F-035](findings/F-035-e1-res574-readout.md) | Registered prediction E1 held - in the first two windows under Res. BCB 574's reporting (3–4 Nov 2026) the premium moved +2.1 bps on Binance (p = 0.90), no move of the June kind; a null that rules out only moves beyond about 75 bps | 🔍 exploratory | P3-20 | - |
 | [F-036](findings/F-036-recovery-composition.md) | The premium receded while Foxbit's share of USDT volume on the three observed exchanges stayed much higher than before | 🔍 exploratory | P3-25 | - |
+| [F-037](findings/F-037-brla-route.md) | The route Pix → BRLA → USDC on Polygon paid the June premium too (+111 bps in the 20 days after the notice, against +94 for USDT on Binance); BRLA's supply fall on 24 Jun reversed a build-up of the days before and is not shown to be a run | 🔍 exploratory | P3-24 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-05 — agent for Renzo: P3-24 S2–S4 (Renzo took it; Felipe reviews): spec first (`b57af33`); the Pix → BRLA → USDC route on Polygon rose +111.0 bps after the notice vs +93.9 for USDT on the same days (robust +88 to +111; ordinary range −31 to +14); Celo supply fall reversed a build-up, not a run (F-037); Base contract unverified; GeckoTerminal serves only 180 days
 
 - 2026-11-05 — Codex for Renzo: P5-04 → review; exported 18 analysis scripts as executable `.txt` with headers and run order, isolated replay passed 19 commands and all six current deck charts matched pixel for pixel; fixed P2-03's variable weekday draw order to preserve the frozen placebo and money tables, disclosed in F-016/F-025; Claude review brief ready.
 - 2026-11-05 — agent for Renzo: P3-20 S5, E2 branch applied from sources only: no BCB list yet (due 6 Nov per the BCB to Bitnotícias), Binance/Foxbit/MB filed (23/29/27 Oct), no source on banks serving applicants after 6 Nov → branch C (two-sided) for all venues; sources E-17–E-21; Mercado Bitcoin's 302 was a maintenance page (retry later); slide 10 row for Res. 589 needs "ramo C" (P5-08)

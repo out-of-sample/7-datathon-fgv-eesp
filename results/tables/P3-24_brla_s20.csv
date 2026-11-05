@@ -1,0 +1,7 @@
+series,pre_mean_bps,post_mean_bps,s20_bps,days_pre,days_post,binance_s20_same_days_bps,pool_median_daily_volume_usd_pre,liquidity_flag
+"Polygon, PTAX window (primary)",34.9,145.9,111.0,20,20,93.9,189122.0,ok
+"Polygon, window, USDC/USD measured (r1)",38.2,149.0,110.8,20,20,93.9,189122.0,ok
+"Polygon, daily close (r2)",51.6,139.9,88.3,20,20,93.9,189122.0,ok
+"Gnosis, daily close (r3)",28.0,122.8,94.9,20,20,93.9,8259.0,fails liquidity (< US$ 100k/day)
+"Base, daily close (r3)",44.1,127.1,,10,15,,2101.0,fails liquidity (< US$ 100k/day)
+"Binance USDT premium, all days (F-016)",15.2,109.1,93.9,20,20,,,

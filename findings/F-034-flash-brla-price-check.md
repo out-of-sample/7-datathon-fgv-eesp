@@ -13,4 +13,6 @@ This is a single-pool descriptive cross-rate comparison, assuming USDC/USD = 1. 
 Reproduce from the repository root with `python scripts/p5_01_flash_checks.py`.
 
 ## History
+- 2026-11-05, agent for Renzo: extended by F-037 (P3-24): PTAX-window S20 on the core study's windows +111.0 bps (this
+  finding's +109.6 used a baseline that includes 23 Jun); robustness, second pool, contracts and the supply series there
 - 2026-11-05, agent for Renzo: bundle moved from `results/flash-mentor-leads/` to `data/raw/flash-mentor-leads/` (raw data stays out of git, `prompt.md` §6–§7); link and `scripts/p5_01_flash_checks.py` path updated; numbers unchanged (re-run)

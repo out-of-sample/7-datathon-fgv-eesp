@@ -2,9 +2,9 @@
 id: P3-24
 title: BRLA as a fourth venue - did the on-chain route (Pix → BRLA → USDC) pay the same premium after the 23 Jun notice?
 phase: P3
-status: doing
+status: review
 owner: Economist
-working: Renzo (agent)
+working: -
 due: 2026-11-06
 depends: P2-03, P2-05
 ---
@@ -65,30 +65,31 @@ measure BRLA's peg). It is the cost of getting dollars through Pix → BRLA → 
 **Claim ceiling** unchanged (below). Report whatever S20 shows, including a BRLA move much smaller or larger than USDT's.
 
 ## Subtasks
-- [ ] S1 — Felipe: push the mentor-lead work from his local scratch (`scratch/mentor-leads/`): download script(s), the five
+- [x] S1 — Felipe: push the mentor-lead work from his local scratch (`scratch/mentor-leads/`): download script(s), the five
   reports (`brla`, `hyperliquid`, `coinnext`, `b3-fx`, `context`) under `docs/mentor-leads/`, raw files under
   `data/raw/brla/` (and `data/raw/hyperliquid/`, `data/raw/rfb/`) with source URL and retrieval date, checksums appended to
   `data/raw/SHA256SUMS`. Raw data stays out of git (`.gitignore`); the script must re-download it
-- [ ] S2 — doing: Renzo (agent). Write the spec here before the S3 re-run: token contract, chain and decimals; the pool address; the
+- [x] S2 — done: Renzo (agent), 5 Nov (`b57af33`). Write the spec here before the S3 re-run: token contract, chain and decimals; the pool address; the
   quantity (BRLA-implied BRL per USDC, USDC/USD-adjusted as in P1-02, over PTAX, in bps; PTAX window 10–13h or daily close,
   stated); windows as P2-03 (S20: mean of [t0+1, t0+20] minus mean of [t0−20, t0−1], t0 = 23 Jun 2026) and the acute window
   as F-016; qualification checks fixed before the run (pool history, daily USDC volume, share of hours with no trade, gaps);
   placebo dates only if the pool has at least 250 PTAX days of history before 23 Jun
-- [ ] S3 — Renzo (agent): `scripts/p3_24_brla.py` (header: purpose, inputs, outputs, how to run) → `data/processed/P3-24_brla_daily.csv`,
-  `results/figures/P3-24_brla_vs_usdt.png` (BRLA route vs Binance premium, same axes); finding F-034, exploratory, written
+- [x] S3 — done: Renzo (agent), 5 Nov: `scripts/p3_24_brla.py` (header: purpose, inputs, outputs, how to run) → `data/processed/P3-24_brla_daily.csv`,
+  `results/figures/P3-24_brla_vs_usdt.png` (BRLA route vs Binance premium, same axes); finding F-037 (F-034 is Felipe's first look), exploratory, written
   whatever it shows, with the qualification checks and the comparison with +93.9 bps
-- [ ] S4 — Renzo (agent): the supply fall. Open the issuer's statements and a chain explorer for the 111.4 mn BRLA burned on Celo
+- [x] S4 — done: Renzo (agent), 5 Nov (in F-037; no source on redemptions, explorers refuse scripts): the supply fall. Open the issuer's statements and a chain explorer for the 111.4 mn BRLA burned on Celo
   around 24 Jun: redemptions for reais, or tokens moved between chains (bridge or migration)? Register every source in
   `docs/sources.md` under `prompt.md` §6 (opened, one quoted line, who and when). Until a source says redemptions, the deck
   does not say "corrida" or "resgate"
 - [ ] S5 — Felipe: independent review of S2–S4 (done by Renzo's agent): script runs top to bottom, numbers reproduce within
   1 bps, every source opens and its quote matches, claims stay within the ceiling below. Review appended to this file;
-  F-034 `checked_by` — reserved: Felipe (changed 5 Nov at Renzo's decision; Renzo did the analysis, so he cannot review it)
+  F-037 `checked_by` — reserved: Felipe (changed 5 Nov at Renzo's decision; Renzo did the analysis, so he cannot review it)
 
 ## Success criteria
-- [ ] Raw files re-download with matching checksums; `python scripts/p3_24_brla.py` runs top to bottom on a clean clone
-- [ ] Spec committed before the S3 run (git order), with the disclosure above
-- [ ] F-034 written with the exact command; the claim says "route cost", never "depeg"; supply fall worded by its source
+- [x] Raw files restore with matching checksums (from `79b71f1`; the public API no longer serves data older than 180 days, so
+      a re-download cannot reproduce them); `python scripts/p3_24_brla.py` runs top to bottom
+- [x] Spec committed before the S3 run (git order), with the disclosure above
+- [x] F-037 written with the exact command; the claim says "route cost", never "depeg"; supply fall worded by its source
 - [ ] Felipe (S5) reproduces the numbers within 1 bps and every new source opens
 
 ## Claim ceiling
@@ -101,7 +102,7 @@ measure BRLA's peg). It is the cost of getting dollars through Pix → BRLA → 
 ## Outputs
 - `scripts/p3_24_brla.py`, `docs/mentor-leads/*.md`
 - `data/processed/P3-24_brla_daily.csv`, `results/figures/P3-24_brla_vs_usdt.png`
-- Finding F-034; sources in `docs/sources.md`
+- Finding F-037 (extends F-034); sources in `docs/sources.md`
 
 ## Handoff
 - **For Felipe and his agents (5 Nov, Renzo's decision): the Flash raw data now lives in `data/raw/flash-mentor-leads/`,
@@ -112,20 +113,26 @@ measure BRLA's peg). It is the cost of getting dollars through Pix → BRLA → 
   downloads go to new files under `data/raw/` with checksums appended to `data/raw/SHA256SUMS` (better: a script that
   re-downloads them), derived tables to `data/processed/P3-24_*.csv`, figures to `results/figures/P3-24_*`. Nothing under
   `data/` except `data/processed/*.csv` and `SHA256SUMS` is committed (`.gitignore`).
-- **State:** Felipe's `79b71f1` (4 Nov 23:46, under P5-01) covers most of S1 in another form: 44 snapshots (GeckoTerminal
-  pool candles, CoinGecko, PTAX, DefiLlama supply, Hyperliquid, BCB/Receita), now in `data/raw/flash-mentor-leads/`, with
-  the corrected dossier, `scripts/p5_01_flash_checks.py` and F-034 (exploratory). Snapshots, not a re-download script.
-  The dossier already drops "depeg" and "run" wording and lists the open checks.
-- **Next step:** S2 (Felipe): spec with the qualification checks, then the remaining checks the dossier lists (USDC/USD of
-  the day, raw swaps, depth, a second pool, placebo windows, the 25 Jun candle high near 654 BRLA/USDC). F-034 is the
-  finding this task extends (its `task:` field says P5-01).
-- **Open questions:** (1) The baseline window in the check script (25 May–23 Jun) includes t0 = 23 Jun; P2-03's
-  pre-window ends at t0−1. (2) The Flash merges (`*_merged_*`, `brla_*_supply_*`) have no script in the repo; S3 should
-  rebuild what it uses from the raw snapshots.
-- **How to resume:** restore the files if needed, then `python scripts/p5_01_flash_checks.py` (reproduces F-034);
-  integrity: `grep flash-mentor-leads data/raw/SHA256SUMS | sha256sum -c` (44 OK).
+- **State:** S2–S4 done by Renzo's agent (5 Nov), status `review`. F-037: the Pix → BRLA → USDC route on Polygon rose
+  +111.0 bps (34.9 → 145.9) in the 20 PTAX days after 23 Jun, against +93.9 for Binance USDT on the same days; robust to
+  measured USDC/USD (+110.8) and daily close (+88.3); Gnosis +94.9 but fails liquidity; Base not computed. Ordinary 20-day
+  changes in the pool: −30.9 to +13.8 bps (31 clean dates, description). Celo supply fall of 24 Jun reversed a +80 mn build-up
+  of 19–23 Jun; not called a run.
+- **Next step:** S5, **Felipe** reviews: restore the bundle, `python scripts/p3_24_brla.py`, compare with
+  `results/tables/P3-24_brla_s20.csv` and F-037; open D-19, D-20; check the claim ceiling and the arbitrage caveat (F-018).
+  Then he decides on the slide 6 / annex line (P5-08 S3).
+- **Open questions:** (1) Base pool contract not confirmed (absent from CoinGecko's BRLA record). (2) The Flash merges
+  (`*_merged_*`) are not used; the script rebuilds everything from the raw OHLCV. (3) Avenia statement on the June supply
+  moves: none found; explorers (Celoscan, Polygonscan) refuse scripts, a person could check BRLA mints/burns on Celo for
+  19–27 Jun in a browser.
+- **How to resume:** `python scripts/p3_24_brla.py` (needs the restored bundle and the P1-02 processed files).
 
 ## Log
+- 2026-11-05 01:45 (Brasília), agent for Renzo: S2 spec committed (`b57af33`) after checking coverage, liquidity and pool
+  metadata only; GeckoTerminal public API refuses data older than 180 days. Contracts: Polygon and Gnosis confirmed by
+  CoinGecko's BRLA Digital record, Base not. S3: primary +111.0 bps vs Binance +93.9 on the same days; r1 +110.8, r2 +88.3,
+  Gnosis +94.9 (fails liquidity), Base not computed; clean-date range −30.9 to +13.8. S4: Celo −112 mn on 24 Jun after +80 mn
+  on 19–23 Jun; back above May by August. F-037 written; status review, Felipe reviews.
 - 2026-11-05 00:58 (Brasília), agent for Renzo: Renzo takes S2–S4 (Renzo's decision, 5 Nov); reviewer becomes Felipe (S5).
   **Felipe: please do not start S2–S4; your part is the review.**
 - 2026-11-05 00:13 (Brasília), agent for Renzo (Renzo's decision): Flash bundle moved from `results/flash-mentor-leads/` to
