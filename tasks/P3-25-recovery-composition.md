@@ -93,7 +93,7 @@ H1 (datathon subset) in `docs/competing-rails-datathon-ranking.md`, rank 2. **Ca
 - **How to resume:** run the script; review commands and sensitivity code are in the Log entry of 5 Nov.
 
 ## Log
-- 2026-11-05 02:30, agent for Renzo (Claude, review of Codex's work, following `docs/agent-prompt-P3-25-review.md`):
+- 2026-11-05 00:16 (Brasília), agent for Renzo (Claude, review of Codex's work, following `docs/agent-prompt-P3-25-review.md`):
   (1) git order OK: spec `70c23e4` before script and outputs `d73d47f`; post hoc disclosed. (2) Re-run reproduces all
   three outputs byte for byte; independent rebuild (own code: BRT resample, inner join of Binance and Foxbit rows, MB
   missing = 0) gives 6.80% / 34.74%. Per-day volumes: Binance 53.6 → 60.3 mn USDT, Foxbit 4.0 → 33.0, MB 1.28 → 1.72, so

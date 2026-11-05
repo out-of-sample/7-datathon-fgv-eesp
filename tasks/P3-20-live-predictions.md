@@ -147,7 +147,7 @@ and the Voto PDF (both URLs in E-14):
 - In every branch, the ban also cuts providers that never applied (offshore platforms serving Brazilians). That could
   shift buyers and sellers onto the venues we measure, in a direction we cannot sign; it is reported as a limit.
 
-### S5 E2 branch, applied 5 Nov 2026 (~03:20 Brasília), from sources only
+### S5 E2 branch, applied 5 Nov 2026 (~00:20 Brasília), from sources only
 Applied by the agent for Renzo under the rule above. No price inside the E2 window (6 Nov onwards) existed or was seen; the
 last data seen are the E1 windows of 3–4 Nov (F-035). Sources opened 5 Nov and registered as E-17 to E-21.
 
@@ -157,7 +157,7 @@ last data seen are the E1 windows of 3–4 Nov (F-035). Sources opened 5 Nov and
 | Foxbit | Its own announcement: "protocolou em 29 de outubro seu pedido de autorização para atuar como PSAV" (E-18) | No BCB list or statement | No list published; no source says access ends | **C** |
 | Mercado Bitcoin | Filed 27 Oct (E-18, E-21); BCB notices show it "oficialmente como instituição em processo de autorização" (as reported by Bitnotícias, E-17; the BCB notice itself not opened) | In transition per the BCB, but no BCB statement that it keeps bank and Pix access under art. 91 | No list published; no source says access ends | **C** |
 
-- **Official list:** not published by 5 Nov 03:20. The BCB told Bitnotícias it publishes the list "na sexta-feira" (6 Nov,
+- **Official list:** not published by 5 Nov 00:20. The BCB told Bitnotícias it publishes the list "na sexta-feira" (6 Nov,
   E-17), after this rule's cutoff of 5 Nov 23:59.
 - **Bank access for pending applicants:** no source settles it. Res. 520 art. 88 §6 lets applicants keep operating;
   art. 91 (Res. 589) bans banks from serving providers "que não estejam autorizadas"; a consultancy note reads the text
@@ -187,7 +187,7 @@ last data seen are the E1 windows of 3–4 Nov (F-035). Sources opened 5 Nov and
   `results/tables/P3-20_readout.csv`; finding written either way — done: Renzo (agent), 5 Nov (F-035)
 - [x] S5 — E2 branch (rule fixed 3 Nov, see above; branch applied 5 Nov): read Res. BCB 520's transition rules and Res. 589 in full; open any BCB list of authorised or pending
   providers and the exchanges' own statements; write the branch (A, B or C) with quotes; commit and push before 6 Nov 10:00
-  — done: Renzo (agent), 5 Nov ~03:20 Brasília: **branch C for all three venues** (section "S5 E2 branch, applied 5 Nov");
+  — done: Renzo (agent), 5 Nov ~00:20 Brasília: **branch C for all three venues** (section "S5 E2 branch, applied 5 Nov");
   re-application allowed until 23:59 5 Nov only if the BCB publishes its list or a bank-access statement
 - [ ] S6 — E2 early reading (S1, 6 Nov) for the PDF; E2 S2 on 9 Nov; update the finding
 - [ ] S7 — S20 for both events (early Dec); independent re-run by a teammate who did not write the script
@@ -197,7 +197,7 @@ last data seen are the E1 windows of 3–4 Nov (F-035). Sources opened 5 Nov and
 - [x] Specification pushed before 10:00 Brasília on 3 Nov (hash and push time recorded); otherwise E1 relabelled as above
 - [x] Reference distributions committed before any November data was downloaded (commit order in git: `ce283dc`, then
       readout code `30de591`, then the first download on 5 Nov)
-- [x] E2 branch pushed before 10:00 Brasília on 6 Nov, with quotes from the legal text (5 Nov ~03:20; commit below)
+- [x] E2 branch pushed before 10:00 Brasília on 6 Nov, with quotes from the legal text (5 Nov 00:23 Brasília, `5e9d56c`)
 - [ ] E1 and E2 results in a finding with exact commands, reported whatever they show; nothing in the Specification
   changed after registration
 - [ ] A teammate who did not write `p3_20_live.py` re-runs it and gets the same numbers
@@ -217,9 +217,9 @@ last data seen are the E1 windows of 3–4 Nov (F-035). Sources opened 5 Nov and
   (otherwise C stands). (2) Fri 6 Nov after 13:30 Brasília: `python scripts/p3_20_live.py download` then `readout`; E2 S1 is
   the early reading (the only E2 number for the PDF), reported two-sided; add the BCB list (expected 6 Nov) next to it.
   (3) Mon 9 Nov after 13:30: E2 S2 verdict.
-- **Open questions:** (1) Mercado Bitcoin: **5 Nov ~02:40 Brasília, Renzo's browser shows "Plataforma em manutenção"**, so the
+- **Open questions:** (1) Mercado Bitcoin: **5 Nov ~00:18 Brasília, Renzo's browser shows "Plataforma em manutenção"**, so the
   302 is MB's maintenance page, not a block on us. Retry `python scripts/p3_20_live.py download` after maintenance (the
-  browser steps below are the fallback). Earlier: retried 5 Nov 02:30 Brasília, still HTTP 302 with no Location on every
+  browser steps below are the fallback). Earlier: retried 5 Nov ~00:15 Brasília, still HTTP 302 with no Location on every
   endpoint, also with curl's default agent: Cloudflare is challenging this machine's connection, which only a real
   browser passes (the 31 Oct frozen pull worked). **Fix (Renzo, ~2 min, after 14:00 Brasília so the day's PTAX window
   is complete):** open
@@ -235,18 +235,18 @@ last data seen are the E1 windows of 3–4 Nov (F-035). Sources opened 5 Nov and
   `_to_<UTC hour>`; a later pull wins for the same hour.
 
 ## Log
-- 2026-11-05 03:20 (Brasília), agent for Renzo: S5 applied from sources only (E-17 to E-21, opened 5 Nov): no BCB list
+- 2026-11-05 00:20 (Brasília), agent for Renzo: S5 applied from sources only (E-17 to E-21, opened 5 Nov): no BCB list
   yet (due "na sexta-feira", 6 Nov, per the BCB to Bitnotícias); Binance, Foxbit and Mercado Bitcoin filed (23, 29, 27 Oct);
   MB shown "em processo de autorização" in BCB notices (via Bitnotícias); no source on bank/Pix access for pending
   applicants. Neither A nor B is met for any venue → **branch C** (two-sided, no direction). Gap in the rule disclosed.
   Slide 10's row for Res. 589 ("direção escolhida pelo texto legal") should now read "sem direção registrada (ramo C)" (P5-08).
-- 2026-11-05 01:10 (Brasília), agent for Renzo: S3 + S4. Downloaded Binance USDTBRL/USDCUSDT 31 Oct – 4 Nov (Binance
+- 2026-11-04 23:55 (Brasília), agent for Renzo: S3 + S4. Downloaded Binance USDTBRL/USDCUSDT 31 Oct – 4 Nov (Binance
   checksums OK), PTAX to 4 Nov (October rows equal the freeze), Foxbit to 5 Nov 01h UTC; Mercado Bitcoin returned HTTP 302
   (Cloudflare) and was not worked around. Fixed one readout bug before the first run (a series with no November price
   scored k = 0). P1-02 reproduced exactly on 1,520 days. E1: Binance S2 +2.1 bps (p = 0.897, non-overlapping 0.920),
   Foxbit −1.9 (0.923), Foxbit gap −4.0 (0.607); S1 +47.9 (p = 0.12, not the verdict: 30 Oct was a Binance-only dip, gap
   +49 bps). Prediction "no detectable move" held (F-035).
-- 2026-11-05 00:35, agent for Renzo: S3/S4 code committed before any November data was downloaded: `download` writes to
+- 2026-11-04 23:53 (Brasília), agent for Renzo: S3/S4 code committed before any November data was downloaded: `download` writes to
   `data/raw/live/` (separate folder, so the core scripts' globs never pick up November files); `readout` rebuilds the
   P1-02 premium from raw (formula copied), asserts equality on all 1,520 days to 30 Oct (passes on frozen data), and the
   rebuilt venue series reproduce every stored reference value within 0.001 bps. Monitor: the CUSUM's 30 Oct down-alarm

@@ -86,11 +86,11 @@ uses, so no new choice is made after seeing the data.
   integrity: `grep flash-mentor-leads data/raw/SHA256SUMS | sha256sum -c` (44 OK).
 
 ## Log
-- 2026-11-05 01:40, agent for Renzo (Renzo's decision): Flash bundle moved from `results/flash-mentor-leads/` to
+- 2026-11-05 00:13 (Brasília), agent for Renzo (Renzo's decision): Flash bundle moved from `results/flash-mentor-leads/` to
   `data/raw/flash-mentor-leads/` (out of git), checksums appended to `data/raw/SHA256SUMS`, restore from `79b71f1` tested
   (identical except `.gitattributes`, not copied), script path and links updated (F-034, dossier, P5-01), F-034 re-run
   unchanged. Note for Felipe's agents at the top of the Handoff and in `data/README.md`.
-- 2026-11-05 00:10, agent for Renzo: first check of Felipe's `79b71f1` (part of S5, not the full review): manifest 44/44
+- 2026-11-04 23:50 (Brasília), agent for Renzo: first check of Felipe's `79b71f1` (part of S5, not the full review): manifest 44/44
   checksums match; `p5_01_flash_checks.py` reproduces every F-034 number (daily close 54.5 / 139.9 / 54.4, +85.4 bps;
   PTAX window 36.4 / 145.9 / 46.6, +109.6 bps; 24 Jun 164.9; acute max 241.8). Reserved numbers moved: F-034 = this task,
   F-035 = P3-20, F-036 = P3-25.
