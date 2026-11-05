@@ -27,4 +27,4 @@ Coinext attributed its retail wind-down to falling short of the regulatory capit
 
 ## Evidence and handoff
 
-See the [mentor synthesis](mentor-meeting-2026-11-04.md), [data bundle](../results/flash-mentor-leads/README.md) and [reproduction finding](../findings/F-034-flash-brla-price-check.md).
+See the [mentor synthesis](mentor-meeting-2026-11-04.md), [data bundle](../data/README.md#flash-mentor-leads-bundle) (raw files in `data/raw/flash-mentor-leads/`, not in git since 5 Nov) and [reproduction finding](../findings/F-034-flash-brla-price-check.md).

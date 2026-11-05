@@ -5,7 +5,7 @@ from collections import defaultdict
 from pathlib import Path
 from statistics import mean
 
-BUNDLE = Path(__file__).resolve().parents[1] / "results" / "flash-mentor-leads"
+BUNDLE = Path(__file__).resolve().parents[1] / "data" / "raw" / "flash-mentor-leads"
 WINDOWS = {
     "baseline": ("2026-05-25", "2026-06-23"),
     "acute": ("2026-06-24", "2026-07-21"),

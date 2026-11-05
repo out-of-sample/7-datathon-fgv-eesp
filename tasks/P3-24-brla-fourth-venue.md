@@ -64,20 +64,32 @@ uses, so no new choice is made after seeing the data.
 - Finding F-034; sources in `docs/sources.md`
 
 ## Handoff
+- **For Felipe and his agents (5 Nov, Renzo's decision): the Flash raw data now lives in `data/raw/flash-mentor-leads/`,
+  not in git.** `results/flash-mentor-leads/` was removed in the commit that records this; the 44 files are byte-for-byte
+  the same (SHA-256 in `data/raw/SHA256SUMS`). After `git pull` your clone no longer has them: restore once with the
+  `git archive 79b71f1 ...` command in `data/README.md` → "Flash mentor-leads bundle" (or copy them from your scratch into
+  `data/raw/flash-mentor-leads/`). `scripts/p5_01_flash_checks.py` already reads the new folder. From now on: new
+  downloads go to new files under `data/raw/` with checksums appended to `data/raw/SHA256SUMS` (better: a script that
+  re-downloads them), derived tables to `data/processed/P3-24_*.csv`, figures to `results/figures/P3-24_*`. Nothing under
+  `data/` except `data/processed/*.csv` and `SHA256SUMS` is committed (`.gitignore`).
 - **State:** Felipe's `79b71f1` (4 Nov 23:46, under P5-01) covers most of S1 in another form: 44 snapshots (GeckoTerminal
-  pool candles, CoinGecko, PTAX, DefiLlama supply, Hyperliquid, BCB/Receita) in `results/flash-mentor-leads/` with a
-  SHA-256 manifest, corrected dossier, `scripts/p5_01_flash_checks.py` and F-034 (exploratory). Snapshots, not a
-  re-download script. The dossier already drops "depeg" and "run" wording and lists the open checks.
+  pool candles, CoinGecko, PTAX, DefiLlama supply, Hyperliquid, BCB/Receita), now in `data/raw/flash-mentor-leads/`, with
+  the corrected dossier, `scripts/p5_01_flash_checks.py` and F-034 (exploratory). Snapshots, not a re-download script.
+  The dossier already drops "depeg" and "run" wording and lists the open checks.
 - **Next step:** S2 (Felipe): spec with the qualification checks, then the remaining checks the dossier lists (USDC/USD of
   the day, raw swaps, depth, a second pool, placebo windows, the 25 Jun candle high near 654 BRLA/USDC). F-034 is the
   finding this task extends (its `task:` field says P5-01).
-- **Open questions:** (1) Felipe: the snapshots are raw data committed to git (8.3 MB under `results/`), against `prompt.md`
-  §6–§7; keep (already in history) or move to `data/raw/` with a re-download script from now on? (2) The baseline window
-  in the check script (25 May–23 Jun) includes t0 = 23 Jun; P2-03's pre-window ends at t0−1.
-- **How to resume:** `python scripts/p5_01_flash_checks.py` (reproduces F-034); integrity check in Python:
-  `cd results/flash-mentor-leads && python -c "import csv,hashlib; print([r['file'] for r in csv.DictReader(open('manifest.csv')) if hashlib.sha256(open(r['file'],'rb').read()).hexdigest().upper()!=r['sha256'].upper()])"` (prints `[]`).
+- **Open questions:** (1) The baseline window in the check script (25 May–23 Jun) includes t0 = 23 Jun; P2-03's
+  pre-window ends at t0−1. (2) The Flash merges (`*_merged_*`, `brla_*_supply_*`) have no script in the repo; S3 should
+  rebuild what it uses from the raw snapshots.
+- **How to resume:** restore the files if needed, then `python scripts/p5_01_flash_checks.py` (reproduces F-034);
+  integrity: `grep flash-mentor-leads data/raw/SHA256SUMS | sha256sum -c` (44 OK).
 
 ## Log
+- 2026-11-05 01:40, agent for Renzo (Renzo's decision): Flash bundle moved from `results/flash-mentor-leads/` to
+  `data/raw/flash-mentor-leads/` (out of git), checksums appended to `data/raw/SHA256SUMS`, restore from `79b71f1` tested
+  (identical except `.gitattributes`, not copied), script path and links updated (F-034, dossier, P5-01), F-034 re-run
+  unchanged. Note for Felipe's agents at the top of the Handoff and in `data/README.md`.
 - 2026-11-05 00:10, agent for Renzo: first check of Felipe's `79b71f1` (part of S5, not the full review): manifest 44/44
   checksums match; `p5_01_flash_checks.py` reproduces every F-034 number (daily close 54.5 / 139.9 / 54.4, +85.4 bps;
   PTAX window 36.4 / 145.9 / 46.6, +109.6 bps; 24 Jun 164.9; acute max 241.8). Reserved numbers moved: F-034 = this task,

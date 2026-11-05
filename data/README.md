@@ -36,6 +36,10 @@ data/agentic_bundle/  frozen inputs for extension A (raw files + provider docs o
 | `raw/fx_official/nbu_uah.json` | https://bank.gov.ua/NBU_Exchange/exchange_site?valcode=usd&json | 2020-01-01 – 2026-10-30, every calendar day, 2,495 rows | 2026-10-31 | 1 | `scripts/p1_05_donors.py` |
 | `raw/fx_official/bcra_a3500.json` | https://api.bcra.gob.ar/estadisticas/v4.0/Monetarias/5 (Com. A 3500) | 2020-01-02 – 2026-10-30, 1,658 business days | 2026-10-31 | 1 | `scripts/p1_05_donors.py` |
 | `raw/bcb/ptax.json` | https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo (01-10-2020 to 10-30-2026) | 2020-10-01 – 2026-10-30, 1,527 days | 2026-10-31 | 1 | `scripts/p1_01_download.py` |
+| `raw/live/binance/{USDTBRL,USDCUSDT}/*-1h-YYYY-MM-DD.zip` | https://data.binance.vision/data/spot/daily/klines/ (P3-20 November pulls; kept apart from `raw/binance/` so core scripts never read them) | 2026-10-31 – the last published day | from 2026-11-05 | one per day | `scripts/p3_20_live.py download` |
+| `raw/live/bcb/ptax_to_<UTC hour>.json` | BCB Olinda PTAX, 01-10-2026 to the pull date | 2026-10-01 – pull date | from 2026-11-05 | one per pull | `scripts/p3_20_live.py download` |
+| `raw/live/{foxbit,mercadobitcoin}/*_to_<UTC hour>.csv` | same APIs as P1-03, from 2026-10-31 00h UTC to the last complete hour | per pull | from 2026-11-05 | one per pull | `scripts/p3_20_live.py download` |
+| `raw/flash-mentor-leads/{brla,hyperliquid,b3-fx}/*` | GeckoTerminal, CoinGecko, BCB Olinda/SGS, DefiLlama, Hyperliquid info API, Yahoo Finance, Receita Federal (see the section below) | mostly 2026; per file | 2026-11-04 (Felipe's Flash agents) | 44 | none in the repo: snapshots; restore below |
 
 Notes:
 - Checksums of every raw file: `data/raw/SHA256SUMS` (tracked in git). Check with `sha256sum -c data/raw/SHA256SUMS`.
@@ -57,3 +61,26 @@ Notes:
   applies, COP per USD. NBU: `calcdate` = day the rate was calculated, `exchangedate` = day it applies (also weekends).
   BCRA: `fecha`, `valor` in ARS per USD.
 - Coverage audit per pair: task P1-01 → Result, and `results/tables/P1-01_coverage.csv`.
+
+## Flash mentor-leads bundle
+
+Public-source snapshots gathered on 4 Nov 2026 by Felipe's Flash agents for the mentor leads (BRLA, Hyperliquid/EWZ,
+B3/FX/Receita), first committed under `results/flash-mentor-leads/` in `79b71f1`, moved here on 5 Nov because raw data
+stays out of git (`prompt.md` §6–§7). Files are byte-for-byte the originals: SHA-256 in `data/raw/SHA256SUMS` (and in
+Felipe's `manifest.csv`). There is no download script, so the only copy outside Felipe's machine is git history.
+**Restore** (from the repo root, once per clone):
+
+```bash
+git archive 79b71f1 results/flash-mentor-leads | tar -x -C data/raw --strip-components=1 --exclude=.gitattributes
+grep flash-mentor-leads data/raw/SHA256SUMS | sha256sum -c --quiet && echo OK
+```
+
+| Folder | Sources and contents (from Felipe's bundle README) |
+|---|---|
+| `brla/` | GeckoTerminal pool OHLCV (Polygon BRLA/USDC pool `0x0e77…c956`, also Base and Gnosis pools), CoinGecko series, BCB Olinda PTAX, DefiLlama stablecoin ID 365, latest-block supply snapshots, and Flash merges (`*_merged_*`, `brla_*_supply_*`: derived by the Flash agents, no script in the repo) |
+| `hyperliquid/` | Hyperliquid info API metadata, candles and funding; Yahoo EWZ daily and hourly bars. The spot "BRLA" ticker here is Brila Finance, not Avenia's BRLA |
+| `b3-fx/` | BCB SGS FX and balance-of-payments series, Receita Federal August 2026 workbook (`criptoativos_dados_abertos_20260826.xls`) and derived reports, Yahoo Ibovespa/EWZ and CME BRL futures OHLCV |
+
+New downloads for P3-24 go to new files under `data/raw/` (a script that re-downloads them is better than snapshots),
+with checksums appended to `data/raw/SHA256SUMS`. Derived tables go to `data/processed/P3-24_*.csv`.
+

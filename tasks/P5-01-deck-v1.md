@@ -34,7 +34,7 @@ Full deck draft following `docs/02-dolar-cripto.md` §9 and the definition of do
 
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
-- **Flash follow-up:** Corrected dossier and meeting notes; public-source snapshots and checksums in `results/flash-mentor-leads/`. Reproduce F-034 with `python scripts/p5_01_flash_checks.py`. Validate the pool swaps, USDC/USD and a second pool before adding BRLA to the deck.
+- **Flash follow-up:** Corrected dossier and meeting notes; public-source snapshots in `data/raw/flash-mentor-leads/` (moved 5 Nov from `results/`, out of git; checksums in `data/raw/SHA256SUMS`; restore command in `data/README.md`). Reproduce F-034 with `python scripts/p5_01_flash_checks.py`. Validate the pool swaps, USDC/USD and a second pool before adding BRLA to the deck.
 - **State:** `deck/deck_v1_ptbr.md` now has **10 slides** (S5, Renzo's agent, 2 Nov, at Renzo's request), built from
   `docs/deck-plan-10-slides.md`. Every change, the two deviations from the plan (slide 5 title "entre as oito regras
   testadas"; no p-value on the money slide) and the moved material are listed in `docs/deck-changes-2026-11-02.md`.
