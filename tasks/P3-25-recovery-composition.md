@@ -27,7 +27,7 @@ H1 (datathon subset) in `docs/competing-rails-datathon-ranking.md`, rank 2. **Ca
   lengths since Mercado Bitcoin's start (Mar 2023), excluding windows that touch 24 Jun 2026; secondary (Foxbit only, MB
   lacks the columns): median trade size, share of volume 09–18h Brasília
 - [ ] S2 — `scripts/p3_25_composition.py` (header) → `results/tables/P3-25_composition.csv`,
-  `results/figures/P3-25_price_vs_share.png` (premium and Foxbit share on one time axis); finding F-035, exploratory,
+  `results/figures/P3-25_price_vs_share.png` (premium and Foxbit share on one time axis); finding F-036, exploratory,
   whatever it shows
 - [ ] S3 — Exits table: NovaDAX, Coinext, Bitnuvem, Digitra (leads in Felipe's `coinnext` report, P3-24 S1). For each, open the
   firm's own announcement, quote it, register it in `docs/sources.md` (§6), and record the announcement date relative to
@@ -42,7 +42,7 @@ H1 (datathon subset) in `docs/competing-rails-datathon-ranking.md`, rank 2. **Ca
 
 ## Success criteria
 - [ ] Spec committed before `p3_25_composition.py` produced any number (git order)
-- [ ] F-035 written with the exact command, reported whatever the share comparison shows
+- [ ] F-036 written with the exact command, reported whatever the share comparison shows
 - [ ] Every exit in the table has an opened, quoted source and its own stated cause
 - [ ] A teammate re-runs the script and gets the same table
 
@@ -54,7 +54,7 @@ H1 (datathon subset) in `docs/competing-rails-datathon-ranking.md`, rank 2. **Ca
 ## Outputs
 - `scripts/p3_25_composition.py`
 - `results/tables/P3-25_composition.csv`, `results/figures/P3-25_price_vs_share.png`
-- Finding F-035; exits in `docs/sources.md`
+- Finding F-036; exits in `docs/sources.md`
 
 ## Handoff
 - **State:** task created 4 Nov; owner Renzo (CS 1), starts 5 Nov. Nothing computed.

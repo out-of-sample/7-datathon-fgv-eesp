@@ -35,7 +35,7 @@ uses, so no new choice is made after seeing the data.
   as F-016; qualification checks fixed before the run (pool history, daily USDC volume, share of hours with no trade, gaps);
   placebo dates only if the pool has at least 250 PTAX days of history before 23 Jun
 - [ ] S3 — Felipe: `scripts/p3_24_brla.py` (header: purpose, inputs, outputs, how to run) → `data/processed/P3-24_brla_daily.csv`,
-  `results/figures/P3-24_brla_vs_usdt.png` (BRLA route vs Binance premium, same axes); finding F-034, exploratory, written
+  `results/figures/P3-24_brla_vs_usdt.png` (BRLA route vs Binance premium, same axes); finding F-035, exploratory, written
   whatever it shows, with the qualification checks and the comparison with +93.9 bps
 - [ ] S4 — Felipe: the supply fall. Open the issuer's statements and a chain explorer for the 111.4 mn BRLA burned on Celo
   around 24 Jun: redemptions for reais, or tokens moved between chains (bridge or migration)? Register every source in
@@ -43,12 +43,12 @@ uses, so no new choice is made after seeing the data.
   does not say "corrida" or "resgate"
 - [ ] S5 — Renzo: independent review of everything Felipe pushed in S1–S4 (BRLA, Hyperliquid, Coinext, RFB/B3): re-download,
   checksums match, script runs top to bottom, numbers reproduce within 1 bps, every source opens and its quote matches,
-  claims stay within the ceiling below. Review appended to this file; F-034 `checked_by` — reserved: Renzo
+  claims stay within the ceiling below. Review appended to this file; F-035 `checked_by` — reserved: Renzo
 
 ## Success criteria
 - [ ] Raw files re-download with matching checksums; `python scripts/p3_24_brla.py` runs top to bottom on a clean clone
 - [ ] Spec committed before the S3 run (git order), with the disclosure above
-- [ ] F-034 written with the exact command; the claim says "route cost", never "depeg"; supply fall worded by its source
+- [ ] F-035 written with the exact command; the claim says "route cost", never "depeg"; supply fall worded by its source
 - [ ] Renzo (S5) reproduces the numbers within 1 bps and every new source opens
 
 ## Claim ceiling
@@ -61,7 +61,7 @@ uses, so no new choice is made after seeing the data.
 ## Outputs
 - `scripts/p3_24_brla.py`, `docs/mentor-leads/*.md`
 - `data/processed/P3-24_brla_daily.csv`, `results/figures/P3-24_brla_vs_usdt.png`
-- Finding F-034; sources in `docs/sources.md`
+- Finding F-035; sources in `docs/sources.md`
 
 ## Handoff
 - **State:** task created 4 Nov (Renzo's decision). Felipe's numbers exist only in his local scratch and in
