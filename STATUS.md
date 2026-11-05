@@ -221,10 +221,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [F-034](findings/F-034-flash-brla-price-check.md) | Exploratory Polygon BRLA price check using the PTAX window | 🔍 exploratory | P5-01 | - |
 | [F-035](findings/F-035-e1-res574-readout.md) | Registered prediction E1 held - in the first two windows under Res. BCB 574's reporting (3–4 Nov 2026) the premium moved +2.1 bps on Binance (p = 0.90), no move of the June kind; a null that rules out only moves beyond about 75 bps | 🔍 exploratory | P3-20 | - |
 | [F-036](findings/F-036-recovery-composition.md) | The premium receded while Foxbit's share of USDT volume on the three observed exchanges stayed much higher than before | 🔍 exploratory | P3-25 | - |
-| [F-037](findings/F-037-brla-route.md) | The route Pix → BRLA → USDC on Polygon paid the June premium too (+111 bps in the 20 days after the notice, against +94 for USDT on Binance); BRLA's supply fall on 24 Jun reversed a build-up of the days before and is not shown to be a run | 🔍 exploratory | P3-24 | - |
+| [F-037](findings/F-037-brla-route.md) | The route Pix → BRLA → USDC on Polygon paid the June premium too (+111 bps in the 20 days after the notice, against +94 for USDT on Binance) while BRLA kept its value against another reais token (−3 bps); a small market (0.2–0.35% of Binance's volume); BRLA's supply fall on 24 Jun reversed a build-up of the days before and is not shown to be a run | 🔍 exploratory | P3-24 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-05 — agent for Renzo: P3-24 spec 2 (`403ca9d`, before the pulls): the Polygon pool is 92% of on-chain BRLA–dollar volume (65% after) but only 0.35% of Binance's; on a Curve pool BRLA kept its value against BRZ (−3.4 bps, ±22) while the dollar route rose +111: the stress was on the dollar side (F-037). Reviews: P3-16 passes; P5-04 passes with two gaps (annex and download scripts not exported)
 
 - 2026-11-05 — Codex for Renzo: P3-16 → review; E-11 and daily premium checked; Renzo chose explicit Res. 574 caveat in both deck drafts, annex and F-026, preserving frozen eight-rule results; Claude review brief ready.
 - 2026-11-05 — agent for Renzo: P3-24 S2–S4 (Renzo took it; Felipe reviews): spec first (`b57af33`); the Pix → BRLA → USDC route on Polygon rose +111.0 bps after the notice vs +93.9 for USDT on the same days (robust +88 to +111; ordinary range −31 to +14); Celo supply fall reversed a build-up, not a run (F-037); Base contract unverified; GeckoTerminal serves only 180 days

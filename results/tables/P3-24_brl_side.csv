@@ -1,0 +1,2 @@
+series,days_pre,days_post,pre_mean_bps,post_mean_bps,s20_bps,pre_range_bps,post_range_bps,dollar_route_s20_bps,reading
+"BRLA in BRZ, Curve pool (bps)",18,19,-2.5,-5.9,-3.4,-66.4..66.2,-73.0..32.5,111.0,BRLA kept its value against BRZ (|S20| <= 22 bps)

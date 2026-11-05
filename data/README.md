@@ -39,6 +39,7 @@ data/agentic_bundle/  frozen inputs for extension A (raw files + provider docs o
 | `raw/live/binance/{USDTBRL,USDCUSDT}/*-1h-YYYY-MM-DD.zip` | https://data.binance.vision/data/spot/daily/klines/ (P3-20 November pulls; kept apart from `raw/binance/` so core scripts never read them) | 2026-10-31 – the last published day | from 2026-11-05 | one per day | `scripts/p3_20_live.py download` |
 | `raw/live/bcb/ptax_to_<UTC hour>.json` | BCB Olinda PTAX, 01-10-2026 to the pull date | 2026-10-01 – pull date | from 2026-11-05 | one per pull | `scripts/p3_20_live.py download` |
 | `raw/live/{foxbit,mercadobitcoin}/*_to_<UTC hour>.csv` | same APIs as P1-03, from 2026-10-31 00h UTC to the last complete hour | per pull | from 2026-11-05 | one per pull | `scripts/p3_20_live.py download` |
+| `raw/p3_24/*_<UTC hour>.json` | GeckoTerminal OHLCV, day, US$: Celo BRLA/USD₮ pool `0x14e5…111a`; Curve pool `0xc89f…9735` with `token=` BRLA and BRZ (P3-24 spec 2). Public API serves only the last 180 days | ~2026-05-05 – pull date | 2026-11-05 | 3 per pull | `scripts/p3_24_brla.py download` |
 | `raw/flash-mentor-leads/{brla,hyperliquid,b3-fx}/*` | GeckoTerminal, CoinGecko, BCB Olinda/SGS, DefiLlama, Hyperliquid info API, Yahoo Finance, Receita Federal (see the section below) | mostly 2026; per file | 2026-11-04 (Felipe's Flash agents) | 44 | none in the repo: snapshots; restore below |
 
 Notes:

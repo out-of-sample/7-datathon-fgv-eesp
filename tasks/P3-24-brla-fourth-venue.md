@@ -64,7 +64,7 @@ measure BRLA's peg). It is the cost of getting dollars through Pix → BRLA → 
 
 **Claim ceiling** unchanged (below). Report whatever S20 shows, including a BRLA move much smaller or larger than USDT's.
 
-### Specification 2 (5 Nov 2026 ~01:40 Brasília, before any Curve or Celo price is downloaded): scale and the reais side
+### Specification 2 (5 Nov 2026 01:24 Brasília, before any Curve or Celo price is downloaded): scale and the reais side
 Added at Renzo's request after the pool census. No price from these two pools has been seen; only their names, tokens,
 creation dates and (for Celo) June trading-day counts and volumes.
 - **Scale (adds to F-037):** for 25 May–22 Jun and 24 Jun–21 Jul (calendar days, pools trade every day), summed US$
@@ -140,7 +140,7 @@ creation dates and (for Celo) June trading-day counts and volumes.
   changes in the pool: −30.9 to +13.8 bps (31 clean dates, description). Celo supply fall of 24 Jun reversed a +80 mn build-up
   of 19–23 Jun; not called a run.
 - **Next step:** S5, **Felipe** reviews: restore the bundle, `python scripts/p3_24_brla.py`, compare with
-  `results/tables/P3-24_brla_s20.csv` and F-037; open D-19, D-20; check the claim ceiling and the arbitrage caveat (F-018).
+  `results/tables/P3-24_brla_s20.csv`, `P3-24_scale.csv`, `P3-24_brl_side.csv` and F-037 (specs `b57af33`, `403ca9d`); open D-19, D-20; check the claim ceiling and the arbitrage caveat (F-018).
   Then he decides on the slide 6 / annex line (P5-08 S3).
 - **Open questions:** (1) Base pool contract not confirmed (absent from CoinGecko's BRLA record). (2) The Flash merges
   (`*_merged_*`) are not used; the script rebuilds everything from the raw OHLCV. (3) Avenia statement on the June supply
@@ -149,6 +149,10 @@ creation dates and (for Celo) June trading-day counts and volumes.
 - **How to resume:** `python scripts/p3_24_brla.py` (needs the restored bundle and the P1-02 processed files).
 
 ## Log
+- 2026-11-05 01:45 (Brasília), agent for Renzo: spec 2 run (`403ca9d` before the pulls; `download` mode added, raw JSON in
+  `data/raw/p3_24/`, checksums appended). Scale: Polygon 92% of BRLA–dollar pool volume before, 65% after (Gnosis ×6);
+  0.35% / 0.24% of Binance's volume. Reais side: BRLA in BRZ −3.4 bps (±21.6 naive), testable 18/19 days → "kept its value".
+  Fix disclosed: GeckoTerminal repeats 5 May in the Curve pulls; loader keeps one candle per day (outside the windows).
 - 2026-11-05 01:25 (Brasília), agent for Renzo: pool census at Renzo's question ("only one liquid pool?"): 31 BRLA pools on
   4 chains; only the Polygon USDC pool trades on most June days; Celo BRLA/USDT 4/29 and 3/28 days; Curve pools are BRL↔BRL.
   Added to F-037 Evidence. A BRLA-vs-BRZ peg check on the Curve basket pool is possible (H4, first margin) but not done.

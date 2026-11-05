@@ -17,6 +17,10 @@ Inputs    data/raw/flash-mentor-leads/brla/* (Felipe's Flash snapshots, 4 Nov 20
 Outputs   data/processed/P3-24_brla_daily.csv, results/tables/P3-24_brla_s20.csv, results/figures/P3-24_brla_vs_usdt.png
 Run       python scripts/p3_24_brla.py
 """
+import json
+import sys
+import time
+import urllib.request
 from pathlib import Path
 
 import matplotlib.dates as mdates
@@ -32,10 +36,36 @@ POOL = {"Polygon": "polygon_pos_0x0e7754127dedd4097be750825dbb4669bc32c956",
         "Gnosis": "xdai_0x576bf065cbc15cb2d61affb156118fcff01a8238",
         "Base": "base_0x1c33aa5cc206ed3d9e29fb136796a8815e48af58"}
 bps = lambda r: (r - 1) * 1e4
+LIVE = ROOT / "data/raw/p3_24"  # spec 2 pulls (GeckoTerminal), raw JSON as returned
+CELO = ("celo", "0x14e577e42d45fd2200a9b0e31d87fe826467111a")              # BRLA / USD₮, Uniswap v3
+CURVE = ("polygon_pos", "0xc89f31f74573cc19fffc06108601c1ac71ba9735")      # TESOURO / BRZ / stBRZ / BRLA
+BRLA, BRZ = "0xe6a537a407488807f0bbeb0038b79004f19dddfb", "0x4ed141110f6eeeaba9a1df36d8c26f684d2475dc"
+
+if sys.argv[1:] == ["download"]:  # python scripts/p3_24_brla.py download  (then append checksums, data/README.md)
+    api = "https://api.geckoterminal.com/api/v2/networks/{}/pools/{}/ohlcv/day?limit=200&currency=usd"
+    pulls = {"celo_brla_usdt_day_usd": api.format(*CELO), "curve_brla_day_usd": api.format(*CURVE) + f"&token={BRLA}",
+             "curve_brz_day_usd": api.format(*CURVE) + f"&token={BRZ}"}
+    LIVE.mkdir(parents=True, exist_ok=True)
+    stamp = pd.Timestamp.now("UTC").strftime("%Y%m%dT%H")
+    for name, url in pulls.items():
+        req = urllib.request.Request(url, headers={"User-Agent": "out-of-sample-datathon"})
+        (LIVE / f"{name}_{stamp}.json").write_bytes(urllib.request.urlopen(req, timeout=30).read())
+        print("saved", f"data/raw/p3_24/{name}_{stamp}.json")
+        time.sleep(6)  # public API rate limit
+    sys.exit()
+
+
+def gecko(name):
+    """Latest pull of a spec-2 file -> daily DataFrame (UTC dates) with close and volume (US$)."""
+    f = sorted(LIVE.glob(f"{name}_*.json"))[-1]
+    k = pd.DataFrame(json.loads(f.read_bytes())["data"]["attributes"]["ohlcv_list"], columns=["t", "o", "h", "l", "close", "volume"])
+    k = k.set_index(pd.to_datetime(k.t, unit="s")).sort_index()[["close", "volume"]]
+    return k[~k.index.duplicated(keep="last")]  # GeckoTerminal repeats the oldest day (5 May) in the Curve pulls
+
 
 d = pd.read_csv(PROC / "P1-02_premium_daily.csv", parse_dates=["date_brt"], index_col="date_brt")
 h1 = pd.read_csv(PROC / "P1-02_premium_hourly.csv", parse_dates=["time_utc"], index_col="time_utc",
-                 usecols=["time_utc", "usdtbrl_open_brl", "usdtusd_open_usd", "usdtusd_cb_open_usd"])
+                 usecols=["time_utc", "usdtbrl_open_brl", "usdtusd_open_usd", "usdtusd_cb_open_usd", "usdtbrl_volume_usdt"])
 ptax = d.ptax_sell_brl_per_usd
 
 # Primary: Polygon hourly opens in the PTAX window (BRLA per USDC: base USDC, quote BRLA)
@@ -140,3 +170,41 @@ for s in ("top", "right"):
 fig.text(0.01, -0.02, "Fontes: GeckoTerminal (pool Uniswap v3 USDC/BRLA, Polygon), Binance, BCB (PTAX). Supõe 1 BRLA = R\\$ 1 "
          "e 1 USDC = US\\$ 1. Cálculo da equipe (P3-24).", fontsize=8, color="#52514e")
 fig.savefig(FIG / "P3-24_brla_vs_usdt.png", dpi=180, bbox_inches="tight")
+
+# Spec 2a: scale. Summed US$ volume per pool (UTC days) and Polygon against Binance USDT/BRL on the same days
+vols = {k: v.sort_index() for k, v in vol_usd.items()}
+celo = gecko("celo_brla_usdt_day_usd")
+vols["Celo"] = celo.volume
+binance_vol = h1.usdtbrl_volume_usdt.resample("D").sum()
+rows = []
+for label, (a, b) in {"before 25 May-22 Jun": ("2026-05-25", "2026-06-22"), "after 24 Jun-21 Jul": ("2026-06-24", "2026-07-21")}.items():
+    s = {k: v.loc[a:b].sum() for k, v in vols.items()}
+    rows.append({"window": label, **{f"{k.lower()}_usd": round(x) for k, x in s.items()},
+                 "celo_days_with_trades": int((celo.volume.loc[a:b] > 0).sum()),
+                 "polygon_share_of_pools_pct": round(100 * s["Polygon"] / sum(s.values()), 1),
+                 "binance_usdtbrl_usdt": round(binance_vol.loc[a:b].sum()),
+                 "polygon_vs_binance_pct": round(100 * s["Polygon"] / binance_vol.loc[a:b].sum(), 2)})
+scale = pd.DataFrame(rows)
+scale.to_csv(TAB / "P3-24_scale.csv", index=False)
+print("\nSpec 2a, scale (US$ volume summed over calendar days):\n" + scale.to_string(index=False))
+
+# Spec 2b: reais side. BRLA price in BRZ on the Curve pool = US$ price of BRLA / US$ price of BRZ (daily close), bps
+brla_c, brz_c = gecko("curve_brla_day_usd"), gecko("curve_brz_day_usd")
+gap = bps(brla_c.close / brz_c.close).reindex(out.index)
+n_pre, n_post = int(gap.iloc[i - 20:i].count()), int(gap.iloc[i + 1:i + 21].count())
+testable = n_pre >= 15 and n_post >= 15
+s = s20(gap) if testable else np.nan
+reading = ("not testable" if not testable else "BRLA kept its value against BRZ (|S20| <= 22 bps)" if abs(s) <= 22
+           else "one of the two reais tokens moved in reais (|S20| > 22 bps)")
+brl_side = pd.DataFrame([{"series": "BRLA in BRZ, Curve pool (bps)", "days_pre": n_pre, "days_post": n_post,
+                          "pre_mean_bps": round(gap.iloc[i - 20:i].mean(), 1), "post_mean_bps": round(gap.iloc[i + 1:i + 21].mean(), 1),
+                          "s20_bps": round(s, 1) if testable else np.nan,
+                          "pre_range_bps": f"{gap.iloc[i - 20:i].min():.1f}..{gap.iloc[i - 20:i].max():.1f}",
+                          "post_range_bps": f"{gap.iloc[i + 1:i + 21].min():.1f}..{gap.iloc[i + 1:i + 21].max():.1f}",
+                          "dollar_route_s20_bps": res.loc[0, "s20_bps"], "reading": reading}])
+brl_side.to_csv(TAB / "P3-24_brl_side.csv", index=False)
+print("\nSpec 2b, reais side:\n" + brl_side.T.to_string(header=False))
+print(f"Curve pool daily candles: {brla_c.index.min().date()}..{brla_c.index.max().date()} (n={len(brla_c)}); "
+      f"median daily pool volume (all pairs) before/after US$ {brla_c.volume.loc['2026-05-25':'2026-06-22'].median():,.0f} / "
+      f"{brla_c.volume.loc['2026-06-24':'2026-07-21'].median():,.0f}")
+

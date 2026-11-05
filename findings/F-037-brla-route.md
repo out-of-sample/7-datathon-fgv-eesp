@@ -1,6 +1,6 @@
 ---
 id: F-037
-title: The route Pix → BRLA → USDC on Polygon paid the June premium too (+111 bps in the 20 days after the notice, against +94 for USDT on Binance); BRLA's supply fall on 24 Jun reversed a build-up of the days before and is not shown to be a run
+title: The route Pix → BRLA → USDC on Polygon paid the June premium too (+111 bps in the 20 days after the notice, against +94 for USDT on Binance) while BRLA kept its value against another reais token (−3 bps); a small market (0.2–0.35% of Binance's volume); BRLA's supply fall on 24 Jun reversed a build-up of the days before and is not shown to be a run
 status: exploratory
 task: P3-24
 date: 2026-11-05
@@ -17,13 +17,25 @@ reached a route that does not go through an exchange order book, which is **cons
 dollars entering Brazil rather than any one exchange. It is not an independent market: arbitrageurs who trade both the
 pool and the exchanges keep their prices together, as triangular arbitrage does for bitcoin (F-018).
 
+**Scale.** This pool is where on-chain BRLA–dollar trading happens (92% of the volume of the four BRLA–dollar pools with
+data before the notice, 65% after, when the Gnosis pool's volume rose sixfold), but it is small: its volume was 0.35% of
+Binance's USDT/BRL volume before and 0.24% after. The finding is that even this niche route paid the premium.
+
+**Reais side** (spec 2, `403ca9d`, before those prices were downloaded). On a Curve pool where BRLA trades against BRZ,
+another reais stablecoin (Transfero), BRLA's price in BRZ moved **−3.4 bps** (−2.5 → −5.9; naive 95% interval ±21.6,
+days treated as independent) while the dollar route rose +111.0. So the stress was on the dollar side: BRLA did not
+lose value against another reais token. This is not BRLA against fiat BRL (both tokens could move together), and BRLA
+trades thinly there (US$ 1–4k a day), so daily values swing ±70 bps; it rules out only a reais-side move of more than
+about 25 bps.
+
 BRLA's circulating supply (DefiLlama) fell by 112 mn BRLA on Celo from 23 to 24 Jun, the largest one-day fall in the
 series, but it **reversed a rise of 80 mn over the four days before** (Celo 128 → 208.5 mn, 19–23 Jun), and Celo supply was
 back above its May level by August (monthly median 144 mn; 161 mn in November). No source says the fall was redemptions;
 this finding does not call it a run.
 
 ## Evidence
-Reproduce: restore the Flash bundle if needed (`data/README.md` → Flash mentor-leads bundle), then
+Reproduce: restore the Flash bundle if needed (`data/README.md` → Flash mentor-leads bundle); spec-2 data with
+`python scripts/p3_24_brla.py download` (or the frozen pulls in `data/raw/p3_24/`, checksums in SHA256SUMS); then
 `python scripts/p3_24_brla.py` → `data/processed/P3-24_brla_daily.csv`, `results/tables/P3-24_brla_s20.csv`,
 `results/figures/P3-24_brla_vs_usdt.png`. Spec committed before the script: `b57af33`.
 
@@ -35,6 +47,16 @@ Reproduce: restore the Flash bundle if needed (`data/README.md` → Flash mentor
 | Gnosis pool USDC.e/BRLA, daily close (r3) | 28.0 | 122.8 | +94.9 | +93.9 | US$ 8k, **fails liquidity** |
 | Base pool BRLA/USDC, daily close (r3) | – | – | not computed: 10 of 20 days before | – | US$ 2k, **fails liquidity**; contract not confirmed |
 
+- **Scale (spec 2a, `results/tables/P3-24_scale.csv`; US$ volume summed over calendar days):** before 25 May–22 Jun:
+  Polygon 5.88 mn, Gnosis 0.47 mn, Base 0.05 mn, Celo 0.004 mn (4 days with trades); Binance USDT/BRL 1,694 mn USDT.
+  After 24 Jun–21 Jul: Polygon 5.26 mn, Gnosis 2.82 mn, Base 0.04 mn, Celo 0.003 mn (3 days); Binance 2,174 mn. Gnosis
+  volume converted from BRLA at its own price; Base volume in USDC.
+- **Reais side (spec 2b, `results/tables/P3-24_brl_side.csv`):** Curve pool `0xc89f…9735` (TESOURO / BRZ / stBRZ / BRLA,
+  created 20 Nov 2025); BRLA price in BRZ = GeckoTerminal daily close US$ price of BRLA / that of BRZ in this pool
+  (`currency=usd&token=<address>`; raw JSON in `data/raw/p3_24/`, pulled 5 Nov 04h UTC). Days with a value 18/20 before,
+  19/20 after (testable). Mean −2.5 → −5.9 bps; daily sd 35.4 / 31.3; ranges −66..+66 and −73..+33. BRLA-side volume:
+  median US$ 3.8k before, 0.8k after. Registered reading (|S20| ≤ 22 bps): "BRLA kept its value against BRZ". The
+  pulls repeat 5 May (outside the windows); the loader keeps one candle per day.
 - **Pool census (5 Nov, GeckoTerminal, D-19):** 31 BRLA pools on Polygon, Celo, Gnosis and Base. The Polygon USDC pool
   is the only BRLA–dollar pool that traded on most June days. Celo BRLA/USD₮ (Uniswap v3, `0x14e5…111a`) traded on 4 of 29
   days before and 3 of 28 after (median ~US$ 0.8–1k on those days): not testable. Curve pools (TESOURO/BRZ/stBRZ/BRLA,
@@ -68,8 +90,10 @@ Reproduce: restore the Flash bundle if needed (`data/README.md` → Flash mentor
 ## Used in deck
 Not yet. After Felipe's review (P3-24 S5), candidate line for slide 6 or the annex: "O prêmio também apareceu fora das
 corretoras: comprar dólar pela rota Pix → BRLA → USDC ficou +111 pb mais caro no mês seguinte ao ofício (USDT na Binance:
-+94 pb). As duas rotas são ligadas por arbitragem, como o bitcoin." Not to be said: "o BRLA desancorou", "corrida contra
++94 pb), enquanto o BRLA manteve seu valor frente a outro real digital (−3 pb). É uma rota pequena, ligada às
+corretoras por arbitragem, como o bitcoin." Not to be said: "o BRLA desancorou", "corrida contra
 o BRLA".
 
 ## History
+- 2026-11-05, agent for Renzo: spec 2 added (scale, BRLA vs BRZ), at Renzo's request after the pool census
 - 2026-11-05, agent for Renzo: created (P3-24 S3–S4); extends Felipe's F-034 first look
