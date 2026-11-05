@@ -1,7 +1,7 @@
 ---
 id: F-001
 title: The USDT/BRL premium over PTAX is real, not trading noise
-status: confirmed
+status: frozen
 task: P0-01
 date: 2026-10-30
 checked_by: Felipe
@@ -36,6 +36,7 @@ One venue; no USDT/USD adjustment (see F-004); the hourly range is a rough noise
 Slide 3 ("Dados e medida: seis anos de histórico e quebras cegas") of `deck/deck_v1_ptbr.md`.
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-10-31, agent for Renzo: supported by F-007 with proper spread estimators (2–10 bps): the premium is
   4–11 times the spread every year (vs 2–5 times the raw range here). Exception: Aug 2025 – Jun 2026, ~2 times.
 - 2026-10-31, agent for Renzo: premium v2 (P1-02) reproduces the yearly means exactly (unadjusted, to 30 Sep 2026).

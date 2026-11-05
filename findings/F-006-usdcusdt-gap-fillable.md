@@ -1,7 +1,7 @@
 ---
 id: F-006
 title: The Binance USDC/USDT gap (Sep 2022 – Mar 2023) can be filled; three USDT/USD series agree within ~1 bps
-status: confirmed
+status: frozen
 task: P1-02
 date: 2026-10-31
 checked_by: Felipe
@@ -39,5 +39,6 @@ missing there. Three other hourly series cover every hour of that gap and agree 
 Slide 3 of `deck/deck_v1_ptbr.md` and Annex C.1 of `deck/annex_v1_ptbr.md`.
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-10-31, agent for Renzo: Renzo chose 1/BUSDUSDT for the gap and Coinbase as robustness; both frozen
 - 2026-10-31, agent for Renzo: created (status exploratory)

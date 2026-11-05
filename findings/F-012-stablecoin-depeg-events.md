@@ -32,6 +32,7 @@ Applying the frozen depeg detection rule (|price − 1| > 0.5% sustained for ≥
 Dollar-side chapter ("O que traz uma stablecoin de volta a US$ 1?"): SVB-weekend case study figure and event sample size for survival analysis.
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): numbers frozen (tag `results-frozen`); status stays exploratory because no teammate has re-run it, so the deck uses it only at the level its Claim states
 - 2026-10-31, Nattan: created upon completing P1-07 automated detector scan and Bitstamp SVB case figure (status confirmed; numbered F-012 after F-010/F-011 committed by peers).
 - 2026-10-31, Renzo (review, P1-07 S5): numbers reproduce exactly. The count of 29 needs revision before use: 16 events
   are prices above $1; USTC (Mar 2023) double-counts UST's May 2022 collapse; BUSD and FDUSD on 13 Dec 2023 are one

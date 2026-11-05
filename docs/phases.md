@@ -86,7 +86,7 @@ Tasks: P4-01 to P4-03.
 Success criteria:
 - [ ] At least two alternative windows, two premium definitions and the second venue for every headline number
 - [ ] Every headline number re-run by a teammate who did not produce it, with matching output
-- [ ] All findings used in the deck marked `frozen`; a git tag `results-frozen` on the commit
+- [x] All findings used in the deck marked `frozen`; a git tag `results-frozen` on the commit (4 Nov; exploratory ones keep their label)
 - [ ] After the freeze, only bug fixes, each disclosed in the finding file
 
 ## P5 — Deck and submission

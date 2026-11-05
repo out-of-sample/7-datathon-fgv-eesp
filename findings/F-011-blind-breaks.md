@@ -1,7 +1,7 @@
 ---
 id: F-011
 title: A blind break test finds 24 Jun 2026 as the sharpest regime change in six years (+100 bps), followed by a partial reversal from 22 Jul
-status: confirmed
+status: frozen
 task: P2-02
 date: 2026-10-31
 checked_by: Felipe
@@ -59,6 +59,7 @@ Robustness (S4), same specification:
 Slide 4 and Slide 8 of `deck/deck_v1_ptbr.md` and Annex B.3 of `deck/annex_v1_ptbr.md`.
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-02, agent for Renzo: matching re-run after the P1-04 source fixes (M-02 effective date 13 Aug, not 20 Aug; M-01 description cut to its source) and with the date-keyed label overrides removed, so every break follows the ±5-day rule. Break 2: −5 days (was 0); Break 5: unexplained (M-04 no longer attached). "Matches" → "coincides with". The table at HEAD came from an older script version (Coinbase break 1 was 19 Jul 2021; the script gives 1 Jun 2021, as on 31 Oct)
 - 2026-11-02, Felipe: P1-04 mapped all 5 breaks (M-01, M-02, M-03/E-01b, E-05, M-04), ready for P2-02 S3 table update; 24 Jun 2026 break matched to E-05 (23 Jun BCB supervisory ofício, -1 trading day, in 95% CI)
 - 2026-10-31, agent for Renzo: created (exploratory; S3 matching pending P1-04)

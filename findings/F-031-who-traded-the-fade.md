@@ -88,6 +88,7 @@ compras agressivas em cerca de 362 milhões de USDT na Foxbit, em horário comer
 negociou, e se houve entrada líquida de USDT no país, os dados não mostram."
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): numbers frozen (tag `results-frozen`); status stays exploratory because no teammate has re-run it, so the deck uses it only at the level its Claim states
 - 2026-11-02, agent for Renzo: wording corrected after a parallel review (`docs/improvements_log.md`): seller-initiated
   imbalance, not "net new supply" or "a new seller"; numbers unchanged; link to F-032
 - 2026-11-02, agent for Renzo: on-chain check (P3-18) dropped, no labelled Foxbit Tron wallets; caveat updated

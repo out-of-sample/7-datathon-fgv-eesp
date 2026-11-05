@@ -1,7 +1,7 @@
 ---
 id: F-007
 title: Trading friction on USDT/BRL is 2–10 bps; the premium is 4–11 times that every year, but only ~2 times it from Aug 2025 to Jun 2026
-status: confirmed
+status: frozen
 task: P2-01
 date: 2026-10-31
 checked_by: Jonathan
@@ -50,5 +50,6 @@ Yearly medians of daily values, bps (spread = full proportional spread (ask − 
 Not yet (planned: the shaded band on headline chart 1).
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-10-31, Jonathan: reviewed and verified (independent clean run reproduces table, noise band CSV and figures); confirmed.
 - 2026-10-31, agent for Renzo: created (status confirmed: P2-01 criteria pass; not yet re-run by a teammate)

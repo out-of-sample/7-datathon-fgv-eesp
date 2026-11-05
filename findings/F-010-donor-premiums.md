@@ -1,7 +1,7 @@
 ---
 id: F-010
 title: Where residents cannot buy dollars freely (ARS, UAH) USDT costs 4-7% more than the official dollar; in open markets 0-1%
-status: confirmed
+status: frozen
 task: P1-05
 date: 2026-10-31
 checked_by: Felipe, Jonathan
@@ -57,6 +57,7 @@ Mean premium, bps (price of USDT in local currency / (official rate x USDT/USD) 
 Slide 7 and Slide 9 of `deck/deck_v1_ptbr.md` and Annex B.4 of `deck/annex_v1_ptbr.md`.
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-10-31, agent for Renzo: created (exploratory)
 
 ### Independent review — 2026-10-31, second agent for Renzo

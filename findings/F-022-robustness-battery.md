@@ -1,7 +1,7 @@
 ---
 id: F-022
 title: The 23 Jun 2026 spike is robust (+74 to +128 bps across 22 variants); the after-spike level (+11 to +34 bps) is not distinguishable from ordinary drift (placebo p = 0.24)
-status: confirmed
+status: frozen
 task: P4-01
 date: 2026-11-02
 checked_by: Renzo
@@ -138,6 +138,7 @@ Testing whether the shock transmitted to Bitcoin and comparing the jump against 
 ---
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-02, agent for Renzo (review fixes, on Felipe's behalf, agreed by Renzo): claim and title rewritten; after-spike placebo rows added to the battery (53 rows); parametric p labelled p_param; BTC point corrected
 - 2026-11-02, Renzo (review, P4-01): 51 rows reproduce exactly; acute jump robust (+74 to +128 bps). Plateau placebo test (reviewer): +19.3 bps for [+21,+60] has p = 0.24 over 882 clean dates (0.14 in 2025–26), so the "persistent plateau" is not shown. Drop parametric p-values; BTC point is implied by arbitrage (tasks/P4-01 → Handoff)
 - 2026-11-02, Felipe: created (status exploratory; P4-01 criteria 1–3 satisfied; full 51-specification battery executed across 6 dimensions via `scripts/p4_01_robustness.py`).

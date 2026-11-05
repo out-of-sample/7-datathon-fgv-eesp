@@ -1,7 +1,7 @@
 ---
 id: F-025
 title: In the four weeks after the notice, buyers of USDT/BRL paid about R$ 106 mn more on Binance (R$ 145 mn on three exchanges) than at the pre-notice premium; no ordinary month comes close
-status: confirmed
+status: frozen
 task: P3-11
 date: 2026-11-02
 checked_by: Felipe
@@ -51,4 +51,5 @@ Specification committed before the script (`91f9c25`).
 Slide 10 (`deck/deck_v1_ptbr.md`) & Anexo B.5 (`deck/annex_v1_ptbr.md`).
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-02, agent for Renzo: created (P3-11).

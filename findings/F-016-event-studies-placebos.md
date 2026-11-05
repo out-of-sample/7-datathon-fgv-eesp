@@ -1,7 +1,7 @@
 ---
 id: F-016
 title: Of 13 dated Brazilian events, only the 23 Jun 2026 BCB notice moved the premium (+93.9 bps; beyond all 1,073 placebo dates, p ≈ 0.001)
-status: confirmed
+status: frozen
 task: P2-03
 date: 2026-11-02
 checked_by: Renzo
@@ -67,6 +67,7 @@ python scripts/p2_03_events.py
 Outputs: `results/tables/P2-03_event_table.csv`, `results/tables/P2-03_placebo_draws.csv`, `results/figures/P2-03_placebo_dist.png`, `results/agentic/team_estimate.json`.
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-02, agent for Renzo (review fixes, on Felipe's behalf, agreed by Renzo): table re-run with corrected P1-04 dates and placebo-only p-values; all-clean-dates p added; unsourced "BCB inquiries circulated" removed; RMSE "baseline" replaced; interpretation marked as hypotheses; title updated
 - 2026-11-02, Renzo (review, P2-03): numbers reproduced; headline holds; text changes requested (tasks/P2-03 → Handoff)
 - 2026-11-02, Felipe: created

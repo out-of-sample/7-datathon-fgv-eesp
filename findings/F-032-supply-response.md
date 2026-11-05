@@ -71,5 +71,6 @@ fora; deixaram de predominar quando o prêmio caiu abaixo de cerca de 35 pb, per
 associação, não uma prova de causa."
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): numbers frozen (tag `results-frozen`); status stays exploratory because no teammate has re-run it, so the deck uses it only at the level its Claim states
 - 2026-11-02, agent for Renzo: created (P3-19), status exploratory
 - 2026-11-02, agent for Renzo: caveat on field meaning added with source R-09; numbers unchanged

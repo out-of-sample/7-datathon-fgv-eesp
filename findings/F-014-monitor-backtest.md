@@ -1,7 +1,7 @@
 ---
 id: F-014
 title: A real-time alarm calibrated on 2020–2025 flags the 24 Jun 2026 jump on the same day, with fewer false alarms than a simple rule
-status: confirmed
+status: frozen
 task: P3-03
 date: 2026-10-31
 checked_by: Jonathan
@@ -60,5 +60,6 @@ Alarm budget: 10 in training (13 Oct 2020 – 31 Dec 2025, ≤ 2 per year). Test
 Not yet (candidate: slide 11, "Monitor do Dólar Digital", figure `P3-03_monitor.png`).
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-01, Jonathan: reproduced script, backtest table (`P3-03_backtest.csv`) and figure (`P3-03_monitor.png`); audited past-data-only shifts (`.shift(1)` on `s_t` and noise band); status -> confirmed
 - 2026-10-31, agent for Renzo: created (exploratory); specification committed before the run (commit 827adcb)

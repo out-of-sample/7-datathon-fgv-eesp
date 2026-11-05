@@ -1,7 +1,7 @@
 ---
 id: F-015
 title: The 23 Jun notice cost a buyer of digital dollars about R$ 4,840 per US$ 100k during the spike (+93.9 bps, at each day's PTAX); after it, +11.5 bps (R$ 583) not distinguishable from noise. Bank-route comparisons are now sourced (BCB EE 48/2019 corporate spread 20 bps; statutory IOF by period)
-status: confirmed
+status: frozen
 task: P3-01
 date: 2026-11-01
 checked_by: Jonathan
@@ -63,6 +63,7 @@ Outputs:
 Slide 10 ("Quanto custou: R$ 5 mil por US$ 100 mil") of `deck/deck_v1_ptbr.md` and Annex B.5 / C.2 of `deck/annex_v1_ptbr.md` (keeping both presentation options open for the team: Option C on Slide 10 or Option A in Annex B.5).
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-03, agent for Renzo (decided by Renzo; Felipe owns F-015): headline rows converted at each day's PTAX, R$ 5,052.36 → R$ 4,842.04 (spike) and R$ 621.00 → R$ 583.10 (after); the R$ 5.38 used until now is a Binance USDT/BRL bid (D-10), not a PTAX, found by the P3-21 review. bps unchanged; route rows keep R$ 5.38, now labelled an illustrative reference rate (option a). Status kept; the conversion needs a re-run by a teammate who did not make it.
 - 2026-11-03, Jonathan: independently re-ran `scripts/p3_01_costs.py` from raw data; all 17 route/scenario rows and headline spike cost (+93.9 bps = R$ 5,052.36 per US$ 100k) reproduced exactly; status -> confirmed.
 - 2026-11-02, agent for Felipe (P3-01 S6–S7): opened and quoted primary sources for every parameter in `docs/sources.md` (`R-01` BCB Estudo Especial nº 48/2019 20 bps corporate spread median for >US$ 55.6k; `R-01b` Banco do Brasil Tarifas PJ R$ 100 SWIFT / R$ 440 online wire; `R-02` RIOF + Decretos 12.466/12.467; `R-05` Foxbit VIP 6–7 7–9 bps taker; `R-06` MB VIP 6 bps maker vs 60 bps taker; `R-07` 1-day CIP carry 2.5 bps); removed `"economiza R$"` from `P3-01_route_costs.png`; documented legal/operational comparability for both Slide 10 (Option C) and Annex B.5 (Option A)

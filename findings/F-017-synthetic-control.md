@@ -1,7 +1,7 @@
 ---
 id: F-017
 title: Synthetic control estimates a +109 bps acute treatment gap for the 23 Jun 2026 shock (Brazil ranks #1 of 6, ratio 9.31) fading to a +28 bps plateau
-status: confirmed
+status: frozen
 task: P2-04
 date: 2026-11-02
 checked_by: Renzo
@@ -65,6 +65,7 @@ python scripts/p2_04_synth.py
 Outputs: `results/tables/P2-04_synth_results.csv`, `results/tables/P2-04_synth_weights.csv`, `results/figures/P2-04_synthetic_control.png`.
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-02, agent for Renzo (review fixes, on Felipe's behalf, agreed by Renzo): day counts stated (17 acute, 48 plateau common days); "as domestic order books and OTC channels adapted" removed (no evidence; July fade unexplained); "causal attribution" softened to comparison with donors (p = 0.17); figure: neutral labels, no overlap, placebos with pre-fit > 5× Brazil's (COP, ZAR) left out of panel B and named in the legend (Abadie et al. 2010)
 - 2026-11-02, Renzo (review, P2-04): tables reproduce exactly; independent donor-average DiD matches (tasks/P2-04 → Handoff)
 - 2026-11-02, Felipe: created

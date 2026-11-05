@@ -1,7 +1,7 @@
 ---
 id: F-023
 title: Two outlets saw the 23 Jun notice (or an excerpt) the next days, the BCB confirmed its position in writing, and the price moves they reported match our premium series
-status: confirmed
+status: frozen
 task: P3-14
 date: 2026-11-02
 checked_by: Felipe
@@ -56,4 +56,5 @@ not only by later opinion pieces. The price moves the press reported (about 0.1%
 Slide 5 (`deck/deck_v1_ptbr.md`) & Anexo C (`deck/annex_v1_ptbr.md`).
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-02, agent for Renzo: created (P3-14 sweep). Exame 25 Jun was first pointed out by another agent's review.

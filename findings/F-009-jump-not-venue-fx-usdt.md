@@ -1,7 +1,7 @@
 ---
 id: F-009
 title: The 24 Jun 2026 jump appears on three exchanges by the same amount and is not explained by the real, USDT/USD or a Binance event
-status: confirmed
+status: frozen
 task: P2-05
 date: 2026-10-31
 checked_by: Jonathan
@@ -46,5 +46,6 @@ starting on the afternoon of 23 Jun, consistent with, but not proof of, the repo
 Not yet (candidate: one robustness line "same jump on 3 exchanges", and the hourly figure in the annex).
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-10-31, Jonathan: reviewed and verified (independent clean run reproduces tables, cross-venue replication and hourly figure); confirmed. Note: P2-05_venues_daily.csv exports 1 Jun – 31 Jul (16 pre-event PTAX days) while the 20-day pre-window reported above starts 25 May.
 - 2026-10-31, agent for Renzo: created (status confirmed: P2-05 criteria pass; not yet re-run by a teammate)

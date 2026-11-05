@@ -1,7 +1,7 @@
 ---
 id: F-028
 title: We cannot identify which route set the price after the 23 Jun notice; the ordinary 3.5% route did not set it (the premium rose at most +171 bps, and raising that route's IOF in May 2025 moved it +13 bps)
-status: confirmed
+status: frozen
 task: P3-15
 date: 2026-11-02
 checked_by: -
@@ -97,6 +97,7 @@ either cheaper supply reached the market or demand fell. The data do not say whi
 Not yet. Proposed for Slides 1 and 5 (text above) and the annex (route table).
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-02, agent for Renzo (after a second agent's review): "ceiling" removed (route 3's supply is unknown, so
   it is not an established upper bound); May 2025 IOF evidence (F-026) added; deck sentences rewritten
 - 2026-11-02, agent for Renzo: created (P3-15); rule committed first (`6393330`).

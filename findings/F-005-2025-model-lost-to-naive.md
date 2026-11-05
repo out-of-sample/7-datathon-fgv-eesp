@@ -1,7 +1,7 @@
 ---
 id: F-005
 title: Our 2025 model lost to a naive "tomorrow = today" forecast
-status: confirmed
+status: frozen
 task: P0-01
 date: 2026-10-30
 checked_by: Renzo
@@ -31,5 +31,6 @@ The 2025 TFT reported R2 0.912 but MAE 0.766 (4.5x worse than naive): metrics we
 Planned: "Lições de 2025".
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-10-31, Renzo: re-run on 2025 repo data; persistence baseline reproduces R2 0.776 and MAE 0.169; confirmed.
 - 2026-10-30 — agent for Renzo: created

@@ -81,6 +81,7 @@ contents), slide 5 (Res. 574 line), Annex F.1 (tables, method note). Slide 5's t
 not "das regras com data", because Res. 574 is a dated rule that was not tested.
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): numbers frozen (tag `results-frozen`); status stays exploratory because no teammate has re-run it, so the deck uses it only at the level its Claim states
 - 2026-11-02, agent for Renzo: deck text for slide 5 corrected: "datada quatro dias antes" matched neither the register
   date (18 Jun, 5 calendar days before) nor the DOU date (22 Jun); now both dates are named. Used in deck updated.
 - 2026-11-02, agent for Renzo: created (P4-04). Exploratory values seen before the spec were disclosed in the task file.

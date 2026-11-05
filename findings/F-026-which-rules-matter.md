@@ -1,7 +1,7 @@
 ---
 id: F-026
 title: Of eight dated Brazilian rules, only the confidential, immediate notice of 23 Jun 2026 moved the premium detectably; the published rules, with 1 to 175 days of notice, stayed within the range of ordinary dates
-status: confirmed
+status: frozen
 task: P3-12
 date: 2026-11-02
 checked_by: Felipe
@@ -48,4 +48,5 @@ Reproduce: `python scripts/p3_12_rules.py` → `results/tables/P3-12_rules.csv`,
 Slide 6 (`deck/deck_v1_ptbr.md`) & Anexo A (`deck/annex_v1_ptbr.md`).
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-02, agent for Renzo: created (P3-12).

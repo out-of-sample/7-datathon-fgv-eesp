@@ -1,7 +1,7 @@
 ---
 id: F-018
 title: The Bitcoin premium jumped by the same +93.8 bps on 24 Jun 2026, as triangular arbitrage on Binance requires; the test cannot tell a stablecoin-specific shock from a crypto-wide one
-status: confirmed
+status: frozen
 task: P3-02
 date: 2026-11-02
 checked_by: Renzo
@@ -76,6 +76,7 @@ Outputs:
 - `results/figures/P3-02_btc_vs_usdt_premium.png`
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-02, agent for Renzo (review fixes, on Felipe's behalf, agreed by Renzo): title, claim and interpretation rewritten; the lockstep follows from triangular arbitrage and cannot confirm a market-wide restriction; slide suggestion reduced to one sentence
 - 2026-11-02, Renzo (review, P3-02): reproduces. The lockstep is implied by triangular arbitrage on Binance (USDT-vs-BTC-cross gap 0.36 bps mean, sd 1.07 in 2025–26), so it cannot confirm "market-wide import restrictions"; reword to "a price on entering crypto with reais". Event table re-run with corrected P1-04 dates (tasks/P3-02 → Handoff)
 - 2026-11-02: Initial exploratory finding written by Felipe for task P3-02.

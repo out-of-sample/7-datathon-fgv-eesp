@@ -1,7 +1,7 @@
 ---
 id: F-008
 title: Foxbit's USDT/BRL volume rose about sixfold from July 2026, through bigger trades, not more trades
-status: confirmed
+status: frozen
 task: P1-03
 date: 2026-10-31
 checked_by: Felipe
@@ -44,6 +44,7 @@ Reproduce: `python scripts/p1_03_second_venue.py` (last printed table; data froz
 Slide 8 of `deck/deck_v1_ptbr.md` and Annex B.7 of `deck/annex_v1_ptbr.md`.
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-02, agent for Felipe: new lead opened and quoted (docs/sources.md M-05). On 18 Jul 2026 Foxbit relaunched its B2B arm as "Foxbit Infra" (institutional liquidity, own market making, order routing, stablecoin cross-border payments; running inside 99Pay, Genial, PicPay) and claimed >41% of Brazil's USDT+USDC volume in the prior two weeks. Partner/institutional flow and market making would show up as bigger trades rather than more trades, so M-05 fits the pattern better than M-04 (NovaDAX: clients open new accounts voluntarily, no automatic migration). Still a coincidence in time, not a shown cause; claim unchanged, cause open. The startupi R$ 110M lead is the Feb 2022 OK Group Series A, not a 2026 event
 - 2026-11-02, agent for Renzo: M-04 wording "matched … adaptation following Res. BCB 580 and IN RFB 2.291" replaced by "coincides with"; the M-04 source names neither rule (docs/sources.md). Noted that a client migration fits "more trades" better than "bigger trades"
 - 2026-11-01, Felipe: P1-04 matched the surge to M-04 (7 Jul 2026 Foxbit–NovaDAX user-migration partnership following NovaDAX exit, Res. BCB 580 and IN RFB 2.291/2025 entry into force), consolidating domestic order-book liquidity and explaining the July volume rise.

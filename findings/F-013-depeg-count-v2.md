@@ -1,7 +1,7 @@
 ---
 id: F-013
 title: After the review fixes, the depeg screen finds 11 falls below $1 (9 without a likely delisting), short of the 12 the chapter needs for recovery curves
-status: confirmed
+status: frozen
 task: P1-07
 date: 2026-10-31
 checked_by: Nattan
@@ -71,5 +71,6 @@ v2 counts below. Columns are v2's verdict, rows are v1's, over the 54 screen can
 Not yet. P3-04 decides between a case table and recovery curves, and whether more coins or venues are worth adding.
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-10-31, agent for Renzo: created (exploratory) from the P1-07 review fixes; F-012 kept for comparison
 - 2026-11-01, Nattan: reviewed Renzo's v2 screen and SVB v2 figure; confirmed all 6 fixes; status -> confirmed.

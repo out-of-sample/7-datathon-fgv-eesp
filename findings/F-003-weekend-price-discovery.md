@@ -1,7 +1,7 @@
 ---
 id: F-003
 title: Weekend moves in USDT/BRL only weakly anticipate Monday's official dollar
-status: confirmed
+status: frozen
 task: P0-01
 date: 2026-10-30
 checked_by: Felipe
@@ -22,6 +22,7 @@ Side result; R-squared about 7%. Not part of the main question unless the team d
 Not yet.
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-02, Felipe (P4-02): independently audited `scripts/00_probe_premium.py` and verified exact reproduction on the 291-weekend probe sample (corr 0.263, slope 0.512) and full sample with Oct 2026 daily files (corr 0.45). Promoted to `confirmed` (`checked_by: Felipe`)
 - 2026-10-31, agent for Renzo: two strong cases after the probe's sample ended. PTAX Fri 2 Oct 5.2238 → Mon 5 Oct
   4.9859 (−4.6%) and Fri 23 Oct 5.0377 → Mon 26 Oct 5.5007 (+9.2%); in both, USDT/BRL started moving on Sunday

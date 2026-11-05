@@ -1,7 +1,7 @@
 ---
 id: F-019
 title: In dollars too, a stablecoin left parity while its redemption channel was closed: USDC closed at $0.863 on the SVB weekend and was back at $0.989 an hour after Sunday's deposit guarantee, before banks reopened; 11 other falls below $1 form a case table (too few for curves)
-status: confirmed
+status: frozen
 task: P3-04
 date: 2026-11-02
 checked_by: Renzo
@@ -85,6 +85,7 @@ Generated artifacts:
 Slide 11 ("Do lado do dólar: quando o resgate fecha") of `deck/deck_v1_ptbr.md`.
 
 ## History
+- 2026-11-04, agent for Renzo (P4-03, Renzo's decision): status confirmed -> frozen (tag `results-frozen`); from now on only bug fixes, each disclosed here
 - 2026-11-02, agent for Felipe (P3-09): opened and quoted sources for all 11 downward depeg cases and the USDP Binance delisting (`DP-01`..`DP-10` in `docs/sources.md`); restored sourced causes in `results/tables/P3-04_depeg_case_table.csv` and `results/figures/P3-04_depeg_cases.png`; kept descriptive framing
 - 2026-11-02, agent for Renzo (review fixes, on Felipe's behalf, agreed by Renzo): title and claim rewritten as description (no "confirms"/"proving"); SVB in hourly closes with D-13 timing; case causes marked unsourced in the table (kept as leads); category 4 renamed pending a delisting source
 - 2026-11-02, Renzo (review, P3-04): reproduces with the v2 events. Requested: sources for each case's mechanism (none in sources.md); title/claim as description, not "confirm"/"proving" (n = 2/7/1/2, categories assigned after the fact); USDP delisting still [verify] (tasks/P3-04 → Handoff)
