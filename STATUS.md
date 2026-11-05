@@ -207,8 +207,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
-- 2026-11-04 — Codex for Renzo: P3-23 English [research agenda](docs/competing-rails-research-agenda.md) and [datathon ranking](docs/competing-rails-datathon-ranking.md): six hypotheses, checked prerequisites, executable investigation plans and review comments on the new strategy memo. Recommended order H2/H1/H3/H5/H4/H6; no new outcomes or scope adoption. P3-20 readout not implemented yet; E2 primary verdict needs 9 Nov; placebo reference bands are not causal effect bounds.
-
+- 2026-11-04 — Felipe: flash subagent fleet gathered and verified all mentor leads in docs/flash-findings-mentor-leads.md (BRLA implied FX jumped +85 bps & supply shrank 49%; Hyperliquid EWZ time-matched basis was 0 bps; Coinext closed due to BCB capital tier, not the ofício; Ludolf identified as Alexandre Ludolf, QR Asset/FGV)
+- 2026-11-04 — Codex for Renzo: P3-23 English [research agenda](docs/competing-rails-research-agenda.md) and [datathon ranking](docs/competing-rails-datathon-ranking.md): six hypotheses, checked prerequisites, executable investigation plans and review comments on the new strategy memo. Recommended order H2/H1/H3/H5/H4/H6; no new outcomes or scope adoption. P3-20 readout not implemented yet; E2 primary verdict needs 9 Nov; placebo reference bands are not causal effect bounds. (P5-01: compile Flash Findings on mentor leads (BRLA, Hyperliquid, Coinext, Ludolf) in docs/flash-findings-mentor-leads.md)
 - 2026-11-04 — Felipe: research and conclusion strategic plan drafted in docs/plan-research-and-conclusions.md; triaged mentor leads and formulated three candidate conclusion architectures ("Private Tariff", "Limits to Arbitrage", "Shadow Macro Rail") to overhaul Slide 10
 - 2026-11-04 — Felipe: mentor session with David Wasserman (FGV/ex-QR) synthesized in docs/mentor-meeting-2026-11-04.md; confirmed econometric rigor and identified critical need for punchy "So what?" conclusion on Slide 10; mentor leads (Hyperliquid, BRLA, Coinnext, Ludolf) triaged
 
