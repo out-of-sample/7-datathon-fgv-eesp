@@ -57,6 +57,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Blockers and decisions pending
 
+New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (opened official sources M-11/M-12) overlaps the November validation setup. Team to assign the timeline/interpretation audit before presenting P3-20 as clean policy validation; registered scores stay unchanged.
+
 | Item | Needed from | By |
 |---|---|---|
 | `P5-04`: **submission is GitHub link + 10-slide PDF, no `.txt` to the jury (Renzo, 5 Nov)**. Remaining: map every deck/annex claim to its script (annex and download scripts included), re-run after Felipe picks the deck | **Nattan or Jonathan** | Sat 7 Nov |
@@ -130,7 +132,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | 👀 review | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (12/25 closed)
+**P3 — Extensions** (12/26 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -159,6 +161,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-23](tasks/P3-23-research-agenda-ranking.md) | Record the competing-rails research agenda and rank datathon extensions | 👀 review | CS 1 | - | 3/3 | 3/4 | 2026-11-05 | - |
 | [P3-24](tasks/P3-24-brla-fourth-venue.md) | BRLA as a fourth venue - did the on-chain route (Pix → BRLA → USDC) pay the same premium after the 23 Jun notice? | 👀 review | Economist | - | 4/5 | 3/4 | 2026-11-06 | P2-03, P2-05 |
 | [P3-25](tasks/P3-25-recovery-composition.md) | The premium recovered - did the market? Venue shares and exchange exits in 2026 | 👀 review | CS 1 | - | 4/5 | 3/4 | 2026-11-06 | P1-03, P3-17 |
+| [P3-26](tasks/P3-26-november-exchange-confounder.md) | Audit the Binance security incident as a competing explanation for the November readout | ⬜ todo | Team | - | 0/3 | 0/3 | 2026-11-07 | P3-20 |
 
 **P4 — Robustness and freeze** (3/4 closed)
 
@@ -228,6 +231,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-05 — Codex for Renzo: reviewed lessons/solution proposal in `docs/improvements_log.md` (not adopted). Gauge is diagnostic, not causal cost/forecast validation; frozen monitor pauses through early November. Opened Binance incident/suspension sources M-11/M-12; new unassigned P3-26 audits overlap with P3-20 before clean-validation claims. Existing draft changes preserved.
 - 2026-11-05 — agent for Renzo: P3-20 S5 last E2 check at 12:40 in a real browser (BCB news page + all 105 normative acts 20 Oct–5 Nov): no applicant list, no statement on bank access → branch C stands; re-check before 23:59 optional
 - 2026-11-05 — agent for Renzo: P5-09 → review: deck v3 in Claude Slides (link in the task; Renzo shares it), mentor-deck design, 10 slides + references page, a methods slide with formulas and Crossref-checked references, five charts redrawn from frozen data (`scripts/p5_09_deck_figures.py`), no task/finding IDs on slides; uses exploratory F-035 (E1) and F-037 (BRLA), to drop if their checks fail
 - 2026-11-05 — agent for Renzo: submission format is GitHub link + 10-slide PDF (no `.txt` scripts, decision log); rest of P5-04 assigned to Nattan or Jonathan
