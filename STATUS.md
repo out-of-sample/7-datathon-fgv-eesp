@@ -206,6 +206,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-04 — Felipe: research and conclusion strategic plan drafted in docs/plan-research-and-conclusions.md; triaged mentor leads and formulated three candidate conclusion architectures ("Private Tariff", "Limits to Arbitrage", "Shadow Macro Rail") to overhaul Slide 10
 - 2026-11-04 — Felipe: mentor session with David Wasserman (FGV/ex-QR) synthesized in docs/mentor-meeting-2026-11-04.md; confirmed econometric rigor and identified critical need for punchy "So what?" conclusion on Slide 10; mentor leads (Hyperliquid, BRLA, Coinnext, Ludolf) triaged
 
 - 2026-11-03 — agent for Renzo: deck v2 generated next to v1 (`deck/deck_v2_ptbr.md` + HTML via `scripts/build_deck_html.py deck/deck_v2_ptbr.md deck/deck_v2_apresentacao.html`); builder fixed (R$ amounts rendered as math, table cells unformatted), v1 HTML rebuilt; Felipe picks
