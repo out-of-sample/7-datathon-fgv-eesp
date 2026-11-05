@@ -32,7 +32,7 @@ Stop changing results. After this only bug fixes, each disclosed.
 ## Handoff
 <!-- Overwrite at the end of every session, finished or not, so anyone can continue from here. -->
 - **State:** done 4 Nov (Renzo's decision). Findings F-001 to F-033 frozen; tag `results-frozen`. New work goes into new
-  findings (F-034 P3-20, F-035 P3-24, F-036 P3-25), which the deck cites only after a teammate's re-run.
+  findings (F-034 BRLA check / P3-24, F-035 P3-20, F-036 P3-25), which the deck cites only after a teammate's re-run.
 - **Next step:** none. A bug found in a frozen finding is fixed and disclosed in that finding's History.
 - **Open questions:** blockers still open from before the freeze (F-015 teammate re-check after the PTAX conversion; F-029
   re-run) stay in `STATUS.md`; they are bug-fix checks, not new results.

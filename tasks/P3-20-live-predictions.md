@@ -175,7 +175,7 @@ and the Voto PDF (both URLs in E-14):
 - `scripts/p3_20_live.py` (header: purpose, inputs, outputs, how to run)
 - `results/tables/P3-20_reference.csv`, `results/tables/P3-20_readout.csv`
 - New raw files under `data/raw/` (November pulls), checksums in `data/raw/SHA256SUMS`
-- Finding F-034 (reserved 4 Nov; P3-24 holds F-035, P3-25 F-036)
+- Finding F-035 (reserved 4 Nov; F-034 is the BRLA check, P3-25 holds F-036)
 
 ## Handoff
 - **State:** S1 registered (`9a522e9`); S2 reference committed (see log). No November data downloaded yet.
