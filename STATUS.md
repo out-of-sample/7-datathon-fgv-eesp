@@ -76,7 +76,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | Res. BCB 574 (DOU 22 Jun 2026, E-11) is not in the event list; F-026 says "eight rules". Add as event or caveat (`P3-16`); premium did not move on 22–23 Jun (23.3, 24.8 bps), jumped 24 Jun | Felipe + team | before freeze (Wed 4 Nov) |
 | P3-17 (review, F-030, F-031): no verified reopening of the funds' channel (test cannot be run); S4 check mixed; post hoc, an unprecedented business-hours seller on Foxbit during the fall (F-031, exploratory). Needs a teammate's re-check of the source table and script; deck sentence optional | a teammate who did not author it + Felipe | before freeze (Wed 4 Nov) |
 | P3-18: on-chain source of the Foxbit USDT (F-031) | Dropped 2 Nov: no Foxbit Tron wallet labelled by Arkham or Tronscan; reopen only with a paid test deposit (team OK) | done |
-| `P3-20`: E1 read out (F-035): Binance +2.1 bps on 3–4 Nov, p = 0.90, prediction held (null rules out only moves beyond ~75 bps); Mercado Bitcoin's November pull blocked by Cloudflare (retried 5 Nov; **Renzo saves the API JSON from a browser**, steps in the P3-20 Handoff). Needs a teammate's re-run before Slide 10. E2: apply the registered branch rule from the BCB's official list and venue statements, push by 5 Nov 23:59 | agent for Renzo (E2); a teammate (re-run) | 5 Nov 23:59 |
+| `P3-20`: E1 read out (F-035): Binance +2.1 bps on 3–4 Nov, p = 0.90, prediction held (null rules out only moves beyond ~75 bps); Mercado Bitcoin's November pull blocked by Cloudflare (retried 5 Nov; **Renzo saves the API JSON from a browser**, steps in the P3-20 Handoff). Needs a teammate's re-run before Slide 10. E2 branch applied 5 Nov from sources (E-17–E-21): **C for all three venues** (no BCB list before the cutoff; no source on bank access for applicants), two-sided, no direction; last BCB check before 23:59 5 Nov; early reading Fri 6 Nov after 13:30 | agent for Renzo (E2); a teammate (re-run) | 5 Nov 23:59 / 6 Nov |
 | F-015 / cover: switched 3 Nov (Renzo) to R$ 4,842 per US$ 100k at each day's PTAX (was R$ 5,052 at a Binance bid of R$ 5.38, D-10); route rows keep R$ 5.38 as a labelled illustrative rate (option a). **Needs:** a teammate who did not make the change re-runs `scripts/p3_01_costs.py` and checks the deck; Felipe (owner of F-015, P3-01, deck) informed | teammate re-check + Felipe | before freeze (Wed 4 Nov) |
 | Deck proposal (`docs/deck-proposal-2026-11-03.md`): slide 9 users' table, slide 10 three predictions (Res. 574 readout after the freeze needs an exception), slide 8 fade line, slide 5 Res. 574 | Felipe + team | before deck v1 (Thu 5 Nov) |
 | Opening-briefing notes (30 Oct) in `docs/README.md` | whoever attended | now |
@@ -150,7 +150,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P3-17](tasks/P3-17-channel-restoration.md) | Did the BCB let funds resume the activity the 23 Jun notice stopped, and did the premium fall when it did? (reopening test) | 👀 review | Economist | - | 6/6 | 5/5 | 2026-11-04 | P3-14, P3-15, P4-04 |
 | [P3-18](tasks/P3-18-onchain-foxbit-source.md) | Where did the USDT sold on Foxbit during the fade come from? (on-chain check of F-031) | ✖️ dropped | CS 1 | - | 0/4 | 0/2 | 2026-11-04 | P3-17 |
 | [P3-19](tasks/P3-19-supply-response.md) | Did seller-initiated trading on Foxbit respond to the premium over the official dollar (import arbitrage) or to the Foxbit–Binance gap (cross-venue arbitrage)? | 👀 review | CS 1 | - | 3/3 | 3/3 | 2026-11-04 | P3-17 |
-| [P3-20](tasks/P3-20-live-predictions.md) | Predictions registered before the data - Res. 574 reporting (3 Nov 2026) and Res. 589 ban on unauthorised counterparties (6 Nov 2026) | 🔄 doing | CS 1 | Renzo (agent) | 4/8 | 2/5 | 2026-11-16 | P1-02, P1-03, P3-03, P4-04 |
+| [P3-20](tasks/P3-20-live-predictions.md) | Predictions registered before the data - Res. 574 reporting (3 Nov 2026) and Res. 589 ban on unauthorised counterparties (6 Nov 2026) | 🔄 doing | CS 1 | Renzo (agent) | 5/8 | 3/5 | 2026-11-16 | P1-02, P1-03, P3-03, P4-04 |
 | [P3-21](tasks/P3-21-who-paid.md) | Who paid and who gained - the 23 Jun notice seen from five kinds of users of the digital dollar | 🔄 doing | CS 1 | Renzo (agent) | 3/5 | 2/4 | 2026-11-04 | P1-02, P3-03, P3-11 |
 | [P3-22](tasks/P3-22-other-countries-qualify.md) | Other countries, stage 1 - qualify each case before any test (Ukraine Aug 2026, Argentina Apr 2025, EEA Mar 2025; Russia, Nigeria listed) | ⬜ todo | CS 2 | - | 0/4 | 0/3 | 2026-11-05 | P1-05, P1-06 |
 | [P3-23](tasks/P3-23-research-agenda-ranking.md) | Record the competing-rails research agenda and rank datathon extensions | 👀 review | CS 1 | - | 3/3 | 3/4 | 2026-11-05 | - |
@@ -173,7 +173,7 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 | [P5-01](tasks/P5-01-deck-v1.md) | Deck v1 (pt-BR) | ⏸️ paused | Economist | - | 5/6 | 4/4 | 2026-11-05 | P4-03 |
 | [P5-02](tasks/P5-02-final-figures.md) | Final figures in one consistent style | ⬜ todo | CS 1 | - | – | 0/3 | 2026-11-06 | P5-01 |
 | [P5-03](tasks/P5-03-red-team.md) | Red-team review | 👀 review | Team | - | 3/3 | 2/2 | 2026-11-06 | P5-01 |
-| [P5-04](tasks/P5-04-scripts-txt.md) | Export scripts as .txt with headers | ⬜ todo | CS 2 | - | – | 0/2 | 2026-11-07 | P4-03 |
+| [P5-04](tasks/P5-04-scripts-txt.md) | Export scripts as .txt with headers | 🔄 doing | CS 1 | Codex for Renzo | 0/4 | 0/2 | 2026-11-07 | P4-03 |
 | [P5-05](tasks/P5-05-annex.md) | Annex: sources, event table, AI-use disclosure | 🔄 doing | Economist | - | 4/4 | 2/2 | 2026-11-07 | P5-01 |
 | [P5-06](tasks/P5-06-submission.md) | Submit PDF and scripts | ⬜ todo | Team | - | – | 0/3 | 2026-11-08 | P5-02, P5-03, P5-04, P5-05 |
 | [P5-07](tasks/P5-07-story-notebook.md) | Story notebook - the whole project end to end (deck prototype) | ✅ done | CS 1 | - | 3/3 | 3/3 | 2026-11-03 | P2-03, P2-04, P3-01, P4-01 |
@@ -222,6 +222,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-05 — agent for Renzo: P3-20 S5, E2 branch applied from sources only: no BCB list yet (due 6 Nov per the BCB to Bitnotícias), Binance/Foxbit/MB filed (23/29/27 Oct), no source on banks serving applicants after 6 Nov → branch C (two-sided) for all venues; sources E-17–E-21; Mercado Bitcoin's 302 was a maintenance page (retry later); slide 10 row for Res. 589 needs "ramo C" (P5-08)
 
 - 2026-11-05 — agent for Renzo: Felipe's Flash bundle moved to `data/raw/flash-mentor-leads/` (out of git; restore command in `data/README.md`; note for his agents in P3-24); P3-25 (Codex) independently reviewed: passes, reproduces byte for byte, 6.80% → 34.74% rebuilt separately, NovaDAX date corrected to 8 Jun, Bitnuvem source unreachable; teammate re-run pending. Mercado Bitcoin still blocked by Cloudflare: browser-save instructions in P3-20 Handoff
 
