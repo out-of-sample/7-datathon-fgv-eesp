@@ -24,6 +24,46 @@ stay worth R$ 1 while buying fewer dollars (ranking doc, rank 5). The word "depe
 this spec. The spec in S2 is therefore retrospective and says so; it fixes the windows to the ones the core study already
 uses, so no new choice is made after seeing the data.
 
+## Specification (S2, written 5 Nov 2026 ~01:15 Brasília, before any new premium is computed)
+**Retrospective, disclosed.** F-034 (Felipe's Flash check, 4 Nov) already showed the BRLA route jumping in the acute window.
+Before writing this, the agent for Renzo looked only at file coverage, gaps, liquidity and pool metadata (below), not at any
+new premium number. The windows are the core study's, so no date is chosen here.
+
+**Data seen for the spec.** GeckoTerminal metadata (opened 5 Nov): Polygon pool `0x0e77…c956` = USDC / BRLA 0.05%,
+Uniswap v3, created 6 Dec 2023; Gnosis `0x576b…8238` = USDC.e / BRLA 0.05%, Oku, created 8 Oct 2025; Base `0x1c33…48af`
+= BRLA / USDC 0.05%, Aerodrome, created 23 Nov 2025. GeckoTerminal's public API serves only the last 180 days (HTTP 401
+for older), so Felipe's snapshot (daily from 7 Nov 2025; Polygon hourly from 2 Apr 2026) is the longest series available
+without a paid plan. Polygon hourly: 4,991 candles of 5,194 hours, no zero-volume candles (no trade = no candle). Median
+daily volume: Polygon ~US$ 125–213k per quarter; Gnosis 28–284k BRLA (~US$ 5–55k); Base a few USDC.
+
+**Quantity (route cost).** BRLA route premium = BRLA paid per USDC on the pool / (PTAX sell × USDC/USD) − 1, in bps. It
+assumes 1 BRLA = R$ 1, i.e. minting or redeeming at par with Avenia via Pix (not measured here; the pool alone cannot
+measure BRLA's peg). It is the cost of getting dollars through Pix → BRLA → USDC, like our USDT premium; never called a
+"depeg".
+- **Primary series:** Polygon pool, hourly OPEN prices (BRLA per USDC) at 13, 14, 15, 16 UTC on PTAX days, averaged (the
+  P1-02 timing); a day needs at least one window candle (as P1-02); window-hour counts reported. USDC/USD = 1 (P1-02's
+  assumption for USDC).
+- **Robustness:** (r1) USDC/USD measured in the same window as Binance USDCUSDT × Coinbase USDT/USD (frozen to 30 Oct);
+  (r2) the pool's daily close (00h UTC = 21h Brasília) over the same day's PTAX, Felipe's F-034 timing; (r3) Gnosis and
+  Base pools, daily close only, reported with their volume and flagged "fails liquidity" if their median daily volume in
+  the pre-window is below US$ 100k (both are expected to fail on the volumes above; they are shown, not dropped).
+- **Statistic:** S20 as in P2-03 / F-016: mean premium over the 20 PTAX days after t0 = 23 Jun 2026 (24 Jun – 21 Jul)
+  minus the mean over the 20 PTAX days before it (t0 excluded; a window needs ≥ 15 of 20 days). Same statistic for
+  Binance's USDT premium (P1-02) on the **same days** where BRLA has a value; the headline comparison is BRLA S20 next to
+  Binance S20 (+93.9 bps on all days).
+- **Reference:** the series is too short for placebo p-values (fewer than 250 PTAX days before 23 Jun; rule set in S2 of
+  this task on 4 Nov). Reported instead, as description only: S20 at every clean date (P2-03 rule, `P1-04_events_brazil.csv`)
+  in the daily-close series, as the range of ordinary 20-day changes in this pool. Not a p-value.
+- **Data checks reported:** window outliers (any window open more than 300 bps from that day's Binance USDT/BRL ×
+  Binance USDT/USDC is listed, not removed); the 25 Jun daily high near 654 BRLA/USDC (a high, not used by the primary).
+- **Contracts:** each pool's BRLA contract is checked against an Avenia source before the result is reported; a pool whose
+  contract is not confirmed is reported as unverified.
+- **S4 (supply):** DefiLlama's per-chain BRLA supply around 23–24 Jun: whether the Celo fall is matched by rises on other
+  chains (a move between chains) and what Avenia or a chain explorer says. Described; the deck says "corrida" or "resgate"
+  only if a source says so.
+
+**Claim ceiling** unchanged (below). Report whatever S20 shows, including a BRLA move much smaller or larger than USDT's.
+
 ## Subtasks
 - [ ] S1 — Felipe: push the mentor-lead work from his local scratch (`scratch/mentor-leads/`): download script(s), the five
   reports (`brla`, `hyperliquid`, `coinnext`, `b3-fx`, `context`) under `docs/mentor-leads/`, raw files under
