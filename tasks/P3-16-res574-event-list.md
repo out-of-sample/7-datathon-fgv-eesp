@@ -2,9 +2,9 @@
 id: P3-16
 title: Res. BCB 574 (published 22 Jun 2026, one day before the notice) is missing from the event list
 phase: P3
-status: todo
+status: doing
 owner: Economist
-working: -
+working: Codex for Renzo
 due: 2026-11-04
 depends: P1-04, P3-12
 ---
@@ -24,13 +24,13 @@ effect. Reproduce:
 `.venv/bin/python -c "import pandas as pd; d=pd.read_csv('data/processed/P1-02_premium_daily.csv',index_col='date_brt'); print(d.loc['2026-06-19':'2026-06-25','premium_bps'].round(1))"`
 
 ## Subtasks
-- [ ] S1 — Decide with the team how Res. 574 enters: a row in the event list and F-026's table (as a published rule, 0
+- [x] S1 — Decide with the team how Res. 574 enters: a row in the event list and F-026's table (as a published rule, 0
   days to publication, 134 days to the reporting start), or a caveat line. Core findings F-001..F-027 stay unchanged
   until the team re-decides the freeze (decision log, 2 Nov); a re-run goes into a new finding or the History of F-026
-  after that decision.
-- [ ] S2 — If added: note that a [−20, −1] vs [+1, +20] window around 22 Jun contains the 24 Jun jump, so the event
+  after that decision. — done: Renzo, 2026-11-05 (explicit caveat, no ninth event row)
+- [x] S2 — If added: note that a [−20, −1] vs [+1, +20] window around 22 Jun contains the 24 Jun jump, so the event
   study cannot separate 22 Jun from 23 Jun; the separation comes from the daily timing above and the break interval.
-  Write the separation rule before any re-run.
+  Write the separation rule before any re-run. — not applicable: Renzo chose the caveat path, 2026-11-05; no re-run
 - [x] S3 — done: Renzo, 2 Nov (draft; Felipe decides) — One line for the deck or annex. Draft (pt-BR, annex):
   "A Resolução BCB nº 574 (datada de 18/jun no registro do BCB, publicada no DOU em 22/jun) cria a obrigação de
   reportar operações com ativos virtuais realizadas a partir de 3/nov/2026; não restringe operações de junho. No dia
@@ -39,6 +39,7 @@ effect. Reproduce:
   ofício. O conteúdo (só reporte) e a diferença de tamanho apontam o ofício como a explicação principal do salto de
   24/jun; a Res. 574 pode ter movido o prêmio em dezenas de bps, e o teste de evento não separa as duas datas."
   (Corrected 2 Nov: the first draft said the premium "não se moveu entre 19 e 23/jun", which left out 18 → 19 Jun; F-029.)
+- [ ] S4 — Verify E-11 and the price dates, then make the deck/annex caveat explicit and prepare independent Claude review. — doing: Codex for Renzo, 2026-11-05
 
 ## Success criteria
 - [ ] Res. 574 appears in the event list or as an explicit caveat, with source E-11
@@ -48,14 +49,14 @@ effect. Reproduce:
 - `data/processed/P1-04_events_brazil.csv` row or a caveat in F-026 / the annex
 
 ## Handoff
-- **State:** S3 drafted (annex sentence above, content + timing, not "ruled out"). S1 (event list or caveat) and S2
-  wait for the team. Source opened and registered (E-11 in `docs/sources.md`, 2 Nov 2026).
-- **Next step:** S1 (team call).
+- **State:** Renzo chose the explicit caveat path on 5 Nov; Codex claimed S4. S3 was drafted earlier. Source E-11 is registered in `docs/sources.md`.
+- **Next step:** verify the official text and date, audit the price path, and finish the caveat in the deck/annex.
 - **Open questions:** whether any other rule was published between 15 and 30 Jun 2026; nobody has searched the BCB
   register for that window systematically.
 - **How to resume:** read E-11 and E-05.10 in `docs/sources.md`; F-026; F-022 (break intervals).
 
 ## Log
+- 2026-11-05, Renzo + Codex: Renzo chose the caveat path for P3-16; Codex takes S4 and will request an independent Claude review. The frozen eight-rule calculation is retained.
 - 2026-11-02, agent for Renzo: S3 draft corrected: +37.7 bps on 18 → 19 Jun (F-029) added; the first draft started the window a day late
 - 2026-11-02, agent for Renzo: S3 drafted (caveat by content and timing, after a second agent's review)
 - 2026-11-02, agent for Renzo: created (todo) from P3-15
