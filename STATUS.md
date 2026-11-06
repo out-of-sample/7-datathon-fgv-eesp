@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-06 by Codex for Renzo (P3-27 technology-options review; no extension adopted) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-06 by Codex for Renzo (P3-27 evidence-to-solution narrative; no extension adopted) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 tag `results-frozen` (F-001 to F-033)
 
@@ -162,7 +162,7 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 | [P3-24](tasks/P3-24-brla-fourth-venue.md) | BRLA as a fourth venue - did the on-chain route (Pix → BRLA → USDC) pay the same premium after the 23 Jun notice? | 👀 review | Economist | - | 4/5 | 3/4 | 2026-11-06 | P2-03, P2-05 |
 | [P3-25](tasks/P3-25-recovery-composition.md) | The premium recovered - did the market? Venue shares and exchange exits in 2026 | 👀 review | CS 1 | - | 4/5 | 3/4 | 2026-11-06 | P1-03, P3-17 |
 | [P3-26](tasks/P3-26-november-exchange-confounder.md) | Audit the Binance security incident as a competing explanation for the November readout | ⬜ todo | Team | - | 0/3 | 0/3 | 2026-11-07 | P3-20 |
-| [P3-27](tasks/P3-27-agentic-blockchain-options.md) | Evaluate agentic AI, blockchain and operational-learning extensions | 👀 review | Renzo | - | 3/3 | 3/3 | 2026-11-06 | - |
+| [P3-27](tasks/P3-27-agentic-blockchain-options.md) | Evaluate agentic AI, blockchain and operational-learning extensions | 👀 review | Renzo | - | 4/4 | 3/3 | 2026-11-06 | - |
 
 **P4 — Robustness and freeze** (3/4 closed)
 
@@ -232,6 +232,7 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-06 — Codex for Renzo: P3-27 follow-up maps current findings to each proposed technology and two narrative options in `docs/improvements_log.md`. Access investigation has stronger continuity; payment resilience needs new operational evidence. June does not demonstrate savings from rerouting. No deck/result changes or scope adoption.
 - 2026-11-06 — Codex for Renzo: P3-27 → review; six agentic/blockchain/operational-learning options compared in `docs/improvements_log.md`, sources T-01..T-12 opened. Priorities for discussion: payment completion, on-chain reconciliation, source-backed access map. New hypotheses untested; no extension adopted or experiment launched. P1-06 was manual; P3-05 pilots and P3-06 runs remain pending.
 - 2026-11-05 — Codex for Renzo: reviewed lessons/solution proposal in `docs/improvements_log.md` (not adopted). Gauge is diagnostic, not causal cost/forecast validation; frozen monitor pauses through early November. Opened Binance incident/suspension sources M-11/M-12; new unassigned P3-26 audits overlap with P3-20 before clean-validation claims. Existing draft changes preserved.
 - 2026-11-05 — agent for Renzo: P3-20 S5 last E2 check at 12:40 in a real browser (BCB news page + all 105 normative acts 20 Oct–5 Nov): no applicant list, no statement on bank access → branch C stands; re-check before 23:59 optional

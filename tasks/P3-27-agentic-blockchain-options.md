@@ -16,6 +16,7 @@ Answer Renzo's request for plausible, source-checked uses of current technologie
 - [x] S1 — Check existing AI work and distinguish implemented results from planned capabilities. — done: Codex for Renzo, 6 Nov
 - [x] S2 — Check primary technical sources; compare new questions, deliverables, datasets, baselines and falsification tests. — done: Codex for Renzo, 6 Nov
 - [x] S3 — Record the discussion and recommend priorities with explicit data and deadline limits. — done: Codex for Renzo, 6 Nov
+- [x] S4 — Follow-up requested by Renzo: connect each proposal to existing evidence, identify missing links, and compare coherent narratives. — done: Codex for Renzo, 6 Nov
 
 ## Success criteria
 - [x] Each recommended option has an incremental contribution and a measurable test against a simpler alternative.
@@ -27,12 +28,13 @@ Answer Renzo's request for plausible, source-checked uses of current technologie
 - Portuguese comparison in Renzo's chat; implementation requires a separate adopted task.
 
 ## Handoff
-- **State:** six options evaluated and recorded in the 6 Nov improvements-log entry; primary sources T-01 to T-12 opened. No empirical hypothesis was tested or extension adopted.
+- **State:** six options evaluated and recorded in the 6 Nov improvements-log entry; primary sources T-01 to T-12 opened. Follow-up maps findings to design requirements and distinguishes investigative vs payment-resilience narratives. No empirical hypothesis was tested or extension adopted.
 - **Next step:** Renzo/team reviews the comparison and chooses whether to adopt one bounded extension in a separate task with a specification and data-access check.
 - **Open questions:** payment-completion prototype vs on-chain reconciliation vs source-backed access map; operational prediction/RL need new datasets. Existing analyst pilots/isolation are still unexecuted.
 - **How to resume:** read `docs/improvements_log.md` entry "Agentic AI, blockchain and operational prediction", sources T-01..T-12, P3-05/P3-06 and F-037. Do not infer approval to launch experiments from this review.
 
 ## Log
+- 2026-11-06 — Codex for Renzo: narrative follow-up; options 2/3 have strongest continuity with current evidence, while option 1 has broader product scope but needs new operational evidence. No claim that rerouting avoids June's premium. Discussion appended; no deck change.
 - 2026-11-06 — Codex for Renzo: completed source/design review. Corrected prior stress-worksheet novelty claim; documented agentic-work status and six alternatives with baselines, data gates and scope limits. No new empirical outputs.
 - 2026-11-06 — Codex for Renzo: records the requested review. Pull/rebase cannot run with pre-existing STATUS/README changes and an untracked proposal; fetched origin without altering those files and checked divergence.
 
