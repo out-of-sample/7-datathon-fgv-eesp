@@ -212,3 +212,11 @@ All entries below were opened on 6 Nov 2026 by Codex for Renzo using the web too
 | T-12 | ERC-8004 draft, https://eips.ethereum.org/EIPS/eip-8004 | "Payments are orthogonal to this protocol and not covered here." Identity/reputation/validation registries; draft explicitly notes Sybil risk and that registered capabilities are not guaranteed. Hashing our reports on-chain alone would not validate their claims. |
 
 Access limits: the Nature TabPFN article/DOI and PDF redirected to an inaccessible identity endpoint; indexed text is not registered as an opened paper. Celo's attempted RPC-doc URL did not open. No historical chain API, complete transaction sample, payment execution, or model benchmark was tested in P3-27. The current Avenia terms confirm listed contract identities, not their full historical completeness.
+
+### Task formalization — 6 Nov 2026
+
+Opened on 6 Nov 2026 by Codex for Renzo. Technical definition only; no token implementation or historical RPC was tested.
+
+| ID | Opened primary source | Short quotation and relevance / limit |
+|---|---|---|
+| T-13 | Vogelsteller & Buterin, ERC-20: Token Standard, https://eips.ethereum.org/EIPS/eip-20 | "Returns the total token supply." Defines `totalSupply`; `decimals` is optional and mint-event emission uses SHOULD. P3-29 must inspect actual implementation semantics, distinguish total from circulating supply, and verify event completeness rather than assume it from the interface. |

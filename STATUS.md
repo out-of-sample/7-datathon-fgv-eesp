@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-06 by Codex for Renzo (P3-27 evidence-to-solution narrative; no extension adopted) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-06 by Codex for Renzo (P3-28/P3-29 formalized; execution pending) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 tag `results-frozen` (F-001 to F-033)
 
@@ -43,6 +43,11 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 [`docs/improvements_log.md`](docs/improvements_log.md) (ongoing strategy discussion, proposals and decisions)
 
 ## Next actions
+
+**New specifications (Renzo, 6 Nov):** [P3-28 — agentic access map](tasks/P3-28-agentic-access-map.md) and
+[P3-29 — on-chain reconciliation](tasks/P3-29-on-chain-reconciliation.md) are todo and unassigned. Next: assign a
+bounded S1 feasibility session and reviewer; 7 Nov is a readiness checkpoint, not a promised complete study.
+No experiments have started, and neither task depends on the other being completed.
 
 1. Phase P1, P2, P3 (core), and P4-01 are complete (`done` or `review`):
    - **Deck & Annex (`P5-01`, `P5-05`, `P5-07`):** Story notebook `notebooks/p5_07_story.ipynb` (`P5-07`) is reviewed and `done`; `deck/deck_v1_ptbr.md` is cut to **10 slides** (2 Nov, Renzo's agent, P5-01 S5 → paused for Felipe's review); every change, two deviations from the plan and the open items are in `docs/deck-changes-2026-11-02.md`; moved material in Anexo F of `deck/annex_v1_ptbr.md`; bank-route table in Anexo B.5 (Option A, team to confirm); rehearsal sheet `deck/qa_ptbr.md`.
@@ -132,7 +137,7 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | 👀 review | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (12/27 closed)
+**P3 — Extensions** (12/29 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -162,7 +167,9 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 | [P3-24](tasks/P3-24-brla-fourth-venue.md) | BRLA as a fourth venue - did the on-chain route (Pix → BRLA → USDC) pay the same premium after the 23 Jun notice? | 👀 review | Economist | - | 4/5 | 3/4 | 2026-11-06 | P2-03, P2-05 |
 | [P3-25](tasks/P3-25-recovery-composition.md) | The premium recovered - did the market? Venue shares and exchange exits in 2026 | 👀 review | CS 1 | - | 4/5 | 3/4 | 2026-11-06 | P1-03, P3-17 |
 | [P3-26](tasks/P3-26-november-exchange-confounder.md) | Audit the Binance security incident as a competing explanation for the November readout | ⬜ todo | Team | - | 0/3 | 0/3 | 2026-11-07 | P3-20 |
-| [P3-27](tasks/P3-27-agentic-blockchain-options.md) | Evaluate agentic AI, blockchain and operational-learning extensions | 👀 review | Renzo | - | 4/4 | 3/3 | 2026-11-06 | - |
+| [P3-27](tasks/P3-27-agentic-blockchain-options.md) | Evaluate agentic AI, blockchain and operational-learning extensions | 👀 review | Renzo | - | 5/5 | 3/3 | 2026-11-06 | - |
+| [P3-28](tasks/P3-28-agentic-access-map.md) | Build and evaluate a source-backed agentic map of digital-dollar access | ⬜ todo | Team | - | 0/6 | 0/7 | 2026-11-07 | P3-27 |
+| [P3-29](tasks/P3-29-on-chain-reconciliation.md) | Reconcile reported BRLA supply changes with on-chain evidence | ⬜ todo | Team | - | 0/7 | 0/7 | 2026-11-07 | P3-27 |
 
 **P4 — Robustness and freeze** (3/4 closed)
 
@@ -232,6 +239,7 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-06 — Codex for Renzo: P3-27 S5 complete; English specs P3-28 (agentic access map) and P3-29 (on-chain reconciliation) added, both todo/unassigned with 7 Nov feasibility checkpoints. Hypotheses, source checks, baselines, metrics, negative-result rules, outputs and integration specified. No experiments or deck/finding changes; T-13 ERC-20 source opened.
 - 2026-11-06 — Codex for Renzo: P3-27 follow-up maps current findings to each proposed technology and two narrative options in `docs/improvements_log.md`. Access investigation has stronger continuity; payment resilience needs new operational evidence. June does not demonstrate savings from rerouting. No deck/result changes or scope adoption.
 - 2026-11-06 — Codex for Renzo: P3-27 → review; six agentic/blockchain/operational-learning options compared in `docs/improvements_log.md`, sources T-01..T-12 opened. Priorities for discussion: payment completion, on-chain reconciliation, source-backed access map. New hypotheses untested; no extension adopted or experiment launched. P1-06 was manual; P3-05 pilots and P3-06 runs remain pending.
 - 2026-11-05 — Codex for Renzo: reviewed lessons/solution proposal in `docs/improvements_log.md` (not adopted). Gauge is diagnostic, not causal cost/forecast validation; frozen monitor pauses through early November. Opened Binance incident/suspension sources M-11/M-12; new unassigned P3-26 audits overlap with P3-20 before clean-validation claims. Existing draft changes preserved.

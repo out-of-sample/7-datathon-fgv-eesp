@@ -30,6 +30,11 @@ records six directions in English; [datathon ranking and investigation plans](co
 checks their incremental contribution, data requirements and claim limits. Proposals for discussion, not adopted scope;
 includes evidence-based comments on the [research/conclusions memo](plan-research-and-conclusions.md).
 
+**Formalized extension tasks (6 Nov, Renzo):** [P3-28 — agentic access map](../tasks/P3-28-agentic-access-map.md)
+and [P3-29 — on-chain reconciliation](../tasks/P3-29-on-chain-reconciliation.md) specify hypotheses, procedures,
+evaluation and integration with the current findings. Both are **todo, unassigned**; 7 Nov is a feasibility/readiness
+checkpoint. No experiment has run or deck inclusion been decided. The tasks can proceed independently.
+
 **Unifying idea: limits to arbitrage.** A digital dollar should trade at parity with the dollar
 (USD for a stablecoin, PTAX-converted BRL for USDT/BRL). Parity is enforced by an arbitrage channel: issuer
 redemption, or the official FX market. Hypothesis: deviations are larger and last longer when that channel is
@@ -91,6 +96,7 @@ regime), a "solution" deliverable (a daily monitor), and a causal design the aca
 
 | Date | Decision | Who |
 |---|---|---|
+| 6 Nov | Formalize the agentic access map and on-chain reconciliation as English task specifications (P3-28/P3-29). Plans only: implementation todo, assignment pending; new evidence and independent evaluation required before deck use | Renzo |
 | 5 Nov | Submission format: GitHub repository link + 10-slide PDF. No `.txt` script export goes to the jury; the repo is the code deliverable (P5-04 now maps claims to scripts). Rest of P5-04 assigned to Nattan or Jonathan | Renzo |
 | 5 Nov | P3-16: keep the frozen eight-rule event comparison; disclose Res. BCB 574 as an explicit caveat in slide 5, annex and F-026. Its 20-day window overlaps the 23 Jun notice, so no separate event estimate or ninth row is claimed | Renzo |
 | 30 Oct | Shortlist reduced to projects 1–4 above | Team |

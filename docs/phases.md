@@ -69,6 +69,11 @@ solution, the dollar-side chapter, and (if go) the agentic robustness.
 
 Tasks: P3-01 to P3-14 (P3-10 to P3-14: the "so what" plan, `06-so-what.md`; P3-09: depeg case sources).
 
+**6 Nov planning update:** [P3-28](../tasks/P3-28-agentic-access-map.md) (agentic access map) and
+[P3-29](../tasks/P3-29-on-chain-reconciliation.md) (on-chain reconciliation) are specified, todo and unassigned.
+Their 7 Nov checkpoint tests feasibility/readiness; it does not reopen frozen results or commit both studies to the PDF.
+Each has its own evidence/evaluation gates and may proceed independently. The live board lists later P3 tasks.
+
 Success criteria:
 - [ ] Cost of buying US$ 100k via bank vs USDT, per regime, with sources for every cost component
 - [ ] Scenarios for the 24h hold and the 3.5% IOF, clearly labelled as scenarios
