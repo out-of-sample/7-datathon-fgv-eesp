@@ -2,9 +2,9 @@
 id: P3-27
 title: Evaluate agentic AI, blockchain and operational-learning extensions
 phase: P3
-status: review
+status: doing
 owner: Renzo
-working: -
+working: Codex for Renzo
 due: 2026-11-06
 depends: -
 ---
@@ -17,6 +17,7 @@ Answer Renzo's request for plausible, source-checked uses of current technologie
 - [x] S2 — Check primary technical sources; compare new questions, deliverables, datasets, baselines and falsification tests. — done: Codex for Renzo, 6 Nov
 - [x] S3 — Record the discussion and recommend priorities with explicit data and deadline limits. — done: Codex for Renzo, 6 Nov
 - [x] S4 — Follow-up requested by Renzo: connect each proposal to existing evidence, identify missing links, and compare coherent narratives. — done: Codex for Renzo, 6 Nov
+- [ ] S5 — Formalize the access-map and on-chain reconciliation ideas as separate English task specifications using the project template. — doing: Codex for Renzo
 
 ## Success criteria
 - [x] Each recommended option has an incremental contribution and a measurable test against a simpler alternative.
@@ -34,6 +35,7 @@ Answer Renzo's request for plausible, source-checked uses of current technologie
 - **How to resume:** read `docs/improvements_log.md` entry "Agentic AI, blockchain and operational prediction", sources T-01..T-12, P3-05/P3-06 and F-037. Do not infer approval to launch experiments from this review.
 
 ## Log
+- 2026-11-06 — Codex for Renzo: Renzo requests full English task specifications for the access map and on-chain reconciliation. Documentation work claimed under S5; implementation tasks will remain todo and unassigned.
 - 2026-11-06 — Codex for Renzo: narrative follow-up; options 2/3 have strongest continuity with current evidence, while option 1 has broader product scope but needs new operational evidence. No claim that rerouting avoids June's premium. Discussion appended; no deck change.
 - 2026-11-06 — Codex for Renzo: completed source/design review. Corrected prior stress-worksheet novelty claim; documented agentic-work status and six alternatives with baselines, data gates and scope limits. No new empirical outputs.
 - 2026-11-06 — Codex for Renzo: records the requested review. Pull/rebase cannot run with pre-existing STATUS/README changes and an untracked proposal; fetched origin without altering those files and checked divergence.
