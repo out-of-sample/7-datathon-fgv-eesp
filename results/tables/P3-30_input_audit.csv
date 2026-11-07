@@ -1,7 +1,11 @@
 currency,rows,valid,missing,first,last,eligibility
-BRL,1520,1520,0,2020-10-13,2026-10-30,primary
-EUR,1520,1510,10,2020-10-13,2026-10-30,descriptive_only_historical_regimes_not_audited
-TRY,1520,1510,10,2020-10-13,2026-10-30,descriptive_only_historical_regimes_not_audited
-ZAR,1520,964,556,2020-10-13,2026-10-30,descriptive_only_historical_regimes_not_audited
-MXN,1520,642,878,2024-04-10,2026-10-30,descriptive_only_historical_regimes_not_audited
-COP,1520,560,960,2024-06-05,2026-10-29,descriptive_only_historical_regimes_not_audited
+BRL,1520,1520,0,2020-10-13,2026-10-30,primary_brazil
+EUR,1748,1748,0,2020-01-03,2026-10-30,global_pool_native_calendar
+TRY,1749,1749,0,2020-01-02,2026-10-30,global_pool_native_calendar
+ZAR,1115,1115,0,2020-03-27,2026-10-30,global_pool_native_calendar
+MXN,655,655,0,2024-04-10,2026-10-30,global_pool_native_calendar
+PLN,819,819,0,2023-04-14,2026-06-30,global_pool_native_calendar
+IDR,234,234,0,2025-12-01,2026-10-30,global_pool_native_calendar
+COP,569,569,0,2024-06-05,2026-10-29,global_pool_native_calendar
+UAH,1615,1615,0,2020-06-24,2026-09-25,global_pool_native_calendar
+ARS,851,851,0,2023-04-28,2026-10-30,global_pool_native_calendar

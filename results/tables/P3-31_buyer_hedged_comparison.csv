@@ -1,0 +1,4 @@
+horizon_ptax_days,initial_date,deadline,initial_premium_bps,final_premium_bps,premium_compression_bps,hedge_carry_bps_day,cumulative_hedge_carry_bps,net_hedged_savings_bps,net_hedged_savings_brl_ptax,net_hedged_savings_brl_spot,breakeven_horizon_h_star_days,shock_median_duration_p3_30_days,ex_ante_decision,unhedged_buyer_savings_brl_ask,unhedged_buyer_savings_brl_mid_dual,seller_loss_from_waiting_brl,unhedged_savings_brl_usd_yield_4pct,ptax_fx_risk
+5,2026-06-25,2026-07-02,142.02,45.73,96.29,2.5,12.5,83.79,4359.85,4422.83,38.52,20,Wait + Hedge B3 (20d < h*),4706.35,4696.94,-4696.94,4294.55,Zero (Locked on B3)
+10,2026-06-25,2026-07-09,142.02,51.3,90.72,2.5,25.0,65.72,3419.61,3469.01,36.29,20,Wait + Hedge B3 (20d < h*),11616.78,11593.57,-11593.57,10791.96,Zero (Locked on B3)
+20,2026-06-25,2026-07-23,142.02,29.02,113.0,2.5,50.0,63.0,3278.08,3325.44,45.2,20,Wait + Hedge B3 (20d < h*),21747.16,21703.71,-21703.71,20092.55,Zero (Locked on B3)

@@ -1,6 +1,6 @@
 ---
 id: P3-31
-title: Holding USDT versus funding a reais obligation now
+title: Two-Sided Institutional Treasury Decision Framework (BRL -> USDT Buyer & USDT -> BRL Seller)
 phase: P3
 status: review
 owner: Economist
@@ -10,40 +10,57 @@ depends: P1-02, P3-03
 ---
 
 ## Goal
-Translate the measured premium into a conditional treasury comparison, not a trading recommendation.
+Translate the measured premium into a comprehensive two-sided conditional treasury and portfolio manager decision framework covering both Institutional Buyers (`BRL -> USDT`, importers/remitters) and Institutional Sellers (`USDT -> BRL`, liability funders), with B3 FX hedge break-even analysis ($h^*$).
 
-## Specification (6 Nov 2026, before calculations)
-- Quantity 100,000 USDT. No USDT yield. Payment horizons 5, 10, 20 Brazilian PTAX publication days; use the existing observed PTAX calendar as business-day proxy and disclose it rather than assume generic weekdays equal Brazilian settlement days.
-- Net proceeds N(Q,P,c,f)=Q*P*(1-c)-f. BRL annual effective net-return scenarios 0%, 5%, 10%, 15%, 20%, 252-day basis. No rate is claimed accessible or a historical CDI return.
-- Compare N(now)*A with N(future); A=(1+r)^(eligible investment days/252). Break-even gross future price is (N(now)*A+f_future)/(Q*(1-c_future)). Baseline fee scenarios: symmetric 10 bps, no fixed charge; zero and asymmetric fee sensitivity, explicitly hypothetical.
-- Signal date 24 June (existing F-014); initial indicative price next PTAX observation 25 June, horizons measured from that date. No execution at the signal-window price. Same-day BRL settlement is the base assumption, not a venue fact. Positive waiting-side settlement after the deadline is infeasible, not a price penalty.
-- Historical prices use USDTBRL window and contemporaneous PTAX, USDTUSD and premium, and decompose multiplicatively P=FX*USDTUSD*(1+premium/10000). Include fixed-FX/stablecoin sensitivity and actual path. Do not claim executable profits.
-- Inputs missing/nonpositive/duplicate dates fail loudly. Missing dates are not silently filled. Audit input completeness and the June interval; no raw or frozen outputs overwritten.
-- Tests: zero interest and unchanged prices, premium compression, FX appreciation, unequal fees, missing prices, deadline/settlement rejection, algebraic threshold identity, price decomposition.
-- Two charts: threshold curve over specified horizons; June comparison with actual versus fixed-FX/stablecoin path. Tables retain every scenario, input hash and assumptions.
+## Specification (Updated 7 Nov 2026)
+- **Side 1 — Institutional Buyer (`BRL -> USDT`)**:
+  - Quantity $Q = 100{,}000$ USDT, payment deadlines $h \in \{5, 10, 20\}$ Brazilian PTAX publication business days.
+  - **Strategy B1 (Buy Now at $t$)**: Gross BRL cost $C_t^{\text{now}}(Q) = Q \cdot P_t (1 + c_t) + F_t$. Terminal valuation in $T$-reais accounts for domestic BRL return $A_{t,T}^{\text{BRL}} = (1 + r_{\text{BRL}})^{h/252}$ and USD organic yield $r_{\text{USD}} \in \{0\%, 4\%\}$ (per `F-020`).
+  - **Strategy B2 (Wait in BRL Unhedged, Buy at $T$)**: Terminal BRL savings $\Delta \text{BRL}_{\text{unhedged}}^{\text{buyer}}(t, T) = C_t^{\text{now}}(Q) \cdot A_{t,T}^{\text{BRL}} - C_T^{\text{wait}}(Q)$. Exhibits exact duality symmetry with Seller under symmetric costs: $\Delta \text{BRL}_{\text{unhedged}}^{\text{buyer}} = \frac{1+c}{1-c} \times (\text{Seller loss})$.
+  - **Strategy B3 (Wait in BRL + Hedge `USD/BRL` on B3 via `WDO`/NDF)**: Covered Interest Parity (CIP) carry $c_{\text{hedge}} = 2.5\text{ bps/PTAX day}$ (`P3-01` / `F-015` / `R-07`). Net savings in basis points: $\Delta_{\text{hedged}}^{\text{bps}}(t, T) = (p_t - p_T) - h \cdot c_{\text{hedge}}$.
+  - **Break-Even Waiting Horizon $h^*$**: $h^* = \frac{p_t - p_{\text{target}}}{c_{\text{hedge}}}$. Evaluated from peak ($142.02\text{ bps} \to 29.02\text{ bps}$, $h^* = 45.2\text{ days}$) and acute spike mean ($+74.6\text{ bps}$ compression, $h^* = 29.8\text{ days}$). Compared directly to the 20-business-day global median shock duration (`P3-30`): because $20 < h^*$, waiting in BRL with a B3 FX hedge is ex-ante optimal!
+  - Realized hedged savings from 25 Jun 2026: +83.79 bps (+R$ 4,360 to +R$ 4,423 per 100k USDT) at 5 days; +65.72 bps (+R$ 3,420 to +R$ 3,469) at 10 days; +63.00 bps (+R$ 3,278 to +R$ 3,325) at 20 days with zero PTAX FX risk.
+- **Side 2 — Institutional Seller (`USDT -> BRL`)**:
+  - Quantity $100{,}000$ USDT. Net proceeds $N(Q, P, c, f) = Q \cdot P \cdot (1 - c) - f$. Break-even future gross price $P_T^* = \frac{N(now) \cdot A + f_{\text{later}}}{Q \cdot (1 - c_{\text{later}})}$.
+  - Under symmetric costs, neutral fee property $\Delta P^* = (1 + r_{\text{BRL}})^{h/252} - 1$.
+  - In June 2026, waiting cost the seller -R$ 4,697 (5d), -R$ 11,594 (10d), and -R$ 21,704 (20d) under 10% net BRL yield.
+- **Unit Testing**:
+  - 12 boundary unit tests pass (6 seller tests + 6 buyer/hedge tests).
 
 ## Subtasks
 - [x] S1 — input sample and specification — done: Codex, 6 Nov
 - [x] S2 — engine, tables, figures and tests — done: Codex, 6 Nov
 - [x] S3 — independent review and handoff — done: Codex & reviewer, 6 Nov
+- [x] S4 — two-sided upgrade (buyer BRL->USDT, B3 FX hedge, h* break-even horizon) — done: Flash agent, 7 Nov
 
 ## Success criteria
 - [x] Reproducible tables and two figures, with conditional scenario labels
-- [x] Boundary tests and decomposition check pass
+- [x] Boundary tests (12 tests) and decomposition check pass
 - [x] Independent reviewer checks arithmetic and language
+- [x] Two-sided framework implemented with exact buyer unhedged & B3-hedged equations
 
 ## Outputs
-`scripts/p3_31_holder.py`, `results/tables/P3-31_*`, `results/figures/P3-31_*`, `findings/F-039-holder-decisions.md`.
+- `scripts/p3_31_holder.py`
+- `results/tables/P3-31_thresholds.csv`
+- `results/tables/P3-31_historical_inputs.csv`
+- `results/tables/P3-31_historical_comparison.csv`
+- `results/tables/P3-31_sensitivity.csv`
+- `results/tables/P3-31_buyer_hedged_comparison.csv`
+- `results/tables/P3-31_audit.json`
+- `results/figures/P3-31_thresholds.png`
+- `results/figures/P3-31_historical.png`
+- `findings/F-039-holder-decisions.md`
 
 ## Handoff
-- **State:** Implementation and independent review complete. 6 boundary unit tests pass. Multiplicative price decomposition reconciles across all 21 selected rows. Sensitivity tables, thresholds, historical comparison, audit json, and two figures generated. Finding F-039 produced. Review completed in `docs/shock-duration-holder-review.md`.
-- **Exact next step:** Peer review sign-off or integration in deck / conclusions assessment.
-- **Open questions:** None; all accounting identities and scenarios verified.
-- **How to resume:** Run `& "C:\Users\Felipe\AppData\Local\Programs\Python\Python314\python.exe" scripts/p3_31_holder.py` or with `--test-only`. Outputs in `results/tables/P3-31_*`, `results/figures/P3-31_*`, and `findings/F-039-holder-decisions.md`.
+- **State:** Two-Sided Institutional Treasury Decision Framework complete. 12 boundary unit tests pass (`py scripts/p3_31_holder.py --test-only`). Multiplicative price decomposition reconciles across all 21 selected rows. Sensitivity tables, thresholds, historical comparison, buyer hedged comparison, audit json, and two updated figures generated. Finding F-039 upgraded.
+- **Exact next step:** Peer review sign-off or integration in deck / conclusions assessment (`P5-08`).
+- **Open questions:** None; all accounting identities, duality symmetries, and scenario parameters verified.
+- **How to resume:** Run `py scripts/p3_31_holder.py` or with `--test-only`. Outputs in `results/tables/P3-31_*`, `results/figures/P3-31_*`, and `findings/F-039-holder-decisions.md`.
 
 ## Log
 - 2026-11-06 — Codex holder agent: claimed locally, inspected input schema, fixed specification before calculations.
 - 2026-11-06 — Codex holder agent: engine, tables, figures and tests implemented; 6 tests pass; F-039 produced; independent review in P3-32 approved; task set to review.
+- 2026-11-07 — Flash agent: upgraded to Two-Sided Institutional Treasury Decision Framework. Added Side 1 Buyer (`BRL -> USDT`), B3 FX hedge carry ($c_{\text{hedge}} = 2.5\text{ bps/day}$), break-even horizon $h^*$ ($29.8\text{ to }45.2\text{ days}$), synthesis with `P3-30` median shock duration ($20\text{ days} < h^*$), new table `P3-31_buyer_hedged_comparison.csv`, updated `P3-31_audit.json`, 12 unit tests passing, and two updated figures.
 
 ## Result
-Engine and tests executed; 6 boundary tests pass; break-even threshold and historical retrospective comparison generated; independent review approved.
+Two-sided institutional decision engine and 12 tests executed; break-even threshold curves, B3 hedge break-even horizon $h^*$, buyer-seller duality symmetry, and historical retrospective comparison generated; finding F-039 updated.

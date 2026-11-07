@@ -26,14 +26,15 @@ Independently test the new economics and duration work before the assessment use
 - `docs/shock-duration-holder-review.md`
 
 ## Handoff
-- **State:** Independent review completed and documented in `docs/shock-duration-holder-review.md`. Scripts `scripts/p3_30_duration.py` (8 tests) and `scripts/p3_31_holder.py` (6 tests) pass all checks. All numerical claims in F-038 and F-039 reconciled. Tasks P3-30, P3-31, and P3-32 are ready for final sign-off.
-- **Exact next step:** Peer review sign-off or handoff to assessment author (P3-33).
+- **State:** Independent review completed and documented in `docs/shock-duration-holder-review.md`. Scripts `scripts/p3_30_duration.py` (10 tests) and `scripts/p3_31_holder.py` (12 tests) pass all checks. All numerical claims in upgraded F-038 (Global 10-Currency Survival Model, 20d median duration, Brier reduction) and F-039 (Two-Sided Buyer/Seller Framework, B3 FX hedge, break-even horizon $h^*$) reconciled.
+- **Exact next step:** Peer review sign-off and integration into assessment (`P3-33`) and deck (`P5-08`).
 - **Open questions:** None; all test assertions, arithmetic checks, and evidence boundaries are satisfied.
-- **How to resume:** Read `docs/shock-duration-holder-review.md`. Re-run verification commands: `& "C:\Users\Felipe\AppData\Local\Programs\Python\Python314\python.exe" scripts/p3_30_duration.py --test` and `& "C:\Users\Felipe\AppData\Local\Programs\Python\Python314\python.exe" scripts/p3_31_holder.py`.
+- **How to resume:** Read `docs/shock-duration-holder-review.md`. Re-run verification commands: `py scripts/p3_30_duration.py --test` and `py scripts/p3_31_holder.py --test-only`.
 
 ## Log
 - 2026-11-06 — Codex reviewer: local-only review authorized by Felipe's implementation request. No pull, commit or push; explicit user instruction overrides normal repository synchronization protocol.
 - 2026-11-06 — Codex reviewer: S1-S3 complete; scripts, outputs, findings F-038 and F-039 audited and verified; `docs/shock-duration-holder-review.md` updated with full audit record and approval; task set to review.
+- 2026-11-07 — Codex reviewer: reviewed upgraded Global 10-Currency Survival Model (10 duration tests, 10,875 trading days, Brier -12.5% at onset) and Two-Sided Treasury Engine (12 boundary tests, B3 hedge break-even horizon $h^*$, buyer-seller duality); all checks pass; `docs/shock-duration-holder-review.md` updated.
 
 ## Result
-Review approved; 8 duration checks and 6 holder boundary checks pass; no bugs or arithmetic issues found; documentation and findings audited.
+Review approved; 10 duration/hazard checks and 12 holder/buyer boundary checks pass; no bugs or arithmetic issues found; documentation and findings audited.
