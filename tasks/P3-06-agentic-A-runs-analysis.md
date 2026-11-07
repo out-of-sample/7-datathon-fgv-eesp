@@ -2,9 +2,9 @@
 id: P3-06
 title: Extension A - full runs and dispersion analysis
 phase: P3
-status: todo
+status: doing
 owner: CS 3
-working: -
+working: Jonathan
 due: 2026-11-03
 depends: P3-05, P2-06
 ---

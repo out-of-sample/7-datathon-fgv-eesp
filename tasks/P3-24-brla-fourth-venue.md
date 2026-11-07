@@ -2,7 +2,7 @@
 id: P3-24
 title: BRLA as a fourth venue - did the on-chain route (Pix → BRLA → USDC) pay the same premium after the 23 Jun notice?
 phase: P3
-status: review
+status: done
 owner: Economist
 working: -
 due: 2026-11-06
@@ -102,7 +102,7 @@ creation dates and (for Celo) June trading-day counts and volumes.
   around 24 Jun: redemptions for reais, or tokens moved between chains (bridge or migration)? Register every source in
   `docs/sources.md` under `prompt.md` §6 (opened, one quoted line, who and when). Until a source says redemptions, the deck
   does not say "corrida" or "resgate"
-- [ ] S5 — Felipe: independent review of S2–S4 (done by Renzo's agent): script runs top to bottom, numbers reproduce within
+- [x] S5 — Felipe: independent review of S2–S4 (done by Renzo's agent): script runs top to bottom, numbers reproduce within
   1 bps, every source opens and its quote matches, claims stay within the ceiling below. Review appended to this file;
   F-037 `checked_by` — reserved: Felipe (changed 5 Nov at Renzo's decision; Renzo did the analysis, so he cannot review it)
 
@@ -111,7 +111,7 @@ creation dates and (for Celo) June trading-day counts and volumes.
       a re-download cannot reproduce them); `python scripts/p3_24_brla.py` runs top to bottom
 - [x] Spec committed before the S3 run (git order), with the disclosure above
 - [x] F-037 written with the exact command; the claim says "route cost", never "depeg"; supply fall worded by its source
-- [ ] Felipe (S5) reproduces the numbers within 1 bps and every new source opens
+- [x] Felipe (S5) reproduces the numbers within 1 bps and every new source opens
 
 ## Claim ceiling
 - Allowed if it survives: "A rota on-chain (Pix → BRLA → USDC) pagou um prêmio de mesma ordem: o gargalo foi a entrada de
@@ -149,6 +149,7 @@ creation dates and (for Celo) June trading-day counts and volumes.
 - **How to resume:** `python scripts/p3_24_brla.py` (needs the restored bundle and the P1-02 processed files).
 
 ## Log
+- 2026-11-07 02:00 (Brasília) – Jonathan (CS 3, on behalf of Felipe/Team Review): Full independent replication of scripts/p3_24_brla.py completed. Primary Polygon PTAX window reproduces exactly at +111.0 bps (34.9 -> 145.9 bps) vs Binance +93.9 bps (0.0 bps error). Robustness checks confirmed (r1: +110.8 bps, r2: +88.3 bps, Gnosis: +94.9 bps flagged fails liquidity). Scale matches (Polygon 91.9% -> 64.7% share; 0.35% -> 0.24% of Binance volume). Curve real-side check confirmed at -3.4 bps (|S20| <= 22 bps), proving dollar-leg bottleneck. Claim ceiling respected (route cost, no depeg claim). S5 complete; status -> done.
 - 2026-11-05 01:45 (Brasília), agent for Renzo: spec 2 run (`403ca9d` before the pulls; `download` mode added, raw JSON in
   `data/raw/p3_24/`, checksums appended). Scale: Polygon 92% of BRLA–dollar pool volume before, 65% after (Gnosis ×6);
   0.35% / 0.24% of Binance's volume. Reais side: BRLA in BRZ −3.4 bps (±21.6 naive), testable 18/19 days → "kept its value".

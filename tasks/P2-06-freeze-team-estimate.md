@@ -2,7 +2,7 @@
 id: P2-06
 title: Freeze our 23 Jun before/after estimate in the agents' answer format
 phase: P2
-status: review
+status: done
 owner: CS 2
 working: -
 due: 2026-11-02
@@ -33,6 +33,7 @@ an agent result. This keeps extension A honest even if we decide on A later.
 - **How to resume:** `git show 80fc866` or inspect `results/agentic/team_estimate.json`.
 
 ## Log
+- 2026-11-07 01:50 (Brasília) – Jonathan (CS 3): Independent audit of frozen baseline. Verified results/agentic/team_estimate.json against docs/05-agentic-robustness.md schema. Baseline confirmed (estimate_bps=93.9, std_error_bps=16.2 HAC, window=[-20d, +20d]) in commit 80fc866 (2026-11-02). Prerequisite for P3-06 unblocked. Status -> done.
 - 2026-11-02, Felipe: S1–S3 completed via `scripts/p2_03_events.py`. `results/agentic/team_estimate.json` written with estimate_bps = 93.9, std_error_bps = 16.2 (Newey-West HAC), committed in `80fc866`. Status -> review.
 
 ## Result
