@@ -105,8 +105,14 @@ re-run only in full (all methods for those cases).
 
 ## 8. Held-out run record
 
-To be filled: corpus v2 hash, run file hashes (`sha256sum data/raw/p3_28/runs/*/H-*.json`), committed before the
-reference hash.
+- **Avenia family (H-01–H-04), 7 Nov 2026:** 40 runs (B0 ×4; B1, B2, A ×3 repeats ×4 cases), all complete: 15 answers
+  each, no errors or timeouts. Hashes: `results/tables/P3-28_heldout_run_hashes.csv`, committed before any reference
+  label exists (the coders have not started). The implementer checked run health only (counts, turns, errors), not
+  the answers. A used 28–58 turns as reported by the CLI's `num_turns`, above the `--max-turns 40` ceiling with no run
+  stopped by it. The CLI's `num_turns` therefore counts more than the turns the ceiling limits (for example tool
+  results). Reported as is; the ceiling setting is unchanged.
+- **Binance and Mercado Bitcoin (H-05–H-12):** pending Renzo's manual saves, then corpus v2 (`corpus`), then the same
+  commands; hashes appended to the same file before the reference hash.
 
 ## 9. Development results (agent-coded development reference, one run per case)
 
