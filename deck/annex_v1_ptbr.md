@@ -518,15 +518,17 @@ Para avaliar objetivamente a fricção de acesso enfrentada por empresas no ecos
 
 
 
-**2. Reconciliação Contábil On-Chain do Suprimento de BRLA na Celo (`P3-29`, `F-041`, `F-042`):**  
+**2. Auditoria On-Chain Bloco a Bloco da Oferta de BRLA na Celo e Nota de Método sobre `F-037` (`P3-29`, `F-041`, `F-042`, `F-044` — revisado por Felipe, `S6`):**  
 
-Diante de dados de agregadores (DefiLlama) sugerindo uma suposta "queda súbita" de suprimento do token BRLA de 136 milhões para 59,3 milhões em 26/jun/2026 (citada preliminarmente como possível corrida em `F-037`), realizou-se a reconstrução integral dos registros on-chain da blockchain Celo (`scripts/p3_29_reconcile.py`):
+Na rede Celo, onde está a maior parte do BRLA (82–92% nestes dias), refizemos a oferta bloco a bloco entre 19 e 30/06/2026 (`scripts/p3_29_reconcile.py`, figura `results/figures/P3-29_supply_bridge.png`):
 
-- Foram analisados **17.536 eventos** de `Transfer` (mints a partir de `0x0` e burns para `0x0`) entre os blocos 26.312.443 e 26.541.443 (19/jun a 01/jul/2026).
+- **Identidade de Estoque Sem Resíduo (0 unidades-base):** A variação líquida do estoque (**+7,75 mi BRLA**, de `128,11` para `135,86 mi`) é igual a emissões menos queimas, sem resíduo, em todos os dias UTC. Por trás desse saldo líquido há fluxos brutos ~190 vezes maiores — **732,6 mi emitidos** (8.884 *mints*) e **724,9 mi queimados** (8.652 *burns*) — quase todos executados por uma única conta (`0xbd22…855e`, 96,2% das emissões e 92,7% das queimas).
 
-- **Fechamento do Razão a Zero Resíduo:** O suprimento totalizou 732,6 milhões emitidos e 724,9 milhões queimados (variação líquida de +7,7 milhões de BRLA no período, subindo de 128,11 mi para 135,86 mi BRLA).
+- **O movimento de 23–24/06 e o ponto de 26/06 no DefiLlama:** A queda que os agregadores exibem no rótulo de 24/06 reflete uma queima de **113,6 mi BRLA às 10h15 (Brasília) de 23/06** (13h15 UTC). Ela não reapareceu como aumento de oferta nas outras redes listadas pela emissora (Polygon, Gnosis e Moonbeam somadas subiram apenas `+0,91 mi` no mesmo dia, `S4`). Já o valor de **59,3 mi** que o DefiLlama exibe em 26/06 (e repete em 02/07) **não corresponde a nenhum estado da blockchain** (na Celo, a oferta variou entre `98,9` e `119,4 mi` em 26/06 e nunca caiu abaixo de `87,1 mi` em todo o período; para `F-037`, o ponto de 26/06 não deve ser utilizado).
 
-- **Esclarecimento do Movimento:** O evento relevante em junho foi a queima programada de **113,6 milhões em 23/jun** (véspera do ofício), revertendo emissões correspondentes dos dias anteriores. O valor mínimo de 59,3 milhões reportado pelo DefiLlama em 26/jun decorreu de amostragem horária e reconciliação assíncrona (`time_alignment_unknown`, `T-16`), **não tendo qualquer correspondência em nenhum bloco da blockchain**. Não houve, portanto, corrida de resgate motivada pelo ofício.
+- **Generalização fora de junho (`F-044`, `S5`):** O mesmo procedimento, aplicado sem alterações a **12 outros episódios congelados** (6 maiores variações diárias e 6 dias ordinários entre mar–out/2026, manifesto `d6008bf`), fecha com **resíduo zero em todos os 24 dias** e confirma a leitura do DefiLlama em 24 de 24 rótulos (317/317 recibos confirmados em segundo provedor; predição registrada `P-0045` de horário de leitura em Polygon, Gnosis e Moonbeam confirmada em 32/32 rótulos testáveis).
+
+- **Limite de interpretação econômica:** **Os registros on-chain mostram quanto e quem executou, não por quê:** emissão não é entrada de reais, queima não é resgate fiduciário, e nada aqui liga a queima de 23/06 ao ofício do BCB — a mesma conta já havia queimado **100,0 mi em 19/06** e **65,7 mi em 22/06** antes do ofício.
 
 
 

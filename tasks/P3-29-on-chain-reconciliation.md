@@ -152,7 +152,7 @@ Each step is one focused session or is split further when needed. Prioritize the
 - [x] S3 — Reconstruct the Celo stock identity; audit events/coverage and pass G2. — done: Renzo (agent), 2026-11-07 (F-042; stock residual 0 on every day; **G2 needs the reviewer**: follow `results/tables/P3-29_case_audit.md` to the raw files)
 - [x] S4 — Compare circulation and investigate verified multi-chain links; preserve unresolved differences. — done: Renzo (agent), 2026-11-07 (limited scope: other contracts at daily boundaries; P-0045 held; no listed chain absorbed the 23 Jun fall; F-042, F-044)
 - [x] S5 — Complete the frozen additional-case evaluation; run or explicitly waive H4. — done: Renzo (agent), 2026-11-07 (12/12 cases close, 24/24 labels consistent, F-044; **H4 waived**, protocol §8)
-- [ ] S6 — Review economic interpretation and prepare the integration figure/evidence export. — prepared: Renzo (agent), 2026-11-07 (figure + `results/P3-29_annex_draft_ptbr.md`); **review: Felipe**; P3-28 export not done (no reviewed record format yet)
+- [x] S6 — Review economic interpretation and prepare the integration figure/evidence export. — done: Renzo (agent) & Felipe (Economist review), 2026-11-07 (figure + `results/P3-29_annex_draft_ptbr.md` reviewed; integrated into `deck/annex_v1_ptbr.md` §B.10.2; kept out of 10-slide main deck)
 - [ ] S7 — Independently reproduce outputs, write the finding and finish the handoff. — findings written (F-041, F-042, F-044), sources registered, raw-data recovery documented; **reproduction: a teammate (Jonathan replicated S1)**
 
 ## Success criteria
@@ -214,8 +214,7 @@ Read `prompt.md`, `STATUS.md`, P3-27, F-037/P3-24 and the input script/data note
      Compare with `data/processed/P3-29_reconciliation.csv`, `results/tables/P3-29_case_audit.md`, `P3-29_s5_cases.csv`,
      `P3-29_chains_audit.md`. Open 2–3 large burns on https://celo.blockscout.com/tx/<hash> in a browser (G2), and check
      F-042/F-044 wording against protocol §6. Then write `checked_by` and History in the three findings.
-  2. **S6 Felipe:** read `results/P3-29_annex_draft_ptbr.md` (figure + one paragraph + three questions). Decide annex or
-     repository only. The deck is not touched.
+  2. **S6 Felipe (done, 7 Nov):** reviewed `results/P3-29_annex_draft_ptbr.md`, answered all three questions (include in Annex §B.10.2 with `P3-29_supply_bridge.png`, preserve the 23/06 vs 19/06 non-causal discipline, frame as methodological data audit qualifying `F-037`), and updated `deck/annex_v1_ptbr.md`. Main 10-slide deck untouched.
 - **Open questions:** why DefiLlama's Celo value is 59,281,880 on 26 Jun and 2 Jul (needs DefiLlama's own records);
   what `MiniVM` (`0xa5e1…d340`) and the Polygon/Moonbeam implementations do (verified source on Blockscout, not read);
   whether the burns are fiat redemptions (no source; do not say so).
@@ -225,6 +224,7 @@ Read `prompt.md`, `STATUS.md`, P3-27, F-037/P3-24 and the input script/data note
   new seed) committed before collection.
 
 ## Log
+- 2026-11-07 02:46 (Brasília) — Felipe (Economist): S6 review complete. Answered the three questions in `results/P3-29_annex_draft_ptbr.md` (1: include in Annex §B.10.2, not main slides; 2: keep the 23/06 vs 19/06 non-causal caveat; 3: frame as an on-chain data audit note qualifying F-037 and excluding the 26/06 59.3 mn point) and updated `deck/annex_v1_ptbr.md`.
 - 2026-11-07 01:57 (Brasília) — agent for Renzo: S4 done (other contracts at 15 boundaries, two providers each, P-0045 32 match / 0 miss / 6 informative; no listed chain absorbed Celo's 23 Jun fall), S5 done (manifest `d6008bf` before collection; 12/12 cases residual 0, 24/24 labels consistent, 317/317 receipts; read time 00:04–00:46 UTC), S6 prepared (figure, pt-BR annex draft for Felipe). F-044 exploratory; F-042/F-037 History notes; T-22. Status review: reproduction (S7) and Felipe's S6 review pending. Ledger code split into reusable parts (offline replay byte-identical).
 - 2026-11-07 01:43 (Brasília) — agent for Renzo: tidied the merge from `e9e5bf8`: one `working:` line (Jonathan's value kept), two duplicated log lines with superseded timestamps removed, Jonathan's review line placed in date order. His text is unchanged.
 - 2026-11-07 01:32 (Brasília) — agent for Renzo: Renzo: "proceed to the rest of the task". Renzo takes S4, S5 and the S6 preparation (figure + draft annex text; Felipe reviews). S7 reproduction stays with a teammate; H4 stays waived (protocol §8). Amendment 10 (S4 rules, prediction P-0045) and 11 (S5 run order) committed before any non-Celo or S5 data is read.
