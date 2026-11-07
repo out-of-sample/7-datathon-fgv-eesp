@@ -2,9 +2,9 @@
 id: P3-28
 title: Build and evaluate a source-backed agentic map of digital-dollar access
 phase: P3
-status: doing
+status: paused
 owner: Team
-working: Renzo (agent)
+working: -
 due: 2026-11-07
 depends: P3-27
 ---
@@ -126,9 +126,9 @@ Each step is a separate work session; split further if it exceeds one focused se
 
 ## Subtasks
 - [x] S1 — Confirm case contract, source access and reviewers; complete one development evidence card. — done: Renzo's agent, 7 Nov (scope: S1 only; second coder Felipe; G2 auditor not named)
-- [ ] S2 — Freeze the corpus, grouped case split and independently adjudicated reference; pass G1. — doing: Renzo (agent) for corpus, case manifest, rubric and coding forms; human coding by two readers (Felipe + one more) pending
-- [ ] S3 — Build and pilot B0/B1/B2/A; commit the final protocol before held-out runs.
-- [ ] S4 — Complete the locked evaluation and independent claim/error audit; pass G2.
+- [ ] S2 — Freeze the corpus, grouped case split and independently adjudicated reference; pass G1. — agent part done 7 Nov (corpus v1: 31 sources; 17 cases, 229 field rows; rubric; blank sheets). Pending: Renzo's manual saves of Binance/MB (A-25–A-41) → corpus v2; coding by **Felipe and Jonathan**; adjudication
+- [x] S3 — Build and pilot B0/B1/B2/A; commit the final protocol before held-out runs. — done: Renzo's agent, 7 Nov (protocol v1 `c63aa70`; v1.1 scoring fixes `08939b9` after review P3-36; F-047)
+- [ ] S4 — Complete the locked evaluation and independent claim/error audit; pass G2. — Avenia runs done (40, hashed before any label); Binance/MB runs wait for corpus v2; blinded audit by **Nattan**
 - [ ] S5 — Produce the dated access map and a measured integration proposal for the project.
 - [ ] S6 — Independently reproduce outputs, write the finding and finish the handoff.
 
@@ -179,11 +179,38 @@ For the ten-slide PDF, propose at most one combined solution/evaluation slide, w
 Read `prompt.md`, `STATUS.md`, P3-27 and its 6 Nov log entries, then F-028/F-030/F-037 and the existing route/candidate tables. Source-register T-02 (*AgenticFinBench*) is a precedent for claim/evidence evaluation; T-01 warns against treating model agreement as truth. T-06/R-11 provide current issuer terms only. This task's design choices and thresholds are proposed here, not results established by those sources.
 
 ## Handoff
-- **State (7 Nov, Felipe):** S1 second-coder review complete. Felipe audited all 23 rows against primary sources, resolved §5 item 2 (L2-02 conditional under *lex specialis*), confirmed L1-08 (unknown) and L3-04 (null), and confirmed Option (a) for the annex. Card D-01 incorporated into `deck/annex_v1_ptbr.md` §B.10. Feasibility note `results/P3-28_feasibility.md` updated with §9; finding F-043 confirmed by Felipe.
-- **Next step:** Post-submission roadmap for full evaluation across remaining cases (D-02, H-03) and agentic benchmarks (S2–S6).
-- **How to resume:** `py scripts/p3_28_access_map.py selftest` (deterministic aggregation verification).
+- **State (7 Nov, 03:15 Brasília, Renzo's agent):** Renzo asked to proceed with the study (it continues; results reach
+  the PDF only after review). Felipe's commit `a5a6974` had set "post-submission"; Renzo's instruction stands, and the
+  conflict was reported to him. Done: corpus v1 (`results/tables/P3-28_corpus.csv`, hash `8ae612dc…`), 17 cases (5 dev,
+  12 held-out in 3 families), 15+2 fields, rubric, blank sheets; methods B0/B1/B2/A and scorer
+  (`scripts/p3_28_methods.py`); protocol frozen (`results/P3-28_protocol.md`, v1 + v1.1); development pilot (F-047:
+  A 0.87, B2 0.85, B1 0.75, B0 0.15 provisional, implementer's labels); **held-out Avenia runs done** (40, hashes in
+  `results/tables/P3-28_heldout_run_hashes.csv`).
+- **Next steps, in order:**
+  1. **Renzo** saves the 17 Binance/Mercado Bitcoin pages (list: `results/tables/P3-28_sources.csv`, `fetch=manual`) in
+     his normal browser as `data/raw/p3_28/manual/<ID>.pdf` (Print → Save as PDF; or `<ID>.html`). For A-33, A-39 and
+     A-40 he finds the page and adds `<ID>,<url>` to `data/raw/p3_28/manual/urls.csv`. Then
+     `.venv/bin/python scripts/p3_28_access_map.py snapshot && .venv/bin/python scripts/p3_28_access_map.py corpus`,
+     and adds one quoted line per page to `docs/sources.md` (A-25–A-41 row).
+  2. **Renzo** sends the new corpus zip (`data/raw/p3_28/P3-28_corpus_<hash>.zip`) and the blank sheets
+     (`data/raw/p3_28/reference/form_{felipe,jonathan}.csv`) to **Felipe** and **Jonathan**, separately. They code
+     blind per `results/P3-28_rubric.md`, return them privately, and the sheets stay **outside the repo** until step 3
+     is done.
+  3. An agent runs the Binance/MB held-out cases: `run B0 H-05,…,H-12`; `run B1|B2|A H-05,…,H-12 --repeats 3
+     --workers 2`; then appends `sha256sum data/raw/p3_28/runs/*/H-*.json` to the hash file and commits it.
+  4. Sheets go into `data/raw/p3_28/reference/`; `adjudicate` (prints counts only); Felipe and Jonathan settle
+     `disagreements.csv`. The adjudicated reference is hashed and committed.
+  5. `score <reference> heldout` writes the blinded `audit_sheet.csv`; **Nattan** fills it; `score … --audit` gives
+     the final SAC; G2 check by Nattan; S5/S6.
+- **Open questions:** whether coders and auditor have time before 8 Nov (if not, the held-out result is post-submission
+  and the PDF keeps only Felipe's annex card B.10); turn counting (`num_turns` 28–58 above `--max-turns 40`, protocol
+  §8); B2 token under-recording in existing runs (§11).
+- **How to resume:** read `results/P3-28_protocol.md` first. Never edit run files; never open filled sheets before
+  step 3 is committed. Scoring without `--audit` is PROVISIONAL. Other sessions share this checkout: commit only P3-28
+  files (memory note on parallel sessions).
 
 ## Log
+- 2026-11-07 — agent for Renzo: S2 agent part, S3 done, S4 Avenia runs → paused for human inputs. Corpus v1 (31 sources), 17 cases, fields, rubric (two rules added in development), blank sheets for Felipe and Jonathan; methods B0/B1/B2/A; isolation test passed; protocol v1 frozen (`c63aa70`) before held-out runs, v1.1 scoring fixes after independent review P3-36 (`08939b9`); dev pilot F-047; Avenia held-out 40 runs hashed before any label. Binance/MB blocked to scripts (no headless workaround): manual saves by Renzo. Reported to Renzo: conflict with Felipe's 'post-submission' handoff.
 - 2026-11-07 — agent for Renzo: Renzo asks to proceed with the study; agent takes S2 (corpus, grouped split, rubric, blank coding forms). Reference labels must come from two human readers; results enter the PDF only after S6 review.
 - 2026-11-07 — Felipe (Economist): Second-coder verification of S1 / D-01 complete. All 23 condition rows, units and verbatim passages verified. Rubric §5 item 2 resolved (L2-02 conditional under lex specialis); L1-08 (unknown) and L3-04 (null) confirmed. Option (a) adopted for annex integration (Anexo B.10).
 - 2026-11-07 — agent for Renzo: S1 done → paused. Case contract, source-access tests (Foxbit, BCB, Tether 200; Binance 202; MB 403; Wayback June copies only for terms/fee pages), `scripts/p3_28_access_map.py` (snapshot/card/selftest; deterministic aggregation; verbatim passage check), D-01 card: route not established on L1 (Res. 589 since 6 Nov vs Foxbit applicant status). A-01–A-11 registered. F-043 exploratory. Shared working tree with a parallel P3-29 session: only P3-28 files and lines committed.

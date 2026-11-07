@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-07 by Renzo’s agent (P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-07 by Renzo's agent (P3-28 study: methods and protocol frozen, Avenia held-out runs done, F-047; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 
 tag `results-frozen` (F-001 to F-033)
@@ -93,12 +93,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 
 
-**New specifications (Renzo, 6 Nov):** [P3-28 — agentic access map](tasks/P3-28-agentic-access-map.md): **S1 done 7 Nov, paused** (F-043
-
-exploratory). Card D-01 (Foxbit, Brazilian company, 100,000 USDT to its own wallet) was generated from 14 frozen sources with every passage verified. The
-
-route is **not established**: since 6 Nov Res. BCB 589 bans banks from operating with unauthorised providers, Foxbit has only applied, and no source says
-whether banks may still send it Pix. Team picks an annex-only table (Felipe checks) or a study after submission (`results/P3-28_feasibility.md` §8). [P3-29 — on-chain reconciliation](tasks/P3-29-on-chain-reconciliation.md): **S1–S5 done, S6 completed, status
+**New specifications (Renzo, 6 Nov):** [P3-28 — agentic access map](tasks/P3-28-agentic-access-map.md): **study under way (Renzo, 7 Nov), paused for
+human inputs.** S1 card D-01 is in Annex B.10 (Felipe). The evaluation of agent against simpler methods is set up and
+frozen (`results/P3-28_protocol.md`). Development pilot (F-047, implementer's labels, not H1 evidence): agent 0.87, fixed
+verify workflow 0.85, one-pass retrieval 0.75, keyword rules 0.15. The Avenia held-out runs are done and hashed. Waiting
+on: Renzo's manual saves of the Binance/MB pages, blind coding by Felipe and Jonathan, a blinded audit by Nattan. No
+held-out result can enter the PDF unless all three finish and are checked. [P3-29 — on-chain reconciliation](tasks/P3-29-on-chain-reconciliation.md): **S1–S5 done, S6 completed, status
 review** (F-041, F-042, F-044, all exploratory). BRLA's Celo supply reconciles to the base unit in June and in 12
 cases frozen in advance. June: 732.6 mn minted / 724.9 mn burned for +7.7 mn net, almost all by one account. The 23 Jun
 burn of 113.6 mn did not reappear on Polygon, Gnosis or Moonbeam. DefiLlama matches on-chain supply on 35 of 37 Celo
@@ -141,7 +141,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 
 |---|---|---|
 
-| `P3-28` after S1: option (a) annex-only table of development cards, Felipe as second coder, no H1 claim; or (b) S2–S6 after submission (`results/P3-28_feasibility.md` §8) | Renzo + Felipe | Sat 7 Nov |
+| `P3-28` study: (1) save 17 Binance/MB pages in a browser (list and steps in the P3-28 Handoff); (2) blind coding of 229 rows each from the corpus zip (`results/P3-28_rubric.md`); (3) blinded audit of score-bearing answers | (1) Renzo; (2) Felipe and Jonathan; (3) Nattan | Sat 7 Nov for (1); before any PDF use |
 
 | `P3-30`/`P3-31` review fixes (second review in `docs/shock-duration-holder-review.md`): Felipe accepted the fixes and rewrote `docs/shock-duration-and-holder-decisions-assessment.md` (7 Nov). Remaining: a teammate who is neither Felipe nor Renzo re-runs both scripts and signs F-038/F-039 | Nattan or Jonathan | Sat 7 Nov midday |
 
@@ -255,7 +255,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | ✅ done | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (13/35 closed)
+**P3 — Extensions** (13/38 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -286,14 +286,17 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P3-25](tasks/P3-25-recovery-composition.md) | The premium recovered - did the market? Venue shares and exchange exits in 2026 | 👀 review | CS 1 | - | 4/5 | 3/4 | 2026-11-06 | P1-03, P3-17 |
 | [P3-26](tasks/P3-26-november-exchange-confounder.md) | Audit the Binance security incident as a competing explanation for the November readout | 👀 review | Economist | - | 2/3 | 2/3 | 2026-11-07 | P3-20 |
 | [P3-27](tasks/P3-27-agentic-blockchain-options.md) | Evaluate agentic AI, blockchain and operational-learning extensions | 👀 review | Renzo | - | 5/5 | 3/3 | 2026-11-06 | - |
-| [P3-28](tasks/P3-28-agentic-access-map.md) | Build and evaluate a source-backed agentic map of digital-dollar access | 🔄 doing | Team | Renzo (agent) | 1/6 | 1/7 | 2026-11-07 | P3-27 |
+| [P3-28](tasks/P3-28-agentic-access-map.md) | Build and evaluate a source-backed agentic map of digital-dollar access | ⏸️ paused | Team | - | 2/6 | 1/7 | 2026-11-07 | P3-27 |
 | [P3-29](tasks/P3-29-on-chain-reconciliation.md) | Reconcile reported BRLA supply changes with on-chain evidence | 👀 review | Team | - | 6/7 | 6/7 | 2026-11-07 | P3-27 |
 | [P3-30](tasks/P3-30-shock-duration.md) | Shock duration feasibility, global census, and discrete-time survival model | 👀 review | Economist | - | 4/4 | 4/4 | 2026-11-08 | P1-02, P1-05 |
 | [P3-31](tasks/P3-31-holder-decisions.md) | Two-Sided Institutional Treasury Decision Framework (BRL -> USDT Buyer & USDT -> BRL Seller) | 👀 review | Economist | - | 4/4 | 4/4 | 2026-11-08 | P1-02, P3-03 |
 | [P3-32](tasks/P3-32-holder-duration-review.md) | Independent review of holder decisions and shock duration | 👀 review | Economist | - | 4/4 | 3/3 | 2026-11-08 | P3-30, P3-31 |
 | [P3-33](tasks/P3-33-pivot-assessment.md) | Synthesize shock-duration and holder-decision pivot | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-08 | P3-30, P3-31, P3-32 |
+| [P3-35](tasks/P3-35-brla-economic-function.md) | Investigate the economic function of BRLA mint and burn operations | 🔄 doing | CS 1 | Renzo (Codex agent) | 0/4 | 0/5 | 2026-11-07 | P3-29 |
+| [P3-36](tasks/P3-36-brla-economic-function.md) | Investigate the economic function of BRLA mint and burn operations | 🔄 doing | CS 1 | Renzo (Codex agent) | 0/4 | 0/5 | 2026-11-07 | P3-29 |
 | [P3-36](tasks/P3-36-post-extension-audit.md) | Audit extension claims and final project synthesis | 👀 review | Economist | - | 4/4 | 2/2 | 2026-11-07 | P3-20, P3-26, P3-28, P3-29, P3-30, P3-31, P3-34 |
 | [P3-37](tasks/P3-37-brla-economic-function.md) | Investigate the economic function of BRLA mint and burn operations | 👀 review | CS 1 | - | 4/4 | 4/5 | 2026-11-07 | P3-29 |
+| [P3-38](tasks/P3-38-access-method-comparison-review.md) | Independently assess the simple-search versus agentic access comparison | 👀 review | CS 1 | - | 3/3 | 5/5 | 2026-11-07 | P3-28 |
 
 **P4 — Robustness and freeze** (3/4 closed)
 
@@ -367,6 +370,8 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [F-043](findings/F-043-access-card-feasibility.md) | Feasibility - Foxbit's documents let a script build a dated, checked access card for a Brazilian company buying USDT (7 Nov 2026); on it the end-to-end route is not established, because no source says whether banks may still serve an exchange that has only applied for authorisation under Res. BCB 589 | 🔍 exploratory | P3-28 | Felipe |
 | [F-044](findings/F-044-brla-method-beyond-june.md) | Outside June the same procedure works unchanged - 12 frozen BRLA cases on Celo close to the base unit and DefiLlama matches on-chain supply on all 24 of their labels; on Polygon, Gnosis and Moonbeam a registered prediction of DefiLlama's daily read held (32 matches, 0 misses, 6 of them informative) | 🔍 exploratory | P3-29 | - |
 | [F-045](findings/F-045-november-binance-incident-audit.md) | Audit of Binance 29–30 Oct 2026 security incident confirms E1 S2 directly excludes the 30 Oct observation; E2 pre-mean shift is minor (~2.3 bps); CUSUM monitor silence during 3–16 Nov is a mechanical quiet pause | 🔍 exploratory | P3-26 | - |
+| [F-046](findings/F-046-access-comparison-review.md) | Synthetic checks show that P3-28 comparison scores need correction and evidence review before an H1 claim | 🔍 exploratory | P3-38 | - |
+| [F-047](findings/F-047-access-benchmark-dev-pilot.md) | Development pilot of the access-conditions benchmark - on 5 development cases with labels written by the implementer, the agent (0.87), the fixed verify workflow (0.85) and one-pass retrieval (0.75) all far exceed keyword rules (0.15); no held-out result yet | 🔍 exploratory | P3-28 | - |
 | [F-047](findings/F-047-brla-operator-routing.md) | BRLA's large June burns use an authorized transfer-and-burn routine also seen before the notice; their fiat purpose remains unidentified | 🔍 exploratory | P3-37 | - |
 <!-- BOARD:END -->
 
@@ -374,6 +379,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-07 — agent for Renzo: P3-28 study (Renzo: proceed): corpus v1 31 sources, 17 cases / 229 field rows, rubric and blind sheets (Felipe, Jonathan); methods B0/B1/B2/A on the Claude CLI, isolated; protocol v1 frozen (`c63aa70`), v1.1 scoring fixes from the independent review P3-36 (`08939b9`, no method change); dev pilot F-047 (A 0.87, B2 0.85, B1 0.75, B0 0.15, provisional); Avenia held-out 40 runs hashed before any label; Binance/MB refuse scripts, so manual saves by Renzo
 - 2026-11-07 — Renzo’s agent: P3-37 BRLA economic-function follow-up S1–S4 → review (F-047). Eight large burns use an authorized transfer-and-burn routine also seen in controls; 32/32 mechanisms verified, economic purpose unidentified.
 
 - 2026-11-07 — Codex for Felipe: P3-36 audit corrections applied to deck, findings and generated incident report; committed conflict markers reconciled, both activity histories retained; E2 remains an early reading, P3-29 S7 reproduction pending.
