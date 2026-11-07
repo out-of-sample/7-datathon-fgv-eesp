@@ -1,0 +1,5 @@
+case_id,route_id,leg,dependency_type,entity,identifier,source_ids,passages,valid_from,valid_to,state,note
+D-01,FOX,L1,payment_rail,Pix (BCB instant payments) and the company's own bank,,A-03,"Depósito via Pix 24/7, todos os dias Grátis",,,supported,The bank is not named (assumption A2); this is where L1-08 is unknown
+D-01,FOX,L2;L3,custodian,BitGo and/or Fireblocks,,A-04,"custodiados por BitGo/Fireblocks",,,supported,The page does not say which custodian holds which assets
+D-01,FOX,L4,issuer,Tether,,A-11,"TRC20 Token via Tron Blockchain Support for TETHER tokens in your project can be added with the following Tron contract addresses",,,supported,
+D-01,FOX,L4,network,Tron (TRC-20 USDT contract),TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t,A-11,"USD₮ contract address: https://tronscan.org/#/token20/TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t",,,supported,

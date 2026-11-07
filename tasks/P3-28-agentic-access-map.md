@@ -2,9 +2,9 @@
 id: P3-28
 title: Build and evaluate a source-backed agentic map of digital-dollar access
 phase: P3
-status: doing
+status: paused
 owner: Team
-working: Renzo (agent)
+working: -
 due: 2026-11-07
 depends: P3-27
 ---
@@ -125,7 +125,7 @@ Secondary measures: correctness of unknown/conflicting states; field-level preci
 Each step is a separate work session; split further if it exceeds one focused session. Do not build all infrastructure before the first evidence card. Use G1/G2 as checks of the listed criteria, not as invented external permission requirements.
 
 ## Subtasks
-- [ ] S1 — Confirm case contract, source access and reviewers; complete one development evidence card. — doing: Renzo (agent)
+- [x] S1 — Confirm case contract, source access and reviewers; complete one development evidence card. — done: Renzo's agent, 7 Nov (scope: S1 only; second coder Felipe; G2 auditor not named)
 - [ ] S2 — Freeze the corpus, grouped case split and independently adjudicated reference; pass G1.
 - [ ] S3 — Build and pilot B0/B1/B2/A; commit the final protocol before held-out runs.
 - [ ] S4 — Complete the locked evaluation and independent claim/error audit; pass G2.
@@ -134,7 +134,7 @@ Each step is a separate work session; split further if it exceeds one focused se
 
 ## Success criteria
 - [ ] Profile, operation, date mode, source hierarchy, evidence states and deterministic aggregation rules are frozen.
-- [ ] A working evidence card separates observed prices, documented conditions, assumptions and unknowns.
+- [x] A working evidence card separates observed prices, documented conditions, assumptions and unknowns. (D-01, `results/tables/P3-28_access_cards.md`, 7 Nov)
 - [ ] Reference labels, grouped split, model/configuration and resource limits predate held-out runs; departures are disclosed.
 - [ ] All four methods and all scheduled runs are reported with SAC, unsupported-availability counts, unknown handling and costs.
 - [ ] The conclusion follows the H1 reading rule and B2 comparison; failure or inconclusive performance is permitted.
@@ -179,14 +179,15 @@ For the ten-slide PDF, propose at most one combined solution/evaluation slide, w
 Read `prompt.md`, `STATUS.md`, P3-27 and its 6 Nov log entries, then F-028/F-030/F-037 and the existing route/candidate tables. Source-register T-02 (*AgenticFinBench*) is a precedent for claim/evidence evaluation; T-01 warns against treating model agreement as truth. T-06/R-11 provide current issuer terms only. This task's design choices and thresholds are proposed here, not results established by those sources.
 
 ## Handoff
-- **State:** complete English task specification; todo, unassigned; no corpus, human benchmark, agent runs or map built.
-- **Next step:** claim S1, name the reference/review roles, and produce one development evidence card plus a feasibility note.
-- **Open questions:** source/version access, reference-reviewer capacity, final case count, actual model/quota, and whether a reviewed result can fit before submission.
-- **How to resume:** follow the reading order above; inspect `results/tables/P3-15_routes.md` and `P3-17_candidates.md`. Create new P3-28 outputs only; do not alter P3-05/P3-06 or frozen results.
+- **State (7 Nov, 02:30 Brasília):** S1 done, task paused. Renzo's scope decision: S1 only; the full H1 evaluation is not attempted before 8 Nov. Development card D-01 (Foxbit, Brazilian company, 100,000 USDT on TRC-20, as of 7 Nov 04:36 UTC): 14 sources frozen, 23 conditions, all passages verified, **route not established** (L1: Res. BCB 589 bans operations with unauthorised providers from 6 Nov; Foxbit has only applied; no source on whether banks may still send it Pix). Feasibility note `results/P3-28_feasibility.md`; finding F-043 (exploratory).
+- **Next step (team decision, not an agent's):** choose option (a) or (b) in `results/P3-28_feasibility.md` §8. (a) annex-only table: code D-02 and H-03 the same way, then **Felipe checks every passage and state** (he is the second coder; he has not been asked yet); no main-deck slide, no H1 claim. (b) stop here; S2–S6 after submission.
+- **Open questions:** (1) does the BCB applicant list (promised for 6 Nov, E-17) or a bank or Foxbit statement settle D-01's L1? (2) the G2 auditor (Nattan or Jonathan); (3) the model for B1/B2/A: `claude`, `codex` and `gemini` are not on this machine's PATH; (4) Binance needs a browser snapshot (202), Mercado Bitcoin only via Wayback (403); (5) the rubric: is Foxbit's "stablecoins analisadas separadamente" conditional (as coded) or conflicting?
+- **How to resume:** `.venv/bin/python scripts/p3_28_access_map.py selftest`, then `card` (offline; needs `data/raw/p3_28/`, which is out of git; without it run `snapshot` first, and the passage check may then fail if pages changed). New case: add a row to `results/tables/P3-28_cases.csv`, its sources to `P3-28_sources.csv` (snapshot=yes) and to `docs/sources.md` (A-12 onwards), run `snapshot`, code its rows in `data/processed/P3-28_conditions.csv`, run `card`. Do not edit `P3-28_access_cards.md` by hand. Do not alter P3-05/P3-06 or frozen results.
 
 ## Log
+- 2026-11-07 — agent for Renzo: S1 done → paused. Case contract, source-access tests (Foxbit, BCB, Tether 200; Binance 202; MB 403; Wayback June copies only for terms/fee pages), `scripts/p3_28_access_map.py` (snapshot/card/selftest; deterministic aggregation; verbatim passage check), D-01 card: route not established on L1 (Res. 589 since 6 Nov vs Foxbit applicant status). A-01–A-11 registered. F-043 exploratory. Shared working tree with a parallel P3-29 session: only P3-28 files and lines committed.
 - 2026-11-07 — agent for Renzo: Renzo takes S1 only (scope decision: S1, then the team chooses annex-only descriptive table or post-submission study; full H1 evaluation not attempted before 8 Nov). Second coder: Felipe.
 - 2026-11-06 — Codex for Renzo: formalized from the P3-27 discussion at Renzo's request. Documentation only; no experiment launched or team member assigned.
 
 ## Result
-Not run. The task is complete as a specification; implementation and empirical conclusions remain pending.
+S1 (feasibility) only, 7 Nov: a script can freeze, date and verify an access card for current Foxbit documents. On D-01 the documents do not establish the route (L1 unknown since Res. BCB 589's 6 Nov ban). No method was evaluated; H1, Q3 at scale and Q4 remain untested (F-043, exploratory).

@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-07 by Felipe's agent (Option A adopted across deck, annex, v3 claude slides; P5-08 -> review) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-07 by Renzo's agent (P3-28 S1: feasibility and development card D-01, F-043 exploratory; before: Felipe's agent, Option A adopted, P5-08 -> review) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 tag `results-frozen` (F-001 to F-033)
 
@@ -46,8 +46,10 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 **Shock-duration & holder-decisions pivot (Felipe, 6–7 Nov):** [P3-30 — shock duration](tasks/P3-30-shock-duration.md), [P3-31 — holder decisions](tasks/P3-31-holder-decisions.md), [P3-32 — independent review](tasks/P3-32-holder-duration-review.md), and [P3-33 — pivot assessment](tasks/P3-33-pivot-assessment.md) are in `review` (`F-038`, `F-039` exploratory; full assessment in [`docs/shock-duration-and-holder-decisions-assessment.md`](docs/shock-duration-and-holder-decisions-assessment.md) and review in [`docs/shock-duration-holder-review.md`](docs/shock-duration-holder-review.md)). **Peer-review fixes accepted by Felipe (7 Nov):** `docs/shock-duration-and-holder-decisions-assessment.md` has been completely rewritten to match the corrected `F-038` (10-currency pool passes 43/10/8, 20-day training-pool KM median, hazard model does not beat base rate out of sample) and `F-039` (exact CIP B3 hedge has zero daily carry cost; retrospective hedged buyer +89.7/+92.3/+164.0 bps at 5/10/20 days, +6 bps on 3 Jul), with all three Slide 10 options updated and aligned with `docs/proposal-2026-11-05-lessons-and-solution.md`. Next: Nattan or Jonathan re-runs both scripts to move `P3-30`/`P3-31` to `done`.
 
-**New specifications (Renzo, 6 Nov):** [P3-28 — agentic access map](tasks/P3-28-agentic-access-map.md) is todo and
-unassigned. [P3-29 — on-chain reconciliation](tasks/P3-29-on-chain-reconciliation.md): **S1–S3 done 7 Nov** (F-041, F-042, both
+**New specifications (Renzo, 6 Nov):** [P3-28 — agentic access map](tasks/P3-28-agentic-access-map.md): **S1 done 7 Nov, paused** (F-043
+exploratory). Card D-01 (Foxbit, Brazilian company, 100,000 USDT to its own wallet) was generated from 14 frozen sources with every passage verified. The
+route is **not established**: since 6 Nov Res. BCB 589 bans banks from operating with unauthorised providers, Foxbit has only applied, and no source says
+whether banks may still send it Pix. Team picks an annex-only table (Felipe checks) or a study after submission (`results/P3-28_feasibility.md` §8). [P3-29 — on-chain reconciliation](tasks/P3-29-on-chain-reconciliation.md): **S1–S3 done 7 Nov** (F-041, F-042, both
 exploratory). BRLA's supply on Celo over 19–30 Jun reconciles to the base unit: 732.6 mn minted and 724.9 mn burned for a
 +7.7 mn net, almost all by one account. The aggregators' "fall on 24 Jun" was a 113.6 mn burn on 23 Jun. DefiLlama's
 daily values match on-chain supply on 12 of 13 days; its 26 Jun low (59.3 mn, quoted in F-037) matches no on-chain state.
@@ -70,6 +72,7 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 
 | Item | Needed from | By |
 |---|---|---|
+| `P3-28` after S1: option (a) annex-only table of development cards, Felipe as second coder, no H1 claim; or (b) S2–S6 after submission (`results/P3-28_feasibility.md` §8) | Renzo + Felipe | Sat 7 Nov |
 | `P3-30`/`P3-31` review fixes (second review in `docs/shock-duration-holder-review.md`): Felipe accepted the fixes and rewrote `docs/shock-duration-and-holder-decisions-assessment.md` (7 Nov). Remaining: a teammate who is neither Felipe nor Renzo re-runs both scripts and signs F-038/F-039 | Nattan or Jonathan | Sat 7 Nov midday |
 | `P5-04`: **submission is GitHub link + 10-slide PDF, no `.txt` to the jury (Renzo, 5 Nov)**. Remaining: map every deck/annex claim to its script (annex and download scripts included), re-run after Felipe picks the deck | **Nattan or Jonathan** | Sat 7 Nov |
 | `P3-25` / F-036: the retrospective three-venue composition comparison and four-firm exit audit are ready. Another Claude agent should run the exact command and review the claim; Nattan or Jonathan then signs off the teammate re-run before any slide use | Independent Claude review, then teammate re-run; Felipe for deck placement | Fri 6 Nov morning |
@@ -173,8 +176,8 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 | [P3-25](tasks/P3-25-recovery-composition.md) | The premium recovered - did the market? Venue shares and exchange exits in 2026 | 👀 review | CS 1 | - | 4/5 | 3/4 | 2026-11-06 | P1-03, P3-17 |
 | [P3-26](tasks/P3-26-november-exchange-confounder.md) | Audit the Binance security incident as a competing explanation for the November readout | ⬜ todo | Team | - | 0/3 | 0/3 | 2026-11-07 | P3-20 |
 | [P3-27](tasks/P3-27-agentic-blockchain-options.md) | Evaluate agentic AI, blockchain and operational-learning extensions | 👀 review | Renzo | - | 5/5 | 3/3 | 2026-11-06 | - |
-| [P3-28](tasks/P3-28-agentic-access-map.md) | Build and evaluate a source-backed agentic map of digital-dollar access | ⬜ todo | Team | - | 0/6 | 0/7 | 2026-11-07 | P3-27 |
-| [P3-29](tasks/P3-29-on-chain-reconciliation.md) | Reconcile reported BRLA supply changes with on-chain evidence | ⏸️ paused | Team | - | 3/7 | 2/7 | 2026-11-07 | P3-27 |
+| [P3-28](tasks/P3-28-agentic-access-map.md) | Build and evaluate a source-backed agentic map of digital-dollar access | ⏸️ paused | Team | - | 1/6 | 1/7 | 2026-11-07 | P3-27 |
+| [P3-29](tasks/P3-29-on-chain-reconciliation.md) | Reconcile reported BRLA supply changes with on-chain evidence | 🔄 doing | Team | Renzo (agent) | 3/7 | 2/7 | 2026-11-07 | P3-27 |
 | [P3-30](tasks/P3-30-shock-duration.md) | Shock duration feasibility, global census, and discrete-time survival model | 👀 review | Economist | - | 4/4 | 4/4 | 2026-11-08 | P1-02, P1-05 |
 | [P3-31](tasks/P3-31-holder-decisions.md) | Two-Sided Institutional Treasury Decision Framework (BRL -> USDT Buyer & USDT -> BRL Seller) | 👀 review | Economist | - | 4/4 | 4/4 | 2026-11-08 | P1-02, P3-03 |
 | [P3-32](tasks/P3-32-holder-duration-review.md) | Independent review of holder decisions and shock duration | 👀 review | Economist | - | 4/4 | 3/3 | 2026-11-08 | P3-30, P3-31 |
@@ -248,10 +251,12 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 | [F-039](findings/F-039-holder-decisions.md) | Looking back, a buyer who waited from 25 Jun 2026 with a currency hedge paid 90–164 bps less (R$ 4.7k–8.7k per 100k USDT) at 5–20 days; the gain was not steady and was not knowable in advance, and under covered interest parity the hedge has no daily carry cost | 🔍 exploratory | P3-31 | Renzo's agent (review with fixes, 6 Nov); Felipe (fixes accepted, 6 Nov); teammate re-run pending |
 | [F-041](findings/F-041-brla-celo-onchain-feasibility.md) | BRLA's Celo supply can be rebuilt from public chain records - two free providers serve June 2026 state and logs, the contract changes supply only through mint and burn events, and DefiLlama's Celo series is that contract's total supply at an undocumented hour of each day | 🔍 exploratory | P3-29 | - |
 | [F-042](findings/F-042-brla-celo-ledger.md) | On Celo, BRLA's supply from 19 Jun to 1 Jul 2026 reconciles to the base unit with 17,536 mints and burns (732.6 mn minted, 724.9 mn burned, net +7.7 mn), almost all by one account; DefiLlama's daily values match on-chain supply on 12 of 13 days, but its 26 Jun low (59.3 mn) matches no on-chain state | 🔍 exploratory | P3-29 | - |
+| [F-043](findings/F-043-access-card-feasibility.md) | Feasibility - Foxbit's documents let a script build a dated, checked access card for a Brazilian company buying USDT (7 Nov 2026); on it the end-to-end route is not established, because no source says whether banks may still serve an exchange that has only applied for authorisation under Res. BCB 589 | 🔍 exploratory | P3-28 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-07 — agent for Renzo: P3-28 S1 → paused (scope: S1 only, Renzo; second coder Felipe). `scripts/p3_28_access_map.py` freezes sources, generates cards by fixed rules and checks every passage verbatim; D-01 (Foxbit, company, USDT on TRC-20): 14 sources, 23 conditions, route not established on the reais leg (Res. 589 since 6 Nov, Foxbit only an applicant); Binance 202, MB 403, June copies only for terms/fee pages; A-01–A-11 registered; F-043 exploratory
 - 2026-11-07 — agent for Felipe: Option A adopted for Slide 10 across deck_v1, deck_v2, v3 claude slides, and annex (B.8, B.9, C.5, D.1, D.2); P5-08 -> review; HTML presentations regenerated; board updated
 
 - 2026-11-07 — agent for Renzo: P3-29 S2–S3: protocol committed before collection (`cfccbfc`); Celo ledger 19 Jun – 2 Jul, 242 log chunks, no gaps, stock residual 0 base units every day, 38/38 receipts on Ankr; 732.6 mn minted / 724.9 mn burned for +7.7 mn net (19–30 Jun), two accounts; 23 Jun burn of 113.6 mn; DefiLlama consistent on 12/13 labels, 26 Jun 59.3 mn unresolved (F-042; note in F-037 History); reviewer needed
