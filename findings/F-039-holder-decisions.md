@@ -4,7 +4,7 @@ title: Looking back, a buyer who waited from 25 Jun 2026 with a currency hedge p
 status: exploratory
 task: P3-31
 date: 2026-11-06
-checked_by: Renzo's agent (review with fixes, 6 Nov); Felipe (fixes accepted, 6 Nov); teammate re-run pending
+checked_by: Renzo's agent (review with fixes, 6 Nov); Felipe (fixes accepted, 6 Nov); Jonathan (CS 3)
 ---
 
 ## Claim

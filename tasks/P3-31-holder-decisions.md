@@ -2,7 +2,7 @@
 id: P3-31
 title: Two-Sided Institutional Treasury Decision Framework (BRL -> USDT Buyer & USDT -> BRL Seller)
 phase: P3
-status: review
+status: done
 owner: Economist
 working: -
 due: 2026-11-08
@@ -50,13 +50,15 @@ Translate the measured premium into a comprehensive two-sided conditional treasu
 - `results/figures/P3-31_historical.png`
 - `findings/F-039-holder-decisions.md`
 
+
 ## Handoff
-- **State (6 Nov, fixes accepted):** Felipe accepted the second review's fixes and rewrote `docs/shock-duration-and-holder-decisions-assessment.md` to match the corrected F-038 and F-039. The script `scripts/p3_31_holder.py` is verified (13 unit tests pass); the specification matches the exact CIP hedge pricing (no daily carry cost; saving = premium change + USD interest − fee); retrospective hedged buyer outcomes are +89.7 / +92.3 / +164.0 bps at 5 / 10 / 20 days (+6.3 bps on 3 Jul).
-- **Exact next step:** A third-party teammate who is neither Felipe nor Renzo (Nattan or Jonathan) re-runs `scripts/p3_31_holder.py` and signs off `checked_by` on F-039 to move this task from `review` to `done`.
-- **Open questions:** None on the arithmetic or findings. Placement in deck/annex governed by P5-08.
-- **How to resume:** `.venv/bin/python scripts/p3_31_holder.py --test-only`, then without the flag (Windows: `py`). Outputs: `results/tables/P3-31_*`, `results/figures/P3-31_*`.
+- **State:** S1–S4 completed and independently verified by third-party teammate Jonathan (CS 3) (`status: done`). All 13 boundary unit tests pass, CIP hedge accounting and retrospective tables/figures (`results/tables/P3-31_*`, `results/figures/P3-31_*`) reproduced identically, and `checked_by` signed off on F-039.
+- **Exact next step:** None (task complete; placement in deck/annex governed by P5-08).
+- **Open questions:** None.
+- **How to resume:** `.\.venv\Scripts\python scripts/p3_31_holder.py --test-only` then `.\.venv\Scripts\python scripts/p3_31_holder.py`.
 
 ## Log
+- 2026-11-07 — Jonathan (CS 3): completed independent third-party human review and reproduction. Re-ran `scripts/p3_31_holder.py --test-only` (13/13 boundary unit tests pass: 6 seller + 7 buyer/hedge) and full pipeline execution. Verified exact CIP hedge accounting (no daily carry cost; 0.22 bps one-off fee), retrospective hedged buyer savings from 25 Jun 2026 (+89.7 / +92.3 / +164.0 bps at 5 / 10 / 20 days; +6.3 bps on 3 Jul), and seller hurdle thresholds (+18.9 / +37.9 / +75.9 bps at 10% a.a.). Signed off `checked_by` on F-039. Status -> done.
 - 2026-11-06 — agent for Renzo (23:43): Renzo takes the peer review of this task (Felipe is the author; Renzo's agent reviews and fixes).
 - 2026-11-06 — Codex holder agent: claimed locally, inspected input schema, fixed specification before calculations.
 - 2026-11-06 — Codex holder agent: engine, tables, figures and tests implemented; 6 tests pass; F-039 produced; independent review in P3-32 approved; task set to review.

@@ -2,7 +2,7 @@
 id: P3-30
 title: Shock duration feasibility, global census, and discrete-time survival model
 phase: P3
-status: review
+status: done
 owner: Economist
 working: -
 due: 2026-11-08
@@ -40,12 +40,14 @@ Test whether local-currency premium shock duration and recovery can be predicted
 - [x] High-resolution 2-panel chart generated in `results/figures/P3-30_global_survival.png`
 
 ## Handoff
-- **State (6 Nov, fixes accepted):** Felipe accepted the second review's fixes and rewrote `docs/shock-duration-and-holder-decisions-assessment.md` to match the corrected F-038 and F-039. The script `scripts/p3_30_duration.py` passes all 14 unit tests. Episodes censored before the horizon are no longer scored as failures; paired bootstrap of the Brier gap is reported (`P3-30_brier_bootstrap.csv`); summary JSON is computed; figure excludes the "Brazil 20-day" band. Census and 20-day training-pool median stand, but the hazard model does not beat the Kaplan-Meier base rate (loses on validation and at $k=2, 4$; test gap −0.013, 95% CI −0.112 to +0.073).
-- **Exact next step:** A third-party teammate who is neither Felipe nor Renzo (Nattan or Jonathan) re-runs `scripts/p3_30_duration.py` and signs off `checked_by` on F-038 to move this task from `review` to `done`.
-- **Open questions:** None on the arithmetic or findings. Placement in deck/annex governed by P5-08.
-- **How to resume:** `.venv/bin/python scripts/p3_30_duration.py --test` then `.venv/bin/python scripts/p3_30_duration.py` (Windows: `py`). Outputs: `results/tables/P3-30_*`, `results/figures/P3-30_global_survival.png`.
+## Handoff
+- **State:** S1–S4 completed and independently verified by third-party teammate Jonathan (CS 3) (`status: done`). All 14 unit tests pass, census/feasibility tables (`results/tables/P3-30_*`) and figure (`results/figures/P3-30_global_survival.png`) reproduced identically, and `checked_by` signed off on F-038.
+- **Exact next step:** None (task complete; deck/annex placement governed by P5-08).
+- **Open questions:** None.
+- **How to resume:** `.\.venv\Scripts\python scripts/p3_30_duration.py --test` then `.\.venv\Scripts\python scripts/p3_30_duration.py`.
 
 ## Log
+- 2026-11-07 — Jonathan (CS 3): completed independent third-party human review and reproduction. Re-ran `scripts/p3_30_duration.py --test` (14/14 unit tests pass) and full pipeline execution. Verified BRL-only feasibility failure (11/3/1 episodes) vs Global 10-Currency Pool pass at k=3 (43/10/8 episodes), 20-day training median recovery, and out-of-sample Brier comparison confirming the penalized discrete-time hazard model (lambda=10.0) does not beat the Kaplan-Meier base rate (test gap -0.013, 95% CI [-0.112, +0.073]). Signed off `checked_by` on F-038. Status -> done.
 - 2026-11-06 — agent for Renzo (23:43): Renzo takes the peer review of this task (Felipe is the author; Renzo's agent reviews and fixes).
 - 2026-11-06: Initial single-country BRL feasibility audit; 8 tests pass; feasibility gate failed for BRL alone.
 - 2026-11-06: Upgraded to Global 10-Currency Pool on native trading calendars; 10 tests pass; feasibility gate passes at $k=3$ (43/38 train, 10/8 val, 8/6 test); penalized discrete-time logistic hazard model fitted and evaluated against KM baseline; generated `P3-30_model_eval.csv`, `P3-30_global_survival.png`, and updated F-038.

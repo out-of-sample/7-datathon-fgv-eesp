@@ -2,8 +2,8 @@
   "status": "evaluated; reviewed 6 Nov 2026 (Renzo agent)",
   "tests_passed": 14,
   "input_sha256_lf": {
-    "data/processed/P1-02_premium_daily.csv": "47982f7940d3dac8c4a127083fd3322ff9aa25bb4e1568ae3b09ac54411289b4",
-    "data/processed/P1-05_donor_premiums_daily.csv": "b4c19858bbd1634042e370c201347f83c6ceda6093533b7dc58ddd8b6089b2b8"
+    "data/processed/P1-02_premium_daily.csv": "d7417e19e9730f4701631eae1e5604f68faa169da1649549c7350f782adcd5e5",
+    "data/processed/P1-05_donor_premiums_daily.csv": "2658a7646d4a72824443a7040238761fdd51b311febdeacff738b46346b0b16e"
   },
   "feasibility": {
     "BRL_only_k3_train": "11/10 (pass)",
