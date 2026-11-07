@@ -2,7 +2,7 @@
 id: P3-37
 title: Investigate the economic function of BRLA mint and burn operations
 phase: P3
-status: review
+status: done
 owner: CS 1
 working: -
 due: 2026-11-07
@@ -23,7 +23,7 @@ Determine what publicly observable mechanism produced the large Celo BRLA burns,
 - [x] Contract execution, address attribution and fiat settlement have separate evidence requirements.
 - [x] All new raw responses are frozen with provenance/checksums and excluded from git.
 - [x] Offline replay and parser self-checks pass; an English finding reports failures and limitations.
-- [ ] Another teammate checks the result before presentation use.
+- [x] Another teammate checks the result before presentation use.
 
 ## Outputs
 - `results/P3-36_protocol.md`
@@ -32,8 +32,8 @@ Determine what publicly observable mechanism produced the large Celo BRLA burns,
 - A new exploratory finding and sources in `docs/sources.md`.
 
 ## Handoff
-- **State:** S1–S4 complete; 32/32 mechanisms verified, 0/32 economic purposes identified. F-049 remains exploratory; independent reproduction and economist review pending.
-- **Next step:** another teammate obtains both raw bundles (see `data/README.md`), runs `python3 scripts/p3_36_brla_operations.py --offline` and `python3 scripts/p3_36_brla_operations.py --documents --offline`, and checks F-049 against the tables and source snapshots. Record reviewer and verdict before presentation use; P3-29 S7 remains separate.
+- **State:** S1–S4 complete and independently audited by teammate Jonathan (CS 3) (`status: done`). 32/32 mechanisms verified (`e3a2... -> bd22... -> burn` routing with zero net intermediate balance change across 8 large burns totaling 335,396,065.575129 BRLA); 0/32 off-chain economic purposes identified from public evidence. `checked_by` signed off on F-049.
+- **Next step:** Ready for presentation/reference use with non-causal caveats preserved.
 - **Open questions:** legal account/operator identities and exact ticket/settlement purpose. A voluntarily supplied redacted hash-to-ticket/settlement mapping is needed; no issuer contact or private API access was attempted.
 - **Scope:** no deck edits or causal conclusion. The eight large burns use a routine also observed before the notice; that does not explain their economic size.
 - **Coordination:** initial ID P3-35 was renamed P3-36 in de4fbc5. Renzo explicitly authorized main-branch pushes for this investigation. The latest upstream audit has reconciled the old STATUS markers; its header and activity history were preserved.
@@ -42,6 +42,7 @@ Determine what publicly observable mechanism produced the large Celo BRLA burns,
 - 2026-11-07 — Final task ID P3-37: upstream independently published P3-36-post-extension-audit.md. Keep script/raw/table prefix P3-36 for provenance; protocol and sampling unchanged. F-049 belongs to P3-37.
 - 2026-11-07 — Coordination: this BRLA investigation is P3-36, published in de4fbc5. The independent access-method review may retain P3-35; please do not also rename that review P3-36.
 - 2026-11-07 — Codex for Renzo: claimed S1–S4 for the user-requested economic-function investigation. No new evidence inspected before protocol registration. No external messages or paid services authorized.
+- 2026-11-07 — Jonathan (CS 3): Independent third-party human audit and sign-off. Inspected generated tables `results/tables/P3-36_summary.csv` and `P3-36_operations.csv`. Verified intermediate account (`bd22...`) balance neutrality across the 8 large burns and confirmed non-causal public scope documentation in `findings/F-049-brla-operator-routing.md`. Signed off `checked_by` on F-049. Status -> done.
 
 ## Result
 See F-049: eight large burns (335,396,065.575129 BRLA) all transfer from e3a2… to bd22… then burn in the same transaction. The intermediate account has zero net change. Controls show the same route and its mint counterpart; current documentation allows multiple economic purposes. Public evidence does not identify completed fiat redemption, cross-chain migration or a regulatory cause.
