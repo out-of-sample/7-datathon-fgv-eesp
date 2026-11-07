@@ -1,4 +1,4 @@
-# P3-35: retrospective investigation of BRLA operations
+# P3-36: retrospective investigation of BRLA operations
 
 Registered before new evidence collection, 7 Nov 2026. The eight large burns, their dates, amounts and common MiniVM destination are already known from F-042. This protocol does not create a causal test of the BCB notice.
 
@@ -22,7 +22,7 @@ Which execution mechanism and economic purpose can be established for the select
 - Open primary public documentation with exact URLs, short quotes and retrieval dates. Current documentation is not automatically applicable to June. No contact with issuer/provider, paid services, wallet connections or signed transactions.
 
 ## Reproduction and bounded scope
-Reuse frozen P3-29 inputs read-only. New data under `data/raw/p3_35/`, with request/URL, retrieval UTC and SHA-256 manifest. A script must reproduce the case tables offline. Test ABI bounds and at least one known decoded call against receipt evidence. Preserve failed lookups. Scope is the sampled Celo operations and directly implicated contracts; stop at unavailable off-chain settlement evidence. Additional samples or mechanisms require a dated amendment disclosing what was already observed.
+Reuse frozen P3-29 inputs read-only. New data under `data/raw/p3_36/`, with request/URL, retrieval UTC and SHA-256 manifest. A script must reproduce the case tables offline. Test ABI bounds and at least one known decoded call against receipt evidence. Preserve failed lookups. Scope is the sampled Celo operations and directly implicated contracts; stop at unavailable off-chain settlement evidence. Additional samples or mechanisms require a dated amendment disclosing what was already observed.
 
 ## Amendments
-None.
+- 7 Nov 2026: renamed P3-35 to P3-36 after a concurrent P3-28 review reused P3-35. Original rules were committed and pushed as b161a85 before collection. No sample or interpretation rule changed.

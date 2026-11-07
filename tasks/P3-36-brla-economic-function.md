@@ -1,5 +1,5 @@
 ---
-id: P3-35
+id: P3-36
 title: Investigate the economic function of BRLA mint and burn operations
 phase: P3
 status: doing
@@ -10,7 +10,7 @@ depends: P3-29
 ---
 
 ## Goal
-Determine what publicly observable mechanism produced the large Celo BRLA burns, and whether public evidence identifies their economic purpose. Authorized by Renzo on 7 Nov 2026 after discussing P3-29. This is a retrospective follow-up; P3-29's independent review remains with another teammate. P3-34 is referenced in STATUS, so this task uses P3-35.
+Determine what publicly observable mechanism produced the large Celo BRLA burns, and whether public evidence identifies their economic purpose. Authorized by Renzo on 7 Nov 2026 after discussing P3-29. This is a retrospective follow-up; P3-29's independent review remains with another teammate. Originally P3-35 (b161a85); renumbered P3-36 after a concurrent access-method review reused P3-35.
 
 ## Subtasks
 - [ ] S1 — Freeze the investigation rules and transaction sample before reading new evidence. — doing: Renzo (agent)
@@ -26,16 +26,16 @@ Determine what publicly observable mechanism produced the large Celo BRLA burns,
 - [ ] Another teammate checks the result before presentation use.
 
 ## Outputs
-- `results/P3-35_protocol.md`
-- `scripts/p3_35_brla_operations.py`
-- `results/tables/P3-35_*.csv`, `results/P3-35_evidence.md`
+- `results/P3-36_protocol.md`
+- `scripts/p3_36_brla_operations.py`
+- `results/tables/P3-36_*.csv`, `results/P3-36_evidence.md`
 - A new exploratory finding and sources in `docs/sources.md`.
 
 ## Handoff
 - **State:** scope authorized; protocol being registered before new transaction/source inspection.
 - **Next step:** S2, inspect the MiniVM proxy active at each of the eight large burns already listed in P3-29.
 - **Open questions:** operator identity; operation type; fiat settlement; whether large burns differ from earlier operations.
-- **How to resume:** read `results/P3-35_protocol.md`, then P3-29's case audit and frozen raw files.
+- **How to resume:** read `results/P3-36_protocol.md`, then P3-29's case audit and frozen raw files.
 - **Workspace:** isolated main checkout `/tmp/p3-35-brla-operations`, because concurrent P3-28 changes prevent pulling the shared checkout. Remote read at d281bff; P3-29 S6 is complete there. Existing STATUS conflict markers require Renzo's instruction; question pending.
 
 ## Log
