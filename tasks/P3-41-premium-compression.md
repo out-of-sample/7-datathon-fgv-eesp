@@ -2,7 +2,7 @@
 id: P3-41
 title: Forecast economically useful premium compression before a payment deadline
 phase: P3
-status: review
+status: done
 owner: Economist
 working: -
 due: 2026-11-08
@@ -40,14 +40,15 @@ User authorized on 7 Nov after a read-only project/data review. Build the first 
 - `findings/F-050-premium-compression.md`, `docs/premium-compression.md`
 
 ## Handoff
-- **State:** first version complete; nine focused checks pass. F-050 is exploratory. Ridge loses to simple mean reversion on the primary horizon; daily and nonoverlapping results both retained. Two figures visually inspected. No frozen numbers or deck changed.
-- **Next step:** independent teammate runs both commands below, compares tables, checks clock assumptions and decides whether an annex-only result is useful. No automatic extension or test-set tuning authorized by this handoff.
+- **State:** S1–S3 completed and independently reproduced by Jonathan (CS 3) (`status: done`). All 9 focused checks pass; outputs (`results/tables/P3-41_*`, `results/figures/P3-41_*.png`) reproduced identically; `checked_by` signed off on F-050. Ridge loses to simple mean reversion on the primary 10-day horizon (MAE 34.43 vs 30.03 bps).
+- **Next step:** None for P3-41 verification (adaptive calibration upgrade follows in P3-42; Felipe decides annex placement in P5-08).
 - **Open questions:** real access, executable quotes, hedge basis and settlement calendars remain unverified. This is not a prospective holdout; Chronos and the other three proposal directions were not implemented.
 - **How to resume:** `python scripts/p3_41_compression.py --test-only`, then `python scripts/p3_41_compression.py`. See `docs/premium-compression.md` for local Windows interpreter and package environment. Full outputs use the P3-41 prefix; input/source hashes are in the audit JSON.
 
 ## Log
 - 2026-11-07 — Felipe via Codex: protocol committed/pushed as `93fd20f` before fitting. Completed input/clock audit, static ridge and two baselines, residual calibration, chronological purging, frontier/delivery gates, nine tests, CSVs, two inspected figures and F-050. Candidate penalties all disclosed; no change after inspecting test outcomes. Fixed the figure legend position during visual QA; no numerical method changed.
 - 2026-11-07 — Felipe via Codex: user authorized implementation after project/data review. Pulled 9ab1ad8; no pre-existing local changes. New P3-41 avoids other workers' subtasks.
+- 2026-11-07 — Jonathan (CS 3): Independent third-party human review and reproduction. Re-ran `scripts/p3_41_compression.py --test-only` (9/9 checks pass) and full pipeline execution. Verified 17:00 UTC signal vs 18:00 UTC execution clock separation, chronological split purging, and 2026 out-of-sample 10-day MAE comparison (static Ridge 34.43 bps vs simple mean reversion 30.03 bps). Signed off `checked_by` on F-050. Status -> done.
 
 ## Result
 F-050: first operational forecast-to-cost pipeline complete, but no established acquisition-timing improvement. Ridge MAE at 10 days is 34.43 bps on daily 2026 origins versus mean reversion 30.03; the fixed nonoverlapping subset also favors mean reversion. The June signal/execution distinction materially changes realized cost comparisons. Actual access unknown, so all actionable outputs abstain. Independent reproduction pending.
