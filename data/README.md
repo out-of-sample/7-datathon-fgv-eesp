@@ -107,9 +107,12 @@ Task-number coordination: this BRLA follow-up is finally P3-37; its P3-36 artifa
 
 `data/raw/p3_29/` (2,841 RPC/API answers), `data/raw/p3_36/` and `data/processed/P3-29_events.csv` (5.6 MB, git-ignored)
 are not in git. One archive holds all three: `p3_29_p3_36_frozen_20261107.tar.gz`, 10,157,721 bytes, SHA-256
-`ba98b6105582fe2f7626e0c8f7c876cf0dc07352e33d0db70d879ac9ed54080f`. Renzo shares it outside git. **Restore** (repo root):
+`ba98b6105582fe2f7626e0c8f7c876cf0dc07352e33d0db70d879ac9ed54080f`, attached to the GitHub release
+[`data-p3-29-p3-36-20261107`](https://github.com/out-of-sample/7-datathon-fgv-eesp/releases/tag/data-p3-29-p3-36-20261107)
+(private repo: team access). **Restore** (repo root):
 
 ```bash
+gh release download data-p3-29-p3-36-20261107   # or download the asset from the release page
 sha256sum p3_29_p3_36_frozen_20261107.tar.gz      # must print the hash above
 tar -xzf p3_29_p3_36_frozen_20261107.tar.gz       # writes data/raw/p3_29, data/raw/p3_36, data/processed/P3-29_events.csv
 grep 'p3_29\|p3_36' data/raw/SHA256SUMS | sha256sum -c --quiet && echo OK
