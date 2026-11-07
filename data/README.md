@@ -100,3 +100,5 @@ python3 scripts/p3_36_brla_operations.py --documents --offline
 ```
 
 Without `--offline`, missing public records/pages are downloaded; existing responses are never refreshed. Documentation can change, so a fresh download is not guaranteed to reproduce the frozen November text. The ledger's SHA-256 is recorded in `results/tables/P3-36_provenance.csv`. Both offline commands passed, and a second replay produced byte-identical tables; all manifest hashes were checked. F-047 remains subject to independent review.
+
+Task-number coordination: this BRLA follow-up is finally P3-37; its P3-36 artifact prefixes are retained. See `tasks/P3-37-brla-economic-function.md`.

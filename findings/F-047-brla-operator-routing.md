@@ -2,7 +2,7 @@
 id: F-047
 title: BRLA's large June burns use an authorized transfer-and-burn routine also seen before the notice; their fiat purpose remains unidentified
 status: exploratory
-task: P3-36
+task: P3-37
 date: 2026-11-07
 checked_by: -
 ---
@@ -17,7 +17,7 @@ Current Avenia documentation explicitly describes both ticket-payment burns and 
 ## Evidence
 
 ### Fixed sample and reproduction
-The rules were committed and pushed as **b161a85**, under the initial ID P3-35, before new evidence collection. The task was renamed P3-36 in **de4fbc5** after an unrelated concurrent review reused P3-35. No sampling rule changed. The June episode and large burns were already known: this is a retrospective diagnostic study.
+The rules were committed and pushed as **b161a85**, under the initial ID P3-35, before new evidence collection. The task was renamed P3-36 in **de4fbc5** after an unrelated concurrent review reused P3-35; its final task ID is P3-37 because upstream also independently used P3-36. Artifact prefixes remain P3-36 for provenance. No sampling rule changed. The June episode and large burns were already known: this is a retrospective diagnostic study.
 
 - Eight large burns: the pre-existing P3-29 rule, each at least 1% of that case's gross mint-plus-burn amount.
 - Controls: first mint and first burn by block/log order on each UTC day from 19 to 30 June. All selected transaction hashes are distinct. Controls are concentrated near midnight by construction and are not a representative sample of daily operations.

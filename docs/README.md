@@ -96,7 +96,7 @@ regime), a "solution" deliverable (a daily monitor), and a causal design the aca
 
 | Date | Decision | Who |
 |---|---|---|
-| 7 Nov | Continue P3-29 with an English investigation of the economic function of BRLA operations (P3-36, initially P3-35); distinguish technical routing from settlement and retain independent review before deck use | Renzo |
+| 7 Nov | Continue P3-29 with an English investigation of the economic function of BRLA operations (P3-37, initially P3-35/P3-36; artifact prefix P3-36); distinguish technical routing from settlement and retain independent review before deck use | Renzo |
 | 6 Nov | Formalize the agentic access map and on-chain reconciliation as English task specifications (P3-28/P3-29). Plans only: implementation todo, assignment pending; new evidence and independent evaluation required before deck use | Renzo |
 | 5 Nov | Submission format: GitHub repository link + 10-slide PDF. No `.txt` script export goes to the jury; the repo is the code deliverable (P5-04 now maps claims to scripts). Rest of P5-04 assigned to Nattan or Jonathan | Renzo |
 | 5 Nov | P3-16: keep the frozen eight-rule event comparison; disclose Res. BCB 574 as an explicit caveat in slide 5, annex and F-026. Its 20-day window overlaps the 23 Jun notice, so no separate event estimate or ninth row is claimed | Renzo |

@@ -26,3 +26,6 @@ Reuse frozen P3-29 inputs read-only. New data under `data/raw/p3_36/`, with requ
 
 ## Amendments
 - 7 Nov 2026: renamed P3-35 to P3-36 after a concurrent P3-28 review reused P3-35. Original rules were committed and pushed as b161a85 before collection. No sample or interpretation rule changed.
+
+## Final task-ID coordination amendment — 7 Nov 2026
+Upstream independently published P3-36-post-extension-audit.md while this investigation was running. The BRLA task is therefore P3-37. Existing P3-36 raw/script/table prefixes are retained for traceability. No sample, rule or result changed; F-047 is its finding.

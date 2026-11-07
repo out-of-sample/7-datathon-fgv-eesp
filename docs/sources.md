@@ -297,3 +297,5 @@ Opened 7 Nov 2026 by Codex for Renzo. Contract response and all five documentati
 | T-26 | Avenia, fees, balances and reconciliation: https://integration-guide.avenia.io/docs/Concepts/feesAndBalances/ | "Your Avenia balance is held in tokens". Reconciliation examples expose ticket IDs and PIX end-to-end IDs; examples are not June records. |
 | T-27 | Avenia, available combinations: https://integration-guide.avenia.io/docs/Operations/combinations/ | "Moves tokens between your main account and its sub-accounts". Internal and external operation types exist; no address attribution follows. |
 | T-28 | Avenia, PIX2STABLE and STABLE2PIX: https://integration-guide.avenia.io/docs/Usecases/pix2Stable&stable2pix/ | "Withdrawing funds from a subaccount". Example ticket schema includes `blockchainSenderInfo.txHash`; suggests a possible join key, not an observed match. |
+
+Task-number coordination: this BRLA follow-up is finally P3-37; its P3-36 artifact prefixes are retained. See `tasks/P3-37-brla-economic-function.md`.

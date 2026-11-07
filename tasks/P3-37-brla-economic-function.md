@@ -1,5 +1,5 @@
 ---
-id: P3-36
+id: P3-37
 title: Investigate the economic function of BRLA mint and burn operations
 phase: P3
 status: review
@@ -36,9 +36,10 @@ Determine what publicly observable mechanism produced the large Celo BRLA burns,
 - **Next step:** another teammate obtains both raw bundles (see `data/README.md`), runs `python3 scripts/p3_36_brla_operations.py --offline` and `python3 scripts/p3_36_brla_operations.py --documents --offline`, and checks F-047 against the tables and source snapshots. Record reviewer and verdict before presentation use; P3-29 S7 remains separate.
 - **Open questions:** legal account/operator identities and exact ticket/settlement purpose. A voluntarily supplied redacted hash-to-ticket/settlement mapping is needed; no issuer contact or private API access was attempted.
 - **Scope:** no deck edits or causal conclusion. The eight large burns use a routine also observed before the notice; that does not explain their economic size.
-- **Coordination:** initial ID P3-35 was renamed P3-36 in de4fbc5. Renzo explicitly authorized main-branch pushes for this investigation. Existing unrelated STATUS conflict markers are preserved pending the requested instruction.
+- **Coordination:** initial ID P3-35 was renamed P3-36 in de4fbc5. Renzo explicitly authorized main-branch pushes for this investigation. The latest upstream audit has reconciled the old STATUS markers; its header and activity history were preserved.
 
 ## Log
+- 2026-11-07 — Final task ID P3-37: upstream independently published P3-36-post-extension-audit.md. Keep script/raw/table prefix P3-36 for provenance; protocol and sampling unchanged. F-047 belongs to P3-37.
 - 2026-11-07 — Coordination: this BRLA investigation is P3-36, published in de4fbc5. The independent access-method review may retain P3-35; please do not also rename that review P3-36.
 - 2026-11-07 — Codex for Renzo: claimed S1–S4 for the user-requested economic-function investigation. No new evidence inspected before protocol registration. No external messages or paid services authorized.
 
