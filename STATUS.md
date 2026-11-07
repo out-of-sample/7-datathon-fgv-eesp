@@ -325,7 +325,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P4-03](tasks/P4-03-freeze.md) | Freeze results | ✅ done | Team | - | 4/4 | 4/4 | 2026-11-04 | P4-01, P4-02 |
 | [P4-04](tasks/P4-04-headline-inference-window.md) | Honest inference and window contents for the +94 bps headline (non-overlapping windows, first-day move, other measures inside the window) | 👀 review | CS 2 | - | 3/3 | 3/3 | 2026-11-04 | P2-03, P4-01 |
 
-**P5 — Deck and submission** (1/9 closed)
+**P5 — Deck and submission** (1/10 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -338,6 +338,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P5-07](tasks/P5-07-story-notebook.md) | Story notebook - the whole project end to end (deck prototype) | ✅ done | CS 1 | - | 3/3 | 3/3 | 2026-11-03 | P2-03, P2-04, P3-01, P4-01 |
 | [P5-08](tasks/P5-08-slide10-conclusion.md) | Slide 10 conclusion - answer "so what?" in economic terms, sentence by sentence within the evidence | 👀 review | Economist | - | 3/4 | 2/3 | 2026-11-06 | P3-20, P3-24, P3-25 |
 | [P5-09](tasks/P5-09-deck-v3-claude-slides.md) | Deck v3 - the 10-slide deck rebuilt in Claude Slides, in the mentor deck's design, with a methods slide and checked references | 👀 review | CS 1 | - | 4/5 | 3/4 | 2026-11-06 | P5-01, P4-03 |
+| [P5-10](tasks/P5-10-deck-v4-final.md) | Deck v4 - the final PDF (10 slides + visual appendix) built from v3 and the 7 Nov plan | ⬜ todo | CS 1 | - | 0/6 | 0/3 | 2026-11-08 | P5-08, P5-09 |
 
 **Findings**
 
@@ -399,6 +400,8 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-07 — agent for Renzo: deck v4 plan (`docs/deck-plan-v4-2026-11-07.md`, new task `P5-10` todo): 10 slides from v3 + visual appendix A1–A10; new slides "a rede não é o custo" (cost stack, BRLA route, on-chain audit) and "esperar compensa?" (forecasting, treasury); slide 10 answers the opening question; evidence badge, method chip and limit line on every results slide. **Repo `out-of-sample/7-datathon-fgv-eesp` is private**: Renzo decides before submission (D1). Gates G1–G5 for teammates tonight
 
 - 2026-11-07 — agent for Renzo: P3-20 and P3-21 closing review → review. P3-20: fresh pull (Binance zips match Felipe's checksums; MB 403); readout byte-identical; Felipe's 7 Nov run reproduced every E1 value (teammate re-run); S8 already on Slide 10; E2 verdict and S20 split to new `P3-45`; task file line endings restored to LF. P3-21: reproduces; slide-9 table in v2/v3 matches F-033; criterion 2 met against the current F-015 (R$ 4,842). Waiting on Felipe (S5) and a teammate re-run of F-033
 
