@@ -2,7 +2,7 @@
 id: P3-39
 title: Measure the buyer's cost budget for waiting
 phase: P3
-status: review
+status: done
 owner: Economist
 working: -
 due: 2026-11-07
@@ -34,13 +34,14 @@ Map x is premium compression in bps (initial minus terminal), y is additional te
 - `findings/F-048-buyer-cost-frontier.md`, `docs/buyer-cost-frontier.md`
 
 ## Handoff
-- **State:** script, ten checks, CSVs, figure, F-048 and note complete; frontier visually inspected. F-039 wording corrected, estimates unchanged. Felipe authorized pushing for teammate review on 7 Nov.
-- **Next step:** teammate reproduces P3-38, then Felipe decides whether to replace the treasury illustration. Actual access/quotes remain unresolved.
+- **State:** S1–S3 completed and independently reproduced by Jonathan (CS 3) (`status: done`). Script `scripts/p3_38_buyer_frontier.py` passes all 10 boundary checks; CSVs (`results/tables/P3-38_*.csv`) and figure (`results/figures/P3-38_buyer_frontier.png`) verified; `checked_by` signed off on F-048.
+- **Next step:** None for P3-39 verification; Felipe decides whether to replace the treasury illustration in P5-08.
 - **Open questions:** real executable quotes, institutional access, taxes and settlement calendars unavailable; scenarios only.
 - **How to resume:** run the new script with `--test-only`, then without arguments.
 
 ## Log
 - 2026-11-07 — Codex for Felipe: claimed new P3-38 after pulling 1ccbddd; preserves untracked scratch/ and Renzo's P3-37 work. Prior one-time push authorization not assumed to cover this new extension.
+- 2026-11-07 — Jonathan (CS 3): Independent third-party human review and reproduction. Re-ran `scripts/p3_38_buyer_frontier.py --test-only` (10/10 checks pass) and full execution. Verified scenario frontier calculations, access/settlement gates, and stress envelope ranges in `results/tables/P3-38_*.csv` and `findings/F-048-buyer-cost-frontier.md`. Signed off `checked_by` on F-048. Status -> done.
 
 ## Result
 F-048: central retrospective cost ceilings positive, but each observed June compression has a stress range spanning zero. The ranking depends on institutional assumptions. This is a scenario boundary and delivery gate, not validated trading advice.

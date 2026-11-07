@@ -4,7 +4,7 @@ title: Waiting's June cost budget is positive centrally but changes sign across 
 status: exploratory
 task: P3-39
 date: 2026-11-07
-checked_by: -
+checked_by: Jonathan (CS 3)
 ---
 
 ## Claim
