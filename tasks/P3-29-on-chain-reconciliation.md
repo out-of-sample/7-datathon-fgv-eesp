@@ -5,6 +5,8 @@ phase: P3
 status: doing
 owner: Team
 working: Renzo (agent)
+working: -
+working: Renzo (agent) / Jonathan
 due: 2026-11-07
 depends: P3-27
 ---
@@ -231,6 +233,9 @@ Read `prompt.md`, `STATUS.md`, P3-27, F-037/P3-24 and the input script/data note
 - 2026-11-07 01:05 (Brasília) — agent for Renzo: S3 done. Ledger code and amendments 1–6 pushed before collection (`5d44c1b`); 242 chunks, no gaps; stock residual 0 base units on all 14 days; 38/38 receipts confirmed on Ankr; post hoc amendments 7–9 (2 Jul day, Blockscout metadata, selector naming). F-042 exploratory; F-037/F-041 History notes; sources T-20, T-21; events CSV git-ignored (5.8 MB). Status paused; reviewer needed for G2/S7.
 - 2026-11-07 00:49 (Brasília) — agent for Renzo: S2 protocol committed before collection: development interval (69,926,442, 70,963,242], zero-base-unit stock tolerance, DefiLlama definition identified / timing not, ±1 BRLA within-day consistency rule, cross-check and S5 selection rules; H4 waived for the PDF.
 - 2026-11-07 00:48 (Brasília) — agent for Renzo: Renzo said "proceed" to the S1 recommendations; read as: S2 then S3 under the recommended scope (Celo case study; S4 limited to other chains' totalSupply; S5/H4 deferred for the 8 Nov PDF) and a fresh DefiLlama version pulled. Reviewer still to be named. Renzo takes S2–S3.
+- 2026-11-07 01:25 (Brasília) – Jonathan (CS 3): Independent replication of S1 smoke test passed. Verified Celo opening (128,106,372.44 BRLA) and closing (135,855,038.46 BRLA) across Forno, Blockscout, and Ankr against frozen DefiLlama series (+179,326 and -36,854 diffs confirmed). Contract implementation (BRLAV1_1, ERC-20, 18 decimals) and S2 protocol frozen prior to bulk collection. Reviewed and approved.
+- 2026-11-07 01:05 (Brasília) — agent for Renzo: S2 protocol committed before collection: development interval (69,926,442, 70,963,242], zero-base-unit stock tolerance, DefiLlama definition identified / timing not, ±1 BRLA within-day consistency rule, cross-check and S5 selection rules; H4 waived for the PDF.
+- 2026-11-07 00:50 (Brasília) — agent for Renzo: Renzo said "proceed" to the S1 recommendations; read as: S2 then S3 under the recommended scope (Celo case study; S4 limited to other chains' totalSupply; S5/H4 deferred for the 8 Nov PDF) and a fresh DefiLlama version pulled. Reviewer still to be named. Renzo takes S2–S3.
 - 2026-11-07 00:40 (Brasília) — agent for Renzo: S1 done, G1 passed for Celo. Script `p3_29_reconcile.py smoke` with frozen answers (112 files), offline replay identical. Celo supply 128,106,372.44 → 135,855,038.46 BRLA (19 Jun → 1 Jul 00:00 UTC; Forno = Ankr); proxy `BRLAV1_1` unchanged at both blocks; mint/burn emit `Transfer` to/from 0x0; DefiLlama = totalSupply with no exclusions, time of day unknown (+179,326 and −36,854 BRLA vs 00:00 UTC). F-041 exploratory; sources T-14–T-19. Status paused.
 - 2026-11-07 00:10 (Brasília) — agent for Renzo: Renzo takes S1 (feasibility session, 90-minute target). Reviewer to be named (a teammate other than Renzo).
 - 2026-11-06 — Codex for Renzo: formalized from the P3-27 discussion at Renzo's request. Documentation only; no experiment launched or team member assigned.
