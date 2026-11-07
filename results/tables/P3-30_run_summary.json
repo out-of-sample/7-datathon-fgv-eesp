@@ -1,0 +1,17 @@
+{
+  "status": "predictive_validation_unavailable",
+  "reason": "Locked episode/recovery feasibility floor fails",
+  "tests_passed": 8,
+  "input_sha256": {
+    "data/processed/P1-02_premium_daily.csv": "d7417e19e9730f4701631eae1e5604f68faa169da1649549c7350f782adcd5e5",
+    "data/processed/P1-05_donor_premiums_daily.csv": "2658a7646d4a72824443a7040238761fdd51b311febdeacff738b46346b0b16e"
+  },
+  "model_fitted": false,
+  "caveats": [
+    "PTAX observation calendar; foreign missing days censor episodes",
+    "Donor full-history regime/source-change audit not complete; descriptive only",
+    "Strict return to frozen band excludes downward overshoots",
+    "KM is descriptive; random independent censoring is unverified",
+    "No predictive Brier score, calibration or profitable strategy established"
+  ]
+}

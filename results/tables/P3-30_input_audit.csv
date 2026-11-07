@@ -1,0 +1,7 @@
+currency,rows,valid,missing,first,last,eligibility
+BRL,1520,1520,0,2020-10-13,2026-10-30,primary
+EUR,1520,1510,10,2020-10-13,2026-10-30,descriptive_only_historical_regimes_not_audited
+TRY,1520,1510,10,2020-10-13,2026-10-30,descriptive_only_historical_regimes_not_audited
+ZAR,1520,964,556,2020-10-13,2026-10-30,descriptive_only_historical_regimes_not_audited
+MXN,1520,642,878,2024-04-10,2026-10-30,descriptive_only_historical_regimes_not_audited
+COP,1520,560,960,2024-06-05,2026-10-29,descriptive_only_historical_regimes_not_audited

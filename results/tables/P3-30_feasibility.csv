@@ -1,0 +1,10 @@
+threshold,split,episodes,recoveries,censored,minimum_episodes,minimum_recoveries,passed
+3,train,11,10,1,10,5,True
+3,validation,3,3,0,5,2,False
+3,test,1,0,1,5,2,False
+2,train,13,12,1,10,5,True
+2,validation,2,1,1,5,2,False
+2,test,1,1,0,5,2,False
+4,train,6,5,1,10,5,False
+4,validation,2,2,0,5,2,False
+4,test,1,0,1,5,2,False

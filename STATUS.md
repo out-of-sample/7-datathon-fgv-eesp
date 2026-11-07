@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-06 by Codex for Renzo (P3-28/P3-29 formalized; execution pending) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-06 by Felipe + Flash agents (P3-30, P3-31, P3-32, P3-33 → review; F-038, F-039 exploratory) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 tag `results-frozen` (F-001 to F-033)
 
@@ -43,6 +43,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 [`docs/improvements_log.md`](docs/improvements_log.md) (ongoing strategy discussion, proposals and decisions)
 
 ## Next actions
+
+**Shock-duration & holder-decisions pivot (Felipe, 6 Nov):** [P3-30 — shock duration](tasks/P3-30-shock-duration.md), [P3-31 — holder decisions](tasks/P3-31-holder-decisions.md), [P3-32 — independent review](tasks/P3-32-holder-duration-review.md), and [P3-33 — pivot assessment](tasks/P3-33-pivot-assessment.md) are in `review` (`F-038`, `F-039` exploratory; full assessment in [`docs/shock-duration-and-holder-decisions-assessment.md`](docs/shock-duration-and-holder-decisions-assessment.md) and review in [`docs/shock-duration-holder-review.md`](docs/shock-duration-holder-review.md)). Next: team reviews the Slide 10 conclusion options (`P5-08`) and decides whether to adopt the treasury conversion comparison in Slides 9–10 / Annex.
 
 **New specifications (Renzo, 6 Nov):** [P3-28 — agentic access map](tasks/P3-28-agentic-access-map.md) and
 [P3-29 — on-chain reconciliation](tasks/P3-29-on-chain-reconciliation.md) are todo and unassigned. Next: assign a
@@ -137,7 +139,7 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | 👀 review | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (12/29 closed)
+**P3 — Extensions** (12/33 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -170,6 +172,10 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 | [P3-27](tasks/P3-27-agentic-blockchain-options.md) | Evaluate agentic AI, blockchain and operational-learning extensions | 👀 review | Renzo | - | 5/5 | 3/3 | 2026-11-06 | - |
 | [P3-28](tasks/P3-28-agentic-access-map.md) | Build and evaluate a source-backed agentic map of digital-dollar access | ⬜ todo | Team | - | 0/6 | 0/7 | 2026-11-07 | P3-27 |
 | [P3-29](tasks/P3-29-on-chain-reconciliation.md) | Reconcile reported BRLA supply changes with on-chain evidence | ⬜ todo | Team | - | 0/7 | 0/7 | 2026-11-07 | P3-27 |
+| [P3-30](tasks/P3-30-shock-duration.md) | Shock duration feasibility and retrospective prediction | 👀 review | Economist | - | 4/4 | 3/3 | 2026-11-08 | P1-02, P1-05 |
+| [P3-31](tasks/P3-31-holder-decisions.md) | Holding USDT versus funding a reais obligation now | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-08 | P1-02, P3-03 |
+| [P3-32](tasks/P3-32-holder-duration-review.md) | Independent review of holder decisions and shock duration | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-08 | P3-30, P3-31 |
+| [P3-33](tasks/P3-33-pivot-assessment.md) | Synthesize shock-duration and holder-decision pivot | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-08 | P3-30, P3-31, P3-32 |
 
 **P4 — Robustness and freeze** (3/4 closed)
 
@@ -235,10 +241,13 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 | [F-035](findings/F-035-e1-res574-readout.md) | Registered prediction E1 held - in the first two windows under Res. BCB 574's reporting (3–4 Nov 2026) the premium moved +2.1 bps on Binance (p = 0.90), no move of the June kind; a null that rules out only moves beyond about 75 bps | 🔍 exploratory | P3-20 | - |
 | [F-036](findings/F-036-recovery-composition.md) | The premium receded while Foxbit's share of USDT volume on the three observed exchanges stayed much higher than before | 🔍 exploratory | P3-25 | - |
 | [F-037](findings/F-037-brla-route.md) | The route Pix → BRLA → USDC on Polygon paid the June premium too (+111 bps in the 20 days after the notice, against +94 for USDT on Binance) while BRLA kept its value against another reais token (−3 bps); a small market (0.2–0.35% of Binance's volume); BRLA's supply fall on 24 Jun reversed a build-up of the days before and is not shown to be a run | 🔍 exploratory | P3-24 | - |
+| [F-038](findings/F-038-shock-duration-feasibility.md) | The locked recovery target yields only one new Brazilian episode in 2026, so predictive validation is unavailable | 🔍 exploratory | P3-30 | - |
+| [F-039](findings/F-039-holder-decisions.md) | A holder needs 37.9 bps appreciation over 10 PTAX days to offset a hypothetical 10% annual BRL return | 🔍 exploratory | P3-31 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-06 — Felipe + Codex/Flash agents: P3-30, P3-31, P3-32, P3-33 → review; duration feasibility gate audited on 1,520 BRL PTAX rows (11/10 train, 3/3 val, 1/0 test; 25 May 2026 episode censored at 111 PTAX days → predictive validation unavailable, F-038); institutional 100k USDT holder conversion framework implemented and verified (+18.9/+37.9/+75.9 bps break-even appreciation at 5/10/20 days under 10% net BRL return; waiting from 25 Jun lost R$ 4,697 / R$ 11,594 / R$ 21,704, F-039); full synthesis and Slide 10 pt-BR options in `docs/shock-duration-and-holder-decisions-assessment.md`.
 - 2026-11-06 — Codex for Renzo: P3-27 S5 complete; English specs P3-28 (agentic access map) and P3-29 (on-chain reconciliation) added, both todo/unassigned with 7 Nov feasibility checkpoints. Hypotheses, source checks, baselines, metrics, negative-result rules, outputs and integration specified. No experiments or deck/finding changes; T-13 ERC-20 source opened.
 - 2026-11-06 — Codex for Renzo: P3-27 follow-up maps current findings to each proposed technology and two narrative options in `docs/improvements_log.md`. Access investigation has stronger continuity; payment resilience needs new operational evidence. June does not demonstrate savings from rerouting. No deck/result changes or scope adoption.
 - 2026-11-06 — Codex for Renzo: P3-27 → review; six agentic/blockchain/operational-learning options compared in `docs/improvements_log.md`, sources T-01..T-12 opened. Priorities for discussion: payment completion, on-chain reconciliation, source-backed access map. New hypotheses untested; no extension adopted or experiment launched. P1-06 was manual; P3-05 pilots and P3-06 runs remain pending.
