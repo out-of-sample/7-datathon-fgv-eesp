@@ -94,6 +94,8 @@ regime), a "solution" deliverable (a daily monitor), and a causal design the aca
 
 ## Decision log
 
+P3-39 (7 Nov, Felipe via explicit implementation request): implement the buyer cost frontier with independent deposit/forward rates and a delivery/access gate. Scenario research authorized; deck adoption and independent reproduction remain pending. See `docs/buyer-cost-frontier.md` and F-048.
+
 | Date | Decision | Who |
 |---|---|---|
 | 7 Nov | Continue P3-29 with an English investigation of the economic function of BRLA operations (P3-37, initially P3-35/P3-36; artifact prefix P3-36); distinguish technical routing from settlement and retain independent review before deck use | Renzo |

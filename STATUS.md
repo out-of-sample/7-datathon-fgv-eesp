@@ -85,6 +85,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Next actions
 
+**7 Nov, P3-39 (Felipe):** buyer cost frontier implemented (`docs/buyer-cost-frontier.md`, F-048 exploratory); ten checks pass. Achievable deposit rates vary independently of forward pricing, and both alternatives require access and delivery on time. Central June cost ceilings are positive but change sign across the stress envelope. Next: independent teammate reproduction and Felipe's choice of treasury exhibit. No actual route access established.
+
 - P3-37 BRLA economic-function follow-up: independently replay the 32 cases and review F-047 before annex use; economic purpose remains unidentified.
 
 
@@ -255,7 +257,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | ✅ done | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (13/38 closed)
+**P3 — Extensions** (13/37 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -292,11 +294,10 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P3-31](tasks/P3-31-holder-decisions.md) | Two-Sided Institutional Treasury Decision Framework (BRL -> USDT Buyer & USDT -> BRL Seller) | 👀 review | Economist | - | 4/4 | 4/4 | 2026-11-08 | P1-02, P3-03 |
 | [P3-32](tasks/P3-32-holder-duration-review.md) | Independent review of holder decisions and shock duration | 👀 review | Economist | - | 4/4 | 3/3 | 2026-11-08 | P3-30, P3-31 |
 | [P3-33](tasks/P3-33-pivot-assessment.md) | Synthesize shock-duration and holder-decision pivot | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-08 | P3-30, P3-31, P3-32 |
-| [P3-35](tasks/P3-35-brla-economic-function.md) | Investigate the economic function of BRLA mint and burn operations | 🔄 doing | CS 1 | Renzo (Codex agent) | 0/4 | 0/5 | 2026-11-07 | P3-29 |
-| [P3-36](tasks/P3-36-brla-economic-function.md) | Investigate the economic function of BRLA mint and burn operations | 🔄 doing | CS 1 | Renzo (Codex agent) | 0/4 | 0/5 | 2026-11-07 | P3-29 |
 | [P3-36](tasks/P3-36-post-extension-audit.md) | Audit extension claims and final project synthesis | 👀 review | Economist | - | 4/4 | 2/2 | 2026-11-07 | P3-20, P3-26, P3-28, P3-29, P3-30, P3-31, P3-34 |
 | [P3-37](tasks/P3-37-brla-economic-function.md) | Investigate the economic function of BRLA mint and burn operations | 👀 review | CS 1 | - | 4/4 | 4/5 | 2026-11-07 | P3-29 |
 | [P3-38](tasks/P3-38-access-method-comparison-review.md) | Independently assess the simple-search versus agentic access comparison | 👀 review | CS 1 | - | 3/3 | 5/5 | 2026-11-07 | P3-28 |
+| [P3-39](tasks/P3-39-buyer-cost-frontier.md) | Measure the buyer's cost budget for waiting | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-07 | P3-31 |
 
 **P4 — Robustness and freeze** (3/4 closed)
 
@@ -373,6 +374,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [F-046](findings/F-046-access-comparison-review.md) | Synthetic checks show that P3-28 comparison scores need correction and evidence review before an H1 claim | 🔍 exploratory | P3-38 | - |
 | [F-047](findings/F-047-access-benchmark-dev-pilot.md) | Development pilot of the access-conditions benchmark - on 5 development cases with labels written by the implementer, the agent (0.87), the fixed verify workflow (0.85) and one-pass retrieval (0.75) all far exceed keyword rules (0.15); no held-out result yet | 🔍 exploratory | P3-28 | - |
 | [F-047](findings/F-047-brla-operator-routing.md) | BRLA's large June burns use an authorized transfer-and-burn routine also seen before the notice; their fiat purpose remains unidentified | 🔍 exploratory | P3-37 | - |
+| [F-048](findings/F-048-buyer-cost-frontier.md) | Waiting's June cost budget is positive centrally but changes sign across explicit stress scenarios | 🔍 exploratory | P3-39 | - |
 <!-- BOARD:END -->
 
 

@@ -23,17 +23,14 @@ and is not a rule a treasurer could have applied that day.
    The result changes little under other assumptions: R$ 8,481 with a 5 bps hedge fee instead of 0.22, and R$ 7,079
    if the USDT bought on day one would have earned 4%.
 3. **Not steady:** on 3 Jul (6 days) the premium was back at 185.9 bps, and waiting with the hedge had gained
-   only +6 bps. Nobody knew on 25 Jun that the premium would fall, and F-038 finds that shock duration cannot be
-   forecast better than the historical base rate.
+   only +6 bps. Nobody knew on 25 Jun that the premium would fall. F-038 does not establish robust predictive improvement for its tested model and small sample; it does not prove that duration is inherently unpredictable.
 4. **Unhedged buyer:** R$ 4,706 / R$ 11,617 / R$ 21,747 at 5 / 10 / 20 days. At 20 days, R$ 13,014 of that came
    from the real gaining 2.1% on the PTAX. That gain is currency luck, which the hedged buyer gives up.
 5. **Seller (the mirror image):** waiting cost R$ 4,697 / R$ 11,594 / R$ 21,704 at 5 / 10 / 20 days (R$ 5,408 /
    R$ 6,167 / R$ 11,172 with the currency held fixed). With a 10% a.a. BRL return and 10 bps fees, a seller needs
    USDT/BRL to rise +18.9 / +37.9 / +75.9 bps just to break even.
 
-**What this teaches:** when a buyer can hedge the official dollar, the decision to wait no longer depends on the
-exchange rate or interest rates: it is a bet on the premium alone. In June 2026 that bet would have paid off. Our
-evidence says it could not have been forecast.
+**What this teaches:** an idealized forward reduces USD/BRL exposure, but the comparison also depends on achievable deposit returns, forward pricing, USDT/USD, holding yields, costs and hedge mismatch. The central June illustration favors waiting retrospectively; it does not establish a universal waiting rule. P3-38/F-048 makes these rate and cost assumptions explicit and independent.
 
 ## Evidence
 - Input: `data/processed/P1-02_premium_daily.csv`, 21 PTAX days from 25 Jun to 23 Jul 2026. The price decomposition
@@ -78,6 +75,7 @@ trás: quem precisava comprar US$ 100 mil em USDT e esperou 20 dias úteis com h
 mas em 3/jul o prêmio voltou ao pico e não havia como prever a queda."
 
 ## History
+- 2026-11-07 — Codex for Felipe (P3-38): corrected remaining pure-premium and universal-unpredictability wording; original estimates unchanged. New independent-rate frontier is reported in F-048.
 - 2026-11-06 — Codex for Felipe: initial seller decision engine, thresholds, and boundary tests.
 - 2026-11-06 (logged as 7 Nov) — Flash agent for Felipe: upgraded to Two-Sided Institutional Treasury Decision Framework incorporating Side 1 Buyer (`BRL -> USDT`), B3 FX hedge carry, break-even horizon $h^*$, and synthesis with `P3-30` median shock duration.
 - 2026-11-06 — Felipe: fixes accepted; assessment rewritten to match; status stays exploratory pending teammate re-run.

@@ -1,0 +1,10 @@
+access,trade_day,lag,deadline,result
+True,10,0,10,eligible
+True,10,1,10,late_delivery
+True,9,1,10,eligible
+False,10,0,10,unavailable
+False,10,1,10,unavailable
+False,9,1,10,unavailable
+,10,0,10,unresolved_access
+,10,1,10,unresolved_access
+,9,1,10,unresolved_access

@@ -1,0 +1,11 @@
+{
+  "input_sha256": "d7417e19e9730f4701631eae1e5604f68faa169da1649549c7350f782adcd5e5",
+  "tests": 10,
+  "scenario_count": 216,
+  "calendar": "observed PTAX dates; assumed common settlement calendar",
+  "hedge": "ideal maturity-matched forward, not WDO replication",
+  "selection": "known June episode, retrospective",
+  "actual_access": "unresolved",
+  "cost_denominator": "initial buy-now BRL outlay",
+  "bounds": "user-specified stress envelope; no probabilities"
+}

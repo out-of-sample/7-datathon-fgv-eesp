@@ -299,3 +299,10 @@ Opened 7 Nov 2026 by Codex for Renzo. Contract response and all five documentati
 | T-28 | Avenia, PIX2STABLE and STABLE2PIX: https://integration-guide.avenia.io/docs/Usecases/pix2Stable&stable2pix/ | "Withdrawing funds from a subaccount". Example ticket schema includes `blockchainSenderInfo.txHash`; suggests a possible join key, not an observed match. |
 
 Task-number coordination: this BRLA follow-up is finally P3-37; its P3-36 artifact prefixes are retained. See `tasks/P3-37-brla-economic-function.md`.
+
+### P3-38 — instrument and funding assumptions
+
+| ID | Opened source | Evidence and scope |
+|---|---|---|
+| BF-01 | B3, Mini U.S. Dollar Futures: https://www.b3.com.br/en_us/products-and-services/trading/exchange-rates/mini-u-s-dollar-futures.htm — opened 7 Nov 2026 (Codex for Felipe, web tool during plan review) | Quote: "USD10,000.00 (ten thousand U.S. Dollar)." Specifies WDO contract increments, monthly expirations and cash settlement. Supports distinguishing an ideal forward from actual futures implementation, not historical execution costs. |
+| BF-02 | BIS, Covered interest parity lost: https://www.bis.org/publications/qr-201609/covered-interest-parity-lost-understanding-cross-currency-basis — opened 7 Nov 2026 (Codex for Felipe, web tool during plan review) | Quote: "Covered interest parity verges on a physical law in international finance." Article discusses deviations and funding/balance-sheet constraints. Motivation for independent deposit/forward inputs; no calibration of this institution's rates is inferred. |
