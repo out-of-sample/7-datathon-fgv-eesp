@@ -2,7 +2,9 @@
 and penalized discrete-time survival model evaluation.
 Inputs: frozen P1-02/P1-05 processed CSVs.
 Outputs: P3-30 tables and figures.
-Run: py scripts/p3_30_duration.py [--test]
+Run: py scripts/p3_30_duration.py [--test]   (Linux/macOS: .venv/bin/python scripts/p3_30_duration.py)
+Review 6 Nov 2026 (Renzo's agent): censored-before-horizon episodes are no longer scored as failures;
+paired bootstrap of the Brier gap added (P3-30_brier_bootstrap.csv); summary numbers computed, not typed.
 """
 from pathlib import Path
 import hashlib
@@ -87,6 +89,26 @@ def km(rows, horizon, age=0):
             surv *= (1.0 - events / risk)
     return 1.0 - surv / initial if initial > 0 else np.nan
 
+def outcome(ep, age0, h):
+    """Known recovery label by age0 + h: 1 recovered, 0 still open, None unknown
+    (censored before age0 + h; such episodes are left out of the score, not counted as failures).
+    Review fix 6 Nov (Renzo's agent): the first version scored them as 0."""
+    D, E = ep['duration'], ep['event']
+    if E == 1 and D <= age0 + h:
+        return 1
+    if D >= age0 + h:
+        return 0
+    return None
+
+
+def paired_bootstrap(diff, draws=10_000, seed=0):
+    """Mean and 95% percentile interval of a per-episode difference (resampling episodes)."""
+    diff = np.asarray(diff, dtype=float)
+    rng = np.random.default_rng(seed)
+    boot = diff[rng.integers(0, len(diff), size=(draws, len(diff)))].mean(axis=1)
+    return float(diff.mean()), float(np.percentile(boot, 2.5)), float(np.percentile(boot, 97.5))
+
+
 def fit_logistic_hazard(X, y, l2=1.0, w0=None):
     """Fit discrete-time logistic hazard model with L2 regularization on non-intercept features."""
     def loss(w):
@@ -145,7 +167,12 @@ def tests():
     assert abs(w_high[1]) < abs(w_low[1])  # regularization strictly shrinks slope
     brier_test = float(np.mean((y_test - expit(X_test @ w_low))**2))
     assert 0.0 <= brier_test <= 1.0
-    return 10
+    # Review fix: an episode censored before the horizon has no label
+    assert outcome(dict(duration=3, event=0), 0, 10) is None
+    assert outcome(dict(duration=10, event=0), 0, 10) == 0
+    assert outcome(dict(duration=7, event=1), 0, 10) == 1
+    assert outcome(dict(duration=12, event=1), 0, 10) == 0
+    return 14
 
 def main():
     ntests = tests()
@@ -334,6 +361,7 @@ def main():
     # Focus on k=3 (primary), with k=2, 4 robustness
     eval_records = []
     models_by_k = {}
+    per_episode = {}
 
     for k in [3, 2, 4]:
         train_pool = global_splits_by_k[k]['train']
@@ -384,6 +412,8 @@ def main():
             w = weights[l2]
             sq_errs = []
             for ep in val_pool:
+                if outcome(ep, 0, 10) is None:
+                    continue
                 init_ex = ep['initial_excess_bps']
                 sig = ep['sigma_bps']
                 cur_ex = init_ex
@@ -400,8 +430,7 @@ def main():
                     h_s = expit(np.dot(w, x_s))
                     surv *= (1.0 - h_s)
                 p_pred = 1.0 - surv
-                y_val = 1 if (ep['event'] == 1 and ep['duration'] <= 10) else 0
-                sq_errs.append((y_val - p_pred)**2)
+                sq_errs.append((outcome(ep, 0, 10) - p_pred)**2)
             val_briers[l2] = float(np.mean(sq_errs))
 
         selected_l2 = min(val_briers, key=val_briers.get)
@@ -419,10 +448,9 @@ def main():
                 p_km_train_0 = km(train_pool, h, age=0)
 
                 # 1. Baseline Kaplan-Meier at onset (age0 = 0)
-                sq_km_0 = []
-                for ep in pool:
-                    y_true = 1 if (ep['event'] == 1 and ep['duration'] <= h) else 0
-                    sq_km_0.append((y_true - p_km_train_0)**2)
+                scored = [ep for ep in pool if outcome(ep, 0, h) is not None]
+                sq_km_0 = [(outcome(ep, 0, h) - p_km_train_0)**2 for ep in scored]
+                per_episode[(k, split_name, h, 'KM')] = sq_km_0
 
                 eval_records.append(dict(
                     threshold=k,
@@ -432,6 +460,7 @@ def main():
                     horizon_days=h,
                     model='Kaplan-Meier',
                     l2_penalty=np.nan,
+                    n_scored=len(scored),
                     brier_score=round(float(np.mean(sq_km_0)), 4),
                     km_train_prob=round(p_km_train_0, 4),
                     pred_mean=round(p_km_train_0, 4),
@@ -447,7 +476,7 @@ def main():
                     w = weights[l2]
                     sq_haz_0 = []
                     preds_0 = []
-                    for ep in pool:
+                    for ep in scored:
                         init_ex = ep['initial_excess_bps']
                         sig = ep['sigma_bps']
                         cur_ex = init_ex
@@ -465,8 +494,8 @@ def main():
                             surv *= (1.0 - h_s)
                         p_pred = 1.0 - surv
                         preds_0.append(p_pred)
-                        y_true = 1 if (ep['event'] == 1 and ep['duration'] <= h) else 0
-                        sq_haz_0.append((y_true - p_pred)**2)
+                        sq_haz_0.append((outcome(ep, 0, h) - p_pred)**2)
+                    per_episode[(k, split_name, h, l2)] = sq_haz_0
 
                     eval_records.append(dict(
                         threshold=k,
@@ -476,6 +505,7 @@ def main():
                         horizon_days=h,
                         model=f'Hazard_l2_{l2}',
                         l2_penalty=l2,
+                        n_scored=len(scored),
                         brier_score=round(float(np.mean(sq_haz_0)), 4),
                         km_train_prob=round(p_km_train_0, 4),
                         pred_mean=round(float(np.mean(preds_0)), 4),
@@ -504,9 +534,9 @@ def main():
                                 init_ex = ep['initial_excess_bps']
                                 vals = ep['values']
                                 is_active = (D > age0 or (age0 == 0 and D >= 0))
-                                if not is_active:
+                                if not is_active or outcome(ep, age0, h) is None:
                                     continue
-                                y_true = 1 if (E == 1 and D <= age0 + h) else 0
+                                y_true = outcome(ep, age0, h)
 
                                 if model_type == 'KM':
                                     pred = p_km_age
@@ -539,6 +569,7 @@ def main():
                             horizon_days=h,
                             model=model_type,
                             l2_penalty=l2_val,
+                            n_scored=len(pooled_sq),
                             brier_score=round(float(np.mean(pooled_sq)), 4),
                             km_train_prob=np.nan,
                             pred_mean=round(float(np.mean(pooled_preds)), 4),
@@ -552,6 +583,22 @@ def main():
     df_eval = pd.DataFrame(eval_records)
     df_eval.to_csv(OUT_TABLES / 'P3-30_model_eval.csv', index=False)
 
+    # Review addition: is the selected model's gain over KM larger than episode-sampling noise?
+    # Primary comparison: onset, h = 10, lambda selected on validation. Negative = model better.
+    boot_rows = []
+    for k in [3, 2, 4]:
+        sel = models_by_k[k]['selected_l2']
+        for split_name in ['validation', 'test']:
+            for h in [5, 10, 20]:
+                d = np.array(per_episode[(k, split_name, h, sel)]) - np.array(per_episode[(k, split_name, h, 'KM')])
+                mean, lo, hi = paired_bootstrap(d)
+                boot_rows.append(dict(threshold=k, split=split_name, horizon_days=h, selected_l2=sel,
+                                      n_scored=len(d), brier_model_minus_km=round(mean, 4),
+                                      ci95_low=round(lo, 4), ci95_high=round(hi, 4),
+                                      model_better=bool(hi < 0), km_better=bool(lo > 0)))
+    df_boot = pd.DataFrame(boot_rows)
+    df_boot.to_csv(OUT_TABLES / 'P3-30_brier_bootstrap.csv', index=False)
+
     # 6. Plotting: Global survival curves & Hazard Model Predictions (Figure P3-30_global_survival.png)
     plt.style.use('seaborn-v0_8-whitegrid' if 'seaborn-v0_8-whitegrid' in plt.style.available else 'default')
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 5.5), dpi=150)
@@ -560,10 +607,12 @@ def main():
     train_pool_k3 = global_splits_by_k[3]['train']
     days_grid = np.arange(1, 41)
     km_curve = [km(train_pool_k3, int(d), age=0) for d in days_grid]
+    km_median = int(next(d for d, v in zip(days_grid, km_curve) if v >= 0.5))
 
-    ax1.step(days_grid, km_curve, where='post', color='#1f77b4', lw=2.5, label='Global 10-Currency Pool (k=3)')
-    ax1.axhline(0.50, color='#d62728', ls='--', lw=1.5, alpha=0.8, label='Global Median Recovery = 20 Days (51.1%)')
-    ax1.axvline(20, color='#d62728', ls=':', lw=1.5, alpha=0.8)
+    ax1.step(days_grid, km_curve, where='post', color='#1f77b4', lw=2.5, label='Training pool 2020-2024, 10 currencies (k=3)')
+    ax1.axhline(0.50, color='#d62728', ls='--', lw=1.5, alpha=0.8,
+                label=f'Median recovery = {km_median} days ({km(train_pool_k3, km_median, 0):.1%})')
+    ax1.axvline(km_median, color='#d62728', ls=':', lw=1.5, alpha=0.8)
 
     # Key landmark annotations
     ax1.scatter([5, 10, 20], [km(train_pool_k3, 5, 0), km(train_pool_k3, 10, 0), km(train_pool_k3, 20, 0)],
@@ -575,10 +624,9 @@ def main():
     ax1.annotate(f'20d: {km(train_pool_k3, 20, 0)*100:.1f}%\n(Median)', (20, km(train_pool_k3, 20, 0)),
                  xytext=(22, 0.44), arrowprops=dict(arrowstyle='->', color='#d62728'))
 
-    # Shaded band for Brazil's 20-day acute spike fade (June 24 to mid-July 2026)
-    ax1.axvspan(0, 20, color='gray', alpha=0.15, label="Brazil Acute Spike Dissipation Window (~20d)")
-
-    ax1.set_title('Panel A: Global 10-Currency Kaplan-Meier Recovery Curve (k=3)', fontsize=12, fontweight='bold', pad=10)
+    # Review fix: the shaded 'Brazil 20-day spike' band was removed. Under this script's own rule the
+    # Brazilian 2026 episode starts 25 May 2026 and is still open after 111 days (no 20-day match).
+    ax1.set_title('Panel A: Kaplan-Meier recovery, training pool (k=3)', fontsize=12, fontweight='bold', pad=10)
     ax1.set_xlabel('Trading Days Since Shock Onset', fontsize=11)
     ax1.set_ylabel('Cumulative Recovery Probability', fontsize=11)
     ax1.set_ylim(-0.02, 1.02)
@@ -587,7 +635,8 @@ def main():
 
     # Panel B: Predicted Recovery Probability by Initial Shock Size from Penalized Hazard Model
     m3 = models_by_k[3]
-    w_k3 = m3['weights'][1.0]
+    sel_k3 = m3['selected_l2']
+    w_k3 = m3['weights'][sel_k3]  # review fix: plot the validation-selected penalty, not lambda = 1
     mu_k3 = m3['mu']
     sd_k3 = m3['sd']
 
@@ -623,8 +672,8 @@ def main():
             surv20 *= (1.0 - expit(np.dot(w_k3, x_s)))
         p_rec_20.append(1.0 - surv20)
 
-    ax2.plot(shock_sizes, p_rec_10, color='#2ca02c', lw=2.5, label='Predicted 10-Day Recovery (l2=1.0)')
-    ax2.plot(shock_sizes, p_rec_20, color='#ff7f0e', lw=2.5, label='Predicted 20-Day Recovery (l2=1.0)')
+    ax2.plot(shock_sizes, p_rec_10, color='#2ca02c', lw=2.5, label=f'Predicted 10-day recovery (l2={sel_k3})')
+    ax2.plot(shock_sizes, p_rec_20, color='#ff7f0e', lw=2.5, label=f'Predicted 20-day recovery (l2={sel_k3})')
 
     # Annotate test episodes
     test_k3 = global_splits_by_k[3]['test']
@@ -635,12 +684,11 @@ def main():
             ax2.scatter(ex, rec_10_actual, color='purple' if rec_10_actual else 'red',
                         marker='o' if rec_10_actual else 'x', s=45, alpha=0.8)
 
-    ax2.annotate(r'$\beta_{init} = -0.5191 < 0$' + '\n(Large shocks have lower hazard of early recovery)',
-                 xy=(280, 0.45), xytext=(220, 0.65),
-                 bbox=dict(boxstyle='round,pad=0.5', facecolor='#ffffcc', alpha=0.9),
-                 arrowprops=dict(arrowstyle='->', connectionstyle='arc3,rad=.2', color='black'))
+    ax2.text(0.98, 0.70, f'w_init = {w_k3[2]:+.3f} (standardised)\nTest outcomes at 10 days: o recovered, x not',
+             transform=ax2.transAxes, ha='right', fontsize=9,
+             bbox=dict(boxstyle='round,pad=0.4', facecolor='white', alpha=0.9))
 
-    ax2.set_title(r'Panel B: Penalized Hazard Predictions ($\beta_{init} < 0$ Differentiates Frictions)',
+    ax2.set_title('Panel B: hazard model predictions by initial shock size (k=3)',
                   fontsize=12, fontweight='bold', pad=10)
     ax2.set_xlabel('Initial Shock Size (Excess bps Over 60d Median)', fontsize=11)
     ax2.set_ylabel('Predicted Recovery Probability', fontsize=11)
@@ -652,59 +700,40 @@ def main():
     plt.savefig(OUT_FIGURES / 'P3-30_global_survival.png', dpi=150)
     plt.close(fig)
 
-    # 7. Summary JSON
+    # 7. Summary JSON (review fix: every number computed here, none typed in)
+    def ev(split, h, model, k=3, scope='onset'):
+        q = df_eval[(df_eval.threshold == k) & (df_eval.split == split) & (df_eval.horizon_days == h)
+                    & (df_eval.evaluation_scope == scope) & (df_eval.model == model)]
+        return float(q.brier_score.iloc[0])
+    sel = models_by_k[3]['selected_l2']
+    b = df_boot.set_index(['threshold', 'split', 'horizon_days'])
+    fe = df_gates.set_index(['scope', 'threshold', 'split'])
     summary = dict(
-        status='global_feasibility_passed_and_evaluated',
+        status='evaluated; reviewed 6 Nov 2026 (Renzo agent)',
         tests_passed=ntests,
-        input_sha256=provenance,
-        feasibility=dict(
-            brl_only=dict(
-                train='11/10 (passed)',
-                validation='3/3 (failed floor 5/2)',
-                test='1/0 (failed floor 5/2)',
-                verdict='failed_feasibility_single_country'
-            ),
-            global_10_currencies=dict(
-                k3_train='43/38 (passed floor 10/5)',
-                k3_validation='10/8 (passed floor 5/2)',
-                k3_test='8/6 (passed floor 5/2)',
-                k2_train='62/55 (passed floor 10/5)',
-                k2_validation='17/13 (passed floor 5/2)',
-                k2_test='14/11 (passed floor 5/2)',
-                verdict='passed_global_feasibility'
-            )
+        input_sha256_lf=provenance,
+        feasibility={f'{sc}_k{k}_{sp}': f"{int(r.episodes)}/{int(r.recoveries)} ({'pass' if r.passed else 'fail'})"
+                     for (sc, k, sp), r in fe.iterrows()},
+        km_training_pool_k3=dict(
+            horizon_5d=round(km(train_pool_k3, 5, 0), 4),
+            horizon_10d=round(km(train_pool_k3, 10, 0), 4),
+            horizon_20d=round(km(train_pool_k3, 20, 0), 4),
+            median_recovery_days=km_median,
         ),
-        metrics=dict(
-            km_global_onset=dict(
-                horizon_5d=round(km(train_pool_k3, 5, 0), 4),
-                horizon_10d=round(km(train_pool_k3, 10, 0), 4),
-                horizon_20d=round(km(train_pool_k3, 20, 0), 4),
-                global_median_recovery_days=20
-            ),
-            test_onset_10d_brier=dict(
-                kaplan_meier=0.1878,
-                hazard_l2_1=0.1644,
-                hazard_l2_10=0.1747,
-                brier_error_reduction_pct='7.0% - 12.5%'
-            ),
-            test_pooled_ongoing_10d_brier=dict(
-                kaplan_meier=0.2223,
-                hazard_l2_1=0.2575,
-                finding='KM beats price-only hazard model once shock is underway'
-            ),
-            fitted_weights_k3_l2_1=dict(
-                intercept=round(float(w_k3[0]), 4),
-                w_age=round(float(w_k3[1]), 4),
-                w_init_excess=round(float(w_k3[2]), 4),
-                w_cur_excess=round(float(w_k3[3]), 4),
-                w_cur_z=round(float(w_k3[4]), 4)
-            )
+        primary_onset_10d_k3=dict(
+            selected_l2=sel,
+            validation=dict(km=ev('validation', 10, 'Kaplan-Meier'), model=ev('validation', 10, f'Hazard_l2_{sel}'),
+                            n=int(b.loc[(3, 'validation', 10), 'n_scored']),
+                            diff_ci95=[float(b.loc[(3, 'validation', 10), c]) for c in ['ci95_low', 'ci95_high']]),
+            test=dict(km=ev('test', 10, 'Kaplan-Meier'), model=ev('test', 10, f'Hazard_l2_{sel}'),
+                      n=int(b.loc[(3, 'test', 10), 'n_scored']),
+                      diff_ci95=[float(b.loc[(3, 'test', 10), c]) for c in ['ci95_low', 'ci95_high']]),
         ),
-        key_conclusions=[
-            'At onset (age0=0), penalized hazard model achieves Brier=0.1644 vs KM 0.1878 (12.5% error reduction) because beta_init < 0 separates minor friction blips from large shocks.',
-            'Across ongoing ages (age0 in [0, 5, 10]), simple Kaplan-Meier (Brier=0.2223) beats price-only hazard (0.2575), showing that mid-episode normalization depends on discrete institutional liquidity and supply adaptation rather than price trajectory alone.',
-            'Global median recovery across 10 currencies is 20 business days (51.1% recovered at 20d), aligning with the 20-day acute spike dissipation observed in Brazil (June-July 2026).'
-        ]
+        robustness_test_10d_model_minus_km={f'k{k}': float(b.loc[(k, 'test', 10), 'brier_model_minus_km']) for k in [2, 4]},
+        test_pooled_ongoing_10d_k3=dict(km=ev('test', 10, 'KM', scope='pooled_ongoing_ages_0_5_10'),
+                                        model=ev('test', 10, f'Hazard_l2_{sel}', scope='pooled_ongoing_ages_0_5_10')),
+        test_episodes_k3=[f"{r['currency']} {r['start'].date()} d={r['duration']} e={r['event']}"
+                          for r in global_splits_by_k[3]['test']],
     )
 
     with open(OUT_TABLES / 'P3-30_run_summary.json', 'w', encoding='utf-8') as f:
@@ -712,6 +741,8 @@ def main():
 
     print('=== Feasibility Summary ===')
     print(df_gates.to_string(index=False))
+    print('\n=== Paired bootstrap, selected model minus KM ===')
+    print(df_boot.to_string(index=False))
     print('\n=== Model Evaluation (k=3, Test 2026) ===')
     print(df_eval[(df_eval.threshold == 3) & (df_eval.split == 'test')].to_string(index=False))
     print('\n=== Run Summary ===')

@@ -1,7 +1,7 @@
 {
   "framework": "Two-Sided Institutional Treasury Decision Framework (BRL->USDT Buyer & USDT->BRL Seller)",
-  "input": "data\\processed\\P1-02_premium_daily.csv",
-  "sha256": "d7417e19e9730f4701631eae1e5604f68faa169da1649549c7350f782adcd5e5",
+  "input": "data/processed/P1-02_premium_daily.csv",
+  "sha256": "47982f7940d3dac8c4a127083fd3322ff9aa25bb4e1568ae3b09ac54411289b4",
   "rows_full_input": 1520,
   "rows_selected": 21,
   "selected_missing_prices": 0,
@@ -9,51 +9,44 @@
   "selected_end": "2026-07-23",
   "calendar": "Observed PTAX publication dates, not verified bank settlement days",
   "initial_sale_after_signal": true,
-  "tests_passed": 12,
+  "tests_passed": 13,
   "quantity_usdt": 100000,
   "annual_rate_status": "hypothetical effective net BRL returns, not CDI/SOFR or accessible products",
   "cost_status": "hypothetical; bid/depth and institution-specific taxes unavailable",
   "settlement": "same-day assumed; waiting at deadline with any positive lag rejected",
   "claim": "retrospective indicative comparison, not strategy performance",
-  "b3_hedge_carry_bps_per_ptax_day": 2.5,
-  "b3_hedge_source": "P3-01 / F-015 / R-07 ((CDI 10.75% - SOFR 5.00%)/252 + B3 exchange fees = 2.5 bps/day)",
-  "b3_hedge_breakeven_horizon_peak_to_postspike_days": 45.2,
-  "b3_hedge_breakeven_horizon_acute_mean_to_postspike_days": 29.84,
-  "global_median_shock_duration_p3_30_days": 20,
-  "ex_ante_hedged_buyer_optimality": "Waiting with B3 FX hedge is ex-ante optimal because median shock duration (20d) is strictly less than break-even horizons (29.8d - 45.2d)",
-  "realized_hedged_savings_bps": {
-    "5d_to_02Jul": 83.79,
-    "10d_to_09Jul": 65.72,
-    "20d_to_23Jul": 63.0
-  },
-  "realized_hedged_savings_brl_ranges": {
-    "5d_to_02Jul": [
-      4357.08,
-      4422.83
-    ],
-    "10d_to_09Jul": [
-      3417.44,
-      3469.01
-    ],
-    "20d_to_23Jul": [
-      3276.0,
-      3325.44
-    ]
-  },
-  "unhedged_buyer_savings_brl_ask": [
-    4706.35,
-    11616.78,
-    21747.16
+  "b3_hedge_pricing": "covered interest parity, BRL 10% (scenario), USD 5% (R-07 SOFR); one-off fee 0.22 bps (R-07)",
+  "review_6nov_renzo_agent": "h* break-even and typed-in premiums removed; B3 credits BRL interest; all values below computed",
+  "initial_premium_bps": 184.35,
+  "headline_horizons": [
+    {
+      "horizon_ptax_days": 5,
+      "deadline": "2026-07-02",
+      "final_premium_bps": 99.19,
+      "hedged_savings_bps": 89.66,
+      "hedged_savings_brl": 4746.45,
+      "unhedged_savings_brl": 4706.35,
+      "seller_wait_minus_sell_now_brl": -4696.94
+    },
+    {
+      "horizon_ptax_days": 10,
+      "deadline": "2026-07-09",
+      "final_premium_bps": 103.83,
+      "hedged_savings_bps": 92.32,
+      "hedged_savings_brl": 4896.28,
+      "unhedged_savings_brl": 11616.78,
+      "seller_wait_minus_sell_now_brl": -11593.57
+    },
+    {
+      "horizon_ptax_days": 20,
+      "deadline": "2026-07-23",
+      "final_premium_bps": 45.92,
+      "hedged_savings_bps": 164.04,
+      "hedged_savings_brl": 8733.44,
+      "unhedged_savings_brl": 21747.16,
+      "seller_wait_minus_sell_now_brl": -21703.71
+    }
   ],
-  "unhedged_buyer_savings_brl_mid_dual": [
-    4696.94,
-    11593.57,
-    21703.71
-  ],
-  "seller_loss_brl": [
-    -4696.94,
-    -11593.57,
-    -21703.71
-  ],
+  "hedged_days_with_loss": [],
   "duality_symmetry_factor": 1.002002002002002
 }

@@ -2,7 +2,8 @@
 Side 1: Institutional Buyer (BRL -> USDT) acquiring Q=100k USDT by deadline h in {5, 10, 20} PTAX days
         - Strategy B1: Buy Now at t, hold in USD yield instrument (r_USD in {0%, 4%})
         - Strategy B2: Wait in BRL at r_BRL Unhedged, Buy at T
-        - Strategy B3: Wait in BRL + Hedge USD/BRL on B3 via WDO/NDF at CIP carry c_hedge = 2.5 bps/day
+        - Strategy B3: Wait in BRL + buy USD/BRL forward (B3 WDO/DOL or NDF) priced at covered interest parity
+          (review fix 6 Nov: the BRL deposit interest pays the forward points, so waiting has no 2.5 bps/day cost)
 Side 2: Institutional Seller (USDT -> BRL) funding a BRL obligation by deadline h
         - Sell Now vs Wait in USDT
 
@@ -18,6 +19,10 @@ Outputs:
   - results/figures/P3-31_historical.png (two-panel: seller outcome vs buyer unhedged & B3-hedged)
 
 Run: py scripts/p3_31_holder.py (tests run first); --test-only for tests.
+     Linux/macOS: .venv/bin/python scripts/p3_31_holder.py
+Review 6 Nov 2026 (Renzo's agent): premiums are read from P1-02 (the first version typed in 142.02/45.73/51.30/29.02,
+which match no series); B3 accounting credits BRL interest; the break-even horizon h* was removed (it charged the
+forward points without crediting the interest that pays them).
 """
 from pathlib import Path
 import argparse
@@ -38,7 +43,10 @@ FIG = ROOT / 'results/figures'
 Q = 100_000
 HORIZONS = (5, 10, 20)
 RATES = (0., .05, .10, .15, .20)
-C_HEDGE_BPS_DAY = 2.5  # Documented B3 CIP carry from P3-01 / F-015 / R-07
+R_BRL = .10            # hypothetical net BRL rate, same as the seller scenarios (not CDI)
+R_USD_FWD = .05        # USD rate in the forward's CIP pricing (R-07: SOFR ~5.00%)
+HEDGE_FEE_BPS = .22    # one-off exchange fee on the hedge notional (R-07: ~2.5 - 2.28 bps on a DOL contract);
+                       # ponytail: lower bound, no WDO bid-ask or margin funding; sensitivity in the table
 
 
 # =====================================================================
@@ -132,43 +140,35 @@ def buyer_compare_unhedged(q, p0, p1, rate_brl, horizon, fee_now=.001, fixed_now
     return term_now, cost_wait, savings
 
 
-def b3_hedge_breakeven_horizon(p_start_bps, p_target_bps, c_hedge_bps_day=C_HEDGE_BPS_DAY):
-    """Break-even waiting horizon h* in PTAX business days under B3 FX hedge.
+def b3_hedged_buyer(q, x0, u0, p0_bps, x1, u1, p1_bps, horizon, rate_brl=R_BRL,
+                    rate_usd_fwd=R_USD_FWD, fee=.001, hedge_fee_bps=HEDGE_FEE_BPS, rate_usd_held=0.):
+    """Strategy B1 (buy now) vs B3 (keep BRL at rate_brl, buy USD forward at t, buy USDT at T).
 
-    h* = (p_start - p_target) / c_hedge
+    Forward at covered interest parity: F = X_t * A_BRL / A_USD. Hedge notional N fixed at t as the USD
+    value of the planned outlay, N = q * U_t * (1 + p_t) * (1 + fee). Terminal BRL (T-reais):
+      B1 = buyer_cost(q / A_USDheld, P_t) * A_BRL
+      B3 = buyer_cost(q, P_T) - N * (X_T - F) + N * X_t * hedge_fee
+    With rate_usd_held = 0 the saving splits exactly into
+      usd_carry  = N * X_t * A_BRL * (1 - 1 / A_USD)          (forward is cheaper than spot by the USD rate)
+      premium    = q * (1 + fee) * X_T * [U_t (1 + p_t) - U_T (1 + p_T)]   (premium and USDT/USD change)
+      hedge_fee  = - N * X_t * hedge_fee
+    There is no carry cost: the BRL deposit interest pays the forward points.
     """
-    if c_hedge_bps_day <= 0:
-        raise ValueError('Hedge carry cost must be strictly positive')
-    return (p_start_bps - p_target_bps) / c_hedge_bps_day
-
-
-def b3_hedged_buyer_savings(p_start_bps, p_target_bps, horizon_days,
-                            c_hedge_bps_day=C_HEDGE_BPS_DAY, q=Q,
-                            ptax_ref=5.2033, spot_ref=5.278475):
-    """Evaluate Strategy B3 (Wait in BRL + Hedge USD/BRL on B3 via WDO/NDF).
-
-    Eliminates PTAX FX risk over [t, T] at carry c_hedge = 2.5 bps/day.
-    """
-    if horizon_days < 0:
-        raise ValueError('Horizon must be nonnegative')
-    compression = p_start_bps - p_target_bps
-    carry = horizon_days * c_hedge_bps_day
-    net_savings_bps = compression - carry
-    savings_brl_ptax = q * ptax_ref * (net_savings_bps / 10_000)
-    savings_brl_spot = q * spot_ref * (net_savings_bps / 10_000)
-    h_star = b3_hedge_breakeven_horizon(p_start_bps, p_target_bps, c_hedge_bps_day)
-
-    return {
-        'horizon_days': horizon_days,
-        'initial_premium_bps': p_start_bps,
-        'final_premium_bps': p_target_bps,
-        'compression_bps': compression,
-        'carry_bps': carry,
-        'net_savings_bps': net_savings_bps,
-        'savings_brl_ptax': savings_brl_ptax,
-        'savings_brl_spot': savings_brl_spot,
-        'breakeven_horizon_h_star': h_star,
-    }
+    if not all(math.isfinite(v) for v in (x0, u0, p0_bps, x1, u1, p1_bps)):
+        raise ValueError('Nonfinite price input')
+    a_brl, a_usd = accumulation(rate_brl, horizon), accumulation(rate_usd_fwd, horizon)
+    p0 = x0 * u0 * (1 + p0_bps / 1e4)
+    p1 = x1 * u1 * (1 + p1_bps / 1e4)
+    b1 = buyer_cost(q / accumulation(rate_usd_held, horizon), p0, fee) * a_brl
+    fwd = x0 * a_brl / a_usd
+    notional = q * u0 * (1 + p0_bps / 1e4) * (1 + fee)
+    fee_brl = notional * x0 * hedge_fee_bps / 1e4
+    b3 = buyer_cost(q, p1, fee) - notional * (x1 - fwd) + fee_brl
+    return dict(b1_terminal_brl=b1, b3_terminal_brl=b3, savings_brl=b1 - b3,
+                savings_bps=(b1 - b3) / b1 * 1e4,
+                usd_carry_brl=notional * x0 * a_brl * (1 - 1 / a_usd),
+                premium_part_brl=q * (1 + fee) * x1 * (u0 * (1 + p0_bps / 1e4) - u1 * (1 + p1_bps / 1e4)),
+                hedge_fee_brl=-fee_brl, forward_brl_per_usd=fwd)
 
 
 def require_prices(frame):
@@ -249,30 +249,30 @@ class BoundaryTests(unittest.TestCase):
         _, _, b_sav_10 = buyer_compare_unhedged(Q, p0, p1_10, 0.10, 10, fee_now=c, fee_later=c)
         self.assertAlmostEqual(b_sav_10, -s_diff_10 * expected_ratio, places=6)
 
-    def test_b3_hedge_breakeven_horizon(self):
-        h_star_peak = b3_hedge_breakeven_horizon(142.02, 29.02, 2.5)
-        self.assertAlmostEqual(h_star_peak, 45.2, places=1)
-        h_star_acute = b3_hedge_breakeven_horizon(115.6, 41.0, 2.5)
-        self.assertAlmostEqual(h_star_acute, 29.84, places=2)
-        res = b3_hedged_buyer_savings(142.02, 29.02, h_star_peak, c_hedge_bps_day=2.5)
-        self.assertAlmostEqual(res['net_savings_bps'], 0.0, places=6)
+    def test_b3_hedge_removes_fx(self):
+        # Premium and USDT/USD unchanged, zero rates and fees: any FX move nets to zero
+        for x1 in (4.5, 5.0, 5.5):
+            r = b3_hedged_buyer(Q, 5.0, 1.0, 50., x1, 1.0, 50., 10, rate_brl=0., rate_usd_fwd=0., fee=0., hedge_fee_bps=0.)
+            self.assertAlmostEqual(r['savings_brl'], 0., places=6)
 
-    def test_b3_hedge_realized_savings(self):
-        # 5 days
-        r5 = b3_hedged_buyer_savings(142.02, 45.73, 5, c_hedge_bps_day=2.5, q=100_000, ptax_ref=5.20, spot_ref=5.278475)
-        self.assertAlmostEqual(r5['net_savings_bps'], 83.79, places=2)
-        self.assertAlmostEqual(r5['savings_brl_ptax'], 4357.08, places=2)
-        self.assertAlmostEqual(r5['savings_brl_spot'], 4422.83, places=2)
-        # 10 days
-        r10 = b3_hedged_buyer_savings(142.02, 51.30, 10, c_hedge_bps_day=2.5, q=100_000, ptax_ref=5.20, spot_ref=5.278475)
-        self.assertAlmostEqual(r10['net_savings_bps'], 65.72, places=2)
-        self.assertAlmostEqual(r10['savings_brl_ptax'], 3417.44, places=2)
-        self.assertAlmostEqual(r10['savings_brl_spot'], 3469.01, places=2)
-        # 20 days
-        r20 = b3_hedged_buyer_savings(142.02, 29.02, 20, c_hedge_bps_day=2.5, q=100_000, ptax_ref=5.20, spot_ref=5.278475)
-        self.assertAlmostEqual(r20['net_savings_bps'], 63.00, places=2)
-        self.assertAlmostEqual(r20['savings_brl_ptax'], 3276.00, places=2)
-        self.assertAlmostEqual(r20['savings_brl_spot'], 3325.44, places=2)
+    def test_b3_hedge_no_carry_cost(self):
+        # Nothing moves and the USDT bought now earns the forward's USD rate: waiting is worth exactly zero,
+        # whatever the BRL rate (the BRL interest pays the forward points)
+        for rb in (0., .10, .15):
+            r = b3_hedged_buyer(Q, 5.0, 1.0, 50., 5.0, 1.0, 50., 20, rate_brl=rb, rate_usd_fwd=.05, fee=0.,
+                                hedge_fee_bps=0., rate_usd_held=.05)
+            self.assertAlmostEqual(r['savings_brl'], 0., places=6)
+        # CIP forward is above spot when BRL rate > USD rate, yet waiting still costs nothing but the USD carry
+        r = b3_hedged_buyer(Q, 5.0, 1.0, 50., 5.0, 1.0, 50., 20, rate_brl=.15, rate_usd_fwd=0., fee=0., hedge_fee_bps=0.)
+        self.assertGreater(r['forward_brl_per_usd'], 5.0)
+        self.assertAlmostEqual(r['savings_brl'], 0., places=6)
+
+    def test_b3_hedge_decomposition(self):
+        r = b3_hedged_buyer(Q, 5.19, .9988, 184.35, 5.08, .9991, 45.92, 20)
+        self.assertAlmostEqual(r['savings_brl'], r['usd_carry_brl'] + r['premium_part_brl'] + r['hedge_fee_brl'], places=6)
+        # Premium compression of ~138 bps, no FX/rates: saving ~ 138 / (1 + p0) bps
+        z = b3_hedged_buyer(Q, 5.0, 1.0, 184.35, 5.0, 1.0, 45.92, 5, rate_brl=0., rate_usd_fwd=0., fee=0., hedge_fee_bps=0.)
+        self.assertAlmostEqual(z['savings_bps'], (184.35 - 45.92) / (1 + 184.35 / 1e4), places=6)
 
     def test_buyer_usd_yield_sensitivity(self):
         _, _, sav_usd0 = buyer_compare_unhedged(Q, 5.278475, 5.241450, 0.10, 5, rate_usd=0.0)
@@ -357,54 +357,34 @@ def main():
     hist.to_csv(TABLE / 'P3-31_historical_comparison.csv', index=False)
     pd.DataFrame(sensitivity).to_csv(TABLE / 'P3-31_sensitivity.csv', index=False)
 
-    # 2. Build Side 1 Buyer & B3 Hedged comparison table
+    # 2. Side 1 Buyer: every PTAX day of the window, prices read from P1-02 (review fix)
     buyer_rows = []
-    # Documented premiums from peak 25 Jun to 02 Jul (5d), 09 Jul (10d), 23 Jul (20d)
-    benchmark_data = [
-        (5, '2026-07-02', 142.02, 45.73, window.iloc[5].usdtbrl_window_brl),
-        (10, '2026-07-09', 142.02, 51.30, window.iloc[10].usdtbrl_window_brl),
-        (20, '2026-07-23', 142.02, 29.02, window.iloc[20].usdtbrl_window_brl),
-    ]
-
-    for h, deadline, p_start, p_end, p1_indicative in benchmark_data:
-        # B3 Hedge Strategy (Strategy B3)
-        hedge_res = b3_hedged_buyer_savings(p_start, p_end, h, c_hedge_bps_day=C_HEDGE_BPS_DAY,
-                                            q=Q, ptax_ref=5.2033, spot_ref=p0)
-
-        # Unhedged Buyer Strategy (Strategy B2 vs B1 at 10% BRL rate)
-        # Gross ask cost with +10 bps fee
-        _, _, b2_sav_ask = buyer_compare_unhedged(Q, p0, p1_indicative, 0.10, h, fee_now=0.001, fee_later=0.001)
-        # Midpoint / dual (where C = Q * P * (1-c))
-        _, _, seller_loss = compare(Q, p0, p1_indicative, 0.10, h, fee_now=0.001, fee_later=0.001)
-        b2_sav_mid_dual = -seller_loss
-
-        # USD yield sensitivity (r_usd = 4%)
-        _, _, b2_sav_usd4 = buyer_compare_unhedged(Q, p0, p1_indicative, 0.10, h, fee_now=0.001, fee_later=0.001, rate_usd=0.04)
-
-        buyer_rows.append({
-            'horizon_ptax_days': h,
-            'initial_date': str(window.index[0].date()),
-            'deadline': deadline,
-            'initial_premium_bps': p_start,
-            'final_premium_bps': p_end,
-            'premium_compression_bps': round(hedge_res['compression_bps'], 2),
-            'hedge_carry_bps_day': C_HEDGE_BPS_DAY,
-            'cumulative_hedge_carry_bps': round(hedge_res['carry_bps'], 2),
-            'net_hedged_savings_bps': round(hedge_res['net_savings_bps'], 2),
-            'net_hedged_savings_brl_ptax': round(hedge_res['savings_brl_ptax'], 2),
-            'net_hedged_savings_brl_spot': round(hedge_res['savings_brl_spot'], 2),
-            'breakeven_horizon_h_star_days': round(hedge_res['breakeven_horizon_h_star'], 2),
-            'shock_median_duration_p3_30_days': 20,
-            'ex_ante_decision': 'Wait + Hedge B3 (20d < h*)',
-            'unhedged_buyer_savings_brl_ask': round(b2_sav_ask, 2),
-            'unhedged_buyer_savings_brl_mid_dual': round(b2_sav_mid_dual, 2),
-            'seller_loss_from_waiting_brl': round(seller_loss, 2),
-            'unhedged_savings_brl_usd_yield_4pct': round(b2_sav_usd4, 2),
-            'ptax_fx_risk': 'Zero (Locked on B3)',
-        })
-
+    for h in range(1, len(window)):
+        last = window.iloc[h]
+        args = (Q, x0, u0, b0, last.ptax_sell_brl_per_usd, last.usdtusd_window_usd, last.premium_bps, h)
+        b3 = b3_hedged_buyer(*args)
+        b3_fee5 = b3_hedged_buyer(*args, hedge_fee_bps=5.)
+        b3_usd4 = b3_hedged_buyer(*args, rate_usd_held=.04)
+        _, _, b2 = buyer_compare_unhedged(Q, p0, last.usdtbrl_window_brl, R_BRL, h, fee_now=.001, fee_later=.001)
+        _, _, b2_usd4 = buyer_compare_unhedged(Q, p0, last.usdtbrl_window_brl, R_BRL, h, fee_now=.001, fee_later=.001, rate_usd=.04)
+        _, _, seller = compare(Q, p0, last.usdtbrl_window_brl, R_BRL, h, fee_now=.001, fee_later=.001)
+        buyer_rows.append(dict(
+            horizon_ptax_days=h, initial_date=str(window.index[0].date()), deadline=str(window.index[h].date()),
+            initial_premium_bps=round(b0, 2), final_premium_bps=round(last.premium_bps, 2),
+            premium_change_bps=round(b0 - last.premium_bps, 2),
+            ptax_change_pct=round((last.ptax_sell_brl_per_usd / x0 - 1) * 100, 3),
+            hedged_savings_bps=round(b3['savings_bps'], 2), hedged_savings_brl=round(b3['savings_brl'], 2),
+            hedged_premium_part_brl=round(b3['premium_part_brl'], 2), hedged_usd_carry_brl=round(b3['usd_carry_brl'], 2),
+            hedged_fee_brl=round(b3['hedge_fee_brl'], 2),
+            hedged_savings_brl_fee5bps=round(b3_fee5['savings_brl'], 2),
+            hedged_savings_brl_usdt_earns4pct=round(b3_usd4['savings_brl'], 2),
+            unhedged_savings_brl=round(b2, 2), unhedged_savings_brl_usdt_earns4pct=round(b2_usd4, 2),
+            unhedged_minus_hedged_brl=round(b2 - b3['savings_brl'], 2),
+            seller_wait_minus_sell_now_brl=round(seller, 2),
+        ))
     buyer_df = pd.DataFrame(buyer_rows)
     buyer_df.to_csv(TABLE / 'P3-31_buyer_hedged_comparison.csv', index=False)
+    headline = buyer_df[buyer_df.horizon_ptax_days.isin(HORIZONS)]
 
     # 3. Two-Panel Visualizations
     plt.rcParams.update({'font.size': 10, 'axes.spines.top': False, 'axes.spines.right': False})
@@ -424,34 +404,19 @@ def main():
     ax1.grid(alpha=0.2)
     ax1.legend(fontsize=8.5, loc='upper left')
 
-    # Panel B: Buyer Break-Even Horizon h* vs Shock Duration
-    delta_p_grid = np.linspace(20, 140, 100)
-    h_star_grid = delta_p_grid / C_HEDGE_BPS_DAY
-    ax2.plot(delta_p_grid, h_star_grid, color='#1f77b4', lw=2.2,
-             label=r'Prazo de Indiferença $h^* = \Delta p / c_{hedge}$ ($c_{hedge}=2,5$ pb/dia)')
-    ax2.axhline(20, color='#d62728', ls='--', lw=1.8, label='Duração Mediana Global do Choque (20 dias, P3-30)')
-    ax2.fill_between(delta_p_grid, 20, h_star_grid, where=(h_star_grid >= 20),
-                     color='#2ca02c', alpha=0.15, label=r'Zona Ex-Ante Ótima ($20\text{d} < h^*$)')
-
-    # Mark acute spike mean and 25 Jun peak
-    ax2.scatter([74.6, 113.0], [29.84, 45.2], color='#d62728', s=55, zorder=5)
-    ax2.annotate('Média do Choque Agudo\n(+74,6 pb -> h* = 29,8 d)', xy=(74.6, 29.84),
-                 xytext=(35, 36), fontsize=8.5,
-                 arrowprops=dict(arrowstyle='->', lw=1, color='#333'))
-    ax2.annotate('Pico 25/Jun -> Pós-Choque\n(+113,0 pb -> h* = 45,2 d)', xy=(113.0, 45.2),
-                 xytext=(70, 50), fontsize=8.5,
-                 arrowprops=dict(arrowstyle='->', lw=1, color='#333'))
-
-    ax2.set(xlabel=r'Compressão Esperada do Prêmio $\Delta p$ (pb)',
-            ylabel=r'Prazo Limite de Indiferença $h^*$ (dias úteis PTAX)',
-            title='(B) Comprador (BRL -> USDT + Hedge B3): Horizonte $h^*$ vs Duração')
-    ax2.set_xlim(20, 140)
-    ax2.set_ylim(0, 60)
-    ax2.grid(alpha=0.2)
-    ax2.legend(fontsize=8.5, loc='upper left')
+    # Panel B (review fix): hedged buyer's realised outcome for every possible deadline, not a break-even h*
+    ax2.bar(buyer_df.horizon_ptax_days, buyer_df.hedged_savings_bps,
+            color=['#2ca02c' if v >= 0 else '#d62728' for v in buyer_df.hedged_savings_bps])
+    ax2.axhline(0, color='black', linewidth=0.8)
+    ax2.set(xlabel='Prazo em dias úteis PTAX (h), início 25/jun/2026',
+            ylabel='Economia de esperar com hedge (pb)',
+            title='(B) Comprador (BRL -> USDT) com hedge: resultado realizado por prazo')
+    ax2.set_xticks([1, 5, 10, 15, 20])
+    ax2.grid(alpha=0.2, axis='y')
 
     fig.text(0.08, 0.02,
-             'Quadro Bilateral: 100k USDT. Lado A: custos simétricos de 10 pb. Lado B: carrego B3 (WDO/NDF) de 2,5 pb/dia útil (R-07).\nComo a duração típica do choque (20 dias, P3-30) é inferior a h* (30-45 dias), esperar com hedge B3 é ex-ante ótimo.',
+             '100k USDT; custos simétricos de 10 pb; BRL 10% a.a. (cenário). (B): termo a paridade coberta (USD 5%), taxa B3 0,22 pb.\n'
+             'Retrospectivo: mostra o que teria acontecido em cada prazo, não uma regra que se pudesse aplicar em 25/jun.',
              fontsize=8.5)
     fig.tight_layout(rect=(0, 0.08, 1, 1))
     fig.savefig(FIG / 'P3-31_thresholds.png', dpi=180)
@@ -472,30 +437,25 @@ def main():
     ax1.legend(fontsize=8.5, loc='lower left')
     ax1.grid(alpha=0.2)
 
-    # Panel B: Buyer Realized Savings
-    h_days = buyer_df.horizon_ptax_days
-    ax2.plot(h_days, buyer_df.unhedged_buyer_savings_brl_ask / 1000, marker='o', color='#2ca02c', lw=2,
-             label='Estratégia B2: Esperar sem hedge (+R$ 4,7k a +R$ 21,7k)')
-    ax2.plot(h_days, buyer_df.net_hedged_savings_brl_spot / 1000, marker='s', color='#1f77b4', lw=2,
-             label='Estratégia B3: Esperar + Hedge B3 (Risco Zero FX: +R$ 3,3k a +R$ 4,4k)')
+    # Panel B: Buyer realised savings at the three headline horizons (review fix: values from data)
+    ax2.plot(headline.horizon_ptax_days, headline.unhedged_savings_brl / 1000, marker='o', color='#2ca02c', lw=2,
+             label='B2: esperar sem hedge (inclui a valorização do real)')
+    ax2.plot(headline.horizon_ptax_days, headline.hedged_savings_brl / 1000, marker='s', color='#1f77b4', lw=2,
+             label='B3: esperar com hedge cambial (só prêmio + juro em USD)')
     ax2.axhline(0, color='black', linewidth=0.8)
-    for idx, r in buyer_df.iterrows():
-        ax2.annotate(f"+{r.net_hedged_savings_bps:.1f} pb\n(R$ {r.net_hedged_savings_brl_spot:,.0f})",
-                     xy=(r.horizon_ptax_days, r.net_hedged_savings_brl_spot / 1000),
-                     xytext=(r.horizon_ptax_days - 0.7, r.net_hedged_savings_brl_spot / 1000 + 1.2),
-                     fontsize=8, fontweight='bold', color='#1f77b4')
-
+    for _, r in headline.iterrows():
+        ax2.annotate(f"{r.hedged_savings_bps:+.0f} pb", xy=(r.horizon_ptax_days, r.hedged_savings_brl / 1000),
+                     xytext=(0, -14), textcoords='offset points', ha='center', fontsize=8, color='#1f77b4')
     ax2.set(xlabel='Prazo em dias de publicação da PTAX',
             ylabel='Economia ao adiar compra (R$ mil)',
-            title='(B) Comprador (BRL -> USDT): Ganho Realizado ao Adiar')
+            title='(B) Comprador (BRL -> USDT): resultado realizado ao adiar')
     ax2.set_xticks(HORIZONS)
-    ax2.set_ylim(-2, 25)
     ax2.legend(fontsize=8.5, loc='upper left')
     ax2.grid(alpha=0.2)
 
     fig.text(0.08, 0.02,
-             'Início: 25/Jun/2026. 100k USDT; CDI/BRL líquido de 10% a.a.; taxa 10 pb. No comprador, a estratégia B3 (com hedge cambial B3)\n'
-             'elimina 100% da volatilidade cambial da PTAX ao custo de 2,5 pb/dia útil, capturando de +63,0 a +83,8 pb líquidos de compressão.',
+             'Início: 25/jun/2026 (primeiro dia útil após o salto de 24/jun). 100k USDT; BRL 10% a.a. (cenário); taxa 10 pb.\n'
+             'Retrospectivo: o prêmio subiu de novo em 3/jul; ninguém sabia em 25/jun que ele cairia.',
              fontsize=8.5)
     fig.tight_layout(rect=(0, 0.08, 1, 1))
     fig.savefig(FIG / 'P3-31_historical.png', dpi=180)
@@ -519,26 +479,14 @@ def main():
         'cost_status': 'hypothetical; bid/depth and institution-specific taxes unavailable',
         'settlement': 'same-day assumed; waiting at deadline with any positive lag rejected',
         'claim': 'retrospective indicative comparison, not strategy performance',
-        'b3_hedge_carry_bps_per_ptax_day': C_HEDGE_BPS_DAY,
-        'b3_hedge_source': 'P3-01 / F-015 / R-07 ((CDI 10.75% - SOFR 5.00%)/252 + B3 exchange fees = 2.5 bps/day)',
-        'b3_hedge_breakeven_horizon_peak_to_postspike_days': 45.2,
-        'b3_hedge_breakeven_horizon_acute_mean_to_postspike_days': 29.84,
-        'global_median_shock_duration_p3_30_days': 20,
-        'ex_ante_hedged_buyer_optimality': 'Waiting with B3 FX hedge is ex-ante optimal because median shock duration (20d) is strictly less than break-even horizons (29.8d - 45.2d)',
-        'realized_hedged_savings_bps': {
-            '5d_to_02Jul': 83.79,
-            '10d_to_09Jul': 65.72,
-            '20d_to_23Jul': 63.00,
-        },
-        'realized_hedged_savings_brl_ranges': {
-            '5d_to_02Jul': [4357.08, 4422.83],
-            '10d_to_09Jul': [3417.44, 3469.01],
-            '20d_to_23Jul': [3276.00, 3325.44],
-        },
-        'unhedged_buyer_savings_brl_ask': [4706.35, 11616.78, 21747.16],
-        'unhedged_buyer_savings_brl_mid_dual': [4696.94, 11593.57, 21703.71],
-        'seller_loss_brl': [-4696.94, -11593.57, -21703.71],
-        'duality_symmetry_factor': 1.002002002002002,
+        'b3_hedge_pricing': f'covered interest parity, BRL {R_BRL:.0%} (scenario), USD {R_USD_FWD:.0%} (R-07 SOFR); one-off fee {HEDGE_FEE_BPS} bps (R-07)',
+        'review_6nov_renzo_agent': 'h* break-even and typed-in premiums removed; B3 credits BRL interest; all values below computed',
+        'initial_premium_bps': round(float(b0), 2),
+        'headline_horizons': headline[['horizon_ptax_days', 'deadline', 'final_premium_bps', 'hedged_savings_bps',
+                                       'hedged_savings_brl', 'unhedged_savings_brl',
+                                       'seller_wait_minus_sell_now_brl']].to_dict('records'),
+        'hedged_days_with_loss': buyer_df.loc[buyer_df.hedged_savings_bps < 0, 'deadline'].tolist(),
+        'duality_symmetry_factor': 1.001 / .999,
     }
     (TABLE / 'P3-31_audit.json').write_text(json.dumps(audit, indent=2), encoding='utf-8')
 
@@ -548,6 +496,7 @@ def main():
     print(chosen.to_string(index=False))
     print("\n=== TWO-SIDED BUYER & B3 HEDGE COMPARISON ===")
     print(buyer_df.to_string(index=False))
+    print(json.dumps(audit, indent=2, default=str))
 
 
 if __name__ == '__main__':

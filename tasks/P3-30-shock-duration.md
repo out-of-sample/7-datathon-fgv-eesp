@@ -4,7 +4,7 @@ title: Shock duration feasibility, global census, and discrete-time survival mod
 phase: P3
 status: review
 owner: Economist
-working: Renzo (agent, review)
+working: -
 due: 2026-11-08
 depends: P1-02, P1-05
 ---
@@ -24,7 +24,7 @@ Test whether local-currency premium shock duration and recovery can be predicted
    - Baseline: Non-parametric discrete-time Kaplan-Meier conditional recovery probability.
    - Model: Penalized discrete-time logistic hazard model with person-period daily hazard features:
      $[1.0, \log(1+\text{age}), \log(1+\max(0,\text{init\_ex})), \text{sign}(\text{cur\_ex})\log(1+|\text{cur\_ex}|), \text{clip}(\text{cur\_z}, -5, 20)]$ standardized using training mean/SD only.
-   - L2 penalties $\lambda \in [0.5, 1.0, 5.0, 10.0]$ fit via BFGS. Optimal $\lambda$ selected on Validation 2025 10-day Brier score ($\lambda = 10.0$), with $\lambda = 1.0$ reported as standard benchmark.
+   - L2 penalties $\lambda \in [0.5, 1.0, 5.0, 10.0]$ fit via BFGS. Optimal $\lambda$ selected on Validation 2025 10-day Brier score ($\lambda = 10.0$), with $\lambda = 1.0$ reported as standard benchmark. *(Review 6 Nov: only the validation-selected λ is a valid test result; the λ = 1 and 0.5 test scores are not reported as findings.)*
    - Horizons evaluated: $h \in [5, 10, 20]$ business days at onset ($age_0 = 0$) and ongoing landmark ages ($age_0 \in [0, 5, 10]$) with current excess held at landmark value.
 
 ## Subtasks
@@ -40,18 +40,26 @@ Test whether local-currency premium shock duration and recovery can be predicted
 - [x] High-resolution 2-panel chart generated in `results/figures/P3-30_global_survival.png`
 
 ## Handoff
-- **State:** Full implementation and verification complete. 10 unit tests pass. Single-country BRL feasibility failure documented alongside Global 10-Currency feasibility pass. Penalized hazard model evaluated on 2025 Validation and 2026 Test sets.
-- **Key findings:**
-  1. *Global baseline recovery:* KM recovery is 7.1% at 5 days, 26.7% at 10 days, and 51.1% at 20 business days. Global median recovery is **20 business days**, aligning with Brazil's observed 20-day acute spike dissipation window.
-  2. *Onset predictability:* At shock onset ($age_0 = 0, h = 10\text{d}$), the Penalized Hazard Model achieves Brier = 0.1644 ($\lambda = 1.0$) and 0.1747 ($\lambda = 10.0$) vs KM 0.1878 on 2026 Test (7.0%–12.5% Brier error reduction), because initial shock size $\beta_{\text{init}} = -0.5191 < 0$ separates transitory friction blips from deep structural shocks.
-  3. *Ongoing episode limits:* Across ongoing ages ($age_0 \in [0, 5, 10]$), simple Kaplan-Meier (Brier = 0.2223 / 0.2170) beats the price-only hazard model (Brier = 0.2575 / 0.2579), proving that mid-episode normalization depends on discrete institutional liquidity adaptation rather than price momentum.
-- **Exact next step:** Peer review of F-038.
-- **How to resume:** Run `py scripts/p3_30_duration.py --test` or `py scripts/p3_30_duration.py`. Review outputs in `results/tables/P3-30_*` and `results/figures/P3-30_global_survival.png`.
+- **State (6 Nov, after Renzo's agent's review):** the script was fixed and re-run. Episodes censored before
+  the horizon are no longer scored as failures, a paired bootstrap of the Brier gap was added
+  (`P3-30_brier_bootstrap.csv`), the summary JSON is computed rather than typed, and the figure no longer shows a
+  "Brazil 20-day" band. 14 checks pass. F-038 was rewritten: the census and the 20-day training-pool median stand,
+  but **the hazard model does not beat the Kaplan-Meier base rate** (it loses on validation and at k = 2 and 4; test
+  gap −0.013, 95% CI −0.112 to +0.073).
+- **Exact next step:** Felipe reads the review section in `docs/shock-duration-holder-review.md` and either
+  accepts the fixes (status → `done` after a teammate re-runs) or replies in this log.
+- **Open questions:** whether anything from F-038 goes into the deck. The reviewer's suggestion is an Annex line at
+  most (text in F-038).
+- **How to resume:** `.venv/bin/python scripts/p3_30_duration.py --test` then `.venv/bin/python scripts/p3_30_duration.py`
+  (Windows: `py`). Outputs: `results/tables/P3-30_*`, `results/figures/P3-30_global_survival.png`.
 
 ## Log
 - 2026-11-06 — agent for Renzo (23:43): Renzo takes the peer review of this task (Felipe is the author; Renzo's agent reviews and fixes).
 - 2026-11-06: Initial single-country BRL feasibility audit; 8 tests pass; feasibility gate failed for BRL alone.
 - 2026-11-06: Upgraded to Global 10-Currency Pool on native trading calendars; 10 tests pass; feasibility gate passes at $k=3$ (43/38 train, 10/8 val, 8/6 test); penalized discrete-time logistic hazard model fitted and evaluated against KM baseline; generated `P3-30_model_eval.csv`, `P3-30_global_survival.png`, and updated F-038.
+- 2026-11-06 — agent for Renzo (23:49): review with fixes (censoring in scoring, bootstrap, computed summary, figure); F-038 rewritten; status stays `review` for Felipe to accept.
 
 ## Result
-Single-country BRL sample confirmed insufficient for standalone training (1 test episode in 2026). Global 10-currency pool passes feasibility at $k=3$ (61 total episodes across splits). Penalized hazard model demonstrates onset predictability (Brier 0.1644 vs KM 0.1878, 12.5% error reduction) via $\beta_{\text{init}} < 0$, while Kaplan-Meier baseline dominates ongoing mid-episode normalization (Brier 0.2223 vs Hazard 0.2575). All 10 unit tests pass.
+Census and feasibility: Brazil alone fails the floor and the 10-currency pool passes (k = 3: 43/10/8 episodes).
+In the training pool, half of the shocks recover within 20 business days. The penalised hazard model does not beat the
+base rate out of sample (primary metric: onset, 10 days, λ chosen on 2025). F-038 is exploratory.

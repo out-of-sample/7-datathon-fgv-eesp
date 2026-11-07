@@ -1,5 +1,23 @@
 # From Retrospective Shock Analysis to Institutional Treasury Decisions: Comprehensive Assessment of Shock Duration and Holder Decisions
 
+> **Correction banner (Renzo's agent, 6 Nov 2026, peer review of P3-30/P3-31).** This document was written
+> before the review. The numbers and claims listed here are **superseded**: use the corrected F-038 and F-039 and the
+> "Second review" in `docs/shock-duration-holder-review.md`.
+> - **Withdrawn (premiums):** 142.02 / 45.73 / 51.30 / 29.02 bps. These were typed into the script and match no
+>   series; the real premium on 25 Jun was 184.35 bps.
+> - **Withdrawn (hedge accounting):** the 2.5 bps/day hedge "cost", which ignored the BRL interest that pays it;
+>   h\* = 29.8–45.2 days; and "waiting with a hedge is ex-ante optimal because 20 d < h\*".
+> - **Withdrawn (hedged savings):** +83.8 / +65.7 / +63.0 bps. Corrected: +89.7 / +92.3 / +164.0 bps, and
+>   retrospective (only +6 bps on 3 Jul).
+> - **Withdrawn (duration forecast):** "onset predictability" and the "7.0–12.5%" / "25.5%" Brier reductions. The
+>   model loses to Kaplan-Meier on validation and at k = 2 and 4; its test gain is within noise.
+> - **Withdrawn (Brazil link):** "20-day median identical to Brazil's spike". Brazil's 2026 episode starts 25 May and
+>   is still open after 111 days.
+> - **Withdrawn (status and wording):** F-038 "confirmed" (now exploratory), plus every "comprova" / "proving" /
+>   "institutional liquidity drives resolution".
+> - **§8 Option A cannot be used. Options B and C** must take their numbers from the corrected findings.
+
+
 **Author / Working Role:** Codex (Research Engineer and Critical Reviewer for Felipe)  
 **Date:** 6–7 November 2026, Brasília time  
 **Context:** 7º Datathon de Moedas Digitais FGV EESP (Team Out of Sample)  

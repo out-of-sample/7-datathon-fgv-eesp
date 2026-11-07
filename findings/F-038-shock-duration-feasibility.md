@@ -1,22 +1,35 @@
 ---
 id: F-038
-title: Single-country duration prediction is data-constrained in Brazil, but global 10-currency discrete-time survival modeling reveals a 20-day median recovery and onset predictability via shock size
-status: confirmed
+title: Pooling 10 currencies gives enough premium shocks to test duration forecasts, but a model using shock size does not beat the historical base rate; half of the 2020–2024 shocks were back in their band within 20 business days
+status: exploratory
 task: P3-30
 date: 2026-11-06
-checked_by: -
+checked_by: Renzo's agent (review with fixes, 6 Nov); Felipe to accept the fixes; independent re-run pending
 ---
 
 ## Claim
-Standalone predictive duration modeling on Brazilian local-currency stablecoin data alone is statistically infeasible: under the locked 3-standard-deviation onset and 5-day return-to-frozen-band specification, Brazil experienced 11 training episodes (10 recovered by end-2024), 3 validation episodes in 2025 (all 3 recovered), and only 1 new episode in 2026 (unrecovered after 111 PTAX days as of 30 October 2026). Single-country sample size fails the pre-registered operational feasibility floor (1 < 5 test episodes).
+A **shock** is a day when the USDT premium over the official rate rises more than 3 robust standard deviations above
+its 60-day median. It **recovers** when the premium spends 5 consecutive days back within one standard deviation of
+that frozen median.
 
-However, expanding to the **Global 10-Currency Pool** on native trading calendars (BRL from P1-02, plus EUR, TRY, ZAR, MXN, PLN, IDR, COP, UAH, ARS from P1-05) eliminates artificial cross-country holiday censoring and successfully passes the feasibility gate at $k=3$ (43/38 train, 10/8 val, 8/6 test) and $k=2$ (62/55 train, 17/13 val, 14/11 test).
+1. **Brazil alone is too small to test forecasts.** Under this rule Brazil has 11 shocks in 2020–2024, 3 in 2025 and
+   1 in 2026, below the floor fixed before fitting (5 episodes in each test year).
+2. **Pooling 10 currencies passes the floor** (k = 3: 43 training, 10 validation, 8 test episodes). In the
+   2020–2024 training pool, 7% of shocks recover within 5 business days, 27% within 10 and 51% within 20
+   (Kaplan-Meier, censoring handled). The median is 20 business days. This is a base rate for the training pool, not a
+   forecast for any one country.
+3. **Shock size does not reliably predict recovery.** The primary test was set before fitting: onset, 10-day
+   horizon, penalty chosen on 2025. On it, the hazard model **loses to the base rate on 2025 validation** (Brier 0.346
+   vs 0.330, 9 episodes). It wins narrowly on 2026 test (0.175 vs 0.188, 8 episodes). The paired bootstrap
+   interval of the difference is −0.112 to +0.073, so the gap cannot be told apart from chance. With 2 or 4 standard
+   deviations instead of 3, the model loses on test (k = 2: 0.239 vs 0.205; k = 4: 0.042 vs 0.037). Once a shock is
+   under way, the base rate also beats the model (test, ages 0/5/10 pooled: 0.222 vs 0.255).
+4. **The Brazilian 2026 shock does not fit a "20-day" story.** Under this rule it starts on 25 May 2026, a month
+   before the 23 Jun notice, and is still open on 30 Oct after 111 PTAX days: the premium fell from its June peak
+   but never returned to its pre-May band.
 
-Out-of-sample evaluation of a **Penalized Discrete-Time Logistic Hazard Model** against a non-parametric Kaplan-Meier baseline yields three structural findings:
-
-1. **Global Median Recovery = 20 Business Days:** The baseline Kaplan-Meier recovery probability across the global 10-currency pool ($k=3$) is 7.1% at 5 days, 26.7% at 10 days, and 51.1% at 20 business days. Global median duration to band normalization is exactly **20 business days**, aligning directly with Brazil's observed 20-day acute spike dissipation window (24 June to mid-July 2026).
-2. **Onset Predictability via Initial Shock Size ($\beta_{\text{init}} < 0$):** At shock onset ($age_0 = 0$), the Penalized Hazard Model outperforms the KM baseline on the held-out 2026 Test set at the primary 10-day horizon, achieving $\text{Brier} = 0.1644$ ($\lambda = 1.0$) and $0.1747$ ($\lambda = 10.0$, selected on 2025 Validation) versus KM $\text{Brier} = 0.1878$—a **7.0% to 12.5% Brier error reduction**. This improvement is driven by $\beta_{\text{init}} = -0.5191 < 0$ (and $w_z = -1.4872 < 0$), which cleanly separates minor frictional order-flow blips (which revert in 5–10 days) from large structural capital constraints (which persist for weeks or months).
-3. **Mid-Episode Normalization Limits:** Once an episode is underway, conditioning on elapsed duration and price trajectory yields no edge over naive persistence: pooled across ongoing landmark ages ($age_0 \in [0, 5, 10]$), the simple Kaplan-Meier baseline ($\text{Brier} = 0.2223$ / $0.2170$) beats the price-only hazard model ($\text{Brier} = 0.2575$ / $0.2579$). Mid-episode resolution is driven by discrete institutional liquidity injections and issuer balance-sheet adaptation rather than short-term price momentum.
+**What this teaches:** how long a premium shock lasts could not be forecast better than "half recover within about
+a month" with these data. A treasury or regulator should plan for a base rate, not a point forecast.
 
 ## Evidence
 
@@ -51,64 +64,67 @@ Total extracted episodes and confirmed recoveries across native trading calendar
 | **ARS** | 851 | 1 / 0 | 1 / 0 | 1 / 0 | P1-05 Binance USDT/ARS vs BCRA |
 | **Total Pool** | **10,875** | **93 / 87** | **61 / 56** | **42 / 39** | **Native calendars (zero holiday censoring)** |
 
-### 3. Model Evaluation on 2026 Out-of-Sample Test (`P3-30_model_eval.csv`)
-Evaluation on the held-out 2026 Test split (8 shock episodes starting in 2026 across BRL, EUR, ZAR, MXN, IDR):
 
-| Evaluation Scope | Horizon ($h$) | Model / Specification | $\text{L}_2$ Penalty | Brier Score | Mean Prediction | Benchmark KM Prob. | Brier vs KM |
-|---|:---:|---|:---:|:---:|:---:|:---:|:---:|
-| **Onset ($age_0 = 0$)** | 5 days | Kaplan-Meier Baseline | — | 0.1122 | 0.0714 | 0.0714 | Baseline |
-| Onset ($age_0 = 0$) | 5 days | Penalized Hazard | $\lambda = 1.0$ | **0.0836** | 0.1892 | 0.0714 | **-25.5%** |
-| **Onset ($age_0 = 0$)** | **10 days** | **Kaplan-Meier Baseline** | — | **0.1878** | **0.2669** | **0.2669** | **Baseline** |
-| Onset ($age_0 = 0$) | 10 days | Penalized Hazard | $\lambda = 0.5$ | 0.1607 | 0.2827 | 0.2669 | -14.4% |
-| **Onset ($age_0 = 0$)** | **10 days** | **Penalized Hazard (Standard)** | **$\lambda = 1.0$** | **0.1644** | **0.3013** | **0.2669** | **-12.5%** |
-| Onset ($age_0 = 0$) | 10 days | Penalized Hazard | $\lambda = 5.0$ | 0.1737 | 0.3265 | 0.2669 | -7.5% |
-| **Onset ($age_0 = 0$)** | **10 days** | **Penalized Hazard (Selected)** | **$\lambda = 10.0$** | **0.1747** | **0.3189** | **0.2669** | **-7.0%** |
-| **Onset ($age_0 = 0$)** | 20 days | Kaplan-Meier Baseline | — | **0.2501** | 0.5113 | 0.5113 | **Baseline** |
-| Onset ($age_0 = 0$) | 20 days | Penalized Hazard | $\lambda = 1.0$ | 0.2874 | 0.4442 | 0.5113 | +14.9% |
-| Onset ($age_0 = 0$) | 20 days | Penalized Hazard | $\lambda = 10.0$ | 0.2882 | 0.4770 | 0.5113 | +15.2% |
-| **Pooled Ongoing ($age_0 \in [0, 5, 10]$)** | **10 days** | **Kaplan-Meier Baseline** | — | **0.2223** (0.2170) | 0.3285 | — | **KM Wins** |
-| Pooled Ongoing ($age_0 \in [0, 5, 10]$) | 10 days | Penalized Hazard | $\lambda = 1.0$ | **0.2575** (0.2579) | 0.3299 | — | +15.8% |
-| Pooled Ongoing ($age_0 \in [0, 5, 10]$) | 10 days | Penalized Hazard | $\lambda = 10.0$ | 0.2527 | 0.3096 | — | +13.7% |
+### 3. Primary comparison and robustness (`P3-30_model_eval.csv`, `P3-30_brier_bootstrap.csv`)
+Brier score = mean squared error of the predicted recovery probability (lower is better). KM = Kaplan-Meier
+recovery rate of the 2020–2024 training pool (the naive base rate). Model = penalised discrete-time logistic hazard
+with λ = 10, selected on 2025 validation at the 10-day horizon. Episodes censored before the horizon are left out
+(their outcome is unknown). The column "Model − KM" gives the mean and 95% paired bootstrap interval over episodes
+(10,000 draws, seed 0). A negative value means the model did better.
 
-*Penalty $\lambda = 10.0$ was selected on Validation 2025 at $h=10\text{d}$ ($\text{Brier} = 0.3181$ vs $0.3574$ for $\lambda = 1.0$ and $0.3728$ for $\lambda = 0.5$).*
+| k | Split | Horizon | n | KM | Model | Model − KM [95% CI] |
+|---|---|---|---|---|---|---|
+| 3 | validation 2025 | 10 d (primary) | 9 | 0.330 | 0.346 | +0.016 [−0.048, +0.080] |
+| 3 | **test 2026** | **10 d (primary)** | 8 | 0.188 | 0.175 | −0.013 [−0.112, +0.073] |
+| 3 | test 2026 | 5 d | 8 | 0.112 | 0.087 | −0.025 [−0.146, +0.051] |
+| 3 | test 2026 | 20 d | 7 | 0.249 | 0.254 | +0.005 [−0.100, +0.106] |
+| 2 | test 2026 | 10 d | 14 | 0.205 | 0.239 | +0.034 [−0.003, +0.072] |
+| 4 | test 2026 | 10 d | 4 | 0.037 | 0.042 | +0.005 [−0.013, +0.016] |
+| 3 | test 2026, ages 0/5/10 pooled | 10 d | 20 | 0.222 | 0.255 | — |
 
-### 4. Fitted Logistic Hazard Coefficients ($k=3$, Training $\le 2024$)
-Daily discrete-time hazard parameterization: $p_t = \sigma(w_0 + w_1 \log(1+t) + w_2 \log(1+\text{init\_ex}) + w_3 \text{cur\_ex\_log} + w_4 \text{clip}(z, -5, 20))$ standardized:
+The 8 test episodes are BRL (25 May, open), EUR (17 Sep; 8 Oct, open), ZAR (7 May), MXN (20 Feb) and IDR (23 Mar,
+9 Jun, 26 Jun). Three are Indonesian, so the independent information is smaller than 8.
 
-| Penalty ($\lambda$) | Intercept ($w_0$) | Age ($w_1$) | Initial Excess ($w_2$) | Cur. Excess ($w_3$) | Cur. Z-Score ($w_4$) | $\beta_{\text{init}}$ Status |
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| $\lambda = 0.5$ | -4.8054 | -0.3976 | **-0.5252** | +0.9197 | -1.8727 | $\beta_{\text{init}} < 0$ |
-| **$\lambda = 1.0$** | **-4.7050** | **-0.3976** | **-0.5191** | **+0.6831** | **-1.4872** | **$\beta_{\text{init}} < 0$** |
-| $\lambda = 5.0$ | -4.4990 | -0.3814 | **-0.4736** | +0.2024 | -0.7020 | $\beta_{\text{init}} < 0$ |
-| **$\lambda = 10.0$** | **-4.4205** | **-0.3537** | **-0.4273** | **+0.0848** | **-0.4753** | **$\beta_{\text{init}} < 0$** |
+### 4. Fitted coefficients
+The standardised initial-excess coefficient is negative at every penalty (−0.43 at λ = 10, −0.52 at λ = 1): in the
+training data larger shocks recover more slowly. The sign is stable, but it does not translate into better
+out-of-sample forecasts (table above).
 
-### 5. Visual Artifact (`results/figures/P3-30_global_survival.png`)
-The generated figure provides two complementary panels:
-- **Panel A (Global Survival Curve):** Plots the Kaplan-Meier recovery probability over business days $t = 1 \dots 40$, marking the 5-day (7.1%), 10-day (26.7%), and 20-day (51.1%) landmarks. It explicitly highlights the horizontal 50% line (median recovery = 20 business days) and shades Brazil's 20-day acute spike dissipation window.
-- **Panel B (Predictive Hazard Curves by Initial Shock Size):** Illustrates the predicted 10-day and 20-day recovery probabilities as a function of initial excess bps ($25$ to $500\text{ bps}$) with actual test episode outcomes overlaid. Because $\beta_{\text{init}} = -0.5191 < 0$, predicted 10-day recovery drops from $\sim 45\%$ for a $35\text{ bps}$ friction spike down to $< 15\%$ for shocks $> 250\text{ bps}$.
+### 5. Figure (`results/figures/P3-30_global_survival.png`)
+Panel A: training-pool Kaplan-Meier curve with the 20-day median. Panel B: the selected model's predicted 10- and
+20-day recovery by initial shock size, with the 2026 test outcomes.
 
-## Method and Limitations
-1. **Target definition:** An episode requires rolling dispersion $\sigma = 1.4826 \times \text{MAD}_{60} > 0$ and begins when premium $> m + 3\sigma$. Recovery is confirmed only on the **fifth consecutive observation within $m \pm \sigma$**. Downward overshoots below $m - \sigma$ do not count as recovery under this target.
-2. **Native trading calendars:** Sourcing each donor currency on its own valid trading days prevents Brazilian holidays (Carnival, Tiradentes, Corpus Christi) from breaking streaks or artificially censoring ongoing foreign shocks.
-3. **Strict anti-leakage:** Re-extraction at training (2024-12-31) and validation (2025-12-31) boundaries guarantees that episodes active at cutoffs are administratively censored at the cutoff date, preventing subsequent recoveries from leaking into past labels.
-4. **Information constraints at landmark ages:** When evaluating from landmark $age_0$, future market prices are unknown. The model holds current price excess fixed at the landmark observation (explicit scenario), using only information available to a market participant at decision time.
-5. **Economic scope of the finding:** While initial shock magnitude provides clear predictive separation at onset (reducing Brier error by 12.5%), mid-episode normalization cannot be forecasted from price trajectory alone. Once a premium shock is entrenched, return to parity requires institutional balance-sheet adjustment (fiat banking settlement, stablecoin minting, or regulatory compliance) rather than passive mean-reversion.
+## Method and limitations
+- The census and feasibility gate were run on BRL first. The 10-currency pool was added after BRL failed the floor
+  (a design change after seeing counts, not outcomes, disclosed here).
+- The pool mixes open markets (EUR, MXN, PLN) with capital-control regimes (ARS, UAH, TRY), and each uses its own
+  official rate and calendar. Pooling assumes the same recovery process.
+- "Recovery" means back to the pre-shock band, not "the premium fell". A buyer cares about any fall (see F-039).
+- Shocks in different currencies on the same days (global USDT events) are not independent. Of the 8 test episodes,
+  3 are Indonesian.
+- Nothing here identifies *why* shocks end. The first draft's sentence that recovery is "driven by institutional
+  liquidity" had no test behind it and was removed.
 
 ## Verification
-Run all unit tests and script pipeline:
-```powershell
-py scripts/p3_30_duration.py --test
-py scripts/p3_30_duration.py
+```bash
+.venv/bin/python scripts/p3_30_duration.py --test   # 14 checks
+.venv/bin/python scripts/p3_30_duration.py          # tables, bootstrap, figure, run summary
 ```
-Output:
-- 10 duration, censoring, Kaplan-Meier, and regularized logistic hazard unit checks pass.
-- Verification tables: `results/tables/P3-30_input_audit.csv`, `P3-30_census.csv`, `P3-30_episodes.csv`, `P3-30_feasibility.csv`, `P3-30_descriptive_km.csv`, `P3-30_model_eval.csv`, `P3-30_run_summary.json`.
-- Output figure: `results/figures/P3-30_global_survival.png`.
+(Windows: `py scripts/p3_30_duration.py`.) Input hashes in `P3-30_run_summary.json` are computed on the files as
+stored. A Windows checkout with CRLF line endings gives different hashes for byte-identical numbers.
 
-## Used in Deck
-Candidate deck synthesis:
-"Em dados brasileiros isolados, há apenas um novo episódio em 2026, inviabilizando previsão estatística univariada. No entanto, o censo global de 10 moedas revela que a mediana de normalização é de exatamente 20 dias úteis (idêntica à dissipação do pico agudo no Brasil). Modelos de sobrevivência penalizados comprovam que o tamanho inicial do choque prevê a velocidade de reversão ($\text{Brier} = 0.1644$ vs $0.1878$), enquanto a normalização intra-episódio independe da trajetória de preços e depende de liquidez institucional."
+## Used in deck
+Not on a slide. If used, one Annex line in pt-BR: "Com 10 moedas, metade dos choques de prêmio de 2020–2024 voltou à
+faixa anterior em até 20 dias úteis; o tamanho do choque não previu a duração melhor que essa taxa histórica."
 
 ## History
 - 2026-11-06: Initial single-country BRL feasibility audit; 8 tests pass; feasibility gate failed for BRL alone.
 - 2026-11-06: Upgraded to Global 10-Currency Pool on native trading calendars; 10 tests pass; feasibility gate passes at $k=3$ (43/38 train, 10/8 val, 8/6 test); penalized discrete-time logistic hazard model fitted and evaluated against KM baseline; generated `P3-30_model_eval.csv`, `P3-30_global_survival.png`, and updated F-038.
+- 2026-11-06 — Renzo's agent (review, with fixes; Felipe to accept): (1) status `confirmed` → `exploratory` (no
+  checker had signed); (2) scoring bug fixed: episodes censored before the horizon were counted as "not recovered"
+  (1 validation episode at 10 d, 1 test at 20 d); (3) only the validation-selected penalty is reported (λ = 1 and 0.5
+  are test-set picks); (4) paired bootstrap added; the model loses on validation and at k = 2 and 4, so "onset
+  predictability" and "7.0–12.5% / 25.5% Brier reduction" are withdrawn; (5) "aligns with Brazil's 20-day spike"
+  withdrawn: Brazil's 2026 episode starts 25 May and is open after 111 days; (6) the causal sentence about
+  institutional liquidity removed; (7) run-summary numbers are computed (the first version typed in 0.2223/0.2575,
+  which did not match the table it described).
