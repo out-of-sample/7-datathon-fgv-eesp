@@ -4,7 +4,7 @@ title: Shock duration feasibility, global census, and discrete-time survival mod
 phase: P3
 status: review
 owner: Economist
-working: -
+working: Renzo (agent, review)
 due: 2026-11-08
 depends: P1-02, P1-05
 ---
@@ -49,6 +49,7 @@ Test whether local-currency premium shock duration and recovery can be predicted
 - **How to resume:** Run `py scripts/p3_30_duration.py --test` or `py scripts/p3_30_duration.py`. Review outputs in `results/tables/P3-30_*` and `results/figures/P3-30_global_survival.png`.
 
 ## Log
+- 2026-11-06 — agent for Renzo (23:43): Renzo takes the peer review of this task (Felipe is the author; Renzo's agent reviews and fixes).
 - 2026-11-06: Initial single-country BRL feasibility audit; 8 tests pass; feasibility gate failed for BRL alone.
 - 2026-11-06: Upgraded to Global 10-Currency Pool on native trading calendars; 10 tests pass; feasibility gate passes at $k=3$ (43/38 train, 10/8 val, 8/6 test); penalized discrete-time logistic hazard model fitted and evaluated against KM baseline; generated `P3-30_model_eval.csv`, `P3-30_global_survival.png`, and updated F-038.
 

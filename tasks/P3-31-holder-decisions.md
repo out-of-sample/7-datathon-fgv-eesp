@@ -4,7 +4,7 @@ title: Two-Sided Institutional Treasury Decision Framework (BRL -> USDT Buyer & 
 phase: P3
 status: review
 owner: Economist
-working: -
+working: Renzo (agent, review)
 due: 2026-11-08
 depends: P1-02, P3-03
 ---
@@ -58,6 +58,7 @@ Translate the measured premium into a comprehensive two-sided conditional treasu
 - **How to resume:** Run `py scripts/p3_31_holder.py` or with `--test-only`. Outputs in `results/tables/P3-31_*`, `results/figures/P3-31_*`, and `findings/F-039-holder-decisions.md`.
 
 ## Log
+- 2026-11-06 — agent for Renzo (23:43): Renzo takes the peer review of this task (Felipe is the author; Renzo's agent reviews and fixes).
 - 2026-11-06 — Codex holder agent: claimed locally, inspected input schema, fixed specification before calculations.
 - 2026-11-06 — Codex holder agent: engine, tables, figures and tests implemented; 6 tests pass; F-039 produced; independent review in P3-32 approved; task set to review.
 - 2026-11-07 — Flash agent: upgraded to Two-Sided Institutional Treasury Decision Framework. Added Side 1 Buyer (`BRL -> USDT`), B3 FX hedge carry ($c_{\text{hedge}} = 2.5\text{ bps/day}$), break-even horizon $h^*$ ($29.8\text{ to }45.2\text{ days}$), synthesis with `P3-30` median shock duration ($20\text{ days} < h^*$), new table `P3-31_buyer_hedged_comparison.csv`, updated `P3-31_audit.json`, 12 unit tests passing, and two updated figures.

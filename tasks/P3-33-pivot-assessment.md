@@ -4,7 +4,7 @@ title: Synthesize shock-duration and holder-decision pivot
 phase: P3
 status: review
 owner: Economist
-working: -
+working: Renzo (agent, review)
 due: 2026-11-08
 depends: P3-30, P3-31, P3-32
 ---
@@ -35,6 +35,7 @@ Deliver the extensive English assessment requested by Felipe, linking new resear
 - **How to resume:** Read `docs/shock-duration-and-holder-decisions-assessment.md` §8 and §9, then proceed to `P5-08` / Slide 10 finalization.
 
 ## Log
+- 2026-11-06 — agent for Renzo (23:43): Renzo takes the peer review of this task (Felipe is the author; Renzo's agent reviews and fixes).
 - 2026-11-06 — Codex for Felipe: local execution authorized. No pull/commit/push; user's local-only instruction overrides session Git routine. Existing untracked original brief preserved.
 - 2026-11-06 — Codex for Felipe: completed S2 and S3; generated `docs/shock-duration-and-holder-decisions-assessment.md` covering all 9 required sections, mathematical derivations, exact tables, and Portuguese slide-10 text options; task moved to review.
 - 2026-11-07 — Codex for Felipe: upgraded assessment and independent review to incorporate Global 10-Currency Survival Model (F-038 confirmed, 20d median recovery, penalized hazard Brier reduction) and Two-Sided Institutional Treasury Engine (F-039, Side 1 Buyer B3 hedge $h^* > 20\text{d}$ ex-ante optimality, realized +63–84 bps savings, buyer-seller duality); updated Option A on Slide 10 to full institutional playbook; task in review.
