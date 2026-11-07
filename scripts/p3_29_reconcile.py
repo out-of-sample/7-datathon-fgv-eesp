@@ -28,6 +28,7 @@ import hashlib
 import json
 import os
 import random
+import statistics
 import sys
 import time
 import urllib.error
@@ -484,21 +485,12 @@ def receipt_check(e):
     return ok, source if rec else f'no receipt: {err}'
 
 
-def ledger():
-    head = int(must('forno', 'eth_blockNumber'), 16)
-    topic = {keccak(s): s.split('(')[0] for s in EVENTS}
-    assert topic.get(TRANSFER) == 'Transfer' and topic.get(UPGRADED) == 'Upgraded'
-    selector = {keccak(s)[:10]: s.split('(')[0] for s in FUNCS}
-    v1 = defillama_celo()
-    v2_raw = fetch('defillama', DEFILLAMA_V2)
-    v2 = defillama_celo(v2_raw) if 'chainBalances' in v2_raw else {}
-    checks = []
-
-    # boundaries: block, header, state on two providers
-    bounds = []
-    for k in range(N_BOUND):
-        t = DAY0 + dt.timedelta(days=k)
-        b = block_at(int(t.timestamp()), head, guess=B0 + 86_400 * k)
+def collect(day0, n_bound, head, topic):
+    """Boundaries day0 + k days (k < n_bound) on Forno and Ankr; every proxy log between the first and last; decoded."""
+    checks, bounds = [], []
+    for k in range(n_bound):
+        t = day0 + dt.timedelta(days=k)
+        b = block_at(int(t.timestamp()), head, guess=B0 + int((t - DAY0).total_seconds()))
         h = header(b)
         call = ({'to': BRLA, 'data': SEL['totalSupply']}, hex(b))
         bounds.append({'k': k, 'label': t.date().isoformat(), 'block': b, 'hash': h['hash'],
@@ -507,7 +499,7 @@ def ledger():
                        'ankr': (lambda r: int(r, 16) if r else None)(rpc('ankr', 'eth_call', *call)[0]),
                        'decimals': int(must('forno', 'eth_call', {'to': BRLA, 'data': SEL['decimals']}, hex(b)), 16),
                        'impl': word_addr(must('forno', 'eth_getStorageAt', BRLA, IMPL_SLOT, hex(b)))})
-    one_second = all(bounds[k + 1]['block'] - bounds[k]['block'] == 86_400 for k in range(N_BOUND - 1))
+    one_second = all(bounds[k + 1]['block'] - bounds[k]['block'] == 86_400 for k in range(n_bound - 1))
     checks.append({'check': 'one_second_blocks', 'status': 'ok' if one_second else 'fail',
                    'detail': 'every UTC day has exactly 86,400 blocks, so block time = boundary time + offset'})
 
@@ -532,7 +524,7 @@ def ledger():
         removed += bool(l.get('removed'))
         n = int(l['blockNumber'], 16)
         hashes.setdefault(n, set()).add(l['blockHash'])
-        k = next(i for i in range(N_BOUND - 1) if bounds[i]['block'] < n <= bounds[i + 1]['block'])
+        k = next(i for i in range(n_bound - 1) if bounds[i]['block'] < n <= bounds[i + 1]['block'])
         e = {'day_utc': bounds[k]['label'], 'block': n, 'log_index': int(l['logIndex'], 16), 'tx': l['transactionHash'],
              'block_hash': l['blockHash'], 'event': topic.get(l['topics'][0], 'unknown'), 'topic0': l['topics'][0],
              'time_utc': (dt.datetime.fromisoformat(bounds[k]['time_utc']) + dt.timedelta(seconds=n - bounds[k]['block'])
@@ -558,33 +550,35 @@ def ledger():
                 'n': len(hashes)},
                {'check': 'unknown_topics', 'status': 'ok' if all(e['event'] != 'unknown' for e in events) else 'fail',
                 'n': sum(e['event'] == 'unknown' for e in events)}]
+    return bounds, events, chunks, checks
 
-    # stock identity per day, and for the development interval
-    def bridge(k0, k1, label):
-        ev = [e for e in events if k0 <= e['k'] < k1]
-        mint = [e['amount_base'] for e in ev if e['type'] == 'mint']
-        burn = [e['amount_base'] for e in ev if e['type'] == 'burn']
-        gap = any(c['status'] != 'ok' and c['from_block'] <= bounds[k1]['block'] and c['to_block'] > bounds[k0]['block']
-                  for c in chunks)
-        stop = [e['event'] for e in ev if e['event'] in STOP_EVENTS]
-        ds = bounds[k1]['forno'] - bounds[k0]['forno']
-        r = None if gap else ds - (sum(mint) - sum(burn))
-        return {'interval': label, 'start_block': bounds[k0]['block'], 'end_block': bounds[k1]['block'],
-                'start_supply_brla': brla(bounds[k0]['forno']), 'end_supply_brla': brla(bounds[k1]['forno']),
-                'delta_supply_brla': brla(ds), 'gross_mints_brla': brla(sum(mint)), 'gross_burns_brla': brla(sum(burn)),
-                'n_mints': len(mint), 'n_burns': len(burn), 'n_transfers': sum(e['type'] == 'transfer' for e in ev),
-                'other_events': ';'.join(sorted({e['event'] for e in ev if e['type'] == 'other'})),
-                'r_stock_base': '' if r is None else r, 'coverage_complete': not gap,
-                'ankr_equal_at_ends': bounds[k0]['ankr'] == bounds[k0]['forno'] and bounds[k1]['ankr'] == bounds[k1]['forno'],
-                'implementation_same': bounds[k0]['impl'] == bounds[k1]['impl'], 'stop_events': ';'.join(stop),
-                'decimals_18': bounds[k0]['decimals'] == bounds[k1]['decimals'] == 18}
-    recon = [bridge(k, k + 1, f"day {bounds[k]['label']}") for k in range(N_BOUND - 1)]
-    dev = bridge(0, DEV_END, f"development {bounds[0]['label']} to {bounds[DEV_END]['label']} 00:00 UTC")
 
-    # provider comparison: raw residual at 00:00 UTC, and the within-day consistency rule (+-1 BRLA)
+def bridge(bounds, events, chunks, k0, k1, label):
+    """Stock identity between boundaries k0 and k1: supply change minus (mints - burns), in base units."""
+    ev = [e for e in events if k0 <= e['k'] < k1]
+    mint = [e['amount_base'] for e in ev if e['type'] == 'mint']
+    burn = [e['amount_base'] for e in ev if e['type'] == 'burn']
+    gap = any(c['status'] != 'ok' and c['from_block'] <= bounds[k1]['block'] and c['to_block'] > bounds[k0]['block']
+              for c in chunks)
+    stop = [e['event'] for e in ev if e['event'] in STOP_EVENTS]
+    ds = bounds[k1]['forno'] - bounds[k0]['forno']
+    r = None if gap else ds - (sum(mint) - sum(burn))
+    return {'interval': label, 'start_block': bounds[k0]['block'], 'end_block': bounds[k1]['block'],
+            'start_supply_brla': brla(bounds[k0]['forno']), 'end_supply_brla': brla(bounds[k1]['forno']),
+            'delta_supply_brla': brla(ds), 'gross_mints_brla': brla(sum(mint)), 'gross_burns_brla': brla(sum(burn)),
+            'n_mints': len(mint), 'n_burns': len(burn), 'n_transfers': sum(e['type'] == 'transfer' for e in ev),
+            'other_events': ';'.join(sorted({e['event'] for e in ev if e['type'] == 'other'})),
+            'r_stock_base': '' if r is None else r, 'coverage_complete': not gap,
+            'ankr_equal_at_ends': bounds[k0]['ankr'] == bounds[k0]['forno'] and bounds[k1]['ankr'] == bounds[k1]['forno'],
+            'implementation_same': bounds[k0]['impl'] == bounds[k1]['impl'], 'stop_events': ';'.join(stop),
+            'decimals_18': bounds[k0]['decimals'] == bounds[k1]['decimals'] == 18}
+
+
+def label_checks(bounds, events, recon, v1, v2):
+    """Raw residual at 00:00 UTC and the within-day consistency rule (+-1 BRLA) for each boundary's label."""
     snaps = []
     for b in bounds:
-        day_ok = b['k'] < N_BOUND - 1 and recon[b['k']]['r_stock_base'] == 0
+        day_ok = b['k'] < len(bounds) - 1 and recon[b['k']]['r_stock_base'] == 0
         path = [(b['time_utc'], b['forno'])]
         if day_ok:
             s = b['forno']
@@ -610,18 +604,15 @@ def ledger():
                             'first_match_utc': match[0] if match else '', 'last_match_utc': match[-1] if match else '',
                             'alignment_status': 'time_alignment_unknown'})
             snaps.append(row)
-    rep0, rep1 = v1.get(bounds[0]['label']), v1.get(bounds[DEV_END]['label'])
-    d_rep = Decimal(str(rep1)) - Decimal(str(rep0))
-    r_prov = d_rep - Decimal(bounds[DEV_END]['forno'] - bounds[0]['forno']) / UNIT
-    dev.update({'defillama_delta_brla': f'{d_rep:f}', 'r_provider_brla': f'{r_prov:f}',
-                'r_provider_relative': f'{abs(r_prov) / max(abs(d_rep), Decimal(1)):.6f} (denominator |delta reported|)'})
+    return snaps
 
-    # cross-checks: every mint/burn >= 1% of gross volume, plus a seeded sample of the rest
-    dev_mb = [e for e in events if e['k'] < DEV_END and e['type'] in ('mint', 'burn')]
-    gross = sum(e['amount_base'] for e in dev_mb)
-    large = [e for e in dev_mb if e['amount_base'] * 100 >= gross]
+
+def cross_check(mb, n_sample, selector):
+    """Receipts (second source) for every mint/burn >= 1% of gross volume and a seeded sample of the rest."""
+    gross = sum(e['amount_base'] for e in mb)
+    large = [e for e in mb if e['amount_base'] * 100 >= gross]
     big = {id(e) for e in large}
-    sample = random.Random(SEED).sample([e for e in dev_mb if id(e) not in big], min(N_SAMPLE, len(dev_mb) - len(large)))
+    sample = random.Random(SEED).sample([e for e in mb if id(e) not in big], min(n_sample, len(mb) - len(large)))
     for e in large + sample:
         ok, source = receipt_check(e)
         e.update({'cross_check': ('large' if id(e) in big else 'sample'), 'receipt_ok': ok, 'receipt_source': source})
@@ -630,9 +621,35 @@ def ledger():
             e.update({'tx_from': tx['from'], 'tx_to': tx['to'], 'selector': tx['input'][:10],
                       'function': selector.get(tx['input'][:10], 'unknown'),
                       'block_hash_matches_header': header(e['block'])['hash'] == e['block_hash']})
-    checks.append({'check': 'receipts_large_and_sample', 'n': len(large) + len(sample),
-                   'status': 'ok' if all(e['receipt_ok'] for e in large + sample) else 'fail',
-                   'detail': f"{len(large)} events >= 1% of gross {brla(gross)} BRLA + {len(sample)} sampled (seed {SEED})"})
+    check = {'check': 'receipts_large_and_sample', 'n': len(large) + len(sample),
+             'status': 'ok' if all(e['receipt_ok'] for e in large + sample) else 'fail',
+             'detail': f"{len(large)} events >= 1% of gross {brla(gross)} BRLA + {len(sample)} sampled (seed {SEED})"}
+    return large, sample, gross, check
+
+
+def setup():
+    head = int(must('forno', 'eth_blockNumber'), 16)
+    topic = {keccak(s): s.split('(')[0] for s in EVENTS}
+    assert topic.get(TRANSFER) == 'Transfer' and topic.get(UPGRADED) == 'Upgraded'
+    selector = {keccak(s)[:10]: s.split('(')[0] for s in FUNCS}
+    v2_raw = fetch('defillama', DEFILLAMA_V2)
+    return head, topic, selector, defillama_celo(), defillama_celo(v2_raw) if 'chainBalances' in v2_raw else {}
+
+
+def ledger():
+    head, topic, selector, v1, v2 = setup()
+    bounds, events, chunks, checks = collect(DAY0, N_BOUND, head, topic)
+    recon = [bridge(bounds, events, chunks, k, k + 1, f"day {bounds[k]['label']}") for k in range(N_BOUND - 1)]
+    dev = bridge(bounds, events, chunks, 0, DEV_END, f"development {bounds[0]['label']} to {bounds[DEV_END]['label']} 00:00 UTC")
+    snaps = label_checks(bounds, events, recon, v1, v2)
+    rep0, rep1 = v1.get(bounds[0]['label']), v1.get(bounds[DEV_END]['label'])
+    d_rep = Decimal(str(rep1)) - Decimal(str(rep0))
+    r_prov = d_rep - Decimal(bounds[DEV_END]['forno'] - bounds[0]['forno']) / UNIT
+    dev.update({'defillama_delta_brla': f'{d_rep:f}', 'r_provider_brla': f'{r_prov:f}',
+                'r_provider_relative': f'{abs(r_prov) / max(abs(d_rep), Decimal(1)):.6f} (denominator |delta reported|)'})
+    dev_mb = [e for e in events if e['k'] < DEV_END and e['type'] in ('mint', 'burn')]
+    large, sample, gross, check = cross_check(dev_mb, N_SAMPLE, selector)
+    checks.append(check)
 
     # post hoc: Blockscout metadata of every minter/burner and every contract the large events' transactions called
     addrs = sorted({e['counterparty'] for e in dev_mb} | {e['tx_to'].lower() for e in large})
@@ -655,6 +672,74 @@ def ledger():
     write_csv(ROOT / 'data/processed/P3-29_reconciliation.csv', recon + [dev])
     write_csv(ROOT / 'results/tables/P3-29_coverage.csv', checks + chunks)
     audit(dev, recon, snaps, large, sample, dev_mb, gross, checks, events, meta)
+
+
+# ---------------------------------------------------------------- S5: frozen additional cases (protocol 8, 11)
+S5_MANIFEST = ROOT / 'results/tables/P3-29_s5_manifest.csv'
+
+
+def manifest():
+    """Selection from DefiLlama v1 alone (no on-chain data): 6 large and 6 ordinary daily changes outside June."""
+    v1, date = defillama_celo(), dt.date.fromisoformat
+    inv = [(d, Decimal(str(v1[d])) - Decimal(str(v1[(date(d) - dt.timedelta(days=1)).isoformat()])))
+           for d in sorted(v1) if '2026-03-25' <= d <= '2026-10-30' and not '2026-06-18' <= d <= '2026-07-02'
+           and (date(d) - dt.timedelta(days=1)).isoformat() in v1]
+    far = lambda d, kept: all(abs((date(d) - date(k)).days) >= 7 for k, _ in kept)
+    large = []
+    for d, x in sorted(inv, key=lambda r: -abs(r[1])):
+        if len(large) < 6 and far(d, large):
+            large.append((d, x))
+    q1, _, q3 = statistics.quantiles([abs(x) for _, x in inv], n=4, method='inclusive')
+    eligible = [(d, x) for d, x in inv if q1 <= abs(x) <= q3 and far(d, large)]
+    ordinary = sorted(random.Random(SEED).sample(eligible, 6))
+    rows = [{'case': f'{kind}{i + 1}', 'kind': kind, 'label': d, 'delta_reported_v1_brla': f'{x:f}',
+             'inventory_days': len(inv), 'abs_q1_brla': f'{q1:f}', 'abs_q3_brla': f'{q3:f}', 'eligible_ordinary': len(eligible)}
+            for kind, sel in (('L', large), ('O', ordinary)) for i, (d, x) in enumerate(sel)]
+    write_csv(S5_MANIFEST, rows)
+    for r in rows:
+        print(r)
+
+
+def cases():
+    if not S5_MANIFEST.exists():
+        manifest()
+        sys.exit(f'{S5_MANIFEST.relative_to(ROOT)} written: commit it, then run `cases` again to collect')
+    head, topic, selector, v1, v2 = setup()
+    summary, details = [], []
+    for c in csv.DictReader(open(S5_MANIFEST)):
+        day0 = dt.datetime.fromisoformat(c['label']).replace(tzinfo=dt.UTC) - dt.timedelta(days=1)
+        bounds, events, chunks, checks = collect(day0, 3, head, topic)
+        recon = [bridge(bounds, events, chunks, k, k + 1, f"day {bounds[k]['label']}") for k in range(2)]
+        snaps = {s['label']: s for s in label_checks(bounds, events, recon, v1, v2) if s['provider'] == 'forno'}
+        mb = [e for e in events if e['type'] in ('mint', 'burn')]
+        large, sample, gross, check = cross_check(mb, 5, selector)
+        vol = {}
+        for e in mb:
+            vol[e['counterparty']] = vol.get(e['counterparty'], 0) + e['amount_base']
+        top = max(vol.items(), key=lambda x: x[1]) if vol else ('', 0)
+        prev = bounds[0]['label']
+        summary.append({
+            'case': c['case'], 'kind': c['kind'], 'label': c['label'], 'delta_reported_v1_brla': c['delta_reported_v1_brla'],
+            'onchain_change_two_days_brla': brla(bounds[2]['forno'] - bounds[0]['forno']),
+            'gross_mints_brla': brla(sum(e['amount_base'] for e in mb if e['type'] == 'mint')),
+            'gross_burns_brla': brla(sum(e['amount_base'] for e in mb if e['type'] == 'burn')),
+            'n_mint_burn': len(mb), 'stock_residual_base_day1': recon[0]['r_stock_base'],
+            'stock_residual_base_day2': recon[1]['r_stock_base'],
+            'integrity_ok': all(x['status'] == 'ok' for x in checks) and all(r['coverage_complete'] and r['ankr_equal_at_ends']
+                                                                            and r['implementation_same'] and not r['stop_events'] for r in recon),
+            'provider_prev_label': snaps[prev]['provider_check'], 'provider_label': snaps[c['label']]['provider_check'],
+            'match_time_prev_utc': snaps[prev]['first_match_utc'][11:19], 'match_time_label_utc': snaps[c['label']]['first_match_utc'][11:19],
+            'r_at_0000_label_brla': snaps[c['label']]['r_at_0000_brla'],
+            'receipts': f"{sum(e['receipt_ok'] for e in large + sample)}/{len(large) + len(sample)}",
+            'top_counterparty': top[0], 'top_share': f'{100 * top[1] / sum(vol.values()):.1f}%' if vol else '',
+            'n_counterparties': len(vol), 'large_functions': ';'.join(sorted({e['function'] for e in large}))})
+        details += [dict(r, case=c['case']) for r in recon]
+    write_csv(ROOT / 'results/tables/P3-29_s5_cases.csv', summary)
+    write_csv(ROOT / 'data/processed/P3-29_s5_days.csv', details)
+    for r in summary:
+        print({k: r[k] for k in ('case', 'label', 'delta_reported_v1_brla', 'stock_residual_base_day1', 'stock_residual_base_day2',
+                                 'integrity_ok', 'provider_prev_label', 'provider_label', 'match_time_label_utc', 'receipts',
+                                 'top_share', 'n_counterparties')})
 
 
 def group_by_block(evs):
@@ -727,6 +812,6 @@ def audit(dev, recon, snaps, large, sample, dev_mb, gross, checks, events, meta)
 
 
 if __name__ == '__main__':
-    if sys.argv[1:] not in (['smoke'], ['ledger'], ['chains']):
+    if sys.argv[1:] not in (['smoke'], ['ledger'], ['chains'], ['cases']):
         sys.exit(__doc__)
-    {'smoke': smoke, 'ledger': ledger, 'chains': chains}[sys.argv[1]]()
+    {'smoke': smoke, 'ledger': ledger, 'chains': chains, 'cases': cases}[sys.argv[1]]()
