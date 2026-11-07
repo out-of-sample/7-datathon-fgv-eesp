@@ -187,6 +187,13 @@ Read `prompt.md`, `STATUS.md`, P3-27 and its 6 Nov log entries, then F-028/F-030
   A 0.87, B2 0.85, B1 0.75, B0 0.15 provisional, implementer's labels); **held-out Avenia runs done** (40, hashes in
   `results/tables/P3-28_heldout_run_hashes.csv`).
 - **Next steps, in order:**
+  0. **Update 7 Nov (Renzo):** Binance A-26, A-27, A-28, A-30, A-31, A-32 saved by Renzo into
+     `data/raw/p3_28/manual/` (copied from his Downloads; out of git). **A-25 and A-29 came out blank** in his
+     browser (still missing; A-33 not found yet). **Mercado Bitcoin (A-34–A-41) blocks Renzo too, so Jonathan** (Felipe
+     if Jonathan is busy; either has a different network/browser) **saves A-34–A-41** as `data/raw/p3_28/manual/<ID>.html`
+     or `.pdf` and sends them to Renzo (they are not committed; `data/raw/` is out of git). Jonathan has not yet been
+     asked. Because Jonathan or Felipe is also a blind coder, whoever saves the pages has read them, which is
+     harmless for coding (coders see the corpus anyway) but they must not read any method's outputs.
   1. **Renzo** saves the 17 Binance/Mercado Bitcoin pages (list: `results/tables/P3-28_sources.csv`, `fetch=manual`) in
      his normal browser as `data/raw/p3_28/manual/<ID>.pdf` (Print → Save as PDF; or `<ID>.html`). For A-33, A-39 and
      A-40 he finds the page and adds `<ID>,<url>` to `data/raw/p3_28/manual/urls.csv`. Then
