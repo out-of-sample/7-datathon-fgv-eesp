@@ -1,0 +1,7 @@
+method,validation_mae_bps,selected
+mean_reversion,26.943201491578407,False
+persistence,33.0437667932228,False
+rolling_hinge_100,27.22327358219122,False
+rolling_hinge_1000,27.61009990902796,False
+rolling_ridge_100,26.70606494083018,True
+rolling_ridge_1000,27.387038932421458,False

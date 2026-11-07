@@ -2,9 +2,9 @@
 id: P3-42
 title: Upgrade compression forecasts with rolling fits and adaptive calibration
 phase: P3
-status: doing
+status: review
 owner: Economist
-working: Felipe (Codex)
+working: -
 due: 2026-11-08
 depends: P3-41
 ---
@@ -23,28 +23,29 @@ Felipe requested a bounded upgrade before independent revision. Preserve P3-41/F
 - Latest archive forecasts use the same month-start model and matured-error filter without requiring a future target. Version-1 scores may be compared only on matching origins; no new prospective claim.
 
 ## Subtasks
-- [ ] S1 — Lock protocol and claim — doing: Felipe (Codex).
-- [ ] S2 — Rolling models, calibration, stress cards and timing tests.
-- [ ] S3 — Compare, reproduce, inspect chart and write finding/handoff.
+- [x] S1 — Lock protocol and claim — done: Felipe (Codex), 7 Nov.
+- [x] S2 — Rolling models, calibration, stress cards and timing tests — done: Felipe (Codex), 7 Nov.
+- [x] S3 — Compare, reproduce, inspect chart and write finding/handoff — done: Felipe (Codex), 7 Nov.
 
 ## Success criteria
-- [ ] Monthly fit and calibration maturity traces inspectable; future-label perturbation tests pass.
-- [ ] All candidates reported; validation selection frozen before 2026 interpretation.
-- [ ] Stress card preserves unknown access; v1 remains unchanged.
-- [ ] Reproducible tables, chart and exploratory finding ready for teammate review.
+- [x] Monthly fit and calibration maturity traces inspectable; future-label perturbation tests pass.
+- [x] All candidates reported; validation selection frozen before 2026 interpretation.
+- [x] Stress card preserves unknown access; v1 remains unchanged.
+- [x] Reproducible tables, chart and exploratory finding ready for teammate review.
 
 ## Outputs
 - `scripts/p3_42_compression_upgrade.py`, `results/tables/P3-42_*`, `results/figures/P3-42_upgrade.png`
 - `findings/F-051-compression-upgrade.md`, `docs/premium-compression-upgrade.md`
 
 ## Handoff
-- **State:** protocol fixed, no upgrade models fit yet.
-- **Next step:** S2 implement and test before interpreting scores.
-- **Open questions:** independent review and executable access remain pending.
-- **How to resume:** run `python scripts/p3_42_compression_upgrade.py` once implemented.
+- **State:** complete, F-051 exploratory. Fourteen tests pass; chart visually inspected. Monthly ridge improves over frozen v1; edge over mean reversion uncertain. Nonlinear candidates retained. All stress cards abstain; v1 preserved.
+- **Next step:** independent teammate runs test and full commands, verifies timestamp traces and sparse policy decisions, then Felipe decides annex use. Do not reselect models on 2026.
+- **Open questions:** independent review and executable access remain pending; no new prospective holdout exists.
+- **How to resume:** `python scripts/p3_42_compression_upgrade.py --test-only`, then without the flag. See `docs/premium-compression-upgrade.md`; local interpreter path in the v1 note.
 
 ## Log
+- 2026-11-07 — Felipe via Codex: protocol ce91d8b precedes model fitting. Four candidates, adaptive bands, matched v1/baseline comparisons, stress cards, fourteen tests and chart complete. Selection remains rolling_ridge_100 from 2025; no changes to methods after test inspection.
 - 2026-11-07 — Felipe via Codex: explicit upgrade request; new task avoids altering v1. Concurrent P3-40 edits preserved; pull blocked by their unstaged changes.
 
 ## Result
-Pending.
+F-051: daily 10-day MAE improves from v1 34.43 to 29.34 bps; mean reversion 30.03. On fixed nonoverlapping origins, selected model 21.74 versus mean reversion 21.33. Improvement over simple baseline unestablished. Central June waiting signals fail robustness across the joint forecast/scenario envelope. Ready for independent revision.

@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Codex for Felipe (P3-40 supplemental frozen-bundle replay passes; Windows path differences documented; human sign-off pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-07 by Codex for Felipe (P3-42 rolling compression upgrade, F-051 exploratory); previous: 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Codex for Felipe (P3-40 supplemental frozen-bundle replay passes; Windows path differences documented; human sign-off pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 
 tag `results-frozen` (F-001 to F-033)
@@ -84,6 +84,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 
 ## Next actions
+
+**P3-42 (7 Nov, Felipe):** rolling compression upgrade ready for independent revision (`docs/premium-compression-upgrade.md`, F-051). Fourteen tests pass; monthly ridge improves over v1, uncertain edge over simple mean reversion. Adaptive bands and stress cards complete; all stress cards abstain. V1 preserved; no deck change.
 
 **P3-41 (7 Nov, Felipe):** compression-to-cost prototype complete (`docs/premium-compression.md`, F-050 exploratory). Nine checks pass; outputs reproduce. Ridge loses to simple mean reversion at the primary 10-day horizon; no established acquisition-timing improvement. Next: independent teammate reproduction and annex decision. Access remains unknown; no deck change.
 
@@ -302,7 +304,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P3-39](tasks/P3-39-buyer-cost-frontier.md) | Measure the buyer's cost budget for waiting | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-07 | P3-31 |
 | [P3-40](tasks/P3-40-final-project-review.md) | Review and repair project consistency before submission | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-07 | P3-39 |
 | [P3-41](tasks/P3-41-premium-compression.md) | Forecast economically useful premium compression before a payment deadline | 👀 review | Economist | - | 3/3 | 4/4 | 2026-11-08 | P3-39, P1-02 |
-| [P3-42](tasks/P3-42-compression-upgrade.md) | Upgrade compression forecasts with rolling fits and adaptive calibration | 🔄 doing | Economist | Felipe (Codex) | 0/3 | 0/4 | 2026-11-08 | P3-41 |
+| [P3-42](tasks/P3-42-compression-upgrade.md) | Upgrade compression forecasts with rolling fits and adaptive calibration | 👀 review | Economist | - | 3/3 | 4/4 | 2026-11-08 | P3-41 |
 
 **P4 — Robustness and freeze** (3/4 closed)
 
@@ -381,11 +383,14 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [F-048](findings/F-048-buyer-cost-frontier.md) | Waiting's June cost budget is positive centrally but changes sign across explicit stress scenarios | 🔍 exploratory | P3-39 | - |
 | [F-049](findings/F-049-brla-operator-routing.md) | BRLA's large June burns use an authorized transfer-and-burn routine also seen before the notice; their fiat purpose remains unidentified | 🔍 exploratory | P3-37 | - |
 | [F-050](findings/F-050-premium-compression.md) | Partial premium compression can be evaluated against costs, but ridge does not beat simple mean reversion on the primary horizon | 🔍 exploratory | P3-41 | - |
+| [F-051](findings/F-051-compression-upgrade.md) | Monthly retraining improves the first ridge forecast, but its edge over simple mean reversion remains uncertain | 🔍 exploratory | P3-42 | - |
 <!-- BOARD:END -->
 
 
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-07 — Codex for Felipe: P3-42 upgrade adds monthly linear/nonlinear fits, adaptive matured-error bands, matched comparisons and joint forecast/funding stress cards. F-051 exploratory; fourteen tests pass; all ten upgrade outputs reproduce, fourteen v1 outputs unchanged. Selected rolling ridge from 2025 retained; independent review next.
 
 - 2026-11-07 — Codex for Felipe: P3-41 protocol committed before fitting; compression forecasts, residual bands and buyer-frontier integration complete. F-050 exploratory; nine tests and byte-identical replay pass; daily/nonoverlapping results retained. Mean reversion beats ridge at 10 days; unknown access prevents actionable labels. No core/deck edits.
 
