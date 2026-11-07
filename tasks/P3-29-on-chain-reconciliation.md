@@ -2,9 +2,9 @@
 id: P3-29
 title: Reconcile reported BRLA supply changes with on-chain evidence
 phase: P3
-status: doing
+status: review
 owner: Team
-working: Renzo (agent) / Jonathan
+working: -
 due: 2026-11-07
 depends: P3-27
 ---
@@ -150,18 +150,18 @@ Each step is one focused session or is split further when needed. Prioritize the
 - [x] S1 — Verify source provenance and historical RPC capabilities; record G1 and one snapshot pair. — done: Renzo (agent), 2026-11-07 (G1 passed for Celo; F-041)
 - [x] S2 — Commit the accounting protocol, scope, definitions, tolerances and selection rule. — done: Renzo (agent), 2026-11-07 (`results/P3-29_protocol.md`, committed before any interval log was collected)
 - [x] S3 — Reconstruct the Celo stock identity; audit events/coverage and pass G2. — done: Renzo (agent), 2026-11-07 (F-042; stock residual 0 on every day; **G2 needs the reviewer**: follow `results/tables/P3-29_case_audit.md` to the raw files)
-- [ ] S4 — Compare circulation and investigate verified multi-chain links; preserve unresolved differences. — doing: Renzo (agent)
-- [ ] S5 — Complete the frozen additional-case evaluation; run or explicitly waive H4. — doing: Renzo (agent)
-- [ ] S6 — Review economic interpretation and prepare the integration figure/evidence export. — doing: Renzo (agent)
-- [ ] S7 — Independently reproduce outputs, write the finding and finish the handoff.
+- [x] S4 — Compare circulation and investigate verified multi-chain links; preserve unresolved differences. — done: Renzo (agent), 2026-11-07 (limited scope: other contracts at daily boundaries; P-0045 held; no listed chain absorbed the 23 Jun fall; F-042, F-044)
+- [x] S5 — Complete the frozen additional-case evaluation; run or explicitly waive H4. — done: Renzo (agent), 2026-11-07 (12/12 cases close, 24/24 labels consistent, F-044; **H4 waived**, protocol §8)
+- [ ] S6 — Review economic interpretation and prepare the integration figure/evidence export. — prepared: Renzo (agent), 2026-11-07 (figure + `results/P3-29_annex_draft_ptbr.md`); **review: Felipe**; P3-28 export not done (no reviewed record format yet)
+- [ ] S7 — Independently reproduce outputs, write the finding and finish the handoff. — findings written (F-041, F-042, F-044), sources registered, raw-data recovery documented; **reproduction: a teammate (Jonathan replicated S1)**
 
 ## Success criteria
-- [ ] Historical contract identity, supply semantics, timestamps and data-access coverage are documented; unavailable capabilities are explicit.
+- [x] Historical contract identity, supply semantics, timestamps and data-access coverage are documented; unavailable capabilities are explicit. (F-041, T-14–T-22; other chains: identity by slot/code only)
 - [x] The protocol predates event classification and distinguishes total supply, reported circulation and consolidated economic claims. (`cfccbfc` before collection; amendments dated, 7–9 post hoc)
 - [x] One development ledger reports gross changes, stock residual and provider residual or an explicit reason why it is unidentifiable. (F-042, `P3-29_reconciliation.csv`)
-- [ ] Every adjustment/link has evidence; no inferred bridge, fiat redemption, ownership or BCB effect is presented as verified.
-- [ ] Additional cases follow the committed selection rule; all failures and scope reductions are disclosed.
-- [ ] Optional agent evaluation is either fully reported against its baselines or explicitly waived without a superiority claim.
+- [x] Every adjustment/link has evidence; no inferred bridge, fiat redemption, ownership or BCB effect is presented as verified. (no adjustments needed; no link claimed)
+- [x] Additional cases follow the committed selection rule; all failures and scope reductions are disclosed. (manifest `d6008bf` before collection)
+- [x] Optional agent evaluation is either fully reported against its baselines or explicitly waived without a superiority claim. (waived)
 - [ ] Another teammate reproduces the outputs and checks interpretation before main-deck use; negative results are acceptable.
 
 ## Outputs
@@ -202,31 +202,30 @@ For the ten-slide PDF, propose at most one combined solution/evaluation slide wi
 Read `prompt.md`, `STATUS.md`, P3-27, F-037/P3-24 and the input script/data notes first. Source-register T-06/R-11 supplies current issuer contract leads, T-07 documents read-only JSON-RPC capabilities, and T-13 defines the ERC-20 interface. These establish technical starting points, not June contract identity, provider methodology or endpoint availability. Verify and register each new exact source used during execution.
 
 ## Handoff
-- **State (7 Nov, Brasília early morning):** S1–S3 done by Renzo's agent; status `paused`, no one working. **F-042**
-  (exploratory): Celo stock identity closes to 0 base units on every UTC day 19 Jun – 2 Jul; 732.6 mn minted / 724.9 mn
-  burned for +7.7 mn net in the 12-day case; two accounts do all mints and burns (`0xbd22…855e` 96%/93%); DefiLlama
-  consistent within the day on 12 of 13 labels (all at ~00:45 UTC, description only), **26 Jun (and 2 Jul) value
-  59,281,880 matches no on-chain state** (unresolved). H1 as registered (§5: all 13 labels) is therefore **not
-  supported for the case**: the stock part is supported, the provider part holds for 12 of 13 labels. F-037 has a History
-  note (its 26 Jun point is not supported on-chain; the fall was on 23 Jun UTC).
-- **Next step:** (1) **Reviewer (Nattan or Jonathan) does G2 + S7 reproduction**: restore the Flash bundle, run
-  `P3_29_OFFLINE=1 .venv/bin/python scripts/p3_29_reconcile.py ledger` if you have `data/raw/p3_29/` (copy from Renzo's
-  machine), or the live command without the variable (~4 min, public endpoints, no key). Compare with
-  `data/processed/P3-29_reconciliation.csv` and `results/tables/P3-29_case_audit.md`; open 2–3 large burns on
-  https://celo.blockscout.com/tx/<hash> in a browser; check that F-042's wording stays within protocol §6.
-  (2) **Felipe (S6):** economic reading and whether one annex line is worth it. Draft for him: "Na Celo, a oferta de
-  BRLA de 19 a 30/06 fecha exatamente (resíduo zero) com 17.536 emissões e queimas (732,6 mi emitidos, 724,9 mi queimados, +7,7 mi
-  líquidos), quase todas de uma única conta; a queda vista nos agregadores ocorreu em 23/06 (uma queima de 113,6 mi).
-  Os registros on-chain não dizem por quê." (3) Optional S4 (limited): `totalSupply` on Polygon/Gnosis at the same
-  boundaries, after an S1-style capability check; no linking.
-- **Open questions:** reviewer not named; whether DefiLlama can explain its 26 Jun/2 Jul value (would need their
-  records; do not call it an error without them); what `MiniVM` (`0xa5e1…d340`) does. Its verified source is on
-  Blockscout, not read here. Reading it would tell the mechanism, still not the purpose.
-- **How to resume:** `.venv/bin/python scripts/p3_29_reconcile.py ledger` rebuilds everything. `data/processed/P3-29_events.csv`
-  (5.8 MB) is git-ignored and rebuilt by that command. Raw answers are in `data/raw/p3_29/` (527 files, checksums in
-  `data/raw/SHA256SUMS`, not in git). Endpoint limits are in F-041.
+- **State (01:57 Brasília, 7 Nov):** S1–S5 done and S6 prepared by Renzo's agent; status `review`, no one working. Findings:
+  F-041 (feasibility), F-042 (June Celo ledger: residual 0 on every day; 732.6 mn minted / 724.9 mn burned for +7.7 mn;
+  23 Jun burn of 113.6 mn; not absorbed by Polygon/Gnosis/Moonbeam; DefiLlama 26 Jun value matches no on-chain state),
+  F-044 (12 frozen cases all close; 24/24 labels consistent; DefiLlama read time 00:04–00:46 UTC; P-0045 held 32/0, 6
+  informative). All exploratory. H4 waived.
+- **Next steps (people, not agents):**
+  1. **S7 reproduction, Jonathan (he replicated S1, `e9e5bf8`) or Nattan:** restore the Flash bundle (`data/README.md`).
+     Then run, live (public endpoints, no key; about 4 + 8 + 4 min): `.venv/bin/python scripts/p3_29_reconcile.py ledger`,
+     then `... cases`, then `... chains`. Or ask Renzo for `data/raw/p3_29/` (89 MB) and add `P3_29_OFFLINE=1`.
+     Compare with `data/processed/P3-29_reconciliation.csv`, `results/tables/P3-29_case_audit.md`, `P3-29_s5_cases.csv`,
+     `P3-29_chains_audit.md`. Open 2–3 large burns on https://celo.blockscout.com/tx/<hash> in a browser (G2), and check
+     F-042/F-044 wording against protocol §6. Then write `checked_by` and History in the three findings.
+  2. **S6 Felipe:** read `results/P3-29_annex_draft_ptbr.md` (figure + one paragraph + three questions). Decide annex or
+     repository only. The deck is not touched.
+- **Open questions:** why DefiLlama's Celo value is 59,281,880 on 26 Jun and 2 Jul (needs DefiLlama's own records);
+  what `MiniVM` (`0xa5e1…d340`) and the Polygon/Moonbeam implementations do (verified source on Blockscout, not read);
+  whether the burns are fiat redemptions (no source; do not say so).
+- **How to resume or extend:** commands above, plus `... figure` for the figure. Raw answers are under `data/raw/p3_29/`
+  (2,841 files; checksums in `data/raw/SHA256SUMS`; not in git); `P3-29_events.csv` (5.8 MB) is git-ignored and rebuilt
+  by `ledger`. Endpoint limits are in F-041 and T-22. A further case set needs a new frozen manifest (protocol §8 rule,
+  new seed) committed before collection.
 
 ## Log
+- 2026-11-07 01:57 (Brasília) — agent for Renzo: S4 done (other contracts at 15 boundaries, two providers each, P-0045 32 match / 0 miss / 6 informative; no listed chain absorbed Celo's 23 Jun fall), S5 done (manifest `d6008bf` before collection; 12/12 cases residual 0, 24/24 labels consistent, 317/317 receipts; read time 00:04–00:46 UTC), S6 prepared (figure, pt-BR annex draft for Felipe). F-044 exploratory; F-042/F-037 History notes; T-22. Status review: reproduction (S7) and Felipe's S6 review pending. Ledger code split into reusable parts (offline replay byte-identical).
 - 2026-11-07 01:43 (Brasília) — agent for Renzo: tidied the merge from `e9e5bf8`: one `working:` line (Jonathan's value kept), two duplicated log lines with superseded timestamps removed, Jonathan's review line placed in date order. His text is unchanged.
 - 2026-11-07 01:32 (Brasília) — agent for Renzo: Renzo: "proceed to the rest of the task". Renzo takes S4, S5 and the S6 preparation (figure + draft annex text; Felipe reviews). S7 reproduction stays with a teammate; H4 stays waived (protocol §8). Amendment 10 (S4 rules, prediction P-0045) and 11 (S5 run order) committed before any non-Celo or S5 data is read.
 - 2026-11-07 01:25 (Brasília) – Jonathan (CS 3): Independent replication of S1 smoke test passed. Verified Celo opening (128,106,372.44 BRLA) and closing (135,855,038.46 BRLA) across Forno, Blockscout, and Ankr against frozen DefiLlama series (+179,326 and -36,854 diffs confirmed). Contract implementation (BRLAV1_1, ERC-20, 18 decimals) and S2 protocol frozen prior to bulk collection. Reviewed and approved.
@@ -238,6 +237,12 @@ Read `prompt.md`, `STATUS.md`, P3-27, F-037/P3-24 and the input script/data note
 - 2026-11-06 — Codex for Renzo: formalized from the P3-27 discussion at Renzo's request. Documentation only; no experiment launched or team member assigned.
 
 ## Result
+**S4–S5 (7 Nov 2026, agent for Renzo), F-044 and F-042, exploratory, not yet reproduced.** Q3 (generalization): the
+procedure works unchanged on 12 frozen cases (6 large, 6 ordinary): stock residual 0 on 24/24 days, DefiLlama consistent
+within the day on 24/24 labels. The only provider misses among 37 Celo labels are 26 Jun and 2 Jul (same value). S4:
+the other listed contracts' supplies agree across two providers. A registered prediction of DefiLlama's daily read held
+out of sample (32/32; 6 informative). Celo's 23 Jun fall was not offset on Polygon, Gnosis or Moonbeam. H4: waived.
+
 **S3 (7 Nov 2026, agent for Renzo), F-042, exploratory, not yet reviewed:** the Celo stock identity holds to the base
 unit on every UTC day of 19 Jun – 2 Jul 2026 (development case 19–30 Jun: +7,748,666.02 BRLA = 732,612,871.45 minted −
 724,864,205.43 burned). The provider series matches on-chain supply within ±1 BRLA on 12 of 13 labels; 26 Jun is

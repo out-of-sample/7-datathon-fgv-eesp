@@ -95,6 +95,10 @@ corretoras por arbitragem, como o bitcoin." Not to be said: "o BRLA desancorou",
 o BRLA".
 
 ## History
+- 2026-11-07, agent for Renzo (note from P3-29 S4, F-042/F-044; numbers here unchanged): the question in P3-24 S4,
+  whether the Celo fall was matched by rises on other chains, is answered for the contracts Avenia lists. On 23 Jun UTC
+  Polygon + Gnosis + Moonbeam rose 0.91 mn while Celo fell 112.74 mn, so there was no offsetting move between listed chains
+  at the daily boundaries. Why the BRLA was burned is still not shown.
 - 2026-11-07, agent for Renzo (note from P3-29, F-042; this finding's numbers unchanged): on-chain, the Celo fall
   shown under DefiLlama's 24 Jun label happened during 23 Jun UTC (185.3 mn burned, 72.5 mn minted; one 113.6 mn burn at
   13:15 UTC). The 26 Jun value quoted above (59.3 mn) matches no on-chain state (Celo supply 98.9–119.4 mn that day);

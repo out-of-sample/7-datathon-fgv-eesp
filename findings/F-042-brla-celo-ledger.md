@@ -69,13 +69,20 @@ checksums in `data/raw/SHA256SUMS`). Outputs: `data/processed/P3-29_reconciliati
   00:00 UTC per label range from −1.11 mn to +5.73 mn on consistent days, and are −56.38 mn on 26 Jun.
 - **Versions:** v1 (Flash, 4 Nov) and v2 (pulled 7 Nov 03:53 UTC, T-20) agree on every June–July label. The only
   difference among 227 common labels is 5 Nov, a float in v1 stored as a whole number in v2.
+- **Other listed contracts (S4, F-044, `results/tables/P3-29_chains_audit.md`):** on 23 Jun UTC, when Celo fell
+  112.74 mn, Polygon + Gnosis + Moonbeam together *rose* 0.91 mn. Over 19 Jun – 3 Jul Celo fell 27.66 mn while the
+  other three rose 1.37 mn. No day passes the registered offset screen except 30 Jun, a trivial case (Celo −0.17 mn,
+  others +0.33 mn). DefiLlama's other-chain values are ordinary on 26 Jun and 2 Jul, so the 59.28 mn value is a Celo
+  record only.
 - **Brasília days** (description, audit table): the 23 Jun Brasília day has 185.1 mn of burns, nearly the same as the
   UTC day.
 
 ## Caveats
 - **Accounting, not economics.** A mint is not a fiat subscription and a burn is not a redemption. An address is not an
   owner, and no burn/mint pair is linked across chains (no bridge or message ID was collected; the implementation has
-  no bridge logic). Whether the burned BRLA went to reais, to another chain or elsewhere is **not shown**.
+  no bridge logic). The large burns were **not offset by supply increases on the other contracts Avenia lists** (Polygon,
+  Gnosis, Moonbeam) at the daily boundaries (S4). Whether they went to reais, to an unlisted chain or elsewhere is
+  **not shown**.
 - **Same date as the BCB notice, not linked to it.** The 113.6 mn burn fell on 23 Jun, the date of the BCB notice; the
   hour of the notice is not known to us. The same account also burned 100.0 mn on 19 Jun and 65.7 mn within seven
   minutes on 22 Jun, before the notice. Size alone does not single out 23 Jun, and the protocol forbids a causal
@@ -90,4 +97,5 @@ checksums in `data/raw/SHA256SUMS`). Outputs: `data/processed/P3-29_reconciliati
 Not used. Candidate annex line after review (P3-29 S6/S7), not before.
 
 ## History
+- 2026-11-07, agent for Renzo: S4 offset result added (no listed chain absorbed the 23 Jun fall); generalization in F-044
 - 2026-11-07, agent for Renzo: created (P3-29 S3)

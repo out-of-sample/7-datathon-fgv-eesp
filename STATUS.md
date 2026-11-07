@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-07 by Renzo's agent (P3-28 S1: feasibility and development card D-01, F-043 exploratory; before: Felipe's agent, Option A adopted, P5-08 -> review) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-07 by Renzo's agent (P3-29 S4–S5 done, S6 prepared → review; F-044 exploratory) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 tag `results-frozen` (F-001 to F-033)
 
@@ -49,11 +49,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 **New specifications (Renzo, 6 Nov):** [P3-28 — agentic access map](tasks/P3-28-agentic-access-map.md): **S1 done 7 Nov, paused** (F-043
 exploratory). Card D-01 (Foxbit, Brazilian company, 100,000 USDT to its own wallet) was generated from 14 frozen sources with every passage verified. The
 route is **not established**: since 6 Nov Res. BCB 589 bans banks from operating with unauthorised providers, Foxbit has only applied, and no source says
-whether banks may still send it Pix. Team picks an annex-only table (Felipe checks) or a study after submission (`results/P3-28_feasibility.md` §8). [P3-29 — on-chain reconciliation](tasks/P3-29-on-chain-reconciliation.md): **S1–S3 done 7 Nov** (F-041, F-042, both
-exploratory). BRLA's supply on Celo over 19–30 Jun reconciles to the base unit: 732.6 mn minted and 724.9 mn burned for a
-+7.7 mn net, almost all by one account. The aggregators' "fall on 24 Jun" was a 113.6 mn burn on 23 Jun. DefiLlama's
-daily values match on-chain supply on 12 of 13 days; its 26 Jun low (59.3 mn, quoted in F-037) matches no on-chain state.
-Next: **a reviewer (Nattan or Jonathan) reproduces it (G2/S7)**, then Felipe decides on an annex line (S6).
+whether banks may still send it Pix. Team picks an annex-only table (Felipe checks) or a study after submission (`results/P3-28_feasibility.md` §8). [P3-29 — on-chain reconciliation](tasks/P3-29-on-chain-reconciliation.md): **S1–S5 done, S6 prepared, status
+review** (F-041, F-042, F-044, all exploratory). BRLA's Celo supply reconciles to the base unit in June and in 12
+cases frozen in advance. June: 732.6 mn minted / 724.9 mn burned for +7.7 mn net, almost all by one account. The 23 Jun
+burn of 113.6 mn did not reappear on Polygon, Gnosis or Moonbeam. DefiLlama matches on-chain supply on 35 of 37 Celo
+labels; its 26 Jun / 2 Jul value of 59.3 mn (quoted in F-037) matches none. Next: **Jonathan or Nattan reproduces (S7)**;
+**Felipe reads the annex draft** `results/P3-29_annex_draft_ptbr.md` (S6). H4 waived.
 
 1. Phase P1, P2, P3 (core), and P4-01 are complete (`done` or `review`):
    - **Deck & Annex (`P5-01`, `P5-05`, `P5-07`):** Story notebook `notebooks/p5_07_story.ipynb` (`P5-07`) is reviewed and `done`; `deck/deck_v1_ptbr.md` is cut to **10 slides** (2 Nov, Renzo's agent, P5-01 S5 → paused for Felipe's review); every change, two deviations from the plan and the open items are in `docs/deck-changes-2026-11-02.md`; moved material in Anexo F of `deck/annex_v1_ptbr.md`; bank-route table in Anexo B.5 (Option A, team to confirm); rehearsal sheet `deck/qa_ptbr.md`.
@@ -177,7 +178,7 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 | [P3-26](tasks/P3-26-november-exchange-confounder.md) | Audit the Binance security incident as a competing explanation for the November readout | ⬜ todo | Team | - | 0/3 | 0/3 | 2026-11-07 | P3-20 |
 | [P3-27](tasks/P3-27-agentic-blockchain-options.md) | Evaluate agentic AI, blockchain and operational-learning extensions | 👀 review | Renzo | - | 5/5 | 3/3 | 2026-11-06 | - |
 | [P3-28](tasks/P3-28-agentic-access-map.md) | Build and evaluate a source-backed agentic map of digital-dollar access | ⏸️ paused | Team | - | 1/6 | 1/7 | 2026-11-07 | P3-27 |
-| [P3-29](tasks/P3-29-on-chain-reconciliation.md) | Reconcile reported BRLA supply changes with on-chain evidence | 🔄 doing | Team | Renzo (agent) | 3/7 | 2/7 | 2026-11-07 | P3-27 |
+| [P3-29](tasks/P3-29-on-chain-reconciliation.md) | Reconcile reported BRLA supply changes with on-chain evidence | 👀 review | Team | - | 5/7 | 6/7 | 2026-11-07 | P3-27 |
 | [P3-30](tasks/P3-30-shock-duration.md) | Shock duration feasibility, global census, and discrete-time survival model | 👀 review | Economist | - | 4/4 | 4/4 | 2026-11-08 | P1-02, P1-05 |
 | [P3-31](tasks/P3-31-holder-decisions.md) | Two-Sided Institutional Treasury Decision Framework (BRL -> USDT Buyer & USDT -> BRL Seller) | 👀 review | Economist | - | 4/4 | 4/4 | 2026-11-08 | P1-02, P3-03 |
 | [P3-32](tasks/P3-32-holder-duration-review.md) | Independent review of holder decisions and shock duration | 👀 review | Economist | - | 4/4 | 3/3 | 2026-11-08 | P3-30, P3-31 |
@@ -252,10 +253,12 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 | [F-041](findings/F-041-brla-celo-onchain-feasibility.md) | BRLA's Celo supply can be rebuilt from public chain records - two free providers serve June 2026 state and logs, the contract changes supply only through mint and burn events, and DefiLlama's Celo series is that contract's total supply at an undocumented hour of each day | 🔍 exploratory | P3-29 | - |
 | [F-042](findings/F-042-brla-celo-ledger.md) | On Celo, BRLA's supply from 19 Jun to 1 Jul 2026 reconciles to the base unit with 17,536 mints and burns (732.6 mn minted, 724.9 mn burned, net +7.7 mn), almost all by one account; DefiLlama's daily values match on-chain supply on 12 of 13 days, but its 26 Jun low (59.3 mn) matches no on-chain state | 🔍 exploratory | P3-29 | - |
 | [F-043](findings/F-043-access-card-feasibility.md) | Feasibility - Foxbit's documents let a script build a dated, checked access card for a Brazilian company buying USDT (7 Nov 2026); on it the end-to-end route is not established, because no source says whether banks may still serve an exchange that has only applied for authorisation under Res. BCB 589 | 🔍 exploratory | P3-28 | - |
+| [F-044](findings/F-044-brla-method-beyond-june.md) | Outside June the same procedure works unchanged - 12 frozen BRLA cases on Celo close to the base unit and DefiLlama matches on-chain supply on all 24 of their labels; on Polygon, Gnosis and Moonbeam a registered prediction of DefiLlama's daily read held (32 matches, 0 misses, 6 of them informative) | 🔍 exploratory | P3-29 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-07 — agent for Renzo: P3-29 S4–S5 done, S6 prepared → review: other listed contracts (Polygon, Gnosis, Moonbeam) at 15 boundaries, two providers each; registered prediction of DefiLlama's daily read held 32/0 (6 informative); Celo's 23 Jun fall not offset on listed chains; 12 frozen cases (manifest `d6008bf` first) all close, 24/24 labels consistent, 317/317 receipts (F-044); figure `results/figures/P3-29_supply_bridge.png` and pt-BR annex draft for Felipe; H4 waived; reproduction by Jonathan or Nattan pending
 - 2026-11-07 — agent for Renzo: P3-28 S1 → paused (scope: S1 only, Renzo; second coder Felipe). `scripts/p3_28_access_map.py` freezes sources, generates cards by fixed rules and checks every passage verbatim; D-01 (Foxbit, company, USDT on TRC-20): 14 sources, 23 conditions, route not established on the reais leg (Res. 589 since 6 Nov, Foxbit only an applicant); Binance 202, MB 403, June copies only for terms/fee pages; A-01–A-11 registered; F-043 exploratory
 - 2026-11-07 — agent for Felipe: Option A adopted for Slide 10 across deck_v1, deck_v2, v3 claude slides, and annex (B.8, B.9, C.5, D.1, D.2); P5-08 -> review; HTML presentations regenerated; board updated
 
