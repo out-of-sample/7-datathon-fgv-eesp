@@ -103,7 +103,7 @@ counterparty concentration, cross-checks, provider labels). New finding with the
   capability check like S1's. Each chain's contract identity is checked separately. Coincident moves are not linked.
 
 ## Amendments
-- 2026-11-07 01:25 Brasília, **before any S3 output was seen** (implementation details, no rule changed):
+- 2026-11-07 00:53 Brasília (`5d44c1b`), **before any S3 output was seen** (implementation details, no rule changed):
   (1) one command, `ledger`, does collection and reconciliation (§7 named `collect`/`reconcile`). (2) Event topics
   and function selectors are computed with `web3_sha3` on Forno and Ankr (they must agree), from the eleven event
   declarations of the verified source. No local Keccak is installed. (3) Added: the block hash of every
@@ -111,3 +111,10 @@ counterparty concentration, cross-checks, provider labels). New finding with the
   renamed `P3-29_s1_snapshots.csv` / `P3-29_s1_coverage.csv`. (5) The 2 Jul label falls outside the collected days
   and is reported `not_tested`. (6) DefiLlama path points are end-of-block states, because `eth_call` at a block
   cannot see a state between two logs of the same block.
+- 2026-11-07 00:58 Brasília, **post hoc (after the first S3 output)**: (7) the DefiLlama 26 Jun value (59,281,880) was
+  outside its day's on-chain range and identical to the 2 Jul value, so the collected days were extended to
+  3 Jul 00:00 UTC to test the 2 Jul label under the same rule. The development interval and its totals are
+  unchanged. (8) Blockscout address metadata (contract or not, verified name, implementation, creator, public tags)
+  is now frozen for every minter/burner and for every contract called by a ≥ 1% event's transaction, since all of
+  those went through another contract. (9) Selectors are named whenever their `web3_sha3` hash matches a listed
+  signature, `execute(bytes,bytes[])` included, whatever contract was called. Description only.

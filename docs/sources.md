@@ -223,7 +223,7 @@ Opened on 6 Nov 2026 by Codex for Renzo. Technical definition only; no token imp
 
 ### P3-29 S1 — on-chain feasibility (7 Nov 2026)
 
-Opened on 7 Nov 2026 (00:20–01:20 Brasília) by the agent for Renzo. GitHub files were read through the GitHub API and a
+Opened on 7 Nov 2026 (00:10–00:40 Brasília) by the agent for Renzo. GitHub files were read through the GitHub API and a
 read-only clone at the stated commits; endpoint answers are frozen in `data/raw/p3_29/` (checksums in `data/raw/SHA256SUMS`).
 They establish data access and the provider's computation, not why anyone minted or burned BRLA.
 
@@ -235,3 +235,12 @@ They establish data access and the provider's computation, not why anyone minted
 | T-17 | Forno, Celo public JSON-RPC: https://forno.celo.org | Chain ID `0xa4ec` (42220). Serves June 2026 state (`eth_call`, `eth_getCode`, `eth_getStorageAt`) and logs, but: "query exceeds range, retry smaller (max block range 5000, got 9999)". Returns `null` for `eth_getTransactionReceipt` of a June transaction it knows (`eth_getTransactionByHash` works); `eth_getBlockReceipts` serves the same receipt. |
 | T-18 | Ankr public Celo RPC: https://rpc.ankr.com/celo | Same `totalSupply` as Forno at both snapshot blocks, the same 35 logs in a 1,000-block range, receipts by hash; "Block range is too large" at 10,000 blocks. Used as the second provider. Probe-only: 1rpc and Stakely ("state at block #69926443 is pruned"); dRPC serves historical `eth_call` but not `eth_getCode` or receipts on its free tier. |
 | T-19 | Blockscout Celo explorer, REST v2: https://celo.blockscout.com/api/v2/smart-contracts/0xe6a537a407488807f0bbeb0038b79004f19dddfb and `/api/v2/addresses/0xfecb3f7c54e2caae9dc6ac9060a822d47e053760` | `"name": "BRLAV1_1"`, `"is_verified": true`, `"proxy_type": "eip1967"`; compiler 0.8.25, verified 27 May 2025; proxy created by tx `0x9d10cf14…e356e` (block 25,746,892, 22 May 2024). Source: OpenZeppelin v4 upgradeable ERC-20; `_totalSupply` changes only in `_mint` (emits `Transfer` from `0x0`) and `_burn` (emits `Transfer` to `0x0`). Its eth-rpc answered the first calls (chain ID, headers, opening state), then "Too many requests" (HTTP 429) for the rest of the session. |
+
+### P3-29 S3 — Celo ledger (7 Nov 2026)
+
+Opened on 7 Nov 2026 by the agent for Renzo; answers frozen in `data/raw/p3_29/`.
+
+| ID | Opened primary source | Short quotation and relevance / limit |
+|---|---|---|
+| T-20 | DefiLlama stablecoin API, BRLA (ID 365): https://stablecoins.llama.fi/stablecoin/365 (pulled 7 Nov 2026 03:53 UTC = v2) | `"name": "BRLA Digital"`, Celo `chainBalances` 24 Mar – 7 Nov 2026 (229 labels). Same value as the Flash v1 (4 Nov) on 226 of 227 common labels; the exception, 5 Nov, is a float in v1 stored as a whole number in v2. No June–July label was revised between 4 and 7 Nov. Earlier revisions cannot be seen. |
+| T-21 | Blockscout Celo REST v2, https://celo.blockscout.com/api/v2/addresses/0xa5e1a81738259256181f9a0e478188553062d340 (and `0xbd22c4c7…855e`, `0xe3a25228…53c1`) | `"name": "ERC1967Proxy"`, implementation `"name": "MiniVM"`, `"is_verified": true`, creator `0xBA00F8dc…a8dC`, no public tags. The two minting/burning addresses: `"is_contract": false`, no tags. Says what kind of account each is, not who controls it. |

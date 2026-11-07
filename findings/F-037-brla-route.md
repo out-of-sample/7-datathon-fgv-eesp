@@ -95,5 +95,10 @@ corretoras por arbitragem, como o bitcoin." Not to be said: "o BRLA desancorou",
 o BRLA".
 
 ## History
+- 2026-11-07, agent for Renzo (note from P3-29, F-042; this finding's numbers unchanged): on-chain, the Celo fall
+  shown under DefiLlama's 24 Jun label happened during 23 Jun UTC (185.3 mn burned, 72.5 mn minted; one 113.6 mn burn at
+  13:15 UTC). The 26 Jun value quoted above (59.3 mn) matches no on-chain state (Celo supply 98.9–119.4 mn that day);
+  read the Celo supply list with F-042, and do not use the 26 Jun point. The net moves are small residues of gross flows
+  (mints of 5–218 mn and burns of 3–185 mn per UTC day), by two accounts.
 - 2026-11-05, agent for Renzo: spec 2 added (scale, BRLA vs BRZ), at Renzo's request after the pool census
 - 2026-11-05, agent for Renzo: created (P3-24 S3–S4); extends Felipe's F-034 first look

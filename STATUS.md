@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-07 by Renzo's agent (P3-29 S1: on-chain feasibility for BRLA on Celo passed G1; F-041 exploratory) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-07 by Renzo's agent (P3-29 S2–S3: BRLA Celo ledger reconciles to the base unit; F-042 exploratory) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 tag `results-frozen` (F-001 to F-033)
 
@@ -47,11 +47,11 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 **Shock-duration & holder-decisions pivot (Felipe, 6–7 Nov):** [P3-30 — shock duration](tasks/P3-30-shock-duration.md), [P3-31 — holder decisions](tasks/P3-31-holder-decisions.md), [P3-32 — independent review](tasks/P3-32-holder-duration-review.md), and [P3-33 — pivot assessment](tasks/P3-33-pivot-assessment.md) are in `review` (`F-038`, `F-039` exploratory; full assessment in [`docs/shock-duration-and-holder-decisions-assessment.md`](docs/shock-duration-and-holder-decisions-assessment.md) and review in [`docs/shock-duration-holder-review.md`](docs/shock-duration-holder-review.md)). **Peer-review fixes accepted by Felipe (7 Nov):** `docs/shock-duration-and-holder-decisions-assessment.md` has been completely rewritten to match the corrected `F-038` (10-currency pool passes 43/10/8, 20-day training-pool KM median, hazard model does not beat base rate out of sample) and `F-039` (exact CIP B3 hedge has zero daily carry cost; retrospective hedged buyer +89.7/+92.3/+164.0 bps at 5/10/20 days, +6 bps on 3 Jul), with all three Slide 10 options updated and aligned with `docs/proposal-2026-11-05-lessons-and-solution.md`. Next: Nattan or Jonathan re-runs both scripts to move `P3-30`/`P3-31` to `done`.
 
 **New specifications (Renzo, 6 Nov):** [P3-28 — agentic access map](tasks/P3-28-agentic-access-map.md) is todo and
-unassigned. [P3-29 — on-chain reconciliation](tasks/P3-29-on-chain-reconciliation.md): **S1 done 7 Nov, G1 passed for
-Celo** (F-041, exploratory). Free public RPCs (Forno, Ankr) serve June 2026 state and logs. The BRLA contract changes
-supply only by mint/burn events. DefiLlama's Celo series is that contract's `totalSupply` with no exclusions, at an
-undocumented hour of each day. Next: S2 protocol (five decisions in the task Handoff), then the Celo ledger (S3). The
-team names a reviewer (Nattan or Jonathan) and decides the 8 Nov scope; recommended: Celo case study, annex line at most.
+unassigned. [P3-29 — on-chain reconciliation](tasks/P3-29-on-chain-reconciliation.md): **S1–S3 done 7 Nov** (F-041, F-042, both
+exploratory). BRLA's supply on Celo over 19–30 Jun reconciles to the base unit: 732.6 mn minted and 724.9 mn burned for a
++7.7 mn net, almost all by one account. The aggregators' "fall on 24 Jun" was a 113.6 mn burn on 23 Jun. DefiLlama's
+daily values match on-chain supply on 12 of 13 days; its 26 Jun low (59.3 mn, quoted in F-037) matches no on-chain state.
+Next: **a reviewer (Nattan or Jonathan) reproduces it (G2/S7)**, then Felipe decides on an annex line (S6).
 
 1. Phase P1, P2, P3 (core), and P4-01 are complete (`done` or `review`):
    - **Deck & Annex (`P5-01`, `P5-05`, `P5-07`):** Story notebook `notebooks/p5_07_story.ipynb` (`P5-07`) is reviewed and `done`; `deck/deck_v1_ptbr.md` is cut to **10 slides** (2 Nov, Renzo's agent, P5-01 S5 → paused for Felipe's review); every change, two deviations from the plan and the open items are in `docs/deck-changes-2026-11-02.md`; moved material in Anexo F of `deck/annex_v1_ptbr.md`; bank-route table in Anexo B.5 (Option A, team to confirm); rehearsal sheet `deck/qa_ptbr.md`.
@@ -174,7 +174,7 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 | [P3-26](tasks/P3-26-november-exchange-confounder.md) | Audit the Binance security incident as a competing explanation for the November readout | ⬜ todo | Team | - | 0/3 | 0/3 | 2026-11-07 | P3-20 |
 | [P3-27](tasks/P3-27-agentic-blockchain-options.md) | Evaluate agentic AI, blockchain and operational-learning extensions | 👀 review | Renzo | - | 5/5 | 3/3 | 2026-11-06 | - |
 | [P3-28](tasks/P3-28-agentic-access-map.md) | Build and evaluate a source-backed agentic map of digital-dollar access | ⬜ todo | Team | - | 0/6 | 0/7 | 2026-11-07 | P3-27 |
-| [P3-29](tasks/P3-29-on-chain-reconciliation.md) | Reconcile reported BRLA supply changes with on-chain evidence | ⏸️ paused | Team | - | 1/7 | 0/7 | 2026-11-07 | P3-27 |
+| [P3-29](tasks/P3-29-on-chain-reconciliation.md) | Reconcile reported BRLA supply changes with on-chain evidence | ⏸️ paused | Team | - | 3/7 | 2/7 | 2026-11-07 | P3-27 |
 | [P3-30](tasks/P3-30-shock-duration.md) | Shock duration feasibility, global census, and discrete-time survival model | 👀 review | Economist | - | 4/4 | 4/4 | 2026-11-08 | P1-02, P1-05 |
 | [P3-31](tasks/P3-31-holder-decisions.md) | Two-Sided Institutional Treasury Decision Framework (BRL -> USDT Buyer & USDT -> BRL Seller) | 👀 review | Economist | - | 4/4 | 4/4 | 2026-11-08 | P1-02, P3-03 |
 | [P3-32](tasks/P3-32-holder-duration-review.md) | Independent review of holder decisions and shock duration | 👀 review | Economist | - | 4/4 | 3/3 | 2026-11-08 | P3-30, P3-31 |
@@ -247,10 +247,12 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 | [F-038](findings/F-038-shock-duration-feasibility.md) | Pooling 10 currencies gives enough premium shocks to test duration forecasts, but a model using shock size does not beat the historical base rate; half of the 2020–2024 shocks were back in their band within 20 business days | 🔍 exploratory | P3-30 | Renzo's agent (review with fixes, 6 Nov); Felipe (fixes accepted, 6 Nov); teammate re-run pending |
 | [F-039](findings/F-039-holder-decisions.md) | Looking back, a buyer who waited from 25 Jun 2026 with a currency hedge paid 90–164 bps less (R$ 4.7k–8.7k per 100k USDT) at 5–20 days; the gain was not steady and was not knowable in advance, and under covered interest parity the hedge has no daily carry cost | 🔍 exploratory | P3-31 | Renzo's agent (review with fixes, 6 Nov); Felipe (fixes accepted, 6 Nov); teammate re-run pending |
 | [F-041](findings/F-041-brla-celo-onchain-feasibility.md) | BRLA's Celo supply can be rebuilt from public chain records - two free providers serve June 2026 state and logs, the contract changes supply only through mint and burn events, and DefiLlama's Celo series is that contract's total supply at an undocumented hour of each day | 🔍 exploratory | P3-29 | - |
+| [F-042](findings/F-042-brla-celo-ledger.md) | On Celo, BRLA's supply from 19 Jun to 1 Jul 2026 reconciles to the base unit with 17,536 mints and burns (732.6 mn minted, 724.9 mn burned, net +7.7 mn), almost all by one account; DefiLlama's daily values match on-chain supply on 12 of 13 days, but its 26 Jun low (59.3 mn) matches no on-chain state | 🔍 exploratory | P3-29 | - |
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-07 — agent for Renzo: P3-29 S2–S3: protocol committed before collection (`cfccbfc`); Celo ledger 19 Jun – 2 Jul, 242 log chunks, no gaps, stock residual 0 base units every day, 38/38 receipts on Ankr; 732.6 mn minted / 724.9 mn burned for +7.7 mn net (19–30 Jun), two accounts; 23 Jun burn of 113.6 mn; DefiLlama consistent on 12/13 labels, 26 Jun 59.3 mn unresolved (F-042; note in F-037 History); reviewer needed
 - 2026-11-07 — agent for Renzo: P3-29 S1 → G1 passed for Celo (`scripts/p3_29_reconcile.py smoke`, 112 frozen answers, offline replay identical): BRLA Celo supply 128.11 → 135.86 mn BRLA (19 Jun → 1 Jul 00:00 UTC, Forno = Ankr); proxy `BRLAV1_1` unchanged, supply moves only via mint/burn `Transfer` events; DefiLlama Celo = `totalSupply`, no exclusions, hour of day unknown (T-14–T-19); F-041 exploratory; next S2 protocol, reviewer and scope for the team
 - 2026-11-07 — agent for Renzo: checked Felipe's assessment rewrite (P3-33): Tables 4.1–4.3 used the 17 Jun 2024 PTAX as the 25 Jun 2026 price (levels regenerated from the P3-31 CSVs; differences were right); Slide 10 options fixed (Brazil band never closed, Res. 574 still preliminary, network-fee line removed, seller loss is not carry, Res. 574 caveat restored); seven overclaims and 68 local-disk links fixed
 - 2026-11-07 — Felipe + Flash agent: accepted Renzo's peer-review fixes on `P3-30`–`P3-33` (`0f57637`); verified all 27 unit tests (`14` in `p3_30_duration.py`, `13` in `p3_31_holder.py`); completely rewrote `docs/shock-duration-and-holder-decisions-assessment.md` to purge superseded numbers/claims and align all sections and Slide 10 pt-BR options with the corrected `F-038`, `F-039`, and `docs/proposal-2026-11-05-lessons-and-solution.md`; third-party teammate re-run pending.

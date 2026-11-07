@@ -25,7 +25,7 @@ midnights. These are raw differences. Snapshot time is unknown, so they are **no
 Reproduce: `.venv/bin/python scripts/p3_29_reconcile.py smoke` (live; reuses frozen answers) or
 `P3_29_OFFLINE=1 .venv/bin/python scripts/p3_29_reconcile.py smoke` (frozen files only; rebuilt both tables byte for byte
 on 7 Nov). Inputs `data/raw/p3_29/` (112 files, checksums in `data/raw/SHA256SUMS`) and the Flash DefiLlama JSON
-(`data/README.md` → restore). Outputs `data/processed/P3-29_snapshots.csv`, `results/tables/P3-29_coverage.csv`.
+(`data/README.md` → restore). Outputs `data/processed/P3-29_s1_snapshots.csv`, `results/tables/P3-29_s1_coverage.csv`.
 
 | Item | Result |
 |---|---|
@@ -55,4 +55,6 @@ on 7 Nov). Inputs `data/raw/p3_29/` (112 files, checksums in `data/raw/SHA256SUM
 Not used.
 
 ## History
+- 2026-11-07, agent for Renzo: S1 tables renamed `data/processed/P3-29_s1_snapshots.csv` and
+  `results/tables/P3-29_s1_coverage.csv` (byte-identical; the old names now hold S3's tables). S3 result in F-042
 - 2026-11-07, agent for Renzo: created (P3-29 S1, G1 passed for Celo)

@@ -2,9 +2,9 @@
 id: P3-29
 title: Reconcile reported BRLA supply changes with on-chain evidence
 phase: P3
-status: doing
+status: paused
 owner: Team
-working: Renzo (agent)
+working: -
 due: 2026-11-07
 depends: P3-27
 ---
@@ -149,7 +149,7 @@ Each step is one focused session or is split further when needed. Prioritize the
 ## Subtasks
 - [x] S1 — Verify source provenance and historical RPC capabilities; record G1 and one snapshot pair. — done: Renzo (agent), 2026-11-07 (G1 passed for Celo; F-041)
 - [x] S2 — Commit the accounting protocol, scope, definitions, tolerances and selection rule. — done: Renzo (agent), 2026-11-07 (`results/P3-29_protocol.md`, committed before any interval log was collected)
-- [ ] S3 — Reconstruct the Celo stock identity; audit events/coverage and pass G2. — doing: Renzo (agent)
+- [x] S3 — Reconstruct the Celo stock identity; audit events/coverage and pass G2. — done: Renzo (agent), 2026-11-07 (F-042; stock residual 0 on every day; **G2 needs the reviewer**: follow `results/tables/P3-29_case_audit.md` to the raw files)
 - [ ] S4 — Compare circulation and investigate verified multi-chain links; preserve unresolved differences.
 - [ ] S5 — Complete the frozen additional-case evaluation; run or explicitly waive H4.
 - [ ] S6 — Review economic interpretation and prepare the integration figure/evidence export.
@@ -157,8 +157,8 @@ Each step is one focused session or is split further when needed. Prioritize the
 
 ## Success criteria
 - [ ] Historical contract identity, supply semantics, timestamps and data-access coverage are documented; unavailable capabilities are explicit.
-- [ ] The protocol predates event classification and distinguishes total supply, reported circulation and consolidated economic claims.
-- [ ] One development ledger reports gross changes, stock residual and provider residual or an explicit reason why it is unidentifiable.
+- [x] The protocol predates event classification and distinguishes total supply, reported circulation and consolidated economic claims. (`cfccbfc` before collection; amendments dated, 7–9 post hoc)
+- [x] One development ledger reports gross changes, stock residual and provider residual or an explicit reason why it is unidentifiable. (F-042, `P3-29_reconciliation.csv`)
 - [ ] Every adjustment/link has evidence; no inferred bridge, fiat redemption, ownership or BCB effect is presented as verified.
 - [ ] Additional cases follow the committed selection rule; all failures and scope reductions are disclosed.
 - [ ] Optional agent evaluation is either fully reported against its baselines or explicitly waived without a superiority claim.
@@ -202,45 +202,47 @@ For the ten-slide PDF, propose at most one combined solution/evaluation slide wi
 Read `prompt.md`, `STATUS.md`, P3-27, F-037/P3-24 and the input script/data notes first. Source-register T-06/R-11 supplies current issuer contract leads, T-07 documents read-only JSON-RPC capabilities, and T-13 defines the ERC-20 interface. These establish technical starting points, not June contract identity, provider methodology or endpoint availability. Verify and register each new exact source used during execution.
 
 ## Handoff
-- **State (7 Nov 00:40 Brasília):** S1 done by Renzo's agent; **G1 passed for Celo** (record in Result; F-041
-  exploratory). Nothing has been collected beyond the smoke test and no event has been classified. Status `paused`, no
-  one working. S2 is the next step and must be committed before any S3 collection.
-- **Next step — S2, freeze `results/P3-29_protocol.md` before collecting the interval.** Decisions the protocol must fix
-  (draft them, show the team member, commit, then S3):
-  1. Development interval: (b0, b1] = blocks 69,926,442 → 70,963,242 (19 Jun 00:00 → 1 Jul 00:00 UTC), or other
-     boundaries chosen now. The rise on 19–23 Jun and the fall on 24–26 Jun both fall inside it, as the spec asks.
-  2. Stock identity: ΔS = Σ `Transfer` from `0x0` − Σ `Transfer` to `0x0` in (b0, b1]. Expected residual **0 base units**
-     (from the verified `BRLAV1_1` source: `_totalSupply` changes only in `_mint`/`_burn`, both emit `Transfer`).
-     `verified_other_adjustments` = none. Any `Upgraded`/`AdminChanged`/`Initialized` log in the interval stops the
-     identity there and is reported.
-  3. Collection: all logs of the contract (no topic filter) in 5,000-block chunks on Forno (208 calls); count check per
-     chunk; cross-check every mint/burn ≥ 1% of gross supply-changing volume, plus a seeded sample of smaller ones,
-     against Ankr (1,000-block calls) and a receipt (Ankr by hash or Forno by block).
-  4. Provider comparison: the definition is **identified** (June code: totalSupply / 10^18, no exclusions, T-14/T-15),
-     so `eligible_excluded_balances` = 0 by DefiLlama's rule. Timing is **not** (T-16): fix in advance how to report it.
-     Suggested: R_provider at the 00:00 UTC label, raw, with tolerance = 1 BRLA rounding only. Then, as description and
-     not alignment, whether DefiLlama's value equals the on-chain supply at any block of its UTC day (± 1 BRLA). Never
-     pick the matching hour and call it verified.
-  5. Selection rule and seed for S5's generalization sample (spec text), or an explicit deferral given the deadline.
-- **Open questions (need the team):** (a) reviewer for S3/S7: a teammate other than Renzo (Nattan or Jonathan;
-  Felipe for S6 interpretation); (b) scope for the 8 Nov PDF: recommendation = Celo case study (S2–S3) plus an annex
-  line at most, with S4 limited to other chains' `totalSupply` and S5/H4 deferred; (c) whether to pull a fresh
-  DefiLlama response as a second version (T-16: daily values can be replaced).
-- **How to resume:** restore the Flash bundle (`data/README.md`), then
-  `P3_29_OFFLINE=1 .venv/bin/python scripts/p3_29_reconcile.py smoke` rebuilds S1's tables from `data/raw/p3_29/`
-  (112 files; `grep p3_29 data/raw/SHA256SUMS | sha256sum -c`). Raw responses are not in git; on another clone the live
-  run (`... smoke` without the variable) re-downloads them (~90 s). Endpoint limits: Forno ≤ 5,000 blocks per
-  `eth_getLogs`, receipts only via `eth_getBlockReceipts`; Ankr ≤ 1,000 blocks; Blockscout eth-rpc rate-limits (429).
+- **State (7 Nov, Brasília early morning):** S1–S3 done by Renzo's agent; status `paused`, no one working. **F-042**
+  (exploratory): Celo stock identity closes to 0 base units on every UTC day 19 Jun – 2 Jul; 732.6 mn minted / 724.9 mn
+  burned for +7.7 mn net in the 12-day case; two accounts do all mints and burns (`0xbd22…855e` 96%/93%); DefiLlama
+  consistent within the day on 12 of 13 labels (all at ~00:45 UTC, description only), **26 Jun (and 2 Jul) value
+  59,281,880 matches no on-chain state** (unresolved). H1 as registered (§5: all 13 labels) is therefore **not
+  supported for the case**: the stock part is supported, the provider part holds for 12 of 13 labels. F-037 has a History
+  note (its 26 Jun point is not supported on-chain; the fall was on 23 Jun UTC).
+- **Next step:** (1) **Reviewer (Nattan or Jonathan) does G2 + S7 reproduction**: restore the Flash bundle, run
+  `P3_29_OFFLINE=1 .venv/bin/python scripts/p3_29_reconcile.py ledger` if you have `data/raw/p3_29/` (copy from Renzo's
+  machine), or the live command without the variable (~4 min, public endpoints, no key). Compare with
+  `data/processed/P3-29_reconciliation.csv` and `results/tables/P3-29_case_audit.md`; open 2–3 large burns on
+  https://celo.blockscout.com/tx/<hash> in a browser; check that F-042's wording stays within protocol §6.
+  (2) **Felipe (S6):** economic reading and whether one annex line is worth it. Draft for him: "Na Celo, a oferta de
+  BRLA de 19 a 30/06 fecha exatamente (resíduo zero) com 17.536 emissões e queimas (732,6 mi emitidos, 724,9 mi queimados, +7,7 mi
+  líquidos), quase todas de uma única conta; a queda vista nos agregadores ocorreu em 23/06 (uma queima de 113,6 mi).
+  Os registros on-chain não dizem por quê." (3) Optional S4 (limited): `totalSupply` on Polygon/Gnosis at the same
+  boundaries, after an S1-style capability check; no linking.
+- **Open questions:** reviewer not named; whether DefiLlama can explain its 26 Jun/2 Jul value (would need their
+  records; do not call it an error without them); what `MiniVM` (`0xa5e1…d340`) does. Its verified source is on
+  Blockscout, not read here. Reading it would tell the mechanism, still not the purpose.
+- **How to resume:** `.venv/bin/python scripts/p3_29_reconcile.py ledger` rebuilds everything. `data/processed/P3-29_events.csv`
+  (5.8 MB) is git-ignored and rebuilt by that command. Raw answers are in `data/raw/p3_29/` (527 files, checksums in
+  `data/raw/SHA256SUMS`, not in git). Endpoint limits are in F-041.
 
 ## Log
-- 2026-11-07 01:05 (Brasília) — agent for Renzo: S2 protocol committed before collection: development interval (69,926,442, 70,963,242], zero-base-unit stock tolerance, DefiLlama definition identified / timing not, ±1 BRLA within-day consistency rule, cross-check and S5 selection rules; H4 waived for the PDF.
-- 2026-11-07 00:50 (Brasília) — agent for Renzo: Renzo said "proceed" to the S1 recommendations; read as: S2 then S3 under the recommended scope (Celo case study; S4 limited to other chains' totalSupply; S5/H4 deferred for the 8 Nov PDF) and a fresh DefiLlama version pulled. Reviewer still to be named. Renzo takes S2–S3.
+- 2026-11-07 01:05 (Brasília) — agent for Renzo: S3 done. Ledger code and amendments 1–6 pushed before collection (`5d44c1b`); 242 chunks, no gaps; stock residual 0 base units on all 14 days; 38/38 receipts confirmed on Ankr; post hoc amendments 7–9 (2 Jul day, Blockscout metadata, selector naming). F-042 exploratory; F-037/F-041 History notes; sources T-20, T-21; events CSV git-ignored (5.8 MB). Status paused; reviewer needed for G2/S7.
+- 2026-11-07 00:49 (Brasília) — agent for Renzo: S2 protocol committed before collection: development interval (69,926,442, 70,963,242], zero-base-unit stock tolerance, DefiLlama definition identified / timing not, ±1 BRLA within-day consistency rule, cross-check and S5 selection rules; H4 waived for the PDF.
+- 2026-11-07 00:48 (Brasília) — agent for Renzo: Renzo said "proceed" to the S1 recommendations; read as: S2 then S3 under the recommended scope (Celo case study; S4 limited to other chains' totalSupply; S5/H4 deferred for the 8 Nov PDF) and a fresh DefiLlama version pulled. Reviewer still to be named. Renzo takes S2–S3.
 - 2026-11-07 00:40 (Brasília) — agent for Renzo: S1 done, G1 passed for Celo. Script `p3_29_reconcile.py smoke` with frozen answers (112 files), offline replay identical. Celo supply 128,106,372.44 → 135,855,038.46 BRLA (19 Jun → 1 Jul 00:00 UTC; Forno = Ankr); proxy `BRLAV1_1` unchanged at both blocks; mint/burn emit `Transfer` to/from 0x0; DefiLlama = totalSupply with no exclusions, time of day unknown (+179,326 and −36,854 BRLA vs 00:00 UTC). F-041 exploratory; sources T-14–T-19. Status paused.
-- 2026-11-07 00:15 (Brasília) — agent for Renzo: Renzo takes S1 (feasibility session, 90-minute target). Reviewer to be named (a teammate other than Renzo).
+- 2026-11-07 00:10 (Brasília) — agent for Renzo: Renzo takes S1 (feasibility session, 90-minute target). Reviewer to be named (a teammate other than Renzo).
 - 2026-11-06 — Codex for Renzo: formalized from the P3-27 discussion at Renzo's request. Documentation only; no experiment launched or team member assigned.
 
 ## Result
-**S1 / G1 (7 Nov 2026, agent for Renzo): passed for Celo.** Accounting reconciliation (S3 onward) not run. Full table in
+**S3 (7 Nov 2026, agent for Renzo), F-042, exploratory, not yet reviewed:** the Celo stock identity holds to the base
+unit on every UTC day of 19 Jun – 2 Jul 2026 (development case 19–30 Jun: +7,748,666.02 BRLA = 732,612,871.45 minted −
+724,864,205.43 burned). The provider series matches on-chain supply within ±1 BRLA on 12 of 13 labels; 26 Jun is
+unresolved. H1 as registered is not supported for the case (one label fails). Q2: 100% of the stock change is mint/burn
+by two accounts; no circulation adjustment exists in the provider's definition; no cross-chain migration is
+established; purposes are unresolved. Q3, H4: deferred.
+
+**S1 / G1 (7 Nov 2026, agent for Renzo): passed for Celo.** Full table in
 F-041; capability matrix in `results/tables/P3-29_coverage.csv`.
 
 | G1 requirement | Result |

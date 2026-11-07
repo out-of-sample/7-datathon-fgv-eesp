@@ -1,40 +1,250 @@
-capability,provider,status,detail
-chain_id,forno,ok,0xa4ec
-chain_id,blockscout,ok,0xa4ec
-chain_id,ankr,ok,0xa4ec
-header_open,blockscout,ok,0xbdffa84f68ed3ce19a6b8dd0820a65546aab7fb8387b38d92a60829fbaa08acc
-header_close,blockscout,ok,0x482fd2826d72ee3881490cf93c9305414d130a9f59a3d6cb055696105ccc27ef
-finalized_tag,forno,ok,finalized 82119124 > close 70963242
-historical_state_open,forno,ok,totalSupply 128106372436012947246956951
-historical_state_open,blockscout,ok,totalSupply 128106372436012947246956951
-historical_state_open,ankr,ok,totalSupply 128106372436012947246956951
-historical_state_close,forno,ok,totalSupply 135855038456484705968642568
-historical_state_close,blockscout,fail,"blockscout eth_getStorageAt ('0xfecb3f7c54e2caae9dc6ac9060a822d47e053760', '0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc', '0x43ad02a'): {'http': 429, 'body': '{""message"":""Too many requests. Increase limits now at https://dev.blockscout.com"",""result"":null,""status"":""0""}'}"
-historical_state_close,ankr,ok,totalSupply 135855038456484705968642568
-historical_state_open,1rpc,fail,"{'code': -32603, 'message': 'state at block #69926443 is pruned'}"
-historical_state_open,stakely,fail,"{'code': -32603, 'message': 'state at block #69926443 is pruned'}"
-historical_state_open,drpc,ok,totalSupply 128106372436012947246956951
-logs_transfer_1000_blocks,forno,ok,35 logs
-logs_transfer_10000_blocks,forno,fail,"{'http': 400, 'body': '{""jsonrpc"":""2.0"",""error"":{""code"":-32602,""message"":""query exceeds range, retry smaller (max block range 5000, got 9999)""},""id"":1}\n'}"
-logs_transfer_100000_blocks,forno,fail,"{'http': 400, 'body': '{""jsonrpc"":""2.0"",""error"":{""code"":-32602,""message"":""query exceeds range, retry smaller (max block range 5000, got 99999)""},""id"":1}\n'}"
-logs_upgraded_open_to_close,forno,fail,"{'http': 400, 'body': '{""jsonrpc"":""2.0"",""error"":{""code"":-32602,""message"":""query exceeds range, retry smaller (max block range 5000, got 1036799)""},""id"":1}\n'}"
-logs_transfer_1000_blocks,blockscout,fail,"{'http': 429, 'body': '{""message"":""Too many requests. Increase limits now at https://dev.blockscout.com"",""result"":null,""status"":""0""}'}"
-logs_transfer_10000_blocks,blockscout,fail,"{'http': 429, 'body': '{""message"":""Too many requests. Increase limits now at https://dev.blockscout.com"",""result"":null,""status"":""0""}'}"
-logs_transfer_100000_blocks,blockscout,fail,"{'http': 429, 'body': '{""message"":""Too many requests. Increase limits now at https://dev.blockscout.com"",""result"":null,""status"":""0""}'}"
-logs_upgraded_open_to_close,blockscout,fail,"{'http': 429, 'body': '{""message"":""Too many requests. Increase limits now at https://dev.blockscout.com"",""result"":null,""status"":""0""}'}"
-logs_transfer_1000_blocks,ankr,ok,35 logs
-logs_transfer_10000_blocks,ankr,fail,"{'code': -32062, 'message': 'Block range is too large'}"
-logs_transfer_100000_blocks,ankr,fail,"{'code': -32062, 'message': 'Block range is too large'}"
-logs_upgraded_open_to_close,ankr,fail,"{'code': -32062, 'message': 'Block range is too large'}"
-logs_equal_to_forno,blockscout,fail,"0 vs 35 logs in (69926442, 69927442]"
-logs_equal_to_forno,ankr,ok,"35 vs 35 logs in (69926442, 69927442]"
-logs_zero_address_transfers_in_sample,forno,ok,18 of 35 (not classified)
-receipt_by_hash,forno,fail,null result (transaction known to forno: True); not a failure label (T-07)
-receipt_by_hash,blockscout,fail,"{'http': 429, 'body': '{""message"":""Too many requests. Increase limits now at https://dev.blockscout.com"",""result"":null,""status"":""0""}'}"
-receipt_by_hash,ankr,ok,"status 0x1, 4 logs"
-receipt_by_hash,drpc,ok,"status 0x1, 4 logs"
-receipt_by_block,forno,ok,"0x0ddc9dc482f75f88f2050cb6d7b082ebd8e8ce9629b4835130def70edd8f08d6 in block 69926445: matches the by-hash receipt (status, block hash, logs)"
-rest_address,blockscout,ok,"{'creation_transaction_hash': '0x9d10cf14dc1037a8d5a5ec2789fcf8501aa4022391ba790d6e01c34377ae356e', 'is_verified': True, 'proxy_type': 'eip1967', 'implementations': [{'address_hash': '0xE6A537a407488807F0bbeb0038B79004f19DDDFb', 'name': 'BRLAV1_1'}]}"
-rest_impl_source,blockscout,ok,"{'name': 'BRLAV1_1', 'compiler_version': '0.8.25+commit.b61c2a91', 'is_verified': True, 'verified_at': '2025-05-27T03:56:33.876533Z'}"
-deployment,forno,ok,block 25746892 at 2024-05-22T19:18:13+00:00
-rest_token,blockscout,ok,"{'name': 'BRLA Digital BRLA', 'symbol': 'BRLA', 'decimals': '18', 'type': 'ERC-20'}"
+check,status,detail,n,from_block,to_block
+one_second_blocks,ok,"every UTC day has exactly 86,400 blocks, so block time = boundary time + offset",,,
+chunks_tile_interval,ok,"242 chunks, 0 gaps",,,
+duplicate_logs,ok,"dropped on (blockHash, tx, logIndex)",0,,
+removed_logs,ok,,0,,
+one_hash_per_block,ok,,20272,,
+unknown_topics,ok,,0,,
+receipts_large_and_sample,ok,8 events >= 1% of gross 1457477076.879102241278314383 BRLA + 30 sampled (seed 20261107),38,,
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_bd3ee913f8b256805f28.json,170,69926443,69931442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_2f5b0488b0b72a2cfd5f.json,167,69931443,69936442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_f3d04479ac8f601b5637.json,168,69936443,69941442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_fa4868d10e32b963c358.json,169,69941443,69946442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_304f6fbf314e0ae4b360.json,163,69946443,69951442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_6d0aae33948076a62083.json,164,69951443,69956442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_cc999efc9a2b10a82acb.json,167,69956443,69961442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_cff7e4b9597c3920c8a7.json,168,69961443,69966442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_86569bb49b32e3b011e0.json,167,69966443,69971442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_b75d7c672a48aeb5fab4.json,169,69971443,69976442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_5413600d28168f05b4cd.json,168,69976443,69981442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_afa5a4af861be2670609.json,167,69981443,69986442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_24d21efe2a3eac651306.json,170,69986443,69991442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_ef12c7816f4786285e73.json,167,69991443,69996442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_4259111b661d9f3df76a.json,167,69996443,70001442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_12935d08afacea0ba5de.json,170,70001443,70006442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_bd90d5d82d3744a195d4.json,167,70006443,70011442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_0409f396bd327b40f11f.json,167,70011443,70016442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_c8643cadd23bd99b50de.json,170,70016443,70021442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_1120515293766c641c04.json,167,70021443,70026442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_b5467a245fa814fcb901.json,168,70026443,70031442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_ba6e0ef888d40a576609.json,169,70031443,70036442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_3759fff7cc62c401e1d1.json,165,70036443,70041442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_a330e56ee41277992668.json,168,70041443,70046442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_5816c3d543231fff4c15.json,167,70046443,70051442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_64c2a16e8bdb22b2e494.json,168,70051443,70056442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_e9d810930b2ce384dc77.json,167,70056443,70061442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_e71126f2dc6d9484b7f0.json,169,70061443,70066442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_b5e3fa320c76d2e5a917.json,168,70066443,70071442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_336cdb1c4b1386773fcc.json,167,70071443,70076442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_6052919e67b915a9d634.json,170,70076443,70081442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_5263f3aa666df1206871.json,167,70081443,70086442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_1a0d6b7dd888b57f54f8.json,167,70086443,70091442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_3110346a916fd029bd82.json,170,70091443,70096442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_72d022edcfd47764eeae.json,167,70096443,70101442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_bca798a8f8d6dcb7c5ea.json,167,70101443,70106442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_3ded79838ea8814ed4f1.json,170,70106443,70111442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_c9e48a3f6fae650fb286.json,167,70111443,70116442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_6a4877a785292d2d29da.json,168,70116443,70121442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_c69995d86bbf9dedaee4.json,169,70121443,70126442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_42930ab2f331efc3febd.json,167,70126443,70131442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_067f73d8181749500b9c.json,166,70131443,70136442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_47761268a489d68b8a52.json,169,70136443,70141442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_ead04d0f5ea32b32ab94.json,168,70141443,70146442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_d2052cc6f1c5c013b284.json,167,70146443,70151442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_6c7dc424538f4d40003b.json,169,70151443,70156442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_4ecb822f3fccb776d756.json,168,70156443,70161442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_ac660c21dc02e9d862e0.json,167,70161443,70166442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_bb780f27b1a6823dd492.json,170,70166443,70171442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_fd0ea5435cbdd0d641a7.json,167,70171443,70176442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_5efccbb40fe3ae72a31d.json,167,70176443,70181442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_96db30901b23ec714038.json,170,70181443,70186442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_570a454535d48989deca.json,167,70186443,70191442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_385a6b0a9b7097d2d759.json,167,70191443,70196442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_52fdbc65d2341763878a.json,170,70196443,70201442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_bd518d59308d4b57a473.json,167,70201443,70206442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_fec07f45e40cfb0bd693.json,166,70206443,70211442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_77c2cb4f1d31236a3fd1.json,167,70211443,70216442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_69d5436861ad58c766d4.json,167,70216443,70221442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_1da8b0ce4c20b4e490b6.json,168,70221443,70226442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_e6240e40c9a599bda160.json,169,70226443,70231442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_277af6e03f3d6304fa46.json,168,70231443,70236442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_019908747d8321235f2f.json,167,70236443,70241442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_c909b692b58fbefc8e37.json,169,70241443,70246442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_1be27db5bb4033e6a739.json,168,70246443,70251442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_33361cbc71a85731860e.json,167,70251443,70256442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_a0aabc139673943fd9c7.json,170,70256443,70261442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_f757fbef3450c0215d29.json,167,70261443,70266442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_70718beb82bd1b9413a8.json,167,70266443,70271442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_690fdd0c533138219486.json,170,70271443,70276442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_d67eca5568257c141277.json,167,70276443,70281442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_c9b9058ae2093fc02f45.json,167,70281443,70286442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_ce109ff831faeab2fa4a.json,170,70286443,70291442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_5d60a3f270e68b18fd17.json,167,70291443,70296442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_26f3d5cb6eeb1c733c71.json,162,70296443,70301442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_355f1fd3be16b621f10e.json,165,70301443,70306442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_2f1583acfbee6f275443.json,167,70306443,70311442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_a4a490f1eda41444e3b1.json,168,70311443,70316442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_90020e761d1b09faab31.json,169,70316443,70321442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_13c3c0d30e50f11f8060.json,168,70321443,70326442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_e7d7c0819c13b35fd5ef.json,167,70326443,70331442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_a6fe4562a3f82609b65a.json,174,70331443,70336442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_d171e4efe714789c7063.json,168,70336443,70341442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_9689422a51c4c3972f4d.json,167,70341443,70346442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_f9aff9fb0ddf28bc663e.json,170,70346443,70351442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_60d2c20aaa9727723217.json,167,70351443,70356442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_3a4bb67066d5a319d8b7.json,167,70356443,70361442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_191504eb78651efb0c88.json,170,70361443,70366442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_02c9ee5165ed37f8b168.json,167,70366443,70371442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_32363f4f2ef386719296.json,167,70371443,70376442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_66ffdf9f407ee4073323.json,170,70376443,70381442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_faa446906a24498cd084.json,163,70381443,70386442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_f2f53faa6165721e45f2.json,162,70386443,70391442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_c18ef7889792ba6a3c30.json,169,70391443,70396442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_d039ca06931856c2c04e.json,167,70396443,70401442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_f5e5c813f81c0dd869db.json,168,70401443,70406442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_bbdc6d9a8013d20ebc07.json,169,70406443,70411442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_1303b5e4a559beb680cc.json,168,70411443,70416442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_7e5a14548adc1784fa15.json,167,70416443,70421442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_3204231331186537d530.json,169,70421443,70426442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_ccf06fdb7a8a8787a6fc.json,168,70426443,70431442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_142125d367ad24a502ff.json,167,70431443,70436442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_a4b824b34d1381c30e74.json,170,70436443,70441442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_c19c98f0cc2521f43e25.json,167,70441443,70446442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_fed320845c87b27778e4.json,167,70446443,70451442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_9a622b9e3f37954c6786.json,174,70451443,70456442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_1fab0101d33d8d2ef13e.json,167,70456443,70461442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_0154e2cbcb39c5fb96cf.json,167,70461443,70466442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_2e9cdd05a8708794d587.json,168,70466443,70471442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_ca8b8e3fba208acee9d0.json,159,70471443,70476442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_bfa46f6d043196d2c3ed.json,166,70476443,70481442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_254020399d85214636e4.json,169,70481443,70486442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_9c54d5790898a476aee1.json,168,70486443,70491442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_5412188f25738f9bd1dd.json,168,70491443,70496442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_d0f06b16624c7b1a751a.json,169,70496443,70501442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_312574f094e529c135b5.json,168,70501443,70506442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_34da99e2032bfe8b41f2.json,167,70506443,70511442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_748eb42f418c9b8d712b.json,169,70511443,70516442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_5aff994f8e11f715d322.json,168,70516443,70521442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_5d818ba053e5d6d856b4.json,167,70521443,70526442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_e92bb9f684315b3b4e6d.json,170,70526443,70531442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_660247a83173bedc6ce2.json,167,70531443,70536442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_90cd04803d6d4a086e3a.json,167,70536443,70541442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_7601cbf6b29c9e810056.json,170,70541443,70546442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_c15703b2acccf05616ad.json,167,70546443,70551442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_28f20a8ec2ad05263fed.json,165,70551443,70556442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_a382df903c20bc5e3a1a.json,164,70556443,70561442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_7fbe9fa8afb5d8afacea.json,163,70561443,70566442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_c72b807e61dabfb015ea.json,168,70566443,70571442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_f145b7d19d3a21dfb630.json,169,70571443,70576442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_3ef5208765b822d575df.json,171,70576443,70581442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_cd784e71c7afa5c26a0f.json,168,70581443,70586442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_9c6aa45f4b226e46f818.json,169,70586443,70591442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_a4fc1898a2a6633d8365.json,168,70591443,70596442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_3358c30c83659923bdf6.json,167,70596443,70601442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_33c1da6a25f1735b008f.json,169,70601443,70606442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_220f22d23c2e88d464cc.json,168,70606443,70611442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_f1d873f6b99ed42a3842.json,167,70611443,70616442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_084f3050b74ee0a0b15f.json,170,70616443,70621442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_8cb69ca228b6ddf16209.json,167,70621443,70626442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_9f7d706980ebda0737f1.json,167,70626443,70631442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_6b6681b359810108f78f.json,170,70631443,70636442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_b410dd9162614f4ff215.json,167,70636443,70641442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_7d179665513c0e1f7958.json,167,70641443,70646442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_19c81e66b06fd6220d1b.json,170,70646443,70651442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_f374167883be7da077b4.json,167,70651443,70656442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_1a3475498569e4c43643.json,168,70656443,70661442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_b14cfadf3f9243cc48e0.json,169,70661443,70666442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_90f122c245c16b5051f1.json,167,70666443,70671442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_857cb84c97af358d3572.json,168,70671443,70676442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_650a40a364439af5881a.json,169,70676443,70681442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_673978d00af61311e135.json,168,70681443,70686442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_f3c7a800976022a2f919.json,167,70686443,70691442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_2caadffd1c639cb4c850.json,169,70691443,70696442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_02502cb32c9a9c167bf6.json,168,70696443,70701442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_549caf1752027b8584a1.json,167,70701443,70706442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_96bf1993950a76dd5d7f.json,170,70706443,70711442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_916d11f31139f0c29062.json,167,70711443,70716442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_7a84a8312aa763f4583f.json,167,70716443,70721442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_85c3961f98d79565c6d1.json,170,70721443,70726442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_45a79532c229d463c099.json,167,70726443,70731442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_8735597e77f0c7f2f113.json,167,70731443,70736442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_a6149f2b0a2a56ac4899.json,170,70736443,70741442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_90b4f1eae31af55fed60.json,167,70741443,70746442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_be9e04ce3150918c568e.json,168,70746443,70751442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_163b1889c3de7a7e2553.json,169,70751443,70756442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_40580743f948cb270db0.json,167,70756443,70761442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_4c7aebaf52fefd2c6301.json,168,70761443,70766442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_ca3a3fa9326654a7ef6a.json,169,70766443,70771442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_16845e8610bd98b19010.json,168,70771443,70776442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_463557d4bc6575d9fd44.json,167,70776443,70781442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_40b80c09ac81de1fef15.json,169,70781443,70786442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_837db747e9cb5b4f84f4.json,168,70786443,70791442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_99b38899f73e428efe7d.json,167,70791443,70796442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_63123e38e0432ecc454e.json,170,70796443,70801442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_afb52a1198f446a18015.json,167,70801443,70806442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_abd8f1fe2d1a403f09c8.json,167,70806443,70811442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_6b4105e989643e6d5423.json,170,70811443,70816442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_1387e55c0c98c542b1d1.json,163,70816443,70821442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_20f8a730ee9fd2cdbd5f.json,167,70821443,70826442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_68d5b26c4f6807350355.json,170,70826443,70831442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_dff02e4bd81d6b6f3331.json,167,70831443,70836442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_9fc7cc523c02646a3b85.json,168,70836443,70841442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_b98018c441a623922c74.json,169,70841443,70846442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_1f1968e2d3d500e1af14.json,167,70846443,70851442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_06a0dad8dcba1f64e19c.json,168,70851443,70856442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_f97dde2610621ef81e13.json,169,70856443,70861442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_b2b835e06c2c389a7ebb.json,168,70861443,70866442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_1a4190be0d77cf829494.json,167,70866443,70871442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_265ca24c3f7db8541523.json,169,70871443,70876442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_4e7b7a9a7288034d25de.json,168,70876443,70881442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_0d86ade65e4ea118ed2a.json,167,70881443,70886442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_5b681e57b6227e38e8b0.json,170,70886443,70891442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_51de74e39c3c8b5e5ff0.json,167,70891443,70896442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_2d03302f600151532f78.json,167,70896443,70901442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_820ea3f300e3b14273fd.json,170,70901443,70906442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_f592422fdbde701d49c8.json,165,70906443,70911442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_8f5371c88c4f6318dd93.json,167,70911443,70916442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_740bf7e84eb0b407f0b6.json,170,70916443,70921442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_c19f8405cedd7b1d9d75.json,167,70921443,70926442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_670636b38c18ecebac34.json,168,70926443,70931442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_a44fb500f16547710662.json,169,70931443,70936442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_5adf01771c66fc708f08.json,167,70936443,70941442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_78d08e49bbf860b91526.json,168,70941443,70946442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_8fc372622f4b4e5804b0.json,169,70946443,70951442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_4af1de96dd853febbe92.json,168,70951443,70956442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_a541683c1885a762be26.json,167,70956443,70961442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_133746563c5cdae1186b.json,169,70961443,70966442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_18f5dd8787509b12abb5.json,168,70966443,70971442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_819df09068bb601e6283.json,167,70971443,70976442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_15067878502b1ae629ef.json,170,70976443,70981442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_4edc955abf5f053502c2.json,165,70981443,70986442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_e433df17a98614b025b0.json,157,70986443,70991442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_51ea00dd4f96fe1a1e1a.json,168,70991443,70996442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_24ece0f783eaa5ea387f.json,167,70996443,71001442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_b38142a953ec1d97afd6.json,167,71001443,71006442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_ba66f974876b4df59f97.json,170,71006443,71011442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_e28c152ecac9c9634e60.json,167,71011443,71016442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_93aefbd51fc64b8c7aea.json,168,71016443,71021442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_db02e567744677b7ae1d.json,169,71021443,71026442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_8ac9376ec86c12d1f77f.json,167,71026443,71031442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_05d1d4177751f6d3d951.json,168,71031443,71036442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_9db625ed6f47565906f7.json,169,71036443,71041442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_55eafc2242c6180f0eea.json,168,71041443,71046442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_c1f83dccc1cf56ae8df1.json,167,71046443,71051442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_5a9884dbd875fb30499d.json,169,71051443,71056442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_3457b5555493cd9748b5.json,168,71056443,71061442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_1ba3a7ec4fdd37d183ed.json,167,71061443,71066442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_110411b65c71d81f32a5.json,170,71066443,71071442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_a283aab3c10f53d43066.json,167,71071443,71076442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_d5bdeedae44efbb25467.json,163,71076443,71081442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_4d894fd1bf3bbc2cd2e1.json,170,71081443,71086442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_c3b9fa85253f41b60acf.json,167,71086443,71091442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_2b2b1ef1ab9e14dbdf17.json,167,71091443,71096442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_873462b7f07089921a8e.json,170,71096443,71101442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_5ec9c85c1084a8e553ea.json,167,71101443,71106442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_c86d861e155d4c72b297.json,168,71106443,71111442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_8c5a6d0c5a51b41fb92d.json,169,71111443,71116442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_1e2e4a0f497488dd15fa.json,167,71116443,71121442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_94a190d50de1a1990682.json,168,71121443,71126442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_6ca9037a75e15564342c.json,169,71126443,71131442
+log_chunk,ok,data/raw/p3_29/forno/eth_getLogs_0b0b8a59b251efa583f1.json,153,71131443,71136042
