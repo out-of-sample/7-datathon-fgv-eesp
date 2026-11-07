@@ -1,0 +1,50 @@
+case_id,field_id,state,value,unit,source_ids,passages,notes
+D-01,F01,supported,,,A-03,"Depósito via Pix 24/7, todos os dias Grátis",
+D-01,F02,supported,yes,,A-01,"Não aceitamos depósitos de terceiros, ou seja, o valor depositado dever vir de uma conta com o seu CPF/CNPJ.",
+D-01,F03,supported,company (PJ) verification by Foxbit compliance,,A-07,"para acessar funcionalidades completas e realizar operações de maior volume, é fundamental completar o processo de verificação de conta para pessoas jurídicas (PJ)",
+D-01,F04,,72,hours,A-07,"o processo de diligência para pessoa jurídica pode levar até 72h",
+D-01,F05,,case by case,,A-03,"cada CNPJ é analisado caso a caso pelo time de Compliance",
+D-01,F06,unknown,,,E-14;A-01;E-20,"realizar ou viabilizar operações no mercado de ativos virtuais que tenham como contrapartes instituições ou entidades que prestem serviços de ativos virtuais e não estejam autorizadas a funcionar no país||Protocolou o pedido de autorização no Banco Central como PSAV||A situação de quem protocolou e aguarda decisão não está expressa",Applicant status plus a rule that drops the applicant exception; whether banks may still serve applicants is not stated
+D-01,F07,conditional,,,A-04;A-03,"Converta Pix em dólar digital (USDC, USDT ou BRL1)||são analisadas separadamente pelo time comercial da Foxbit",Stablecoin purchases by companies get a separate commercial analysis (corrected 7 Nov after the first dev pilot)
+D-01,F08,,50,bps,A-03,"Ordem mercado (ativa) Executa no preço atual do book 0,50%",
+D-01,F09,supported,separate analysis by Foxbit's commercial team,,A-03;A-03,"Compra, venda e remessa de stablecoins (USDC, USDT, BRL1)||são analisadas separadamente pelo time comercial da Foxbit",
+D-01,F10,supported,,,A-05,"Envie criptoativos para wallets externas ou receba de terceiros.",
+D-01,F11,supported,,,A-06,"TRX Tron Network (TRC-20) USDT",
+D-01,F12,unknown,,,A-01,"A taxa para um saque de cripto é baseada na rede blockchain e pode sofrer alterações sem aviso prévio",A-02 gives 1 USDT without naming a network
+D-01,F13,supported,2026-11-01,,A-10;A-09,"Mesmo que você seja o titular das duas contas ou carteiras, será necessário identificar a origem ou o destino dos ativos nas transferências externas sujeitas ao procedimento.||Nos saques: você precisará informar os dados solicitados sobre o destino dos ativos para concluir a transferência.",
+D-01,F14,,case by case,,A-03,"cada CNPJ é analisado caso a caso pelo time de Compliance",
+D-01,F15,supported,,,A-11,"TRC20 Token via Tron Blockchain Support for TETHER tokens in your project can be added with the following Tron contract addresses",
+D-02,F01,supported,,,A-03,"Depósito via Pix 24/7, todos os dias Grátis",
+D-02,F02,supported,yes,,A-01,"Não aceitamos depósitos de terceiros, ou seja, o valor depositado dever vir de uma conta com o seu CPF/CNPJ.",
+D-02,F03,supported,company (PJ) verification by Foxbit compliance,,A-07,"para acessar funcionalidades completas e realizar operações de maior volume, é fundamental completar o processo de verificação de conta para pessoas jurídicas (PJ)",
+D-02,F04,,72,hours,A-07,"o processo de diligência para pessoa jurídica pode levar até 72h",
+D-02,F05,,case by case,,A-03,"cada CNPJ é analisado caso a caso pelo time de Compliance",
+D-02,F06,unknown,,,E-14;A-01;E-20,"realizar ou viabilizar operações no mercado de ativos virtuais que tenham como contrapartes instituições ou entidades que prestem serviços de ativos virtuais e não estejam autorizadas a funcionar no país||Protocolou o pedido de autorização no Banco Central como PSAV||A situação de quem protocolou e aguarda decisão não está expressa",
+D-02,F07,conditional,,,A-04;A-03,"Converta Pix em dólar digital (USDC, USDT ou BRL1)||são analisadas separadamente pelo time comercial da Foxbit",Stablecoin purchases by companies get a separate commercial analysis (corrected 7 Nov after the first dev pilot)
+D-02,F08,,50,bps,A-03,"Ordem mercado (ativa) Executa no preço atual do book 0,50%",
+D-02,F09,supported,separate analysis by Foxbit's commercial team,,A-03;A-03,"Compra, venda e remessa de stablecoins (USDC, USDT, BRL1)||são analisadas separadamente pelo time comercial da Foxbit",
+D-02,F10,supported,,,A-05,"Envie criptoativos para wallets externas ou receba de terceiros.",
+D-02,F11,supported,,,A-06,"UNI USDC USDT WLD",ERC-20 row of the network table spans these assets
+D-02,F12,unknown,,,A-01,"A taxa para um saque de cripto é baseada na rede blockchain e pode sofrer alterações sem aviso prévio",A-02 gives 1 USDC without naming a network
+D-02,F13,supported,2026-11-01,,A-10;A-09,"Mesmo que você seja o titular das duas contas ou carteiras, será necessário identificar a origem ou o destino dos ativos nas transferências externas sujeitas ao procedimento.||Nos saques: você precisará informar os dados solicitados sobre o destino dos ativos para concluir a transferência.",
+D-02,F14,,case by case,,A-03,"cada CNPJ é analisado caso a caso pelo time de Compliance",
+D-02,F15,supported,,,A-24,"Ethereum 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+D-03,F01,supported,,,A-01,"Depósito via PIX funcionam todos os dias e horários",
+D-03,F02,supported,yes,,A-01,"Não aceitamos depósitos de terceiros, ou seja, o valor depositado dever vir de uma conta com o seu CPF/CNPJ.",
+D-03,F03,supported,account verification (KYC); crypto deposits and withdrawals unavailable on the simplified account,,A-01,"os depósitos e saques de criptos não estão disponíveis",
+D-03,F04,unknown,,,,,No stated verification time for individuals
+D-03,F05,,"by account level (R$ 5,000 a month simplified; R$ 75,000 verified)",BRL,A-01,"habilitar até R$75mil de limite mensal",Corrected 7 Nov after pilot-1: limits are set by account level
+D-03,F06,unknown,,,E-14;A-01;E-20,"realizar ou viabilizar operações no mercado de ativos virtuais que tenham como contrapartes instituições ou entidades que prestem serviços de ativos virtuais e não estejam autorizadas a funcionar no país||Protocolou o pedido de autorização no Banco Central como PSAV||A situação de quem protocolou e aguarda decisão não está expressa",
+D-03,F07,supported,,,A-02,"""trade_min_qty_brl"": ""0.08261125 usdt""",General asset row (all clients)
+D-03,F08,,50,bps,A-01,"Iniciante 0 - 25.000 0,25% 0,50%",Tier depends on the previous 30 days' volume; new trader = Iniciante
+D-03,F09,unknown,,,,,
+D-03,F10,supported,,,A-02,"""withdraw_enabled"": true, ""withdraw_min"": ""0.01 usdt""",
+D-03,F11,supported,,,A-06,"TRX Tron Network (TRC-20) USDT",
+D-03,F12,unknown,,,A-01,"A taxa para um saque de cripto é baseada na rede blockchain e pode sofrer alterações sem aviso prévio",
+D-03,F13,supported,2026-11-01,,A-10;A-09,"Mesmo que você seja o titular das duas contas ou carteiras, será necessário identificar a origem ou o destino dos ativos nas transferências externas sujeitas ao procedimento.||Nos saques: você precisará informar os dados solicitados sobre o destino dos ativos para concluir a transferência.",
+D-03,F14,,case by case,,A-01,"os limites de saque cripto são personalizados de acordo com o perfil de cada cliente",
+D-03,F15,supported,,,A-11,"TRC20 Token via Tron Blockchain Support for TETHER tokens in your project can be added with the following Tron contract addresses",
+D-04,G01,restricted,,,E-05.1;E-05.5,"A autarquia também determinou a “imediata descontinuidade” desse tipo de operação.||até que esse alinhamento ocorra, as operações permanecerão suspensas",
+D-04,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,,E-05.5,"explicar ao regulador como cada instituição identifica a finalidade econômica das transações e diferencia uma operação própria de uma estrutura de intermediação",
+D-05,G01,conditional,,,E-05.5;E-05.5,"durante a reunião o BC 'liberou' a arbitragem de fundos cripto feita dentro do livro de ordens de exchanges||até que esse alinhamento ocorra, as operações permanecerão suspensas",In-book arbitrage reported as allowed; FX operations linked to crypto funds stay suspended until each institution's alignment
+D-05,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,,E-05.5,"explicar ao regulador como cada instituição identifica a finalidade econômica das transações e diferencia uma operação própria de uma estrutura de intermediação",

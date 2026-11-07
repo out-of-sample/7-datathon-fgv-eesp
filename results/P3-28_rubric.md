@@ -49,6 +49,14 @@ as-of date. Questions are in `P3-28_fields.csv`. Fill in five columns:
 
 ## Coding rules
 
+- **"Can it?" versus "what is required?"** Questions asking whether the profile *can* do something (F01, F07, F10,
+  F11, F15, G01) use the full set of states. Questions asking *what is required* (F02, F03, F09, F13) use `supported`
+  when a document states the requirement, with the requirement in `value`, and `unknown` when no document says.
+  Example: "company verification by compliance" is F03 = `supported`, value "company verification by compliance";
+  it is not `conditional`.
+- **When is a "can" question conditional?** When a document makes the operation depend on an approval or review
+  specific to it, for example a separate commercial analysis of stablecoin purchases. Ordinary account verification
+  (F03) and the destination declaration (F13) do not by themselves make F01, F07 or F10 conditional.
 - **Profile matters.** A personal-account page does not answer a company question unless it says it applies to
   companies (or to all clients). If unsure, `unknown` and a note.
 - **Network matters.** A fee or status without a named network does not answer a question about a specific network:
@@ -58,7 +66,9 @@ as-of date. Questions are in `P3-28_fields.csv`. Fill in five columns:
 - **Advertising is a provider statement**, not proof something works. Code what it states.
 - **Fees and limits:** never write `0` for a missing fee. Missing is empty plus `unknown`.
 - **F06** (Res. BCB 589): answer only from documents in the corpus about this provider's authorisation status or about
-  banks serving it. The rule's text alone, without the provider's status, is not enough for `restricted`.
+  banks serving it. The rule's text alone, without the provider's status, is not enough for `restricted`. If the
+  provider is only an applicant and no document says whether banks may keep serving applicants, code `unknown`
+  (Felipe's ruling on the D-01 card, 7 Nov).
 - **Funds' cases (D-04, D-05):** G01 asks whether the fund may carry out the FX import **in the role the case
   describes** (intermediation in D-04, own account or in-book arbitrage in D-05) as of 26 Jun 2026.
 
