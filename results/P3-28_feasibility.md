@@ -122,3 +122,23 @@ passages verified.
   no main-deck slide.
 - **(b) Stop at S1; run S2–S6 after submission.** Keeps D-01 and this note as the design record.
 - In both cases, nothing about agentic performance can appear in the 8 Nov PDF.
+
+## 9. Second-coder review (Felipe, 7 Nov 2026)
+
+Independent second-coder verification performed by Felipe (Economist) across all 23 rows of `data/processed/P3-28_conditions.csv` and card `results/tables/P3-28_access_cards.md` (case `D-01`), cross-checking all predicates, states, units, and verbatim quotations against the frozen source register in `docs/sources.md` (`A-01`–`A-11`, `E-06b`, `E-14`, `E-20`).
+
+1. **Rubric resolution on §5 item 2 (`L2-02`):**
+   - *Question from Renzo:* Foxbit's company page says that all self-service products are available upon activation, but the stablecoin section states that purchases of USDC, USDT, and BRL1 are *"analisadas separadamente pelo time comercial da Foxbit"*. Should this be coded as `conditional` or `conflicting`?
+   - *Second-coder determination:* **Concur with `conditional` (under assumption `A4`).** Applying canonical principles of legal and contractual interpretation (*lex specialis derogat legi generali*), a specific carve-out governing stablecoins and digital dollars on the same page qualifies the general self-service statement rather than creating a true operational contradiction. The general rule governs ordinary crypto pairs; the specific clause governs the regulated digital-dollar route under Res. BCB 521/2025. Coding `L2-02` as `conditional` under assumption A4 is methodologically correct, while preserving the nuance in `exceptions`.
+
+2. **Resolution on regulatory counterparty ambiguity (`L1-08`):**
+   - *Determination:* **Concur with `unknown`.** Under Res. BCB 589 art. 91 (effective 6 Nov 2026, `E-14`), financial institutions are banned from carrying out or facilitating virtual asset operations with counterparties that are not authorized in Brazil, removing the previous transitional exception for applicants. While Foxbit publicly announced filing its PSAV application on 29 Oct 2026 (`A-01`, `E-18`), it is not an authorized institution. As noted in third-party regulatory commentary (`E-20`), whether a commercial bank's Pix transfer to an applicant exchange constitutes "facilitating an operation with an unauthorized counterparty" is legally unsettled in official guidance. Retaining `unknown` on L1 strictly adheres to `prompt.md` §5 (no unverified assertions), and directly drives the route status to **not established**.
+
+3. **Resolution on network withdrawal fee (`L3-04`):**
+   - *Determination:* **Concur with `unknown` / `null`.** Source `A-02` publishes a flat `1 usdt` withdrawal fee without specifying the blockchain network, whereas `A-01` explicitly warns that crypto withdrawal fees depend dynamically on the network. Thus, the specific withdrawal fee for USDT on TRC-20 is unknown in official table documentation, and recording it as `null` (rather than imputing 1 USDT or 0) correctly avoids unverified assumptions.
+
+4. **Audit of all 23 condition rows:**
+   - All 23 rows' evidence states (6 supported availability, 6 conditional availability, 1 unknown availability; 8 supported terms, 2 unknown terms) and their respective units (BRL, hours, bps, USDT) are fully verified and approved.
+   - All verbatim quotations match the textual extracts documented in `docs/sources.md`.
+   - The deterministic aggregation script (`py scripts/p3_28_access_map.py selftest`) passed all assertions without error.
+   - Decision on §8: **Option (a) adopted** — D-01 is incorporated into the submission annex (`deck/annex_v1_ptbr.md` §B.10) as a verified development card illustrating access conditions and regulatory frictions during the week Res. 589 took effect, without making unsupported agentic H1 claims.

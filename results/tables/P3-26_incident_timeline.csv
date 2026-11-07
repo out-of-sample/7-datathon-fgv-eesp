@@ -1,0 +1,10 @@
+timestamp_utc,timestamp_brt,market_event,binance_premium_bps,foxbit_premium_bps,mb_premium_bps,gap_foxbit_binance_bps,gap_mb_binance_bps,cusum_state,p3_20_window_role
+2026-10-29 13:00-17:00,2026-10-29 10:00-14:00,Pre-incident normal trading (PTAX window),12.5,13.4,11.3,0.9,-1.2,Normal (cumulative monitoring),E1 pre-window final day (t0-1); clean pre-baseline
+2026-10-29 20:05,2026-10-29 17:05,"Binance hot-wallet compromise & withdrawal freeze (M-11, M-12)",,,,,,Incident onset (after market close),Occurred 3h after 29 Oct PTAX window closed
+2026-10-30 13:00-17:00,2026-10-30 10:00-14:00,PTAX window during withdrawal suspension (sharp Binance-only dip),-30.3,18.6,17.4,49.0,47.8,Alarm triggered: Downward alarm 2026-10-30(-),E1 t0 (EXCLUDED from S2 pre-mean; contaminates S1 baseline)
+2026-10-31 to 2026-11-01,2026-10-31 to 2026-11-01,Withdrawals progressively restored; 98% assets replenished (M-11),,,,,,Mandatory quiet pause day 0 (weekend),Weekend (no PTAX window)
+2026-11-02,2026-11-02,Dia de Finados bank holiday in Brazil,,,,,,Mandatory quiet pause day 0 (holiday),Holiday (no PTAX window)
+2026-11-03 13:00-17:00,2026-11-03 10:00-14:00,Res. 574 effective; cross-venue parity restored,17.6,16.6,,-1.0,,Pause day 1/10 (QUIET=10 active),E1 post-day 1 (t0+1); S1 reading (+47.9 bps vs 30 Oct)
+2026-11-04 13:00-17:00,2026-11-04 10:00-14:00,E1 post-day 2; Copom decision evening; US midterms,25.0,22.0,,-3.0,,Pause day 2/10 (QUIET=10 active),E1 post-day 2 (t0+2); S2 evaluation window completes
+2026-11-05 13:00-17:00,2026-11-05 10:00-14:00,Last PTAX day before Res. 589 art. 91 ban (E2 t0),22.2,23.4,,1.2,,Pause day 3/10 (QUIET=10 active),E2 t0 (pre-window ending on 4 Nov contains 30 Oct)
+2026-11-06 13:00-17:00,2026-11-06 10:00-14:00,Res. 589 art. 91 ban in force; US payrolls (10:30 BRT),16.8,16.9,,0.1,,Pause day 4/10 (QUIET=10 active through 16 Nov),E2 post-day 1 (t0+1); S1 early reading window
