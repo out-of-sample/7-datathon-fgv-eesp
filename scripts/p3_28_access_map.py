@@ -100,7 +100,8 @@ def snapshot():
             w.writerows([{**m, 'fetch': m.get('fetch') or 'script'} for m in old])
     done = {m['source_id'] for m in old if m['http_status'] == '200'}
     new = not MANIFEST.exists()
-    murls = {r['source_id']: r['url'] for r in rows(RAW / 'manual/urls.csv')} if (RAW / 'manual/urls.csv').exists() else {}
+    mrows = {r['source_id']: r for r in rows(RAW / 'manual/urls.csv')} if (RAW / 'manual/urls.csv').exists() else {}
+    murls = {i: r['url'] for i, r in mrows.items()}
     with open(MANIFEST, 'a', newline='', encoding='utf-8') as mf, open(SUMS, 'a', encoding='utf-8') as sf:
         w = csv.DictWriter(mf, MFIELDS)
         if new:
@@ -115,13 +116,15 @@ def snapshot():
                     print(s['source_id'], 'manual save missing:', s['fetch_url'] or s['title'])
                     continue
                 body = f.read_bytes()
-                now = dt.datetime.fromtimestamp(f.stat().st_mtime, dt.timezone.utc)
+                mr = mrows.get(s['source_id'], {})
+                now = (dt.datetime.strptime(mr['saved_utc'], '%Y-%m-%dT%H:%M:%SZ').replace(tzinfo=dt.timezone.utc)
+                       if mr.get('saved_utc') else dt.datetime.fromtimestamp(f.stat().st_mtime, dt.timezone.utc))
                 path = RAW / f"{s['source_id']}_{now:%Y%m%dT%H%M%SZ}{f.suffix}"
                 path.write_bytes(body)
                 sha, rel = hashlib.sha256(body).hexdigest(), path.relative_to(ROOT).as_posix()
                 w.writerow(dict(source_id=s['source_id'], fetch_url=murls.get(s['source_id'], s['fetch_url']),
                                 retrieved_utc=now.strftime('%Y-%m-%dT%H:%M:%SZ'), http_status=200, bytes=len(body),
-                                sha256=sha, raw_path=rel, fetch='manual', saved_by=MANUAL_SAVER))
+                                sha256=sha, raw_path=rel, fetch='manual', saved_by=mr.get('saved_by') or MANUAL_SAVER))
                 sf.write(f'{sha}  {rel}\n')
                 print(s['source_id'], 'manual', len(body), rel)
                 continue
