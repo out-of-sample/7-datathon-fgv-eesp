@@ -118,10 +118,14 @@ tar -xzf p3_29_p3_36_frozen_20261107.tar.gz       # writes data/raw/p3_29, data/
 grep 'p3_29\|p3_36' data/raw/SHA256SUMS | sha256sum -c --quiet && echo OK
 P3_29_OFFLINE=1 .venv/bin/python scripts/p3_29_reconcile.py ledger   # also: cases, chains
 .venv/bin/python scripts/p3_36_brla_operations.py --offline
-git status --short                                 # empty = every committed output reproduced
+git status --short                                 # empty = every tracked output reproduced
+sha256sum data/processed/P3-29_events.csv         # git-ignored, so check it explicitly:
+# 17ade99a340f7b26d9fa9bf99f5bdae8b433f941727a8e2aa59333e668abe6b5
 ```
 
-Tested 7 Nov 2026 on a fresh clone of `f98f5bf` (with the Flash bundle restored as above): checksums OK, all four
+Also replayed on Windows by Felipe's agent (`docs/review-9ab1ad8-frozen-bundle.md`): all numbers reproduce. Paths
+were written with backslashes there; `p3_29_reconcile.py` now writes `/` on every OS. `p3_36_brla_operations.py` still
+needs the same fix for its tables. Tested 7 Nov 2026 on a fresh clone of `f98f5bf` (with the Flash bundle restored as above): checksums OK, all four
 commands ran, and no tracked file changed. Without the archive, `python scripts/p3_29_reconcile.py ledger` (live, no
 key, ~4 min) rebuilds `P3-29_events.csv` from public endpoints. That is a re-download, not a replay of the frozen
 answers: compare the outputs, not the raw file hashes, since each answer records its retrieval time.

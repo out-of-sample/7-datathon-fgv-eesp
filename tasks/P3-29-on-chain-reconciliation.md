@@ -207,16 +207,19 @@ Read `prompt.md`, `STATUS.md`, P3-27, F-037/P3-24 and the input script/data note
   23 Jun burn of 113.6 mn; not absorbed by Polygon/Gnosis/Moonbeam; DefiLlama 26 Jun value matches no on-chain state),
   F-044 (12 frozen cases all close; 24/24 labels consistent; DefiLlama read time 00:04–00:46 UTC; P-0045 held 32/0, 6
   informative). All exploratory. H4 waived.
-- **Next steps (people, not agents):**
-  1. **S7 reproduction, Jonathan (he replicated S1, `e9e5bf8`) or Nattan:** restore the Flash bundle (`data/README.md`).
-     Then run, live (public endpoints, no key; about 4 + 8 + 4 min): `.venv/bin/python scripts/p3_29_reconcile.py ledger`,
-     then `... cases`, then `... chains`. Or ask Renzo for `data/raw/p3_29/` (89 MB) and add `P3_29_OFFLINE=1`.
-     Compare with `data/processed/P3-29_reconciliation.csv`, `results/tables/P3-29_case_audit.md`, `P3-29_s5_cases.csv`,
-     `P3-29_chains_audit.md`. Open 2–3 large burns on https://celo.blockscout.com/tx/<hash> in a browser (G2), and check
-     F-042/F-044 wording against protocol §6. Then write `checked_by` and History in the three findings.
-  2. **S6 Felipe (done, 7 Nov):** reviewed `results/P3-29_annex_draft_ptbr.md`, answered all three questions (include in Annex §B.10.2 with `P3-29_supply_bridge.png`, preserve the 23/06 vs 19/06 non-causal discipline, frame as methodological data audit qualifying `F-037`), and updated `deck/annex_v1_ptbr.md`. Main 10-slide deck untouched.
+- **Next steps (18:48 Brasília, 7 Nov). Only S7 is left, and it needs a person.** Agents have already replayed
+  everything: Renzo's agent on Linux, and Felipe's agent on Windows (`docs/review-9ab1ad8-frozen-bundle.md`, all numbers
+  reproduce). The human sign-off, about 30 min for Jonathan or Nattan:
+  1. `gh release download data-p3-29-p3-36-20261107`, then restore and replay per `data/README.md` → "P3-29 / P3-36 frozen
+     on-chain bundle". Expect an empty `git status` and events hash `17ade99a…`.
+  2. G2: open 3 large burns from `results/tables/P3-29_case_audit.md` on https://celo.blockscout.com/tx/<hash>. Check
+     amount, time, `0xbd22…` as the burned holder, and the transaction going to `0xa5e1…`.
+  3. Read F-042 and F-044 against protocol §6 (no "resgate", "corrida", "migração" or BCB link).
+  4. Write `checked_by` and a History line in F-041, F-042 and F-044. Tick S7 and the last criterion, then set the
+     task to `done`.
 - **Open questions:** why DefiLlama's Celo value is 59,281,880 on 26 Jun and 2 Jul (needs DefiLlama's own records);
-  what `MiniVM` (`0xa5e1…d340`) and the Polygon/Moonbeam implementations do (verified source on Blockscout, not read);
+  the mechanism of the large burns is now described by P3-37 / F-049 (an authorized transfer-and-burn routine via
+  `MiniVM`); what the Polygon/Moonbeam implementations do (not read);
   whether the burns are fiat redemptions (no source; do not say so).
 - **How to resume or extend:** commands above, plus `... figure` for the figure. Raw answers are under `data/raw/p3_29/`
   (2,841 files; checksums in `data/raw/SHA256SUMS`; not in git); `P3-29_events.csv` (5.8 MB) is git-ignored and rebuilt
@@ -224,6 +227,7 @@ Read `prompt.md`, `STATUS.md`, P3-27, F-037/P3-24 and the input script/data note
   new seed) committed before collection.
 
 ## Log
+- 2026-11-07 18:48 (Brasília) — agent for Renzo: acted on the Windows bundle review: `p3_29_reconcile.py` writes repository paths with `/` on every OS (Linux offline replay unchanged, events hash 17ade99a…); README now checks the git-ignored events file explicitly; Handoff reduced to the human S7 checklist. P3-36 script has the same path issue (not changed: another session owns it).
 - 2026-11-07 02:46 (Brasília) — Felipe (Economist): S6 review complete. Answered the three questions in `results/P3-29_annex_draft_ptbr.md` (1: include in Annex §B.10.2, not main slides; 2: keep the 23/06 vs 19/06 non-causal caveat; 3: frame as an on-chain data audit note qualifying F-037 and excluding the 26/06 59.3 mn point) and updated `deck/annex_v1_ptbr.md`.
 - 2026-11-07 01:57 (Brasília) — agent for Renzo: S4 done (other contracts at 15 boundaries, two providers each, P-0045 32 match / 0 miss / 6 informative; no listed chain absorbed Celo's 23 Jun fall), S5 done (manifest `d6008bf` before collection; 12/12 cases residual 0, 24/24 labels consistent, 317/317 receipts; read time 00:04–00:46 UTC), S6 prepared (figure, pt-BR annex draft for Felipe). F-044 exploratory; F-042/F-037 History notes; T-22. Status review: reproduction (S7) and Felipe's S6 review pending. Ledger code split into reusable parts (offline replay byte-identical).
 - 2026-11-07 01:43 (Brasília) — agent for Renzo: tidied the merge from `e9e5bf8`: one `working:` line (Jonathan's value kept), two duplicated log lines with superseded timestamps removed, Jonathan's review line placed in date order. His text is unchanged.
