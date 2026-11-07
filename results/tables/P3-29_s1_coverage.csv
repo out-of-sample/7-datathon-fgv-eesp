@@ -1,0 +1,40 @@
+capability,provider,status,detail
+chain_id,forno,ok,0xa4ec
+chain_id,blockscout,ok,0xa4ec
+chain_id,ankr,ok,0xa4ec
+header_open,blockscout,ok,0xbdffa84f68ed3ce19a6b8dd0820a65546aab7fb8387b38d92a60829fbaa08acc
+header_close,blockscout,ok,0x482fd2826d72ee3881490cf93c9305414d130a9f59a3d6cb055696105ccc27ef
+finalized_tag,forno,ok,finalized 82119124 > close 70963242
+historical_state_open,forno,ok,totalSupply 128106372436012947246956951
+historical_state_open,blockscout,ok,totalSupply 128106372436012947246956951
+historical_state_open,ankr,ok,totalSupply 128106372436012947246956951
+historical_state_close,forno,ok,totalSupply 135855038456484705968642568
+historical_state_close,blockscout,fail,"blockscout eth_getStorageAt ('0xfecb3f7c54e2caae9dc6ac9060a822d47e053760', '0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc', '0x43ad02a'): {'http': 429, 'body': '{""message"":""Too many requests. Increase limits now at https://dev.blockscout.com"",""result"":null,""status"":""0""}'}"
+historical_state_close,ankr,ok,totalSupply 135855038456484705968642568
+historical_state_open,1rpc,fail,"{'code': -32603, 'message': 'state at block #69926443 is pruned'}"
+historical_state_open,stakely,fail,"{'code': -32603, 'message': 'state at block #69926443 is pruned'}"
+historical_state_open,drpc,ok,totalSupply 128106372436012947246956951
+logs_transfer_1000_blocks,forno,ok,35 logs
+logs_transfer_10000_blocks,forno,fail,"{'http': 400, 'body': '{""jsonrpc"":""2.0"",""error"":{""code"":-32602,""message"":""query exceeds range, retry smaller (max block range 5000, got 9999)""},""id"":1}\n'}"
+logs_transfer_100000_blocks,forno,fail,"{'http': 400, 'body': '{""jsonrpc"":""2.0"",""error"":{""code"":-32602,""message"":""query exceeds range, retry smaller (max block range 5000, got 99999)""},""id"":1}\n'}"
+logs_upgraded_open_to_close,forno,fail,"{'http': 400, 'body': '{""jsonrpc"":""2.0"",""error"":{""code"":-32602,""message"":""query exceeds range, retry smaller (max block range 5000, got 1036799)""},""id"":1}\n'}"
+logs_transfer_1000_blocks,blockscout,fail,"{'http': 429, 'body': '{""message"":""Too many requests. Increase limits now at https://dev.blockscout.com"",""result"":null,""status"":""0""}'}"
+logs_transfer_10000_blocks,blockscout,fail,"{'http': 429, 'body': '{""message"":""Too many requests. Increase limits now at https://dev.blockscout.com"",""result"":null,""status"":""0""}'}"
+logs_transfer_100000_blocks,blockscout,fail,"{'http': 429, 'body': '{""message"":""Too many requests. Increase limits now at https://dev.blockscout.com"",""result"":null,""status"":""0""}'}"
+logs_upgraded_open_to_close,blockscout,fail,"{'http': 429, 'body': '{""message"":""Too many requests. Increase limits now at https://dev.blockscout.com"",""result"":null,""status"":""0""}'}"
+logs_transfer_1000_blocks,ankr,ok,35 logs
+logs_transfer_10000_blocks,ankr,fail,"{'code': -32062, 'message': 'Block range is too large'}"
+logs_transfer_100000_blocks,ankr,fail,"{'code': -32062, 'message': 'Block range is too large'}"
+logs_upgraded_open_to_close,ankr,fail,"{'code': -32062, 'message': 'Block range is too large'}"
+logs_equal_to_forno,blockscout,fail,"0 vs 35 logs in (69926442, 69927442]"
+logs_equal_to_forno,ankr,ok,"35 vs 35 logs in (69926442, 69927442]"
+logs_zero_address_transfers_in_sample,forno,ok,18 of 35 (not classified)
+receipt_by_hash,forno,fail,null result (transaction known to forno: True); not a failure label (T-07)
+receipt_by_hash,blockscout,fail,"{'http': 429, 'body': '{""message"":""Too many requests. Increase limits now at https://dev.blockscout.com"",""result"":null,""status"":""0""}'}"
+receipt_by_hash,ankr,ok,"status 0x1, 4 logs"
+receipt_by_hash,drpc,ok,"status 0x1, 4 logs"
+receipt_by_block,forno,ok,"0x0ddc9dc482f75f88f2050cb6d7b082ebd8e8ce9629b4835130def70edd8f08d6 in block 69926445: matches the by-hash receipt (status, block hash, logs)"
+rest_address,blockscout,ok,"{'creation_transaction_hash': '0x9d10cf14dc1037a8d5a5ec2789fcf8501aa4022391ba790d6e01c34377ae356e', 'is_verified': True, 'proxy_type': 'eip1967', 'implementations': [{'address_hash': '0xE6A537a407488807F0bbeb0038B79004f19DDDFb', 'name': 'BRLAV1_1'}]}"
+rest_impl_source,blockscout,ok,"{'name': 'BRLAV1_1', 'compiler_version': '0.8.25+commit.b61c2a91', 'is_verified': True, 'verified_at': '2025-05-27T03:56:33.876533Z'}"
+deployment,forno,ok,block 25746892 at 2024-05-22T19:18:13+00:00
+rest_token,blockscout,ok,"{'name': 'BRLA Digital BRLA', 'symbol': 'BRLA', 'decimals': '18', 'type': 'ERC-20'}"

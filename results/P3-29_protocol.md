@@ -103,4 +103,11 @@ counterparty concentration, cross-checks, provider labels). New finding with the
   capability check like S1's. Each chain's contract identity is checked separately. Coincident moves are not linked.
 
 ## Amendments
-None yet.
+- 2026-11-07 01:25 Brasília, **before any S3 output was seen** (implementation details, no rule changed):
+  (1) one command, `ledger`, does collection and reconciliation (§7 named `collect`/`reconcile`). (2) Event topics
+  and function selectors are computed with `web3_sha3` on Forno and Ankr (they must agree), from the eleven event
+  declarations of the verified source. No local Keccak is installed. (3) Added: the block hash of every
+  ≥ 1%-event block is checked against its header; every block number must carry one hash only. (4) The S1 tables are
+  renamed `P3-29_s1_snapshots.csv` / `P3-29_s1_coverage.csv`. (5) The 2 Jul label falls outside the collected days
+  and is reported `not_tested`. (6) DefiLlama path points are end-of-block states, because `eth_call` at a block
+  cannot see a state between two logs of the same block.
