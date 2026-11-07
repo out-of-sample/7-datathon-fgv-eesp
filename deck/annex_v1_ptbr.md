@@ -188,6 +188,54 @@ custo do ofício também era convertido a R$ 5,38 (R$ 5.052 e R$ 621); os valore
 | **Foxbit** | Tamanho médio por negócio (USDT) | 730 | 4.687 | 6.297 |
 | **Mercado Bitcoin** | Volume diário (milhões de USDT/dia) | 0,95 | 1,25 | 1,38 |
 
+### B.8. Decisão de Tesouraria Institucional e Paridade Coberta de Juros (`P3-31`, `F-039`, nível: retrospectivo e exploratório)
+
+**Identidade de Carrego Diário Nulo por Paridade Coberta de Juros (CIP):**  
+Sob a Paridade Coberta de Juros (*Covered Interest Parity* — CIP), o preço a termo $F_{t,h}$ do dólar oficial na B3 para liquidação no horizonte de $h$ dias úteis satisfaz rigorosamente $F_{t,h} = S_t \times (1 + i_{\text{BRL},h}) / (1 + i_{\text{USD},h})$, onde $S_t$ é a taxa de câmbio à vista PTAX, $i_{\text{BRL},h}$ é a taxa CDI/Selic e $i_{\text{USD},h}$ é a taxa de cupom cambial. Para uma tesouraria institucional com passivo ou necessidade de caixa em USDT no horizonte $h$, manter os reais aplicados em CDI/Selic e comprar um contrato a termo ou futuro de dólar trava o câmbio oficial com custo líquido de carrego diário estritamente nulo:
+$$\text{Custo Líquido de Carrego Cambial} = S_t \times (1 + i_{\text{BRL},h}) - F_{t,h} \times (1 + i_{\text{USD},h}) = 0$$
+Os juros auferidos no depósito em reais financiam com exatidão matemática os pontos a termo cambiais exigidos na B3. Consequentemente, adiar a aquisição de USDT com proteção cambial isola o risco cambial oficial ($S$) e transforma a decisão de espera em uma **aposta pura e exclusiva na dinâmica do prêmio local** do dólar digital ($\pi_t \to \pi_{t+h}$).
+
+**Desempenho Retrospectivo do Comprador com Hedge B3 vs Sem Hedge (`results/tables/P3-31_buyer_hedged_comparison.csv`):**  
+A tabela abaixo avalia uma posição compradora de 100 mil USDT iniciada em 25/jun/2026 (dia seguinte ao salto de +94 bps pós-ofício, prêmio inicial $\pi_0 = 184,35\text{ bps}$ e preço USDT/BRL de R$ 5,2785 e PTAX de R$ 5,1892):
+
+| Prazo $h$ (dias úteis PTAX) | Data Alvo | Prêmio Inicial (bps) | Prêmio Final (bps) | Variação Prêmio (bps) | Economia Hedged (bps) | Economia Hedged (R$ / 100k USDT) | Economia Sem Hedge (R$ / 100k USDT) | Variação PTAX (%) |
+|---|---|---:|---:|---:|---:|---:|---:|---:|
+| **1 dia** | 26/06/2026 | 184,35 | 75,62 | +108,72 | +107,36 | R$ 5.675 | R$ 7.790 | −0,38% |
+| **5 dias** | 02/07/2026 | 184,35 | 99,19 | +85,16 | **+89,66** | **R$ 4.746** | R$ 4.706 | +0,10% |
+| **6 dias** | 03/07/2026 | 184,35 | 185,87 | −1,52 | **+6,33** | **R$ 335** | R$ 2.714 | −0,34% |
+| **10 dias** | 09/07/2026 | 184,35 | 103,83 | +80,52 | **+92,32** | **R$ 4.896** | R$ 11.617 | −1,08% |
+| **15 dias** | 16/07/2026 | 184,35 | 57,67 | +126,68 | +145,15 | R$ 7.713 | R$ 18.527 | −1,77% |
+| **20 dias** | 23/07/2026 | 184,35 | 45,92 | +138,43 | **+164,04** | **R$ 8.733** | R$ 21.747 | −2,09% |
+
+*Ressalvas metodológicas:* Taxa de emolumentos B3 considerada em 0,22 bps (R$ 11,62 por 100k USDT). Embora a espera retrospectiva com hedge tenha poupado R$ 4.746 a R$ 8.733 em 5 a 20 dias úteis, o ganho **não foi monotônico** (no 6º dia útil, em 03/jul, o repique do prêmio reduziu o ganho a apenas R$ 335) nem previsível ex-ante.
+
+**Limiares do Vendedor Institucional e Perdas Retrospectivas (`results/tables/P3-31_thresholds.csv`, `P3-31_historical_comparison.csv`):**  
+Para o vendedor institucional com passivos em reais, a espera acarreta custo de oportunidade explícito do carrego em reais (perda do CDI/Selic). Sob taxa livre de risco de 10% a.a. e corretagem de 10 bps, o vendedor exige uma apreciação do USDT de **+18,9 bps em 5 dias**, **+37,9 bps em 10 dias** e **+75,9 bps em 20 dias** apenas para atingir o ponto de equilíbrio (*break-even hurdle*). Em retrospecto após 25/jun, o vendedor que adiou a liquidação sofreu perdas substanciais de **−R$ 4.697 em 5 dias**, **−R$ 11.594 em 10 dias** e **−R$ 21.704 em 20 dias** por 100 mil USDT, impulsionadas pela compressão do prêmio somada à valorização do real.
+
+### B.9. Censo Global de Duração em 10 Moedas e Modelo de Sobrevivência (`P3-30`, `F-038`, nível: exploratório)
+
+**Viabilidade Amostral: Falha no Brasil e Aprovação no Pool Global de 10 Moedas (`results/tables/P3-30_feasibility.csv`):**  
+A identificação estatística da duração de choques de prêmio exige amostras com número suficiente de eventos independentes e recuperações completas. Com dados exclusivos do Brasil (`BRL_only`), os critérios de viabilidade reprovam nas partições de validação e teste. A agregação em um pool global de 10 moedas conversíveis e semi-conversíveis (10.875 dias de cotação entre 2020 e 2026) viabiliza o estudo:
+
+| Escopo Amostral | Limiar de Choque | Partição | Episódios Totais | Recuperações | Censurados | Critério Mínimo | Status do Gate |
+|---|---|---|---:|---:|---:|---|---|
+| **Apenas Brasil (BRL)** | $3\sigma$ | Treino (2020–2024) | 11 | 10 | 1 | $\ge 10$ ep., $\ge 5$ rec. | Aprovado |
+| **Apenas Brasil (BRL)** | $3\sigma$ | Validação (2025) | 3 | 3 | 0 | $\ge 5$ ep., $\ge 2$ rec. | **Reprovado** |
+| **Apenas Brasil (BRL)** | $3\sigma$ | Teste (2026) | 1 | 0 | 1 | $\ge 5$ ep., $\ge 2$ rec. | **Reprovado** |
+| **Pool Global 10 Moedas** | $3\sigma$ | Treino (2020–2024) | 43 | 38 | 5 | $\ge 10$ ep., $\ge 5$ rec. | **Aprovado** |
+| **Pool Global 10 Moedas** | $3\sigma$ | Validação (2025) | 10 | 8 | 2 | $\ge 5$ ep., $\ge 2$ rec. | **Aprovado** |
+| **Pool Global 10 Moedas** | $3\sigma$ | Teste (2026) | 8 | 6 | 2 | $\ge 5$ ep., $\ge 2$ rec. | **Aprovado** |
+
+**Taxas Base Empíricas de Sobrevivência de Kaplan-Meier (`results/tables/P3-30_descriptive_km.csv`):**  
+No conjunto de treino global (43 episódios a $3\sigma$), a probabilidade acumulada de resolução de choques estimada pelo estimador não paramétrico de Kaplan-Meier é de **7,1% em 5 dias úteis**, **26,7% em 10 dias úteis** e **51,1% em 20 dias úteis**. A **mediana de retorno à banda histórica é de 20 dias úteis**.
+
+**Avaliação Fora da Amostra (Brier Score) e Bootstrap Pareado (`results/tables/P3-30_brier_bootstrap.csv`):**  
+Na partição de teste de 2026 (horizonte de 10 dias úteis, $N = 8$ episódios avaliados no início do choque), o modelo discreto de sobrevivência com penalização Ridge ($L_2 = 10,0$) obteve Brier score de **0,175** contra **0,188** do estimador ingênuo de Kaplan-Meier. O intervalo de confiança de 95% por bootstrap pareado com 10.000 replicações para a diferença de pontuação ($\text{Brier}_{\text{Modelo}} - \text{Brier}_{\text{KM}} = -0,013$) resultou em **$[−0,112; +0,073]$**. Como o intervalo inclui o zero (e o modelo perde na partição de validação: Brier $0,346$ vs $0,330$), conclui-se formalmente que **o modelo de sobrevivência não bate a taxa base histórica fora da amostra**.
+
+**Duração do Choque Brasileiro de 2026:**  
+O episódio brasileiro de 2026 detectado pelo algoritmo de $3\sigma$ teve início em **25 de maio de 2026** e, ao término do período amostral (30 de outubro de 2026), **permaneceu aberto após 111 dias úteis de PTAX**, demonstrando que choques regulatórios e estruturais podem apresentar caudas de duração substancialmente superiores à mediana histórica.
+
+
 ---
 
 # Anexo C — Registro Completo de Fontes de Dados, Legislação, Tarifas, Eventos de Depeg e Literatura
@@ -264,7 +312,7 @@ Todas as fontes citadas na pesquisa foram abertas, auditadas, citadas verbatim e
 | **L-03** | Bai, J. (1997). Estimation of a change point in multiple regression models. *Review of Economics and Statistics*, 79(4), 551–563. | Intervalos de confiança homocedásticos (Teorema 1) e heterocedásticos por regime (Teorema 2) (`P2-02`, `P4-01`). | Fórmula verificada no artigo (2 Nov) |
 | **L-04** | Bai, J. & Perron, P. (2003). Computation and analysis of multiple structural change models. *Journal of Applied Econometrics*, 18(1), 1–22. | Programação dinâmica para seleção cega de quebras estruturais via critério LWZ (`P2-02`, `F-011`). | Fórmula verificada no artigo (2 Nov) |
 | **L-05** | Shleifer, A. & Vishny, R. W. (1997). The limits of arbitrage. *Journal of Finance*, 52(1), 35–55. | Fundamentação teórica dos limites à arbitragem e restrições institucionais. | Auditado |
-| **L-06** | Makarov, I. & Schoar, A. (2020). Trading and arbitrage in cryptocurrency markets. *Journal of Financial Economics*, 135(2), 289–319. | Evidência de prêmios cripto entre jurisdições soberanas sob controles de capital (`P1-05`, `F-010`). | Auditado |
+| **L-06** | Makarov, I. & Schoar, A. (2020). Trading and arbitrage in cryptocurrency markets. *Journal of Financial Economics*, 135(2), 293–319. | Evidência de prêmios cripto entre jurisdições soberanas sob controles de capital (`P1-05`, `F-010`). | Auditado |
 | **L-07** | Obstfeld, M. & Taylor, A. M. (1997). Nonlinear aspects of goods-market arbitrage and adjustment: Heckscher's commodity points revisited. *JJIE*, 11(4), 441–479. | Modelagem Band-TAR da banda de não-arbitragem e velocidade de reversão (`P3-07`, `F-021`). | Auditado |
 | **L-08** | Abadie, A., Diamond, A. & Hainmueller, J. (2010). Synthetic control methods for comparative case studies. *JASA*, 105(490), 493–505. | Controle sintético convexo restrito ao simplex e inferência por placebos espaciais (`P2-04`, `F-017`). | Auditado |
 | **L-09** | Gelbach, J. B., Helland, E. & Klick, J. (2013). Valid inference in single-firm, single-event studies. *American Law and Economics Review*, 15(2), 495–541. | Nota de método do Anexo F.1: a comparação com datas placebo segue a lógica do teste SQ; não rodamos o teste deles. | Registro aberto (IDEAS), artigo não aberto |
@@ -297,6 +345,8 @@ Todos os códigos foram desenvolvidos em Python 3 linear e estruturados para exp
 | `scripts/p3_13_prediction.py` | `scripts/p3_13_prediction.py.txt` | `data/raw/bcb/sgs_432.json` (`D-17`), `P1-02`, `P3-03` | `P3-13_prediction.md` |
 | `scripts/p3_14_press_check.py` | `scripts/p3_14_press_check.py.txt` | `P1-02_premium_hourly.csv`, `P1-02_premium_daily.csv` | `P3-14_press_vs_series.csv` |
 | `scripts/p4_01_robustness.py` | `scripts/p4_01_robustness.py.txt` | Todas as tabelas de `P1`, `P2` e `P3` | `P4-01_robustness.csv`, `P4-01_robustness_forest.png` |
+| `scripts/p3_30_duration.py` | `scripts/p3_30_duration.py.txt` | `P1-02_premium_daily.csv`, moedas doadoras globais | `P3-30_feasibility.csv`, `P3-30_descriptive_km.csv`, `P3-30_brier_bootstrap.csv`, `P3-30_global_survival.png` |
+| `scripts/p3_31_holder.py` | `scripts/p3_31_holder.py.txt` | `P1-02_premium_daily.csv`, `PTAX`, parâmetros B3 CIP | `P3-31_buyer_hedged_comparison.csv`, `P3-31_thresholds.csv`, `P3-31_historical_comparison.csv`, `P3-31_historical.png` |
 
 ### D.2. Matriz de Rastreabilidade Ponta a Ponta: Slide (`deck_v1_ptbr.md`, 10 slides) $\leftrightarrow$ Achado $\leftrightarrow$ Saída
 
@@ -311,7 +361,7 @@ Todos os códigos foram desenvolvidos em Python 3 linear e estruturados para exp
 | **7 O mecanismo** | Compras de stablecoins no exterior −78% em jul/2026; 32% em ago–set | `F-024` | `scripts/p3_10_imports.py` | `P3-10_imports.png` |
 | **8 Robusto, mas de um mês** | 22 variantes (+73,7 a +128,3 bps); pós-pico p = 0,24; o que não mostramos | `F-011`, `F-022`, `F-024`, `F-026`, `F-028` | `scripts/p4_01_robustness.py` | `P4-01_robustness_forest.png` |
 | **9 Quanto custou e para quem** | R$ 106,1 mi (Binance) / R$ 145,3 mi (3 corretoras); por que +94 e não +350 bps | `F-015`, `F-025`, `F-026`, `F-028` | `scripts/p3_11_money.py` | `P3-11_transfer.csv`, `P3-11_placebo.csv`, `P3-15_routes.md` |
-| **10 Implicações, previsão e limites** | Monitor (atraso 0); previsão para a Res. 584 (`393a14a`); limites | `F-014`, `F-022`, `F-025`, `F-026`, `F-027`, `F-028`, `F-029` | `scripts/p3_03_monitor.py`, `p3_13_prediction.py` | `P3-13_prediction.md` |
+| **10 O que aprendemos e a régua pública** | Três lições (ofício +94 bps / R$ 106 mi; hedge CIP zera carrego e isola prêmio; mercado alterado e censo de duração em 10 moedas com mediana 20d); monitor PTAX; previsões Git Res. 574, 589 e 584 | `F-014`, `F-015`, `F-022`, `F-024`, `F-025`, `F-026`, `F-027`, `F-028`, `F-029`, `F-035`, `F-036`, `F-038`, `F-039` | `scripts/p3_03_monitor.py`, `p3_13_prediction.py`, `p3_20_live.py`, `p3_30_duration.py`, `p3_31_holder.py` | `P3-03_backtest.csv`, `P3-13_prediction.md`, `P3-30_brier_bootstrap.csv`, `P3-31_buyer_hedged_comparison.csv` |
 
 ---
 

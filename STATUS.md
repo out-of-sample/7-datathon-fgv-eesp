@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-07 by Renzo's agent (P3-29 S2–S3: BRLA Celo ledger reconciles to the base unit; F-042 exploratory) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-07 by Felipe's agent (Option A adopted across deck, annex, v3 claude slides; P5-08 -> review) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 tag `results-frozen` (F-001 to F-033)
 
@@ -200,7 +200,7 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 | [P5-05](tasks/P5-05-annex.md) | Annex: sources, event table, AI-use disclosure | 🔄 doing | Economist | - | 4/4 | 2/2 | 2026-11-07 | P5-01 |
 | [P5-06](tasks/P5-06-submission.md) | Submit PDF and scripts | ⬜ todo | Team | - | – | 0/3 | 2026-11-08 | P5-02, P5-03, P5-04, P5-05 |
 | [P5-07](tasks/P5-07-story-notebook.md) | Story notebook - the whole project end to end (deck prototype) | ✅ done | CS 1 | - | 3/3 | 3/3 | 2026-11-03 | P2-03, P2-04, P3-01, P4-01 |
-| [P5-08](tasks/P5-08-slide10-conclusion.md) | Slide 10 conclusion - answer "so what?" in economic terms, sentence by sentence within the evidence | ⬜ todo | Economist | - | 0/4 | 0/3 | 2026-11-06 | P3-20, P3-24, P3-25 |
+| [P5-08](tasks/P5-08-slide10-conclusion.md) | Slide 10 conclusion - answer "so what?" in economic terms, sentence by sentence within the evidence | 👀 review | Economist | - | 3/4 | 2/3 | 2026-11-06 | P3-20, P3-24, P3-25 |
 | [P5-09](tasks/P5-09-deck-v3-claude-slides.md) | Deck v3 - the 10-slide deck rebuilt in Claude Slides, in the mentor deck's design, with a methods slide and checked references | 👀 review | CS 1 | - | 4/5 | 3/4 | 2026-11-06 | P5-01, P4-03 |
 
 **Findings**
@@ -251,6 +251,8 @@ New review item: **P3-26** — Binance's 29 Oct incident/withdrawal suspension (
 <!-- BOARD:END -->
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-07 — agent for Felipe: Option A adopted for Slide 10 across deck_v1, deck_v2, v3 claude slides, and annex (B.8, B.9, C.5, D.1, D.2); P5-08 -> review; HTML presentations regenerated; board updated
 
 - 2026-11-07 — agent for Renzo: P3-29 S2–S3: protocol committed before collection (`cfccbfc`); Celo ledger 19 Jun – 2 Jul, 242 log chunks, no gaps, stock residual 0 base units every day, 38/38 receipts on Ankr; 732.6 mn minted / 724.9 mn burned for +7.7 mn net (19–30 Jun), two accounts; 23 Jun burn of 113.6 mn; DefiLlama consistent on 12/13 labels, 26 Jun 59.3 mn unresolved (F-042; note in F-037 History); reviewer needed
 - 2026-11-07 — agent for Renzo: P3-29 S1 → G1 passed for Celo (`scripts/p3_29_reconcile.py smoke`, 112 frozen answers, offline replay identical): BRLA Celo supply 128.11 → 135.86 mn BRLA (19 Jun → 1 Jul 00:00 UTC, Forno = Ankr); proxy `BRLAV1_1` unchanged, supply moves only via mint/burn `Transfer` events; DefiLlama Celo = `totalSupply`, no exclusions, hour of day unknown (T-14–T-19); F-041 exploratory; next S2 protocol, reviewer and scope for the team
