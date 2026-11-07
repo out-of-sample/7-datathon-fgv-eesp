@@ -2,9 +2,9 @@
 id: P3-29
 title: Reconcile reported BRLA supply changes with on-chain evidence
 phase: P3
-status: todo
+status: doing
 owner: Team
-working: -
+working: Renzo (agent)
 due: 2026-11-07
 depends: P3-27
 ---
@@ -147,7 +147,7 @@ Score correctly supported classifications, unresolved-state accuracy, unsupporte
 Each step is one focused session or is split further when needed. Prioritize the first verifiable ledger before multi-chain expansion or an agent interface. G1/G2 are data and review checks, not external permission requests.
 
 ## Subtasks
-- [ ] S1 — Verify source provenance and historical RPC capabilities; record G1 and one snapshot pair.
+- [ ] S1 — Verify source provenance and historical RPC capabilities; record G1 and one snapshot pair. — doing: Renzo (agent)
 - [ ] S2 — Commit the accounting protocol, scope, definitions, tolerances and selection rule.
 - [ ] S3 — Reconstruct the Celo stock identity; audit events/coverage and pass G2.
 - [ ] S4 — Compare circulation and investigate verified multi-chain links; preserve unresolved differences.
@@ -208,6 +208,7 @@ Read `prompt.md`, `STATUS.md`, P3-27, F-037/P3-24 and the input script/data note
 - **How to resume:** follow the reading order; inspect existing BRLA inputs without modifying them. Write new P3-29 outputs separately and record the G1 result before expansion.
 
 ## Log
+- 2026-11-07 00:15 (Brasília) — agent for Renzo: Renzo takes S1 (feasibility session, 90-minute target). Reviewer to be named (a teammate other than Renzo).
 - 2026-11-06 — Codex for Renzo: formalized from the P3-27 discussion at Renzo's request. Documentation only; no experiment launched or team member assigned.
 
 ## Result
