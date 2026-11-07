@@ -102,3 +102,23 @@ python3 scripts/p3_36_brla_operations.py --documents --offline
 Without `--offline`, missing public records/pages are downloaded; existing responses are never refreshed. Documentation can change, so a fresh download is not guaranteed to reproduce the frozen November text. The ledger's SHA-256 is recorded in `results/tables/P3-36_provenance.csv`. Both offline commands passed, and a second replay produced byte-identical tables; all manifest hashes were checked. F-049 remains subject to independent review.
 
 Task-number coordination: this BRLA follow-up is finally P3-37; its P3-36 artifact prefixes are retained. See `tasks/P3-37-brla-economic-function.md`.
+
+## P3-29 / P3-36 frozen on-chain bundle
+
+`data/raw/p3_29/` (2,841 RPC/API answers), `data/raw/p3_36/` and `data/processed/P3-29_events.csv` (5.6 MB, git-ignored)
+are not in git. One archive holds all three: `p3_29_p3_36_frozen_20261107.tar.gz`, 10,157,721 bytes, SHA-256
+`ba98b6105582fe2f7626e0c8f7c876cf0dc07352e33d0db70d879ac9ed54080f`. Renzo shares it outside git. **Restore** (repo root):
+
+```bash
+sha256sum p3_29_p3_36_frozen_20261107.tar.gz      # must print the hash above
+tar -xzf p3_29_p3_36_frozen_20261107.tar.gz       # writes data/raw/p3_29, data/raw/p3_36, data/processed/P3-29_events.csv
+grep 'p3_29\|p3_36' data/raw/SHA256SUMS | sha256sum -c --quiet && echo OK
+P3_29_OFFLINE=1 .venv/bin/python scripts/p3_29_reconcile.py ledger   # also: cases, chains
+.venv/bin/python scripts/p3_36_brla_operations.py --offline
+git status --short                                 # empty = every committed output reproduced
+```
+
+Tested 7 Nov 2026 on a fresh clone of `f98f5bf` (with the Flash bundle restored as above): checksums OK, all four
+commands ran, and no tracked file changed. Without the archive, `python scripts/p3_29_reconcile.py ledger` (live, no
+key, ~4 min) rebuilds `P3-29_events.csv` from public endpoints. That is a re-download, not a replay of the frozen
+answers: compare the outputs, not the raw file hashes, since each answer records its retrieval time.
