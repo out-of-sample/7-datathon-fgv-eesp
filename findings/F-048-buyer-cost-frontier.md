@@ -13,6 +13,7 @@ For an illustrative buyer delivering 100,000 USDT, the retrospective June centra
 Across the 216 explicit stress combinations, the cost ceiling changes sign at each observed June premium compression: **−5.07 to +145.56 bps**, **−26.62 to +150.65 bps**, and **−4.51 to +227.89 bps**. Thus even a zero-additional-cost comparison is assumption-sensitive in this envelope. The range is a deliberately specified stress set, not a probability or confidence interval. Actual access remains unresolved, so no executable recommendation is issued.
 
 ## Evidence
+Task P3-39 retains the original P3-38 script/output prefixes after a concurrent task-ID collision. The commands below intentionally use those artifact names.
 - Run: `python scripts/p3_38_buyer_frontier.py` (or the installed Python314 absolute path documented in the note). Ten tests pass before tables are generated.
 - `results/tables/P3-38_june_ceiling.csv`: same historical window and initial date as P3-31; final quantity 100,000 USDT.
 - `P3-38_frontier.csv`: central/min/max cost boundaries, in bps of initial buy-now BRL outlay; `P3-38_scenarios.csv`: all parameters; `P3-38_classification.csv`: conditional classifications; `P3-38_delivery_gate.csv`: generic delivery examples.

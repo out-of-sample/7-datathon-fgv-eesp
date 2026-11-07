@@ -47,18 +47,18 @@ To answer this, our research analyzed the market mechanics facing institutional 
 A naive market intuition suggests that during a market dislocation, participants should simply "wait for conditions to normalize." In the Brazilian digital-dollar market, this intuition overlooks transaction directionality, interest carry, and hedge mechanics:
 
 1. **Side 1 — The Institutional Buyer (`BRL -> USDT`, Importers / Outbound Remitters / Crypto Funds):**  
-   They were among the buyers who paid the **R\$ 106 to 145 million** identified in [`F-025`](../findings/F-025-money-moved.md) (that finding does not identify which kinds of buyers paid it). When buying during an acute spike, they absorb an artificial local markup. If a buyer needs to acquire USDT by an upcoming deadline, waiting in reais avoids paying the elevated premium.  
-   However, waiting unhedged exposes the buyer to macro USD/BRL currency depreciation. To eliminate official exchange rate risk, an institutional entity can execute a **B3-Hedged Waiting Strategy**: keep cash in reais in a domestic deposit earning $A_{\text{BRL}} = (1 + r_{\text{BRL}})^{h/252}$, and buy dollars forward at $F = X_t \cdot A_{\text{BRL}} / A_{\text{USD}}$ on B3 (via mini-dollar `WDO` or OTC NDFs).  
-   **Under Covered Interest Parity (CIP), the BRL deposit interest exactly pays the forward points: the hedge has zero daily carry cost.**  
+   Potential institutional buyers are not identified separately among those who paid the **R\$ 106 to 145 million** identified in [`F-025`](../findings/F-025-money-moved.md) (that finding does not identify which kinds of buyers paid it). When buying during an acute spike, they absorb an artificial local markup. If a buyer needs to acquire USDT by an upcoming deadline, waiting in reais postpones conversion but can face a higher or lower future premium.  
+   However, waiting unhedged exposes the buyer to macro USD/BRL currency depreciation. To reduce official exchange rate exposure under idealized assumptions, an institutional entity can execute a **B3-Hedged Waiting Strategy**: keep cash in reais in a domestic deposit earning $A_{\text{BRL}} = (1 + r_{\text{BRL}})^{h/252}$, and buy dollars forward at $F = X_t \cdot A_{\text{BRL}} / A_{\text{USD}}$ on B3 (via mini-dollar `WDO` or OTC NDFs).  
+   **The original calculation assumes matching deposit and forward-pricing rates. P3-39 varies them independently; net costs, USD yield and residual FX exposure remain.**  
    The hedged saving decomposes into three terms:
    $$\text{Hedged Saving} = \text{Premium Compression} + \text{USD Interest Forgone by Holding Idle USDT} - \text{Hedge Fee}$$
-   Consequently, when an institutional buyer hedges the official dollar on B3, **the decision to wait no longer depends on exchange rates or domestic interest rates: it is a pure bet on the USDT premium alone.**  
+   Consequently, when an institutional buyer hedges the official dollar on B3, **the comparison still depends on achievable returns, forward pricing, USDT/USD, execution costs and residual hedge exposure.**  
    Retrospectively, waiting from 25 June 2026 (the first PTAX day post-spike, premium 184.35 bps) delivered realized hedged savings of **+89.7 bps (R\$ 4,746)** at 5 days, **+92.3 bps (R\$ 4,896)** at 10 days, and **+164.0 bps (R\$ 8,733)** at 20 days per 100k USDT. However, this gain was neither steady nor predictable: on 3 July (6 days), the premium rebounded to 185.9 bps, leaving waiting with a gain of only **+6.3 bps**.
 
 2. **Side 2 — The Institutional Seller (`USDT -> BRL`, Domestic Obligation Funding):**  
-   Conversely, an institution holding USDT that needs to fund domestic BRL liabilities (taxes, payroll, suppliers) suffers a **double penalty** by delaying conversion:
+   Conversely, an institution holding USDT that needs to fund domestic BRL liabilities (taxes, payroll, suppliers) can face two costs when delaying conversion under premium compression:
    - *Loss of the Elevated Premium (Premium Decay):* The holder forfeits the temporary local markup over PTAX.
-   - *Negative BRL Carry:* Idle USDT earns 0% in BRL, forfeiting 10%–15% annual risk-free BRL interest.  
+   - *Negative BRL Carry:* Idle USDT earns 0% in BRL, forfeiting the assumed net BRL investment return; no accessible risk-free product is established.  
    To break even against immediate sale, gross USDT/BRL must appreciate by **+18.9 bps (5d), +37.9 bps (10d), and +75.9 bps (20d)** at 10% a.a. net BRL yield. Retrospectively in June 2026, waiting cost the seller **-R\$ 4,697 (5d), -R\$ 11,594 (10d), and -R\$ 21,704 (20d)** per 100k USDT (-R\$ 5,408 / -R\$ 6,167 / -R\$ 11,172 with fixed FX).
 
 3. **Buyer-Seller Duality:**  
@@ -198,7 +198,7 @@ $$B_2 = C_T^{\text{wait}}(Q) = Q \cdot P_T \cdot (1 + c_T) + F_T$$
 Terminal savings: $\Delta \text{BRL}_{\text{unhedged}}^{\text{buyer}} = B_1 - B_2$.
 
 #### Strategy B3: Delayed Acquisition with B3 FX Hedge (Exact CIP Accounting)
-To eliminate official exchange rate risk ($X_T$) while waiting for the premium to normalize:
+To reduce official exchange rate exposure under idealized assumptions ($X_T$) while waiting for the premium to normalize:
 1. The buyer keeps reais in a domestic deposit earning $A_{\text{BRL}} = (1 + r_{\text{BRL}})^{h/252}$.
 2. The buyer buys dollars forward on B3 (mini-dollar `WDO` or OTC NDFs) at the forward exchange rate $F$.
 3. Under Covered Interest Parity (CIP):
@@ -216,8 +216,8 @@ $$B_1 - B_3 = \underbrace{Q (1+c) X_T \left[U_t \left(1 + \frac{p_t}{10{,}000}\r
 
 > [!IMPORTANT]
 > **Key Economic Takeaway of CIP Hedge Accounting:**  
-> The domestic BRL deposit interest factor $A_{\text{BRL}}$ exactly pays the forward points in $F = X_t A_{\text{BRL}} / A_{\text{USD\_FWD}}$. **The hedge has no daily carry cost.**  
-> When an institutional buyer hedges the official dollar on B3, **the decision to wait does not depend on exchange rates or domestic interest rates: it is purely a bet on the USDT premium alone.**
+> The domestic BRL deposit interest factor $A_{\text{BRL}}$ exactly pays the forward points in $F = X_t A_{\text{BRL}} / A_{\text{USD\_FWD}}$. **This is an ideal accounting identity, not proof of costless executable hedging.**  
+> When an institutional buyer hedges the official dollar on B3, **the decision remains conditional on funding, forward pricing, USDT/USD, residual hedge exposure and delivery.**
 
 ---
 
@@ -338,12 +338,12 @@ Total extracted episodes and confirmed recoveries across 10,875 native trading d
 |---|:---:|:---:|:---:|:---:|---|
 | **BRL** | 1,520 | 16 / 16 | 15 / 14 | 9 / 8 | P1-02 USDT/BRL adjusted premium (PTAX) |
 | **EUR** | 1,748 | 21 / 20 | 11 / 10 | 8 / 8 | P1-05 Binance USDT/EUR vs ECB |
-| **TRY** | 1,749 | 16 / 15 | 11 / 10 | 12 / 12 | P1-05 Binance USDT/TRY vs CBRT |
-| **ZAR** | 1,115 | 8 / 8 | 2 / 2 | 0 / 0 | P1-05 Binance USDT/ZAR vs SARB |
-| **MXN** | 655 | 4 / 4 | 3 / 3 | 2 / 2 | P1-05 Bitso USDT/MXN vs Banxico |
-| **PLN** | 819 | 14 / 13 | 8 / 8 | 4 / 4 | P1-05 Binance USDT/PLN vs NBP |
-| **IDR** | 234 | 4 / 4 | 3 / 3 | 1 / 1 | P1-05 Tokocrypto USDT/IDR vs BI |
-| **COP** | 569 | 1 / 0 | 2 / 2 | 1 / 1 | P1-05 Bitso USDT/COP vs BanRep |
+| **TRY** | 1,749 | 16 / 15 | 11 / 10 | 12 / 12 | P1-05 Binance USDT/TRY vs ECB cross-rate |
+| **ZAR** | 1,115 | 8 / 8 | 2 / 2 | 0 / 0 | P1-05 Binance USDT/ZAR vs ECB cross-rate |
+| **MXN** | 655 | 4 / 4 | 3 / 3 | 2 / 2 | P1-05 Binance USDT/MXN vs ECB cross-rate |
+| **PLN** | 819 | 14 / 13 | 8 / 8 | 4 / 4 | P1-05 Binance USDT/PLN vs ECB cross-rate |
+| **IDR** | 234 | 4 / 4 | 3 / 3 | 1 / 1 | P1-05 Binance USDT/IDR vs ECB cross-rate |
+| **COP** | 569 | 1 / 0 | 2 / 2 | 1 / 1 | P1-05 Binance USDT/COP vs TRM |
 | **UAH** | 1,615 | 8 / 7 | 5 / 4 | 4 / 3 | P1-05 Binance USDT/UAH vs NBU |
 | **ARS** | 851 | 1 / 0 | 1 / 0 | 1 / 0 | P1-05 Binance USDT/ARS vs BCRA |
 | **Total Pool** | **10,875** | **93 / 87** | **61 / 56** | **42 / 39** | **Native calendars (zero holiday censoring)** |
@@ -354,7 +354,7 @@ Total extracted episodes and confirmed recoveries across 10,875 native trading d
 
 A penalized discrete-time logistic hazard model was fitted using features $[1.0, \log(1+\text{age}), \log(1+\text{init\_ex}), \text{sign}(\text{cur\_ex})\log(1+|\text{cur\_ex}|), \text{clip}(\text{cur\_z}, -5, 20)]$. The $L_2$ penalty $\lambda = 10.0$ was selected on the 2025 validation set at $h = 10$ business days.
 
-Brier score measures mean squared probability error (lower is better). In accordance with survival analysis standards, episodes censored before horizon $h$ are excluded from scoring. The table reports the primary comparison alongside paired bootstrap 95% confidence intervals (10,000 draws, seed 0):
+Brier score measures mean squared probability error (lower is better). This implementation uses complete-case scoring: episodes censored before horizon $h$ are excluded. This is not an IPCW censoring-adjusted Brier score; informative censoring can bias the comparison. The table reports the primary comparison alongside paired bootstrap 95% confidence intervals (10,000 draws, seed 0):
 
 ### Table 5.3: Model Evaluation and Paired Bootstrap Results (`P3-30_model_eval.csv`, `P3-30_brier_bootstrap.csv`)
 
@@ -456,7 +456,7 @@ To support finalizing Slide 10, three Portuguese conclusion options are presente
 
 **Três Lições**
 1. **Fechar uma porta de uma vez custa caro e rápido:** O ofício de 23/jun gerou sobrecusto de ~0,94% por um mês (R$ 4.842 por US$ 100 mil; R$ 106 mi transferidos na Binance). Regras publicadas com aviso prévio ficaram na faixa das datas comuns (ressalva: Res. 574, publicada na véspera).
-2. **O hedge cambial reduz a exposição ao USD/BRL:** Para quem precisa de USDT e tem acesso à B3, o hedge (termo a paridade coberta) zera o carrego diário: os juros em reais pagam os pontos do termo. A decisão de esperar vira uma aposta pura no prêmio (em retrospecto, esperar economizou R$ 4,7 mil a R$ 8,7 mil em 5 a 20 dias; mas em 6 dias o ganho foi de apenas R$ 335). Neste episódio e sob as taxas e custos assumidos, o vendedor que adiou a conversão perdeu R$ 4,7 mil a R$ 21,7 mil, sobretudo pela queda do prêmio e pela valorização do real.
+2. **O hedge cambial reduz a exposição ao USD/BRL:** Para quem precisa de USDT e tem acesso à B3, o hedge (termo a paridade coberta) usa compensação idealizada dos pontos a termo; o retorno efetivo e os custos precisam ser verificados. A decisão depende de financiamento, USDT/USD, custos e residual do hedge (em retrospecto, esperar economizou R$ 4,7 mil a R$ 8,7 mil em 5 a 20 dias; mas em 6 dias o ganho foi de apenas R$ 335). Neste episódio e sob as taxas e custos assumidos, o vendedor que adiou a conversão perdeu R$ 4,7 mil a R$ 21,7 mil, sobretudo pela queda do prêmio e pela valorização do real.
 3. **Preço normal não é mercado normal:** O prêmio cedeu em um mês, mas as importações caíram a um terço e a Foxbit passou de 7% para 35% do volume (exploratório). Na duração, modelos estatísticos não batem a taxa histórica: em 10 moedas, metade dos choques volta em ~20 dias úteis, mas o choque brasileiro de 2026 (iniciado em 25/mai) não havia voltado à faixa anterior após 111 dias úteis.
 
 **A Solução: Uma Régua Pública de Custo Regulatório**
@@ -542,7 +542,7 @@ flowchart TD
 - **Slide 10 — O que aprendemos com a solução e por que importa**  
   *Synthesis of Lessons and Public Gauge:*
   1. *Lesson 1:* Unannounced closures create immediate, costly price distortions (+94 bps, R\$ 106M transfer).
-  2. *Lesson 2:* Access rules set the price. Hedging official dollar risk on B3 under Covered Interest Parity (CIP) carries zero daily cost, making waiting a pure bet on the crypto-dollar premium (retrospectively saving R\$ 4.7k–8.7k in June 2026, but only R\$ 335 at 6 days) ([`F-039`](../findings/F-039-holder-decisions.md)).
+  2. *Lesson 2:* An ideal forward reduces official-dollar exposure, while funding, USDT/USD and residual exposure still affect the comparison (retrospectively saving R\$ 4.7k–8.7k in June 2026, but only R\$ 335 at 6 days) ([`F-039`](../findings/F-039-holder-decisions.md)).
   3. *Lesson 3:* Volume and microstructure remain altered after prices recede. Duration models do not beat the historical base rate (half resolve in 20 days; Brazil 2026 shock open >110 days) ([`F-038`](../findings/F-038-shock-duration-feasibility.md)).
   4. *The Solution:* A public, open-source daily regulatory cost gauge with pre-registered predictions (Res. 574: preliminary readout within the prediction, teammate re-run and P3-26 audit pending; Res. 589; Res. 584 committed in commit `393a14a`; [`F-027`](../findings/F-027-prediction-res584.md)).
 

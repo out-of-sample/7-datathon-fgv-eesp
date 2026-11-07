@@ -109,8 +109,7 @@ re-run only in full (all methods for those cases).
   each, no errors or timeouts. Hashes: `results/tables/P3-28_heldout_run_hashes.csv`, committed before any reference
   label exists (the coders have not started). The implementer checked run health only (counts, turns, errors), not
   the answers. A used 28–58 turns as reported by the CLI's `num_turns`, above the `--max-turns 40` ceiling with no run
-  stopped by it. The CLI's `num_turns` therefore counts more than the turns the ceiling limits (for example tool
-  results). Reported as is; the ceiling setting is unchanged.
+  stopped by it. The relationship between CLI `num_turns` and the enforced ceiling is unverified. Counts alone do not establish compliance or explain which events the cap counts. Until checked against execution logs, do not claim an equivalent enforced turn budget. Report the original setting and observed counts separately; no run is discarded or reclassified here.
 - **Binance and Mercado Bitcoin (H-05–H-12):** pending Renzo's manual saves, then corpus v2 (`corpus`), then the same
   commands; hashes appended to the same file before the reference hash.
 

@@ -284,7 +284,7 @@ A tabela `results/tables/P3-34_cost_stack.csv` e a figura `results/figures/P3-34
 
 - **Transmissão para DeFi:** Na rota on-chain na Polygon (`F-037`), o prêmio sobre a PTAX saltou de 34,9 bps para 145,9 bps (**+111,0 bps**), superando em **22,2×** a taxa de 5,0 bps (0,05%) do pool Uniswap v3 (`0x0e77...c956`). Observamos o encarecimento também nesta rota on-chain; isso é compatível com fricções de conversão, sem identificar isoladamente sua causa.
 
-- **Preço Normal Não É Mercado Normal:** O gráfico em três painéis alinhados (`results/figures/P3-34_price_vs_market_recovery.png`, jan–out/2026) evidencia que, embora o prêmio tenha recuado para 26,8 bps após 22/jul ($p = 0,24$), as aquisições de stablecoins no exterior registradas no BCB (`SGS 29644`) despencaram **−78% em julho** (de US$ 2,54 bi para US$ 0,57 bi) e permaneceram em um terço da média anterior (US$ 0,77 bi/mês em ago–set), enquanto a fatia de volume da Foxbit migrou estruturalmente de 6,8% para 28,0% (pico) e 34,7% (pós-pico, `F-036`), com fluxo vendedor agressivo de +361,9 mi USDT em horário bancário comercial (`F-031`).
+- **Preço Normal Não É Mercado Normal:** O gráfico em três painéis alinhados (`results/figures/P3-34_price_vs_market_recovery.png`, jan–out/2026) evidencia que, embora o prêmio tenha recuado para 26,8 bps após 22/jul ($p = 0,24$), as aquisições de stablecoins no exterior registradas no BCB (`SGS 29644`) despencaram **−78% em julho** (de US$ 2,54 bi para US$ 0,57 bi) e permaneceram em um terço da média anterior (US$ 0,77 bi/mês em ago–set), enquanto a fatia de volume da Foxbit mudou no período observado de 6,8% para 28,0% (pico) e 34,7% (pós-pico, `F-036`), com fluxo vendedor agressivo de +361,9 mi USDT em horário bancário comercial (`F-031`).
 
 
 
@@ -396,13 +396,13 @@ A tabela `results/tables/P3-34_cost_stack.csv` e a figura `results/figures/P3-34
 
 
 
-**Identidade de Carrego Diário Nulo por Paridade Coberta de Juros (CIP):**  
+**Comparação condicional com termo ideal por paridade coberta de juros (CIP):**  
 
-Sob a Paridade Coberta de Juros (*Covered Interest Parity* — CIP), o preço a termo $F_{t,h}$ do dólar oficial na B3 para liquidação no horizonte de $h$ dias úteis satisfaz rigorosamente $F_{t,h} = S_t \times (1 + i_{\text{BRL},h}) / (1 + i_{\text{USD},h})$, onde $S_t$ é a taxa de câmbio à vista PTAX, $i_{\text{BRL},h}$ é a taxa CDI/Selic e $i_{\text{USD},h}$ é a taxa de cupom cambial. Para uma tesouraria institucional com passivo ou necessidade de caixa em USDT no horizonte $h$, manter os reais aplicados em CDI/Selic e comprar um contrato a termo ou futuro de dólar trava o câmbio oficial com custo líquido de carrego diário estritamente nulo:
+Sob a Paridade Coberta de Juros (*Covered Interest Parity* — CIP), o preço a termo $F_{t,h}$ do dólar oficial na B3 para liquidação no horizonte de $h$ dias úteis é modelado pela hipótese ideal $F_{t,h} = S_t \times (1 + i_{\text{BRL},h}) / (1 + i_{\text{USD},h})$, onde $S_t$ é a taxa de câmbio à vista PTAX, $i_{\text{BRL},h}$ é a taxa CDI/Selic e $i_{\text{USD},h}$ é a taxa de cupom cambial. Para uma tesouraria institucional com passivo ou necessidade de caixa em USDT no horizonte $h$, manter os reais aplicados em CDI/Selic e comprar um contrato a termo ou futuro de dólar trava o câmbio oficial com compensação idealizada dos pontos a termo pelos juros; custos, rendimento USD e residual do hedge permanecem:
 
 $$\text{Custo Líquido de Carrego Cambial} = S_t \times (1 + i_{\text{BRL},h}) - F_{t,h} \times (1 + i_{\text{USD},h}) = 0$$
 
-Os juros auferidos no depósito em reais financiam com exatidão matemática os pontos a termo cambiais exigidos na B3. Consequentemente, adiar a aquisição de USDT com proteção cambial isola o risco cambial oficial ($S$) e transforma a decisão de espera em uma **aposta pura e exclusiva na dinâmica do prêmio local** do dólar digital ($\pi_t \to \pi_{t+h}$).
+A comparação usa um termo ideal com vencimento casado, não uma réplica WDO. O resultado depende do rendimento efetivo do depósito, da cotação do termo, do USDT/USD e do residual do hedge. P3-39/F-048 varia separadamente os juros do depósito e os parâmetros do termo; a vantagem muda de sinal no conjunto de cenários.
 
 
 
@@ -476,7 +476,7 @@ No conjunto de treino global (43 episódios a $3\sigma$), a probabilidade acumul
 
 **Avaliação Fora da Amostra (Brier Score) e Bootstrap Pareado (`results/tables/P3-30_brier_bootstrap.csv`):**  
 
-Na partição de teste de 2026 (horizonte de 10 dias úteis, $N = 8$ episódios avaliados no início do choque), o modelo discreto de sobrevivência com penalização Ridge ($L_2 = 10,0$) obteve Brier score de **0,175** contra **0,188** do estimador ingênuo de Kaplan-Meier. O intervalo de confiança de 95% por bootstrap pareado com 10.000 replicações para a diferença de pontuação ($\text{Brier}_{\text{Modelo}} - \text{Brier}_{\text{KM}} = -0,013$) resultou em **$[−0,112; +0,073]$**. Como o intervalo inclui o zero (e o modelo perde na partição de validação: Brier $0,346$ vs $0,330$), conclui-se formalmente que **o modelo de sobrevivência não bate a taxa base histórica fora da amostra**.
+Na partição de teste de 2026 (horizonte de 10 dias úteis, $N = 8$ episódios avaliados no início do choque), o modelo discreto de sobrevivência com penalização Ridge ($L_2 = 10,0$) obteve Brier score de **0,175** contra **0,188** do estimador ingênuo de Kaplan-Meier. O intervalo de confiança de 95% por bootstrap pareado com 10.000 replicações para a diferença de pontuação ($\text{Brier}_{\text{Modelo}} - \text{Brier}_{\text{KM}} = -0,013$) resultou em **$[−0,112; +0,073]$**. Como o intervalo inclui o zero (e o modelo perde na partição de validação: Brier $0,346$ vs $0,330$), não se estabelece ganho preditivo robusto do modelo nesta amostra pequena; isso não demonstra imprevisibilidade geral.
 
 
 
@@ -788,7 +788,7 @@ Todos os códigos foram desenvolvidos em Python 3 linear e estruturados para exp
 
 | **9 Quanto custou e para quem** | R$ 106,1 mi (Binance) / R$ 145,3 mi (3 corretoras); por que +94 e não +350 bps | `F-015`, `F-025`, `F-026`, `F-028` | `scripts/p3_11_money.py` | `P3-11_transfer.csv`, `P3-11_placebo.csv`, `P3-15_routes.md` |
 
-| **10 O que aprendemos e a régua pública** | Três lições (ofício +94 bps / R$ 106 mi; hedge CIP zera carrego e isola prêmio; mercado alterado e censo de duração em 10 moedas com mediana 20d); monitor PTAX; previsões Git Res. 574, 589 e 584 | `F-014`, `F-015`, `F-022`, `F-024`, `F-025`, `F-026`, `F-027`, `F-028`, `F-029`, `F-035`, `F-036`, `F-038`, `F-039`, `F-045` | `scripts/p3_03_monitor.py`, `p3_13_prediction.py`, `p3_20_live.py`, `p3_30_duration.py`, `p3_31_holder.py` | `P3-03_backtest.csv`, `P3-13_prediction.md`, `P3-30_brier_bootstrap.csv`, `P3-31_buyer_hedged_comparison.csv` |
+| **10 O que aprendemos e a régua pública** | Três lições (ofício +94 bps / R$ 106 mi; termo ideal reduz exposição cambial, com hipóteses de juros e custos; mercado alterado e censo de duração em 10 moedas com mediana 20d); monitor PTAX; previsões Git Res. 574, 589 e 584 | `F-014`, `F-015`, `F-022`, `F-024`, `F-025`, `F-026`, `F-027`, `F-028`, `F-029`, `F-035`, `F-036`, `F-038`, `F-039`, `F-045` | `scripts/p3_03_monitor.py`, `p3_13_prediction.py`, `p3_20_live.py`, `p3_30_duration.py`, `p3_31_holder.py` | `P3-03_backtest.csv`, `P3-13_prediction.md`, `P3-30_brier_bootstrap.csv`, `P3-31_buyer_hedged_comparison.csv` |
 
 
 

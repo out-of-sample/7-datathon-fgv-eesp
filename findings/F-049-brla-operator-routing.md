@@ -1,5 +1,5 @@
 ---
-id: F-047
+id: F-049
 title: BRLA's large June burns use an authorized transfer-and-burn routine also seen before the notice; their fiat purpose remains unidentified
 status: exploratory
 task: P3-37
@@ -83,5 +83,6 @@ For each large burn, obtain a voluntarily supplied, redacted issuer/authorized a
 Not used. Candidate interpretation note for the existing BRLA annex after independent reproduction and Felipe's review. No main-deck or causal claim is proposed.
 
 ## History
+- 2026-11-07 — Codex for Felipe (P3-40): renamed BRLA finding F-047 to F-049 to resolve a concurrent collision with the access development pilot. Content and original evidence unchanged; historical artifact prefixes retained.
 - 2026-11-07 — Codex for Renzo: registered protocol, decoded the fixed sample, checked historical permissions and bytecode, froze issuer documentation and recorded this exploratory follow-up in English. Task renamed P3-35 → P3-36 solely to avoid a concurrent identifier collision.
 - 2026-11-07 — Assigned F-047 before publication because a concurrent access-method review reserved F-046. No analysis changed.

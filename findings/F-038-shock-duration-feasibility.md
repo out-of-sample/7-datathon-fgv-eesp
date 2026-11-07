@@ -42,7 +42,7 @@ Strict chronological cutoff re-extraction prevents post-cutoff recoveries from l
 | **BRL_only** | 4 $\sigma$ (sensitivity) | 6 / 5 (Fail: $6 < 10$) | 2 / 2 (Fail: $2 < 5$) | 1 / 0 (Fail: $1 < 5$) | Failed (Single-Country) |
 | **Global 10 Currencies** | 3 $\sigma$ (primary) | **43 / 38** (Pass) | **10 / 8** (Pass) | **8 / 6** (Pass) | **PASSED (Global Pool)** |
 | **Global 10 Currencies** | 2 $\sigma$ (sensitivity) | **62 / 55** (Pass) | **17 / 13** (Pass) | **14 / 11** (Pass) | **PASSED (Global Pool)** |
-| **Global 10 Currencies** | 4 $\sigma$ (sensitivity) | 33 / 28 (Pass) | 5 / 5 (Pass) | 4 / 3 (Fail: $4 < 5$) | Borderline ($4 < 5$ test) |
+| **Global 10 Currencies** | 4 $\sigma$ (sensitivity) | 33 / 28 (Pass) | 5 / 5 (Pass) | 4 / 3 (Fail: $4 < 5$) | Fails declared floor ($4 < 5$ test); descriptive only |
 
 *Full sample counts without administrative cutoff censoring at $k=2$ are 62/59 train, 17/17 val, 14/11 test.*
 
@@ -53,16 +53,18 @@ Total extracted episodes and confirmed recoveries across native trading calendar
 |---|:---:|:---:|:---:|:---:|---|
 | **BRL** | 1,520 | 16 / 16 | 15 / 14 | 9 / 8 | P1-02 USDT/BRL adjusted premium (PTAX) |
 | **EUR** | 1,748 | 21 / 20 | 11 / 10 | 8 / 8 | P1-05 Binance USDT/EUR vs ECB |
-| **TRY** | 1,749 | 16 / 15 | 11 / 10 | 12 / 12 | P1-05 Binance USDT/TRY vs CBRT |
-| **ZAR** | 1,115 | 8 / 8 | 2 / 2 | 0 / 0 | P1-05 Binance USDT/ZAR vs SARB |
-| **MXN** | 655 | 4 / 4 | 3 / 3 | 2 / 2 | P1-05 Bitso USDT/MXN vs Banxico |
-| **PLN** | 819 | 14 / 13 | 8 / 8 | 4 / 4 | P1-05 Binance USDT/PLN vs NBP |
-| **IDR** | 234 | 4 / 4 | 3 / 3 | 1 / 1 | P1-05 Tokocrypto USDT/IDR vs BI |
-| **COP** | 569 | 1 / 0 | 2 / 2 | 1 / 1 | P1-05 Bitso USDT/COP vs BanRep |
+| **TRY** | 1,749 | 16 / 15 | 11 / 10 | 12 / 12 | P1-05 Binance USDT/TRY vs ECB cross-rate |
+| **ZAR** | 1,115 | 8 / 8 | 2 / 2 | 0 / 0 | P1-05 Binance USDT/ZAR vs ECB cross-rate |
+| **MXN** | 655 | 4 / 4 | 3 / 3 | 2 / 2 | P1-05 Binance USDT/MXN vs ECB cross-rate |
+| **PLN** | 819 | 14 / 13 | 8 / 8 | 4 / 4 | P1-05 Binance USDT/PLN vs ECB cross-rate |
+| **IDR** | 234 | 4 / 4 | 3 / 3 | 1 / 1 | P1-05 Binance USDT/IDR vs ECB cross-rate |
+| **COP** | 569 | 1 / 0 | 2 / 2 | 1 / 1 | P1-05 Binance USDT/COP vs TRM |
 | **UAH** | 1,615 | 8 / 7 | 5 / 4 | 4 / 3 | P1-05 Binance USDT/UAH vs NBU |
 | **ARS** | 851 | 1 / 0 | 1 / 0 | 1 / 0 | P1-05 Binance USDT/ARS vs BCRA |
 | **Total Pool** | **10,875** | **93 / 87** | **61 / 56** | **42 / 39** | **Native calendars (zero holiday censoring)** |
 
+
+Scoring note (P3-40): episodes censored before the horizon are omitted. This is complete-case scoring, not an IPCW censoring-adjusted Brier score; informative censoring can bias it. Bootstrap resampling does not cluster shared global shocks.
 
 ### 3. Primary comparison and robustness (`P3-30_model_eval.csv`, `P3-30_brier_bootstrap.csv`)
 Brier score = mean squared error of the predicted recovery probability (lower is better). KM = Kaplan-Meier
@@ -117,6 +119,7 @@ Not on a slide. If used, one Annex line in pt-BR: "Com 10 moedas, metade dos cho
 faixa anterior em até 20 dias úteis; o tamanho do choque não previu a duração melhor que essa taxa histórica."
 
 ## History
+- 2026-11-07 — Codex for Felipe (P3-40): corrected venue/reference-rate provenance labels to match P1-05; clarified complete-case scoring and k=4 feasibility-floor failure. Estimates unchanged.
 - 2026-11-06: Initial single-country BRL feasibility audit; 8 tests pass; feasibility gate failed for BRL alone.
 - 2026-11-06: Upgraded to Global 10-Currency Pool on native trading calendars; 10 tests pass; feasibility gate passes at $k=3$ (43/38 train, 10/8 val, 8/6 test); penalized discrete-time logistic hazard model fitted and evaluated against KM baseline; generated `P3-30_model_eval.csv`, `P3-30_global_survival.png`, and updated F-038.
 - 2026-11-06 — Felipe: fixes accepted; assessment rewritten to match; status stays exploratory pending teammate re-run.
