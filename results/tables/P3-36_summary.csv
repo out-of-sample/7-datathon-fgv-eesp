@@ -1,0 +1,5 @@
+group,transactions,verified_mechanism,economic_purpose_supported,selected_burns_brla,selected_mints_brla
+all,32,32,0,344255674.345132,219450.64
+large_burn,8,8,0,335396065.575129,0
+control_burn,12,12,0,8859608.770003,0
+control_mint,12,12,0,0,219450.64

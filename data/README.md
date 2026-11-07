@@ -87,3 +87,16 @@ grep flash-mentor-leads data/raw/SHA256SUMS | sha256sum -c --quiet && echo OK
 New downloads for P3-24 go to new files under `data/raw/` (a script that re-downloads them is better than snapshots),
 with checksums appended to `data/raw/SHA256SUMS`. Derived tables go to `data/processed/P3-24_*.csv`.
 
+
+## P3-36 BRLA economic-function follow-up
+
+New immutable responses: `data/raw/p3_36/` (273 JSON files; 1,891,863 bytes), with public historical Celo transaction/receipt/state calls, verified MiniVM source and five current Avenia documentation snapshots. `failed/` files preserve rejected probe requests; no private API or issuer outreach was used. The initial task number was P3-35; the published protocol renamed it P3-36.
+
+To replay the exact snapshots, obtain the ignored `p3_29/` and `p3_36/` folders from Renzo's workspace. Verify their hashes against `data/raw/SHA256SUMS`; P3-36's manifests list every analysis input separately. Rebuild the input ledger with `P3_29_OFFLINE=1 python3 scripts/p3_29_reconcile.py ledger`, then run:
+
+```bash
+python3 scripts/p3_36_brla_operations.py --offline
+python3 scripts/p3_36_brla_operations.py --documents --offline
+```
+
+Without `--offline`, missing public records/pages are downloaded; existing responses are never refreshed. Documentation can change, so a fresh download is not guaranteed to reproduce the frozen November text. The ledger's SHA-256 is recorded in `results/tables/P3-36_provenance.csv`. Both offline commands passed, and a second replay produced byte-identical tables; all manifest hashes were checked. F-047 remains subject to independent review.

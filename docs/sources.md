@@ -284,3 +284,16 @@ Opened on 7 Nov 2026 by the agent for Renzo through read-only JSON-RPC; answers 
 | A-23 | Avenia platform terms (same document as R-11/T-06): https://app.avenia.io/Avenia-TC.pdf | "TERMS AND CONDITIONS OF USE OF THE AVENIA PLATFORM". Held-out; the first 400 characters were seen in a text-extraction check. Opened 7 Nov 2026 (agent for Renzo, script) |
 | A-24 | Circle Docs, USDC contract addresses: https://developers.circle.com/stablecoins/usdc-contract-addresses | "Ethereum 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48". Shared issuer context for USDC cases. Opened 7 Nov 2026 (agent for Renzo, script) |
 | A-25–A-41 | Binance (A-25–A-33) and Mercado Bitcoin (A-34–A-41) pages listed in `results/tables/P3-28_sources.csv` | **Not opened by an agent**: both sites refuse scripts; a headless browser to get past that was not used (not permitted). To be saved by Renzo in his own browser; this row will then carry one quoted line per page and "saved by Renzo" |
+
+### P3-36 — BRLA operation mechanism and possible economic purposes (7 Nov 2026)
+
+Opened 7 Nov 2026 by Codex for Renzo. Contract response and all five documentation pages are frozen in `data/raw/p3_36/`; exact URLs, request bodies, retrieval timestamps and SHA-256 hashes are in `results/tables/P3-36_provenance.csv` and `P3-36_documents.csv`. Documentation describes current functionality, not the purpose or settlement of the selected June transactions. This investigation read the pages independently of P3-28's held-out evaluation.
+
+| ID | Opened primary source | Short quotation and relevance / limit |
+|---|---|---|
+| T-23 | Celo Blockscout verified MiniVM implementation: https://celo.blockscout.com/api/v2/smart-contracts/0x37f794f3f586a76a643be0be0d107d6b671afa78 | `function execute(bytes calldata commands, bytes[] calldata inputs) public onlyRole(OPERATOR_ROLE)`. Commands and role restriction; deployed bytecode matches historical state. No independent compilation or legal attribution. |
+| T-24 | Avenia, asynchronous reports: https://integration-guide.avenia.io/docs/Avenia-Account-Management/asyncReports/ | "[DEBIT] Process ticket input: Burn BRLA for ticket payment"; "End-of-day settlement mints/burns." Distinct documented reasons for burning; actual account reports require authentication. |
+| T-25 | Avenia, quote and ticket FAQ: https://integration-guide.avenia.io/docs/FAQ/faqQuoteAndTicket/ | "For a BRL PIX payout, PAID means the PIX was confirmed as settled at the beneficiary's institution". Ticket status is evidence distinct from burning; no selected ticket was obtained. |
+| T-26 | Avenia, fees, balances and reconciliation: https://integration-guide.avenia.io/docs/Concepts/feesAndBalances/ | "Your Avenia balance is held in tokens". Reconciliation examples expose ticket IDs and PIX end-to-end IDs; examples are not June records. |
+| T-27 | Avenia, available combinations: https://integration-guide.avenia.io/docs/Operations/combinations/ | "Moves tokens between your main account and its sub-accounts". Internal and external operation types exist; no address attribution follows. |
+| T-28 | Avenia, PIX2STABLE and STABLE2PIX: https://integration-guide.avenia.io/docs/Usecases/pix2Stable&stable2pix/ | "Withdrawing funds from a subaccount". Example ticket schema includes `blockchainSenderInfo.txHash`; suggests a possible join key, not an observed match. |

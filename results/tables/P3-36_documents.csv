@@ -1,0 +1,6 @@
+name,url,retrieved_utc,path,sha256
+fees-and-balances,https://integration-guide.avenia.io/docs/Concepts/feesAndBalances/,2026-11-07T05:58:31.598250+00:00,data/raw/p3_36/documents/fees-and-balances.json,5c81cb834338e5a414b9c92b5592802c028d7a92b245f3aa54e57527344b34db
+quote-ticket-faq,https://integration-guide.avenia.io/docs/FAQ/faqQuoteAndTicket/,2026-11-07T05:58:32.548878+00:00,data/raw/p3_36/documents/quote-ticket-faq.json,b95444b5428ce9a691f2e64dc98c78729d07444513a1ab49428d90e002ec0ed5
+async-reports,https://integration-guide.avenia.io/docs/Avenia-Account-Management/asyncReports/,2026-11-07T05:58:33.701387+00:00,data/raw/p3_36/documents/async-reports.json,3fc172af494005f6612535838a833aa3bfbd45299983df8ff7e7a2862b64e276
+combinations,https://integration-guide.avenia.io/docs/Operations/combinations/,2026-11-07T05:58:35.359338+00:00,data/raw/p3_36/documents/combinations.json,68cfebebcaf363221127874a51da115a8a8ca4215d7704277bf25f762d6c014e
+pix-stable-usecase,https://integration-guide.avenia.io/docs/Usecases/pix2Stable&stable2pix/,2026-11-07T06:01:32.202508+00:00,data/raw/p3_36/documents/pix-stable-usecase.json,af50ad7183a19b984270f0fc2516260d85be3b35a4a96cf3af4af6c298074adc

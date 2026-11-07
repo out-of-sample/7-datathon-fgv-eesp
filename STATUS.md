@@ -85,6 +85,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 ## Next actions
 
+- BRLA economic-function follow-up: independently replay the 32 cases and review F-047 before annex use; economic purpose remains unidentified.
+
 
 
 **Shock-duration & holder-decisions pivot (Felipe, 6–7 Nov):** [P3-30 — shock duration](tasks/P3-30-shock-duration.md), [P3-31 — holder decisions](tasks/P3-31-holder-decisions.md), [P3-32 — independent review](tasks/P3-32-holder-duration-review.md), and [P3-33 — pivot assessment](tasks/P3-33-pivot-assessment.md) are in `review` (`F-038`, `F-039` exploratory; full assessment in [`docs/shock-duration-and-holder-decisions-assessment.md`](docs/shock-duration-and-holder-decisions-assessment.md) and review in [`docs/shock-duration-holder-review.md`](docs/shock-duration-holder-review.md)). **Peer-review fixes accepted by Felipe (7 Nov):** `docs/shock-duration-and-holder-decisions-assessment.md` has been completely rewritten to match the corrected `F-038` (10-currency pool passes 43/10/8, 20-day training-pool KM median, hazard model does not beat base rate out of sample) and `F-039` (exact CIP B3 hedge has zero daily carry cost; retrospective hedged buyer +89.7/+92.3/+164.0 bps at 5/10/20 days, +6 bps on 3 Jul), with all three Slide 10 options updated and aligned with `docs/proposal-2026-11-05-lessons-and-solution.md`. Next: Nattan or Jonathan re-runs both scripts to move `P3-30`/`P3-31` to `done`.
@@ -290,8 +292,8 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P3-31](tasks/P3-31-holder-decisions.md) | Two-Sided Institutional Treasury Decision Framework (BRL -> USDT Buyer & USDT -> BRL Seller) | 👀 review | Economist | - | 4/4 | 4/4 | 2026-11-08 | P1-02, P3-03 |
 | [P3-32](tasks/P3-32-holder-duration-review.md) | Independent review of holder decisions and shock duration | 👀 review | Economist | - | 4/4 | 3/3 | 2026-11-08 | P3-30, P3-31 |
 | [P3-33](tasks/P3-33-pivot-assessment.md) | Synthesize shock-duration and holder-decision pivot | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-08 | P3-30, P3-31, P3-32 |
-| [P3-35](tasks/P3-35-brla-economic-function.md) | Investigate the economic function of BRLA mint and burn operations | 🔄 doing | CS 1 | Renzo (Codex agent) | 0/4 | 0/5 | 2026-11-07 | P3-29 |
-| [P3-36](tasks/P3-36-post-extension-audit.md) | Audit extension claims and final project synthesis | 👀 review | Economist | - | 3/3 | 2/2 | 2026-11-07 | P3-20, P3-26, P3-28, P3-29, P3-30, P3-31, P3-34 |
+| [P3-36](tasks/P3-36-brla-economic-function.md) | Investigate the economic function of BRLA mint and burn operations | 👀 review | CS 1 | - | 4/4 | 4/5 | 2026-11-07 | P3-29 |
+| [P3-36](tasks/P3-36-post-extension-audit.md) | Audit extension claims and final project synthesis | 👀 review | Economist | - | 4/4 | 2/2 | 2026-11-07 | P3-20, P3-26, P3-28, P3-29, P3-30, P3-31, P3-34 |
 
 **P4 — Robustness and freeze** (3/4 closed)
 
@@ -365,11 +367,14 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [F-043](findings/F-043-access-card-feasibility.md) | Feasibility - Foxbit's documents let a script build a dated, checked access card for a Brazilian company buying USDT (7 Nov 2026); on it the end-to-end route is not established, because no source says whether banks may still serve an exchange that has only applied for authorisation under Res. BCB 589 | 🔍 exploratory | P3-28 | Felipe |
 | [F-044](findings/F-044-brla-method-beyond-june.md) | Outside June the same procedure works unchanged - 12 frozen BRLA cases on Celo close to the base unit and DefiLlama matches on-chain supply on all 24 of their labels; on Polygon, Gnosis and Moonbeam a registered prediction of DefiLlama's daily read held (32 matches, 0 misses, 6 of them informative) | 🔍 exploratory | P3-29 | - |
 | [F-045](findings/F-045-november-binance-incident-audit.md) | Audit of Binance 29–30 Oct 2026 security incident confirms E1 S2 directly excludes the 30 Oct observation; E2 pre-mean shift is minor (~2.3 bps); CUSUM monitor silence during 3–16 Nov is a mechanical quiet pause | 🔍 exploratory | P3-26 | - |
+| [F-047](findings/F-047-brla-operator-routing.md) | BRLA's large June burns use an authorized transfer-and-burn routine also seen before the notice; their fiat purpose remains unidentified | 🔍 exploratory | P3-36 | - |
 <!-- BOARD:END -->
 
 
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-07 — Renzo’s agent: BRLA economic-function follow-up S1–S4 → review (F-047). Eight large burns use an authorized transfer-and-burn routine also seen in controls; 32/32 mechanisms verified, economic purpose unidentified.
 
 - 2026-11-07 — Codex for Felipe: P3-36 audit corrections applied to deck, findings and generated incident report; committed conflict markers reconciled, both activity histories retained; E2 remains an early reading, P3-29 S7 reproduction pending.
 
