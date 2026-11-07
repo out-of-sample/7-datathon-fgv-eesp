@@ -9,9 +9,9 @@ checked_by: -
 
 ## Claim
 A vantagem de custo das redes de stablecoins (medida em frações de ponto-base) não contorna o custo regulatório de acesso ao dólar.
-Na rota de USDT centralizada, a taxa de transferência on-chain é de apenas 0,1 a 0,2 bps (1 a 2 USDT em US$ 100 mil, A-02/R-05), enquanto o choque agudo do ofício de 23/jun/2026 somou +93,9 bps (R$ 4.842 por US$ 100 mil a PTAX, F-015/F-016): o choque regulatório é cerca de **470× a 939× maior** que a taxa de rede da blockchain. Na rota 100% on-chain Polygon (`Pix → BRLA → USDC` via Uniswap v3, F-037), o prêmio sobre a PTAX saltou idênticos **+111,0 bps** (de 34,9 para 145,9 bps), superando em **22,2× a taxa de 5 bps do pool**, provando que a infraestrutura descentralizada herdou o mesmo choque de fechamento de canal cambial.
+Na rota de USDT centralizada, a taxa de transferência on-chain é de apenas 0,1 a 0,2 bps (1 a 2 USDT em US$ 100 mil, A-02/R-05), enquanto o choque agudo do ofício de 23/jun/2026 somou +93,9 bps (R$ 4.842 por US$ 100 mil a PTAX, F-015/F-016): o choque regulatório é cerca de **470× a 939× maior** que a taxa de rede da blockchain. Na rota 100% on-chain Polygon (`Pix → BRLA → USDC` via Uniswap v3, F-037), o prêmio sobre a PTAX aumentou **+111,0 bps** (de 34,9 para 145,9 bps), superando em **22,2× a taxa de 5 bps do pool**, observação compatível com fricções de conversão compartilhadas; a causa não é isoladamente identificada.
 
-Além disso, a recuperação do prêmio para 26,8 bps após 22/jul (p = 0,24, indistinguível de ruído) **não significou a volta da normalidade de mercado**: enquanto o preço cedeu, as aquisições líquidas de stablecoins no exterior (BCB SGS 29644) desabaram **−78% em julho** (de US$ 2,54 bi para US$ 0,57 bi) e permaneceram comprimidas em **um terço (~32%)** em agosto–setembro (US$ 0,70 bi e 0,84 bi), enquanto a fatia de volume da Foxbit saltou permanentemente de 6,8% para 28,0% (onda) e 34,7% (pós-pico, F-036), acompanhada por +361,9 mn USDT de vendas agressivas em horário comercial (96,5% entre 9h e 18h, F-031).
+Além disso, a recuperação do prêmio para 26,8 bps após 22/jul (p = 0,24, indistinguível de ruído) **não significou a volta da normalidade de mercado**: enquanto o preço cedeu, as aquisições líquidas de stablecoins no exterior (BCB SGS 29644) desabaram **−78% em julho** (de US$ 2,54 bi para US$ 0,57 bi) e permaneceram comprimidas em **um terço (~32%)** em agosto–setembro (US$ 0,70 bi e 0,84 bi), enquanto a fatia de volume da Foxbit permaneceu elevada até o fim da amostra, passando de 6,8% para 28,0% (onda) e 34,7% (pós-pico, F-036), acompanhada por +361,9 mn USDT de vendas agressivas em horário comercial (96,5% entre 9h e 18h, F-031).
 
 ## Evidence
 Reprodução completa:
@@ -41,6 +41,8 @@ O gráfico `P3-34_price_vs_market_recovery.png` alinha três dimensões temporai
 - **Painel C (Diário e Regimes):** Participação da Foxbit no volume das três corretoras saltou de 6,8% (pré) para 28,0% (pico) e 34,7% (pós-pico), acompanhado por vendas líquidas agressivas de +361,9 mn USDT entre 30/jun e 21/jul em horário comercial bancário (96,5% entre 9h e 18h).
 
 ## Caveats
+0. **Denominadores:** 470–939× compara o choque incremental de prêmio com uma taxa listada de saque; 22,2× compara o choque da rota com a taxa do pool. Não são razões entre custos totais de rotas. Gas, impacto de mercado, acesso e liquidação não estão integralmente medidos.
+
 1. **Natureza dos dados de taxas (docs/improvements_log.md, 5 Nov):** As taxas de negociação (8–10 bps, R-04/R-05) e de saque on-chain (0,1–0,2 bps, A-02/R-05) representam tabelas vigentes abertas e checadas nos provedores, e não microdados de execução histórica individualizada de junho.
 2. **Ordens de grandeza vs. Identificação Causal:** A razão entre o choque regulatório (+93,9 bps) e a taxa de saque (0,1–0,2 bps) ilustra a assimetria brutal de magnitude (~500× a 900×), e não uma decomposição causal de elasticidade.
 3. **Escopo estritamente cripto (F-028):** A comparação restringe-se às rotas de acesso ao dólar digital (CEX e DeFi), evitando ranqueamentos espúrios banco vs. USDT com IOF diferenciado (conforme decisão metodológica registrada em F-028).
@@ -51,3 +53,5 @@ Slide 10 (v1, v2 e v3), Anexo B.5 e Anexo D.1.
 
 ## History
 - 2026-11-07: agent for Felipe (Economist). Created finding F-040 documenting the cost stack ("A rede não é o custo"), DeFi transmission, and the 3-panel exhibit ("Preço normal não é mercado normal") under task P3-01. Script `scripts/p3_34_cost_stack_and_recovery_figures.py` verified.
+
+- 2026-11-07 — Codex for Felipe (P3-36): audit corrections applied; claim limits clarified; original estimates retained. Independent reproduction status is unchanged.

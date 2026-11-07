@@ -282,7 +282,7 @@ A tabela `results/tables/P3-34_cost_stack.csv` e a figura `results/figures/P3-34
 
 - **Razão Choque vs. Rede:** Na rota centralizada de USDT, a taxa de transferência on-chain é de apenas 0,1 a 0,2 bps (1 a 2 USDT em US$ 100 mil, `A-02`/`R-05`), enquanto a taxa de corretagem fica em 8,0 a 10,0 bps (`R-04`/`R-05`). O salto de **+93,9 bps** no prêmio de acesso decorrente do ofício de 23/jun (R$ 4.842 por US$ 100 mil) é **~470× a 939× maior** que a taxa de saque da rede blockchain.
 
-- **Transmissão para DeFi:** Na rota on-chain na Polygon (`F-037`), o prêmio sobre a PTAX saltou de 34,9 bps para 145,9 bps (**+111,0 bps**), superando em **22,2×** a taxa de 5,0 bps (0,05%) do pool Uniswap v3 (`0x0e77...c956`). Esse resultado demonstra empiricamente que redes blockchain com taxas insignificantes não blindam o usuário contra restrições regulatórias na porta de conversão fiduciária.
+- **Transmissão para DeFi:** Na rota on-chain na Polygon (`F-037`), o prêmio sobre a PTAX saltou de 34,9 bps para 145,9 bps (**+111,0 bps**), superando em **22,2×** a taxa de 5,0 bps (0,05%) do pool Uniswap v3 (`0x0e77...c956`). Observamos o encarecimento também nesta rota on-chain; isso é compatível com fricções de conversão, sem identificar isoladamente sua causa.
 
 - **Preço Normal Não É Mercado Normal:** O gráfico em três painéis alinhados (`results/figures/P3-34_price_vs_market_recovery.png`, jan–out/2026) evidencia que, embora o prêmio tenha recuado para 26,8 bps após 22/jul ($p = 0,24$), as aquisições de stablecoins no exterior registradas no BCB (`SGS 29644`) despencaram **−78% em julho** (de US$ 2,54 bi para US$ 0,57 bi) e permaneceram em um terço da média anterior (US$ 0,77 bi/mês em ago–set), enquanto a fatia de volume da Foxbit migrou estruturalmente de 6,8% para 28,0% (pico) e 34,7% (pós-pico, `F-036`), com fluxo vendedor agressivo de +361,9 mi USDT em horário bancário comercial (`F-031`).
 
@@ -482,7 +482,7 @@ Na partição de teste de 2026 (horizonte de 10 dias úteis, $N = 8$ episódios 
 
 **Duração do Choque Brasileiro de 2026:**  
 
-O episódio brasileiro de 2026 detectado pelo algoritmo de $3\sigma$ teve início em **25 de maio de 2026** e, ao término do período amostral (30 de outubro de 2026), **permaneceu aberto após 111 dias úteis de PTAX**, demonstrando que choques regulatórios e estruturais podem apresentar caudas de duração substancialmente superiores à mediana histórica.
+O episódio brasileiro de 2026 detectado pelo algoritmo de $3\sigma$ teve início em **25 de maio de 2026** e, ao término do período amostral (30 de outubro de 2026), **permaneceu aberto após 111 dias úteis de PTAX**, ilustrando a diferença entre o pico agudo de junho e o retorno à banda pré-maio; a duração não identifica a causa do episódio.
 
 
 
@@ -518,7 +518,7 @@ Para avaliar objetivamente a fricção de acesso enfrentada por empresas no ecos
 
 
 
-**2. Auditoria On-Chain Bloco a Bloco da Oferta de BRLA na Celo e Nota de Método sobre `F-037` (`P3-29`, `F-041`, `F-042`, `F-044` — revisado por Felipe, `S6`):**  
+**2. Auditoria On-Chain Bloco a Bloco da Oferta de BRLA na Celo e Nota de Método sobre `F-037` (`P3-29`, `F-041`, `F-042`, `F-044` — interpretação revisada por Felipe, `S6`; reprodução independente `S7` pendente):**  
 
 Na rede Celo, onde está a maior parte do BRLA (82–92% nestes dias), refizemos a oferta bloco a bloco entre 19 e 30/06/2026 (`scripts/p3_29_reconcile.py`, figura `results/figures/P3-29_supply_bridge.png`):
 

@@ -28,8 +28,7 @@ that frozen median.
    before the 23 Jun notice, and is still open on 30 Oct after 111 PTAX days: the premium fell from its June peak
    but never returned to its pre-May band.
 
-**What this teaches:** how long a premium shock lasts could not be forecast better than "half recover within about
-a month" with these data. A treasury or regulator should plan for a base rate, not a point forecast.
+**What this teaches:** this model and small sample do not establish robust predictive improvement over the training-pool base rate. This is not proof that duration is inherently unpredictable; the interval includes both improvement and deterioration.
 
 ## Evidence
 
@@ -129,3 +128,5 @@ faixa anterior em até 20 dias úteis; o tamanho do choque não previu a duraç�
   withdrawn: Brazil's 2026 episode starts 25 May and is open after 111 days; (6) the causal sentence about
   institutional liquidity removed; (7) run-summary numbers are computed (the first version typed in 0.2223/0.2575,
   which did not match the table it described).
+
+- 2026-11-07 — Codex for Felipe (P3-36): audit corrections applied; claim limits clarified; original estimates retained. Independent reproduction status is unchanged.

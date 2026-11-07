@@ -170,7 +170,7 @@ def generate_cost_stack_table():
             "custo_reais_por_100k_ptax": f"R$ {br(111.0 * 10 * ptax_ref, 0)}",
             "razao_choque_vs_rede": "22,2× taxa do pool (555× a 1.110× taxa on-chain 0,1–0,2 bps)",
             "fontes": "F-037; P3-24",
-            "notas": "Salto regulatório na rota DeFi (+111,0 bps): 22× a taxa do pool de 5 bps. Demonstra que a rede barata herdou o custo da porta."
+            "notas": "Salto regulatório na rota DeFi (+111,0 bps): 22× a taxa do pool de 5 bps. Observação compatível com fricções compartilhadas; sem identificação causal."
         }
     ]
 
@@ -219,10 +219,10 @@ def plot_cost_stack():
 
     # Highlight ratio box placed cleanly below bars (single $ to avoid Matplotlib TeX math mode)
     ratio_box = (
-        "A REDE NÃO É O CUSTO:\n"
+        "PRÊMIO INCREMENTAL / TAXA LISTADA:\n"
         "• Choque na porta: +93,9 bps (R$ 4.842 p/ 100k USDT)\n"
         "• Taxa de rede on-chain: 0,1 a 0,2 bps (1 a 2 USDT)\n"
-        "→ Choque regulatório é 470× a 939× a taxa da rede!"
+        "→ Razão: 470–939× (não compara custos totais)"
     )
     ax1.text(0.02, 0.03, ratio_box, transform=ax1.transAxes, fontsize=15.8 * PX,
              bbox=dict(boxstyle="round,pad=0.5", facecolor=BAND, edgecolor=ORANGE, lw=1.5),
@@ -232,7 +232,7 @@ def plot_cost_stack():
     ax1.set_yticklabels(categories, fontsize=18 * PX, weight="semibold", color=INK)
     ax1.set_ylim(-0.95, 3.05)
     ax1.set_xlim(0, 185)
-    ax1.set_xlabel("Custo total da operação (bps sobre PTAX)", fontsize=18 * PX)
+    ax1.set_xlabel("Proxy: prêmio + taxas listadas (bps sobre PTAX)", fontsize=18 * PX)
     ax1.set_title("Decomposição do Custo: Rota USDT Centralizada", fontsize=19.5 * PX, weight="bold", color=INK, pad=10)
     ax1.grid(axis="x", color=GRID, lw=0.8, ls="--")
     ax1.tick_params(length=0)
@@ -258,10 +258,10 @@ def plot_cost_stack():
                  va="center", ha="left", fontsize=17.5 * PX, weight="bold", color=ORANGE)
 
     defi_box = (
-        "DEFI NÃO BLINDOU CONTRA O OFÍCIO:\n"
+        "O PRÊMIO TAMBÉM SUBIU NA ROTA DEFI:\n"
         "• Uniswap v3 (Polygon): +111,0 bps (34,9 → 145,9 bps)\n"
         "• Taxa do pool é de apenas 5,0 bps (0,05%)\n"
-        "→ Choque DeFi = 22,2× a taxa do pool (mesmo gargalo)"
+        "→ Choque DeFi = 22,2× a taxa do pool (sem identificação causal)"
     )
     ax2.text(0.02, 0.03, defi_box, transform=ax2.transAxes, fontsize=15.5 * PX,
              bbox=dict(boxstyle="round,pad=0.5", facecolor=BAND, edgecolor=BLUE, lw=1.5),
@@ -277,7 +277,7 @@ def plot_cost_stack():
     ax2.tick_params(length=0)
     ax2.legend(loc="upper right", fontsize=15 * PX, frameon=False)
 
-    f.suptitle("A rede não é o custo: o salto na porta (+93,9 bps) equivale a 470–939× a taxa on-chain (0,1–0,2 bps) e atingiu o DeFi (+111,0 bps)",
+    f.suptitle("Transferência barata não garante conversão barata: salto observado (+93,9 bps) equivale a 470–939× a taxa on-chain (0,1–0,2 bps) e alta na rota DeFi (+111,0 bps)",
                fontsize=19 * PX, weight="bold", color=INK, y=0.97)
     f.subplots_adjust(left=0.15, right=0.98, top=0.86, bottom=0.11, wspace=0.38)
     f.savefig(FIG / "P3-34_cost_stack.png", dpi=200)

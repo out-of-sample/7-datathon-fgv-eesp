@@ -1,13 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-<<<<<<< HEAD
-**Last updated:** 2026-11-07 by Renzo's agent (P3-29 S4–S5 done, S6 prepared → review; F-044 exploratory) · **Current phase:** P5 — Deck and
-=======
-
-
-**Last updated:** 2026-11-07 by Felipe's agent (Tier 1 tasks: P3-26 Binance incident audit F-044, P3-20 S6 E2 early reading S1: Binance −5.4 bps, Foxbit −6.5 bps, gap −1.1 bps, F-035 updated) · **Current phase:** P5 — Deck and
-
->>>>>>> e67afee (P3-26, P3-20 S6, P3-28, P3-34: complete Tier 1 incident audit + E2 6 Nov early readout and Tier 2 cost-stack/3-panel figures + F-043 second-coder review)
+**Last updated:** 2026-11-07 by Codex for Felipe (P3-36 audit corrections; P3-29 S6 complete, S7 pending) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 
 tag `results-frozen` (F-001 to F-033)
@@ -103,25 +96,12 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 exploratory). Card D-01 (Foxbit, Brazilian company, 100,000 USDT to its own wallet) was generated from 14 frozen sources with every passage verified. The
 
 route is **not established**: since 6 Nov Res. BCB 589 bans banks from operating with unauthorised providers, Foxbit has only applied, and no source says
-<<<<<<< HEAD
-whether banks may still send it Pix. Team picks an annex-only table (Felipe checks) or a study after submission (`results/P3-28_feasibility.md` §8). [P3-29 — on-chain reconciliation](tasks/P3-29-on-chain-reconciliation.md): **S1–S5 done, S6 prepared, status
+whether banks may still send it Pix. Team picks an annex-only table (Felipe checks) or a study after submission (`results/P3-28_feasibility.md` §8). [P3-29 — on-chain reconciliation](tasks/P3-29-on-chain-reconciliation.md): **S1–S5 done, S6 completed, status
 review** (F-041, F-042, F-044, all exploratory). BRLA's Celo supply reconciles to the base unit in June and in 12
 cases frozen in advance. June: 732.6 mn minted / 724.9 mn burned for +7.7 mn net, almost all by one account. The 23 Jun
 burn of 113.6 mn did not reappear on Polygon, Gnosis or Moonbeam. DefiLlama matches on-chain supply on 35 of 37 Celo
 labels; its 26 Jun / 2 Jul value of 59.3 mn (quoted in F-037) matches none. Next: **Jonathan or Nattan reproduces (S7)**;
-**Felipe reads the annex draft** `results/P3-29_annex_draft_ptbr.md` (S6). H4 waived.
-=======
-
-whether banks may still send it Pix. Team picks an annex-only table (Felipe checks) or a study after submission (`results/P3-28_feasibility.md` §8). [P3-29 — on-chain reconciliation](tasks/P3-29-on-chain-reconciliation.md): **S1–S3 done 7 Nov** (F-041, F-042, both
-
-exploratory). BRLA's supply on Celo over 19–30 Jun reconciles to the base unit: 732.6 mn minted and 724.9 mn burned for a
-
-+7.7 mn net, almost all by one account. The aggregators' "fall on 24 Jun" was a 113.6 mn burn on 23 Jun. DefiLlama's
-
-daily values match on-chain supply on 12 of 13 days; its 26 Jun low (59.3 mn, quoted in F-037) matches no on-chain state.
-
-Next: **a reviewer (Nattan or Jonathan) reproduces it (G2/S7)**, then Felipe decides on an annex line (S6).
->>>>>>> e67afee (P3-26, P3-20 S6, P3-28, P3-34: complete Tier 1 incident audit + E2 6 Nov early readout and Tier 2 cost-stack/3-panel figures + F-043 second-coder review)
+**Felipe reviewed and integrated the annex draft** `results/P3-29_annex_draft_ptbr.md` (S6). H4 waived.
 
 
 
@@ -151,7 +131,7 @@ Next: **a reviewer (Nattan or Jonathan) reproduces it (G2/S7)**, then Felipe dec
 
 
 
-New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident_audit.py`, `F-044` exploratory). Audit confirms E1 S2 is insulated from the 30 Oct Binance incident (pre-window ended 3h before the hack; post-window 3–4 Nov after parity normalized). E2 pre-mean shift is ~2.3 bps (small vs ±75 bps band). CUSUM silence is a mechanical 10-day quiet pause. S3 teammate sign-off pending.
+New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident_audit.py`, `F-044` exploratory). Audit confirms E1 S2 excludes the 30 Oct observation from the 30 Oct Binance incident (pre-window ended 3h before the hack; post-window 3–4 Nov after parity normalized). E2 pre-mean shift is ~2.3 bps (small vs ±75 bps band). CUSUM silence is a mechanical 10-day quiet pause. S3 teammate sign-off pending.
 
 
 
@@ -273,7 +253,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | ✅ done | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (13/33 closed)
+**P3 — Extensions** (13/35 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -310,6 +290,8 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P3-31](tasks/P3-31-holder-decisions.md) | Two-Sided Institutional Treasury Decision Framework (BRL -> USDT Buyer & USDT -> BRL Seller) | 👀 review | Economist | - | 4/4 | 4/4 | 2026-11-08 | P1-02, P3-03 |
 | [P3-32](tasks/P3-32-holder-duration-review.md) | Independent review of holder decisions and shock duration | 👀 review | Economist | - | 4/4 | 3/3 | 2026-11-08 | P3-30, P3-31 |
 | [P3-33](tasks/P3-33-pivot-assessment.md) | Synthesize shock-duration and holder-decision pivot | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-08 | P3-30, P3-31, P3-32 |
+| [P3-35](tasks/P3-35-brla-economic-function.md) | Investigate the economic function of BRLA mint and burn operations | 🔄 doing | CS 1 | Renzo (Codex agent) | 0/4 | 0/5 | 2026-11-07 | P3-29 |
+| [P3-36](tasks/P3-36-post-extension-audit.md) | Audit extension claims and final project synthesis | 👀 review | Economist | - | 3/3 | 2/2 | 2026-11-07 | P3-20, P3-26, P3-28, P3-29, P3-30, P3-31, P3-34 |
 
 **P4 — Robustness and freeze** (3/4 closed)
 
@@ -382,23 +364,22 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [F-042](findings/F-042-brla-celo-ledger.md) | On Celo, BRLA's supply from 19 Jun to 1 Jul 2026 reconciles to the base unit with 17,536 mints and burns (732.6 mn minted, 724.9 mn burned, net +7.7 mn), almost all by one account; DefiLlama's daily values match on-chain supply on 12 of 13 days, but its 26 Jun low (59.3 mn) matches no on-chain state | 🔍 exploratory | P3-29 | - |
 | [F-043](findings/F-043-access-card-feasibility.md) | Feasibility - Foxbit's documents let a script build a dated, checked access card for a Brazilian company buying USDT (7 Nov 2026); on it the end-to-end route is not established, because no source says whether banks may still serve an exchange that has only applied for authorisation under Res. BCB 589 | 🔍 exploratory | P3-28 | Felipe |
 | [F-044](findings/F-044-brla-method-beyond-june.md) | Outside June the same procedure works unchanged - 12 frozen BRLA cases on Celo close to the base unit and DefiLlama matches on-chain supply on all 24 of their labels; on Polygon, Gnosis and Moonbeam a registered prediction of DefiLlama's daily read held (32 matches, 0 misses, 6 of them informative) | 🔍 exploratory | P3-29 | - |
-| [F-045](findings/F-045-november-binance-incident-audit.md) | Audit of Binance 29–30 Oct 2026 security incident confirms prospective E1 S2 prediction is insulated; E2 pre-mean shift is minor (~2.3 bps); CUSUM monitor silence during 3–16 Nov is a mechanical quiet pause | 🔍 exploratory | P3-26 | - |
+| [F-045](findings/F-045-november-binance-incident-audit.md) | Audit of Binance 29–30 Oct 2026 security incident confirms E1 S2 directly excludes the 30 Oct observation; E2 pre-mean shift is minor (~2.3 bps); CUSUM monitor silence during 3–16 Nov is a mechanical quiet pause | 🔍 exploratory | P3-26 | - |
 <!-- BOARD:END -->
 
 
 
 ## Recent activity (newest first, one line per work session)
 
-<<<<<<< HEAD
+- 2026-11-07 — Codex for Felipe: P3-36 audit corrections applied to deck, findings and generated incident report; committed conflict markers reconciled, both activity histories retained; E2 remains an early reading, P3-29 S7 reproduction pending.
+
 - 2026-11-07 — agent for Renzo: P3-29 S4–S5 done, S6 prepared → review: other listed contracts (Polygon, Gnosis, Moonbeam) at 15 boundaries, two providers each; registered prediction of DefiLlama's daily read held 32/0 (6 informative); Celo's 23 Jun fall not offset on listed chains; 12 frozen cases (manifest `d6008bf` first) all close, 24/24 labels consistent, 317/317 receipts (F-044); figure `results/figures/P3-29_supply_bridge.png` and pt-BR annex draft for Felipe; H4 waived; reproduction by Jonathan or Nattan pending
-=======
 
 
-- 2026-11-07 — agent for Felipe: P3-26 S1–S2 done (F-044 exploratory, scripts/p3_26_binance_incident_audit.py): Binance 29–30 Oct incident audit confirms E1 S2 is insulated (pre-window ended 3h before attack), E2 pre-mean shift is ~2.3 bps, CUSUM silence is mechanical 10-day pause. P3-20 S6 done: pulled Binance, PTAX, Foxbit to 7 Nov; E2 S1 early reading observed: Binance −5.4 bps (p = 0.79), Foxbit −6.5 bps (p = 0.79), cross-venue gap −1.1 bps (+0.1 bps parity on 6 Nov); BCB Comunicado 46.241 checked; F-035 updated, Slide 10 and HTML decks updated.
+- 2026-11-07 — agent for Felipe: P3-26 S1–S2 done (F-045 exploratory, scripts/p3_26_binance_incident_audit.py): Binance 29–30 Oct incident audit confirms E1 S2 excludes the 30 Oct observation (pre-window ended 3h before attack), E2 pre-mean shift is ~2.3 bps, CUSUM silence is mechanical 10-day pause. P3-20 S6 done: pulled Binance, PTAX, Foxbit to 7 Nov; E2 S1 early reading observed: Binance −5.4 bps (p = 0.79), Foxbit −6.5 bps (p = 0.79), cross-venue gap −1.1 bps (+0.1 bps parity on 6 Nov); BCB Comunicado 46.241 checked; F-035 updated, Slide 10 and HTML decks updated.
 
 - 2026-11-07 — agent for Felipe: Tier 2 enhancements complete. F-040 cost-stack ("A rede não é o custo", +93,9 bps vs 0,1–0,2 bps saque on-chain = ~470×–939×; DeFi +111,0 bps) and 3-panel exhibit ("Preço normal não é mercado normal") in scripts/p3_34_cost_stack_and_recovery_figures.py -> results/figures/P3-34_{cost_stack,price_vs_market_recovery}.png and results/tables/P3-34_cost_stack.csv. P3-28 second-coder audit signed by Felipe (all 23 rows confirmed; L2-02 conditional under lex specialis, L1-08 unknown, L3-04 null; Option A adopted for annex §B.10 and §D.1); board regenerated
 
->>>>>>> e67afee (P3-26, P3-20 S6, P3-28, P3-34: complete Tier 1 incident audit + E2 6 Nov early readout and Tier 2 cost-stack/3-panel figures + F-043 second-coder review)
 - 2026-11-07 — agent for Renzo: P3-28 S1 → paused (scope: S1 only, Renzo; second coder Felipe). `scripts/p3_28_access_map.py` freezes sources, generates cards by fixed rules and checks every passage verbatim; D-01 (Foxbit, company, USDT on TRC-20): 14 sources, 23 conditions, route not established on the reais leg (Res. 589 since 6 Nov, Foxbit only an applicant); Binance 202, MB 403, June copies only for terms/fee pages; A-01–A-11 registered; F-043 exploratory
 
 - 2026-11-07 — agent for Felipe: Option A adopted for Slide 10 across deck_v1, deck_v2, v3 claude slides, and annex (B.8, B.9, C.5, D.1, D.2); P5-08 -> review; HTML presentations regenerated; board updated
