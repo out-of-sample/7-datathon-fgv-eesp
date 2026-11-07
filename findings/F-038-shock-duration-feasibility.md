@@ -4,7 +4,7 @@ title: Pooling 10 currencies gives enough premium shocks to test duration foreca
 status: exploratory
 task: P3-30
 date: 2026-11-06
-checked_by: Renzo's agent (review with fixes, 6 Nov); Felipe to accept the fixes; independent re-run pending
+checked_by: Renzo's agent (review with fixes, 6 Nov); Felipe (fixes accepted, 6 Nov); teammate re-run pending
 ---
 
 ## Claim
@@ -120,6 +120,7 @@ faixa anterior em até 20 dias úteis; o tamanho do choque não previu a duraç�
 ## History
 - 2026-11-06: Initial single-country BRL feasibility audit; 8 tests pass; feasibility gate failed for BRL alone.
 - 2026-11-06: Upgraded to Global 10-Currency Pool on native trading calendars; 10 tests pass; feasibility gate passes at $k=3$ (43/38 train, 10/8 val, 8/6 test); penalized discrete-time logistic hazard model fitted and evaluated against KM baseline; generated `P3-30_model_eval.csv`, `P3-30_global_survival.png`, and updated F-038.
+- 2026-11-06 — Felipe: fixes accepted; assessment rewritten to match; status stays exploratory pending teammate re-run.
 - 2026-11-06 — Renzo's agent (review, with fixes; Felipe to accept): (1) status `confirmed` → `exploratory` (no
   checker had signed); (2) scoring bug fixed: episodes censored before the horizon were counted as "not recovered"
   (1 validation episode at 10 d, 1 test at 20 d); (3) only the validation-selected penalty is reported (λ = 1 and 0.5

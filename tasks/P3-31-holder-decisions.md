@@ -10,23 +10,21 @@ depends: P1-02, P3-03
 ---
 
 ## Goal
-Translate the measured premium into a comprehensive two-sided conditional treasury and portfolio manager decision framework covering both Institutional Buyers (`BRL -> USDT`, importers/remitters) and Institutional Sellers (`USDT -> BRL`, liability funders), with B3 FX hedge break-even analysis ($h^*$).
+Translate the measured premium into a comprehensive two-sided conditional treasury and portfolio manager decision framework covering both Institutional Buyers (`BRL -> USDT`, importers/remitters) and Institutional Sellers (`USDT -> BRL`, liability funders), with exact Covered Interest Parity (CIP) hedge accounting.
 
-## Specification (updated 6 Nov 2026; corrected by the review the same night, see Handoff)
+## Specification (updated 6 Nov 2026; corrected by review, CIP hedge accounting)
 - **Side 1 — Institutional Buyer (`BRL -> USDT`)**:
-  - Quantity $Q = 100{,}000$ USDT, payment deadlines $h \in \{5, 10, 20\}$ Brazilian PTAX publication business days.
+  - Quantity $Q = 100{,}000$ USDT, payment deadlines $h \in \{1, \dots, 20\}$ (focus on $h \in \{5, 10, 20\}$) Brazilian PTAX publication business days.
   - **Strategy B1 (Buy Now at $t$)**: Gross BRL cost $C_t^{\text{now}}(Q) = Q \cdot P_t (1 + c_t) + F_t$. Terminal valuation in $T$-reais accounts for domestic BRL return $A_{t,T}^{\text{BRL}} = (1 + r_{\text{BRL}})^{h/252}$ and USD organic yield $r_{\text{USD}} \in \{0\%, 4\%\}$ (per `F-020`).
   - **Strategy B2 (Wait in BRL Unhedged, Buy at $T$)**: Terminal BRL savings $\Delta \text{BRL}_{\text{unhedged}}^{\text{buyer}}(t, T) = C_t^{\text{now}}(Q) \cdot A_{t,T}^{\text{BRL}} - C_T^{\text{wait}}(Q)$. Exhibits exact duality symmetry with Seller under symmetric costs: $\Delta \text{BRL}_{\text{unhedged}}^{\text{buyer}} = \frac{1+c}{1-c} \times (\text{Seller loss})$.
-  - *(Review 6 Nov: the B3 carry and h\* lines below are withdrawn; see Handoff and F-039.)*
-  - **Strategy B3 (Wait in BRL + Hedge `USD/BRL` on B3 via `WDO`/NDF)**: Covered Interest Parity (CIP) carry $c_{\text{hedge}} = 2.5\text{ bps/PTAX day}$ (`P3-01` / `F-015` / `R-07`). Net savings in basis points: $\Delta_{\text{hedged}}^{\text{bps}}(t, T) = (p_t - p_T) - h \cdot c_{\text{hedge}}$.
-  - **Break-Even Waiting Horizon $h^*$**: $h^* = \frac{p_t - p_{\text{target}}}{c_{\text{hedge}}}$. Evaluated from peak ($142.02\text{ bps} \to 29.02\text{ bps}$, $h^* = 45.2\text{ days}$) and acute spike mean ($+74.6\text{ bps}$ compression, $h^* = 29.8\text{ days}$). Compared directly to the 20-business-day global median shock duration (`P3-30`): because $20 < h^*$, waiting in BRL with a B3 FX hedge is ex-ante optimal!
-  - Realized hedged savings from 25 Jun 2026: +83.79 bps (+R$ 4,360 to +R$ 4,423 per 100k USDT) at 5 days; +65.72 bps (+R$ 3,420 to +R$ 3,469) at 10 days; +63.00 bps (+R$ 3,278 to +R$ 3,325) at 20 days with zero PTAX FX risk.
+  - **Strategy B3 (Wait in BRL + Buy USD Forward on B3 / NDF at CIP)**: Forward rate $F = X_t \cdot A_{\text{BRL}} / A_{\text{USD\_FWD}}$ at Covered Interest Parity (with $r_{\text{USD\_FWD}} = 5\%$ SOFR per `R-07`). The BRL deposit interest pays the forward points, so the hedge has **no daily carry cost**. Terminal cost $B_3 = C_T^{\text{wait}}(Q) - N \cdot (X_T - F) + \text{fee}$. The hedged savings $B_1 - B_3$ splits into: $\text{premium change} + \text{USD interest forgone by holding idle USDT} - \text{one-off hedge fee (0.22 bps)}$. Thus, when hedged on B3, waiting is a bet on the USDT premium alone.
+  - Realized retrospective hedged savings from 25 Jun 2026: **+89.7 bps (R$ 4,746) at 5 days**, **+92.3 bps (R$ 4,896) at 10 days**, and **+164.0 bps (R$ 8,733) at 20 days**; on 3 Jul (6 days) the premium was back at 185.9 bps with only +6.3 bps gained.
 - **Side 2 — Institutional Seller (`USDT -> BRL`)**:
   - Quantity $100{,}000$ USDT. Net proceeds $N(Q, P, c, f) = Q \cdot P \cdot (1 - c) - f$. Break-even future gross price $P_T^* = \frac{N(now) \cdot A + f_{\text{later}}}{Q \cdot (1 - c_{\text{later}})}$.
   - Under symmetric costs, neutral fee property $\Delta P^* = (1 + r_{\text{BRL}})^{h/252} - 1$.
-  - In June 2026, waiting cost the seller -R$ 4,697 (5d), -R$ 11,594 (10d), and -R$ 21,704 (20d) under 10% net BRL yield.
+  - In June 2026, waiting cost the seller -R$ 4,697 (5d), -R$ 11,594 (10d), and -R$ 21,704 (20d) under 10% net BRL yield (-R$ 5,408 / -R$ 6,167 / -R$ 11,172 with fixed FX). Hurdle thresholds: +18.9 / +37.9 / +75.9 bps at 10% a.a.
 - **Unit Testing**:
-  - 12 boundary unit tests pass (6 seller tests + 6 buyer/hedge tests).
+  - 13 boundary unit tests pass (6 seller tests + 7 buyer/hedge tests).
 
 ## Subtasks
 - [x] S1 — input sample and specification — done: Codex, 6 Nov
@@ -36,7 +34,7 @@ Translate the measured premium into a comprehensive two-sided conditional treasu
 
 ## Success criteria
 - [x] Reproducible tables and two figures, with conditional scenario labels
-- [x] Boundary tests (12 tests) and decomposition check pass
+- [x] Boundary tests (13 tests) and decomposition check pass
 - [x] Independent reviewer checks arithmetic and language
 - [x] Two-sided framework implemented with exact buyer unhedged & B3-hedged equations
 
@@ -53,21 +51,10 @@ Translate the measured premium into a comprehensive two-sided conditional treasu
 - `findings/F-039-holder-decisions.md`
 
 ## Handoff
-- **State (6 Nov, after Renzo's agent's review):** `scripts/p3_31_holder.py` was corrected and re-run; 13 tests
-  pass. The fixes:
-  (1) the buyer premiums are read from P1-02 (the typed-in 142.02/45.73/51.30/29.02 bps matched no series);
-  (2) B3 is priced exactly at covered interest parity, so the BRL deposit interest pays the forward points and
-  there is no 2.5 bps/day cost;
-  (3) h\* and "ex-ante optimal" are removed;
-  (4) the buyer table covers every deadline from 1 to 20 days.
-  The seller side is unchanged. F-039 was rewritten as retrospective: hedged buyer +89.7 / +92.3 / +164.0 bps at
-  5 / 10 / 20 days, but only +6 bps on 3 Jul.
-- **Exact next step:** Felipe accepts or contests the fixes (review section in
-  `docs/shock-duration-holder-review.md`); a teammate re-runs; then `done`.
-- **Open questions:** keep the seller side in the deck at all? Its lesson ("waiting needs USDT/BRL to rise
-  +19 bps per 5 days at 10% a.a.") is simple arithmetic.
-- **How to resume:** `.venv/bin/python scripts/p3_31_holder.py --test-only`, then without the flag. Outputs:
-  `results/tables/P3-31_*`, `results/figures/P3-31_*`.
+- **State (6 Nov, fixes accepted):** Felipe accepted the second review's fixes and rewrote `docs/shock-duration-and-holder-decisions-assessment.md` to match the corrected F-038 and F-039. The script `scripts/p3_31_holder.py` is verified (13 unit tests pass); the specification matches the exact CIP hedge pricing (no daily carry cost; saving = premium change + USD interest − fee); retrospective hedged buyer outcomes are +89.7 / +92.3 / +164.0 bps at 5 / 10 / 20 days (+6.3 bps on 3 Jul).
+- **Exact next step:** A third-party teammate who is neither Felipe nor Renzo (Nattan or Jonathan) re-runs `scripts/p3_31_holder.py` and signs off `checked_by` on F-039 to move this task from `review` to `done`.
+- **Open questions:** None on the arithmetic or findings. Placement in deck/annex governed by P5-08.
+- **How to resume:** `.venv/bin/python scripts/p3_31_holder.py --test-only`, then without the flag (Windows: `py`). Outputs: `results/tables/P3-31_*`, `results/figures/P3-31_*`.
 
 ## Log
 - 2026-11-06 — agent for Renzo (23:43): Renzo takes the peer review of this task (Felipe is the author; Renzo's agent reviews and fixes).
@@ -75,6 +62,7 @@ Translate the measured premium into a comprehensive two-sided conditional treasu
 - 2026-11-06 — Codex holder agent: engine, tables, figures and tests implemented; 6 tests pass; F-039 produced; independent review in P3-32 approved; task set to review.
 - 2026-11-06 (logged as 7 Nov) — Flash agent: upgraded to Two-Sided Institutional Treasury Decision Framework. Added Side 1 Buyer (`BRL -> USDT`), B3 FX hedge carry ($c_{\text{hedge}} = 2.5\text{ bps/day}$), break-even horizon $h^*$ ($29.8\text{ to }45.2\text{ days}$), synthesis with `P3-30` median shock duration ($20\text{ days} < h^*$), new table `P3-31_buyer_hedged_comparison.csv`, updated `P3-31_audit.json`, 12 unit tests passing, and two updated figures.
 - 2026-11-06 — agent for Renzo (23:49): review with fixes (premiums from data, CIP hedge accounting, h* withdrawn, figures redrawn); F-039 rewritten; status stays `review`.
+- 2026-11-06 — Felipe: accepted the second review's fixes (CIP hedge accounting, data-read premiums, retrospective framing); updated specification and handoff; rewrote `docs/shock-duration-and-holder-decisions-assessment.md` to match F-039; awaiting third-party teammate re-run (Nattan or Jonathan) to move from review to done.
 
 ## Result
 Two-sided decision accounting with exact CIP hedge pricing; retrospective June 2026 outcomes from data; seller

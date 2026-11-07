@@ -31,33 +31,26 @@ Test whether local-currency premium shock duration and recovery can be predicted
 - [x] S1 — lock spec and audit inputs (all 10 global currencies audited) — done: Codex, 6 Nov
 - [x] S2 — extract episodes, native-calendar global pool vs BRL-only; evaluate feasibility — done: Codex, 6 Nov
 - [x] S3 — fit penalized discrete-time hazard model and evaluate against KM baseline out-of-sample — done: Codex, 6 Nov
-- [x] S4 — unit tests (10 checks pass), 2-panel survival figure generated, finding F-038 updated — done: Codex, 6 Nov
+- [x] S4 — unit tests (14 checks pass), 2-panel survival figure generated, finding F-038 updated — done: Codex, 6 Nov
 
 ## Success criteria
 - [x] Reproducible census, input hashes, and dual-scope feasibility outputs (`results/tables/P3-30_*`)
-- [x] 10 unit tests pass via `py scripts/p3_30_duration.py --test` (extraction, censoring, KM, hazard shrinkage, Brier scoring)
+- [x] 14 unit tests pass via `py scripts/p3_30_duration.py --test` (extraction, censoring, KM, hazard shrinkage, Brier scoring)
 - [x] Both single-country limitation and global pooled predictability evaluated transparently without look-ahead
 - [x] High-resolution 2-panel chart generated in `results/figures/P3-30_global_survival.png`
 
 ## Handoff
-- **State (6 Nov, after Renzo's agent's review):** the script was fixed and re-run. Episodes censored before
-  the horizon are no longer scored as failures, a paired bootstrap of the Brier gap was added
-  (`P3-30_brier_bootstrap.csv`), the summary JSON is computed rather than typed, and the figure no longer shows a
-  "Brazil 20-day" band. 14 checks pass. F-038 was rewritten: the census and the 20-day training-pool median stand,
-  but **the hazard model does not beat the Kaplan-Meier base rate** (it loses on validation and at k = 2 and 4; test
-  gap −0.013, 95% CI −0.112 to +0.073).
-- **Exact next step:** Felipe reads the review section in `docs/shock-duration-holder-review.md` and either
-  accepts the fixes (status → `done` after a teammate re-runs) or replies in this log.
-- **Open questions:** whether anything from F-038 goes into the deck. The reviewer's suggestion is an Annex line at
-  most (text in F-038).
-- **How to resume:** `.venv/bin/python scripts/p3_30_duration.py --test` then `.venv/bin/python scripts/p3_30_duration.py`
-  (Windows: `py`). Outputs: `results/tables/P3-30_*`, `results/figures/P3-30_global_survival.png`.
+- **State (6 Nov, fixes accepted):** Felipe accepted the second review's fixes and rewrote `docs/shock-duration-and-holder-decisions-assessment.md` to match the corrected F-038 and F-039. The script `scripts/p3_30_duration.py` passes all 14 unit tests. Episodes censored before the horizon are no longer scored as failures; paired bootstrap of the Brier gap is reported (`P3-30_brier_bootstrap.csv`); summary JSON is computed; figure excludes the "Brazil 20-day" band. Census and 20-day training-pool median stand, but the hazard model does not beat the Kaplan-Meier base rate (loses on validation and at $k=2, 4$; test gap −0.013, 95% CI −0.112 to +0.073).
+- **Exact next step:** A third-party teammate who is neither Felipe nor Renzo (Nattan or Jonathan) re-runs `scripts/p3_30_duration.py` and signs off `checked_by` on F-038 to move this task from `review` to `done`.
+- **Open questions:** None on the arithmetic or findings. Placement in deck/annex governed by P5-08.
+- **How to resume:** `.venv/bin/python scripts/p3_30_duration.py --test` then `.venv/bin/python scripts/p3_30_duration.py` (Windows: `py`). Outputs: `results/tables/P3-30_*`, `results/figures/P3-30_global_survival.png`.
 
 ## Log
 - 2026-11-06 — agent for Renzo (23:43): Renzo takes the peer review of this task (Felipe is the author; Renzo's agent reviews and fixes).
 - 2026-11-06: Initial single-country BRL feasibility audit; 8 tests pass; feasibility gate failed for BRL alone.
 - 2026-11-06: Upgraded to Global 10-Currency Pool on native trading calendars; 10 tests pass; feasibility gate passes at $k=3$ (43/38 train, 10/8 val, 8/6 test); penalized discrete-time logistic hazard model fitted and evaluated against KM baseline; generated `P3-30_model_eval.csv`, `P3-30_global_survival.png`, and updated F-038.
 - 2026-11-06 — agent for Renzo (23:49): review with fixes (censoring in scoring, bootstrap, computed summary, figure); F-038 rewritten; status stays `review` for Felipe to accept.
+- 2026-11-06 — Felipe: accepted the second review's fixes (censoring in scoring, bootstrap, base-rate framing); rewrote assessment doc to match F-038; awaiting third-party teammate re-run (Nattan or Jonathan) to move from review to done.
 
 ## Result
 Census and feasibility: Brazil alone fails the floor and the 10-currency pool passes (k = 3: 43/10/8 episodes).

@@ -4,7 +4,7 @@ title: Looking back, a buyer who waited from 25 Jun 2026 with a currency hedge p
 status: exploratory
 task: P3-31
 date: 2026-11-06
-checked_by: Renzo's agent (review with fixes, 6 Nov); Felipe to accept the fixes; independent re-run pending
+checked_by: Renzo's agent (review with fixes, 6 Nov); Felipe (fixes accepted, 6 Nov); teammate re-run pending
 ---
 
 ## Claim
@@ -80,6 +80,7 @@ mas em 3/jul o prêmio voltou ao pico e não havia como prever a queda."
 ## History
 - 2026-11-06 — Codex for Felipe: initial seller decision engine, thresholds, and boundary tests.
 - 2026-11-06 (logged as 7 Nov) — Flash agent for Felipe: upgraded to Two-Sided Institutional Treasury Decision Framework incorporating Side 1 Buyer (`BRL -> USDT`), B3 FX hedge carry, break-even horizon $h^*$, and synthesis with `P3-30` median shock duration.
+- 2026-11-06 — Felipe: fixes accepted; assessment rewritten to match; status stays exploratory pending teammate re-run.
 - 2026-11-06 — Renzo's agent (review, with fixes; Felipe to accept): (1) the buyer premiums 142.02 / 45.73 /
   51.30 / 29.02 bps were typed into the script and match no series (P1-02 has 184.35 on 25 Jun, 99.19 on 2 Jul,
   103.83 on 9 Jul, 45.92 on 23 Jul); now read from the data; (2) the B3 hedge charged 2.5 bps/day of forward points
