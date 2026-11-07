@@ -811,7 +811,74 @@ def audit(dev, recon, snaps, large, sample, dev_mb, gross, checks, events, meta)
     print('\n'.join(L))
 
 
+# ---------------------------------------------------------------- S6 candidate figure (reads S3 outputs only)
+def figure():
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.dates as mdates
+    import matplotlib.pyplot as plt
+    ink, ink2, grid, surf, blue, orange = '#0b0b0b', '#52514e', '#e4e3df', '#fcfcfb', '#2a78d6', '#eb6834'
+    snaps = [r for r in csv.DictReader(open(ROOT / 'data/processed/P3-29_snapshots.csv')) if r['provider'] == 'forno']
+    ev = [r for r in csv.DictReader(open(ROOT / 'data/processed/P3-29_events.csv')) if r['type'] in ('mint', 'burn')]
+    t = lambda x: dt.datetime.fromisoformat(x)
+    s0 = int(snaps[0]['total_supply_base'])
+    path_t, path_s, s = [t(snaps[0]['time_utc'])], [s0 / UNIT / 1e6], s0
+    for blk in group_by_block([dict(e, block=int(e['block'])) for e in ev]):
+        s += sum(int(e['amount_base']) * (1 if e['type'] == 'mint' else -1) for e in blk)
+        path_t.append(t(blk[0]['time_utc']))
+        path_s.append(s / UNIT / 1e6)
+    fig, (a, b) = plt.subplots(2, 1, figsize=(10, 7.2), sharex=True, gridspec_kw={'height_ratios': [3, 2]}, facecolor=surf)
+    for ax in (a, b):
+        ax.set_facecolor(surf)
+        ax.grid(axis='y', color=grid, lw=0.8)
+        ax.set_axisbelow(True)
+        ax.tick_params(colors=ink2, labelsize=9)
+        for side in ('top', 'right'):
+            ax.spines[side].set_visible(False)
+        for side in ('left', 'bottom'):
+            ax.spines[side].set_color(ink2)
+        ax.axvline(dt.datetime(2026, 7, 1, tzinfo=dt.UTC), color=ink2, lw=1, ls=(0, (3, 3)))
+    a.step(path_t, path_s, where='post', color=blue, lw=1.6, label='Oferta on-chain (totalSupply, após cada bloco com emissão/queima)')
+    ok = [r for r in snaps if r['provider_check'] == 'consistent_within_day']
+    bad = [r for r in snaps if r['provider_check'] == 'outside_day_range']
+    a.plot([t(r['first_match_utc']) for r in ok], [float(r['defillama_v1']) / 1e6 for r in ok], 'o', ms=6, color=ink,
+           markeredgecolor=surf, markeredgewidth=1.2, label='DefiLlama, valor diário (igual à oferta on-chain em algum bloco do dia)', zorder=3)
+    a.plot([t(r['time_utc']) for r in bad], [float(r['defillama_v1']) / 1e6 for r in bad], 'o', ms=7, mfc=surf, mec=ink, mew=1.6,
+           label='DefiLlama, 26/06 e 02/07: 59,28 mi, sem correspondência on-chain', zorder=3)
+    big = max((e for e in ev if e['type'] == 'burn'), key=lambda e: int(e['amount_base']))
+    bt = t(big['time_utc'])
+    a.annotate(f"queima de {float(Decimal(big['amount_base']) / UNIT) / 1e6:,.1f} mi\n{bt:%d/%m %H:%M} UTC".replace(',', 'X').replace('.', ',').replace('X', '.'),
+               xy=(bt, 96), xytext=(bt + dt.timedelta(hours=20), 70), fontsize=8.5, color=ink2,
+               arrowprops={'arrowstyle': '-', 'color': ink2, 'lw': 0.8})
+    a.set_ylabel('milhões de BRLA', color=ink2, fontsize=9)
+    a.set_ylim(40, 300)
+    a.legend(loc='upper left', bbox_to_anchor=(0.17, 1.0), fontsize=8, frameon=False, labelcolor=ink)
+    a.set_title('Oferta de BRLA na Celo e valores diários do DefiLlama', loc='left', fontsize=11, color=ink)
+    days = sorted({e['day_utc'] for e in ev})
+    x = [dt.datetime.fromisoformat(d).replace(tzinfo=dt.UTC) + dt.timedelta(hours=12) for d in days]
+    vol = lambda d, typ: sum(int(e['amount_base']) for e in ev if e['day_utc'] == d and e['type'] == typ) / UNIT / 1e6
+    mints, burns = [vol(d, 'mint') for d in days], [vol(d, 'burn') for d in days]
+    w = dt.timedelta(hours=16)
+    b.bar(x, mints, width=w, color=blue, label='Emissões (mints)')
+    b.bar(x, [-v for v in burns], width=w, color=orange, label='Queimas (burns)')
+    b.plot(x, [m - q for m, q in zip(mints, burns)], 'D', ms=5, color=ink, markeredgecolor=surf, label='Variação líquida da oferta')
+    b.axhline(0, color=ink2, lw=0.8)
+    b.set_ylabel('milhões de BRLA por dia', color=ink2, fontsize=9)
+    b.legend(loc='upper center', bbox_to_anchor=(0.5, 1.0), fontsize=8, frameon=False, ncol=3, labelcolor=ink)
+    b.set_title('Emissões e queimas por dia (UTC): o saldo líquido é pequeno perto dos fluxos brutos', loc='left', fontsize=11, color=ink)
+    b.text(dt.datetime(2026, 7, 1, 2, tzinfo=dt.UTC), max(mints) * 0.9, 'fora do caso\n(1–2/07)', fontsize=8, color=ink2)
+    b.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m'))
+    b.set_xlim(dt.datetime(2026, 6, 19, tzinfo=dt.UTC), dt.datetime(2026, 7, 3, tzinfo=dt.UTC))
+    fig.text(0.01, 0.005, 'Fontes: Celo JSON-RPC (Forno; conferido na Ankr), contrato 0xfecb…3760; DefiLlama, stablecoin 365 (versão de 4/11/2026).\n'
+             'A identidade de estoque fecha com resíduo zero em todos os dias. Emissão não é entrada de reais; queima não é resgate.',
+             fontsize=7, color=ink2)
+    fig.tight_layout(rect=(0, 0.035, 1, 1))
+    out = ROOT / 'results/figures/P3-29_supply_bridge.png'
+    fig.savefig(out, dpi=200, facecolor=surf)
+    print(out.relative_to(ROOT))
+
+
 if __name__ == '__main__':
-    if sys.argv[1:] not in (['smoke'], ['ledger'], ['chains'], ['cases']):
+    if sys.argv[1:] not in (['smoke'], ['ledger'], ['chains'], ['cases'], ['figure']):
         sys.exit(__doc__)
-    {'smoke': smoke, 'ledger': ledger, 'chains': chains, 'cases': cases}[sys.argv[1]]()
+    {'smoke': smoke, 'ledger': ledger, 'chains': chains, 'cases': cases, 'figure': figure}[sys.argv[1]]()
