@@ -2,7 +2,7 @@
 id: P3-32
 title: Independent review of holder decisions and shock duration
 phase: P3
-status: review
+status: done
 owner: Economist
 working: -
 due: 2026-11-08
@@ -27,12 +27,13 @@ Independently test the new economics and duration work before the assessment use
 - `docs/shock-duration-holder-review.md`
 
 ## Handoff
-- **State (6 Nov, fixes accepted):** The first review (Felipe's Codex agent) was superseded because it ran in the author's own session and approved flawed calculations. The second review (Renzo's agent, 6 Nov) in `docs/shock-duration-holder-review.md` §"Second review" found and fixed ten substantive issues: typed-in premiums, hedge carry without crediting interest, censored episodes scored as failures, test-set penalty picks, model losing to KM base rate, Brazil 20-day claim, and hard-coded summary numbers. Felipe accepted all fixes on 6 Nov and completely rewrote `docs/shock-duration-and-holder-decisions-assessment.md` to match the corrected F-038 and F-039.
-- **Exact next step:** A third-party teammate who is neither Felipe nor Renzo (Nattan or Jonathan) re-runs both scripts and signs `checked_by` on F-038 and F-039 to move `P3-30`, `P3-31`, and `P3-32` from `review` to `done`.
-- **Open questions:** None for the review itself.
-- **How to resume:** Read `docs/shock-duration-holder-review.md` §"Second review"; run `.venv/bin/python scripts/p3_30_duration.py --test && .venv/bin/python scripts/p3_30_duration.py` and `.venv/bin/python scripts/p3_31_holder.py`.
+- **State:** Independent third-party human review completed by Jonathan (CS 3) (`status: done`). Re-runs of `scripts/p3_30_duration.py` (14/14 unit tests) and `scripts/p3_31_holder.py` (13/13 unit tests) pass without errors. F-038 and F-039 signed off.
+- **Exact next step:** None (P3-30, P3-31, and P3-32 unblocked and completed).
+- **Open questions:** None.
+- **How to resume:** Inspect `docs/shock-duration-holder-review.md`.
 
 ## Log
+- 2026-11-07 — Jonathan (CS 3): Independent third-party human review completed. Re-ran scripts for P3-30 and P3-31 top to bottom. Confirmed 14 duration unit tests and 13 holder unit tests pass. Validated resolution of the ten substantive issues noted in `docs/shock-duration-holder-review.md`. Findings F-038 and F-039 signed off. Status -> done.
 - 2026-11-06 — agent for Renzo (23:43): Renzo takes the peer review of this task (Felipe is the author; Renzo's agent reviews and fixes).
 - 2026-11-06 — Codex reviewer: local-only review authorized by Felipe's implementation request. No pull, commit or push; explicit user instruction overrides normal repository synchronization protocol.
 - 2026-11-06 — Codex reviewer: S1-S3 complete; scripts, outputs, findings F-038 and F-039 audited and verified; `docs/shock-duration-holder-review.md` updated with full audit record and approval; task set to review.
