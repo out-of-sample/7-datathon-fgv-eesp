@@ -2,9 +2,9 @@
 id: P3-29
 title: Reconcile reported BRLA supply changes with on-chain evidence
 phase: P3
-status: paused
+status: doing
 owner: Team
-working: -
+working: Renzo (agent)
 due: 2026-11-07
 depends: P3-27
 ---
@@ -148,8 +148,8 @@ Each step is one focused session or is split further when needed. Prioritize the
 
 ## Subtasks
 - [x] S1 — Verify source provenance and historical RPC capabilities; record G1 and one snapshot pair. — done: Renzo (agent), 2026-11-07 (G1 passed for Celo; F-041)
-- [ ] S2 — Commit the accounting protocol, scope, definitions, tolerances and selection rule.
-- [ ] S3 — Reconstruct the Celo stock identity; audit events/coverage and pass G2.
+- [ ] S2 — Commit the accounting protocol, scope, definitions, tolerances and selection rule. — doing: Renzo (agent)
+- [ ] S3 — Reconstruct the Celo stock identity; audit events/coverage and pass G2. — doing: Renzo (agent)
 - [ ] S4 — Compare circulation and investigate verified multi-chain links; preserve unresolved differences.
 - [ ] S5 — Complete the frozen additional-case evaluation; run or explicitly waive H4.
 - [ ] S6 — Review economic interpretation and prepare the integration figure/evidence export.
@@ -233,6 +233,7 @@ Read `prompt.md`, `STATUS.md`, P3-27, F-037/P3-24 and the input script/data note
   `eth_getLogs`, receipts only via `eth_getBlockReceipts`; Ankr ≤ 1,000 blocks; Blockscout eth-rpc rate-limits (429).
 
 ## Log
+- 2026-11-07 00:50 (Brasília) — agent for Renzo: Renzo said "proceed" to the S1 recommendations; read as: S2 then S3 under the recommended scope (Celo case study; S4 limited to other chains' totalSupply; S5/H4 deferred for the 8 Nov PDF) and a fresh DefiLlama version pulled. Reviewer still to be named. Renzo takes S2–S3.
 - 2026-11-07 00:40 (Brasília) — agent for Renzo: S1 done, G1 passed for Celo. Script `p3_29_reconcile.py smoke` with frozen answers (112 files), offline replay identical. Celo supply 128,106,372.44 → 135,855,038.46 BRLA (19 Jun → 1 Jul 00:00 UTC; Forno = Ankr); proxy `BRLAV1_1` unchanged at both blocks; mint/burn emit `Transfer` to/from 0x0; DefiLlama = totalSupply with no exclusions, time of day unknown (+179,326 and −36,854 BRLA vs 00:00 UTC). F-041 exploratory; sources T-14–T-19. Status paused.
 - 2026-11-07 00:15 (Brasília) — agent for Renzo: Renzo takes S1 (feasibility session, 90-minute target). Reviewer to be named (a teammate other than Renzo).
 - 2026-11-06 — Codex for Renzo: formalized from the P3-27 discussion at Renzo's request. Documentation only; no experiment launched or team member assigned.
