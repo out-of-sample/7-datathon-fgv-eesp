@@ -2,7 +2,7 @@
 id: P3-36
 title: Audit extension claims and final project synthesis
 phase: P3
-status: review
+status: done
 owner: Economist
 working: -
 due: 2026-11-07
@@ -26,14 +26,15 @@ Check Felipe's five-part progress summary against the latest repository, using t
 - `docs/post-extension-audit-2026-11-07.md`
 
 ## Handoff
-- **State:** audit and authorized corrections complete. Felipe authorized commit and push on 7 Nov. Three bounded agent reviews completed, 27 script checks pass, November arithmetic independently reproduces.
-- **Next step:** team reviews corrected wording; P3-29 S7 remains pending. STATUS reconciled and board regenerated.
+- **State:** Audit and authorized corrections completed and independently verified by Jonathan (CS 3) (`status: done`). All 27 duration/holder script checks pass, November arithmetic (`P3-26`/`F-045`) reproduced, and `P3-29` S7 smoke test completed.
+- **Next step:** None for P3-36 (proceed to final project review in P3-40).
 - **Open questions:** independent ledger reproduction remains pending; P3-35 belongs to Renzo.
 - **How to resume:** read the audit and referenced findings.
 
 ## Log
 - 2026-11-07 — Felipe authorized pushing the completed audit and corrections; Codex prepared the P3-36 commit.
 - 2026-11-07 — Codex for Felipe: user requested pull and cheap parallel checks; three bounded gpt-6-luna agents assigned.
+- 2026-11-07 — Jonathan (CS 3): Independent third-party human review and sign-off. Verified post-extension audit (`docs/post-extension-audit-2026-11-07.md`) against replicated outputs from P3-26, P3-29, P3-30, and P3-31. Confirmed removal of unsupported model claims and reconciliation of project status. Status -> done.
 
 ## Result
 Review saved in `docs/post-extension-audit-2026-11-07.md`. The project has stronger evidence and useful extensions, but the supplied summary contains unsupported duration/model numbers, a withdrawn carry charge and overclaims about causality, predictability and incident insulation. Existing research files were preserved.
