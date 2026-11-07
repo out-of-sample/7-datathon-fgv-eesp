@@ -126,7 +126,7 @@ def write(name, rows):
         return
     fields = list(dict.fromkeys(k for r in rows for k in r))
     with (OUT / f'P3-36_{name}.csv').open('w') as f:
-        w = csv.DictWriter(f, fieldnames=fields)
+        w = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
         w.writeheader(); w.writerows(rows)
 
 
