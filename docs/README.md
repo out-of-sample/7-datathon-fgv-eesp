@@ -132,6 +132,10 @@ regime), a "solution" deliverable (a daily monitor), and a causal design the aca
 
 _To fill in: research FGV/Ripple presented, example topics, datasets offered, anything that changes priorities._
 
+- Renzo (recorded 5 Nov): the opening presentation asked teams to answer **"O que aprendemos com a solução apresentada?
+  E por que é importante?"** The jury wants a solution and a lesson someone can use, not only a measured effect. Proposal
+  for Slide 10: `docs/proposal-2026-11-05-lessons-and-solution.md`.
+
 ## Lessons from 2025: the baseline we must beat
 
 Last year's project ([repo](https://github.com/Renzo-Filho/6-datathon-fgv-eesp), 3rd place) predicted the
