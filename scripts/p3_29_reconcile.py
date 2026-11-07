@@ -44,7 +44,18 @@ OFFLINE = os.environ.get('P3_29_OFFLINE') == '1'
 RPC = {'forno': 'https://forno.celo.org', 'blockscout': 'https://celo.blockscout.com/api/eth-rpc',
        'ankr': 'https://rpc.ankr.com/celo'}
 PROBE = {'1rpc': 'https://1rpc.io/celo', 'stakely': 'https://celo-json-rpc.stakely.io', 'drpc': 'https://celo.drpc.org'}
-SPACING = {'blockscout': 2.0}  # seconds between live calls (its free tier answers 429 to bursts)
+# S4 (other listed BRLA contracts): two archive providers per chain found by probing on 7 Nov (F-041 style)
+CHAINS = {'polygon': {'id': 137, 'token': '0xe6a537a407488807f0bbeb0038b79004f19dddfb', 'llama': 'Polygon',
+                      'rpcs': {'polygon_drpc': 'https://polygon.drpc.org',
+                               'polygon_tenderly': 'https://polygon.gateway.tenderly.co'}},
+          'gnosis': {'id': 100, 'token': '0xfecb3f7c54e2caae9dc6ac9060a822d47e053760', 'llama': 'Gnosis',
+                     'rpcs': {'gnosis_official': 'https://rpc.gnosischain.com',
+                              'gnosis_gatewayfm': 'https://rpc.gnosis.gateway.fm'}},
+          'moonbeam': {'id': 1284, 'token': '0xfeb25f3fddad13f82c4d6dbc1481516f62236429', 'llama': 'Moonbeam',
+                       'rpcs': {'moonbeam_drpc': 'https://moonbeam.drpc.org',
+                                'moonbeam_onfinality': 'https://moonbeam.api.onfinality.io/public'}}}
+URLS = {**RPC, **PROBE, **{p: u for c in CHAINS.values() for p, u in c['rpcs'].items()}}
+SPACING = {'blockscout': 2.0, **{p: 0.2 for c in CHAINS.values() for p in c['rpcs']}}  # seconds between live calls
 last_call = {}
 REST = 'https://celo.blockscout.com/api/v2'
 CHAIN_ID = 42220
@@ -107,7 +118,7 @@ def fetch(provider, url, body=None):
             break
         except urllib.error.HTTPError as e:
             status, text = e.code, e.read().decode(errors='replace')
-            if status not in (429, 502, 503, 504):
+            if status not in (408, 429, 502, 503, 504):
                 break
         except Exception as e:  # transport failure: not frozen, a re-run retries
             status, text = None, repr(e)
@@ -125,7 +136,7 @@ def fetch(provider, url, body=None):
 
 
 def rpc(provider, method, *params, url=None):
-    r = fetch(provider, url or RPC[provider], rpc_body(method, *params))
+    r = fetch(provider, url or URLS[provider], rpc_body(method, *params))
     return r.get('result'), r.get('error')
 
 
@@ -149,6 +160,20 @@ def block_at(t, head, guess=None):
     while hi - lo > 1:
         mid = (lo + hi) // 2
         lo, hi = (mid, hi) if int(header(mid)['timestamp'], 16) <= t else (lo, mid)
+    return lo
+
+
+def block_at_search(p, t, lo, hi):
+    """Last block <= t on provider p within [lo, hi] (ts(lo) <= t < ts(hi)): interpolation, bisection when it stalls."""
+    ts = lambda n: int(header(n, p)['timestamp'], 16)
+    tlo, thi, step = ts(lo), ts(hi), 0
+    assert tlo <= t < thi, (p, t, lo, hi)
+    while hi - lo > 1:
+        step += 1
+        g = (lo + hi) // 2 if step % 3 == 0 else lo + int((t - tlo) * (hi - lo) / max(thi - tlo, 1))
+        g = min(max(g, lo + 1), hi - 1)
+        tg = ts(g)
+        lo, tlo, hi, thi = (g, tg, hi, thi) if tg <= t else (lo, tlo, g, tg)
     return lo
 
 
@@ -293,6 +318,115 @@ def write_csv(path, data):
         w = csv.DictWriter(f, fieldnames=fields)
         w.writeheader()
         w.writerows(data)
+
+
+# ---------------------------------------------------------------- S4: other listed contracts (protocol amendment 10)
+def chains():
+    v1 = json.loads(DEFILLAMA.read_text())['chainBalances']
+    day = lambda k: DAY0 + dt.timedelta(days=k)
+    celo = {r['label']: int(r['total_supply_base']) for r in csv.DictReader(open(ROOT / 'data/processed/P3-29_snapshots.csv'))
+            if r['provider'] == 'forno'}
+    rows, cap, pred = [], [], []
+    for name, c in CHAINS.items():
+        (pa, pb), tok = c['rpcs'], c['token']
+        llama = {dt.datetime.fromtimestamp(r['date'], dt.UTC).date().isoformat(): r['circulating']['peggedREAL']
+                 for r in v1[c['llama']]['tokens']}
+        for p in (pa, pb):
+            res, err = rpc(p, 'eth_chainId')
+            cap.append({'chain': name, 'provider': p, 'capability': 'chain_id', 'ok': bool(res) and int(res, 16) == c['id'],
+                        'detail': res or err})
+        head = int(must(pa, 'eth_blockNumber'), 16)
+        supply = lambda p, b: (lambda r: int(r[0], 16) if r[0] else None)(rpc(p, 'eth_call', {'to': tok, 'data': SEL['totalSupply']}, hex(b)))
+        lo, bounds = 1, []
+        for k in range(N_BOUND):
+            b = block_at_search(pa, int(day(k).timestamp()), lo, head)
+            lo = b
+            sa, sb = supply(pa, b), supply(pb, b)
+            meta = {}
+            for p in (pb, pa):  # code and implementation slot from whichever provider serves them
+                code, e1 = rpc(p, 'eth_getCode', tok, hex(b))
+                impl, e2 = rpc(p, 'eth_getStorageAt', tok, IMPL_SLOT, hex(b))
+                if code and impl:
+                    meta = {'code_sha256': sha(code), 'implementation': word_addr(impl), 'meta_provider': p}
+                    break
+            dec = rpc(pa, 'eth_call', {'to': tok, 'data': SEL['decimals']}, hex(b))[0]
+            rep_v = llama.get(day(k).date().isoformat())
+            bounds.append({'chain': name, 'label': day(k).date().isoformat(), 'block': b,
+                           'time_utc': dt.datetime.fromtimestamp(int(header(b, pa)['timestamp'], 16), dt.UTC).isoformat(),
+                           'supply_base': sa, 'supply_brla': brla(sa), 'second_provider_equal': sa is not None and sa == sb,
+                           'decimals': int(dec, 16) if dec else None, **meta, 'defillama_v1': rep_v,
+                           'r_at_0000_brla': '' if rep_v is None or sa is None else f'{Decimal(str(rep_v)) - Decimal(sa) / UNIT:f}'})
+        for k in range(N_BOUND - 1):
+            bounds[k]['delta_next_day_brla'] = brla(bounds[k + 1]['supply_base'] - bounds[k]['supply_base'])
+        rows += bounds
+        cap.append({'chain': name, 'provider': f'{pa}+{pb}', 'capability': 'historical_supply_all_boundaries',
+                    'ok': all(r['supply_base'] is not None for r in bounds),
+                    'detail': f"second provider equal at {sum(r['second_provider_equal'] for r in bounds)} of {N_BOUND}"})
+        cap.append({'chain': name, 'provider': bounds[0].get('meta_provider'), 'capability': 'code_and_implementation',
+                    'ok': bool(bounds[0].get('code_sha256')),
+                    'detail': f"implementations {sorted({r.get('implementation') for r in bounds})}, "
+                              f"code hashes {len({r.get('code_sha256') for r in bounds})}, decimals {sorted({r['decimals'] for r in bounds}, key=str)}"})
+        # prediction P-0045 (held out from Celo): flat 00:44-00:48 UTC window -> DefiLlama equals supply within 1 BRLA
+        for k in range(DEV_END + 1):
+            t44 = int((day(k) + dt.timedelta(minutes=44)).timestamp())
+            b44 = block_at_search(pa, t44, bounds[k]['block'], head)
+            b48 = block_at_search(pa, t44 + 240, b44, head)
+            s44, s48, rep_v = supply(pa, b44), supply(pa, b48), llama.get(day(k).date().isoformat())
+            flat = s44 is not None and s44 == s48
+            verdict = 'not_tested' if not flat or rep_v is None else (
+                'match' if abs(int(Decimal(str(rep_v)) * UNIT) - s44) <= UNIT else 'miss')
+            pred.append({'chain': name, 'label': day(k).date().isoformat(), 'block_0044': b44, 'block_0048': b48,
+                         'supply_0044_brla': brla(s44), 'supply_0048_brla': brla(s48), 'flat_window': flat,
+                         'defillama_v1': rep_v, 'verdict': verdict,  # post hoc split, description only:
+                         'informative': verdict == 'match' and abs(int(Decimal(str(rep_v)) * UNIT) - bounds[k]['supply_base']) > UNIT})
+    # offset screen and consolidated view
+    other = lambda lab: sum(r['supply_base'] for r in rows if r['label'] == lab)
+    labels = [day(k).date().isoformat() for k in range(N_BOUND)]
+    screen = []
+    for a, b in zip(labels, labels[1:]):
+        dc, do = celo[b] - celo[a], other(b) - other(a)
+        screen.append({'day_utc': a, 'celo_change_brla': brla(dc), 'other_chains_change_brla': brla(do),
+                       'offset': dc < 0 and do > 0 and 2 * do >= -dc})
+    dc, do = celo[labels[-1]] - celo[labels[0]], other(labels[-1]) - other(labels[0])
+    screen.append({'day_utc': f'cumulative {labels[0]} to {labels[-1]}', 'celo_change_brla': brla(dc),
+                   'other_chains_change_brla': brla(do), 'offset': dc < 0 and do > 0 and 2 * do >= -dc})
+    llama_total = lambda lab: sum(Decimal(str(t['circulating']['peggedREAL'])) for ch in v1.values() for t in ch['tokens']
+                                  if dt.datetime.fromtimestamp(t['date'], dt.UTC).date().isoformat() == lab)
+    consolidated = [{'label': lab, 'onchain_four_contracts_brla': brla(celo[lab] + other(lab)),
+                     'defillama_v1_sum_brla': f'{llama_total(lab):f}'} for lab in labels]
+    write_csv(ROOT / 'data/processed/P3-29_chains.csv', rows)
+    write_csv(ROOT / 'results/tables/P3-29_chains_prediction.csv', pred)
+    L = ['# P3-29 S4: other listed BRLA contracts (generated by scripts/p3_29_reconcile.py chains)', '',
+         'Protocol amendment 10 (registered before any value was read). totalSupply at 00:00 UTC boundaries only; no logs, '
+         'so no within-day check and no transaction-level link. Amounts in BRLA.', '', '## Capabilities and identity', '',
+         '| Chain | Provider | Capability | OK | Detail |', '|---|---|---|---|---|']
+    L += [f"| {c['chain']} | {c['provider']} | {c['capability']} | {c['ok']} | {c['detail']} |" for c in cap]
+    L += ['', '## Supply at 00:00 UTC (mn BRLA) and DefiLlama v1 minus on-chain (BRLA)', '',
+          '| Label | ' + ' | '.join(f'{n} supply | {n} r' for n in CHAINS) + ' |', '|---|' + '---:|---:|' * len(CHAINS)]
+    for lab in labels:
+        cells = []
+        for n in CHAINS:
+            r = next(x for x in rows if x['chain'] == n and x['label'] == lab)
+            cells += [f"{float(r['supply_brla']) / 1e6:,.3f}" if r['supply_brla'] else '-',
+                      f"{float(r['r_at_0000_brla']):,.0f}" if r['r_at_0000_brla'] else '-']
+        L.append(f'| {lab} | ' + ' | '.join(cells) + ' |')
+    L += ['', '## Prediction P-0045 (held out from Celo): DefiLlama = supply in a flat 00:44-00:48 UTC window, +-1 BRLA', '']
+    for n in CHAINS:
+        v = [x['verdict'] for x in pred if x['chain'] == n]
+        inf = sum(x['informative'] for x in pred if x['chain'] == n)
+        L.append(f"- {n}: {v.count('match')} match, {v.count('miss')} miss, {v.count('not_tested')} not tested (window not flat "
+                 f"or no value); informative matches (00:44 value differs from 00:00 by more than 1 BRLA, post hoc): {inf}")
+    L += [f"- misses: {[(x['chain'], x['label'], x['defillama_v1'], x['supply_0044_brla']) for x in pred if x['verdict'] == 'miss']}",
+          '', '## Offset screen (Celo daily change vs the three other contracts combined; accounting, not linking)', '',
+          '| Day (UTC) | Celo change | Other chains change | Offset (opposite sign, >= half) |', '|---|---:|---:|---|']
+    L += [f"| {x['day_utc']} | {float(x['celo_change_brla']):,.0f} | {float(x['other_chains_change_brla']):,.0f} | {x['offset']} |"
+          for x in screen]
+    L += ['', '## Consolidated: sum of the four contracts at 00:00 UTC vs the sum of DefiLlama v1 chain values', '',
+          '| Label | On-chain, four contracts | DefiLlama v1 sum |', '|---|---:|---:|']
+    L += [f"| {x['label']} | {float(x['onchain_four_contracts_brla']):,.0f} | {float(x['defillama_v1_sum_brla']):,.0f} |"
+          for x in consolidated]
+    (ROOT / 'results/tables/P3-29_chains_audit.md').write_text('\n'.join(L) + '\n')
+    print('\n'.join(L))
 
 
 # ---------------------------------------------------------------- S3: Celo ledger (results/P3-29_protocol.md)
@@ -593,6 +727,6 @@ def audit(dev, recon, snaps, large, sample, dev_mb, gross, checks, events, meta)
 
 
 if __name__ == '__main__':
-    if sys.argv[1:] not in (['smoke'], ['ledger']):
+    if sys.argv[1:] not in (['smoke'], ['ledger'], ['chains']):
         sys.exit(__doc__)
-    {'smoke': smoke, 'ledger': ledger}[sys.argv[1]]()
+    {'smoke': smoke, 'ledger': ledger, 'chains': chains}[sys.argv[1]]()

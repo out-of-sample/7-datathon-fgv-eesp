@@ -118,7 +118,7 @@ counterparty concentration, cross-checks, provider labels). New finding with the
   is now frozen for every minter/burner and for every contract called by a ≥ 1% event's transaction, since all of
   those went through another contract. (9) Selectors are named whenever their `web3_sha3` hash matches a listed
   signature, `execute(bytes,bytes[])` included, whatever contract was called. Description only.
-- 2026-11-07 01:12 Brasília, **before any Polygon, Gnosis or Moonbeam value or any S5 case was read** (S4 and S5 run rules):
+- 2026-11-07 01:32 Brasília (`19a878f`), **before any Polygon, Gnosis or Moonbeam value or any S5 case was read** (S4 and S5 run rules):
   (10) **S4, limited.** Contracts: Polygon (chain 137) `0xe6a537a407488807f0bbeb0038b79004f19dddfb`, Gnosis (100)
   `0xfecb3f7c54e2caae9dc6ac9060a822d47e053760`, Moonbeam (1284) `0xfeb25f3fddad13f82c4d6dbc1481516f62236429`; Base
   excluded (attribution unverified, D-20). Capability per chain as in S1: chain ID, historical `totalSupply`/`decimals`,
