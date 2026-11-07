@@ -2,9 +2,9 @@
 id: P3-29
 title: Reconcile reported BRLA supply changes with on-chain evidence
 phase: P3
-status: paused
+status: doing
 owner: Team
-working: -
+working: Renzo (agent)
 due: 2026-11-07
 depends: P3-27
 ---
@@ -150,9 +150,9 @@ Each step is one focused session or is split further when needed. Prioritize the
 - [x] S1 — Verify source provenance and historical RPC capabilities; record G1 and one snapshot pair. — done: Renzo (agent), 2026-11-07 (G1 passed for Celo; F-041)
 - [x] S2 — Commit the accounting protocol, scope, definitions, tolerances and selection rule. — done: Renzo (agent), 2026-11-07 (`results/P3-29_protocol.md`, committed before any interval log was collected)
 - [x] S3 — Reconstruct the Celo stock identity; audit events/coverage and pass G2. — done: Renzo (agent), 2026-11-07 (F-042; stock residual 0 on every day; **G2 needs the reviewer**: follow `results/tables/P3-29_case_audit.md` to the raw files)
-- [ ] S4 — Compare circulation and investigate verified multi-chain links; preserve unresolved differences.
-- [ ] S5 — Complete the frozen additional-case evaluation; run or explicitly waive H4.
-- [ ] S6 — Review economic interpretation and prepare the integration figure/evidence export.
+- [ ] S4 — Compare circulation and investigate verified multi-chain links; preserve unresolved differences. — doing: Renzo (agent)
+- [ ] S5 — Complete the frozen additional-case evaluation; run or explicitly waive H4. — doing: Renzo (agent)
+- [ ] S6 — Review economic interpretation and prepare the integration figure/evidence export. — doing: Renzo (agent)
 - [ ] S7 — Independently reproduce outputs, write the finding and finish the handoff.
 
 ## Success criteria
@@ -227,6 +227,7 @@ Read `prompt.md`, `STATUS.md`, P3-27, F-037/P3-24 and the input script/data note
   `data/raw/SHA256SUMS`, not in git). Endpoint limits are in F-041.
 
 ## Log
+- 2026-11-07 01:12 (Brasília) — agent for Renzo: Renzo: "proceed to the rest of the task". Renzo takes S4, S5 and the S6 preparation (figure + draft annex text; Felipe reviews). S7 reproduction stays with a teammate; H4 stays waived (protocol §8). Amendment 10 (S4 rules, prediction P-0045) and 11 (S5 run order) committed before any non-Celo or S5 data is read.
 - 2026-11-07 01:05 (Brasília) — agent for Renzo: S3 done. Ledger code and amendments 1–6 pushed before collection (`5d44c1b`); 242 chunks, no gaps; stock residual 0 base units on all 14 days; 38/38 receipts confirmed on Ankr; post hoc amendments 7–9 (2 Jul day, Blockscout metadata, selector naming). F-042 exploratory; F-037/F-041 History notes; sources T-20, T-21; events CSV git-ignored (5.8 MB). Status paused; reviewer needed for G2/S7.
 - 2026-11-07 00:49 (Brasília) — agent for Renzo: S2 protocol committed before collection: development interval (69,926,442, 70,963,242], zero-base-unit stock tolerance, DefiLlama definition identified / timing not, ±1 BRLA within-day consistency rule, cross-check and S5 selection rules; H4 waived for the PDF.
 - 2026-11-07 00:48 (Brasília) — agent for Renzo: Renzo said "proceed" to the S1 recommendations; read as: S2 then S3 under the recommended scope (Celo case study; S4 limited to other chains' totalSupply; S5/H4 deferred for the 8 Nov PDF) and a fresh DefiLlama version pulled. Reviewer still to be named. Renzo takes S2–S3.

@@ -118,3 +118,24 @@ counterparty concentration, cross-checks, provider labels). New finding with the
   is now frozen for every minter/burner and for every contract called by a ≥ 1% event's transaction, since all of
   those went through another contract. (9) Selectors are named whenever their `web3_sha3` hash matches a listed
   signature, `execute(bytes,bytes[])` included, whatever contract was called. Description only.
+- 2026-11-07 01:12 Brasília, **before any Polygon, Gnosis or Moonbeam value or any S5 case was read** (S4 and S5 run rules):
+  (10) **S4, limited.** Contracts: Polygon (chain 137) `0xe6a537a407488807f0bbeb0038b79004f19dddfb`, Gnosis (100)
+  `0xfecb3f7c54e2caae9dc6ac9060a822d47e053760`, Moonbeam (1284) `0xfeb25f3fddad13f82c4d6dbc1481516f62236429`; Base
+  excluded (attribution unverified, D-20). Capability per chain as in S1: chain ID, historical `totalSupply`/`decimals`,
+  code and the EIP-1967 implementation slot at the boundaries, on up to two public providers, failures recorded. Quantities:
+  `totalSupply` at each 00:00 UTC boundary 19 Jun – 3 Jul; daily change; raw r_D against DefiLlama v1 per chain. No
+  logs are collected, so the within-day rule is `not_tested` there. **Prediction P-0045**, a held-out test of the
+  ~00:45 UTC pattern seen on Celo: for each chain and label D = 19 Jun … 1 Jul whose supply is the same at the last block ≤
+  D 00:44:00 and the last block ≤ D 00:48:00 UTC ("flat window"), DefiLlama v1 equals that supply within ±1 BRLA.
+  Reported: flat windows, matches, misses. Non-flat windows are `not_tested`. Any miss counts against the description
+  "one daily read at about 00:45 UTC". **Offset screen (accounting, not linking):** a Celo daily fall counts as offset on
+  the listed chains only if their combined change that day is opposite in sign and at least half its size, and the same
+  is done cumulatively over 19 Jun – 3 Jul. Even an offset would remain an unlinked coincidence (§6). **Consolidated view** =
+  sum of the four contracts' `totalSupply` (DefiLlama's definition). No bridge escrow is documented, so nothing is
+  subtracted; that none exists is not verified.
+  (11) **S5 run order and checks.** `cases` first writes the manifest from v1 alone (rule §8; quartiles by
+  `statistics.quantiles(n=4, method='inclusive')`, "between" inclusive, labels without a previous day skipped; ordinary
+  labels sampled from the eligible list in date order). The manifest is committed before any case's logs are collected.
+  Per case: the same stock identity (0 base units) and within-day provider rule for labels D−1 and D. Receipts for every
+  event ≥ 1% of the case's gross volume plus 5 seeded others (seed 20261107), not 30, to keep Ankr calls bounded.
+
