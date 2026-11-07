@@ -2,9 +2,9 @@
 id: P3-28
 title: Build and evaluate a source-backed agentic map of digital-dollar access
 phase: P3
-status: todo
+status: doing
 owner: Team
-working: -
+working: Renzo (agent)
 due: 2026-11-07
 depends: P3-27
 ---
@@ -125,7 +125,7 @@ Secondary measures: correctness of unknown/conflicting states; field-level preci
 Each step is a separate work session; split further if it exceeds one focused session. Do not build all infrastructure before the first evidence card. Use G1/G2 as checks of the listed criteria, not as invented external permission requirements.
 
 ## Subtasks
-- [ ] S1 — Confirm case contract, source access and reviewers; complete one development evidence card.
+- [ ] S1 — Confirm case contract, source access and reviewers; complete one development evidence card. — doing: Renzo (agent)
 - [ ] S2 — Freeze the corpus, grouped case split and independently adjudicated reference; pass G1.
 - [ ] S3 — Build and pilot B0/B1/B2/A; commit the final protocol before held-out runs.
 - [ ] S4 — Complete the locked evaluation and independent claim/error audit; pass G2.
@@ -185,6 +185,7 @@ Read `prompt.md`, `STATUS.md`, P3-27 and its 6 Nov log entries, then F-028/F-030
 - **How to resume:** follow the reading order above; inspect `results/tables/P3-15_routes.md` and `P3-17_candidates.md`. Create new P3-28 outputs only; do not alter P3-05/P3-06 or frozen results.
 
 ## Log
+- 2026-11-07 — agent for Renzo: Renzo takes S1 only (scope decision: S1, then the team chooses annex-only descriptive table or post-submission study; full H1 evaluation not attempted before 8 Nov). Second coder: Felipe.
 - 2026-11-06 — Codex for Renzo: formalized from the P3-27 discussion at Renzo's request. Documentation only; no experiment launched or team member assigned.
 
 ## Result
