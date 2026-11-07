@@ -2,9 +2,9 @@
 id: P3-28
 title: Build and evaluate a source-backed agentic map of digital-dollar access
 phase: P3
-status: paused
+status: doing
 owner: Team
-working: -
+working: Renzo (agent)
 due: 2026-11-07
 depends: P3-27
 ---
@@ -126,7 +126,7 @@ Each step is a separate work session; split further if it exceeds one focused se
 
 ## Subtasks
 - [x] S1 — Confirm case contract, source access and reviewers; complete one development evidence card. — done: Renzo's agent, 7 Nov (scope: S1 only; second coder Felipe; G2 auditor not named)
-- [ ] S2 — Freeze the corpus, grouped case split and independently adjudicated reference; pass G1.
+- [ ] S2 — Freeze the corpus, grouped case split and independently adjudicated reference; pass G1. — doing: Renzo (agent) for corpus, case manifest, rubric and coding forms; human coding by two readers (Felipe + one more) pending
 - [ ] S3 — Build and pilot B0/B1/B2/A; commit the final protocol before held-out runs.
 - [ ] S4 — Complete the locked evaluation and independent claim/error audit; pass G2.
 - [ ] S5 — Produce the dated access map and a measured integration proposal for the project.
@@ -185,6 +185,7 @@ Read `prompt.md`, `STATUS.md`, P3-27 and its 6 Nov log entries, then F-028/F-030
 - **How to resume:** `.venv/bin/python scripts/p3_28_access_map.py selftest`, then `card` (offline; needs `data/raw/p3_28/`, which is out of git; without it run `snapshot` first, and the passage check may then fail if pages changed). New case: add a row to `results/tables/P3-28_cases.csv`, its sources to `P3-28_sources.csv` (snapshot=yes) and to `docs/sources.md` (A-12 onwards), run `snapshot`, code its rows in `data/processed/P3-28_conditions.csv`, run `card`. Do not edit `P3-28_access_cards.md` by hand. Do not alter P3-05/P3-06 or frozen results.
 
 ## Log
+- 2026-11-07 — agent for Renzo: Renzo asks to proceed with the study; agent takes S2 (corpus, grouped split, rubric, blank coding forms). Reference labels must come from two human readers; results enter the PDF only after S6 review.
 - 2026-11-07 — agent for Renzo: S1 done → paused. Case contract, source-access tests (Foxbit, BCB, Tether 200; Binance 202; MB 403; Wayback June copies only for terms/fee pages), `scripts/p3_28_access_map.py` (snapshot/card/selftest; deterministic aggregation; verbatim passage check), D-01 card: route not established on L1 (Res. 589 since 6 Nov vs Foxbit applicant status). A-01–A-11 registered. F-043 exploratory. Shared working tree with a parallel P3-29 session: only P3-28 files and lines committed.
 - 2026-11-07 — agent for Renzo: Renzo takes S1 only (scope decision: S1, then the team chooses annex-only descriptive table or post-submission study; full H1 evaluation not attempted before 8 Nov). Second coder: Felipe.
 - 2026-11-06 — Codex for Renzo: formalized from the P3-27 discussion at Renzo's request. Documentation only; no experiment launched or team member assigned.
