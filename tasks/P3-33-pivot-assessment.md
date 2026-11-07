@@ -4,7 +4,7 @@ title: Synthesize shock-duration and holder-decision pivot
 phase: P3
 status: review
 owner: Economist
-working: Renzo (agent, review)
+working: -
 due: 2026-11-08
 depends: P3-30, P3-31, P3-32
 ---
@@ -26,10 +26,32 @@ Deliver the extensive English assessment requested by Felipe, linking new resear
 - `docs/shock-duration-and-holder-decisions-assessment.md`
 
 ## Handoff
-- **State (6 Nov, fixes accepted):** Felipe accepted the second review's fixes and completely rewrote `docs/shock-duration-and-holder-decisions-assessment.md` to match the corrected F-038 and F-039. The correction banner was replaced with a clean status note; all withdrawn claims (typed-in premiums, 2.5 bps carry cost, break-even $h^*$, ex-ante optimal waiting, duration model beating the base rate, Brazil 20-day spike link) were purged; and §8 Portuguese conclusion alternatives for Slide 10 were rewritten combining the corrected retrospective and base-rate findings with the 3-lesson / public-gauge framework from `docs/proposal-2026-11-05-lessons-and-solution.md`.
-- **Exact next step:** A third-party teammate who is neither Felipe nor Renzo (Nattan or Jonathan) re-runs both scripts to mark P3-30 and P3-31 done. Felipe and the team finalize Slide 10 in P5-08 using the updated alternatives.
-- **Open questions:** Slide 10 architecture and text selection (P5-08).
-- **How to resume:** Read `docs/shock-duration-and-holder-decisions-assessment.md`.
+- **State (7 Nov, after Renzo's agent's check of Felipe's rewrite `1764536`):** the rewrite matches F-038/F-039.
+  The check found new errors in it and fixed them in place:
+  - Tables 4.1–4.3 used the PTAX of 17 Jun **2024** (5.4124) and an unmatched 5.3976 as the 25 Jun 2026 prices;
+    every price and R$ level is now regenerated from `P3-31_thresholds.csv` and `P3-31_historical_comparison.csv`
+    (the differences and bps were already right).
+  - Slide 10 options:
+    - Brazil's shock "levou mais de 110 dias para fechar a banda" → it never closed;
+    - "Res. 574 previsão mantida / confirmed" → preliminary, with the re-run and P3-26 pending;
+    - "a rede custa frações de ponto-base" removed (the proposed F-040 is not built);
+    - Foxbit 7→35% labelled exploratory;
+    - seller's −R$ 4.7k to −21.7k was called a "carry loss" → mostly the premium falling and the real
+      appreciating;
+    - "Res. 561, 574, 580 within ±35 pb" contradicted F-029/P3-16 → rewritten from F-026 with the Res. 574
+      caveat.
+  - Overclaims:
+    - buyers of the R$ 106–145 mn named as institutions (F-025 does not identify them);
+    - "pre-registered" gates (the pool was added after Brazil failed);
+    - duality "confirms the transfer" (it is an identity);
+    - imports "confirm" the supply contraction;
+    - F-031/F-032 listed as frozen and as an "institutional liquidity mechanism";
+    - BRLA "+111 bps over PTAX" (it is a change);
+    - a test name that does not exist.
+  - 68 links to `file:///c:/Users/Felipe/...` made relative.
+- **Exact next step:** Felipe checks the diff of this commit; the Slide 10 choice continues in P5-08.
+- **Open questions:** none on the numbers.
+- **How to resume:** `git show` this commit; tables can be re-derived from the two CSVs above.
 
 ## Log
 - 2026-11-06 — agent for Renzo (23:43): Renzo takes the peer review of this task (Felipe is the author; Renzo's agent reviews and fixes).
@@ -40,6 +62,7 @@ Deliver the extensive English assessment requested by Felipe, linking new resear
 - 2026-11-06 — Felipe: accepted the second review's fixes; completely rewrote `docs/shock-duration-and-holder-decisions-assessment.md` to match corrected F-038 and F-039; purged all withdrawn numbers and claims; updated Slide 10 conclusion options with the 3-lesson / public-gauge framework; status stays review pending teammate re-run of P3-30/P3-31.
 
 - 2026-11-07 — agent for Renzo (00:26): Renzo takes the check of the rewritten assessment (Felipe's `1764536`).
+- 2026-11-07 — agent for Renzo (00:28): checked Felipe's rewrite; fixed wrong price levels (2024 PTAX) in Tables 4.1–4.3, six Slide 10 wording errors, seven overclaims and 68 local-disk links; status stays `review`.
 
 ## Result
 Complete. Comprehensive updated English assessment deliverable delivered in `docs/shock-duration-and-holder-decisions-assessment.md`. Original brief, deck, and STATUS.md intact. Status -> review.

@@ -1,6 +1,8 @@
 # From Retrospective Shock Analysis to Institutional Treasury Decisions: Comprehensive Assessment of Shock Duration and Holder Decisions
 
-> **Status Note (6 November 2026):** This assessment incorporates all peer-review corrections by Renzo's agent (`0f57637`), accepted by Felipe. All calculations, empirical tables, and narrative claims match exploratory findings [`F-038`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-038-shock-duration-feasibility.md) and [`F-039`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-039-holder-decisions.md) and the second review in [`docs/shock-duration-holder-review.md`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/docs/shock-duration-holder-review.md) exactly. All prior withdrawn claims (e.g., typed-in premiums, 2.5 bps/day carry cost, break-even $h^*$, "ex-ante optimal" waiting, hazard model beating the base rate, and the "Brazil 20-day spike" link) have been fully purged.
+> **Status Note (6 November 2026):** This assessment incorporates all peer-review corrections by Renzo's agent (`0f57637`), accepted by Felipe. All calculations, empirical tables, and narrative claims match exploratory findings [`F-038`](../findings/F-038-shock-duration-feasibility.md) and [`F-039`](../findings/F-039-holder-decisions.md) and the second review in [`docs/shock-duration-holder-review.md`](../docs/shock-duration-holder-review.md) exactly. All prior withdrawn claims (e.g., typed-in premiums, 2.5 bps/day carry cost, break-even $h^*$, "ex-ante optimal" waiting, hazard model beating the base rate, and the "Brazil 20-day spike" link) have been fully purged.
+>
+> **Check of this rewrite (Renzo's agent, 7 Nov 2026):** price levels in Tables 4.1–4.3 were taken from 17 Jun 2024 (PTAX 5.4124) and are now regenerated from the P3-31 tables (25 Jun 2026: USDT R\$ 5.2785, PTAX 5.1892); Slide 10 options and §§1, 2, 4.4, 5.1, 9 corrected where they went beyond F-024/F-026/F-029/F-031/F-035–F-038; links made relative. Details in `tasks/P3-33-pivot-assessment.md` (log, 7 Nov).
 
 **Author / Working Role:** Felipe (Research Engineer and Critical Reviewer; updated following peer review)  
 **Date:** 6–7 November 2026, Brasília time  
@@ -30,11 +32,11 @@
 ### 1.1 The Mentor Challenge: Bridging Econometrics and Action
 
 Through phases P1 to P4 of the Datathon, the team successfully established the core econometric facts surrounding the 23 June 2026 Banco Central do Brasil (BCB) supervisory notice (*ofício*):
-- An acute, unprecedented spike of **+93.9 bps** ($+73.7$ to $+128.3$ bps across 22 specifications) in the USDT/BRL premium over official PTAX ([`F-016`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-016-event-studies-placebos.md), [`F-022`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-022-robustness-battery.md));
-- A blind structural break detected at 24 June 2026 across all three major Brazilian venues ([`F-011`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-011-blind-breaks.md), [`F-009`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-009-jump-not-venue-fx-usdt.md));
-- A synthetic control treatment gap of **+109.3 bps** separating Brazil from international comparison currencies ([`F-017`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-017-synthetic-control.md));
-- A **$-78\%$ contraction** in resident stablecoin purchases abroad in official balance of payments statistics ([`F-024`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-024-stablecoin-imports.md)); and
-- An aggregate private wealth transfer of **R\$ 106.1 million** on Binance alone (**R\$ 145.3 million** across three venues) paid by crypto-dollar buyers over four weeks ([`F-025`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-025-money-moved.md)).
+- An acute, unprecedented spike of **+93.9 bps** ($+73.7$ to $+128.3$ bps across 22 specifications) in the USDT/BRL premium over official PTAX ([`F-016`](../findings/F-016-event-studies-placebos.md), [`F-022`](../findings/F-022-robustness-battery.md));
+- A blind structural break detected at 24 June 2026 across all three major Brazilian venues ([`F-011`](../findings/F-011-blind-breaks.md), [`F-009`](../findings/F-009-jump-not-venue-fx-usdt.md));
+- A synthetic control treatment gap of **+109.3 bps** separating Brazil from international comparison currencies ([`F-017`](../findings/F-017-synthetic-control.md));
+- A **$-78\%$ contraction** in resident stablecoin purchases abroad in official balance of payments statistics ([`F-024`](../findings/F-024-stablecoin-imports.md)); and
+- An aggregate private wealth transfer of **R\$ 106.1 million** on Binance alone (**R\$ 145.3 million** across three venues) paid by crypto-dollar buyers over four weeks ([`F-025`](../findings/F-025-money-moved.md)).
 
 The mentor session on 4 November 2026 with David Wasserman (FGV / ex-QR Asset) raised an essential question: *“How does this economic finding guide corporate treasurers, fintech operators, importers, or portfolio managers operating in digital dollars in Brazil?”*
 
@@ -45,7 +47,7 @@ To answer this, our research analyzed the market mechanics facing institutional 
 A naive market intuition suggests that during a market dislocation, participants should simply "wait for conditions to normalize." In the Brazilian digital-dollar market, this intuition overlooks transaction directionality, interest carry, and hedge mechanics:
 
 1. **Side 1 — The Institutional Buyer (`BRL -> USDT`, Importers / Outbound Remitters / Crypto Funds):**  
-   These participants are the buyers who paid the **R\$ 106 to 145 million private tariff** identified in [`F-025`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-025-money-moved.md). When buying during an acute spike, they absorb an artificial local markup. If a buyer needs to acquire USDT by an upcoming deadline, waiting in reais avoids paying the elevated premium.  
+   They were among the buyers who paid the **R\$ 106 to 145 million** identified in [`F-025`](../findings/F-025-money-moved.md) (that finding does not identify which kinds of buyers paid it). When buying during an acute spike, they absorb an artificial local markup. If a buyer needs to acquire USDT by an upcoming deadline, waiting in reais avoids paying the elevated premium.  
    However, waiting unhedged exposes the buyer to macro USD/BRL currency depreciation. To eliminate official exchange rate risk, an institutional entity can execute a **B3-Hedged Waiting Strategy**: keep cash in reais in a domestic deposit earning $A_{\text{BRL}} = (1 + r_{\text{BRL}})^{h/252}$, and buy dollars forward at $F = X_t \cdot A_{\text{BRL}} / A_{\text{USD}}$ on B3 (via mini-dollar `WDO` or OTC NDFs).  
    **Under Covered Interest Parity (CIP), the BRL deposit interest exactly pays the forward points: the hedge has zero daily carry cost.**  
    The hedged saving decomposes into three terms:
@@ -66,7 +68,7 @@ A naive market intuition suggests that during a market dislocation, participants
 
 To establish whether treasurers or regulators could anticipate how long such premium spikes last, we audited shock duration modeling:
 - Single-country Brazilian data fails operational feasibility floors (only 1 test episode in 2026, censored at 111 PTAX days).
-- Pooling **10 global currencies** on native trading calendars (10,875 trading days) passes all pre-registered feasibility gates ($k=3$: **43/38 train, 10/8 val, 8/6 test**).
+- Pooling **10 global currencies** on native trading calendars (10,875 trading days) passes the feasibility floor fixed before fitting (the pool itself was added after Brazil alone failed that floor) ($k=3$: **43/38 train, 10/8 val, 8/6 test**).
 - Non-parametric Kaplan-Meier estimation shows that in the 2020–2024 training pool, **7.1%** of shocks recovered within 5 business days, **26.7%** within 10 days, and **51.1%** within 20 days (median = **20 business days**).
 - However, a regularized discrete-time hazard model ($\lambda = 10$, selected on 2025 validation) **does not reliably beat the Kaplan-Meier base rate**: it loses on 2025 validation (0.346 vs 0.330), loses at $k=2$ (0.239 vs 0.205) and $k=4$ (0.042 vs 0.037), loses on pooled ongoing ages 0/5/10 (0.255 vs 0.222), and its slight 2026 test gain (0.175 vs 0.188) has a 95% bootstrap confidence interval of **$[-0.112, +0.073]$**, which cleanly spans zero.
 - Under the $3\sigma$ rule, Brazil's 2026 episode started on **25 May 2026** and remained unrecovered after **111 PTAX days** on 30 October 2026.
@@ -83,23 +85,23 @@ Every metric, model, and claim in this deliverable is cataloged across four oper
 +----------------------------------------------------------------------------------------------------+
 |                                    RESEARCH EVIDENCE HIERARCHY                                      |
 +----------------------------------------------------------------------------------------------------+
-|  TIER 1: FROZEN FINDINGS (F-001 to F-033)                                                          |
+|  TIER 1: FINDINGS F-001 to F-033 (frozen; F-012, F-029 to F-033 exploratory)                       |
 |  - Tagged `results-frozen` on 4 Nov 2026. Immutable empirical baseline.                             |
-|  - F-001/F-002: Real premium & +93.9 bps jump on 24 Jun 2026.                                      |
+|  - F-001/F-016: Real premium & +93.9 bps jump after the 23 Jun 2026 notice.                        |
 |  - F-007/F-009: 2-10 bps noise floor; identical jump across Binance, Foxbit, Mercado Bitcoin.       |
 |  - F-011/F-016: Blind Bai-Perron break; p ≈ 0.001 vs 1,073 clean placebos.                         |
 |  - F-015/F-025: R$ 4,842 / US$ 100k acute cost; R$ 106.1 mn transfer on Binance.                   |
 |  - F-022/F-024: Post-22 Jul fade indistinguishable from drift (p=0.24); imports fell -78%.         |
 |  - F-026/F-027: Only confidential notice moved premium; Res. 584 prediction committed.             |
-|  - F-031/F-032: Foxbit B2B seller flow (+362 mn USDT) coincided with recovery above 35 bps.        |
+|  - F-031/F-032 (exploratory): seller-initiated Foxbit flow ~362 mn USDT in the fade; seller unknown.|
 +----------------------------------------------------------------------------------------------------+
                                                  |
                                                  v
 +----------------------------------------------------------------------------------------------------+
 |  TIER 2: EXPLORATORY FINDINGS (F-034 to F-037)                                                      |
 |  - Post-freeze investigations subject to explicit caveats.                                         |
-|  - F-034/F-037: BRLA on-chain Pix->BRLA->USDC route paid +111 bps over PTAX.                       |
-|  - F-035: Registered prediction E1 held (+2.1 bps under Res. 574, p=0.90).                         |
+|  - F-034/F-037: Pix->BRLA->USDC route rose +111 bps after the notice (USDT +94).                   |
+|  - F-035: E1 readout +2.1 bps (p=0.90); re-run and P3-26 audit pending.                            |
 |  - F-036: Foxbit volume share surged from 6.8% to 34.7% during recovery and persisted.             |
 +----------------------------------------------------------------------------------------------------+
                                                  |
@@ -132,22 +134,22 @@ Every metric, model, and claim in this deliverable is cataloged across four oper
 
 | Category | Identifier | Description / Exact Value | Status in Repository | Function in Assessment |
 |---|---|---|---|---|
-| **Frozen Core** | [`F-001`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-001-premium-above-noise.md) | USDT/BRL premium is real (0.2–1.0%), exceeding noise | Frozen (`results-frozen`) | Baseline price phenomenon |
-| **Frozen Core** | [`F-007`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-007-noise-floor.md) | Bid-ask trading friction floor is 2–10 bps | Frozen (`results-frozen`) | Floor for economic significance |
-| **Frozen Core** | [`F-009`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-009-jump-not-venue-fx-usdt.md) | Jump identical across Binance, Foxbit, MB; not USD/USDT | Frozen (`results-frozen`) | Cross-venue market validity |
-| **Frozen Core** | [`F-011`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-011-blind-breaks.md) | Blind Bai-Perron break on 24 Jun 2026 (+100 bps) | Frozen (`results-frozen`) | Unsupervised timing verification |
-| **Frozen Core** | [`F-015`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-015-route-costs.md) | Acute cost: R\$ 4,842 per US\$ 100k (+93.9 bps at daily PTAX) | Frozen (`results-frozen`) | Dollar-cost unit anchor |
-| **Frozen Core** | [`F-016`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-016-event-studies-placebos.md) | 23 Jun notice moved premium (+93.9 bps, $p \approx 0.001$) | Frozen (`results-frozen`) | Causal event study benchmark |
-| **Frozen Core** | [`F-017`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-017-synthetic-control.md) | Synthetic control treatment gap: +109.3 bps (rank 1/6) | Frozen (`results-frozen`) | International counterfactual |
-| **Frozen Core** | [`F-022`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-022-robustness-battery.md) | Post-22 Jul level (+11 to +19 bps) has placebo $p = 0.24$ | Frozen (`results-frozen`) | Limitation of spike duration |
-| **Frozen Core** | [`F-025`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-025-money-moved.md) | Buyers paid R\$ 106.1 mn extra on Binance (R\$ 145.3 mn total) | Frozen (`results-frozen`) | Macroeconomic transfer sizing |
-| **Frozen Core** | [`F-026`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-026-which-rules-matter.md) | Only confidential notice moved premium outside $[-35, +38]$ bps | Frozen (`results-frozen`) | Regulatory notice format finding |
-| **Frozen Core** | [`F-031`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-031-who-traded-the-fade.md) | Foxbit net seller flow (+362 mn USDT) in fade | Frozen (`results-frozen`) | Institutional liquidity mechanism |
-| **Exploratory** | [`F-035`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-035-e1-res574-readout.md) | Registered prediction E1 held (+2.1 bps move, $p = 0.90$) | Exploratory | Pre-registered policy validation |
-| **Exploratory** | [`F-036`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-036-recovery-composition.md) | Foxbit market share rose from 6.8% to 34.7% post-shock | Exploratory | Market microstructure adaptation |
-| **Exploratory** | [`F-037`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-037-brla-route.md) | Polygon Pix $\to$ BRLA $\to$ USDC route rose +111 bps | Exploratory | On-chain rail transmission |
-| **New Model** | [`F-038`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-038-shock-duration-feasibility.md) | Global 10-currency pool: 20d KM median; hazard model does not beat base rate | Exploratory (`P3-30`) | Empirical duration base rate |
-| **New Engine** | [`F-039`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-039-holder-decisions.md) | Retrospective two-sided framework: CIP hedged wait +90/+92/+164 bps | Exploratory (`P3-31`) | Retrospective treasury mechanics |
+| **Frozen Core** | [`F-001`](../findings/F-001-premium-above-noise.md) | USDT/BRL premium is real (0.2–1.0%), exceeding noise | Frozen (`results-frozen`) | Baseline price phenomenon |
+| **Frozen Core** | [`F-007`](../findings/F-007-noise-floor.md) | Bid-ask trading friction floor is 2–10 bps | Frozen (`results-frozen`) | Floor for economic significance |
+| **Frozen Core** | [`F-009`](../findings/F-009-jump-not-venue-fx-usdt.md) | Jump identical across Binance, Foxbit, MB; not USD/USDT | Frozen (`results-frozen`) | Cross-venue market validity |
+| **Frozen Core** | [`F-011`](../findings/F-011-blind-breaks.md) | Blind Bai-Perron break on 24 Jun 2026 (+100 bps) | Frozen (`results-frozen`) | Unsupervised timing verification |
+| **Frozen Core** | [`F-015`](../findings/F-015-route-costs.md) | Acute cost: R\$ 4,842 per US\$ 100k (+93.9 bps at daily PTAX) | Frozen (`results-frozen`) | Dollar-cost unit anchor |
+| **Frozen Core** | [`F-016`](../findings/F-016-event-studies-placebos.md) | 23 Jun notice moved premium (+93.9 bps, $p \approx 0.001$) | Frozen (`results-frozen`) | Causal event study benchmark |
+| **Frozen Core** | [`F-017`](../findings/F-017-synthetic-control.md) | Synthetic control treatment gap: +109.3 bps (rank 1/6) | Frozen (`results-frozen`) | International counterfactual |
+| **Frozen Core** | [`F-022`](../findings/F-022-robustness-battery.md) | Post-22 Jul level (+11 to +19 bps) has placebo $p = 0.24$ | Frozen (`results-frozen`) | Limitation of spike duration |
+| **Frozen Core** | [`F-025`](../findings/F-025-money-moved.md) | Buyers paid R\$ 106.1 mn extra on Binance (R\$ 145.3 mn total) | Frozen (`results-frozen`) | Size of the transfer (recipients inferred) |
+| **Frozen Core** | [`F-026`](../findings/F-026-which-rules-matter.md) | Only confidential notice moved premium outside $[-35, +38]$ bps | Frozen (`results-frozen`) | Regulatory notice format finding |
+| **Frozen Core** | [`F-031`](../findings/F-031-who-traded-the-fade.md) | Seller-initiated Foxbit trading exceeded buyer-initiated by ~362 mn USDT in the fade; seller unknown | Exploratory | Who traded the fade (not identified) |
+| **Exploratory** | [`F-035`](../findings/F-035-e1-res574-readout.md) | Registered prediction E1 held (+2.1 bps move, $p = 0.90$) | Exploratory | Registered prediction; teammate re-run and P3-26 confounder audit pending |
+| **Exploratory** | [`F-036`](../findings/F-036-recovery-composition.md) | Foxbit market share rose from 6.8% to 34.7% post-shock | Exploratory | Market microstructure adaptation |
+| **Exploratory** | [`F-037`](../findings/F-037-brla-route.md) | Polygon Pix $\to$ BRLA $\to$ USDC route rose +111 bps | Exploratory | On-chain rail transmission |
+| **New Model** | [`F-038`](../findings/F-038-shock-duration-feasibility.md) | Global 10-currency pool: 20d KM median; hazard model does not beat base rate | Exploratory (`P3-30`) | Empirical duration base rate |
+| **New Engine** | [`F-039`](../findings/F-039-holder-decisions.md) | Retrospective two-sided framework: CIP hedged wait +90/+92/+164 bps | Exploratory (`P3-31`) | Retrospective treasury mechanics |
 
 ---
 
@@ -160,11 +162,11 @@ In `docs/shock-duration-and-holder-decisions-research-brief.md`, six exploratory
 | Direction | Feasibility & Data Constraints | Econometric & Methodological Risk | Disposition in Project |
 |---|---|---|---|
 | **1. Fair "Brazil Risk" Benchmark Premium** | PTAX, CDS, and DI swaps available, but no clean risk-neutral shadow price exists. | Crypto liquidity segmentation prevents extracting an asset-pricing benchmark; rolling mean $\ne$ "fair". | Documented as future work; not selected. |
-| **2. Transmission Across Markets & Venues** | Multi-venue order books and DEX pools fully available. | Triangular arbitrage enforces tight correlation; cannot isolate regulatory risk from market noise. | Addressed in frozen core ([`F-009`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-009-jump-not-venue-fx-usdt.md), [`F-018`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-018-btc-heterogeneity.md), [`F-037`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-037-brla-route.md)). Complete. |
+| **2. Transmission Across Markets & Venues** | Multi-venue order books and DEX pools fully available. | Triangular arbitrage enforces tight correlation; cannot isolate regulatory risk from market noise. | Addressed in frozen core ([`F-009`](../findings/F-009-jump-not-venue-fx-usdt.md), [`F-018`](../findings/F-018-btc-heterogeneity.md), [`F-037`](../findings/F-037-brla-route.md)). Complete. |
 | **3. Institutional Holder Decision Framework** | PTAX, Binance execution prices, and B3 forward rates fully verifiable. | Past entry prices are sunk costs; must distinguish retrospective outcomes from ex-ante rules. | **Adopted as Two-Sided Treasury Framework (`P3-31` / `F-039`).** |
-| **4. SOFR & On-Chain Yield Optimization** | SOFR and Aave/Compound archives available. | [`F-020`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-020-subsidy-share-2025.md) showed 37–54% of DeFi yield was subsidies. BRL carry dominates USD yield. | Retained only as organic 4% USD sensitivity in `P3-31`. |
+| **4. SOFR & On-Chain Yield Optimization** | SOFR and Aave/Compound archives available. | [`F-020`](../findings/F-020-subsidy-share-2025.md) showed 37–54% of DeFi yield was subsidies. BRL carry dominates USD yield. | Retained only as organic 4% USD sensitivity in `P3-31`. |
 | **5. Statistical Modeling of Shock Duration** | Single-country BRL fails feasibility (1 test episode). 10-currency pool yields 10,875 trading days. | Pooling assumes common recovery mechanism; model does not beat historical base rate out-of-sample. | **Adopted as Global Duration Feasibility & Base-Rate Audit (`P3-30` / `F-038`).** |
-| **6. Global Dollar Depegs & On-Chain Shocks** | 11 dollar depegs cataloged ([`F-013`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-013-depeg-count-v2.md), [`F-019`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-019-depeg-chapter.md)). | Issuer credit/solvency risk is structurally distinct from sovereign FX capital frictions. | Excluded from pooling; preserved as qualitative analogy. |
+| **6. Global Dollar Depegs & On-Chain Shocks** | 11 dollar depegs cataloged ([`F-013`](../findings/F-013-depeg-count-v2.md), [`F-019`](../findings/F-019-depeg-chapter.md)). | Issuer credit/solvency risk is structurally distinct from sovereign FX capital frictions. | Excluded from pooling; preserved as qualitative analogy. |
 
 ---
 
@@ -176,7 +178,7 @@ Let $Q$ denote the transaction volume in USDT ($Q = 100{,}000$ USDT). At busines
 $$P_\tau = X_\tau \cdot U_\tau \cdot \left(1 + \frac{p_\tau}{10{,}000}\right)$$
 where $X_\tau$ is the official PTAX ask rate (BRL per USD), $U_\tau$ is the global USDT/USD price, and $p_\tau$ is the local premium in basis points.
 
-Proportional transaction frictions $c_\tau$ represent maker/taker exchange fees (10 bps baseline); fixed fees $F_\tau$ represent wire/settlement charges. The domestic risk-free rate is $r_{\text{BRL}}$ (10% effective annual net return scenario); organic USD yield is $r_{\text{USD}}$ (0% baseline, 4% sensitivity per [`F-020`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-020-subsidy-share-2025.md)). Time horizon $h = T - t$ is measured in Brazilian PTAX business days (252-day convention).
+Proportional transaction frictions $c_\tau$ represent maker/taker exchange fees (10 bps baseline); fixed fees $F_\tau$ represent wire/settlement charges. The domestic risk-free rate is $r_{\text{BRL}}$ (10% effective annual net return scenario); organic USD yield is $r_{\text{USD}}$ (0% baseline, 4% sensitivity per [`F-020`](../findings/F-020-subsidy-share-2025.md)). Time horizon $h = T - t$ is measured in Brazilian PTAX business days (252-day convention).
 
 ---
 
@@ -209,7 +211,7 @@ To eliminate official exchange rate risk ($X_T$) while waiting for the premium t
    $$B_3 = C_T^{\text{wait}}(Q) - N \cdot (X_T - F) + N \cdot X_t \cdot \text{fee}_{\text{hedge}}$$
 
 #### Exact CIP Algebraic Decomposition
-When $r_{\text{USD\_held}} = 0$, the hedged savings $B_1 - B_3$ decomposes into three terms (verified via unit test `test_b3_hedge_cip_savings_decomposition` in `scripts/p3_31_holder.py`):
+When $r_{\text{USD\_held}} = 0$, the hedged savings $B_1 - B_3$ decomposes into three terms (verified via unit test `test_b3_hedge_decomposition` in `scripts/p3_31_holder.py`):
 $$B_1 - B_3 = \underbrace{Q (1+c) X_T \left[U_t \left(1 + \frac{p_t}{10{,}000}\right) - U_T \left(1 + \frac{p_T}{10{,}000}\right)\right]}_{\text{Premium and USDT/USD Change}} + \underbrace{N X_t A_{\text{BRL}} \left(1 - \frac{1}{A_{\text{USD\_FWD}}}\right)}_{\text{USD Interest Forgone by Holding Idle USDT}} - \underbrace{N X_t \cdot \text{fee}_{\text{hedge}}}_{\text{One-Off Hedge Fee (0.22 bps)}}$$
 
 > [!IMPORTANT]
@@ -221,7 +223,7 @@ $$B_1 - B_3 = \underbrace{Q (1+c) X_T \left[U_t \left(1 + \frac{p_t}{10{,}000}\r
 
 ### Table 4.1: Retrospective Realized Hedged Buyer Outcomes (`P3-31_buyer_hedged_comparison.csv`)
 
-Evaluated on $Q = 100{,}000$ USDT starting from 25 June 2026 (first PTAX day post-spike; $p_0 = 184.35$ bps, $P_0 = 5.4124$ R\$/USDT, PTAX $X_0 = 5.3976$):
+Evaluated on $Q = 100{,}000$ USDT starting from 25 June 2026 (first PTAX day post-spike; $p_0 = 184.35$ bps, $P_0 = 5.2785$ R\$/USDT, PTAX $X_0 = 5.1892$):
 
 | Horizon ($h$) | Deadline Date | Final Premium ($p_T$, bps) | Premium Change ($\Delta p$, bps) | PTAX Change (%) | Hedged Savings (bps) | Hedged Savings (R\$) | Split: Premium Part (R\$) | Split: USD Carry (R\$) | Split: Fee (R\$) | Hedged Savings (5 bps fee, R\$) | Hedged Savings (USDT 4%, R\$) | Unhedged Buyer Savings (R\$) | Currency Effect (Unhedged - Hedged, R\$) |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
@@ -232,12 +234,12 @@ Evaluated on $Q = 100{,}000$ USDT starting from 25 June 2026 (first PTAX day pos
 | 15 days | 16 Jul 2026 | 57.67 | +126.68 | -1.767% | +145.15 | +R\$ 7,713 | +R\$ 6,183 | +R\$ 1,541 | -R\$ 12 | +R\$ 7,460 | +R\$ 6,474 | +R\$ 18,527 | +R\$ 10,814 |
 | 20 days | 23 Jul 2026 | 45.92 | +138.43 | -2.091% | **+164.04** | **+R\$ 8,733** | **+R\$ 6,688** | **+R\$ 2,058** | **-R\$ 12** | **+R\$ 8,481** | **+R\$ 7,079** | **+R\$ 21,747** | **+R\$ 13,014** |
 
-*Source:* [`results/tables/P3-31_buyer_hedged_comparison.csv`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/results/tables/P3-31_buyer_hedged_comparison.csv).
+*Source:* [`results/tables/P3-31_buyer_hedged_comparison.csv`](../results/tables/P3-31_buyer_hedged_comparison.csv).
 
 #### Detailed Findings on Buyer Outcomes:
 1. **Retrospective Realized Savings:** A buyer who delayed conversion from 25 June with a B3 hedge saved **+89.7 bps (R\$ 4,746)** at 5 days, **+92.3 bps (R\$ 4,896)** at 10 days, and **+164.0 bps (R\$ 8,733)** at 20 days per 100k USDT. At 20 days, R\$ 6,688 came from premium compression and USDT/USD peg normalization, and R\$ 2,058 from the forward discount (USD interest).
 2. **Gain Was Not Steady:** On 3 July (6 business days), the premium rebounded to 185.9 bps. At that point, waiting with a hedge had gained only **+6.3 bps (+R\$ 335)**.
-3. **The Unhedged Currency Effect:** At 20 days, the unhedged buyer saved R\$ 21,747. However, **R\$ 13,014 of that saving came from the real appreciating 2.09% on official PTAX** ("currency luck"). The hedged buyer locks official exchange rate risk and captures R\$ 8,733 purely from the crypto-dollar dynamics.
+3. **The Unhedged Currency Effect:** At 20 days, the unhedged buyer saved R\$ 21,747. However, **R\$ 13,014 of that saving came from the real appreciating 2.09% on official PTAX** ("currency luck"). The hedged buyer locks official exchange rate risk and captures R\$ 8,733: R\$ 6,688 from the premium and USDT/USD change and R\$ 2,058 from USD interest.
 
 ---
 
@@ -260,20 +262,20 @@ $$\Delta P^* = \frac{P_T^*}{P_t} - 1 = (1 + r_{\text{BRL}})^{\frac{h}{252}} - 1$
 
 | Horizon ($h$, PTAX days) | Net Annual Rate ($r_{\text{BRL}}$) | Required Gross Price ($P_T^*$, R\$) | Required Gross Appreciation ($\Delta P^*$, bps) | Accumulated "Sell Now" BRL ($V_t^{\text{sell}}$) |
 |---|---|---|---|---|
-| **5 days** | 0.0% (Zero carry) | 5.412400 | 0.0 bps | R\$ 540,698.76 |
-| **5 days** | 5.0% effective | 5.417639 | +9.7 bps | R\$ 541,222.09 |
-| **5 days** | **10.0% effective** | **5.422638** | **+18.9 bps** | **R\$ 541,721.52** |
-| **5 days** | 15.0% effective | 5.427420 | +27.8 bps | R\$ 542,199.17 |
-| **10 days** | 0.0% (Zero carry) | 5.412400 | 0.0 bps | R\$ 540,698.76 |
-| **10 days** | 5.0% effective | 5.422883 | +19.4 bps | R\$ 541,745.92 |
-| **10 days** | **10.0% effective** | **5.432895** | **+37.9 bps** | **R\$ 542,746.12** |
-| **10 days** | 15.0% effective | 5.442478 | +55.6 bps | R\$ 543,703.43 |
-| **20 days** | 0.0% (Zero carry) | 5.412400 | 0.0 bps | R\$ 540,698.76 |
-| **20 days** | 5.0% effective | 5.433383 | +38.8 bps | R\$ 542,794.88 |
-| **20 days** | **10.0% effective** | **5.453463** | **+75.9 bps** | **R\$ 544,800.86** |
-| **20 days** | 15.0% effective | 5.472719 | +111.5 bps | R\$ 546,724.50 |
+| **5 days** | 0.0% (Zero carry) | 5.278475 | 0.0 bps | R\$ 527,319.65 |
+| **5 days** | 5.0% effective | 5.283587 | +9.7 bps | R\$ 527,830.38 |
+| **5 days** | **10.0% effective** | **5.288466** | **+18.9 bps** | **R\$ 528,317.80** |
+| **5 days** | 15.0% effective | 5.293133 | +27.8 bps | R\$ 528,783.97 |
+| **10 days** | 0.0% (Zero carry) | 5.278475 | 0.0 bps | R\$ 527,319.65 |
+| **10 days** | 5.0% effective | 5.288705 | +19.4 bps | R\$ 528,341.59 |
+| **10 days** | **10.0% effective** | **5.298477** | **+37.9 bps** | **R\$ 529,317.83** |
+| **10 days** | 15.0% effective | 5.307831 | +55.6 bps | R\$ 530,252.35 |
+| **20 days** | 0.0% (Zero carry) | 5.278475 | 0.0 bps | R\$ 527,319.65 |
+| **20 days** | 5.0% effective | 5.298954 | +38.8 bps | R\$ 529,365.52 |
+| **20 days** | **10.0% effective** | **5.318554** | **+75.9 bps** | **R\$ 531,323.58** |
+| **20 days** | 15.0% effective | 5.337351 | +111.5 bps | R\$ 533,201.36 |
 
-*Source:* [`results/tables/P3-31_thresholds.csv`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/results/tables/P3-31_thresholds.csv). Symmetric 10 bps execution fees.
+*Source:* [`results/tables/P3-31_thresholds.csv`](../results/tables/P3-31_thresholds.csv). Symmetric 10 bps execution fees.
 
 ---
 
@@ -281,14 +283,14 @@ $$\Delta P^* = \frac{P_T^*}{P_t} - 1 = (1 + r_{\text{BRL}})^{\frac{h}{252}} - 1$
 
 | Horizon ($h$) | Maturity Date | Final Spot Price ($P_h$, R\$) | Path Evaluated | Sell Now Accumulated ($V_t^{\text{sell}}$, R\$) | Wait Net Proceeds ($V_T^{\text{wait}}$, R\$) | Difference: Wait Minus Sell Now (R\$) | PTAX Factor | Premium Factor |
 |---|---|---|---|---|---|---|---|---|
-| **5 days** | 02 Jul 2026 | 5.3756 | Actual Indicative | R\$ 541,721.52 | R\$ 537,024.58 | **-R\$ 4,696.94** | 1.0010 | 0.9916 |
-| **5 days** | 02 Jul 2026 | 5.3685 | Fixed FX & USDT | R\$ 541,721.52 | R\$ 536,313.99 | **-R\$ 5,407.53** | 1.0000 | 0.9916 |
-| **10 days** | 09 Jul 2026 | 5.3168 | Actual Indicative | R\$ 542,746.12 | R\$ 531,152.55 | **-R\$ 11,593.57** | 0.9892 | 0.9921 |
-| **10 days** | 09 Jul 2026 | 5.3709 | Fixed FX & USDT | R\$ 542,746.12 | R\$ 536,578.95 | **-R\$ 6,167.17** | 1.0000 | 0.9921 |
-| **20 days** | 23 Jul 2026 | 5.2362 | Actual Indicative | R\$ 544,800.86 | R\$ 523,097.15 | **-R\$ 21,703.71** | 0.9791 | 0.9864 |
-| **20 days** | 23 Jul 2026 | 5.3416 | Fixed FX & USDT | R\$ 544,800.86 | R\$ 533,629.33 | **-R\$ 11,171.53** | 1.0000 | 0.9864 |
+| **5 days** | 02 Jul 2026 | 5.2415 | Actual Indicative | R\$ 528,317.80 | R\$ 523,620.85 | **-R\$ 4,696.94** | 1.0010 | 0.9916 |
+| **5 days** | 02 Jul 2026 | 5.2343 | Fixed FX & USDT | R\$ 528,317.80 | R\$ 522,910.27 | **-R\$ 5,407.53** | 1.0000 | 0.9916 |
+| **10 days** | 09 Jul 2026 | 5.1824 | Actual Indicative | R\$ 529,317.83 | R\$ 517,724.26 | **-R\$ 11,593.57** | 0.9892 | 0.9921 |
+| **10 days** | 09 Jul 2026 | 5.2367 | Fixed FX & USDT | R\$ 529,317.83 | R\$ 523,150.66 | **-R\$ 6,167.17** | 1.0000 | 0.9921 |
+| **20 days** | 23 Jul 2026 | 5.1013 | Actual Indicative | R\$ 531,323.58 | R\$ 509,619.87 | **-R\$ 21,703.71** | 0.9791 | 0.9864 |
+| **20 days** | 23 Jul 2026 | 5.2067 | Fixed FX & USDT | R\$ 531,323.58 | R\$ 520,152.05 | **-R\$ 11,171.53** | 1.0000 | 0.9864 |
 
-*Source:* [`results/tables/P3-31_historical_comparison.csv`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/results/tables/P3-31_historical_comparison.csv). Net annual effective rate $r_{\text{BRL}} = 10.0\%$; 100,000 USDT lot.
+*Source:* [`results/tables/P3-31_historical_comparison.csv`](../results/tables/P3-31_historical_comparison.csv). Net annual effective rate $r_{\text{BRL}} = 10.0\%$; 100,000 USDT lot.
 
 ---
 
@@ -301,7 +303,7 @@ With symmetric 10 bps fees, $\Delta \text{BRL}_{\text{unhedged}}^{\text{buyer}} 
 - **10 days:** Buyer unhedged savings = **+R\$ 11,616.78** $\leftrightarrow$ Seller waiting loss = **-R\$ 11,593.57**
 - **20 days:** Buyer unhedged savings = **+R\$ 21,747.16** $\leftrightarrow$ Seller waiting loss = **-R\$ 21,703.71**
 
-This duality confirms the macroeconomic transfer: during the spike, buyers paid extra to sellers. An institutional participant must act in strict alignment with their side of the market.
+This is an accounting identity (the same prices seen from the two sides), not separate evidence. It matches F-025's reading that what buyers paid above the old premium was received by sellers; F-025 infers the recipients, it does not measure them.
 
 ---
 
@@ -311,7 +313,7 @@ This duality confirms the macroeconomic transfer: during the spike, buyers paid 
 
 Single-country duration modeling in Brazil alone is constrained by sample size: under the locked 3-standard-deviation onset ($k=3$) and 5-day streak recovery protocol, Brazil experienced 11 training episodes (2020–2024), 3 validation episodes (2025), and only 1 test episode in 2026. This fails the operational feasibility floor ($\ge 5$ test episodes).
 
-However, expanding to the **Global 10-Currency Pool** on native trading calendars (sourcing BRL from P1-02, and EUR, TRY, ZAR, MXN, PLN, IDR, COP, UAH, ARS from P1-05) eliminates cross-country holiday censoring and **passes all pre-registered feasibility gates**.
+However, expanding to the **Global 10-Currency Pool** on native trading calendars (sourcing BRL from P1-02, and EUR, TRY, ZAR, MXN, PLN, IDR, COP, UAH, ARS from P1-05) eliminates cross-country holiday censoring and **passes the feasibility floor fixed before fitting (the pool itself was added after Brazil alone failed that floor)**.
 
 ### Table 5.1: Feasibility Gate Audit Across Scopes and Thresholds (`P3-30_feasibility.csv`)
 
@@ -324,7 +326,7 @@ However, expanding to the **Global 10-Currency Pool** on native trading calendar
 | **Global 10 Currencies** | **2 $\sigma$ (sensitivity)** | **62 / 55** (Pass) | **17 / 13** (Pass) | **14 / 11** (Pass) | **PASSED (Global Pool)** |
 | **Global 10 Currencies** | 4 $\sigma$ (sensitivity) | 33 / 28 (Pass) | 5 / 5 (Pass) | 4 / 3 (Fail: $4 < 5$) | Borderline ($4 < 5$ test) |
 
-*Source:* [`results/tables/P3-30_feasibility.csv`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/results/tables/P3-30_feasibility.csv). Strict chronological re-extraction prevents post-cutoff recoveries from leaking into training or validation labels.
+*Source:* [`results/tables/P3-30_feasibility.csv`](../results/tables/P3-30_feasibility.csv). Strict chronological re-extraction prevents post-cutoff recoveries from leaking into training or validation labels.
 
 ---
 
@@ -380,7 +382,7 @@ Brier score measures mean squared probability error (lower is better). In accord
 
 ## 6. Independent Review and Verification Record (`P3-32` / `docs/shock-duration-holder-review.md`)
 
-Task `P3-32` underwent a rigorous two-stage review process recorded in [`docs/shock-duration-holder-review.md`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/docs/shock-duration-holder-review.md):
+Task `P3-32` underwent a rigorous two-stage review process recorded in [`docs/shock-duration-holder-review.md`](../docs/shock-duration-holder-review.md):
 
 ### 6.1 First Review and Supersession
 The initial review was completed on 6 November 2026 within the author's working session. Because internal self-approval violates repository standards (`prompt.md` §7), it was designated exploratory and superseded by an independent second review.
@@ -445,31 +447,31 @@ py scripts/p3_31_holder.py
 
 ## 8. Portuguese Conclusion Alternatives for Slide 10 (`P5-08`)
 
-To support finalizing Slide 10, three Portuguese conclusion options are presented below. Each incorporates the corrected `F-038` / `F-039` findings and connects them with the 3-lesson / public-gauge architecture proposed in [`docs/proposal-2026-11-05-lessons-and-solution.md`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/docs/proposal-2026-11-05-lessons-and-solution.md).
+To support finalizing Slide 10, three Portuguese conclusion options are presented below. Each incorporates the corrected `F-038` / `F-039` findings and connects them with the 3-lesson / public-gauge architecture proposed in [`docs/proposal-2026-11-05-lessons-and-solution.md`](../docs/proposal-2026-11-05-lessons-and-solution.md).
 
 ```carousel
 ### Opção A: Síntese Integrada — Régua Pública + Lições de Tesouraria e Duração (Recomendado)
 ```markdown
-**Slide 10 — O que aprendemos: o custo do dólar digital se decide na porta de entrada, não na rede**
+**Slide 10 — O que aprendemos: o custo do dólar digital se decide na porta de entrada**
 
 **Três Lições**
-1. **Fechar uma porta de uma vez custa caro e rápido:** O ofício de 23/jun gerou sobrecusto de ~0,94% por um mês (R$ 4.842 por US$ 100 mil; R$ 106 mi transferidos na Binance). Regras com aviso prévio não saíram da faixa ordinária.
-2. **O hedge cambial isola o prêmio do dólar digital:** A rede custa frações de ponto-base; o salto somou 94 pb. Para quem precisa de USDT, o hedge na B3 (termo a paridade coberta) zera o carrego diário: os juros do CDI pagam o termo. A decisão de esperar vira uma aposta pura no prêmio (em retrospecto, esperar economizou R$ 4,7 mil a R$ 8,7 mil em 5 a 20 dias; mas em 6 dias o ganho foi de apenas R$ 335). Já o vendedor perde R$ 4,7 mil a R$ 21,7 mil se adiar a conversão.
-3. **Preço normal não é mercado normal:** O prêmio cedeu em um mês, mas as importações caíram a um terço e a Foxbit saltou de 7% para 35% do volume. Na duração, modelos estatísticos não batem a taxa histórica: em 10 moedas, metade dos choques volta em ~20 dias úteis, mas o choque brasileiro de 2026 levou mais de 110 dias para fechar a banda.
+1. **Fechar uma porta de uma vez custa caro e rápido:** O ofício de 23/jun gerou sobrecusto de ~0,94% por um mês (R$ 4.842 por US$ 100 mil; R$ 106 mi transferidos na Binance). Regras publicadas com aviso prévio ficaram na faixa das datas comuns (ressalva: Res. 574, publicada na véspera).
+2. **O hedge cambial isola o prêmio do dólar digital:** Para quem precisa de USDT e tem acesso à B3, o hedge (termo a paridade coberta) zera o carrego diário: os juros em reais pagam os pontos do termo. A decisão de esperar vira uma aposta pura no prêmio (em retrospecto, esperar economizou R$ 4,7 mil a R$ 8,7 mil em 5 a 20 dias; mas em 6 dias o ganho foi de apenas R$ 335). Já o vendedor que adiou a conversão perdeu R$ 4,7 mil a R$ 21,7 mil, sobretudo pela queda do prêmio e pela valorização do real.
+3. **Preço normal não é mercado normal:** O prêmio cedeu em um mês, mas as importações caíram a um terço e a Foxbit passou de 7% para 35% do volume (exploratório). Na duração, modelos estatísticos não batem a taxa histórica: em 10 moedas, metade dos choques volta em ~20 dias úteis, mas o choque brasileiro de 2026 (iniciado em 25/mai) não havia voltado à faixa anterior após 111 dias úteis.
 
 **A Solução: Uma Régua Pública de Custo Regulatório**
 ① Monitorar o prêmio diário na PTAX com dados públicos → ② Comparar com datas comuns → ③ Registrar previsão no Git antes da vigência → ④ Avaliar impacto em reais.  
-*Em uso:* Res. 574 (previsão mantida, +2,1 pb) · Res. 589 (6/nov) · Res. 584 (jan/2027).
+*Em uso:* Res. 574 (leitura preliminar +2,1 pb, dentro da previsão; aguarda reexecução e checagem do incidente da Binance) · Res. 589 (6/nov) · Res. 584 (jan/2027).
 ```
 <!-- slide -->
 ### Opção B: Foco Econômico — Da Tarifa Privada à Paridade Coberta de Tesouraria
 ```markdown
 **Slide 10 — Da Tarifa Privada às Decisões de Liquidez**
 
-- **O custo macroeconômico:** O fechamento imediato do canal cambial dos fundos funcionou como uma tarifa privada de ~0,95% sem arrecadação: transferiu R$ 106 milhões dos compradores para os vendedores de dólar digital em quatro semanas na Binance (R$ 145 milhões em três corretoras). As regras publicadas com aviso prévio não geraram esse custo.
+- **O custo:** O fechamento imediato do canal cambial dos fundos funcionou como uma tarifa privada de ~0,95% sem arrecadação: transferiu R$ 106 milhões dos compradores para os vendedores de dólar digital em quatro semanas na Binance (R$ 145 milhões em três corretoras). As regras publicadas com aviso prévio não geraram esse custo.
 - **A mecânica financeira de tesouraria:**  
   - *Comprador:* Ao proteger o dólar oficial na B3 via paridade coberta, o custo de carrego é nulo (o rendimento dos reais cobre os pontos a termo). A espera isola o risco cambial e foca no prêmio: em junho de 2026, esperar gerou economia retrospectiva de +90 a +164 pb (R$ 4,7 mil a R$ 8,7 mil por 100 mil USDT) em 5 a 20 dias, embora com volatilidade no caminho (+6 pb em 6 dias).  
-  - *Vendedor:* Diante de obrigações em reais, esperar gera perda de carrego (-R$ 4,7 mil a -R$ 21,7 mil em 5 a 20 dias), exigindo valorização do USDT de +19 a +76 pb apenas para empatar.
+  - *Vendedor:* Com obrigações em reais, esperar exige alta do USDT de +19 a +76 pb em 5 a 20 dias só para cobrir os juros em reais (cenário de 10% a.a.); em junho, quem adiou perdeu R$ 4,7 mil a R$ 21,7 mil, sobretudo pela queda do prêmio e pela valorização do real.
 - **Limites da previsão:** O censo global em 10 moedas mostra que metade dos choques se resolve em 20 dias úteis, mas modelos preditivos não superam essa taxa base. Decisões de tesouraria devem se basear em disciplina de custos e coberturas cambiais, não em previsões pontuais de duração.
 ```
 <!-- slide -->
@@ -477,9 +479,9 @@ To support finalizing Slide 10, three Portuguese conclusion options are presente
 ```markdown
 **Slide 10 — Regulação por Surpresa, Limites à Arbitragem e Gestão de Risco**
 
-- **Forma versus Conteúdo:** O mercado brasileiro de dólar digital absorve regras prudenciais e de reporte avisadas com antecedência (Res. 561, 574, 580) dentro da volatilidade comum (±35 pb); reagiu fortemente (+94 pb) apenas à descontinuidade imediata e sem aviso prévio de uma rota cambial utilizada por arbitradores institucionais.
-- **Gestão de caixa institucional:** Em momentos de estresse regulatório, stablecoins descolam da paridade oficial. A paridade coberta de juros (CIP) na B3 permite que importadores travem o câmbio oficial a custo zero de carrego líquido, transformando a espera em aposta exclusiva sobre o prêmio local. Para vendedores, a conversão imediata elimina a perda de carrego em reais.
-- **Transparência e falseabilidade:** Auditorias out-of-sample revelam que o tamanho do choque não prevê sua duração melhor que a taxa histórica global (mediana de 20 dias úteis). O regulador e o mercado ganham com uma régua pública e previsões pré-registradas em código aberto, prevenindo distorções desnecessárias.
+- **Forma versus Conteúdo:** Entre oito regras datadas, as publicadas com aviso prévio ficaram dentro da faixa das datas comuns (−35 a +38 pb); só o ofício confidencial e de efeito imediato, que interrompeu a importação de cripto pelos fundos, saiu dela (+94 pb). Ressalva: a Res. 574 (reporte), publicada na véspera, coincide com um dia de +38 pb e fica fora dessa comparação.
+- **Gestão de caixa institucional:** Em momentos de estresse regulatório, stablecoins descolam da paridade oficial. A paridade coberta de juros (CIP) na B3 permite que compradores com acesso a derivativos travem o câmbio oficial sem custo líquido de carrego, transformando a espera em aposta exclusiva sobre o prêmio local. Para vendedores, a conversão imediata elimina a perda de carrego em reais.
+- **Transparência e falseabilidade:** Auditorias out-of-sample revelam que o tamanho do choque não prevê sua duração melhor que a taxa histórica global (mediana de 20 dias úteis). Uma régua pública, com previsões registradas antes da vigência em código aberto, permite medir o custo de cada regra.
 ```
 ````
 
@@ -520,32 +522,32 @@ flowchart TD
 ### 9.1 Slide-by-Slide Narrative Mapping
 
 - **Slide 1 — Quanto custa fechar a porta?** (*Unchanged core*)  
-  Headline answer: $+93.9$ bps over PTAX, costing R\$ 4,842 per US\$ 100,000 for one month ([`F-015`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-015-route-costs.md), [`F-016`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-016-event-studies-placebos.md)).
+  Headline answer: $+93.9$ bps over PTAX, costing R\$ 4,842 per US\$ 100,000 for one month ([`F-015`](../findings/F-015-route-costs.md), [`F-016`](../findings/F-016-event-studies-placebos.md)).
 - **Slide 2 — A porta que fechou: o ofício de 23/jun** (*Unchanged core*)  
-  The institutional mechanism: investment funds importing crypto via zero-IOF FX contracts. Confidential BCB supervisory notice demanded immediate discontinuation ([`F-023`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-023-notice-sources-and-press-moves.md)).
+  The institutional mechanism: investment funds importing crypto via zero-IOF FX contracts. Confidential BCB supervisory notice demanded immediate discontinuation ([`F-023`](../findings/F-023-notice-sources-and-press-moves.md)).
 - **Slide 3 — Dados e método** (*Unchanged core*)  
-  1,520 business days of PTAX-aligned hourly data; Binance, Foxbit, Mercado Bitcoin; 5 comparison currencies. Transparency declaration: hypotheses committed prior to confirmatory tests. Lessons from 2025: naive baseline alongside every model ([`F-005`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-005-2025-model-lost-to-naive.md), [`F-007`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-007-noise-floor.md)).
+  1,520 business days of PTAX-aligned hourly data; Binance, Foxbit, Mercado Bitcoin; 5 comparison currencies. Transparency declaration: hypotheses committed prior to confirmatory tests. Lessons from 2025: naive baseline alongside every model ([`F-005`](../findings/F-005-2025-model-lost-to-naive.md), [`F-007`](../findings/F-007-noise-floor.md)).
 - **Slide 4 — O salto** (*Unchanged core*)  
-  $+93.9$ bps jump in the 20 days post-notice. Blind Bai-Perron structural break on 24 June 2026. Exceeds all 1,073 clean placebos; $p = 0.032$ across 30 non-overlapping windows ([`F-011`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-011-blind-breaks.md), [`F-016`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-016-event-studies-placebos.md), [`F-029`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-029-headline-inference.md)).
+  $+93.9$ bps jump in the 20 days post-notice. Blind Bai-Perron structural break on 24 June 2026. Exceeds all 1,073 clean placebos; $p = 0.032$ across 30 non-overlapping windows ([`F-011`](../findings/F-011-blind-breaks.md), [`F-016`](../findings/F-016-event-studies-placebos.md), [`F-029`](../findings/F-029-headline-inference.md)).
 - **Slide 5 — Entre as oito regras testadas, só o ofício saiu da faixa comum** (*Unchanged core*)  
-  Seven published regulatory acts remained within the $[-35, +38]$ bps noise band. Only the confidential notice with immediate effect broke out ([`F-026`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-026-which-rules-matter.md)). Caveat: Res. BCB 574 reporting on 22 June.
+  Seven published regulatory acts remained within the $[-35, +38]$ bps noise band. Only the confidential notice with immediate effect broke out ([`F-026`](../findings/F-026-which-rules-matter.md)). Caveat: Res. BCB 574 reporting on 22 June.
 - **Slide 6 — Não foi o real, nem o USDT, nem o mundo** (*Unchanged core*)  
-  Synthetic control reveals a $+109.3$ bps treatment gap (Brazil ranks #1 of 6). PTAX moved $+0.68\%$ (ordinary move, already subtracted). Global USDT/USD peg moved $<1$ bp. BTC/BRL moved in lockstep ([`F-009`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-009-jump-not-venue-fx-usdt.md), [`F-017`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-017-synthetic-control.md), [`F-018`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-018-btc-heterogeneity.md)).
+  Synthetic control reveals a $+109.3$ bps treatment gap (Brazil ranks #1 of 6). PTAX moved $+0.68\%$ (ordinary move, already subtracted). Global USDT/USD peg moved $<1$ bp. BTC/BRL moved in lockstep ([`F-009`](../findings/F-009-jump-not-venue-fx-usdt.md), [`F-017`](../findings/F-017-synthetic-control.md), [`F-018`](../findings/F-018-btc-heterogeneity.md)).
 - **Slide 7 — O mecanismo: as importações caíram** (*Unchanged core*)  
-  BCB balance of payments statistics: resident stablecoin purchases abroad dropped $-78\%$ in July ($p = 0.02$). Higher price paired with lower quantity confirms inward supply contraction ([`F-024`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-024-stablecoin-imports.md)).
+  BCB balance of payments statistics: resident stablecoin purchases abroad dropped $-78\%$ in July ($p = 0.02$). Higher price paired with lower quantity is consistent with a contraction of inward supply (not proof of it) ([`F-024`](../findings/F-024-stablecoin-imports.md)).
 - **Slide 8 — Robusto, mas de um mês** (*Unchanged core*)  
-  Robust across 22 specifications ($+74$ to $+128$ bps). Post-22 July level ($+11.5$ to $+19.3$ bps) has placebo $p = 0.24$; channel reopening unverified; marginal price-setting route unidentified ([`F-022`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-022-robustness-battery.md), [`F-028`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-028-route-comparison.md), [`F-030`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-030-no-verified-reopening.md)).
+  Robust across 22 specifications ($+74$ to $+128$ bps). Post-22 July level ($+11.5$ to $+19.3$ bps) has placebo $p = 0.24$; channel reopening unverified; marginal price-setting route unidentified ([`F-022`](../findings/F-022-robustness-battery.md), [`F-028`](../findings/F-028-route-comparison.md), [`F-030`](../findings/F-030-no-verified-reopening.md)).
 - **Slide 9 — Quanto custou e para quem: a transferência agregada**  
-  Buyers paid R\$ 106.1 million extra on Binance (R\$ 145.3 million across three exchanges). Clarification of the "+350 bps" puzzle: 3.5% IOF is a statutory tax, not an equilibrium price; the market never reached it ([`F-025`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-025-money-moved.md), [`F-028`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-028-route-comparison.md)).
+  Buyers paid R\$ 106.1 million extra on Binance (R\$ 145.3 million across three exchanges). Clarification of the "+350 bps" puzzle: 3.5% IOF is a statutory tax, not an equilibrium price; the market never reached it ([`F-025`](../findings/F-025-money-moved.md), [`F-028`](../findings/F-028-route-comparison.md)).
 - **Slide 10 — O que aprendemos com a solução e por que importa**  
   *Synthesis of Lessons and Public Gauge:*
   1. *Lesson 1:* Unannounced closures create immediate, costly price distortions (+94 bps, R\$ 106M transfer).
-  2. *Lesson 2:* The network is not the cost; access rules set the price. Hedging official dollar risk on B3 under Covered Interest Parity (CIP) carries zero daily cost, making waiting a pure bet on the crypto-dollar premium (retrospectively saving R\$ 4.7k–8.7k in June 2026, but only R\$ 335 at 6 days) ([`F-039`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-039-holder-decisions.md)).
-  3. *Lesson 3:* Volume and microstructure remain altered after prices recede. Duration models do not beat the historical base rate (half resolve in 20 days; Brazil 2026 shock open >110 days) ([`F-038`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-038-shock-duration-feasibility.md)).
-  4. *The Solution:* A public, open-source daily regulatory cost gauge with pre-registered predictions (Res. 574 confirmed; Res. 589; Res. 584 committed in commit `393a14a`; [`F-027`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/findings/F-027-prediction-res584.md)).
+  2. *Lesson 2:* Access rules set the price. Hedging official dollar risk on B3 under Covered Interest Parity (CIP) carries zero daily cost, making waiting a pure bet on the crypto-dollar premium (retrospectively saving R\$ 4.7k–8.7k in June 2026, but only R\$ 335 at 6 days) ([`F-039`](../findings/F-039-holder-decisions.md)).
+  3. *Lesson 3:* Volume and microstructure remain altered after prices recede. Duration models do not beat the historical base rate (half resolve in 20 days; Brazil 2026 shock open >110 days) ([`F-038`](../findings/F-038-shock-duration-feasibility.md)).
+  4. *The Solution:* A public, open-source daily regulatory cost gauge with pre-registered predictions (Res. 574: preliminary readout within the prediction, teammate re-run and P3-26 audit pending; Res. 589; Res. 584 committed in commit `393a14a`; [`F-027`](../findings/F-027-prediction-res584.md)).
 
 ### 9.2 Annex Allocation
 
-- **Anexo B.8 — O Framework de Decisão do Comprador e Cobertura B3:** Full derivation of CIP hedge mechanics, zero carry cost proof, and realized buyer outcomes table from [`results/tables/P3-31_buyer_hedged_comparison.csv`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/results/tables/P3-31_buyer_hedged_comparison.csv).
-- **Anexo B.9 — Modelo Global de Sobrevivência e Censo de 10 Moedas:** Feasibility gate breakdown ([`results/tables/P3-30_feasibility.csv`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/results/tables/P3-30_feasibility.csv)), multi-currency census ([`results/tables/P3-30_census.csv`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/results/tables/P3-30_census.csv)), out-of-sample Brier evaluation and bootstrap table ([`results/tables/P3-30_brier_bootstrap.csv`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/results/tables/P3-30_brier_bootstrap.csv)), and survival curve figure [`results/figures/P3-30_global_survival.png`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/results/figures/P3-30_global_survival.png).
-- **Anexo B.10 — Limiares do Vendedor Institucional e Doutrina de Custos Afundados:** Seller break-even hurdle table ([`results/tables/P3-31_thresholds.csv`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/results/tables/P3-31_thresholds.csv)), sensitivity matrix ([`results/tables/P3-31_sensitivity.csv`](file:///c:/Users/Felipe/Desktop/fgv_eesp/7-datathon-fgv-eesp/results/tables/P3-31_sensitivity.csv)), and proof of Buyer-Seller Duality Symmetry.
+- **Anexo B.8 — O Framework de Decisão do Comprador e Cobertura B3:** Full derivation of CIP hedge mechanics, zero carry cost proof, and realized buyer outcomes table from [`results/tables/P3-31_buyer_hedged_comparison.csv`](../results/tables/P3-31_buyer_hedged_comparison.csv).
+- **Anexo B.9 — Modelo Global de Sobrevivência e Censo de 10 Moedas:** Feasibility gate breakdown ([`results/tables/P3-30_feasibility.csv`](../results/tables/P3-30_feasibility.csv)), multi-currency census ([`results/tables/P3-30_census.csv`](../results/tables/P3-30_census.csv)), out-of-sample Brier evaluation and bootstrap table ([`results/tables/P3-30_brier_bootstrap.csv`](../results/tables/P3-30_brier_bootstrap.csv)), and survival curve figure [`results/figures/P3-30_global_survival.png`](../results/figures/P3-30_global_survival.png).
+- **Anexo B.10 — Limiares do Vendedor Institucional e Doutrina de Custos Afundados:** Seller break-even hurdle table ([`results/tables/P3-31_thresholds.csv`](../results/tables/P3-31_thresholds.csv)), sensitivity matrix ([`results/tables/P3-31_sensitivity.csv`](../results/tables/P3-31_sensitivity.csv)), and proof of Buyer-Seller Duality Symmetry.
