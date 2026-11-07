@@ -20,7 +20,7 @@ User-authorized review, fixes and commit of reproducible project errors. Review 
 ## Success criteria
 - [x] Computational checks and identifier integrity pass or limitations are documented.
 - [x] Corrected reports agree with implemented models and evidence.
-- [x] Unrelated local files excluded from commit.
+- [x] Concurrent work identified and its verification scope disclosed; combined commit preserved.
 
 ## Outputs
 - `docs/final-project-review-2026-11-07.md`
@@ -32,6 +32,7 @@ User-authorized review, fixes and commit of reproducible project errors. Review 
 - **How to resume:** read review report and run commands recorded there.
 
 ## Log
+- 2026-11-07 — Concurrent process committed the shared checkout in 1766dfd before the targeted commit could stage; its audit/scratch/image work is preserved. Follow-up adds verification-status clarification, rather than rewriting the combined commit.
 - 2026-11-07 — Codex for Felipe: checkout f3eff61; unrelated band-TAR PNG, audit-ml document and scratch directory preserved.
 
 ## Result

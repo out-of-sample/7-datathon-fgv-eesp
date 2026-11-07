@@ -207,3 +207,7 @@ The calculations are mathematically exact. The prediction respects the core econ
 
 ---
 *Report produced by Out of Sample Econometric & Machine Learning Audit.*
+# Verification status — P3-40, 7 November 2026
+
+These are research/audit notes, not validated findings. Claims about additional Cox/AFT/RSF models, universal unpredictability, duration dependence or new causal interpretations require registered scripts, outputs and independent review before deck use. For the implemented duration comparison use F-038; for treasury accounting use F-039/F-048. This notice preserves the original notes below without endorsing their claims.
+

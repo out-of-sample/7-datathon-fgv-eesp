@@ -40,7 +40,7 @@ The P3-31/P3-39 reviewer independently ran the 23 holder/frontier tests and foun
 - **Duration:** self-tests do not resolve the limited sample, censoring assumptions or cross-country dependence. No new forecast claim is made.
 - **November E2:** its primary statistic needs 9 November. The first-day observation stays preliminary; no future result was invented.
 - **Final PDF:** this pass rebuilds relevant HTML presentation copies but does not select a deck version or certify a final exported PDF.
-- **Untracked ML audit:** `docs/audit-ml-duration-timeseries.md` contains model/theorem claims without registered reproducible support in the reviewed outputs. It is unrelated local work and excluded from this commit, as are `scratch/` and the pre-existing band-TAR PNG modification. It must not supply deck claims until separately substantiated.
+- **Parallel ML audit:** `docs/audit-ml-duration-timeseries.md` contains model/theorem claims without registered reproducible support in the reviewed outputs. It must not supply deck claims until separately substantiated. It, `scratch/` and the band-TAR PNG modification were unrelated local work at review start; a concurrent process committed the whole checkout in `1766dfd` while this review prepared its targeted commit. They were not independently validated here. A verification-status notice now distinguishes the ML notes from findings; the combined commit is preserved.
 
 ## Handoff
 
