@@ -148,3 +148,23 @@ Reproduce: `.venv/bin/python scripts/p3_28_methods.py score data/processed/P3-28
 - **Freeze:** v1 is frozen at the commit that adds this text. Settings: MODEL `claude-sonnet-5-5`, CLI 2.1.318,
   TOP_K 8, CHUNK 700, MAX_TURNS 40, TIMEOUT_S 900, repeats 3 (B0: 1).
 
+## 11. v1.1 — scoring and accounting amendment (7 Nov 2026, after the Avenia held-out runs, before any reference label or held-out score)
+
+Prompted by the independent review P3-36 (`results/P3-36_comparison_review.md`, R1–R7; another session at Renzo's
+request). **No change to prompts, retrieval, model, limits or method code paths**, so the 40 Avenia runs stay valid.
+Scoring (`score()`): (R1) numbers compared with units: hours and days convert to hours, business days are kept apart,
+% converts to bps, asset units must agree. F03, F09 and G02 (requirement text) earn final credit only if the human
+audit accepts the value. (R2) Quotes must be at least 12 characters, from a permitted source, found verbatim. A blinded
+audit sheet (`data/raw/p3_28/reference/audit_sheet<tag>.csv`: one row per distinct answer, no method, run or reference
+columns) is filled by **Nattan** (`supports`, `value_ok`, `note_claim`). Scores without it are labelled PROVISIONAL.
+(R3) Locked manifest (`SCHEDULE`): a missing or failed run earns zero and still feeds the guardrail; the reference
+must be complete; cases with no answerable field are excluded from SAC and counted. (R4) Duplicate answers earn zero,
+and any bad positive among them counts; notes go to the audit. (R7) Scoring stops if a run's corpus hash differs from
+the current extracts. Logging (`run_one()`, future runs only): (R5) usage summed across calls, per-call usage kept;
+(R7) `code_commit` and a full `config_hash`. **Known loss:** the 12 Avenia B2 runs (and the development B2 runs)
+record token use for their second call only. `notional_usd` was summed correctly and is the cost measure for those
+runs. (R6) Ceilings: never reached (largest wall time 102 s against 900 s), so actual use is reported. A reads full
+documents while B1/B2 see retrieved chunks; that is part of the method contrast, and any H1 reading must be paired
+with the token and turn table. Development scores under v1.1 equal pilot-1. A 3-word quote minimum was tried first
+and dropped: it rejected a valid table row ("Ethereum 0xA0b8…").
+

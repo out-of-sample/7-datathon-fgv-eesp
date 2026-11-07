@@ -276,6 +276,34 @@ def method_A(c, fs, ids, wd):
     return {'answers': answers_of(out), 'calls': [out]}
 
 
+def sum_usage(calls):
+    """Sum every numeric usage component per model across calls (v1.1; v1 kept only the last call per model)."""
+    tot = {}
+    for o in calls:
+        for m, u in (o.get('modelUsage') or {}).items():
+            for k, v in u.items():
+                if isinstance(v, (int, float)) and not isinstance(v, bool):
+                    tot.setdefault(m, {})[k] = tot.get(m, {}).get(k, 0) + v
+    return tot
+
+
+def commit():
+    try:
+        return subprocess.run(['git', 'rev-parse', 'HEAD'], cwd=ROOT, capture_output=True, text=True).stdout.strip()
+    except OSError:
+        return ''
+
+
+def config_hash():
+    """Hash of every setting that shapes a run: prompts, schema, keywords, retrieval and limit constants, method code."""
+    import inspect
+    parts = [SYSTEM, json.dumps(SCHEMA), json.dumps(FIELD_KW), json.dumps(sorted(ASSET_FIELDS)), json.dumps(sorted(PROFILE_FIELDS)),
+             json.dumps(PROFILE_KW), json.dumps({k: list(v) for k, v in B0_RULES.items()}), MODEL,
+             str((MAX_TURNS, TIMEOUT_S, TOP_K, CHUNK))] + [inspect.getsource(f) for f in (
+             retrieve, chunks, claude, answers_of, verbatim_filter, method_B0, method_B1, method_B2, method_A)]
+    return hashlib.sha256('\n'.join(parts).encode()).hexdigest()
+
+
 def run_one(method, cid, r):
     c = cases()[cid]
     dest = RUNS / method / f'{cid}_r{r}.json'
@@ -300,7 +328,8 @@ def run_one(method, cid, r):
                turns=sum(int(o.get('num_turns') or 0) for o in calls),
                errors=[o.get('subtype') or o.get('result', '')[:200] for o in calls if o.get('is_error')],
                stop=[o.get('terminal_reason') or o.get('subtype') for o in calls],
-               usage={k: v for o in calls for k, v in (o.get('modelUsage') or {}).items()},
+               usage=sum_usage(calls), usage_per_call=[o.get('modelUsage') or {} for o in calls],
+               code_commit=commit(), config_hash=config_hash(),
                notional_usd=sum(float(o.get('total_cost_usd') or 0) for o in calls),
                raw_results=[o.get('result') for o in calls], **res)
     dest.parent.mkdir(parents=True, exist_ok=True)
@@ -317,10 +346,28 @@ def run(method, which, repeats=1, workers=3):
             print(method, msg, flush=True)
 
 
-# ---------- scoring ----------
+# ---------- scoring (v1.1: review P3-36 R1-R4, R7) ----------
+SCHEDULE = {'B0': 1, 'B1': 3, 'B2': 3, 'A': 3}   # locked run manifest: method -> repeats
+if os.environ.get('P3_28_SCHEDULE'):  # development pilots only, e.g. 'B0:1,B1:1,B2:1,A:1'
+    SCHEDULE = {k: int(v) for k, v in (x.split(':') for x in os.environ['P3_28_SCHEDULE'].split(','))}
+TEXT_FIELDS = {'F03', 'F09', 'G02'}              # requirement text: credit needs a human audit of the value
+UNIT = [(r'business|úteis|uteis', 'business_day', 1), (r'\bh\b|hora|hour|\d\s*h\b', 'hour', 1), (r'dia|day', 'hour', 24),
+        (r'bps|bp\b|basis', 'bps', 1), (r'%|percent', 'bps', 100), (r'usdt', 'USDT', 1), (r'usdc', 'USDC', 1),
+        (r'brla', 'BRLA', 1), (r'brl|r\$|reais', 'BRL', 1)]
+
+
 def num(s):
     m = re.search(r'-?\d+(?:[.,]\d+)?', re.sub(r'(?<=\d)\.(?=\d{3}\b)', '', s or ''))  # 75.000 -> 75000
     return float(m.group(0).replace(',', '.')) if m else None
+
+
+def qty(value, unit):
+    """(number, canonical unit) from value + unit text; unit None when not stated."""
+    x, t = num(value), f'{unit or ""} {value or ""}'.lower()
+    for pat, u, k in UNIT:
+        if re.search(pat, t):
+            return (x * k if x is not None else None), u
+    return x, None
 
 
 def category(s):
@@ -333,15 +380,20 @@ def category(s):
 
 
 def correct(f, ref, a):
-    """Field-level match. state fields: same state. Numeric value fields (F04, F08, F12): same number (1% tolerance).
-    Limit-basis fields (F05, F14): same category (case by case / by level / fixed amount; fixed also needs the same number).
-    F02: state and yes/no. F13: state, and the date when the reference gives one. G02: both null or both non-null."""
-    fid, rs, rv, ms, mv = f['field_id'], ref['state'].strip().lower(), ref['value'].strip(), (a.get('state') or '').lower(), (a.get('value') or '').strip()
+    """Mechanical field match. state fields: same state. Numeric fields F04, F08, F12: same quantity after unit
+    normalisation (hours/days -> hours, business days kept apart, % -> bps, asset units must agree); a stated unit on
+    both sides must match. Limit basis F05, F14: same category (fixed also needs the same quantity). F02: state and
+    yes/no. F13: state, plus the date when the reference gives one. F03, F09, G02 (requirement text): state (G02: both
+    null or both non-null) here, and the value must also pass the human audit before it earns final credit."""
+    fid, rs, rv = f['field_id'], ref['state'].strip().lower(), ref['value'].strip()
+    ms, mv = (a.get('state') or '').strip().lower(), (a.get('value') or '').strip()
     if fid in ('F04', 'F08', 'F12'):
-        x, y = num(rv), num(mv)
-        return x is not None and y is not None and abs(x - y) <= 0.01 * max(abs(x), 1e-9)
+        (x, ux), (y, uy) = qty(rv, ref.get('unit')), qty(mv, a.get('unit'))
+        return x is not None and y is not None and (ux == uy or None in (ux, uy) and fid == 'F08') and \
+            abs(x - y) <= 0.01 * max(abs(x), 1e-9)
     if fid in ('F05', 'F14'):
-        return category(rv) == category(mv) and (category(rv) != 'fixed' or num(rv) == num(mv))
+        cr = category(rv)
+        return cr == category(mv) and (cr != 'fixed' or qty(rv, ref.get('unit'))[0] == qty(mv, a.get('unit'))[0])
     if fid == 'G02':
         return bool(rv) == bool(mv)
     if rs != ms:
@@ -360,79 +412,149 @@ def answerable(f, ref):
 
 
 def evidence_ok(a, ids, texts):
-    s, p = a.get('source_ids') or [], a.get('passages') or []
-    s = [sid(i) for i in s]
-    return bool(s) and len(s) == len(p) and all(i in ids and M.norm(x) in texts[i] for i, x in zip(s, p))
+    """Every {source_id, passage} pair: permitted source, passage of >= 12 characters found verbatim (normalised).
+    Length, not words: table rows such as 'Ethereum 0xA0b8...' are valid evidence. Relevance is for the human audit."""
+    s, p = [sid(i) for i in a.get('source_ids') or []], a.get('passages') or []
+    return bool(s) and len(s) == len(p) and all(
+        i in ids and len(M.norm(x)) >= 12 and M.norm(x) in texts[i] for i, x in zip(s, p))
 
 
-def score(ref_path, which, tag=''):
-    """SAC (supported answer coverage) per case = answerable reference fields answered correctly WITH valid evidence /
-    answerable reference fields; macro-averaged over cases, then over repeats (here: over the case x repeat runs of a
-    case first). Guardrail: availability answers 'supported' where the reference is not 'supported' or the evidence is
-    invalid. Unknown handling: on reference-unknown fields, the share answered unknown. All-unknown rate: share of a
-    run's answers that are unknown."""
-    ref = {(r['case_id'], r['field_id']): r for r in M.rows(ref_path)}
+def audit_key(c, f, a):
+    return hashlib.sha256(json.dumps([c, f, (a.get('state') or '').lower(), (a.get('value') or '').strip().lower(),
+                                      [sid(x) for x in a.get('source_ids') or []], a.get('passages') or []],
+                                     ensure_ascii=False).encode()).hexdigest()[:16]
+
+
+def score(ref_path, which, tag='', audit_path=None):
+    """SAC per case = answerable reference fields with final credit / answerable reference fields. Final credit =
+    mechanical match AND valid evidence AND (when an audit file is given) the auditor's `supports = yes` (and, for
+    F03/F09/G02, `value_ok = yes`). Without an audit file the result is labelled PROVISIONAL. Cases with no answerable
+    field are excluded from SAC (counted). Macro: mean over a case's scheduled repeats, then over cases.
+    Locked manifest: every case x SCHEDULE run must exist; a missing or failed run (errors, timeout) earns zero and its
+    answers are still checked by the guardrail. Duplicate answers to one field earn zero; a bad positive among them
+    counts. Guardrail: availability answers 'supported' where the reference is not 'supported', the evidence is invalid,
+    or the auditor marks supports = no; plus notes the auditor flags. Corpus hashes of every run must match the current
+    text extracts, else scoring stops."""
     cs = {k: c for k, c in cases().items() if c['split'] == which}
+    ref = {(r['case_id'], r['field_id']): r for r in M.rows(ref_path)}
+    need = [(cid, f['field_id']) for cid, c in cs.items() for f in fields_for(c)]
+    gaps = [k for k in need if k not in ref or not (ref[k]['state'].strip() or ref[k]['value'].strip())]
+    if gaps:
+        sys.exit(f'reference incomplete: {len(gaps)} of {len(need)} rows missing or blank, e.g. {gaps[:3]}')
     texts = {i: M.norm(doc_text(i)) for i in M.latest()[1]}
-    scores, errs, costs = [], [], []
-    for mdir in sorted(RUNS.iterdir()) if RUNS.exists() else []:
-        for p in sorted(mdir.glob('*.json')):
-            run_ = json.loads(p.read_text(encoding='utf-8'))
-            if run_['case_id'] not in cs:
-                continue
-            c, fs = cs[run_['case_id']], fields_for(cs[run_['case_id']])
-            got = {a.get('field_id'): a for a in run_.get('answers', [])}
-            n_ans = n_ok = guard = unk_ref = unk_ok = unk_ans = 0
-            for f in fs:
-                rf = ref.get((c['case_id'], f['field_id']))
-                if rf is None:
-                    continue
-                a = got.get(f['field_id'], {})
-                ev = evidence_ok(a, run_['permitted'], texts)
-                is_unk = (a.get('state') or 'unknown').lower() == 'unknown' and not (a.get('value') or '').strip()
-                unk_ans += is_unk
-                ok = answerable(f, rf) and correct(f, rf, a) and ev
-                if answerable(f, rf):
-                    n_ans += 1
-                    n_ok += ok
-                else:
-                    unk_ref += 1
-                    unk_ok += is_unk
-                bad_pos = f['kind'] == 'availability' and (a.get('state') or '').lower() == 'supported' and (
-                    rf['state'].strip().lower() != 'supported' or not ev)
-                guard += bad_pos
-                kind = ('correct' if ok else 'correct_unknown' if (not answerable(f, rf) and is_unk) else
-                        'unsupported_positive' if bad_pos else 'false_unknown' if is_unk else
-                        'invalid_evidence' if not ev else 'wrong_answer')
-                errs.append(dict(method=run_['method'], case_id=c['case_id'], repeat=run_['repeat'], field_id=f['field_id'],
-                                 ref_state=rf['state'], ref_value=rf['value'], state=a.get('state', ''), value=a.get('value', ''),
-                                 evidence_valid=ev, outcome=kind))
-            scores.append(dict(method=run_['method'], case_id=c['case_id'], family=c['group_id'], repeat=run_['repeat'],
-                               answerable=n_ans, correct_supported=n_ok, sac=n_ok / n_ans if n_ans else '',
-                               unsupported_positive=guard, ref_unknown=unk_ref, unknown_kept=unk_ok,
-                               all_unknown_rate=unk_ans / len(fs), failed_run=bool(run_.get('errors'))))
-            costs.append(dict(method=run_['method'], case_id=c['case_id'], repeat=run_['repeat'], model=run_['model'],
-                              calls=run_['n_calls'], turns=run_['turns'], wall_s=round(run_['wall_s'], 1),
-                              output_tokens=sum(v.get('outputTokens', 0) for v in run_['usage'].values()),
-                              input_tokens=sum(v.get('inputTokens', 0) + v.get('cacheReadInputTokens', 0) +
-                                               v.get('cacheCreationInputTokens', 0) for v in run_['usage'].values()),
-                              notional_usd=round(run_['notional_usd'], 4), errors=';'.join(map(str, run_['errors']))))
+    aud = {r['key']: r for r in M.rows(audit_path)} if audit_path else {}
+    scores, errs, costs, to_audit, missing = [], [], [], {}, []
+    for cid, c in cs.items():
+        fs = fields_for(c)
+        for method, reps in SCHEDULE.items():
+            for r in range(1, reps + 1):
+                p = RUNS / method / f'{cid}_r{r}.json'
+                run_ = json.loads(p.read_text(encoding='utf-8')) if p.exists() else None
+                if run_ is None:
+                    missing.append(f'{method}/{cid}_r{r}')
+                elif run_['corpus_hash'] != corpus_hash(run_['permitted']):
+                    sys.exit(f'corpus mismatch for {p.name} ({method}): the run saw other document versions')
+                failed = run_ is None or bool(run_.get('errors'))
+                byf = {}
+                for a in (run_ or {}).get('answers', []):
+                    byf.setdefault(a.get('field_id'), []).append(a)
+                n_ans = n_ok = guard = unk_ref = unk_ok = unk_ans = 0
+                for f in fs:
+                    rf, al = ref[(cid, f['field_id'])], byf.get(f['field_id'], [])
+                    a = al[0] if len(al) == 1 else {}
+                    ev = evidence_ok(a, (run_ or {}).get('permitted', []), texts)
+                    is_unk = (a.get('state') or 'unknown').lower() == 'unknown' and not (a.get('value') or '').strip()
+                    mech = answerable(f, rf) and correct(f, rf, a) and ev and not failed
+                    k = audit_key(cid, f['field_id'], a) if a else ''
+                    ad = aud.get(k, {})
+                    fin = mech and (not aud or (ad.get('supports', '').lower() == 'yes' and (
+                        f['field_id'] not in TEXT_FIELDS or ad.get('value_ok', '').lower() == 'yes')))
+                    bad_pos = any(f['kind'] == 'availability' and (x.get('state') or '').lower() == 'supported' and (
+                        rf['state'].strip().lower() != 'supported' or not evidence_ok(x, run_['permitted'], texts) or
+                        aud.get(audit_key(cid, f['field_id'], x), {}).get('supports', '').lower() == 'no') for x in al)
+                    bad_pos += bool(ad.get('note_claim', '').lower() == 'yes')
+                    if a and (mech or (f['kind'] == 'availability' and (a.get('state') or '').lower() == 'supported')
+                              or (a.get('note') or '').strip()):
+                        to_audit[k] = dict(key=k, case_id=cid, field_id=f['field_id'], question=f['question'],
+                                           profile=c['profile_id'], asset=c['destination_asset'], network=c['chain'],
+                                           as_of=c['as_of_utc'][:10], state=a.get('state', ''), value=a.get('value', ''),
+                                           evidence=' || '.join(f'[{sid(x)}] {y}' for x, y in zip(a.get('source_ids') or [], a.get('passages') or [])),
+                                           note=a.get('note', ''), supports='', value_ok='', note_claim='', auditor_comment='')
+                    unk_ans += is_unk
+                    if answerable(f, rf):
+                        n_ans += 1
+                        n_ok += fin
+                    else:
+                        unk_ref += 1
+                        unk_ok += is_unk and not failed
+                    guard += bool(bad_pos)
+                    errs.append(dict(method=method, case_id=cid, repeat=r, field_id=f['field_id'], ref_state=rf['state'],
+                                     ref_value=rf['value'], state=a.get('state', ''), value=a.get('value', ''),
+                                     n_answers=len(al), evidence_valid=ev, mechanical=mech, final=fin, failed_run=failed,
+                                     outcome='correct' if fin else 'correct_unknown' if (not answerable(f, rf) and is_unk)
+                                     else 'unsupported_positive' if bad_pos else 'duplicate' if len(al) > 1
+                                     else 'failed_run' if failed else 'false_unknown' if is_unk
+                                     else 'invalid_evidence' if not ev else 'not_confirmed_by_audit' if mech else 'wrong_answer'))
+                scores.append(dict(method=method, case_id=cid, family=c['group_id'], repeat=r, answerable=n_ans,
+                                   credited=n_ok, sac=n_ok / n_ans if n_ans else '', unsupported_positive=guard,
+                                   ref_unknown=unk_ref, unknown_kept=unk_ok, all_unknown_rate=unk_ans / len(fs),
+                                   failed_run=failed, missing_run=run_ is None))
+                if run_:
+                    u = run_['usage']
+                    costs.append(dict(method=method, case_id=cid, repeat=r, model=run_['model'], calls=run_['n_calls'],
+                                      turns=run_['turns'], wall_s=round(run_['wall_s'], 1),
+                                      output_tokens=sum(v.get('outputTokens', 0) for v in u.values()),
+                                      uncached_input=sum(v.get('inputTokens', 0) for v in u.values()),
+                                      cache_read=sum(v.get('cacheReadInputTokens', 0) for v in u.values()),
+                                      cache_creation=sum(v.get('cacheCreationInputTokens', 0) for v in u.values()),
+                                      usage_complete='usage_per_call' in run_ or run_['n_calls'] <= 1,
+                                      notional_usd=round(run_['notional_usd'], 4), errors=';'.join(map(str, run_['errors']))))
     for name, data in (('case_scores', scores), ('errors', errs), ('costs', costs)):
         if data:
             with open(ROOT / f'results/tables/P3-28_{name}{tag}.csv', 'w', newline='', encoding='utf-8') as fh:
                 w = csv.DictWriter(fh, list(data[0]))
                 w.writeheader()
                 w.writerows(data)
-    summary = {}
-    for s in scores:
-        summary.setdefault(s['method'], {}).setdefault(s['case_id'], []).append(s)
-    print(f'{which}: method | cases | SAC (macro) | unsupported positives | unknown kept | all-unknown rate | failed runs')
-    for m, bycase in sorted(summary.items()):
-        sac = [sum(r['sac'] for r in rs if r['sac'] != '') / max(1, sum(r['sac'] != '' for r in rs)) for rs in bycase.values()]
-        allr = [r for rs in bycase.values() for r in rs]
-        uk = sum(r['unknown_kept'] for r in allr), sum(r['ref_unknown'] for r in allr)
-        print(f"{m} | {len(bycase)} | {sum(sac) / len(sac):.3f} | {sum(r['unsupported_positive'] for r in allr)} | "
-              f"{uk[0]}/{uk[1]} | {sum(r['all_unknown_rate'] for r in allr) / len(allr):.2f} | {sum(r['failed_run'] for r in allr)}")
+    if not aud and to_audit:  # blinded audit sheet: no method, run or reference columns; one row per distinct answer
+        rows_ = sorted(to_audit.values(), key=lambda x: x['key'])
+        with open(RAW / f'reference/audit_sheet{tag}.csv', 'w', newline='', encoding='utf-8') as fh:
+            w = csv.DictWriter(fh, list(rows_[0]))
+            w.writeheader()
+            w.writerows(rows_)
+    label = 'FINAL (audited)' if aud else 'PROVISIONAL (mechanical; semantic audit pending)'
+    print(f'{which} {label}; missing runs {len(missing)}{" " + str(missing[:4]) if missing else ""}; '
+          f'audit sheet rows {len(to_audit)}')
+    print('method | cases in SAC (excluded: no answerable field) | SAC | unsupported positives | unknown kept | all-unknown | failed')
+    for m in SCHEDULE:
+        rs_ = [x for x in scores if x['method'] == m]
+        per = {}
+        for x in rs_:
+            if x['sac'] != '':
+                per.setdefault(x['case_id'], []).append(x['sac'])
+        excl = len({x['case_id'] for x in rs_}) - len(per)
+        sac = sum(sum(v) / SCHEDULE[m] for v in per.values()) / len(per) if per else float('nan')  # missing runs = 0
+        print(f"{m} | {len(per)} ({excl}) | {sac:.3f} | {sum(x['unsupported_positive'] for x in rs_)} | "
+              f"{sum(x['unknown_kept'] for x in rs_)}/{sum(x['ref_unknown'] for x in rs_)} | "
+              f"{sum(x['all_unknown_rate'] for x in rs_) / max(len(rs_), 1):.2f} | {sum(x['failed_run'] for x in rs_)}")
+
+
+def selftest():
+    """The review's synthetic failures (P3-36 C02-C13) must now be rejected; controls must pass."""
+    F = lambda fid, kind='term', ans='value': dict(field_id=fid, kind=kind, answer=ans)
+    R = lambda st='', v='', u='': dict(state=st, value=v, unit=u)
+    assert not correct(F('F04'), R(v='72', u='hours'), dict(value='72', unit='days'))          # C02 units
+    assert correct(F('F04'), R(v='72', u='hours'), dict(value='3', unit='days'))               # 3 days = 72 h
+    assert not correct(F('F04'), R(v='72', u='hours'), dict(value='3', unit='business days'))  # business days apart
+    assert correct(F('F08'), R(v='50', u='bps'), dict(value='0.50%', unit=''))                 # % -> bps
+    assert 'F03' in TEXT_FIELDS and 'G02' in TEXT_FIELDS                                      # C03/C04: audit needed
+    texts = {'X': M.norm('Depósito via Pix 24/7, todos os dias Grátis')}
+    assert not evidence_ok(dict(source_ids=['X'], passages=['']), ['X'], texts)               # C05 empty quote
+    assert not evidence_ok(dict(source_ids=['X'], passages=['Grátis']), ['X'], texts)         # under 12 characters
+    assert evidence_ok(dict(source_ids=['X.txt'], passages=['via Pix 24/7,']), ['X'], texts)  # control
+    assert not evidence_ok(dict(source_ids=['X'], passages=['via Pix 24/7,']), ['Y'], texts)  # not permitted
+    u = sum_usage([{'modelUsage': {'m': {'inputTokens': 10}}}, {'modelUsage': {'m': {'inputTokens': 20}}}])
+    assert u['m']['inputTokens'] == 30                                                         # C14 usage summed
+    print('methods selftest ok')
 
 
 if __name__ == '__main__':
@@ -440,5 +562,7 @@ if __name__ == '__main__':
     opt = {k: int(a[a.index(k) + 1]) for k in ('--repeats', '--workers') if k in a}
     if a[0] == 'run':
         run(a[1], a[2], opt.get('--repeats', 1), opt.get('--workers', 3))
+    elif a[0] == 'selftest':
+        selftest()
     elif a[0] == 'score':
-        score(a[1], a[2], a[a.index('--tag') + 1] if '--tag' in a else '')
+        score(a[1], a[2], a[a.index('--tag') + 1] if '--tag' in a else '', a[a.index('--audit') + 1] if '--audit' in a else None)

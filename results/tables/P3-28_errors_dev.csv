@@ -1,197 +1,197 @@
-method,case_id,repeat,field_id,ref_state,ref_value,state,value,evidence_valid,outcome
-A,D-01,1,F01,supported,,supported,yes,True,correct
-A,D-01,1,F02,supported,yes,supported,yes,True,correct
-A,D-01,1,F03,supported,company (PJ) verification by Foxbit compliance,supported,"Company (KYC PJ) verification by Compliance; for crypto withdrawals to external addresses, an additional verification level handled by support (may include video call, documents, proof of funds)",True,correct
-A,D-01,1,F04,,72,supported,72 hours,True,correct
-A,D-01,1,F05,,case by case,supported,case by case,True,correct
-A,D-01,1,F06,unknown,,unknown,,False,correct_unknown
-A,D-01,1,F07,conditional,,conditional,Stablecoin purchases are analysed separately by Foxbit's commercial team,True,correct
-A,D-01,1,F08,,50,supported,50,True,correct
-A,D-01,1,F09,supported,separate analysis by Foxbit's commercial team,supported,"Stablecoin (USDC, USDT, BRL1) purchase, sale and remittance are negotiated and analysed separately by the commercial team (Res. BCB 521/2025)",True,correct
-A,D-01,1,F10,supported,,conditional,"Withdrawal to external addresses requires the account to hold the verification level set for that feature, via a support-led check",True,wrong_answer
-A,D-01,1,F11,supported,,supported,yes,True,correct
-A,D-01,1,F12,unknown,,unknown,,False,correct_unknown
-A,D-01,1,F13,supported,2026-11-01,supported,2026-11-01,True,correct
-A,D-01,1,F14,,case by case,supported,case by case,True,correct
-A,D-01,1,F15,supported,,supported,yes,True,correct
-A,D-02,1,F01,supported,,supported,yes,True,correct
-A,D-02,1,F02,supported,yes,supported,yes,True,correct
-A,D-02,1,F03,supported,company (PJ) verification by Foxbit compliance,supported,"PJ account verification (KYC PJ) by Foxbit compliance; separate verification level, run by support, required for crypto withdrawals to external addresses",True,correct
-A,D-02,1,F04,,72,supported,up to 72 hours,True,correct
-A,D-02,1,F05,,case by case,supported,case by case,True,correct
-A,D-02,1,F06,unknown,,unknown,,False,correct_unknown
-A,D-02,1,F07,conditional,,conditional,depends on separate commercial analysis of stablecoin purchases,True,correct
-A,D-02,1,F08,,50,supported,50,True,correct
-A,D-02,1,F09,supported,separate analysis by Foxbit's commercial team,supported,"Stablecoin purchases, sales and remittances are negotiated and analysed separately by Foxbit's commercial team (Res. BCB 521/2025 framework)",True,correct
-A,D-02,1,F10,supported,,supported,yes,True,correct
-A,D-02,1,F11,supported,,supported,yes,True,correct
-A,D-02,1,F12,unknown,,unknown,,False,correct_unknown
-A,D-02,1,F13,supported,2026-11-01,supported,2026-11-01,True,correct
-A,D-02,1,F14,,case by case,supported,case by case,True,correct
-A,D-02,1,F15,supported,,supported,yes,True,correct
-A,D-03,1,F01,supported,,supported,yes,True,correct
-A,D-03,1,F02,supported,yes,supported,yes,True,correct
-A,D-03,1,F03,supported,account verification (KYC); crypto deposits and withdrawals unavailable on the simplified account,supported,"Onboarding/KYC validation of the registration, plus the Verification Level enabled for external crypto withdrawals (may include video call, extra documents, financial capacity and source of funds)",True,correct
-A,D-03,1,F04,unknown,,unknown,,False,correct_unknown
-A,D-03,1,F05,,"by account level (R$ 5,000 a month simplified; R$ 75,000 verified)",supported,by account level,True,correct
-A,D-03,1,F06,unknown,,unknown,,False,correct_unknown
-A,D-03,1,F07,supported,,supported,yes,True,correct
-A,D-03,1,F08,,50,supported,50,True,correct
-A,D-03,1,F09,unknown,,unknown,,False,correct_unknown
-A,D-03,1,F10,supported,,conditional,conditional on the verification level for external crypto withdrawals,True,wrong_answer
-A,D-03,1,F11,supported,,supported,yes,True,correct
-A,D-03,1,F12,unknown,,unknown,,False,correct_unknown
-A,D-03,1,F13,supported,2026-11-01,supported,2026-11-01,True,correct
-A,D-03,1,F14,,case by case,supported,case by case,True,correct
-A,D-03,1,F15,supported,,supported,yes,True,correct
-A,D-04,1,G01,restricted,,restricted,No. On 23 Jun 2026 the BCB ordered immediate discontinuation of FX operations to import virtual assets by investment funds where the fund acts as an intermediary. On 26 Jun 2026 it kept the suspension in place.,True,correct
-A,D-04,1,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,supported,"The operations stay suspended until the institutions align with the BCB supervision area (Departamento de Supervisão de Conduta, Decon). They are to explain how they identify the economic purpose of each transaction and tell own-account operations from intermediation.",True,correct
-A,D-05,1,G01,conditional,,supported,"Yes. The BCB 'released' order-book arbitrage by funds, where the fund does not choose the counterparty. The broader suspension of fund FX for virtual-asset imports stays in place.",True,unsupported_positive
-A,D-05,1,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,supported,The suspension stays until the institutions align with the BCB's conduct supervision department (Decon). Each institution must explain how it identifies the economic purpose of a transaction and tells own-account operations from intermediation.,True,correct
-B0,D-01,1,F01,supported,,supported,,True,correct
-B0,D-01,1,F02,supported,yes,supported,yes,True,correct
-B0,D-01,1,F03,supported,company (PJ) verification by Foxbit compliance,unknown,,False,false_unknown
-B0,D-01,1,F04,,72,unknown,,False,false_unknown
-B0,D-01,1,F05,,case by case,unknown,,False,false_unknown
-B0,D-01,1,F06,unknown,,unknown,,False,correct_unknown
-B0,D-01,1,F07,conditional,,unknown,,False,false_unknown
-B0,D-01,1,F08,,50,,50.0,True,correct
-B0,D-01,1,F09,supported,separate analysis by Foxbit's commercial team,unknown,,False,false_unknown
-B0,D-01,1,F10,supported,,unknown,,False,false_unknown
-B0,D-01,1,F11,supported,,unknown,,False,false_unknown
-B0,D-01,1,F12,unknown,,unknown,,False,correct_unknown
-B0,D-01,1,F13,supported,2026-11-01,supported,,True,wrong_answer
-B0,D-01,1,F14,,case by case,unknown,,False,false_unknown
-B0,D-01,1,F15,supported,,unknown,,False,false_unknown
-B0,D-02,1,F01,supported,,supported,,True,correct
-B0,D-02,1,F02,supported,yes,supported,yes,True,correct
-B0,D-02,1,F03,supported,company (PJ) verification by Foxbit compliance,unknown,,False,false_unknown
-B0,D-02,1,F04,,72,unknown,,False,false_unknown
-B0,D-02,1,F05,,case by case,unknown,,False,false_unknown
-B0,D-02,1,F06,unknown,,unknown,,False,correct_unknown
-B0,D-02,1,F07,conditional,,unknown,,False,false_unknown
-B0,D-02,1,F08,,50,,50.0,True,correct
-B0,D-02,1,F09,supported,separate analysis by Foxbit's commercial team,unknown,,False,false_unknown
-B0,D-02,1,F10,supported,,unknown,,False,false_unknown
-B0,D-02,1,F11,supported,,unknown,,False,false_unknown
-B0,D-02,1,F12,unknown,,unknown,,False,correct_unknown
-B0,D-02,1,F13,supported,2026-11-01,supported,,True,wrong_answer
-B0,D-02,1,F14,,case by case,unknown,,False,false_unknown
-B0,D-02,1,F15,supported,,unknown,,False,false_unknown
-B0,D-03,1,F01,supported,,supported,,True,correct
-B0,D-03,1,F02,supported,yes,supported,yes,True,correct
-B0,D-03,1,F03,supported,account verification (KYC); crypto deposits and withdrawals unavailable on the simplified account,unknown,,False,false_unknown
-B0,D-03,1,F04,unknown,,unknown,,False,correct_unknown
-B0,D-03,1,F05,,"by account level (R$ 5,000 a month simplified; R$ 75,000 verified)",unknown,,False,false_unknown
-B0,D-03,1,F06,unknown,,unknown,,False,correct_unknown
-B0,D-03,1,F07,supported,,unknown,,False,false_unknown
-B0,D-03,1,F08,,50,,50.0,True,correct
-B0,D-03,1,F09,unknown,,unknown,,False,correct_unknown
-B0,D-03,1,F10,supported,,unknown,,False,false_unknown
-B0,D-03,1,F11,supported,,unknown,,False,false_unknown
-B0,D-03,1,F12,unknown,,unknown,,False,correct_unknown
-B0,D-03,1,F13,supported,2026-11-01,supported,,True,wrong_answer
-B0,D-03,1,F14,,case by case,unknown,,False,false_unknown
-B0,D-03,1,F15,supported,,unknown,,False,false_unknown
-B0,D-04,1,G01,restricted,,unknown,,False,false_unknown
-B0,D-04,1,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,unknown,,False,false_unknown
-B0,D-05,1,G01,conditional,,unknown,,False,false_unknown
-B0,D-05,1,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,unknown,,False,false_unknown
-B1,D-01,1,F01,supported,,supported,yes,True,correct
-B1,D-01,1,F02,supported,yes,supported,yes,True,correct
-B1,D-01,1,F03,supported,company (PJ) verification by Foxbit compliance,supported,company (KYC PJ) verification by Compliance; stablecoin purchases also analysed separately by the commercial team,True,correct
-B1,D-01,1,F04,,72,supported,1 to 3 business days (simple accounts; complex ones may need more),True,wrong_answer
-B1,D-01,1,F05,,case by case,supported,case by case,True,correct
-B1,D-01,1,F06,unknown,,unknown,,False,correct_unknown
-B1,D-01,1,F07,conditional,,conditional,depends on separate analysis by Foxbit commercial team,True,correct
-B1,D-01,1,F08,,50,supported,50,True,correct
-B1,D-01,1,F09,supported,separate analysis by Foxbit's commercial team,supported,stablecoin purchases analysed separately by commercial team; limits set by expected monthly volume and per-operation volume,True,correct
-B1,D-01,1,F10,supported,,supported,yes,True,correct
-B1,D-01,1,F11,supported,,supported,yes,True,correct
-B1,D-01,1,F12,unknown,,unknown,,False,correct_unknown
-B1,D-01,1,F13,supported,2026-11-01,supported,2026-11-01,True,correct
-B1,D-01,1,F14,,case by case,supported,case by case,True,correct
-B1,D-01,1,F15,supported,,supported,yes,True,correct
-B1,D-02,1,F01,supported,,supported,yes,True,correct
-B1,D-02,1,F02,supported,yes,supported,yes,True,correct
-B1,D-02,1,F03,supported,company (PJ) verification by Foxbit compliance,supported,company KYC PJ verification by Compliance; stablecoin operations additionally analysed separately by the commercial team,True,correct
-B1,D-02,1,F04,,72,supported,1 to 3 business days (simple accounts; complex ones may take longer),True,wrong_answer
-B1,D-02,1,F05,,case by case,supported,case by case,True,correct
-B1,D-02,1,F06,unknown,,unknown,,False,correct_unknown
-B1,D-02,1,F07,conditional,,conditional,depends on separate analysis by Foxbit commercial team,True,correct
-B1,D-02,1,F08,,50,supported,50,True,correct
-B1,D-02,1,F09,supported,separate analysis by Foxbit's commercial team,supported,stablecoin purchases negotiated separately and analysed by commercial team; limits set by expected monthly volume and per-operation volume,True,correct
-B1,D-02,1,F10,supported,,supported,yes,True,correct
-B1,D-02,1,F11,supported,,supported,"yes, Ethereum (ERC-20) listed for USDC",True,correct
-B1,D-02,1,F12,unknown,,unknown,,False,correct_unknown
-B1,D-02,1,F13,supported,2026-11-01,supported,yes; in force from 2026-11-01,True,correct
-B1,D-02,1,F14,,case by case,supported,case by case,True,correct
-B1,D-02,1,F15,supported,,unknown,,False,false_unknown
-B1,D-03,1,F01,supported,,supported,yes,True,correct
-B1,D-03,1,F02,supported,yes,supported,yes,True,correct
-B1,D-03,1,F03,supported,account verification (KYC); crypto deposits and withdrawals unavailable on the simplified account,supported,Account verification (KYC) beyond simplified registration; simplified accounts have no crypto deposits/withdrawals,True,correct
-B1,D-03,1,F04,unknown,,unknown,,False,correct_unknown
-B1,D-03,1,F05,,"by account level (R$ 5,000 a month simplified; R$ 75,000 verified)",supported,by account level,True,correct
-B1,D-03,1,F06,unknown,,unknown,,False,correct_unknown
-B1,D-03,1,F07,supported,,supported,yes,True,correct
-B1,D-03,1,F08,,50,supported,50,True,correct
-B1,D-03,1,F09,unknown,,unknown,,False,correct_unknown
-B1,D-03,1,F10,supported,,supported,yes,True,correct
-B1,D-03,1,F11,supported,,supported,yes,True,correct
-B1,D-03,1,F12,unknown,,unknown,,False,correct_unknown
-B1,D-03,1,F13,supported,2026-11-01,supported,2026-11-01,True,correct
-B1,D-03,1,F14,,case by case,supported,case by case,True,correct
-B1,D-03,1,F15,supported,,supported,yes,True,correct
-B1,D-04,1,G01,restricted,,restricted,No,False,invalid_evidence
-B1,D-04,1,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,supported,"Operations remain suspended until the institutions align with the BCB's supervision area (Departamento de Supervisão de Conduta, Decon), explaining how they identify the economic purpose and distinguish own-account operations from intermediation.",True,correct
-B1,D-05,1,G01,conditional,,supported,Yes: the BCB released arbitrage carried out inside exchange order books when the fund does not choose the counterparty.,True,unsupported_positive
-B1,D-05,1,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,supported,Alignment with the BCB supervision area (Decon): institutions must explain how they identify the economic purpose of transactions and distinguish own-account operations from intermediation; until then operations stay suspended.,True,correct
-B2,D-01,1,F01,supported,,supported,yes,True,correct
-B2,D-01,1,F02,supported,yes,supported,yes,True,correct
-B2,D-01,1,F03,supported,company (PJ) verification by Foxbit compliance,supported,Company onboarding with CNPJ and KYC PJ analysis by Compliance,True,correct
-B2,D-01,1,F04,,72,supported,1 to 3 business days (simple accounts; complex ones may need more),True,wrong_answer
-B2,D-01,1,F05,,case by case,supported,case by case,True,correct
-B2,D-01,1,F06,unknown,,unknown,,False,correct_unknown
-B2,D-01,1,F07,conditional,,conditional,,True,correct
-B2,D-01,1,F08,,50,supported,50,True,correct
-B2,D-01,1,F09,supported,separate analysis by Foxbit's commercial team,supported,Stablecoin purchases are negotiated separately and analysed by the commercial team; limits set by expected monthly volume and per-operation volume,True,correct
-B2,D-01,1,F10,supported,,supported,yes,True,correct
-B2,D-01,1,F11,supported,,supported,yes,True,correct
-B2,D-01,1,F12,unknown,,unknown,,False,correct_unknown
-B2,D-01,1,F13,supported,2026-11-01,supported,2026-11-01,True,correct
-B2,D-01,1,F14,,case by case,supported,case by case,True,correct
-B2,D-01,1,F15,supported,,supported,yes,True,correct
-B2,D-02,1,F01,supported,,supported,yes,True,correct
-B2,D-02,1,F02,supported,yes,supported,yes,True,correct
-B2,D-02,1,F03,supported,company (PJ) verification by Foxbit compliance,supported,"KYC PJ company verification by Compliance (corporate documents, KYC/KYE/KYP/KYS); stablecoin operations also analysed separately by the commercial team",True,correct
-B2,D-02,1,F04,,72,supported,1 to 3 business days (simple accounts; complex ones may need more),True,wrong_answer
-B2,D-02,1,F05,,case by case,supported,case by case,True,correct
-B2,D-02,1,F06,unknown,,unknown,,False,correct_unknown
-B2,D-02,1,F07,conditional,,conditional,conditional on separate analysis by Foxbit commercial team,True,correct
-B2,D-02,1,F08,,50,supported,50,True,correct
-B2,D-02,1,F09,supported,separate analysis by Foxbit's commercial team,supported,Stablecoin purchases/remittances negotiated and analysed separately by the commercial team; limits set by expected monthly volume and per-operation volume,True,correct
-B2,D-02,1,F10,supported,,supported,yes,True,correct
-B2,D-02,1,F11,supported,,supported,"yes, Ethereum (ERC-20) listed for USDC",True,correct
-B2,D-02,1,F12,unknown,,unknown,,False,correct_unknown
-B2,D-02,1,F13,supported,2026-11-01,supported,"yes, from 2026-11-01",True,correct
-B2,D-02,1,F14,,case by case,supported,case by case,True,correct
-B2,D-02,1,F15,supported,,unknown,,False,false_unknown
-B2,D-03,1,F01,supported,,supported,yes,True,correct
-B2,D-03,1,F02,supported,yes,supported,yes,True,correct
-B2,D-03,1,F03,supported,account verification (KYC); crypto deposits and withdrawals unavailable on the simplified account,supported,account verification (KYC) to unlock crypto deposits/withdrawals and higher limits,True,correct
-B2,D-03,1,F04,unknown,,unknown,,False,correct_unknown
-B2,D-03,1,F05,,"by account level (R$ 5,000 a month simplified; R$ 75,000 verified)",supported,by account level,True,correct
-B2,D-03,1,F06,unknown,,unknown,,False,correct_unknown
-B2,D-03,1,F07,supported,,supported,yes,True,correct
-B2,D-03,1,F08,,50,supported,50,True,correct
-B2,D-03,1,F09,unknown,,unknown,,False,correct_unknown
-B2,D-03,1,F10,supported,,supported,yes,True,correct
-B2,D-03,1,F11,supported,,supported,yes,True,correct
-B2,D-03,1,F12,unknown,,unknown,,False,correct_unknown
-B2,D-03,1,F13,supported,2026-11-01,supported,2026-11-01,True,correct
-B2,D-03,1,F14,,case by case,supported,case by case,True,correct
-B2,D-03,1,F15,supported,,supported,yes,True,correct
-B2,D-04,1,G01,restricted,,restricted,No,True,correct
-B2,D-04,1,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,supported,Operations remain suspended until alignment between the institutions and the BCB supervision area (Decon) on how each identifies the economic purpose and distinguishes own operations from intermediation.,True,correct
-B2,D-05,1,G01,conditional,,supported,"Yes: arbitrage inside exchange order books, where the fund does not choose the counterparty, was released by the BCB on 26 June 2026.",True,unsupported_positive
-B2,D-05,1,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,supported,"Alignment with the BCB supervision area (Departamento de Supervisão de Conduta, Decon) on how each institution identifies the economic purpose of the operation and tells own-account operations from intermediation",True,correct
+method,case_id,repeat,field_id,ref_state,ref_value,state,value,n_answers,evidence_valid,mechanical,final,failed_run,outcome
+B0,D-01,1,F01,supported,,supported,,1,True,True,True,False,correct
+B0,D-01,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B0,D-01,1,F03,supported,company (PJ) verification by Foxbit compliance,unknown,,1,False,False,False,False,false_unknown
+B0,D-01,1,F04,,72,unknown,,1,False,False,False,False,false_unknown
+B0,D-01,1,F05,,case by case,unknown,,1,False,False,False,False,false_unknown
+B0,D-01,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,D-01,1,F07,conditional,,unknown,,1,False,False,False,False,false_unknown
+B0,D-01,1,F08,,50,,50.0,1,True,True,True,False,correct
+B0,D-01,1,F09,supported,separate analysis by Foxbit's commercial team,unknown,,1,False,False,False,False,false_unknown
+B0,D-01,1,F10,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,D-01,1,F11,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,D-01,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,D-01,1,F13,supported,2026-11-01,supported,,1,True,False,False,False,wrong_answer
+B0,D-01,1,F14,,case by case,unknown,,1,False,False,False,False,false_unknown
+B0,D-01,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,D-01,1,F01,supported,,supported,yes,1,True,True,True,False,correct
+B1,D-01,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B1,D-01,1,F03,supported,company (PJ) verification by Foxbit compliance,supported,company (KYC PJ) verification by Compliance; stablecoin purchases also analysed separately by the commercial team,1,True,True,True,False,correct
+B1,D-01,1,F04,,72,supported,1 to 3 business days (simple accounts; complex ones may need more),1,True,False,False,False,wrong_answer
+B1,D-01,1,F05,,case by case,supported,case by case,1,True,True,True,False,correct
+B1,D-01,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,D-01,1,F07,conditional,,conditional,depends on separate analysis by Foxbit commercial team,1,True,True,True,False,correct
+B1,D-01,1,F08,,50,supported,50,1,True,True,True,False,correct
+B1,D-01,1,F09,supported,separate analysis by Foxbit's commercial team,supported,stablecoin purchases analysed separately by commercial team; limits set by expected monthly volume and per-operation volume,1,True,True,True,False,correct
+B1,D-01,1,F10,supported,,supported,yes,1,True,True,True,False,correct
+B1,D-01,1,F11,supported,,supported,yes,1,True,True,True,False,correct
+B1,D-01,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,D-01,1,F13,supported,2026-11-01,supported,2026-11-01,1,True,True,True,False,correct
+B1,D-01,1,F14,,case by case,supported,case by case,1,True,True,True,False,correct
+B1,D-01,1,F15,supported,,supported,yes,1,True,True,True,False,correct
+B2,D-01,1,F01,supported,,supported,yes,1,True,True,True,False,correct
+B2,D-01,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B2,D-01,1,F03,supported,company (PJ) verification by Foxbit compliance,supported,Company onboarding with CNPJ and KYC PJ analysis by Compliance,1,True,True,True,False,correct
+B2,D-01,1,F04,,72,supported,1 to 3 business days (simple accounts; complex ones may need more),1,True,False,False,False,wrong_answer
+B2,D-01,1,F05,,case by case,supported,case by case,1,True,True,True,False,correct
+B2,D-01,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,D-01,1,F07,conditional,,conditional,,1,True,True,True,False,correct
+B2,D-01,1,F08,,50,supported,50,1,True,True,True,False,correct
+B2,D-01,1,F09,supported,separate analysis by Foxbit's commercial team,supported,Stablecoin purchases are negotiated separately and analysed by the commercial team; limits set by expected monthly volume and per-operation volume,1,True,True,True,False,correct
+B2,D-01,1,F10,supported,,supported,yes,1,True,True,True,False,correct
+B2,D-01,1,F11,supported,,supported,yes,1,True,True,True,False,correct
+B2,D-01,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,D-01,1,F13,supported,2026-11-01,supported,2026-11-01,1,True,True,True,False,correct
+B2,D-01,1,F14,,case by case,supported,case by case,1,True,True,True,False,correct
+B2,D-01,1,F15,supported,,supported,yes,1,True,True,True,False,correct
+A,D-01,1,F01,supported,,supported,yes,1,True,True,True,False,correct
+A,D-01,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+A,D-01,1,F03,supported,company (PJ) verification by Foxbit compliance,supported,"Company (KYC PJ) verification by Compliance; for crypto withdrawals to external addresses, an additional verification level handled by support (may include video call, documents, proof of funds)",1,True,True,True,False,correct
+A,D-01,1,F04,,72,supported,72 hours,1,True,True,True,False,correct
+A,D-01,1,F05,,case by case,supported,case by case,1,True,True,True,False,correct
+A,D-01,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+A,D-01,1,F07,conditional,,conditional,Stablecoin purchases are analysed separately by Foxbit's commercial team,1,True,True,True,False,correct
+A,D-01,1,F08,,50,supported,50,1,True,True,True,False,correct
+A,D-01,1,F09,supported,separate analysis by Foxbit's commercial team,supported,"Stablecoin (USDC, USDT, BRL1) purchase, sale and remittance are negotiated and analysed separately by the commercial team (Res. BCB 521/2025)",1,True,True,True,False,correct
+A,D-01,1,F10,supported,,conditional,"Withdrawal to external addresses requires the account to hold the verification level set for that feature, via a support-led check",1,True,False,False,False,wrong_answer
+A,D-01,1,F11,supported,,supported,yes,1,True,True,True,False,correct
+A,D-01,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+A,D-01,1,F13,supported,2026-11-01,supported,2026-11-01,1,True,True,True,False,correct
+A,D-01,1,F14,,case by case,supported,case by case,1,True,True,True,False,correct
+A,D-01,1,F15,supported,,supported,yes,1,True,True,True,False,correct
+B0,D-02,1,F01,supported,,supported,,1,True,True,True,False,correct
+B0,D-02,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B0,D-02,1,F03,supported,company (PJ) verification by Foxbit compliance,unknown,,1,False,False,False,False,false_unknown
+B0,D-02,1,F04,,72,unknown,,1,False,False,False,False,false_unknown
+B0,D-02,1,F05,,case by case,unknown,,1,False,False,False,False,false_unknown
+B0,D-02,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,D-02,1,F07,conditional,,unknown,,1,False,False,False,False,false_unknown
+B0,D-02,1,F08,,50,,50.0,1,True,True,True,False,correct
+B0,D-02,1,F09,supported,separate analysis by Foxbit's commercial team,unknown,,1,False,False,False,False,false_unknown
+B0,D-02,1,F10,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,D-02,1,F11,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,D-02,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,D-02,1,F13,supported,2026-11-01,supported,,1,True,False,False,False,wrong_answer
+B0,D-02,1,F14,,case by case,unknown,,1,False,False,False,False,false_unknown
+B0,D-02,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,D-02,1,F01,supported,,supported,yes,1,True,True,True,False,correct
+B1,D-02,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B1,D-02,1,F03,supported,company (PJ) verification by Foxbit compliance,supported,company KYC PJ verification by Compliance; stablecoin operations additionally analysed separately by the commercial team,1,True,True,True,False,correct
+B1,D-02,1,F04,,72,supported,1 to 3 business days (simple accounts; complex ones may take longer),1,True,False,False,False,wrong_answer
+B1,D-02,1,F05,,case by case,supported,case by case,1,True,True,True,False,correct
+B1,D-02,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,D-02,1,F07,conditional,,conditional,depends on separate analysis by Foxbit commercial team,1,True,True,True,False,correct
+B1,D-02,1,F08,,50,supported,50,1,True,True,True,False,correct
+B1,D-02,1,F09,supported,separate analysis by Foxbit's commercial team,supported,stablecoin purchases negotiated separately and analysed by commercial team; limits set by expected monthly volume and per-operation volume,1,True,True,True,False,correct
+B1,D-02,1,F10,supported,,supported,yes,1,True,True,True,False,correct
+B1,D-02,1,F11,supported,,supported,"yes, Ethereum (ERC-20) listed for USDC",1,True,True,True,False,correct
+B1,D-02,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,D-02,1,F13,supported,2026-11-01,supported,yes; in force from 2026-11-01,1,True,True,True,False,correct
+B1,D-02,1,F14,,case by case,supported,case by case,1,True,True,True,False,correct
+B1,D-02,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B2,D-02,1,F01,supported,,supported,yes,1,True,True,True,False,correct
+B2,D-02,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B2,D-02,1,F03,supported,company (PJ) verification by Foxbit compliance,supported,"KYC PJ company verification by Compliance (corporate documents, KYC/KYE/KYP/KYS); stablecoin operations also analysed separately by the commercial team",1,True,True,True,False,correct
+B2,D-02,1,F04,,72,supported,1 to 3 business days (simple accounts; complex ones may need more),1,True,False,False,False,wrong_answer
+B2,D-02,1,F05,,case by case,supported,case by case,1,True,True,True,False,correct
+B2,D-02,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,D-02,1,F07,conditional,,conditional,conditional on separate analysis by Foxbit commercial team,1,True,True,True,False,correct
+B2,D-02,1,F08,,50,supported,50,1,True,True,True,False,correct
+B2,D-02,1,F09,supported,separate analysis by Foxbit's commercial team,supported,Stablecoin purchases/remittances negotiated and analysed separately by the commercial team; limits set by expected monthly volume and per-operation volume,1,True,True,True,False,correct
+B2,D-02,1,F10,supported,,supported,yes,1,True,True,True,False,correct
+B2,D-02,1,F11,supported,,supported,"yes, Ethereum (ERC-20) listed for USDC",1,True,True,True,False,correct
+B2,D-02,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,D-02,1,F13,supported,2026-11-01,supported,"yes, from 2026-11-01",1,True,True,True,False,correct
+B2,D-02,1,F14,,case by case,supported,case by case,1,True,True,True,False,correct
+B2,D-02,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+A,D-02,1,F01,supported,,supported,yes,1,True,True,True,False,correct
+A,D-02,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+A,D-02,1,F03,supported,company (PJ) verification by Foxbit compliance,supported,"PJ account verification (KYC PJ) by Foxbit compliance; separate verification level, run by support, required for crypto withdrawals to external addresses",1,True,True,True,False,correct
+A,D-02,1,F04,,72,supported,up to 72 hours,1,True,True,True,False,correct
+A,D-02,1,F05,,case by case,supported,case by case,1,True,True,True,False,correct
+A,D-02,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+A,D-02,1,F07,conditional,,conditional,depends on separate commercial analysis of stablecoin purchases,1,True,True,True,False,correct
+A,D-02,1,F08,,50,supported,50,1,True,True,True,False,correct
+A,D-02,1,F09,supported,separate analysis by Foxbit's commercial team,supported,"Stablecoin purchases, sales and remittances are negotiated and analysed separately by Foxbit's commercial team (Res. BCB 521/2025 framework)",1,True,True,True,False,correct
+A,D-02,1,F10,supported,,supported,yes,1,True,True,True,False,correct
+A,D-02,1,F11,supported,,supported,yes,1,True,True,True,False,correct
+A,D-02,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+A,D-02,1,F13,supported,2026-11-01,supported,2026-11-01,1,True,True,True,False,correct
+A,D-02,1,F14,,case by case,supported,case by case,1,True,True,True,False,correct
+A,D-02,1,F15,supported,,supported,yes,1,True,True,True,False,correct
+B0,D-03,1,F01,supported,,supported,,1,True,True,True,False,correct
+B0,D-03,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B0,D-03,1,F03,supported,account verification (KYC); crypto deposits and withdrawals unavailable on the simplified account,unknown,,1,False,False,False,False,false_unknown
+B0,D-03,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,D-03,1,F05,,"by account level (R$ 5,000 a month simplified; R$ 75,000 verified)",unknown,,1,False,False,False,False,false_unknown
+B0,D-03,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,D-03,1,F07,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,D-03,1,F08,,50,,50.0,1,True,True,True,False,correct
+B0,D-03,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,D-03,1,F10,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,D-03,1,F11,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,D-03,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,D-03,1,F13,supported,2026-11-01,supported,,1,True,False,False,False,wrong_answer
+B0,D-03,1,F14,,case by case,unknown,,1,False,False,False,False,false_unknown
+B0,D-03,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,D-03,1,F01,supported,,supported,yes,1,True,True,True,False,correct
+B1,D-03,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B1,D-03,1,F03,supported,account verification (KYC); crypto deposits and withdrawals unavailable on the simplified account,supported,Account verification (KYC) beyond simplified registration; simplified accounts have no crypto deposits/withdrawals,1,True,True,True,False,correct
+B1,D-03,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,D-03,1,F05,,"by account level (R$ 5,000 a month simplified; R$ 75,000 verified)",supported,by account level,1,True,True,True,False,correct
+B1,D-03,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,D-03,1,F07,supported,,supported,yes,1,True,True,True,False,correct
+B1,D-03,1,F08,,50,supported,50,1,True,True,True,False,correct
+B1,D-03,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,D-03,1,F10,supported,,supported,yes,1,True,True,True,False,correct
+B1,D-03,1,F11,supported,,supported,yes,1,True,True,True,False,correct
+B1,D-03,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,D-03,1,F13,supported,2026-11-01,supported,2026-11-01,1,True,True,True,False,correct
+B1,D-03,1,F14,,case by case,supported,case by case,1,True,True,True,False,correct
+B1,D-03,1,F15,supported,,supported,yes,1,True,True,True,False,correct
+B2,D-03,1,F01,supported,,supported,yes,1,True,True,True,False,correct
+B2,D-03,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B2,D-03,1,F03,supported,account verification (KYC); crypto deposits and withdrawals unavailable on the simplified account,supported,account verification (KYC) to unlock crypto deposits/withdrawals and higher limits,1,True,True,True,False,correct
+B2,D-03,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,D-03,1,F05,,"by account level (R$ 5,000 a month simplified; R$ 75,000 verified)",supported,by account level,1,True,True,True,False,correct
+B2,D-03,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,D-03,1,F07,supported,,supported,yes,1,True,True,True,False,correct
+B2,D-03,1,F08,,50,supported,50,1,True,True,True,False,correct
+B2,D-03,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,D-03,1,F10,supported,,supported,yes,1,True,True,True,False,correct
+B2,D-03,1,F11,supported,,supported,yes,1,True,True,True,False,correct
+B2,D-03,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,D-03,1,F13,supported,2026-11-01,supported,2026-11-01,1,True,True,True,False,correct
+B2,D-03,1,F14,,case by case,supported,case by case,1,True,True,True,False,correct
+B2,D-03,1,F15,supported,,supported,yes,1,True,True,True,False,correct
+A,D-03,1,F01,supported,,supported,yes,1,True,True,True,False,correct
+A,D-03,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+A,D-03,1,F03,supported,account verification (KYC); crypto deposits and withdrawals unavailable on the simplified account,supported,"Onboarding/KYC validation of the registration, plus the Verification Level enabled for external crypto withdrawals (may include video call, extra documents, financial capacity and source of funds)",1,True,True,True,False,correct
+A,D-03,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+A,D-03,1,F05,,"by account level (R$ 5,000 a month simplified; R$ 75,000 verified)",supported,by account level,1,True,True,True,False,correct
+A,D-03,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+A,D-03,1,F07,supported,,supported,yes,1,True,True,True,False,correct
+A,D-03,1,F08,,50,supported,50,1,True,True,True,False,correct
+A,D-03,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+A,D-03,1,F10,supported,,conditional,conditional on the verification level for external crypto withdrawals,1,True,False,False,False,wrong_answer
+A,D-03,1,F11,supported,,supported,yes,1,True,True,True,False,correct
+A,D-03,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+A,D-03,1,F13,supported,2026-11-01,supported,2026-11-01,1,True,True,True,False,correct
+A,D-03,1,F14,,case by case,supported,case by case,1,True,True,True,False,correct
+A,D-03,1,F15,supported,,supported,yes,1,True,True,True,False,correct
+B0,D-04,1,G01,restricted,,unknown,,1,False,False,False,False,false_unknown
+B0,D-04,1,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,unknown,,1,False,False,False,False,false_unknown
+B1,D-04,1,G01,restricted,,restricted,No,1,False,False,False,False,invalid_evidence
+B1,D-04,1,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,supported,"Operations remain suspended until the institutions align with the BCB's supervision area (Departamento de Supervisão de Conduta, Decon), explaining how they identify the economic purpose and distinguish own-account operations from intermediation.",1,True,True,True,False,correct
+B2,D-04,1,G01,restricted,,restricted,No,1,True,True,True,False,correct
+B2,D-04,1,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,supported,Operations remain suspended until alignment between the institutions and the BCB supervision area (Decon) on how each identifies the economic purpose and distinguishes own operations from intermediation.,1,True,True,True,False,correct
+A,D-04,1,G01,restricted,,restricted,No. On 23 Jun 2026 the BCB ordered immediate discontinuation of FX operations to import virtual assets by investment funds where the fund acts as an intermediary. On 26 Jun 2026 it kept the suspension in place.,1,True,True,True,False,correct
+A,D-04,1,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,supported,"The operations stay suspended until the institutions align with the BCB supervision area (Departamento de Supervisão de Conduta, Decon). They are to explain how they identify the economic purpose of each transaction and tell own-account operations from intermediation.",1,True,True,True,False,correct
+B0,D-05,1,G01,conditional,,unknown,,1,False,False,False,False,false_unknown
+B0,D-05,1,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,unknown,,1,False,False,False,False,false_unknown
+B1,D-05,1,G01,conditional,,supported,Yes: the BCB released arbitrage carried out inside exchange order books when the fund does not choose the counterparty.,1,True,False,False,False,unsupported_positive
+B1,D-05,1,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,supported,Alignment with the BCB supervision area (Decon): institutions must explain how they identify the economic purpose of transactions and distinguish own-account operations from intermediation; until then operations stay suspended.,1,True,True,True,False,correct
+B2,D-05,1,G01,conditional,,supported,"Yes: arbitrage inside exchange order books, where the fund does not choose the counterparty, was released by the BCB on 26 June 2026.",1,True,False,False,False,unsupported_positive
+B2,D-05,1,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,supported,"Alignment with the BCB supervision area (Departamento de Supervisão de Conduta, Decon) on how each institution identifies the economic purpose of the operation and tells own-account operations from intermediation",1,True,True,True,False,correct
+A,D-05,1,G01,conditional,,supported,"Yes. The BCB 'released' order-book arbitrage by funds, where the fund does not choose the counterparty. The broader suspension of fund FX for virtual-asset imports stays in place.",1,True,False,False,False,unsupported_positive
+A,D-05,1,G02,,per-institution alignment with the BCB on how each institution tells own-account operations from intermediation,supported,The suspension stays until the institutions align with the BCB's conduct supervision department (Decon). Each institution must explain how it identifies the economic purpose of a transaction and tells own-account operations from intermediation.,1,True,True,True,False,correct
