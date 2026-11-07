@@ -19,7 +19,7 @@ Starts Sun 1 Nov if the gate says go. Plan: `docs/05-agentic-robustness.md` §A.
   public column documentation; write `SHA256SUMS`. Nothing from `docs/`, `findings/` or processed data. — done: Felipe, 2 Nov
 - [x] S2 — Freeze the prompt and the answer schema (from `docs/05`) in `results/agentic/protocol.md`, with
   the models to use, runs per family (~10) and the analysis plan. — done: Felipe, 2 Nov
-- [ ] S3 — Memory test: in each family's chat app, web search off, ask what happened to Brazilian
+- [x] S3 — Memory test: in each family's chat app, web search off, ask what happened to Brazilian
   stablecoin regulation on 23 Jun 2026. Save the answers verbatim in `results/agentic/memory_test.md`.
 - [ ] S4 — Isolation setup per CLI (on Renzo's machine and accounts): fresh empty folder per run containing
   only the bundle; agent web tools disabled; network blocked for the agent's shell where the CLI allows it;
@@ -87,6 +87,7 @@ Starts Sun 1 Nov if the gate says go. Plan: `docs/05-agentic-robustness.md` §A.
 - **How to resume:** Follow steps 1–4 above on Renzo's machine.
 
 ## Log
+- 2026-11-07, Jonathan (CS 3): Executed clean S3 memory tests across Claude (Sonnet 5.5), OpenAI (ChatGPT), and Google (Gemini 3.8 Pro in AI Studio) with web tools disabled. All models returned Unaware/Cutoff. Logged verbatim outputs to results/agentic/memory_test.md. Handing off S4-S6 to CLI environment.
 - 2026-11-02 Felipe: Completed S1 and S2. Wrote `scripts/p3_05_build_bundle.py` which populated `data/agentic_bundle/` with 276 raw price files and neutral provider documentation (`DATA_README.txt`), computed SHA256 checksums, and mirrored them to `results/agentic/bundle_SHA256SUMS.txt`. Wrote `results/agentic/protocol.md` pre-registering prompt, schema, isolation rules, and dispersion analysis plan. Built `scripts/p3_05_harness.py` and `scripts/p3_05_run_agent.sh` with schema validation and test harness. Prepared templates `results/agentic/memory_test.md` and `results/agentic/isolation_test.md`. Updated `.gitignore` to explicitly ignore `data/agentic_bundle/`. Ready for live CLI execution by Jonathan/Renzo.
 
 ## Result
