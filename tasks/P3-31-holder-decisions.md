@@ -67,3 +67,7 @@ Translate the measured premium into a comprehensive two-sided conditional treasu
 ## Result
 Two-sided decision accounting with exact CIP hedge pricing; retrospective June 2026 outcomes from data; seller
 hurdles. F-039 is exploratory and retrospective, not an ex-ante rule.
+
+## Independent review — 7 Nov 2026 (Codex for Felipe)
+
+Reviewed in `docs/review-2026-11-07-duration-treasury.md`. Full offline duration/holder/frontier/incident replay passes; all 20 regenerated CSVs match numerically and 37 checks pass. Remaining interpretation/handoff corrections and verification limits are listed in that report. This is agent evidence only: required named human sign-offs remain pending. Economist-owned `status: review` is preserved as Felipe requested.

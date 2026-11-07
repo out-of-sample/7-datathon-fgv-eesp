@@ -1,0 +1,18 @@
+# P3-27 / P3-38 independent review â€” 7 November 2026
+
+## Assessment
+Ready within their historical documentation scope. P3-27 and P3-38 move to done after this independent review. This closes an options/design deliverable and a dated synthetic audit; it does not approve P3-28 H1, provider access, or any new deck claim. P3-28 is paused and was inspected only as a dependency, without opening held-out labels or model answers.
+
+## P3-27
+Read all six options, the evidence-to-design table, narrative alternatives, formal specifications and task criteria. Each option defines an incremental outcome, simpler comparator and failure conditions. The record separates proposal, adoption, implementation and empirical validation. No empirical winner or jury preference is claimed. T-01â€“T-13 entries retain their original source-opening provenance; this session did not revalidate live websites or current technology availability. The old handoff described the state on 6 November; downstream work now exists in P3-28/P3-29 and does not invalidate the planning deliverable.
+
+## P3-38
+Replayed `scripts/p3_38_comparison_audit.py --from-git` against pinned c63aa7092352640ebd17b2228e7f1b86ed9f9c92. All snapshot hashes pass, and the recorded 15 checks reproduce: 13 deliberately constructed contract violations and two controls. Inspected the AST extraction, fixtures, manifest, report and F-046. These are selected counterexamples, not a performance error rate. The historical report is correct within that scope. Current `scripts/p3_28_methods.py selftest` also passes: the historical defects must not be represented as all still present.
+
+## Remaining current-scorer risks (recommendations to P3-28 owner)
+1. **P1 before final scoring â€” incomplete human audit can be labelled FINAL.** `score()` treats any nonempty audit dictionary as audited, without requiring every score-bearing/positive/note-bearing answer key and completed decisions. A synthetic audit with only an unrelated key produces `FINAL (audited)` and zero unsupported positives even though the single supported answer has never been semantically audited. SAC is conservatively zero, but a zero guardrail and final label are not established. Validate complete required audit coverage and allowed decision values before final scoring; missing decisions must stop finalization.
+2. **P1 before final scoring â€” opposite notes share one audit identity.** `audit_key()` excludes `note`, although `note_claim` audits that note. Identical structured answers with opposite availability assertions share the same key and the audit sheet overwrites one with the other. Include normalized note text in the key (or independently audit every emitted claim); preserve duplicate-answer notes as well. A shared field-level audit cannot certify text it did not see.
+3. Existing protocol caveats remain: resource ceilings are unequal/unverified, old B2 input token records are incomplete, human references and semantic audit remain pending. These block superiority/final guardrail claims, not the historical P3-38 review itself.
+
+## Reproduction
+Windows interpreter: `C:/Users/Felipe/AppData/Local/Programs/Python/Python314/python.exe`. Set TEMP/TMP to a writable directory under `scratch/review-temp` before the historical tempfile-based replay. Commands: `python scripts/p3_38_comparison_audit.py --from-git`; `python scripts/p3_28_methods.py selftest`; `python scripts/p3_43_audit_reproduction.py`. The last script uses only artificial data and redirects all output to scratch; it reads no real labels/runs. No production scorer, corpus, protocol or held-out result was changed.

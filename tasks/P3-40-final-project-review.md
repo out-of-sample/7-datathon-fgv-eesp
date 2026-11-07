@@ -40,3 +40,7 @@ User-authorized review, fixes and commit of reproducible project errors. Review 
 
 ## Result
 Reviewed and repaired identifiers, duration provenance/scoring descriptions, treasury annex, placebo-band wording and agent-budget compliance caveats. Numerical core unchanged. Full source and final-PDF certification not claimed.
+
+## Independent review — 7 Nov 2026 (Codex for Felipe)
+
+Reviewed in `docs/review-2026-11-07-duration-treasury.md`. Full offline duration/holder/frontier/incident replay passes; all 20 regenerated CSVs match numerically and 37 checks pass. Remaining interpretation/handoff corrections and verification limits are listed in that report. This is agent evidence only: required named human sign-offs remain pending. Economist-owned `status: review` is preserved as Felipe requested.

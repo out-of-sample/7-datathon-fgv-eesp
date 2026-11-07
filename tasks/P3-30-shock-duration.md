@@ -56,3 +56,7 @@ Test whether local-currency premium shock duration and recovery can be predicted
 Census and feasibility: Brazil alone fails the floor and the 10-currency pool passes (k = 3: 43/10/8 episodes).
 In the training pool, half of the shocks recover within 20 business days. The penalised hazard model does not beat the
 base rate out of sample (primary metric: onset, 10 days, λ chosen on 2025). F-038 is exploratory.
+
+## Independent review — 7 Nov 2026 (Codex for Felipe)
+
+Reviewed in `docs/review-2026-11-07-duration-treasury.md`. Full offline duration/holder/frontier/incident replay passes; all 20 regenerated CSVs match numerically and 37 checks pass. Remaining interpretation/handoff corrections and verification limits are listed in that report. This is agent evidence only: required named human sign-offs remain pending. Economist-owned `status: review` is preserved as Felipe requested.

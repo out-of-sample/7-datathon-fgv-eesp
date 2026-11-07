@@ -43,3 +43,7 @@ Independently test the new economics and duration work before the assessment use
 ## Result
 First review superseded. The second review found substantive errors and fixed them in the scripts, F-038 and
 F-039. Both findings are exploratory until Felipe accepts the fixes and a teammate re-runs.
+
+## Independent review — 7 Nov 2026 (Codex for Felipe)
+
+Reviewed in `docs/review-2026-11-07-duration-treasury.md`. Full offline duration/holder/frontier/incident replay passes; all 20 regenerated CSVs match numerically and 37 checks pass. Remaining interpretation/handoff corrections and verification limits are listed in that report. This is agent evidence only: required named human sign-offs remain pending. Economist-owned `status: review` is preserved as Felipe requested.

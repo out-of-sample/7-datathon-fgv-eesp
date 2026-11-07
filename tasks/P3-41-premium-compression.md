@@ -51,3 +51,6 @@ User authorized on 7 Nov after a read-only project/data review. Build the first 
 
 ## Result
 F-050: first operational forecast-to-cost pipeline complete, but no established acquisition-timing improvement. Ridge MAE at 10 days is 34.43 bps on daily 2026 origins versus mean reversion 30.03; the fixed nonoverlapping subset also favors mean reversion. The June signal/execution distinction materially changes realized cost comparisons. Actual access unknown, so all actionable outputs abstain. Independent reproduction pending.
+
+## Independent review — 7 Nov 2026
+A separate Codex review agent reproduced the full experiment and checked timing, accounting, matched dates and claims. See `docs/review-2026-11-07-compression.md`. All existing outputs reproduced byte for byte; no blocking defect found. Economist ownership and `status: review` are preserved. Named human teammate sign-off and Felipe's annex decision remain pending. The v1 June chart has a non-blocking signal-versus-execution clarity recommendation; no code or model was changed.

@@ -49,3 +49,6 @@ Felipe requested a bounded upgrade before independent revision. Preserve P3-41/F
 
 ## Result
 F-051: daily 10-day MAE improves from v1 34.43 to 29.34 bps; mean reversion 30.03. On fixed nonoverlapping origins, selected model 21.74 versus mean reversion 21.33. Improvement over simple baseline unestablished. Central June waiting signals fail robustness across the joint forecast/scenario envelope. Ready for independent revision.
+
+## Independent review — 7 Nov 2026
+A separate Codex review agent reproduced the full experiment and checked timing, accounting, matched dates and claims. See `docs/review-2026-11-07-compression.md`. All existing outputs reproduced byte for byte; no blocking defect found. Economist ownership and `status: review` are preserved. Named human teammate sign-off and Felipe's annex decision remain pending. The v1 June chart has a non-blocking signal-versus-execution clarity recommendation; no code or model was changed.

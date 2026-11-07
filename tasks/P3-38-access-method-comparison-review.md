@@ -2,7 +2,7 @@
 id: P3-38
 title: Independently assess the simple-search versus agentic access comparison
 phase: P3
-status: review
+status: done
 owner: CS 1
 working: -
 due: 2026-11-07
@@ -37,10 +37,10 @@ The initial `git pull --rebase` failed because other-session changes were unstag
 - `results/P3-38_protocol_handoff.md` and `P3-38_board_preview.md` — pending shared-log entries and board preview under the new-files-only instruction.
 
 ## Handoff
-- **State:** Independent review complete and ready for a teammate. F-046 is exploratory: synthetic checks identify scoring/accounting problems at c63aa70; no model performance claim is made. The report contains recommendations R1–R7 and an execution plan. P3-28 files, human labels and runs were not changed.
-- **Next step:** The P3-28 implementer reads `results/P3-38_comparison_review.md` and addresses R1–R7 in its own task; a different teammate reproduces F-046. Keep any fixes and new protocol version separate from this historical snapshot.
-- **Open questions:** Human reference completion, corpus completion and experiment configuration belong to P3-28. Shared STATUS/board/decision-log updates were deferred under Renzo's new-files-only instruction; ready-to-use text is in `results/P3-38_protocol_handoff.md`. The earlier permission-review failure was resolved. Final publication uses a temporary clean checkout to avoid rebasing or stashing shared work; the handoff records the intermediate commits and reconciliation needs.
-- **How to resume:** Run `python3 scripts/p3_38_comparison_audit.py --from-git` from the repository root. It verifies the snapshot hashes and writes only P3-38 tables. A completed audit reports the reproduced violations; it is not a pass verdict for P3-28. The local raw snapshot is optional because all input bytes exist at the pinned Git revision.
+- **State:** Independent review accepted the historical deliverable on 7 Nov; task done. See `docs/review-2026-11-07-access-options.md`.
+- **Next step:** No further work for this historical deliverable. Current access-method finalization issues belong to P3-43 and implementation remains with P3-28.
+- **Open questions:** Human reference, semantic audit, resource equivalence and deck adoption are not approved by this review.
+- **How to resume:** Read the review report. For P3-38 historical reproduction run `python scripts/p3_38_comparison_audit.py --from-git`; use the pinned snapshot rather than interpreting its failures as current-code failures.
 
 ## Log
 - 2026-11-07 — Final publication ID P3-38: a new fetch showed P3-37 reserved for BRLA and remote main advanced. Prepared only this review's final files for a clean temporary checkout of remote main. No shared history rewrite, stash or forced push.
@@ -52,3 +52,6 @@ The initial `git pull --rebase` failed because other-session changes were unstag
 
 ## Result
 The reviewed scorer can reward wrong or unsupported answers, mishandle incomplete/failed runs and undercount repeated same-model token use. The comparison remains feasible after correcting the evaluation and completing independent evidence review. The report provides a concrete fair-comparison design and labels all recommendations separately from adopted decisions. See F-046; no H1 verdict is claimed.
+
+## Independent review — 7 Nov 2026 (Codex for Felipe)
+Reviewed against current task criteria; historical deliverable accepted and status done. Evidence and limits: `docs/review-2026-11-07-access-options.md`. P3-38 pinned synthetic checks reproduced; current P3-28 method selftest passes. This is not a human-reference audit or approval of H1; current scorer finalization recommendations remain with P3-28.

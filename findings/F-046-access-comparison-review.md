@@ -42,3 +42,5 @@ Not used. This is a method-readiness review, not a comparative performance resul
 
 ## History
 - 2026-11-07 — Renzo's independent review agent created this exploratory finding under P3-38. Replayed the synthetic checks from both local snapshots and the pinned Git revision. Peer reproduction remains pending.
+
+- 2026-11-07 — Codex for Felipe independently replayed the pinned Git snapshot: all 15 synthetic observations reproduce. Historical finding remains exploratory; current v1.1 fixes and remaining finalization risks are distinguished in `docs/review-2026-11-07-access-options.md`. No held-out performance claim or human sign-off.

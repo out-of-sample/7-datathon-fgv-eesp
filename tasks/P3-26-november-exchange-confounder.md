@@ -43,3 +43,7 @@ Disclose and assess a newly located exchange event around P3-20's baseline and N
 
 ## Result
 S1 and S2 complete. The Binance incident (29 Oct 20:05 UTC) coincided with a transient −30.3 bps dip in Binance USDT/BRL on 30 Oct (gap +49.0 bps vs Foxbit), but E1 primary statistic S2 is completely insulated from this anomaly by the pre-registered design (pre-window ended 29 Oct 17:00 UTC, post-window 3–4 Nov). E2 pre-mean shift is ~2.3 bps (small relative to ±75 bps band). CUSUM monitor silence is a mechanical 10-PTAX-day pause (`QUIET = 10`). Finding F-045 produced; awaiting S3 independent teammate review.
+
+## Independent review — 7 Nov 2026 (Codex for Felipe)
+
+Reviewed in `docs/review-2026-11-07-duration-treasury.md`. Full offline duration/holder/frontier/incident replay passes; all 20 regenerated CSVs match numerically and 37 checks pass. Remaining interpretation/handoff corrections and verification limits are listed in that report. This is agent evidence only: required named human sign-offs remain pending. Economist-owned `status: review` is preserved as Felipe requested.

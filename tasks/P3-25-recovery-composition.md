@@ -117,3 +117,6 @@ Foxbit's share of summed USDT volume on the three observed venues increased by 2
 fixed pre to after windows. Historical adjacent pairs do not show a change that large, but the reference windows
 overlap and the episode was selected after seeing it. F-036 gives the numbers, figure, exits table and alternative
 explanations. Independent review and deck inclusion are pending.
+
+## Supplemental independent review — 7 Nov 2026
+Codex for Felipe checked the producing code, specification, F-036 and prior review record. Current full replay is blocked by absent `data/raw/mercadobitcoin/USDT-BRL-1h.csv`; no new raw-data reproduction is claimed. Implementation and descriptive claim ceiling pass the inspected checks. Restore that frozen input; Nattan/Jonathan's S5 sign-off remains pending. Status remains `review`. Full report: `docs/review-2026-11-07-p25-ledger.md`.

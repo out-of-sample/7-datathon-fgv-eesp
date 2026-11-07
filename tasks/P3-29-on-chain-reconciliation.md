@@ -264,3 +264,6 @@ F-041; capability matrix in `results/tables/P3-29_coverage.csv`.
 | Snapshot pair | 128,106,372.436 BRLA at block 69,926,442 (19 Jun 00:00 UTC); 135,855,038.456 at block 70,963,242 (1 Jul 00:00 UTC) |
 
 Not covered by G1: Polygon, Gnosis and Moonbeam contracts; upgrades between the two snapshot blocks (S3 scans the logs).
+
+## Supplemental independent review — 7 Nov 2026
+Codex for Felipe successfully replayed `ledger`, `cases` and `chains` offline using the restored frozen bundles. Reported numerical results reproduce; Windows-only path/encoding output differences were inspected and restored. P-0045's `flat_window` checks equal endpoint supplies, not every intervening state: describe that limit or verify intervening logs. Jonathan/Nattan's S7 and explorer/interpretation sign-off remain pending; status remains `review`. Full report and exact commands: `docs/review-2026-11-07-p25-ledger.md`.

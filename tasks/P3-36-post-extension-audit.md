@@ -37,3 +37,7 @@ Check Felipe's five-part progress summary against the latest repository, using t
 
 ## Result
 Review saved in `docs/post-extension-audit-2026-11-07.md`. The project has stronger evidence and useful extensions, but the supplied summary contains unsupported duration/model numbers, a withdrawn carry charge and overclaims about causality, predictability and incident insulation. Existing research files were preserved.
+
+## Independent review — 7 Nov 2026 (Codex for Felipe)
+
+Reviewed in `docs/review-2026-11-07-duration-treasury.md`. Full offline duration/holder/frontier/incident replay passes; all 20 regenerated CSVs match numerically and 37 checks pass. Remaining interpretation/handoff corrections and verification limits are listed in that report. This is agent evidence only: required named human sign-offs remain pending. Economist-owned `status: review` is preserved as Felipe requested.

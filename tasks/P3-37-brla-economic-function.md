@@ -45,3 +45,6 @@ Determine what publicly observable mechanism produced the large Celo BRLA burns,
 
 ## Result
 See F-049: eight large burns (335,396,065.575129 BRLA) all transfer from e3a2… to bd22… then burn in the same transaction. The intermediate account has zero net change. Controls show the same route and its mint counterpart; current documentation allows multiple economic purposes. Public evidence does not identify completed fiat redemption, cross-chain migration or a regulatory cause.
+
+## Supplemental independent review — 7 Nov 2026
+Codex for Felipe successfully replayed both operation and documentation commands offline, checked historical permission/implementation and ABI/receipt logic, and independently reconciled the large burns' intermediate-account balance neutrality from exported transfers. F-049's technical claim survives; off-chain purpose remains unidentified. Named teammate/presentation and economist gates remain pending, so status remains `review`. Full evidence and commands: `docs/review-2026-11-07-p25-ledger.md`.
