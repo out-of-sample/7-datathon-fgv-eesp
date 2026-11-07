@@ -4,7 +4,7 @@ title: BRLA's large June burns use an authorized transfer-and-burn routine also 
 status: exploratory
 task: P3-37
 date: 2026-11-07
-checked_by: -
+checked_by: Jonathan (CS 3)
 ---
 
 ## Claim
