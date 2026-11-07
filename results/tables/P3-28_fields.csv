@@ -1,0 +1,18 @@
+field_id,applies_to,leg,kind,question,answer,unit_hint
+F01,exchange,L1,availability,"Can this profile fund its account at the provider with reais sent by Pix?",state,
+F02,exchange,L1,availability,"Must the reais come from a bank account in the client's own name (same CPF/CNPJ)?",state+value,"value: yes / no"
+F03,exchange,L1,availability,"What verification or approval must this profile complete before buying and withdrawing the case asset?",state+value,"value: short text, e.g. 'company verification by compliance'"
+F04,exchange,L1,term,"What is the stated maximum time for that verification?",value,"hours or business days"
+F05,exchange,L1,term,"How are this profile's reais deposit limits set?",value,"a fixed amount with unit, or 'case by case', or 'by account level'"
+F06,exchange,L1,availability,"On the as-of date, does any document restrict or condition the reais funding leg because of the provider's authorisation status under Res. BCB 589 (ban from 6 Nov 2026 on operations with unauthorised providers)?",state,"restricted / conditional / unknown; 'supported' only if a document states the provider is authorised or that banks may keep serving it"
+F07,exchange,L2,availability,"Can this profile buy the case asset with reais at this provider?",state,
+F08,exchange,L2,term,"Taker (market-order) fee for buying the case asset with reais, for this profile",value,"bps; percent converted (0.50% = 50 bps)"
+F09,exchange,L2,availability,"Are additional conditions documented for stablecoin purchases by this profile (separate review, contract, commercial approval)?",state+value,"value: short text"
+F10,exchange,L3,availability,"Can this profile withdraw the case asset to an external (self-custodied) wallet?",state,
+F11,exchange,L3,availability,"Is the case network listed for withdrawing the case asset?",state,
+F12,exchange,L3,term,"Withdrawal fee for the case asset on the case network",value,"amount and asset unit; null if the source gives no fee for that network"
+F13,exchange,L3,availability,"Must the client declare the destination (or pass a similar check) when withdrawing to its own self-custodied wallet?",state+value,"value: effective date if stated"
+F14,exchange,L3,term,"How are this profile's crypto withdrawal limits set?",value,"a fixed amount with unit, or 'case by case', or 'by account level'"
+F15,exchange,L4,availability,"Does the issuer of the case asset document it on the case network?",state,
+G01,fund,L1,availability,"At the as-of date, may an investment fund carry out FX operations to import virtual assets in the case's role (see the case operation)?",state,
+G02,fund,L1,term,"What condition did the BCB set, per the documents, for these operations to resume?",value,"short text; null if none stated"

@@ -6,7 +6,17 @@ snapshot  Download every source with snapshot=yes in results/tables/P3-28_source
 card      Offline. Builds results/tables/P3-28_access_cards.md from the case, condition and dependency records:
           (1) every quoted passage must appear verbatim in the latest snapshot of its source (else exit 1);
           (2) leg and route status come from the deterministic rules below, never from a model or a hand edit.
+corpus    Offline. Text extract of the latest snapshot of every source -> data/raw/p3_28/text/<id>.txt; hashes and document
+          dates -> results/tables/P3-28_corpus.csv (committed); corpus hash = SHA-256 of the sorted per-source text hashes;
+          zip for the human coders -> data/raw/p3_28/P3-28_corpus_<hash8>.zip. The closed corpus every method will see.
+forms     Blank coding sheets, one per coder: data/raw/p3_28/reference/form_<coder>.csv (cases x applicable fields).
+adjudicate  Compares the two filled sheets; writes disagreements to data/raw/p3_28/reference/disagreements.csv and
+          prints COUNTS ONLY, so the implementer (agent) never sees reference labels before scoring.
 selftest  Asserts the aggregation rules on toy records.
+
+Manual sources (fetch=manual: pages that refuse scripts). A person saves the page in an ordinary browser as
+data/raw/p3_28/manual/<source_id>.html (or .pdf), optionally with the final URL in data/raw/p3_28/manual/urls.csv
+(source_id,url); `snapshot` then freezes it like a download (retrieval time = file time, saved_by = that person).
 
 Rules (task file, 'Deterministic aggregation rules'). Only `availability` rows in force at the case's as-of date count.
   leg:   any restricted -> restricted; else any conflicting -> conflicting; else any unknown or no rows -> unknown;
@@ -44,7 +54,13 @@ PREMIUM = ROOT / 'data/processed/P3-20_premium_daily.csv'
 LEGS = {'L1': 'BRL funding', 'L2': 'acquisition', 'L3': 'withdrawal / network transfer', 'L4': 'destination receipt'}
 EXT = {'html': 'html', 'json': 'json', 'zendesk': 'json', 'bcb': 'json', 'pdf': 'pdf'}
 MFIELDS = ['source_id', 'fetch_url', 'retrieved_utc', 'http_status', 'bytes', 'sha256', 'raw_path',
-           'doc_created_utc', 'doc_updated_utc']
+           'doc_created_utc', 'doc_updated_utc', 'fetch', 'saved_by']
+UA = 'p3-28-access-map/1 (read-only research script)'
+FIELDS = ROOT / 'results/tables/P3-28_fields.csv'
+CORPUS = ROOT / 'results/tables/P3-28_corpus.csv'
+REF = RAW / 'reference'
+CODERS = ('felipe', 'jonathan')
+MANUAL_SAVER = 'Renzo (manual browser save)'
 
 
 def rows(path):
@@ -76,8 +92,15 @@ def doc_dates(kind, body):
 def snapshot():
     RAW.mkdir(parents=True, exist_ok=True)
     (RAW / 'failed').mkdir(exist_ok=True)
-    done = {m['source_id'] for m in rows(MANIFEST) if m['http_status'] == '200'} if MANIFEST.exists() else set()
+    old = rows(MANIFEST) if MANIFEST.exists() else []
+    if old and set(MFIELDS) - set(old[0]):  # add the new columns once; rows keep their values
+        with open(MANIFEST, 'w', newline='', encoding='utf-8') as f:
+            w = csv.DictWriter(f, MFIELDS, restval='')
+            w.writeheader()
+            w.writerows([{**m, 'fetch': m.get('fetch') or 'script'} for m in old])
+    done = {m['source_id'] for m in old if m['http_status'] == '200'}
     new = not MANIFEST.exists()
+    murls = {r['source_id']: r['url'] for r in rows(RAW / 'manual/urls.csv')} if (RAW / 'manual/urls.csv').exists() else {}
     with open(MANIFEST, 'a', newline='', encoding='utf-8') as mf, open(SUMS, 'a', encoding='utf-8') as sf:
         w = csv.DictWriter(mf, MFIELDS)
         if new:
@@ -85,9 +108,25 @@ def snapshot():
         for s in rows(SOURCES):
             if s['snapshot'] != 'yes' or s['source_id'] in done:
                 continue
+            if s['fetch'] == 'manual':
+                f = next((RAW / 'manual' / f"{s['source_id']}.{e}" for e in ('html', 'pdf')
+                          if (RAW / 'manual' / f"{s['source_id']}.{e}").exists()), None)
+                if f is None:
+                    print(s['source_id'], 'manual save missing:', s['fetch_url'] or s['title'])
+                    continue
+                body = f.read_bytes()
+                now = dt.datetime.fromtimestamp(f.stat().st_mtime, dt.timezone.utc)
+                path = RAW / f"{s['source_id']}_{now:%Y%m%dT%H%M%SZ}{f.suffix}"
+                path.write_bytes(body)
+                sha, rel = hashlib.sha256(body).hexdigest(), path.relative_to(ROOT).as_posix()
+                w.writerow(dict(source_id=s['source_id'], fetch_url=murls.get(s['source_id'], s['fetch_url']),
+                                retrieved_utc=now.strftime('%Y-%m-%dT%H:%M:%SZ'), http_status=200, bytes=len(body),
+                                sha256=sha, raw_path=rel, fetch='manual', saved_by=MANUAL_SAVER))
+                sf.write(f'{sha}  {rel}\n')
+                print(s['source_id'], 'manual', len(body), rel)
+                continue
             now = dt.datetime.now(dt.timezone.utc)
-            req = urllib.request.Request(s['fetch_url'], headers={
-                'User-Agent': 'Mozilla/5.0 (compatible; p3-28-access-map/1; read-only research)'})
+            req = urllib.request.Request(s['fetch_url'], headers={'User-Agent': UA})
             try:
                 with urllib.request.urlopen(req, timeout=40) as r:
                     status, body = r.status, r.read()
@@ -103,7 +142,7 @@ def snapshot():
             rel = path.relative_to(ROOT).as_posix()
             w.writerow(dict(source_id=s['source_id'], fetch_url=s['fetch_url'],
                             retrieved_utc=now.strftime('%Y-%m-%dT%H:%M:%SZ'), http_status=status, bytes=len(body),
-                            sha256=sha, raw_path=rel, doc_created_utc=created, doc_updated_utc=updated))
+                            sha256=sha, raw_path=rel, doc_created_utc=created, doc_updated_utc=updated, fetch='script'))
             sf.write(f'{sha}  {rel}\n')
             print(s['source_id'], status, len(body), rel)
 
@@ -115,6 +154,10 @@ def norm(s):
 
 def text_of(path, kind):
     """Plain text a reader sees; passages are checked against this."""
+    if kind == 'pdf':
+        import subprocess
+        return norm(subprocess.run(['pdftotext', '-q', str(path), '-'], capture_output=True, text=True,
+                                   check=True).stdout)
     raw = Path(path).read_bytes().decode('utf-8', 'replace')
     if kind == 'json':
         return norm(json.dumps(json.loads(raw), ensure_ascii=False))
@@ -190,6 +233,8 @@ def card():
         day = c['as_of_utc'][:10]
         declared = {a.split('=')[0] for a in split(c['assumptions'], '|')}
         cc = [r for r in conds if r['case_id'] == c['case_id']]
+        if not cc:
+            continue
         legs = {l: leg_status([r for r in cc if r['leg'] == l], day, declared) for l in split(c['required_legs'])}
         out += [f"## {c['case_id']} — {c['route_id']} · {c['profile_id']} · as of {c['as_of_utc']} ({c['mode']})", '',
                 f"**Operation.** {c['operation']}. Amount {int(float(c['amount'])):,} {c['amount_unit']}; "
@@ -239,6 +284,102 @@ def card():
         sys.exit(1)
 
 
+def latest():
+    src = {s['source_id']: s for s in rows(SOURCES)}
+    snap = {}
+    for m in rows(MANIFEST):
+        if m['http_status'] == '200' and m['source_id'] in src:
+            snap[m['source_id']] = m
+    return src, snap
+
+
+def corpus():
+    import zipfile
+    src, snap = latest()
+    (RAW / 'text').mkdir(parents=True, exist_ok=True)
+    out = []
+    for i, m in sorted(snap.items()):
+        t = text_of(ROOT / m['raw_path'], src[i]['kind'])
+        (RAW / 'text' / f'{i}.txt').write_text(t + '\n', encoding='utf-8')
+        out.append(dict(source_id=i, family=src[i]['family'], split=src[i]['split'], publisher=src[i]['publisher'],
+                        title=src[i]['title'], url=m['fetch_url'], retrieved_utc=m['retrieved_utc'],
+                        doc_created_utc=m['doc_created_utc'], doc_updated_utc=m['doc_updated_utc'],
+                        fetch=m.get('fetch', 'script'), raw_sha256=m['sha256'], chars=len(t),
+                        text_sha256=hashlib.sha256((t + '\n').encode()).hexdigest()))
+    h = hashlib.sha256(''.join(o['text_sha256'] for o in out).encode()).hexdigest()
+    with open(CORPUS, 'w', newline='', encoding='utf-8') as f:
+        w = csv.DictWriter(f, list(out[0]))
+        w.writeheader()
+        w.writerows(out)
+    z = RAW / f'P3-28_corpus_{h[:8]}.zip'
+    with zipfile.ZipFile(z, 'w', zipfile.ZIP_DEFLATED) as zf:
+        zf.write(CORPUS, 'P3-28_corpus.csv')
+        for i in snap:
+            zf.write(RAW / 'text' / f'{i}.txt', f'text/{i}.txt')
+        for p in (CASES, FIELDS, ROOT / 'results/P3-28_rubric.md'):
+            zf.write(p, p.name)
+    missing = [s['source_id'] for s in src.values() if s['snapshot'] == 'yes' and s['source_id'] not in snap]
+    print(f'corpus: {len(out)} sources, hash {h}, zip {z.relative_to(ROOT)}; missing: {missing or "none"}')
+
+
+def form_rows():
+    fields = rows(FIELDS)
+    for c in rows(CASES):
+        kind = 'fund' if c['profile_id'] == 'FUND-BR' else 'exchange'
+        for f in fields:
+            if f['applies_to'] == kind:
+                yield dict(case_id=c['case_id'], field_id=f['field_id'], leg=f['leg'], kind=f['kind'],
+                           provider=c['route_id'], profile=c['profile_id'], asset=c['destination_asset'],
+                           network=c['chain'], as_of=c['as_of_utc'][:10], question=f['question'],
+                           answer_type=f['answer'], unit_hint=f['unit_hint'], state='', value='', unit='',
+                           source_ids='', passages='', notes='')
+
+
+def forms():
+    REF.mkdir(parents=True, exist_ok=True)
+    rs = list(form_rows())
+    for c in CODERS:
+        p = REF / f'form_{c}.csv'
+        if p.exists():
+            print('exists, not overwritten:', p.relative_to(ROOT))
+            continue
+        with open(p, 'w', newline='', encoding='utf-8') as f:
+            w = csv.DictWriter(f, list(rs[0]))
+            w.writeheader()
+            w.writerows(rs)
+        print(f'{p.relative_to(ROOT)}: {len(rs)} rows')
+
+
+def adjudicate():
+    """Counts only: the agent must not see reference labels before scoring."""
+    src, snap = latest()
+    texts = {i: (RAW / 'text' / f'{i}.txt').read_text(encoding='utf-8') for i in snap
+             if (RAW / 'text' / f'{i}.txt').exists()}
+    a, b = ({(r['case_id'], r['field_id']): r for r in rows(REF / f'form_{c}.csv')} for c in CODERS)
+    def v(r):
+        return (r['state'].strip().lower(), re.sub(r'\s+', ' ', r['value'].strip().lower()))
+    dis, blank, badp = [], 0, 0
+    for k in a:
+        for r in (a[k], b.get(k, {})):
+            if not r.get('state') and not r.get('value'):
+                blank += 1
+            for i, p in zip(split(r.get('source_ids')), split(r.get('passages'), '||')):
+                if i not in texts or norm(p) not in texts[i]:
+                    badp += 1
+        if k not in b or v(a[k]) != v(b[k]):
+            dis.append({'case_id': k[0], 'field_id': k[1],
+                        **{f'{c}_{x}': r.get(x, '') for c, r in zip(CODERS, (a[k], b.get(k, {})))
+                           for x in ('state', 'value', 'source_ids', 'passages', 'notes')}, 'adjudicated_state': '',
+                        'adjudicated_value': '', 'adjudication_note': ''})
+    if dis:
+        with open(REF / 'disagreements.csv', 'w', newline='', encoding='utf-8') as f:
+            w = csv.DictWriter(f, list(dis[0]))
+            w.writeheader()
+            w.writerows(dis)
+    print(f'fields {len(a)}; disagreements {len(dis)} ({len(dis) / len(a):.0%}); blank answers {blank}; '
+          f'passages not found verbatim {badp}. Details for the coders only: data/raw/p3_28/reference/disagreements.csv')
+
+
 def selftest():
     def r(state, kind='availability', a='', vf=''):
         return dict(kind=kind, state=state, assumption_ids=a, valid_from=vf, valid_to='')
@@ -259,4 +400,5 @@ def selftest():
 
 
 if __name__ == '__main__':
-    {'snapshot': snapshot, 'card': card, 'selftest': selftest}[sys.argv[1]]()
+    {'snapshot': snapshot, 'card': card, 'corpus': corpus, 'forms': forms, 'adjudicate': adjudicate,
+     'selftest': selftest}[sys.argv[1]]()
