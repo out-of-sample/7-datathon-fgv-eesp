@@ -2,9 +2,9 @@
 id: P3-21
 title: Who paid and who gained - the 23 Jun notice seen from five kinds of users of the digital dollar
 phase: P3
-status: doing
+status: review
 owner: CS 1
-working: Renzo (agent)
+working: -
 due: 2026-11-04
 depends: P1-02, P3-03, P3-11
 ---
@@ -50,12 +50,16 @@ no advice on how to trade; no tax-avoidance framing ("diferença de alíquota", 
 - [x] S2 — done: Renzo (agent), 2026-11-03 — `scripts/p3_21_who_paid.py`: U1–U4 and the variants → `results/tables/P3-21_who_paid.csv`; U1 reproduces F-015
   within 2%
 - [x] S3 — done: Renzo (agent), 2026-11-03 (F-033) — Finding (illustrative) with the command; figure only if Felipe wants one for slide 9
-- [ ] S4 — pt-BR slide-9 table and one-sentence takeaway for Felipe (deck owner), within the 10-slide limit
-- [ ] S5 — Review by Felipe (money layer owner, P3-11)
+- [x] S4 — pt-BR slide-9 table and one-sentence takeaway for Felipe (deck owner), within the 10-slide limit — done:
+  Renzo (agent), 3 Nov (`deck/deck_v2_ptbr.md` slide 9, four rows, "purchases after t0" U2 number; also v3
+  `custo.html`, 5 Nov). Deck v1 keeps its old slide 9 (per-lot cost only). Numbers checked against F-033 on 7 Nov: all match
+- [ ] S5 — Review by Felipe (money layer owner, P3-11): accept the table on slide 9 (v2/v3) or keep v1's slide 9
 
 ## Success criteria
 - [x] Specification committed before the script's first run
-- [ ] U1 reproduces F-015 (R$ 5,052 per US$ 100k) within 2%
+- [x] U1 reproduces F-015 (R$ 5,052 per US$ 100k) within 2% — met against the current F-015: on 3 Nov the team switched
+  F-015 to each day's PTAX (R$ 4,842, decision log), the same conversion as U1, so U1 = F-015 = R$ 4,842 exactly. Against
+  the old R$ 5,052 (a Binance bid, not a PTAX) it was −4.2%. The script's last line still prints that old comparison
 - [x] Every number in a finding with its command; the counterfactual variant reported next to the main one
 - [ ] Felipe accepts or rejects the slide-9 replacement
 
@@ -64,17 +68,20 @@ no advice on how to trade; no tax-avoidance framing ("diferença de alíquota", 
 - `results/tables/P3-21_who_paid.csv`; finding F-0xx (next free number)
 
 ## Handoff
-- **State:** S1–S3 done and independently reviewed 3 Nov (Codex, see Review below): U1–U4 reproduce within R$ 1. Review fixes
-  applied: U2 split by purchase date + every-day monthly rows, lower-bound claim removed, U3/U4 called revaluations, CSV
-  committed, reviewer's scripts committed (`scripts/p3_21_review_rederive.py`, `scripts/p3_21_review_audit.py`, output
-  identical to the review). F-033 stays exploratory. Criterion 2 (within 2% in R$) is **not met**: 93.91 vs 93.9 bps, but
-  R$ 4,842 vs 5,052 (−4.2%) because F-015's R$ 5.38 is a Binance bid of 31 Oct (D-10), not a PTAX.
-- **Next step:** S4, pt-BR slide-9 table (use the "purchases after t0" U2 numbers) + one-sentence takeaway; S5 Felipe.
-- **Open questions:** (1) Team: accept the criterion checked in bps? (2) Resolved 3 Nov (Renzo): cover and F-015 now
-  R$ 4,842 at daily PTAX, the same number as U1 here (decision log). (3) Felipe: slide 9 takes this table?
+- **State (7 Nov, 17:20 Brasília):** S1–S4 done; status `review`. Re-run 7 Nov: `P3-21_who_paid.csv` unchanged, and the
+  independent re-derivation matches. Criterion 2 is now met: U1 = F-015 = R$ 4,842, because F-015 switched to daily PTAX on
+  3 Nov. Slide-9 table is in deck v2 and v3, and every number matches F-033. F-033 stays exploratory: an agent reviewed it
+  (Codex, 3 Nov), but no teammate has re-run it.
+- **Next step:** (1) S5 Felipe: accept or reject the slide-9 table. This comes with the v1/v2/v3 pick (P5-09): v2 and v3
+  have it, v1 does not. (2) Any teammate other than Renzo runs the two commands below and compares with F-033's table →
+  F-033 `confirmed`, task `done`.
+- **Open questions:** Felipe: slide 9 takes this table?
 - **How to resume:** `.venv/bin/python scripts/p3_21_who_paid.py`; check with `.venv/bin/python scripts/p3_21_review_rederive.py`.
 
 ## Log
+- 2026-11-07 17:20, agent for Renzo: closing review: re-run reproduces (CSV unchanged, re-derivation matches); S4 ticked
+  (v2/v3 slide 9 checked against F-033); criterion 2 met against the current F-015; status → review for S5 (Felipe) and
+  a teammate re-run.
 - 2026-11-03, agent for Renzo: created at Renzo's request (brainstorm version 2: who paid and who gained).
 - 2026-11-03, agent for Renzo: claimed; post-spike counterfactual window pinned (22 Jul – 30 Oct, as F-015); Specification committed before any script (S1).
 - 2026-11-03, agent for Renzo: S2–S3: script + F-033; U1 vs F-015 differs 4.2% in R$ only because of F-015's fixed PTAX 5.38; check made in bps (deviation disclosed).

@@ -36,7 +36,7 @@ so only the "after 23 Jun" amounts can relate to the notice.
 F-015's former R$ 5,052. F-015 converted at R$ 5.38, which it called "reference PTAX" but is a **Binance USDT/BRL bid on 31 Oct 2026**
 (D-10, `scripts/p3_01_costs.py` line 38): a crypto price that contains the premium, four months after the spike. The actual
 PTAX averaged R$ 5.1418 in 24 Jun – 21 Jul: R$ 4,828 at the mean rate, **R$ 4,842 at each day's rate** (the convention of
-F-025 and this finding); on 3 Nov F-015, the cover and slide 9 switched to it (Renzo's decision). The specified "within 2% in R$" criterion is **not met**; the script checks bps instead (team to accept).
+F-025 and this finding); on 3 Nov F-015, the cover and slide 9 switched to it (Renzo's decision). Against the original R$ 5,052 the "within 2% in R$" criterion failed (−4.2%). Against the current F-015 (R$ 4,842, same conversion) U1 matches exactly.
 
 Reproduce: `.venv/bin/python scripts/p3_21_who_paid.py` → `results/tables/P3-21_who_paid.csv` (per-month rows included).
 
@@ -54,9 +54,10 @@ Reproduce: `.venv/bin/python scripts/p3_21_who_paid.py` → `results/tables/P3-2
   date and monthly rows for the every-day variant (both after the review).
 
 ## Used in deck
-Candidate for slide 9 (replacing its current table) if Felipe agrees; not used yet.
+Slide 9 of deck v2 (`deck/deck_v2_ptbr.md`) and v3 (`custo.html`): four-row table, numbers checked 7 Nov. Not in deck v1. Felipe accepts or rejects it (P3-21 S5).
 
 ## History
+- 2026-11-07, agent for Renzo: re-run reproduces (CSV unchanged); comparison with F-015 updated to F-015's current R$ 4,842; deck use recorded. Teammate re-run still needed for `confirmed`.
 - 2026-11-04, agent for Renzo (P4-03, Renzo's decision): numbers frozen (tag `results-frozen`); status stays exploratory because no teammate has re-run it, so the deck uses it only at the level its Claim states
 - 2026-11-03, agent for Renzo: created (P3-21 S2–S3).
 - 2026-11-03, Codex for Renzo (independent review): U1–U4 reproduce within R$ 1 using `.venv/bin/python /tmp/p3-21-review/rederive.py` (independent stdlib calculation; retained scratch location, hash, full results and command register in [P3-21 → Review](../tasks/P3-21-who-paid.md#review--2026-11-03-codex-for-renzo)). Interpretation/reporting corrections requested: U2 offsets post-notice costs with earlier purchases; held-position marks are not realised transfers; F-021 does not establish execution-cost lower bounds; every-day variant lacks monthly output; CSV was not committed. Original reais acceptance criterion still fails. The purported reference PTAX comes from D-10's Binance quote. Daily-PTAX cover recommendation is for Felipe/team to decide; body, status, deck and F-015 unchanged.

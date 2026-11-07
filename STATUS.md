@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-07 by Codex for Felipe (all 15 review items P3-25 onward reviewed; P3-27/P3-38 done; Economist statuses preserved); previous: 2026-11-07 by Codex for Felipe (P3-42 rolling compression upgrade, F-051 exploratory); previous: 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Codex for Felipe (P3-40 supplemental frozen-bundle replay passes; Windows path differences documented; human sign-off pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-07 by agent for Renzo (P3-20 and P3-21 closing review → review; post-submission readouts split to P3-45); previous: 2026-11-07 by Codex for Felipe (all 15 review items P3-25 onward reviewed; P3-27/P3-38 done; Economist statuses preserved); previous: 2026-11-07 by Codex for Felipe (P3-42 rolling compression upgrade, F-051 exploratory); previous: 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Codex for Felipe (P3-40 supplemental frozen-bundle replay passes; Windows path differences documented; human sign-off pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 
 tag `results-frozen` (F-001 to F-033)
@@ -84,6 +84,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 
 ## Next actions
+
+**P3-20 / P3-21 (7 Nov, agent for Renzo):** both reproduce and are in `review`. P3-20: Felipe's 7 Nov run is the teammate re-run (E1 identical), and Slide 10 carries E1 and the E2 early reading. The team marks it `done`. The E2 verdict (Mon 9 Nov) and S20 (Dec) are in `P3-45`, after the deadline and not for the PDF. P3-21: Felipe accepts or rejects the slide-9 "who paid" table (in v2/v3, not v1) together with the deck pick. Any teammate other than Renzo re-runs `scripts/p3_21_who_paid.py` → F-033 confirmed.
 
 **7 Nov independent review (P3-25 onward):** all 15 queued review items inspected; [review and coverage](docs/review-2026-11-07-p25-onwards.md). P3-27/P3-38 closed as historical documentation deliverables. Economist-owned tasks and explicit human gates remain in review. P3-43 is todo: require complete semantic audit and note-specific identity before final access scores. Restore missing P3-25 MB hourly input; narrow duration/hedge/incident wording before PDF reuse.
 
@@ -194,7 +196,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 
 | P3-18: on-chain source of the Foxbit USDT (F-031) | Dropped 2 Nov: no Foxbit Tron wallet labelled by Arkham or Tronscan; reopen only with a paid test deposit (team OK) | done |
 
-| `P3-20`: E1 read out (F-035): Binance +2.1 bps on 3–4 Nov, p = 0.90, prediction held (null rules out only moves beyond ~75 bps); Mercado Bitcoin's November pull blocked by Cloudflare (retried 5 Nov; **Renzo saves the API JSON from a browser**, steps in the P3-20 Handoff). Needs a teammate's re-run before Slide 10. E2 branch applied 5 Nov from sources (E-17–E-21): **C for all three venues** (no BCB list before the cutoff; no source on bank access for applicants), two-sided, no direction; last BCB check before 23:59 5 Nov; early reading Fri 6 Nov after 13:30 | agent for Renzo (E2); a teammate (re-run) | 5 Nov 23:59 / 6 Nov |
+| `P3-20`: resolved 7 Nov for the submission (review). E1 held (+2.1 bps, p = 0.90), reproduced by Felipe's run; E2 branch C, early reading −5.4 bps (p = 0.79); both on Slide 10. Remaining after the deadline: `P3-45` (E2 verdict Mon 9 Nov after 13:30; optional Mercado Bitcoin browser save) | team marks done; agent for Renzo (P3-45) | 9 Nov |
 
 | F-015 / cover: switched 3 Nov (Renzo) to R$ 4,842 per US$ 100k at each day's PTAX (was R$ 5,052 at a Binance bid of R$ 5.38, D-10); route rows keep R$ 5.38 as a labelled illustrative rate (option a). **Needs:** a teammate who did not make the change re-runs `scripts/p3_01_costs.py` and checks the deck; Felipe (owner of F-015, P3-01, deck) informed | teammate re-check + Felipe | before freeze (Wed 4 Nov) |
 
@@ -264,7 +266,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | ✅ done | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (15/41 closed)
+**P3 — Extensions** (26/45 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -287,28 +289,32 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P3-17](tasks/P3-17-channel-restoration.md) | Did the BCB let funds resume the activity the 23 Jun notice stopped, and did the premium fall when it did? (reopening test) | 👀 review | Economist | - | 6/6 | 5/5 | 2026-11-04 | P3-14, P3-15, P4-04 |
 | [P3-18](tasks/P3-18-onchain-foxbit-source.md) | Where did the USDT sold on Foxbit during the fade come from? (on-chain check of F-031) | ✖️ dropped | CS 1 | - | 0/4 | 0/2 | 2026-11-04 | P3-17 |
 | [P3-19](tasks/P3-19-supply-response.md) | Did seller-initiated trading on Foxbit respond to the premium over the official dollar (import arbitrage) or to the Foxbit–Binance gap (cross-venue arbitrage)? | 👀 review | CS 1 | - | 3/3 | 3/3 | 2026-11-04 | P3-17 |
-| [P3-20](tasks/P3-20-live-predictions.md) | Predictions registered before the data - Res. 574 reporting (3 Nov 2026) and Res. 589 ban on unauthorised counterparties (6 Nov 2026) | 🔄 doing | CS 1 | Renzo (agent) | 6/8 | 3/5 | 2026-11-16 | P1-02, P1-03, P3-03, P4-04 |
-| [P3-21](tasks/P3-21-who-paid.md) | Who paid and who gained - the 23 Jun notice seen from five kinds of users of the digital dollar | 🔄 doing | CS 1 | Renzo (agent) | 3/5 | 2/4 | 2026-11-04 | P1-02, P3-03, P3-11 |
+| [P3-20](tasks/P3-20-live-predictions.md) | Predictions registered before the data - Res. 574 reporting (3 Nov 2026) and Res. 589 ban on unauthorised counterparties (6 Nov 2026) | 👀 review | CS 1 | - | 8/8 | 5/5 | 2026-11-16 | P1-02, P1-03, P3-03, P4-04 |
+| [P3-21](tasks/P3-21-who-paid.md) | Who paid and who gained - the 23 Jun notice seen from five kinds of users of the digital dollar | 👀 review | CS 1 | - | 4/5 | 3/4 | 2026-11-04 | P1-02, P3-03, P3-11 |
 | [P3-22](tasks/P3-22-other-countries-qualify.md) | Other countries, stage 1 - qualify each case before any test (Ukraine Aug 2026, Argentina Apr 2025, EEA Mar 2025; Russia, Nigeria listed) | ⬜ todo | CS 2 | - | 0/4 | 0/3 | 2026-11-05 | P1-05, P1-06 |
 | [P3-23](tasks/P3-23-research-agenda-ranking.md) | Record the competing-rails research agenda and rank datathon extensions | 👀 review | CS 1 | - | 3/3 | 3/4 | 2026-11-05 | - |
 | [P3-24](tasks/P3-24-brla-fourth-venue.md) | BRLA as a fourth venue - did the on-chain route (Pix → BRLA → USDC) pay the same premium after the 23 Jun notice? | ✅ done | Economist | - | 5/5 | 4/4 | 2026-11-06 | P2-03, P2-05 |
 | [P3-25](tasks/P3-25-recovery-composition.md) | The premium recovered - did the market? Venue shares and exchange exits in 2026 | 👀 review | CS 1 | - | 4/5 | 3/4 | 2026-11-06 | P1-03, P3-17 |
-| [P3-26](tasks/P3-26-november-exchange-confounder.md) | Audit the Binance security incident as a competing explanation for the November readout | 👀 review | Economist | - | 2/3 | 2/3 | 2026-11-07 | P3-20 |
+| [P3-26](tasks/P3-26-november-exchange-confounder.md) | Audit the Binance security incident as a competing explanation for the November readout | ✅ done | Economist | - | 3/3 | 3/3 | 2026-11-07 | P3-20 |
 | [P3-27](tasks/P3-27-agentic-blockchain-options.md) | Evaluate agentic AI, blockchain and operational-learning extensions | ✅ done | Renzo | - | 5/5 | 3/3 | 2026-11-06 | - |
 | [P3-28](tasks/P3-28-agentic-access-map.md) | Build and evaluate a source-backed agentic map of digital-dollar access | ⏸️ paused | Team | - | 2/6 | 1/7 | 2026-11-07 | P3-27 |
 | [P3-29](tasks/P3-29-on-chain-reconciliation.md) | Reconcile reported BRLA supply changes with on-chain evidence | 👀 review | Team | - | 6/7 | 6/7 | 2026-11-07 | P3-27 |
-| [P3-30](tasks/P3-30-shock-duration.md) | Shock duration feasibility, global census, and discrete-time survival model | 👀 review | Economist | - | 4/4 | 4/4 | 2026-11-08 | P1-02, P1-05 |
-| [P3-31](tasks/P3-31-holder-decisions.md) | Two-Sided Institutional Treasury Decision Framework (BRL -> USDT Buyer & USDT -> BRL Seller) | 👀 review | Economist | - | 4/4 | 4/4 | 2026-11-08 | P1-02, P3-03 |
-| [P3-32](tasks/P3-32-holder-duration-review.md) | Independent review of holder decisions and shock duration | 👀 review | Economist | - | 4/4 | 3/3 | 2026-11-08 | P3-30, P3-31 |
-| [P3-33](tasks/P3-33-pivot-assessment.md) | Synthesize shock-duration and holder-decision pivot | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-08 | P3-30, P3-31, P3-32 |
-| [P3-36](tasks/P3-36-post-extension-audit.md) | Audit extension claims and final project synthesis | 👀 review | Economist | - | 4/4 | 2/2 | 2026-11-07 | P3-20, P3-26, P3-28, P3-29, P3-30, P3-31, P3-34 |
-| [P3-37](tasks/P3-37-brla-economic-function.md) | Investigate the economic function of BRLA mint and burn operations | 👀 review | CS 1 | - | 4/4 | 4/5 | 2026-11-07 | P3-29 |
+| [P3-30](tasks/P3-30-shock-duration.md) | Shock duration feasibility, global census, and discrete-time survival model | ✅ done | Economist | - | 4/4 | 4/4 | 2026-11-08 | P1-02, P1-05 |
+| [P3-31](tasks/P3-31-holder-decisions.md) | Two-Sided Institutional Treasury Decision Framework (BRL -> USDT Buyer & USDT -> BRL Seller) | ✅ done | Economist | - | 4/4 | 4/4 | 2026-11-08 | P1-02, P3-03 |
+| [P3-32](tasks/P3-32-holder-duration-review.md) | Independent review of holder decisions and shock duration | ✅ done | Economist | - | 4/4 | 3/3 | 2026-11-08 | P3-30, P3-31 |
+| [P3-33](tasks/P3-33-pivot-assessment.md) | Synthesize shock-duration and holder-decision pivot | ✅ done | Economist | - | 3/3 | 3/3 | 2026-11-08 | P3-30, P3-31, P3-32 |
+| [P3-35](tasks/P3-35-brla-economic-function.md) | Investigate the economic function of BRLA mint and burn operations | 🔄 doing | CS 1 | Renzo (Codex agent) | 0/4 | 0/5 | 2026-11-07 | P3-29 |
+| [P3-36](tasks/P3-36-brla-economic-function.md) | Investigate the economic function of BRLA mint and burn operations | 🔄 doing | CS 1 | Renzo (Codex agent) | 0/4 | 0/5 | 2026-11-07 | P3-29 |
+| [P3-36](tasks/P3-36-post-extension-audit.md) | Audit extension claims and final project synthesis | ✅ done | Economist | - | 4/4 | 2/2 | 2026-11-07 | P3-20, P3-26, P3-28, P3-29, P3-30, P3-31, P3-34 |
+| [P3-37](tasks/P3-37-brla-economic-function.md) | Investigate the economic function of BRLA mint and burn operations | ✅ done | CS 1 | - | 4/4 | 5/5 | 2026-11-07 | P3-29 |
 | [P3-38](tasks/P3-38-access-method-comparison-review.md) | Independently assess the simple-search versus agentic access comparison | ✅ done | CS 1 | - | 3/3 | 5/5 | 2026-11-07 | P3-28 |
-| [P3-39](tasks/P3-39-buyer-cost-frontier.md) | Measure the buyer's cost budget for waiting | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-07 | P3-31 |
-| [P3-40](tasks/P3-40-final-project-review.md) | Review and repair project consistency before submission | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-07 | P3-39 |
-| [P3-41](tasks/P3-41-premium-compression.md) | Forecast economically useful premium compression before a payment deadline | 👀 review | Economist | - | 3/3 | 4/4 | 2026-11-08 | P3-39, P1-02 |
-| [P3-42](tasks/P3-42-compression-upgrade.md) | Upgrade compression forecasts with rolling fits and adaptive calibration | 👀 review | Economist | - | 3/3 | 4/4 | 2026-11-08 | P3-41 |
+| [P3-39](tasks/P3-39-buyer-cost-frontier.md) | Measure the buyer's cost budget for waiting | ✅ done | Economist | - | 3/3 | 3/3 | 2026-11-07 | P3-31 |
+| [P3-40](tasks/P3-40-final-project-review.md) | Review and repair project consistency before submission | ✅ done | Economist | - | 3/3 | 3/3 | 2026-11-07 | P3-39 |
+| [P3-41](tasks/P3-41-premium-compression.md) | Forecast economically useful premium compression before a payment deadline | ✅ done | Economist | - | 3/3 | 4/4 | 2026-11-08 | P3-39, P1-02 |
+| [P3-42](tasks/P3-42-compression-upgrade.md) | Upgrade compression forecasts with rolling fits and adaptive calibration | ✅ done | Economist | - | 3/3 | 4/4 | 2026-11-08 | P3-41 |
 | [P3-43](tasks/P3-43-access-audit-finalization.md) | Require complete semantic audits before final access benchmark scoring | ⬜ todo | CS 1 | - | 0/3 | 0/3 | 2026-11-08 | P3-28, P3-38 |
+| [P3-44](tasks/P3-44-ai-reviewed-access-pilot.md) | Complete a separately versioned AI-reviewed access comparison | 🔄 doing | CS 1 | Codex for Felipe | 1/5 | 0/5 | 2026-11-08 | P3-28, P3-43 |
+| [P3-45](tasks/P3-45-post-submission-readouts.md) | Post-submission readouts of the registered predictions - E2 verdict (Mon 9 Nov) and 20-day statistics (early Dec) | ⬜ todo | CS 1 | - | 0/5 | 0/2 | 2026-11-16 | P3-20 |
 
 **P4 — Robustness and freeze** (3/4 closed)
 
@@ -374,8 +380,8 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [F-035](findings/F-035-e1-res574-readout.md) | Registered predictions E1 (Res. BCB 574) and E2 (Res. BCB 589) readout — E1 held at +2.1 bps (p = 0.90); E2 early reading S1 moved −5.4 bps on Binance (p = 0.79) and −6.5 bps on Foxbit (p = 0.79) with parity holding at +0.1 bps gap | 🔍 exploratory | P3-20 | - |
 | [F-036](findings/F-036-recovery-composition.md) | The premium receded while Foxbit's share of USDT volume on the three observed exchanges stayed much higher than before | 🔍 exploratory | P3-25 | - |
 | [F-037](findings/F-037-brla-route.md) | The route Pix → BRLA → USDC on Polygon paid the June premium too (+111 bps in the 20 days after the notice, against +94 for USDT on Binance) while BRLA kept its value against another reais token (−3 bps); a small market (0.2–0.35% of Binance's volume); BRLA's supply fall on 24 Jun reversed a build-up of the days before and is not shown to be a run | 🔍 exploratory | P3-24 | - |
-| [F-038](findings/F-038-shock-duration-feasibility.md) | Pooling 10 currencies gives enough premium shocks to test duration forecasts, but a model using shock size does not beat the historical base rate; half of the 2020–2024 shocks were back in their band within 20 business days | 🔍 exploratory | P3-30 | Renzo's agent (review with fixes, 6 Nov); Felipe (fixes accepted, 6 Nov); teammate re-run pending |
-| [F-039](findings/F-039-holder-decisions.md) | Looking back, a buyer who waited from 25 Jun 2026 with a currency hedge paid 90–164 bps less (R$ 4.7k–8.7k per 100k USDT) at 5–20 days; the gain was not steady and was not knowable in advance, and under covered interest parity the hedge has no daily carry cost | 🔍 exploratory | P3-31 | Renzo's agent (review with fixes, 6 Nov); Felipe (fixes accepted, 6 Nov); teammate re-run pending |
+| [F-038](findings/F-038-shock-duration-feasibility.md) | Pooling 10 currencies gives enough premium shocks to test duration forecasts, but a model using shock size does not beat the historical base rate; half of the 2020–2024 shocks were back in their band within 20 business days | 🔍 exploratory | P3-30 | Renzo's agent (review with fixes, 6 Nov); Felipe (fixes accepted, 6 Nov); Jonathan (CS 3) |
+| [F-039](findings/F-039-holder-decisions.md) | Looking back, a buyer who waited from 25 Jun 2026 with a currency hedge paid 90–164 bps less (R$ 4.7k–8.7k per 100k USDT) at 5–20 days; the gain was not steady and was not knowable in advance, and under covered interest parity the hedge has no daily carry cost | 🔍 exploratory | P3-31 | Renzo's agent (review with fixes, 6 Nov); Felipe (fixes accepted, 6 Nov); Jonathan (CS 3) |
 | [F-040](findings/F-040-network-vs-gate-cost-stack.md) | O salto observado de prêmio (+93,9 bps) equivale a ~470× a 939× a taxa de rede on-chain (0,1–0,2 bps) e reaparece na rota DeFi (+111,0 bps); o prêmio cedeu mas o mercado não retornou ao padrão pré-ofício | 🔍 exploratory | P3-01 | - |
 | [F-041](findings/F-041-brla-celo-onchain-feasibility.md) | BRLA's Celo supply can be rebuilt from public chain records - two free providers serve June 2026 state and logs, the contract changes supply only through mint and burn events, and DefiLlama's Celo series is that contract's total supply at an undocumented hour of each day | 🔍 exploratory | P3-29 | - |
 | [F-042](findings/F-042-brla-celo-ledger.md) | On Celo, BRLA's supply from 19 Jun to 1 Jul 2026 reconciles to the base unit with 17,536 mints and burns (732.6 mn minted, 724.9 mn burned, net +7.7 mn), almost all by one account; DefiLlama's daily values match on-chain supply on 12 of 13 days, but its 26 Jun low (59.3 mn) matches no on-chain state | 🔍 exploratory | P3-29 | - |
@@ -384,15 +390,17 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [F-045](findings/F-045-november-binance-incident-audit.md) | Audit of Binance 29–30 Oct 2026 security incident confirms E1 S2 directly excludes the 30 Oct observation; E2 pre-mean shift is minor (~2.3 bps); CUSUM monitor silence during 3–16 Nov is a mechanical quiet pause | 🔍 exploratory | P3-26 | - |
 | [F-046](findings/F-046-access-comparison-review.md) | Synthetic checks show that P3-28 comparison scores need correction and evidence review before an H1 claim | 🔍 exploratory | P3-38 | - |
 | [F-047](findings/F-047-access-benchmark-dev-pilot.md) | Development pilot of the access-conditions benchmark - on 5 development cases with labels written by the implementer, the agent (0.87), the fixed verify workflow (0.85) and one-pass retrieval (0.75) all far exceed keyword rules (0.15); no held-out result yet | 🔍 exploratory | P3-28 | - |
-| [F-048](findings/F-048-buyer-cost-frontier.md) | Waiting's June cost budget is positive centrally but changes sign across explicit stress scenarios | 🔍 exploratory | P3-39 | - |
-| [F-049](findings/F-049-brla-operator-routing.md) | BRLA's large June burns use an authorized transfer-and-burn routine also seen before the notice; their fiat purpose remains unidentified | 🔍 exploratory | P3-37 | - |
-| [F-050](findings/F-050-premium-compression.md) | Partial premium compression can be evaluated against costs, but ridge does not beat simple mean reversion on the primary horizon | 🔍 exploratory | P3-41 | - |
-| [F-051](findings/F-051-compression-upgrade.md) | Monthly retraining improves the first ridge forecast, but its edge over simple mean reversion remains uncertain | 🔍 exploratory | P3-42 | - |
+| [F-048](findings/F-048-buyer-cost-frontier.md) | Waiting's June cost budget is positive centrally but changes sign across explicit stress scenarios | 🔍 exploratory | P3-39 | Jonathan (CS 3) |
+| [F-049](findings/F-049-brla-operator-routing.md) | BRLA's large June burns use an authorized transfer-and-burn routine also seen before the notice; their fiat purpose remains unidentified | 🔍 exploratory | P3-37 | Jonathan (CS 3) |
+| [F-050](findings/F-050-premium-compression.md) | Partial premium compression can be evaluated against costs, but ridge does not beat simple mean reversion on the primary horizon | 🔍 exploratory | P3-41 | Jonathan (CS 3) |
+| [F-051](findings/F-051-compression-upgrade.md) | Monthly retraining improves the first ridge forecast, but its edge over simple mean reversion remains uncertain | 🔍 exploratory | P3-42 | Jonathan (CS 3) |
 <!-- BOARD:END -->
 
 
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-07 — agent for Renzo: P3-20 and P3-21 closing review → review. P3-20: fresh pull (Binance zips match Felipe's checksums; MB 403); readout byte-identical; Felipe's 7 Nov run reproduced every E1 value (teammate re-run); S8 already on Slide 10; E2 verdict and S20 split to new `P3-45`; task file line endings restored to LF. P3-21: reproduces; slide-9 table in v2/v3 matches F-033; criterion 2 met against the current F-015 (R$ 4,842). Waiting on Felipe (S5) and a teammate re-run of F-033
 
 - 2026-11-07 — Codex for Felipe: reviewed all 15 items awaiting review from P3-25 onward using three independent reviewers; numerical replays pass where available, P3-25 blocked by missing MB input. P3-27/P3-38 done; Economist review statuses and named-human gates preserved. Reports in `docs/review-2026-11-07-p25-onwards.md`; current scorer finalization follow-up P3-43 todo.
 
