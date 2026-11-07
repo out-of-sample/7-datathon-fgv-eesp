@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 
 tag `results-frozen` (F-001 to F-033)
@@ -84,6 +84,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 
 ## Next actions
+
+**P3-41 (7 Nov, Felipe):** compression-to-cost prototype complete (`docs/premium-compression.md`, F-050 exploratory). Nine checks pass; outputs reproduce. Ridge loses to simple mean reversion at the primary 10-day horizon; no established acquisition-timing improvement. Next: independent teammate reproduction and annex decision. Access remains unknown; no deck change.
 
 **7 Nov, P3-39 (Felipe):** buyer cost frontier implemented (`docs/buyer-cost-frontier.md`, F-048 exploratory); ten checks pass. Achievable deposit rates vary independently of forward pricing, and both alternatives require access and delivery on time. Central June cost ceilings are positive but change sign across the stress envelope. Next: independent teammate reproduction and Felipe's choice of treasury exhibit. No actual route access established.
 
@@ -257,7 +259,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | ✅ done | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (13/38 closed)
+**P3 — Extensions** (13/39 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -299,6 +301,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P3-38](tasks/P3-38-access-method-comparison-review.md) | Independently assess the simple-search versus agentic access comparison | 👀 review | CS 1 | - | 3/3 | 5/5 | 2026-11-07 | P3-28 |
 | [P3-39](tasks/P3-39-buyer-cost-frontier.md) | Measure the buyer's cost budget for waiting | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-07 | P3-31 |
 | [P3-40](tasks/P3-40-final-project-review.md) | Review and repair project consistency before submission | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-07 | P3-39 |
+| [P3-41](tasks/P3-41-premium-compression.md) | Forecast economically useful premium compression before a payment deadline | 👀 review | Economist | - | 3/3 | 4/4 | 2026-11-08 | P3-39, P1-02 |
 
 **P4 — Robustness and freeze** (3/4 closed)
 
@@ -376,11 +379,14 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [F-047](findings/F-047-access-benchmark-dev-pilot.md) | Development pilot of the access-conditions benchmark - on 5 development cases with labels written by the implementer, the agent (0.87), the fixed verify workflow (0.85) and one-pass retrieval (0.75) all far exceed keyword rules (0.15); no held-out result yet | 🔍 exploratory | P3-28 | - |
 | [F-048](findings/F-048-buyer-cost-frontier.md) | Waiting's June cost budget is positive centrally but changes sign across explicit stress scenarios | 🔍 exploratory | P3-39 | - |
 | [F-049](findings/F-049-brla-operator-routing.md) | BRLA's large June burns use an authorized transfer-and-burn routine also seen before the notice; their fiat purpose remains unidentified | 🔍 exploratory | P3-37 | - |
+| [F-050](findings/F-050-premium-compression.md) | Partial premium compression can be evaluated against costs, but ridge does not beat simple mean reversion on the primary horizon | 🔍 exploratory | P3-41 | - |
 <!-- BOARD:END -->
 
 
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-07 — Codex for Felipe: P3-41 protocol committed before fitting; compression forecasts, residual bands and buyer-frontier integration complete. F-050 exploratory; nine tests and byte-identical replay pass; daily/nonoverlapping results retained. Mean reversion beats ridge at 10 days; unknown access prevents actionable labels. No core/deck edits.
 
 - 2026-11-07 — Codex for Felipe: P3-40 project review/corrections; 37 numerical tests and access selftest pass; duplicate BRLA F-047 renamed F-049 (access pilot keeps F-047). Treasury annex, duration provenance/complete-case caveat and placebo-band wording corrected. Full ledger replay blocked by missing local raw/input bundle; human reference and turn-budget audit still pending. Report: `docs/final-project-review-2026-11-07.md`.
 

@@ -94,6 +94,8 @@ regime), a "solution" deliverable (a daily monitor), and a causal design the aca
 
 ## Decision log
 
+P3-41 (7 Nov, Felipe via explicit implementation request after project/data review): implement the first bounded decision-system experiment, partial premium compression linked to the buyer cost frontier. Scope and chronological protocol committed before fitting (`93fd20f`). F-050 remains exploratory; no demonstrated primary-horizon improvement over simple mean reversion. Independent reproduction and deck inclusion remain separate. Simulation, market-state detection, route stress testing and Chronos are not included in this first build.
+
 P3-39 (7 Nov, Felipe via explicit implementation request): implement the buyer cost frontier with independent deposit/forward rates and a delivery/access gate. Scenario research authorized; deck adoption and independent reproduction remain pending. See `docs/buyer-cost-frontier.md` and F-048.
 
 | Date | Decision | Who |

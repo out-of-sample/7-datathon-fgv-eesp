@@ -2,9 +2,9 @@
 id: P3-41
 title: Forecast economically useful premium compression before a payment deadline
 phase: P3
-status: doing
+status: review
 owner: Economist
-working: Felipe (Codex)
+working: -
 due: 2026-11-08
 depends: P3-39, P1-02
 ---
@@ -25,28 +25,29 @@ User authorized on 7 Nov after a read-only project/data review. Build the first 
 - Report all daily origins and a fixed nonoverlapping subset per horizon (first valid evaluation origin, then next origin strictly after previous terminal date), plus nonoverlapping paired moving-block bootstrap MAE-gap intervals (block 3, 2,000 draws, seed 41). Few 2026 blocks and one known June event limit inference. June replay fixed at 25 Jun for illustration only. 2026 has already been inspected in earlier project work: chronological holdout here is retrospective, not a prospective untouched study.
 
 ## Subtasks
-- [ ] S1 — Input/clock audit and frozen protocol — doing: Felipe (Codex).
-- [ ] S2 — Forecasts, calibration, frontier integration and leakage/boundary tests.
-- [ ] S3 — Reproduce tables, inspect figure, write exploratory finding and handoff.
+- [x] S1 — Input/clock audit and frozen protocol — done: Felipe (Codex), 7 Nov.
+- [x] S2 — Forecasts, calibration, frontier integration and leakage/boundary tests — done: Felipe (Codex), 7 Nov.
+- [x] S3 — Reproduce tables, inspect figure, write exploratory finding and handoff — done: Felipe (Codex), 7 Nov.
 
 ## Success criteria
-- [ ] Inputs hashed; exclusions and signal/execution timestamps inspectable.
-- [ ] Split maturity/scaling and future-perturbation checks pass.
-- [ ] Every model and baseline evaluated on the same origins; intervals and conditional decision costs reported.
-- [ ] June replay and conclusions trace to CSVs; no independent-review or prospective claim.
+- [x] Inputs hashed; exclusions and signal/execution timestamps inspectable.
+- [x] Split maturity/scaling and future-perturbation checks pass.
+- [x] Every model and baseline evaluated on the same origins; intervals and conditional decision costs reported.
+- [x] June replay and conclusions trace to CSVs; no independent-review or prospective claim.
 
 ## Outputs
 - `scripts/p3_41_compression.py`, `results/tables/P3-41_*`, `results/figures/P3-41_*.png`
 - `findings/F-050-premium-compression.md`, `docs/premium-compression.md`
 
 ## Handoff
-- **State:** scope and protocol fixed before fitting; no model run yet.
-- **Next step:** S1 audit, then S2 implement the above without selecting on 2026 results.
-- **Open questions:** real access, executable quotes, hedge basis and settlement calendars remain unverified.
-- **How to resume:** read this protocol, P3-39, and the existing frontier function in `scripts/p3_38_buyer_frontier.py`.
+- **State:** first version complete; nine focused checks pass. F-050 is exploratory. Ridge loses to simple mean reversion on the primary horizon; daily and nonoverlapping results both retained. Two figures visually inspected. No frozen numbers or deck changed.
+- **Next step:** independent teammate runs both commands below, compares tables, checks clock assumptions and decides whether an annex-only result is useful. No automatic extension or test-set tuning authorized by this handoff.
+- **Open questions:** real access, executable quotes, hedge basis and settlement calendars remain unverified. This is not a prospective holdout; Chronos and the other three proposal directions were not implemented.
+- **How to resume:** `python scripts/p3_41_compression.py --test-only`, then `python scripts/p3_41_compression.py`. See `docs/premium-compression.md` for local Windows interpreter and package environment. Full outputs use the P3-41 prefix; input/source hashes are in the audit JSON.
 
 ## Log
+- 2026-11-07 — Felipe via Codex: protocol committed/pushed as `93fd20f` before fitting. Completed input/clock audit, static ridge and two baselines, residual calibration, chronological purging, frontier/delivery gates, nine tests, CSVs, two inspected figures and F-050. Candidate penalties all disclosed; no change after inspecting test outcomes. Fixed the figure legend position during visual QA; no numerical method changed.
 - 2026-11-07 — Felipe via Codex: user authorized implementation after project/data review. Pulled 9ab1ad8; no pre-existing local changes. New P3-41 avoids other workers' subtasks.
 
 ## Result
-Pending implementation; experimental scope only.
+F-050: first operational forecast-to-cost pipeline complete, but no established acquisition-timing improvement. Ridge MAE at 10 days is 34.43 bps on daily 2026 origins versus mean reversion 30.03; the fixed nonoverlapping subset also favors mean reversion. The June signal/execution distinction materially changes realized cost comparisons. Actual access unknown, so all actionable outputs abstain. Independent reproduction pending.
