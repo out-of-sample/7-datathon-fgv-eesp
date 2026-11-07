@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Codex for Felipe (P3-40 supplemental frozen-bundle replay passes; Windows path differences documented; human sign-off pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 
 tag `results-frozen` (F-001 to F-033)
@@ -259,7 +259,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | ✅ done | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (13/39 closed)
+**P3 — Extensions** (13/40 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -302,6 +302,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P3-39](tasks/P3-39-buyer-cost-frontier.md) | Measure the buyer's cost budget for waiting | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-07 | P3-31 |
 | [P3-40](tasks/P3-40-final-project-review.md) | Review and repair project consistency before submission | 👀 review | Economist | - | 3/3 | 3/3 | 2026-11-07 | P3-39 |
 | [P3-41](tasks/P3-41-premium-compression.md) | Forecast economically useful premium compression before a payment deadline | 👀 review | Economist | - | 3/3 | 4/4 | 2026-11-08 | P3-39, P1-02 |
+| [P3-42](tasks/P3-42-compression-upgrade.md) | Upgrade compression forecasts with rolling fits and adaptive calibration | 🔄 doing | Economist | Felipe (Codex) | 0/3 | 0/4 | 2026-11-08 | P3-41 |
 
 **P4 — Robustness and freeze** (3/4 closed)
 
@@ -387,6 +388,8 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 ## Recent activity (newest first, one line per work session)
 
 - 2026-11-07 — Codex for Felipe: P3-41 protocol committed before fitting; compression forecasts, residual bands and buyer-frontier integration complete. F-050 exploratory; nine tests and byte-identical replay pass; daily/nonoverlapping results retained. Mean reversion beats ridge at 10 days; unknown access prevents actionable labels. No core/deck edits.
+
+- 2026-11-07 — Codex for Felipe: independent subagent verified 9ab1ad8 with release location from 115bf9b; restored frozen inputs, all five offline commands and 3,158 checksum entries pass. Numbers/classifications reproduce; Windows paths change exact file/hash identity. Report: `docs/review-9ab1ad8-frozen-bundle.md`. Human ledger review remains pending.
 
 - 2026-11-07 — Codex for Felipe: P3-40 project review/corrections; 37 numerical tests and access selftest pass; duplicate BRLA F-047 renamed F-049 (access pilot keeps F-047). Treasury annex, duration provenance/complete-case caveat and placebo-band wording corrected. Full ledger replay blocked by missing local raw/input bundle; human reference and turn-budget audit still pending. Report: `docs/final-project-review-2026-11-07.md`.
 
