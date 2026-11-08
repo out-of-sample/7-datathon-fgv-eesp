@@ -1,46 +1,101 @@
-<section id="metodos" data-transition="fade" style="background:#F6F4EF;color:#3D4A5C;font-family:'IBM Plex Sans', Arial, sans-serif;padding:96px 128px 150px;display:flex;flex-direction:column;justify-content:space-between;gap:20px">
-<div style="position:absolute;left:128px;top:52px;width:1664px;height:6px;background:#E3DED4;border-radius:3px"></div>
-<div style="position:absolute;left:128px;top:52px;width:499px;height:6px;background:#D9622B;border-radius:3px"></div>
-<div style="display:flex;flex-direction:column;gap:10px">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#B5481F">Capítulo 2 · Como investigamos</p>
-<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#F6F4EF;background:#14213D;border:2px solid #14213D;border-radius:24px;padding:2px 18px">Registrado antes dos dados</p>
-</div>
-<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:50px;font-weight:600;line-height:1.1;color:#14213D">Doze técnicas, cada uma contra uma linha de base</h2>
-<p style="font-size:24px;line-height:1.3;color:#14213D;background:#ECE8DF;border-radius:8px;padding:6px 18px"><b>Dados:</b> 1.520 dias úteis (2020–2026) · 3 corretoras + 1 pool on-chain · 10 moedas · 8 regras · 17.536 eventos on-chain</p>
-</div>
-<div style="display:flex;gap:16px">
-<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FBFAF7;border:1px solid #E3DED4;border-radius:12px;padding:18px 20px">
-<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#B5481F">1 · Medir</p>
-<p style="font-size:24px;line-height:1.3"><b>Prêmio</b> = USDT/BRL ÷ (PTAX × USDT/USD) − 1, nas horas da PTAX · <i>contra:</i> ruído de 2–10 bps</p>
-<p style="font-size:24px;line-height:1.3"><b>3 corretoras + rota on-chain</b> (Pix → BRLA → USDC) · <i>contra:</i> a mesma conta em cada mercado</p>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FBFAF7;border:1px solid #E3DED4;border-radius:12px;padding:18px 20px">
-<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#B5481F">2 · Identificar</p>
-<p style="font-size:24px;line-height:1.3"><b>Quebras sem datas</b> (Bai e Perron, 2003) · <i>contra:</i> nenhuma data informada</p>
-<p style="font-size:24px;line-height:1.3"><b>Evento vs 1.073 datas comuns</b> e 30 janelas sem sobreposição · <i>contra:</i> datas sem regra</p>
-<p style="font-size:24px;line-height:1.3"><b>Controle sintético</b> (Abadie et al., 2010) · <i>contra:</i> Brasil feito de 5 moedas</p>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FBFAF7;border:1px solid #E3DED4;border-radius:12px;padding:18px 20px">
-<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#B5481F">3 · Rastrear</p>
-<p style="font-size:24px;line-height:1.3"><b>Fluxos do BCB</b>: compras de stablecoins no exterior · <i>contra:</i> variações mensais</p>
-<p style="font-size:24px;line-height:1.3"><b>Transferência</b> T = Σ Δprêmio × volume · <i>contra:</i> 194 janelas comuns</p>
-<p style="font-size:24px;line-height:1.3"><b>Livro-razão on-chain</b> do BRLA, dois provedores · <i>contra:</i> o dado agregado</p>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FBFAF7;border:1px solid #E3DED4;border-radius:12px;padding:18px 20px">
-<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#B5481F">4 · Prever e decidir</p>
-<p style="font-size:24px;line-height:1.3"><b>Alarme CUSUM</b> em tempo real (Page, 1954) · <i>contra:</i> regra simples</p>
-<p style="font-size:24px;line-height:1.3"><b>Sobrevivência</b> em 10 moedas · <i>contra:</i> taxa-base</p>
-<p style="font-size:24px;line-height:1.3"><b>Ridge</b> re-treinado mês a mês · <i>contra:</i> “amanhã = hoje”</p>
-<p style="font-size:24px;line-height:1.3"><b>Tesouraria com hedge</b> + 216 cenários de estresse · <i>contra:</i> comprar já</p>
-</div>
-</div>
-<div style="display:flex;gap:32px;background:#14213D;border-radius:12px;padding:18px 24px">
-<p style="flex:1;font-size:24px;line-height:1.3;color:#C9D1DE"><b><span style="color:#F0A57E">Registrado antes:</span></b> hipóteses, regras de decisão e previsões foram para o Git, com data, antes dos dados.</p>
-<p style="flex:1;font-size:24px;line-height:1.3;color:#C9D1DE"><b><span style="color:#F0A57E">Lições de 2025:</span></b> nosso modelo perdeu para “amanhã = hoje”. Agora toda estimativa tem linha de base, e mostramos quando empata.</p>
-<p style="flex:1;font-size:24px;line-height:1.3;color:#C9D1DE"><b><span style="color:#F0A57E">IA sob protocolo:</span></b> agentes avaliados contra métodos simples; toda fonte aberta e citada, regra criada após 4 de 4 links de agentes falharem.</p>
-</div>
-<p style="position:absolute;left:128px;bottom:60px;width:1450px;font-size:24px;color:#5B6573">Transparência: vimos o salto na sondagem inicial; a data do ofício vem da imprensa e do BCB, não do gráfico</p>
-<p style="position:absolute;right:128px;bottom:60px;width:120px;font-size:24px;color:#5B6573;text-align:right">3 / 10</p>
-<aside>Capítulo 2, como investigamos. Doze técnicas em quatro camadas, e em cada uma dizemos contra o que comparamos. Medir: o prêmio nas mesmas horas em que o BCB calcula a PTAX, descontando o preço do USDT em dólar; o custo de negociar, 2 a 10 pontos-base, é o piso de ruído; e a mesma conta em três corretoras e numa rota on-chain. Identificar: um teste de quebras que não recebe nenhuma data; a mudança de 20 dias em torno de cada regra contra a mesma conta em 1.073 datas comuns e em 30 janelas sem sobreposição; e um Brasil sintético feito de cinco moedas. Rastrear: as compras de stablecoins no exterior nas estatísticas do BCB, o dinheiro que passou de compradores a vendedores e um livro-razão on-chain do real digital BRLA, conciliado com dois provedores. Prever e decidir: um alarme CUSUM, um modelo de sobrevivência em dez moedas, um ridge re-treinado todo mês e uma tesouraria com hedge testada em 216 cenários. A lição de 2025, quando nosso modelo perdeu para “amanhã igual a hoje”, virou regra: toda estimativa tem linha de base, e quando um modelo empata, o slide diz isso. Hipóteses e previsões foram registradas no Git antes dos dados. Uma transparência: vimos o salto na sondagem inicial; por isso a data vem da imprensa e do BCB. Referências: Corwin e Schultz (2012); Bai e Perron (2003); Gelbach, Helland e Klick (2013); Abadie, Diamond e Hainmueller (2010); Page (1954); Duffie (2010). Rastreio: F-001, F-005, F-007, F-011, F-014, F-016, F-017, F-024, F-025, F-029, F-037, F-038, F-042, F-048, F-051; regra de fontes em prompt.md §6.</aside>
+<section id="metodos" data-transition="fade" style="background:#f6f4ef">
+  <div style="position:absolute; top:52px; left:128px; width:1664px; height:6px; display:flex; flex-direction:column; background:#e3ded4; border-radius:3px">
+  </div>
+  <div style="position:absolute; top:52px; left:128px; width:666px; height:6px; display:flex; flex-direction:column; background:#d9622b; border-radius:3px">
+  </div>
+  <p id="e3-1a5akwc" style="position:absolute; right:128px; bottom:36px; width:120px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; text-align:right; color:#5b6573">4 / 10</p>
+  <div id="p1a028ef8e578r0-2eb4323e" style="position:absolute; top:104px; left:128px; width:1664px; height:84px; display:flex; flex-direction:column; gap:8px">
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#b5481f">Capítulo 3 · Metodologia</p>
+    <h2 style="font-family:'Source Serif 4', Georgia, serif; font-size:44px; font-weight:600; line-height:1.1; color:#14213d">Primeiro confirmar o fenômeno; depois, entender o mecanismo</h2>
+  </div>
+  <div id="p1a028ef8e578r1-2eb4323e" style="position:absolute; top:200px; left:128px; width:1664px; height:72px; display:flex; flex-direction:column; gap:2px; padding:8px 18px; background:#14213d; border-radius:10px">
+    <p style="flex:0 0 auto; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#f6f4ef">1 · Confirmar e testar o fenômeno</p>
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.25; color:#f6f4ef"><b>Uma notícia na data certa pode ser coincidência. Cada teste ataca um jeito de a hipótese estar errada.</b></p>
+  </div>
+  <div id="p1a028ef8e578r2-2eb4323e" style="position:absolute; top:284px; left:128px; width:1664px; height:243px; display:flex; flex-direction:row; gap:14px">
+    <div style="display:flex; flex-direction:column; gap:6px; flex:1; padding:10px 14px; background:#fbfaf7; border:1px solid #e3ded4; border-radius:12px">
+      <p style="font-family:'Source Serif 4', Georgia, serif; font-size:27px; font-weight:600; line-height:1.15; color:#b5481f">Começou mesmo em 24/jun?</p>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; font-weight:600; line-height:1.2; color:#14213d">Quebras estruturais <span style="color:#5b6573">(Bai–Perron)</span></p>
+      <img src="/_blob/e73d51adcbedf8d1c918359e339a0e82" alt="min sobre as datas de quebra da soma dos quadrados dos desvios de p_t da média de cada regime" style="width:372px; height:53px">
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.3; color:#3d4a5c">Acha sozinho as datas em que a média muda, sem saber do ofício.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:6px; flex:1; padding:10px 14px; background:#fbfaf7; border:1px solid #e3ded4; border-radius:12px">
+      <p style="font-family:'Source Serif 4', Georgia, serif; font-size:27px; font-weight:600; line-height:1.15; color:#b5481f">Um salto assim é raro?</p>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; font-weight:600; line-height:1.2; color:#14213d">Estudo de evento com placebos</p>
+      <img src="/_blob/faa59dd8aa6e0e11a6c05dfd06ee6af6" alt="Δ_e = média dos 20 dias depois − média dos 20 antes; p = (1 + nº de datas comuns com |Δ_s| ≥ |Δ_e|)/(1 + N)" style="width:335px; height:107px">
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.3; color:#3d4a5c">20 dias depois menos 20 antes, comparado com datas comuns.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:6px; flex:1; padding:10px 14px; background:#fbfaf7; border:1px solid #e3ded4; border-radius:12px">
+      <p style="font-family:'Source Serif 4', Georgia, serif; font-size:27px; font-weight:600; line-height:1.15; color:#b5481f">Foi só no Brasil?</p>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; font-weight:600; line-height:1.2; color:#14213d">Controle sintético <span style="color:#5b6573">(Abadie et al.)</span></p>
+      <img src="/_blob/39b47f81a073fc59fa98dd02d3ae47db" alt="min sobre os pesos w da soma, antes do ofício, de (p Brasil − Σ w_j p_j)²" style="width:372px; height:60px">
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.3; color:#3d4a5c">Cinco moedas copiam o Brasil antes de 23/jun; o desvio depois é o efeito.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:6px; flex:1; padding:10px 14px; background:#fbfaf7; border:1px solid #e3ded4; border-radius:12px">
+      <p style="font-family:'Source Serif 4', Georgia, serif; font-size:27px; font-weight:600; line-height:1.15; color:#b5481f">Não foi outra coisa?</p>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; font-weight:600; line-height:1.2; color:#14213d">Contraprovas: a mesma conta</p>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.3; color:#3d4a5c">· em 3 corretoras</p>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.3; color:#3d4a5c">· no real (PTAX) e no USDT/USD</p>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.3; color:#3d4a5c">· nas outras 7 regras</p>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.3; color:#3d4a5c">· em 22 variantes de medida</p>
+    </div>
+  </div>
+  <div id="p1a028ef8e578r3-2eb4323e" style="position:absolute; top:538px; left:128px; width:1664px; height:72px; display:flex; flex-direction:column; gap:2px; padding:8px 18px; background:#3d4a5c; border-radius:10px">
+    <p style="flex:0 0 auto; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#f6f4ef">2 · Entender o mecanismo e as consequências</p>
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.25; color:#f6f4ef"><b>Por que o preço subiu, quem supriu, quanto custou e o que fazer.</b></p>
+  </div>
+  <div id="p1a028ef8e578r4-2eb4323e" style="position:absolute; top:622px; left:128px; width:1664px; height:338px; display:flex; flex-direction:column; gap:6px">
+    <div style="display:flex; flex-direction:row; gap:14px">
+      <div style="width:40px; display:flex; flex-direction:row; align-items:center; justify-content:center; flex:0 0 auto; background:#ece8df; border-radius:8px">
+        <img src="/_blob/0ac3c3afe98db60fdfc6d7e6e183becd" alt="Mecanismo" style="width:40px; height:166px; flex:0 0 auto; object-fit:contain">
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px; flex:1; padding:8px 14px; background:#fbfaf7; border:1px solid #e3ded4; border-radius:10px">
+        <p style="font-family:'Source Serif 4', Georgia, serif; font-size:24px; font-weight:600; line-height:1.15; color:#14213d">Band-TAR <span style="color:#5b6573">(Obstfeld–Taylor)</span></p>
+        <img src="/_blob/f92bc121feee6f44b218845de6ac2cbb" alt="Delta z_t igual a beta vezes (z_{t−1} menos c vezes o sinal de z_{t−1}) mais erro, fora da faixa c" style="width:338px; height:35px; object-fit:contain">
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:20px; line-height:1.25; color:#3d4a5c">Estima a faixa c em que a arbitragem não compensa e, fora dela, a velocidade β de volta.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px; flex:1; padding:8px 14px; background:#fbfaf7; border:1px solid #e3ded4; border-radius:10px">
+        <p style="font-family:'Source Serif 4', Georgia, serif; font-size:24px; font-weight:600; line-height:1.15; color:#14213d">Fluxos do BCB</p>
+        <img src="/_blob/8dca80d991587eb09ce612446cfdde16" alt="pi chapéu igual a 1 mais o número de meses com variação g_m menor ou igual à de julho, sobre 1 mais n" style="width:368px; height:29px; object-fit:contain">
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:20px; line-height:1.25; color:#3d4a5c">Compara a queda das compras no exterior em julho com as outras 91 variações mensais.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px; flex:1; padding:8px 14px; background:#fbfaf7; border:1px solid #e3ded4; border-radius:10px">
+        <p style="font-family:'Source Serif 4', Georgia, serif; font-size:24px; font-weight:600; line-height:1.15; color:#14213d">Fluxo de ordens</p>
+        <img src="/_blob/0939d3a48a8f69c5d7e3283ee6666c94" alt="fluxo de ordens da tarde igual a alfa mais beta 1 vezes o prêmio mais beta 2 vezes o ágio Foxbit sobre Binance mais erro" style="width:368px; height:35px; object-fit:contain">
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:20px; line-height:1.25; color:#3d4a5c">Vendas agressivas da tarde contra o prêmio e o ágio Foxbit–Binance: quem supriu USDT.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px; flex:1; padding:8px 14px; background:#fbfaf7; border:1px solid #e3ded4; border-radius:10px">
+        <p style="font-family:'Source Serif 4', Georgia, serif; font-size:24px; font-weight:600; line-height:1.15; color:#14213d">Rota on-chain <span style="color:#5b6573">(BRLA)</span></p>
+        <img src="/_blob/e24c5e405221742e415b42a5bf1a701e" alt="Delta S_t igual à soma das emissões menos a soma das queimas" style="width:325px; height:34px; object-fit:contain">
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:20px; line-height:1.25; color:#3d4a5c">Refaz o prêmio na rota Pix → BRLA → USDC e concilia cada emissão e queima do token.</p>
+      </div>
+    </div>
+    <div style="display:flex; flex-direction:row; gap:14px">
+      <div style="width:40px; display:flex; flex-direction:row; align-items:center; justify-content:center; flex:0 0 auto; background:#ece8df; border-radius:8px">
+        <img src="/_blob/70689188a3ea465cb65c35540413b968" alt="Consequências" style="width:40px; height:166px; flex:0 0 auto; object-fit:contain">
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px; flex:1; padding:8px 14px; background:#fbfaf7; border:1px solid #e3ded4; border-radius:10px">
+        <p style="font-family:'Source Serif 4', Georgia, serif; font-size:24px; font-weight:600; line-height:1.15; color:#14213d">Transferência em reais</p>
+        <img src="/_blob/85df9b489371f8537b50ce897405e2c1" alt="T igual à soma, nos dias do choque, do prêmio menos o prêmio médio de antes, vezes o volume e a PTAX do dia" style="width:368px; height:34px; object-fit:contain">
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:20px; line-height:1.25; color:#3d4a5c">Prêmio extra × volume em reais, dia a dia do choque: o que passou de compradores a vendedores.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px; flex:1; padding:8px 14px; background:#fbfaf7; border:1px solid #e3ded4; border-radius:10px">
+        <p style="font-family:'Source Serif 4', Georgia, serif; font-size:24px; font-weight:600; line-height:1.15; color:#14213d">Alarme CUSUM <span style="color:#5b6573">(Page)</span></p>
+        <img src="/_blob/b103502ff1ed8fbdd2be6d427c91b494" alt="S mais t igual ao máximo entre 0 e S mais t−1 mais z_t menos k" style="width:338px; height:38px; object-fit:contain">
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:20px; line-height:1.25; color:#3d4a5c">Acumula os desvios do prêmio e dispara ao passar de h, só com dados passados.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px; flex:1; padding:8px 14px; background:#fbfaf7; border:1px solid #e3ded4; border-radius:10px">
+        <p style="font-family:'Source Serif 4', Georgia, serif; font-size:24px; font-weight:600; line-height:1.15; color:#14213d">Sobrevivência e ridge</p>
+        <img src="/_blob/776920b89f06fd8f035ea5ccb8a84aff" alt="h_tau de x igual a Lambda de alfa_tau mais beta linha x" style="width:276px; height:40px; object-fit:contain">
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:20px; line-height:1.25; color:#3d4a5c">Quanto dura um choque (61, em 10 moedas) e quanto o prêmio cai em 10 dias.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:6px; flex:1; padding:8px 14px; background:#fbfaf7; border:1px solid #e3ded4; border-radius:10px">
+        <p style="font-family:'Source Serif 4', Georgia, serif; font-size:24px; font-weight:600; line-height:1.15; color:#14213d">Perfis e espera com hedge</p>
+        <img src="/_blob/682d166759ac56757dc027b9193ff81e" alt="W igual a q vezes PTAX em T vezes, entre colchetes, o preço do USDT em dólar com prêmio na data t menos o mesmo na data T" style="width:368px; height:28px; object-fit:contain">
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:20px; line-height:1.25; color:#3d4a5c">Prêmio pago por perfil e ganho de agir h dias depois, com câmbio travado, em todo dia útil.</p>
+      </div>
+    </div>
+  </div>
+  <p id="p1a028ef8e578r5-2eb4323e" style="position:absolute; top:978.4px; left:50%; width:1664px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:20px; line-height:1.3; color:#5b6573; transform:translateX(-50%)"><b>Comparações:</b> cada técnica foi testada contra uma alternativa ingênua ou mais simples (nenhuma data informada, datas comuns sem regra, diferenças em diferenças, AR(1), meses e janelas comuns, regra de médias, taxa-base histórica, “amanhã = hoje” e comprar já); quando empata, dizemos.</p>
+  <aside>Uma notícia na data certa pode ser coincidência, por isso a metodologia tem duas partes. A primeira tenta derrubar a hipótese. O teste de quebras estruturais procura sozinho, sem receber nenhuma data, o momento em que a média do prêmio muda. O estudo de evento compara os 20 dias depois com os 20 antes e repete a mesma conta em datas comuns, para saber se um salto desse tamanho é raro. O controle sintético monta um Brasil sem o ofício a partir de cinco moedas e mede quanto o Brasil de verdade se afastou dele. As contraprovas refazem a conta em três corretoras, no real, no USDT e nas outras regras com data. A segunda parte explica o mecanismo e as consequências. Para o mecanismo, usamos um modelo de faixa de arbitragem, os dados do BCB sobre compras de stablecoins, o fluxo de ordens nas corretoras e a rota on-chain do BRLA. Para as consequências, calculamos a transferência em reais, um alarme que só olha dados passados, modelos de duração e de previsão e a conta de cada perfil de usuário. Cada técnica foi comparada com uma alternativa mais simples, e quando empatou, nós dizemos.</aside>
 </section>

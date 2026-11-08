@@ -1,12 +1,14 @@
 """P5-10: the new charts of deck v4, in deck v3's palette, from frozen data and registered outputs.
 
-Purpose  Slide 6 (on-chain route), slide 7 (price vs market, three panels) and slide 9 (cost budget for waiting).
-Inputs   data/processed/P1-02_premium_daily.csv (Binance premium, PTAX window; core study)
+Purpose  Slide 2 (the anomaly that started the story), slide 6 (on-chain route), slide 7 (price vs market, three panels) and slide 9 (cost budget for waiting).
+Inputs   data/processed/P1-05_donor_premiums_daily.csv (USDT premiums of the 5 comparison currencies; F-010)
+         results/tables/P2-04_synth_weights.csv (synthetic-control weights, headline spec; F-017)
+         data/processed/P1-02_premium_daily.csv (Binance premium, PTAX window; core study)
          data/processed/P3-24_brla_daily.csv (Pix -> BRLA -> USDC route on Polygon, PTAX window; F-037)
          data/raw/bcb/sgs_29644.json (stablecoin purchases abroad by residents, US$ mn, stored negative; F-024)
          results/tables/P3-25_composition.csv (Foxbit share of three-exchange volume by period; F-036)
          results/tables/P3-38_june_ceiling.csv (waiting's cost budget, central and 216-scenario range; F-048)
-Outputs  results/figures/P5-10_{brla,rec_price,rec_imports,rec_share,wait}.png
+Outputs  results/figures/P5-10_{synth,anomaly,brla,rec_price,rec_imports,rec_share,wait}.png
 Run      .venv/bin/python scripts/p5_10_deck_figures.py
          Labels use IBM Plex Sans if PLEX_DIR points to its .ttf files (the deck's face), else the default sans.
 Sizes    figsize in inches = the size on the 1920x1080 slide / 100, dpi 200 (2x); font pt = slide px * 0.72.
@@ -140,3 +142,76 @@ ax.set_xticks([0, 100, 200], ["0", "+100", "+200 bps"])
 ax.tick_params(axis="y", length=0)
 ax.grid(axis="x", color=GRID, lw=1)
 save(f, "wait")
+
+# 4. Slide 2: the anomaly. Binance premium, 5-day trailing mean, Jan 2025 to 29 Oct 2026 (30 Oct = Binance incident, F-045).
+#    The mean keeps one-day outliers (e.g. one day in early 2025) from looking like the month-long June shift.
+pre_mean, post_mean = p.loc["2025-07-08":"2026-06-23"].mean(), p.loc["2026-06-24":"2026-07-21"].mean()
+assert (round(pre_mean, 1), round(p.loc["2026-06-24"], 1), round(post_mean, 1)) == (9.3, 155.4, 109.1)
+d = p.rolling(5).mean().loc["2025-01-01":"2026-10-29"]
+f, ax = fig(600, 300)
+ax.axvspan(pd.Timestamp("2026-06-24"), pd.Timestamp("2026-07-21"), color=ORANGE, alpha=0.14, lw=0)
+ax.axhline(0, color=GRID, lw=1)
+ax.plot(d.index, d.values, color=BLUE, lw=1.4)
+spike = d.loc["2026-06-24":"2026-07-21"]
+ax.plot(spike.index, spike.values, color=ORANGE, lw=1.8)
+ax.annotate("24/jun", xy=(pd.Timestamp("2026-06-26"), d.loc["2026-06-26"]), xytext=(pd.Timestamp("2025-12-01"), 150),
+            fontsize=22 * PX, weight="semibold", color=ORANGE, va="center",
+            arrowprops=dict(arrowstyle="-|>", color=ORANGE, lw=1.4))
+ax.set_ylim(-10, 160)
+ax.set_yticks([0, 50, 100, 150], ["0", "50", "100", "150 bps"])
+ticks = [pd.Timestamp(x) for x in ("2025-01-01", "2025-07-01", "2026-01-01", "2026-07-01")]
+ax.set_xticks(ticks, ["jan/25", "jul/25", "jan/26", "jul/26"])
+ax.set_xlim(pd.Timestamp("2025-01-01"), pd.Timestamp("2026-10-31"))
+ax.grid(axis="y", color=GRID, lw=1)
+ax.tick_params(length=0)
+save(f, "anomaly")
+
+# 5. Slide 5: Brazil vs synthetic Brazil (headline 5-donor weights, F-017), common trading days, 5-day trailing mean.
+dp = pd.read_csv(PROC / "P1-05_donor_premiums_daily.csv", parse_dates=["date"], index_col="date")
+wt = pd.read_csv(TAB / "P2-04_synth_weights.csv").query("spec == '5-donor (Headline)' and unit == 'BRL_ptax'")
+donors = ["EUR", "TRY", "ZAR", "MXN", "COP"]
+dd = dp[["BRL_ptax"] + donors].dropna()
+synth = sum(dd[c] * float(wt[c].iloc[0]) for c in donors)
+gap = dd.BRL_ptax - synth
+assert round(gap.loc["2026-06-24":"2026-07-21"].mean(), 1) == 109.3, gap.loc["2026-06-24":"2026-07-21"].mean()
+assert round(float(((gap.loc["2025-11-01":"2026-06-22"]) ** 2).mean() ** 0.5), 0) == 7
+br5, sy5 = dd.BRL_ptax.rolling(5).mean().loc["2025-11-01":"2026-09-30"], synth.rolling(5).mean().loc["2025-11-01":"2026-09-30"]
+f, ax = fig(560, 280)
+ax.axvspan(pd.Timestamp("2026-06-24"), pd.Timestamp("2026-07-21"), color=ORANGE, alpha=0.14, lw=0)
+ax.axvline(T0, color=INK, lw=1.2, ls=(0, (3, 3)))
+ax.plot(sy5.index, sy5.values, color=MUTED, lw=2.2)
+ax.plot(br5.index, br5.values, color=ORANGE, lw=2.4)
+ax.text(pd.Timestamp("2025-11-10"), 42, "Brasil", color=ORANGE, fontsize=22 * PX, weight="semibold")
+ax.text(pd.Timestamp("2026-01-20"), -32, "Brasil sintético", color=MUTED, fontsize=22 * PX, weight="semibold")
+ax.set_ylim(-40, 160)
+ax.set_yticks([0, 50, 100, 150], ["0", "50", "100", "150 bps"])
+ticks = [pd.Timestamp(x) for x in ("2025-11-01", "2026-02-01", "2026-05-01", "2026-08-01")]
+ax.set_xticks(ticks, ["nov/25", "fev/26", "mai/26", "ago/26"])
+ax.grid(axis="y", color=GRID, lw=1)
+ax.tick_params(length=0)
+save(f, "synth")
+
+# 6. Slide 9: value of waiting 10 PTAX days with a hedge, hedged buyer, by decision date in 2026 (F-055, P3-48).
+wd = pd.read_csv(TAB / "P3-48_waiting_daily_h10.csv", parse_dates=["decision_date"], index_col="decision_date").buyer_w_brl / 1e3
+assert round(wd.min(), 1) == -8.8 and round(wd.max(), 1) == 6.7, (wd.min(), wd.max())
+f, ax = fig(1000, 300)
+ax.axvspan(pd.Timestamp("2026-06-24"), pd.Timestamp("2026-07-21"), color=ORANGE, alpha=0.12, lw=0)
+ax.bar(wd.index, wd.values, width=1.6, color=[ORANGE if v > 0 else BLUE for v in wd.values])
+ax.axhline(0, color=INK, lw=1)
+ax.text(pd.Timestamp("2026-06-25"), 7.6, "decisões no choque", color=ORANGE, fontsize=20 * PX, weight="semibold", va="bottom")
+ax.text(pd.Timestamp("2026-01-05"), 5.2, "laranja: esperar foi melhor · azul: comprar já foi melhor", color=MUTED, fontsize=20 * PX)
+ax.set_ylim(-10, 9.5)
+ax.set_yticks([-8, -4, 0, 4, 8], ["−8", "−4", "0", "+4", "+8 mil"])
+ticks = [pd.Timestamp(f"2026-{m:02d}-01") for m in range(1, 11)]
+ax.set_xticks(ticks, MONTHS)
+ax.grid(axis="y", color=GRID, lw=1)
+ax.tick_params(length=0)
+save(f, "waiting")
+
+# 7. Slide 4 (methods): vertical row labels as images (the slide editor drops CSS writing-mode).
+for name, text in (("label_mecanismo", "MECANISMO"), ("label_consequencias", "CONSEQUÊNCIAS")):
+    f = plt.figure(figsize=(40 / 100, 166 / 100), dpi=200)
+    f.text(0.5, 0.5, " ".join(text), rotation=90, ha="center", va="center", fontsize=13 * PX, weight="semibold", color="#3D4A5C")
+    f.savefig(FIG / f"P5-10_{name}.png", dpi=200, transparent=True)
+    plt.close(f)
+    print("wrote", f"results/figures/P5-10_{name}.png")

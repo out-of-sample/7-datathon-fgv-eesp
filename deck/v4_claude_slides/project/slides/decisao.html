@@ -1,51 +1,82 @@
-<section id="decisao" data-transition="fade" style="background:#F6F4EF;color:#3D4A5C;font-family:'IBM Plex Sans', Arial, sans-serif;padding:96px 128px 150px;display:flex;flex-direction:column;justify-content:space-between;gap:20px">
-<div style="position:absolute;left:128px;top:52px;width:1664px;height:6px;background:#E3DED4;border-radius:3px"></div>
-<div style="position:absolute;left:128px;top:52px;width:1498px;height:6px;background:#D9622B;border-radius:3px"></div>
-<div style="display:flex;flex-direction:column;gap:10px">
-<div style="display:flex;justify-content:space-between;align-items:center">
-<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#B5481F">Capítulo 8 · E agora?</p>
-<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#B5481F;border:2px solid #B5481F;border-radius:24px;padding:2px 18px">Exploratório · retrospectivo</p>
-</div>
-<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:50px;font-weight:600;line-height:1.1;color:#14213D">Esperar a porta reabrir compensa? Às vezes, e nenhum modelo nosso sabia de antemão</h2>
-<p style="font-size:24px;line-height:1.3;color:#14213D;background:#ECE8DF;border-radius:8px;padding:6px 18px"><b>Como medimos:</b> Kaplan–Meier e hazard vs taxa-base · ridge vs regras simples · custo de esperar em 216 cenários</p>
-</div>
-<div style="display:flex;flex-direction:column;gap:16px">
-<div style="display:flex;gap:48px">
-<div style="flex:1;display:flex;flex-direction:column;gap:10px">
-<h3 style="font-size:28px;font-weight:600;line-height:1.2;color:#14213D">Prever a volta</h3>
-<p style="font-size:24px;line-height:1.3;color:#5B6573">Erro da previsão de 10 dias em 2026, bps (menor é melhor)</p>
-<div style="display:flex;flex-direction:column;gap:8px">
-<div style="display:flex;align-items:center;gap:12px">
-<p style="width:360px;font-size:24px;color:#14213D">“Amanhã = hoje”</p>
-<div style="flex:none;width:324px;height:32px;background:#C9C2B5"></div>
-<p style="font-size:24px;font-weight:600;color:#14213D">36,0</p>
-</div>
-<div style="display:flex;align-items:center;gap:12px">
-<p style="width:360px;font-size:24px;color:#14213D">Metade do caminho até a média</p>
-<div style="flex:none;width:270px;height:32px;background:#3B6EA8"></div>
-<p style="font-size:24px;font-weight:600;color:#14213D">30,0</p>
-</div>
-<div style="display:flex;align-items:center;gap:12px">
-<p style="width:360px;font-size:24px;color:#14213D">Ridge re-treinado todo mês</p>
-<div style="flex:none;width:264px;height:32px;background:#D9622B"></div>
-<p style="font-size:24px;font-weight:600;color:#B5481F">29,3</p>
-</div>
-</div>
-<p style="font-size:24px;line-height:1.3"><b>Censo de 61 choques do prêmio em 10 moedas (2020–2026):</b> nos de 2020–2024, metade voltou à banda em 20 dias úteis, e um modelo de sobrevivência com o tamanho do choque não superou essa taxa-base.</p>
-<p style="font-size:24px;line-height:1.3"><b>O ridge empata:</b> 29,3 contra 30,0 da regra simples nos dias de 2026; em janelas sem sobreposição, 21,7 contra 21,3. No Brasil, o choque seguia aberto após 111 dias úteis.</p>
-</div>
-<div style="flex:1;display:flex;flex-direction:column;gap:10px">
-<h3 style="font-size:28px;font-weight:600;line-height:1.2;color:#14213D">Decidir sem prever</h3>
-<img src="/_blob/e92381663285674823c2ccfd1726f990" alt="Orçamento para esperar com hedge, em bps, a 5, 10 e 20 dias úteis: cenário central de +90, +93 e +166 bps; nos 216 cenários de estresse as faixas vão de −5 a +146, −27 a +151 e −5 a +228, cruzando o zero" style="width:808px;height:190px;object-fit:contain">
-<p style="font-size:24px;line-height:1.3"><b>Tesouraria que precisa de 100 mil USDT:</b> com hedge na B3, o câmbio sai da decisão. Em retrospecto, esperar 5 a 20 dias após 25/jun economizaria R$ 4,7 a 8,7 mil; em 3/jul, quase nada.</p>
-<p style="font-size:24px;line-height:1.3"><b>Mas o sinal troca:</b> em 216 cenários de estresse (juros, taxas, câmbio, USDT), a faixa cruza o zero nos três prazos; quem precisava vender USDT e esperou perdeu R$ 4,7 a 21,7 mil.</p>
-</div>
-</div>
-<div style="background:#FBF1EA;border-left:8px solid #D9622B;border-radius:8px;padding:16px 24px">
-<p style="font-size:26px;line-height:1.35;color:#14213D"><b>Regra prática para tesourarias e fintechs:</b> use o choque de junho (+94 bps por um mês, pico de +171) como cenário de estresse, proteja o câmbio e fixe um teto de custo. Não tente cronometrar a volta.</p>
-</div>
-</div>
-<p style="position:absolute;left:128px;bottom:60px;width:1450px;font-size:24px;color:#5B6573">Limite: um episódio já conhecido; acesso, liquidez e execução não verificados; hedge ideal, sem margem</p>
-<p style="position:absolute;right:128px;bottom:60px;width:120px;font-size:24px;color:#5B6573;text-align:right">9 / 10</p>
-<aside>Capítulo 8, e agora? Os juízes de mercado vão perguntar: dá para prever quando a porta reabre, ou ganhar com isso? Testamos, com o rigor que nos faltou em 2025. Num censo de 61 choques do prêmio em dez moedas, metade dos choques de 2020 a 2024 voltou à banda em vinte dias úteis, e um modelo de sobrevivência com o tamanho do choque não superou essa taxa-base. Um ridge re-treinado todo mês empatou com a regra simples de “metade do caminho até a média”, e só ganhou de “amanhã igual a hoje”. Em 2025 perdemos para o ingênuo sem saber; este ano comparamos desde o início e mostramos o empate. Para quem decide: uma tesouraria que precisa de 100 mil USDT pode tirar o câmbio da decisão com hedge na B3; o resultado ainda depende do USDT/USD, do juro em dólar e do residual do hedge. Em retrospecto, esperar com hedge teria economizado de 4,7 a 8,7 mil reais, mas o ganho não foi contínuo, quem precisava vender perdeu, e em 216 cenários de estresse o sinal troca. A regra prática é planejar o choque, não cronometrá-lo. Tudo é retrospectivo, num episódio já conhecido, com hedge ideal e sem verificar acesso nem execução. Rastreio: F-038 (61 episódios; KM de treino 7/27/51% em 5/10/20 dias; mediana 20; Brier validação 0,346 vs 0,330, teste 0,175 vs 0,188, IC −0,112 a +0,073; Brasil desde 25/mai, 111 dias), F-051 (MAE diário 36,0/30,0/29,3; sem sobreposição 25,2/21,3/21,7), F-039 (comprador com hedge +89,7/+92,3/+164,0 bps = R$ 4.746/4.896/8.733; 3/jul +6 bps; vendedor R$ 4.697/11.594/21.704), F-048 (central 90/93/166 bps; faixas −5/+146, −27/+151, −5/+228), F-028 (+171). Gráfico: scripts/p5_10_deck_figures.py.</aside>
+<section id="decisao" data-transition="fade" style="display:flex; flex-direction:column; gap:18px; justify-content:space-between; padding:96px 128px 140px; background:#f6f4ef">
+  <div style="position:absolute; top:52px; left:128px; width:1664px; height:6px; display:flex; flex-direction:column; background:#e3ded4; border-radius:3px">
+  </div>
+  <div style="position:absolute; top:52px; left:128px; width:1498px; height:6px; display:flex; flex-direction:column; background:#d9622b; border-radius:3px">
+  </div>
+  <div style="display:flex; flex-direction:column; gap:8px">
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#b5481f">Capítulo 8 · E agora?</p>
+    <h2 style="font-family:'Source Serif 4', Georgia, serif; font-size:50px; font-weight:600; line-height:1.1; color:#14213d">Dá para prever quando o prêmio volta?</h2>
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:28px; line-height:1.3; color:#3d4a5c">Não: nenhum modelo nosso superou regras simples. Em vez de prever a volta, medimos cada regra nova</p>
+  </div>
+  <div style="display:flex; flex-direction:column; gap:8px">
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:20px; font-weight:600; letter-spacing:2px; text-transform:uppercase; color:#b5481f">Como medimos: dois testes, cada um contra uma regra ingênua</p>
+    <div style="display:flex; flex-direction:row; gap:20px">
+      <div style="display:flex; flex-direction:column; gap:8px; flex:1; padding:12px 18px; background:#fbfaf7; border:1px solid #e3ded4; border-radius:12px">
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; font-weight:600; color:#14213d">Quanto dura um choque</p>
+        <img src="/_blob/776920b89f06fd8f035ea5ccb8a84aff" alt="h_tau de x igual a Lambda de alfa_tau mais beta linha x" style="width:276px; height:40px; object-fit:contain">
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:20px; line-height:1.3; color:#3d4a5c">Choque: prêmio a mais de 3 desvios da mediana de 60 dias. Sobrevivência com o tamanho do choque contra a taxa-base de 2020–2024.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:8px; flex:1; padding:12px 18px; background:#fbfaf7; border:1px solid #e3ded4; border-radius:12px">
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; font-weight:600; color:#14213d">Onde o prêmio estará em 10 dias</p>
+        <p style="font-family:'Source Serif 4', Georgia, serif; font-size:26px; font-style:italic; line-height:1.54; color:#14213d">erro = |previsto − observado|</p>
+        <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:20px; line-height:1.3; color:#3d4a5c">Ridge re-treinado todo mês contra “amanhã = hoje” e “metade do caminho até a média”, em 2026.</p>
+      </div>
+    </div>
+  </div>
+  <div style="display:flex; flex-direction:row; gap:48px; align-items:start">
+    <div style="display:flex; flex-direction:column; gap:10px; flex:1">
+      <h3 style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:26px; font-weight:600; line-height:1.2; color:#14213d">Quanto dura: a taxa-base vence (61 choques, 10 moedas)</h3>
+      <div style="display:flex; flex-direction:row; gap:10px">
+        <div style="display:flex; flex-direction:column; gap:2px; flex:1; padding:12px 16px; background:#ece8df; border-radius:10px">
+          <p style="font-family:'Source Serif 4', Georgia, serif; font-size:44px; font-weight:600; line-height:1.05; color:#3b6ea8">7%</p>
+          <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:20px; line-height:1.3; color:#3d4a5c">5 dias úteis</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:2px; flex:1; padding:12px 16px; background:#ece8df; border-radius:10px">
+          <p style="font-family:'Source Serif 4', Georgia, serif; font-size:44px; font-weight:600; line-height:1.05; color:#3b6ea8">27%</p>
+          <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:20px; line-height:1.3; color:#3d4a5c">10 dias úteis</p>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:2px; flex:1; padding:12px 16px; background:#ece8df; border-radius:10px">
+          <p style="font-family:'Source Serif 4', Georgia, serif; font-size:44px; font-weight:600; line-height:1.05; color:#3b6ea8">51%</p>
+          <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:20px; line-height:1.3; color:#3d4a5c">20 dias úteis</p>
+        </div>
+      </div>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.3; color:#3d4a5c">Parcela que voltou à banda. O tamanho do choque não melhorou a previsão; no Brasil, o choque seguia aberto após <b>111 dias úteis</b>.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px; flex:1">
+      <h3 style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:26px; font-weight:600; line-height:1.2; color:#14213d">Onde estará: o ridge empata (erro em 10 dias, bps)</h3>
+      <div style="display:flex; flex-direction:column; gap:8px">
+        <div style="display:flex; flex-direction:row; gap:10px; align-items:center">
+          <p style="width:360px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#14213d">“Amanhã = hoje”</p>
+          <div style="width:324px; height:34px; display:flex; flex-direction:column; flex:0 0 auto; background:#c9c2b5">
+          </div>
+          <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; color:#14213d">36,0</p>
+        </div>
+        <div style="display:flex; flex-direction:row; gap:10px; align-items:center">
+          <p style="width:360px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#14213d">Metade do caminho até a média</p>
+          <div style="width:270px; height:34px; display:flex; flex-direction:column; flex:0 0 auto; background:#3b6ea8">
+          </div>
+          <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; color:#14213d">30,0</p>
+        </div>
+        <div style="display:flex; flex-direction:row; gap:10px; align-items:center">
+          <p style="width:360px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#14213d">Ridge re-treinado todo mês</p>
+          <div style="width:264px; height:34px; display:flex; flex-direction:column; flex:0 0 auto; background:#d9622b">
+          </div>
+          <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; font-weight:600; color:#b5481f">29,3</p>
+        </div>
+      </div>
+      <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.3; color:#3d4a5c">Sem sobreposição: 21,7 contra 21,3 da regra simples.</p>
+    </div>
+  </div>
+  <div style="display:flex; flex-direction:column; gap:10px; padding:16px 28px; background:#14213d; border-radius:12px">
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:26px; font-weight:600; line-height:1.3; color:#f6f4ef">A solução: uma régua pública do custo de acesso ao dólar digital, já em uso</p>
+    <p style="font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.3; color:#c9d1de">1. Medir todo dia, na janela da PTAX, com dados públicos e código aberto → 2. Alarmar (o CUSUM disparou em 24/jun, no mesmo dia) → 3. Comparar com 1.073 datas comuns e converter em reais → 4. Registrar a previsão no Git antes de a regra valer.</p>
+    <div style="display:flex; flex-direction:row; gap:24px">
+      <p style="flex:1; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.3; color:#c9d1de"><span style="color:#f0a57e"><b>Res. 574 (reporte, 3/nov):</b></span> previsto “sem movimento” → +2,1 bps, p = 0,90: mantida</p>
+      <p style="flex:1; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.3; color:#c9d1de"><span style="color:#f0a57e"><b>Res. 589 (veda não autorizadas, 6/nov):</b></span> 1º dia −5,4 bps, um dia comum; veredito em 9/nov</p>
+      <p style="flex:1; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:22px; line-height:1.3; color:#c9d1de"><span style="color:#f0a57e"><b>Res. 584 (retenção de 24 h, 2027):</b></span> previsão de mudança entre −35 e +38 bps</p>
+    </div>
+  </div>
+  <p style="position:absolute; bottom:56px; left:128px; width:1450px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; color:#5b6573">Fontes: Binance, Foxbit; BCB (PTAX, normativos); USDT em 10 moedas (2020–2026)</p>
+  <p style="position:absolute; right:128px; bottom:56px; width:120px; font-family:'IBM Plex Sans', Arial, sans-serif; font-size:24px; text-align:right; color:#5b6573">9 / 10</p>
+  <aside>A pergunta seguinte é se dava para prever quando o prêmio voltaria, e testamos isso de dois jeitos, sempre contra uma regra simples. Num censo de 61 choques do prêmio em dez moedas, metade dos choques de 2020 a 2024 voltou à faixa normal em 20 dias úteis, e saber o tamanho do choque não melhorou essa previsão; o choque brasileiro seguia aberto depois de 111 dias úteis. Para o nível do prêmio em dez dias, um ridge re-treinado todo mês empatou com a regra de andar metade do caminho até a média. Como não dá para cronometrar a volta, propomos medir cada regra nova com uma régua pública. Ela acompanha o prêmio todo dia na janela da PTAX, com dados públicos e código aberto, dispara um alarme quando o prêmio muda de patamar (o nosso disparou em 24 de junho, no mesmo dia), compara com as datas comuns, converte em reais e registra a previsão no Git antes de a regra valer. Ela já está em uso: previmos que a Resolução 574 não moveria o preço, e o movimento foi de 2,1 pontos-base. A Resolução 589 começou em 6 de novembro com um primeiro dia comum, e o veredito sai em 9 de novembro. Para a 584, que entra em 2027, a previsão já está registrada.</aside>
 </section>
