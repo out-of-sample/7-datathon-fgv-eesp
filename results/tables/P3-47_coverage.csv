@@ -1,0 +1,2 @@
+raw_sha256,period_start,period_end,ptax_days,usable_days,zero_volume_days,observed_hours,zero_volume_hours,weeks,median_afternoon_volume_mn,min_afternoon_volume_mn,max_afternoon_volume_mn,max_p319_y_difference_mn
+b761de3a2a52b6fd111009d57631076cc34615c7ddec52fc2aeb7671d4755a73,2026-06-24,2026-09-30,70,70,0,350,0,15,16.677401762015002,3.9524148448300003,31.73876305741,4.9208789999699576e-05

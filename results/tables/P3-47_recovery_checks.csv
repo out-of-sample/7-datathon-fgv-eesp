@@ -1,0 +1,23 @@
+test,term,estimate,ci_low,ci_high,unit,n_days,n_weeks,r2
+"daily original, week bootstrap",x1,0.051200,-0.018670,0.123595,mn USDT per bp,70,15,0.127775
+"daily original, week bootstrap",x2,0.706431,-0.260120,1.606207,mn USDT per bp,70,15,0.127775
+within week net flow,x1,0.040639,-0.004992,0.194753,mn USDT per bp,70,15,0.022925
+within week net flow,x2,0.119810,-0.539166,0.742100,mn USDT per bp,70,15,0.022925
+within week imbalance share,x1,0.001642,-0.000999,0.012562,share per bp,70,15,0.021997
+within week imbalance share,x2,0.014822,-0.026108,0.043885,share per bp,70,15,0.021997
+next PTAX change baseline,x1,-0.168278,-0.309057,-0.056925,bps per bp,69,15,0.106210
+next PTAX change baseline,x2,-0.240853,-2.703497,2.448138,bps per bp,69,15,0.106210
+next PTAX change with flow,net_mn,-0.129160,-0.705835,0.420304,bps per mn USDT,69,15,0.107562
+next PTAX change with flow,x1,-0.161490,-0.299620,-0.048039,bps per bp,69,15,0.107562
+next PTAX change with flow,x2,-0.154296,-2.883870,2.589787,bps per bp,69,15,0.107562
+next PTAX change week baseline,x1,-0.921104,-1.538017,-0.550696,bps per bp,69,15,0.492586
+next PTAX change week baseline,x2,-0.584357,-4.403417,1.103170,bps per bp,69,15,0.492586
+next PTAX change within week,net_mn,0.147496,-0.403538,0.694827,bps per mn USDT,69,15,0.493450
+next PTAX change within week,x1,-0.926840,-1.580087,-0.535687,bps per bp,69,15,0.493450
+next PTAX change within week,x2,-0.594835,-4.976647,1.162165,bps per bp,69,15,0.493450
+baseline comparison,forward delta R2 raw,0.001351,,,"R2 points, in sample",69,15,
+baseline comparison,forward delta R2 within week,0.000864,,,"R2 points, in sample",69,15,
+hinge audit,kink,35.000000,,,bps,70,15,
+hinge audit,intercept below kink,-0.083552,,,mn USDT,70,15,
+hinge audit,slope above kink,0.053765,,,mn USDT per bp,70,15,
+hinge audit,fitted zero crossing,36.554030,,,bps,70,15,

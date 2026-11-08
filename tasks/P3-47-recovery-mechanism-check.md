@@ -2,9 +2,9 @@
 id: P3-47
 title: Does Foxbit order flow explain the premium's recovery within weeks?
 phase: P3
-status: doing
+status: review
 owner: CS 1
-working: Codex for Renzo
+working: -
 due: 2026-11-08
 depends: P3-17, P3-19, P3-25
 ---
@@ -30,14 +30,14 @@ F-031 and F-032 showed large seller-initiated flow and a positive daily associat
 
 ## Subtasks
 - [x] S1 — fixed specification and scope — done: Codex for Renzo, 8 Nov 2026
-- [ ] S2 — raw-data checks and analysis script — doing: Codex for Renzo
-- [ ] S3 — finding with all outcomes and limitations
+- [x] S2 — raw-data checks and analysis script — done: Codex for Renzo, 8 Nov 2026
+- [x] S3 — finding with all outcomes and limitations — done: Codex for Renzo, 8 Nov 2026
 - [ ] S4 — independent teammate review and deck adoption decision (separate gate)
 
 ## Success criteria
-- [ ] Script and table reproduce the four checks, including null results
-- [ ] Raw coverage and units documented
-- [ ] Finding distinguishes within-week evidence from whole-episode co-movement
+- [x] Script and table reproduce the four checks, including null results
+- [x] Raw coverage and units documented
+- [x] Finding distinguishes within-week evidence from whole-episode co-movement
 
 ## Outputs
 - `scripts/p3_47_recovery_check.py`
@@ -45,13 +45,14 @@ F-031 and F-032 showed large seller-initiated flow and a positive daily associat
 - `findings/F-054-recovery-mechanism-check.md`
 
 ## Handoff
-- **State:** specification registered, calculations not run.
-- **Next step:** S2: implement the bounded checks on the frozen inputs.
-- **Open questions:** independent review and any deck use belong to the team.
-- **How to resume:** read F-031/F-032 and this fixed specification; inspect `results/tables/P3-19_daily.csv` and `data/raw/foxbit/USDTBRL-1h.csv`.
+- **State:** S1–S3 complete; F-054 exploratory. The within-week premium–flow interval includes zero, and afternoon flow does not predict a next-day premium fall. An independent statsmodels fixed-effects calculation matched the point estimates and also gave intervals including zero. No claim of mechanism identification or deck change is warranted.
+- **Next step:** S4: a teammate re-runs `.venv/bin/python scripts/p3_47_recovery_check.py`, compares both CSVs with F-054, and checks the weekly resampling and interpretation. Felipe then decides whether to mention the negative result in the deck; keep the 4 Nov core freeze intact.
+- **Open questions:** which participants supplied or bought USDT, whether funds resumed privately, and whether Foxbit's activity reflected new imports or inventory are unobserved in these data.
+- **How to resume:** read F-054 and the fixed spec above; run the command from the repo root. Raw checksum and coverage are printed by the script. `main` is behind `origin/main` and the shared tree has unrelated deck/STATUS edits; do not stash or stage them while integrating this task.
 
 ## Log
+- 2026-11-08, Codex for Renzo: S2–S3 done. Frozen Foxbit raw hash matches, 70 PTAX days/350 afternoon hours cover the sample. Week-fixed-effect and normalized slopes include zero; forward flow slopes include zero; simple no-flow baseline barely changes when flow is added. F-054 and two output CSVs written. A separate statsmodels fixed-effects calculation matched the point estimates. S4 remains for a teammate.
 - 2026-11-08, Codex for Renzo: Renzo asked to pursue the recovery explanation. New task chosen because P3-17/P3-19 are in review and P3-25 has a separate named-human sign-off. The shared tree is dirty and `main` is behind `origin/main`; no other worker's files were stashed or changed.
 
 ## Result
-Pending.
+The follow-up does not identify why the premium recovered. F-054 shows that the previously reported premium–Foxbit flow association is imprecise within calendar weeks and does not predict a next-day fall. Alternative supply, inventory, demand, venue-specific activity and confidential channel resumption remain possible. Independent teammate review is pending.

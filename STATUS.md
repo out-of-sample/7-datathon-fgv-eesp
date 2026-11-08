@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-07 by agent for Renzo (P5-10 deck v4: 10 slides built in Claude Slides); previous: 2026-11-07 by agent for Renzo (P3-20 and P3-21 closing review → review; post-submission readouts split to P3-45); previous: 2026-11-07 by Codex for Felipe (all 15 review items P3-25 onward reviewed; P3-27/P3-38 done; Economist statuses preserved); previous: 2026-11-07 by Codex for Felipe (P3-42 rolling compression upgrade, F-051 exploratory); previous: 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Codex for Felipe (P3-40 supplemental frozen-bundle replay passes; Windows path differences documented; human sign-off pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-08 by Codex for Renzo (P3-47 recovery mechanism sensitivity, F-054 exploratory); previous: 2026-11-07 by agent for Renzo (P5-10 deck v4: 10 slides built in Claude Slides); previous: 2026-11-07 by agent for Renzo (P3-20 and P3-21 closing review → review; post-submission readouts split to P3-45); previous: 2026-11-07 by Codex for Felipe (all 15 review items P3-25 onward reviewed; P3-27/P3-38 done; Economist statuses preserved); previous: 2026-11-07 by Codex for Felipe (P3-42 rolling compression upgrade, F-051 exploratory); previous: 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Codex for Felipe (P3-40 supplemental frozen-bundle replay passes; Windows path differences documented; human sign-off pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 
 tag `results-frozen` (F-001 to F-033)
@@ -84,6 +84,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 
 ## Next actions
+
+**P3-47 recovery check (8 Nov):** F-054 exploratory; weekly fixed-effect and normalized Foxbit order-flow associations include zero, and afternoon flow does not predict a next-PTAX-day premium fall beyond the no-flow baseline. A teammate independently re-runs `.venv/bin/python scripts/p3_47_recovery_check.py`; Felipe decides whether the negative mechanism result changes slide 7 wording. The recovery cause, participants and USDT source remain unidentified. Frozen MB hourly input is present locally now, but P3-25 still needs its named teammate sign-off.
 
 **P5-10 deck v4 (7 Nov night):** 10 slides published (link in `tasks/P5-10-deck-v4-final.md`). Needed before Sun 19:00: Felipe approves or edits; a teammate who did not build it does the PDF-only reader test and traces every number; gates G1–G5 (`docs/deck-plan-v4-2026-11-07.md` §6) or their fallbacks; **Renzo makes the repo public or publishes a clean copy**; export PDF.
 
@@ -268,7 +270,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | ✅ done | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (26/45 closed)
+**P3 — Extensions** (26/46 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -317,6 +319,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P3-43](tasks/P3-43-access-audit-finalization.md) | Require complete semantic audits before final access benchmark scoring | ⬜ todo | CS 1 | - | 0/3 | 0/3 | 2026-11-08 | P3-28, P3-38 |
 | [P3-44](tasks/P3-44-ai-reviewed-access-pilot.md) | Complete a separately versioned AI-reviewed access comparison | 🔄 doing | CS 1 | Codex for Felipe | 1/5 | 0/5 | 2026-11-08 | P3-28, P3-43 |
 | [P3-45](tasks/P3-45-post-submission-readouts.md) | Post-submission readouts of the registered predictions - E2 verdict (Mon 9 Nov) and 20-day statistics (early Dec) | ⬜ todo | CS 1 | - | 0/5 | 0/2 | 2026-11-16 | P3-20 |
+| [P3-47](tasks/P3-47-recovery-mechanism-check.md) | Does Foxbit order flow explain the premium's recovery within weeks? | 👀 review | CS 1 | - | 3/4 | 3/3 | 2026-11-08 | P3-17, P3-19, P3-25 |
 
 **P4 — Robustness and freeze** (3/4 closed)
 
@@ -397,11 +400,14 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [F-049](findings/F-049-brla-operator-routing.md) | BRLA's large June burns use an authorized transfer-and-burn routine also seen before the notice; their fiat purpose remains unidentified | 🔍 exploratory | P3-37 | Jonathan (CS 3) |
 | [F-050](findings/F-050-premium-compression.md) | Partial premium compression can be evaluated against costs, but ridge does not beat simple mean reversion on the primary horizon | 🔍 exploratory | P3-41 | Jonathan (CS 3) |
 | [F-051](findings/F-051-compression-upgrade.md) | Monthly retraining improves the first ridge forecast, but its edge over simple mean reversion remains uncertain | 🔍 exploratory | P3-42 | Jonathan (CS 3) |
+| [F-054](findings/F-054-recovery-mechanism-check.md) | Foxbit flow does not distinguish the July recovery mechanism from a common episode trend | 🔍 exploratory | P3-47 | - |
 <!-- BOARD:END -->
 
 
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-08 — Codex for Renzo: P3-47 bounded recovery check → review, F-054 exploratory. Frozen Foxbit raw checksum and all 350 hours pass; the premium–seller-flow link becomes imprecise within calendar weeks and the flow does not anticipate a next-day premium fall. Registered spec `d497233`; teammate review and deck decision pending. Shared tree remains dirty and `main` behind `origin/main`, so unrelated edits were not stashed or staged.
 
 - 2026-11-07 — agent for Renzo: P5-10 deck v4 built → review: 10 slides in Claude Slides (https://claude.ai/artifact/546JoYhyPui1zXtJnstW2z, private until Renzo shares), nine-chapter story, clean cover, badges/method lines/limits on every results slide, new slides on the on-chain route and on forecasting/treasury; new `scripts/p5_10_deck_figures.py`; appendix dropped (Renzo: PDF = 10 slides). Gates G1–G5 and the reader test still open; repo still private
 
