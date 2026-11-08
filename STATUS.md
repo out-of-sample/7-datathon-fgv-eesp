@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-08 by Codex for Renzo (integrated remote P3-44 work; renumbered commit-activity finding F-056 after ID collision); previous: 2026-11-08 by Codex for Renzo (P3-47 recovery mechanism sensitivity, F-054 exploratory); parallel: 2026-11-08 by Codex for Felipe (P3-44 saved-answer diagnostic); previous: 2026-11-07 by agent for Renzo (P5-10 deck v4: 10 slides built in Claude Slides); previous: 2026-11-07 by agent for Renzo (P3-20 and P3-21 closing review → review; post-submission readouts split to P3-45); previous: 2026-11-07 by Codex for Felipe (all 15 review items P3-25 onward reviewed; P3-27/P3-38 done; Economist statuses preserved); previous: 2026-11-07 by Codex for Felipe (P3-42 rolling compression upgrade, F-051 exploratory); previous: 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Codex for Felipe (P3-40 supplemental frozen-bundle replay passes; Windows path differences documented; human sign-off pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-08 by Codex for Felipe (P5-14 Portuguese judge guide approved for commit and push); previous: 2026-11-08 by Codex for Renzo (integrated remote P3-44 work; renumbered commit-activity finding F-056 after ID collision); previous: 2026-11-08 by Codex for Renzo (P3-47 recovery mechanism sensitivity, F-054 exploratory); parallel: 2026-11-08 by Codex for Felipe (P3-44 saved-answer diagnostic); previous: 2026-11-07 by agent for Renzo (P5-10 deck v4: 10 slides built in Claude Slides); previous: 2026-11-07 by agent for Renzo (P3-20 and P3-21 closing review → review; post-submission readouts split to P3-45); previous: 2026-11-07 by Codex for Felipe (all 15 review items P3-25 onward reviewed; P3-27/P3-38 done; Economist statuses preserved); previous: 2026-11-07 by Codex for Felipe (P3-42 rolling compression upgrade, F-051 exploratory); previous: 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Codex for Felipe (P3-40 supplemental frozen-bundle replay passes; Windows path differences documented; human sign-off pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 
 tag `results-frozen` (F-001 to F-033)
@@ -332,7 +332,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P4-03](tasks/P4-03-freeze.md) | Freeze results | ✅ done | Team | - | 4/4 | 4/4 | 2026-11-04 | P4-01, P4-02 |
 | [P4-04](tasks/P4-04-headline-inference-window.md) | Honest inference and window contents for the +94 bps headline (non-overlapping windows, first-day move, other measures inside the window) | 👀 review | CS 2 | - | 3/3 | 3/3 | 2026-11-04 | P2-03, P4-01 |
 
-**P5 — Deck and submission** (1/10 closed)
+**P5 — Deck and submission** (2/11 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -346,6 +346,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P5-08](tasks/P5-08-slide10-conclusion.md) | Slide 10 conclusion - answer "so what?" in economic terms, sentence by sentence within the evidence | 👀 review | Economist | - | 3/4 | 2/3 | 2026-11-06 | P3-20, P3-24, P3-25 |
 | [P5-09](tasks/P5-09-deck-v3-claude-slides.md) | Deck v3 - the 10-slide deck rebuilt in Claude Slides, in the mentor deck's design, with a methods slide and checked references | 👀 review | CS 1 | - | 4/5 | 3/4 | 2026-11-06 | P5-01, P4-03 |
 | [P5-10](tasks/P5-10-deck-v4-final.md) | Deck v4 - the final 10-slide PDF, built in Claude Slides from v3 and the 7 Nov plan | 👀 review | CS 1 | - | 2/6 | 0/3 | 2026-11-08 | P5-08, P5-09 |
+| [P5-14](tasks/P5-14-guia-da-banca.md) | Guia da banca e README em português para a apresentação mais recente | ✅ done | Economist | - | 3/3 | 3/3 | 2026-11-08 | P5-10, P5-13 |
 
 **Findings**
 
@@ -412,6 +413,8 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-08 — Codex for Felipe: P5-14 → done após aprovação de Felipe; README em pt-BR, guia dos dez slides e cópia exata do PDF atual. Links locais e SHA-256 conferidos; commit e push autorizados. Alterações de outros trabalhos preservadas; análises não reexecutadas.
 
 - 2026-11-08 — Codex for Renzo: merged remote P3-44 work into local main; resolved STATUS board through `scripts/board.py`; renumbered commit-activity finding from F-052 to F-056 so the independently created P3-44 F-052 keeps its ID.
 

@@ -1,36 +1,44 @@
-# Out of Sample — 7º Datathon de Moedas Digitais FGV EESP (2026)
+# Quanto custa fechar uma porta?
 
-**Project:** "Quanto custa fechar a porta? O preço do dólar digital no Brasil": how much more Brazilians pay
-for a digital dollar (USDT) than for the official dollar (PTAX), and how much of that gap comes from rules that
-close or tax the arbitrage channels.
+**Um estudo sobre stablecoins, canais e o preço do dólar digital no Brasil**
 
-## Start here
+Equipe **Out of Sample** · Renzo, Nattan, Jonathan e Felipe
 
-| If you want to… | Open |
+7º Datathon de Moedas Digitais FGV EESP · 2026
+
+Por que o dólar digital ficou mais caro no Brasil em junho de 2026? Estudamos o preço do USDT em reais, comparado à PTAX e ajustado pelo valor do próprio USDT em dólares. Investigamos o salto após o ofício do Banco Central de 23 de junho, sua duração e o custo para quem comprou.
+
+## Para a banca: comece por aqui
+
+1. **[Leia a apresentação em PDF](deck/apresentacao-2026.pdf)** — a versão de dez slides recebida em 8 de novembro de 2026.
+2. **[Abra o guia da banca](docs/guia-da-banca.md)** — explica a pesquisa em linguagem simples e liga cada parte da apresentação às evidências e aos códigos.
+3. **[Consulte o registro de fontes](docs/sources.md)** — reúne as fontes dos dados, das normas e das notícias, com trechos conferidos pela equipe.
+
+O resultado central é um aumento de aproximadamente **94 pontos-base (0,94 ponto percentual)** no prêmio médio durante os 20 dias úteis após o ofício. Isso equivale a cerca de **R$ 4,8 mil a mais por US$ 100 mil**. No período, o prêmio adicional multiplicado pelo volume negociado soma cerca de **R$ 106 milhões na Binance**. Os cálculos e suas limitações estão no [guia](docs/guia-da-banca.md).
+
+O prêmio recuou depois do pico. A pesquisa não identifica quem forneceu os dólares na recuperação nem separa completamente o ofício das outras medidas próximas à data. As análises complementares mantêm seus avisos de revisão e de caráter exploratório.
+
+## Onde encontrar cada material
+
+| Material | Onde está |
 |---|---|
-| See where the project stands today | [`STATUS.md`](STATUS.md) |
-| Understand the plan | [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) and [`docs/README.md`](docs/README.md) |
-| See phases and what "done" means for each | [`docs/phases.md`](docs/phases.md) |
-| Pick up or check a task | [`tasks/`](tasks/) (one file per task) |
-| Check a result and how to reproduce it | [`findings/`](findings/) (one file per result) |
-| Brief an AI agent | [`prompt.md`](prompt.md) (agents read it automatically via `CLAUDE.md` / `AGENTS.md`) |
+| Apresentação que orienta este guia | [PDF de dez slides](deck/apresentacao-2026.pdf) |
+| Roteiro de leitura, mapa dos slides e instruções para refazer as contas | [Guia da banca](docs/guia-da-banca.md) |
+| Resultados, evidências, limitações e comandos de reprodução | [Registros de resultados](findings/) |
+| Programas usados nas análises | [Códigos em Python](scripts/) |
+| Gráficos e tabelas já produzidos | [Figuras](results/figures/) e [tabelas](results/tables/) |
+| Origem, cobertura e recuperação dos dados | [Documentação dos dados](data/README.md) |
+| Fontes documentais e bibliográficas | [Registro de fontes](docs/sources.md) |
 
-## Layout
+É possível ler a apresentação, consultar as evidências e examinar os códigos sem instalar programas. Para executar as análises, veja a seção de reprodução no [guia da banca](docs/guia-da-banca.md).
 
-```
-STATUS.md        dashboard: current phase, next actions, blockers, generated board
-prompt.md        brief and working protocol for AI agents (humans: §5–§7 are worth reading)
-docs/            plans, phases, decision log, source register
-tasks/           one file per task (front matter: id, phase, status, owner, due, depends)
-findings/        one file per result (claim, evidence, how to reproduce, status)
-scripts/         analysis code; scripts/board.py rebuilds the board in STATUS.md
-data/            raw/ (frozen, checksummed) and processed/ — not in git, see data/README.md
-results/         figures/ and tables/ produced by scripts, prefixed with the task ID
-```
+## Para quem acompanha o desenvolvimento
 
-## Common commands
+O repositório também preserva versões anteriores, hipóteses descartadas e estudos complementares. Esses arquivos documentam o processo e não substituem a apresentação acima.
 
-```bash
-python scripts/board.py              # refresh the board in STATUS.md after editing tasks/findings
-python scripts/00_probe_premium.py   # day-0 probe (download instructions in its header)
-```
+- [Situação do projeto e revisões pendentes](STATUS.md).
+- [Planos e histórico de decisões](docs/README.md).
+- [Etapas do trabalho](docs/phases.md) e [tarefas](tasks/).
+- [Orientações de trabalho da equipe e dos agentes](prompt.md).
+
+Os nomes `P2-03`, `P3-48` etc. identificam tarefas; `F-016`, `F-055` etc. identificam registros de resultados. Esses códigos permitem seguir uma afirmação até a análise que a produziu.
