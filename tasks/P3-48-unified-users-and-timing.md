@@ -73,6 +73,15 @@ excludes 0. Otherwise "not shown". R1 is read the same way.
 **Not claimed.** Access, liquidity, execution and margin are not modelled; one country and one shock dominate the test
 period; no welfare statement. Every result is retrospective except the R2 out-of-sample test, whose rule and grid are fixed here.
 
+### Addendum A (8 Nov ~07:00 Brasília, at Renzo's request, after the first results; fixed before this profile is computed)
+**U6 the anxious trader** ("ao menor sinal já comprava ou vendia"). Holds either nothing or 100k USDT. On each PTAX day
+from 2 Jan 2026 to 30 Oct 2026, starting with nothing: if flat and the premium rose more than s bps since the previous
+PTAX day, buys 100k USDT; if holding and the premium fell more than s bps since the previous PTAX day, sells. Primary
+s = 10 bps (the top of the trading-friction floor, F-007); s = 5 and 20 reported. Result with Identity 1: sum over round
+trips of E_sell − E_buy, plus the open position marked at 30 Oct (E_30Oct − E_buy), and, apart, trading fees of 10 bps per
+trade. Reported: number of trades, premium result, fees, and the same for a calm counterpart (U7) who makes the same first
+purchase and holds to 30 Oct. Reading: descriptive only (one path, no test). Added after the first P3-48 results were seen.
+
 ## Subtasks
 - [x] S1 — spec (this section) committed before the script — done: Renzo (agent), 8 Nov (`99d2325`)
 - [x] S2 — `scripts/p3_48_users_timing.py` with self-checks (identities, F-033 and F-039 reconciliation) — done: Renzo (agent), 8 Nov
