@@ -18,6 +18,13 @@ small gap is 100k USDT instead of US$ 100k). Monthly saver (U2): +R$ 752 on the 
 Already held USDT (U3), sold on 24 Jun: +R$ 7,294 (F-033 measured from the 23 Jun premium: 6,802); on 30 Oct: −R$ 2,467.
 Panic buyer (U4), bought 24 Jun and sold 30 Oct: −R$ 9,761 (F-033, against holding official dollars: −10,070); had they waited 10 days with a hedge, +R$ 1,974.
 
+**Anxious trader (U6, addendum A, added after the first results at Renzo's request; rule fixed before computing it).**
+Holding nothing or 100k USDT, buying when the premium rose more than 10 bps from the day before and selling when it fell more
+than 10 bps, from 2 Jan to 30 Oct 2026: 38 trades (7 inside the shock), −R$ 18,802 on the premium and −R$ 19,726 in fees
+(10 bps a trade), −R$ 38,528 in all. A calm counterpart who made the same first purchase (2 Jan) and held to 30 Oct: −R$ 2,113.
+With s = 5 bps: 70 trades, −R$ 20,451 and −R$ 36,300 in fees; with s = 20: 12 trades, −R$ 7,538 and −R$ 6,220 (calm −R$ 4,002).
+Buying after rises and selling after falls loses on a premium that mostly reverts. Descriptive, one path.
+
 **Treasury (reconciled).** With F-039's conventions (USDT idle while the forward prices a 5% US$ rate) the script reproduces
 F-039 exactly (+89.66 / +92.32 / +164.04 bps at 5 / 10 / 20 days from 25 Jun). Without that carry (primary here: the USDT bought
 now earns the same US$ rate) waiting saved +80 / +73 / +126 bps. **F-039's seller figures (−R$ 4,697 / −11,594 / −21,704) are
@@ -35,7 +42,7 @@ is more than k bps above its 60-day median (k = 5, chosen on 2021–2025, the lo
 
 ## Evidence
 Reproduce: `.venv/bin/python scripts/p3_48_users_timing.py` (self-checks first; reruns are byte-identical) →
-`results/tables/P3-48_users.csv`, `P3-48_reconcile.csv`, `P3-48_rules.csv`, `P3-48_stress.csv`, `P3-48_waiting_daily_h10.csv`, `results/figures/P3-48_waiting.png`; slide chart `results/figures/P5-10_waiting.png` (`scripts/p5_10_deck_figures.py`, section 6).
+`results/tables/P3-48_users.csv`, `P3-48_reconcile.csv`, `P3-48_rules.csv`, `P3-48_stress.csv`, `P3-48_waiting_daily_h10.csv`, `P3-48_anxious_trades.csv`, `results/figures/P3-48_waiting.png`; slide chart `results/figures/P5-10_waiting.png` (`scripts/p5_10_deck_figures.py`, section 6).
 Specification committed before the script: `99d2325`.
 
 | Rule (hedged buyer, h = 10) | Train 2021–25, mean W per day | Test 2026, mean W per day | Test, non-overlapping | Acting days, 95% CI (non-overl.) | Pre-set reading |
@@ -61,4 +68,5 @@ Stress (h = 10, trading fee 0/10/30 bps × idle-USDT carry 0/2.5/5%): R2 keeps t
 Deck v4 slide 8 (users and waiting, one account) and slide 9 (rule test), 8 Nov. Still exploratory: teammate re-run pending.
 
 ## History
+- 2026-11-08, agent for Renzo: U6 anxious trader added (addendum A, `beb5dcc` before computing)
 - 2026-11-08, agent for Renzo: created (P3-48 S2–S3)

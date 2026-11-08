@@ -5,11 +5,11 @@ Identity 1  E_t = q U_t X_t (p_t - p_ref)/1e4           excess premium of one tr
 Identity 2  W^B(t,h) = q (1+c) X_T [U_t(1+p_t) - U_T(1+p_T)] - hedge fee      buyer waits h days with a CIP hedge
             W^B_open(t,h) = q (1+c) (P_t - P_T)                                    buyer waits unhedged (FX included)
             seller: W^S = -W^B with (1-c) in place of (1+c)                       positive W = waiting was better
-Users       U1-U4 as policies on Identity 1 (F-033 conventions shown beside); treasury reconciled to F-039 (P3-31)
+Users       U1-U4 as policies, U6 anxious trader and U7 calm counterpart (addendum A) on Identity 1 (F-033 conventions shown beside); treasury reconciled to F-039 (P3-31)
 Rules       R0 act now, R1 always wait, R2 wait iff p_t - median(p_{t-60..t-1}) > k (seller: < -k), k from training
             (2021-2025) on {5..100}; test from 2026; pre-set reading in the spec
 Input       data/processed/P1-02_premium_daily.csv (frozen 30 Oct 2026)
-Outputs     results/tables/P3-48_{users,reconcile,rules,stress}.csv, results/figures/P3-48_waiting.png
+Outputs     results/tables/P3-48_{users,reconcile,rules,stress,anxious_trades,waiting_daily_h10}.csv, results/figures/P3-48_waiting.png
 Run         .venv/bin/python scripts/p3_48_users_timing.py      (self-checks run first and stop the script if they fail)
 """
 from pathlib import Path
@@ -131,6 +131,35 @@ for h in HORIZONS:
     add(user="U3", case=f"seller waiting {h}d with hedge from each spike day: mean", brl=w.mean(), f033=np.nan)
     add(user="U3", case=f"seller waiting {h}d with hedge: spike days where waiting was worse (of 20)", brl=int((w < 0).sum()), f033=np.nan)
     add(user="U4", case=f"had waited {h}d with hedge from 24 Jun", brl=wait_value(days.get_loc(pd.Timestamp("2026-06-24")), h), f033=np.nan)
+# U6 anxious trader (addendum A): flat or 100k USDT; buys when flat and p rose > s bps day on day, sells when holding and p fell > s
+def anxious(s_bps, start="2026-01-02"):
+    k0 = days.get_loc(days[days >= pd.Timestamp(start)][0])
+    held, trades, result, first_buy = None, [], 0.0, None
+    for k in range(k0, len(days)):
+        t, dp = days[k], p.iloc[k] - p.iloc[k - 1]
+        if held is None and dp > s_bps:
+            held = t; trades.append(("buy", t)); first_buy = first_buy or t
+        elif held is not None and dp < -s_bps:
+            result += excess(t) - excess(held); trades.append(("sell", t)); held = None
+    if held is not None:
+        result += excess(days[-1]) - excess(held)  # open position marked at 30 Oct
+    fees = sum(Q * U[t] * (1 + p[t] / 1e4) * X[t] * C for _, t in trades)
+    calm = excess(days[-1]) - excess(first_buy) if first_buy is not None else 0.0
+    return trades, result, fees, calm, held
+
+
+for s_bps in (10, 5, 20):
+    trades, res, fees, calm, held = anxious(s_bps)
+    tag = f"anxious, s = {s_bps} bps{' (primary)' if s_bps == 10 else ''}"
+    add(user="U6", case=f"{tag}: trades in 2026", brl=len(trades), f033=np.nan)
+    add(user="U6", case=f"{tag}: premium result (round trips + open position at 30 Oct)", brl=res, f033=np.nan)
+    add(user="U6", case=f"{tag}: trading fees at 10 bps per trade", brl=-fees, f033=np.nan)
+    add(user="U6", case=f"{tag}: trades dated inside the shock (24 Jun-21 Jul)",
+        brl=sum(1 for a, t in trades if pd.Timestamp("2026-06-24") <= t <= pd.Timestamp("2026-07-21")), f033=np.nan)
+    add(user="U7", case=f"calm counterpart of U6 (s = {s_bps}): same first purchase, held to 30 Oct", brl=calm, f033=np.nan)
+    if s_bps == 10:
+        pd.DataFrame(trades, columns=["side", "date"]).assign(premium_bps=lambda f: [p[t] for t in f.date],
+                     excess_brl=lambda f: [excess(t) for t in f.date]).to_csv(TAB / "P3-48_anxious_trades.csv", index=False)
 users = pd.DataFrame(rows)
 
 
