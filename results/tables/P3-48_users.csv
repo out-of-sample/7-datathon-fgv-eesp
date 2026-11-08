@@ -1,0 +1,30 @@
+user,case,brl,f033
+U1,"excess premium paid, mean of 20 days",4837.7174404989,4842.0
+U1,"excess premium paid, min",1893.5053094660948,1895.0
+U1,"excess premium paid, max",8816.898279315177,8824.0
+U1,waiting 5d with hedge from each spike day: mean,1084.2017105069601,
+U1,waiting 5d with hedge: share of spike days where waiting was worse,0.25,
+U1,waiting 5d with hedge: min / max,-5866 / 4904,
+U1,waiting 10d with hedge from each spike day: mean,2438.6423417905603,
+U1,waiting 10d with hedge: share of spike days where waiting was worse,0.05,
+U1,waiting 10d with hedge: min / max,-879 / 6709,
+U1,waiting 20d with hedge from each spike day: mean,3496.122062508777,
+U1,waiting 20d with hedge: share of spike days where waiting was worse,0.0,
+U1,waiting 20d with hedge: min / max,350 / 7306,
+U2,"excess premium paid, 4 monthly buys of 10k USDT after the notice",752.3541978477747,753.0
+U2,"waiting 10d with hedge on each monthly buy, sum (10k USDT)",396.0853458124647,
+U3,"held USDT, sells on 2026-06-24: excess premium received",7293.945634238063,6802.0
+U3,"held USDT, sells on 2026-06-30: excess premium received",5976.272396606679,5487.0
+U3,"held USDT, sells on 2026-07-21: excess premium received",1893.5053094660948,1407.0
+U3,"held USDT, sells on 2026-10-30: excess premium received",-2467.1360526574153,-2992.0
+U4,"bought 24 Jun, sells on 2026-07-21: round trip E_sell - E_buy",-5400.440324771967,-5223.0
+U4,"bought 24 Jun, sells on 2026-10-30: round trip E_sell - E_buy",-9761.081686895479,-10070.0
+U3,seller waiting 5d with hedge from each spike day: mean,-1104.8645329116302,
+U3,seller waiting 5d with hedge: spike days where waiting was worse (of 20),15,
+U4,had waited 5d with hedge from 24 Jun,1598.671671366571,
+U3,seller waiting 10d with hedge from each spike day: mean,-2456.598989107751,
+U3,seller waiting 10d with hedge: spike days where waiting was worse (of 20),19,
+U4,had waited 10d with hedge from 24 Jun,1974.2701277369922,
+U3,seller waiting 20d with hedge from each spike day: mean,-3511.965863231127,
+U3,seller waiting 20d with hedge: spike days where waiting was worse (of 20),20,
+U4,had waited 20d with hedge from 24 Jun,5118.376004930043,

@@ -2,9 +2,9 @@
 id: P3-48
 title: One account for who paid and whether waiting helped - the four users (P3-21) and the treasury timing decision (P3-31) in a single framework, tested on every decision date
 phase: P3
-status: doing
+status: review
 owner: CS 1
-working: Renzo (agent)
+working: -
 due: 2026-11-08
 depends: P3-21, P3-31, P3-39, P1-02
 ---
@@ -74,29 +74,31 @@ excludes 0. Otherwise "not shown". R1 is read the same way.
 period; no welfare statement. Every result is retrospective except the R2 out-of-sample test, whose rule and grid are fixed here.
 
 ## Subtasks
-- [ ] S1 — spec (this section) committed before the script — doing: Renzo (agent)
-- [ ] S2 — `scripts/p3_48_users_timing.py` with self-checks (identities, F-033 and F-039 reconciliation) — doing: Renzo (agent)
-- [ ] S3 — finding F-055 with tables and the pre-set readings
-- [ ] S4 — merged slide 8 (users + timing); slide 9 rebuilt
+- [x] S1 — spec (this section) committed before the script — done: Renzo (agent), 8 Nov (`99d2325`)
+- [x] S2 — `scripts/p3_48_users_timing.py` with self-checks (identities, F-033 and F-039 reconciliation) — done: Renzo (agent), 8 Nov
+- [x] S3 — finding F-055 with tables and the pre-set readings — done: Renzo (agent), 8 Nov
+- [x] S4 — merged slide 8 (users + timing); slide 9 rebuilt — done: Renzo (agent), 8 Nov (deck v4, version 206)
 - [ ] S5 — teammate re-run (not Renzo) before the result is called confirmed
 
 ## Success criteria
-- [ ] Script reproduces F-033 U1 mean (R$ 4,842 at each day's PTAX, within R$ 60 given q in USDT) and F-039 within the tolerances above
-- [ ] All rules reported against R0 on train and test, with the pre-set reading applied verbatim
-- [ ] Finding written with the exact command; slide numbers trace to it
+- [x] Script reproduces F-033 U1 mean (R$ 4,842 at each day's PTAX, within R$ 60 given q in USDT) and F-039 within the tolerances above
+- [x] All rules reported against R0 on train and test, with the pre-set reading applied verbatim
+- [x] Finding written with the exact command; slide numbers trace to it
 
 ## Outputs
 - `scripts/p3_48_users_timing.py`
 - `results/tables/P3-48_users.csv`, `results/tables/P3-48_rules.csv`, `results/tables/P3-48_stress.csv`, `results/tables/P3-48_reconcile.csv`
-- `results/figures/P3-48_waiting.png`
+- `results/figures/P3-48_waiting.png`, `results/tables/P3-48_waiting_daily_h10.csv`; deck figure `results/figures/P5-10_waiting.png`
 
 ## Handoff
-- **State:** spec written; script next.
-- **Next step:** S2.
-- **Open questions:** none yet.
-- **How to resume:** `.venv/bin/python scripts/p3_48_users_timing.py`
+- **State:** script, tables, figure and F-055 (exploratory) done; deck v4 slide 8 merged (users + waiting) and slide 9 rebuilt from F-055. Reruns byte-identical. F-039 reproduced exactly with its own conventions; its seller figures were unhedged (now said in F-055).
+- **Next step:** S5, a teammate other than Renzo runs the script and checks F-055 against the slides.
+- **Open questions:** the "test without shock starts" split was added after the first run (post hoc, labelled). Deviation from spec: U3/U4 timing rows and the daily h=10 table were added after the first run for the slide; no rule or grid changed.
+- **How to resume:** `.venv/bin/python scripts/p3_48_users_timing.py`; slide figure: `PLEX_DIR=<fonts> .venv/bin/python scripts/p5_10_deck_figures.py`
 
 ## Log
+- 2026-11-08 06:30, agent for Renzo: S2–S4: script, F-055, slides 8–9; R2 (k = 5) 'helped out of sample' at 10 days only, and post hoc only because of the June shock → review
 - 2026-11-08 05:10, agent for Renzo: task created at Renzo's request (merge slide 8 users with slide 9 timing); spec fixed before the script
 
 ## Result
+One identity covers both slides (F-055). Users re-derived within R$ 500 of F-033; F-039 reproduced exactly. Waiting 10 days with a hedge swung from −R$ 8.8k to +R$ 6.7k by decision date in 2026; always waiting ≈ acting now; the median rule helped at 10 days only through the June shock.
