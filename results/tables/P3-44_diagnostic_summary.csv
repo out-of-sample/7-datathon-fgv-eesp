@@ -1,0 +1,9 @@
+split,method,label,sac_macro,waived_runs,failed_runs,unsupported_claim_representations
+dev,B0,"post-hoc diagnostic, not protocol result",0.14685314685314685,0,0,0
+dev,B1,"post-hoc diagnostic, not protocol result",0.8895104895104895,0,0,0
+dev,B2,"post-hoc diagnostic, not protocol result",0.8895104895104895,0,0,0
+dev,A,"post-hoc diagnostic, not protocol result",0.5692307692307692,0,2,0
+heldout,B0,"post-hoc diagnostic, not protocol result",0.0,0,0,3
+heldout,B1,"post-hoc diagnostic, not protocol result",0.7367724867724869,0,0,44
+heldout,B2,"post-hoc diagnostic, not protocol result",0.7566137566137566,0,0,40
+heldout,A,"post-hoc diagnostic, not protocol result",0.728835978835979,36,0,36

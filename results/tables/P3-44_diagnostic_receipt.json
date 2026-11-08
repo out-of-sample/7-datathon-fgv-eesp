@@ -1,0 +1,21 @@
+{
+  "label": "post-hoc saved-answer diagnostic; not a protocol amendment or new execution",
+  "original_scores_reproduced": true,
+  "original_inputs_outputs_unchanged": true,
+  "reference_sha256": "efd4f7f8ffbfe3b2ab69b3977722ee2cf00182bc32856839d167d84d75379532",
+  "audits": {
+    "dev": "37b179d3bd4f7d2b39712f75f4339b114d9ba40b7734f4e16b3224be117d7f8d",
+    "heldout": "a2d7ba07a1422efddcb2212a026649e544c93e82ce93d4e9a8110a46657451ce"
+  },
+  "config_sha256": "a82ec5f9c1e3778ab44a4545d77fb1f1d0bdc63f92a3b090917aa88e891172b5",
+  "waived_runs": 36,
+  "inference_calls": 0,
+  "limitations": "Same AI reference and semantic audit retained; real dispatch error and resource differences remain. No superiority claim.",
+  "output_sha256": {
+    "P3-44_diagnostic_case_scores_dev.csv": "c488f9016c1c9bf28bbac071a10fff271bfd9d6ebe037be0ce0e4b01ff9bbcd8",
+    "P3-44_diagnostic_case_scores_heldout.csv": "57e492d9d42e3e2ef41be5c37eb2efdaa7433b6c87c10d7faf72effc563ba178",
+    "P3-44_diagnostic_summary.csv": "e43e7a2bfd61ce706c335c0bc6d21e03afef24703789f0767b1770fc205333d3",
+    "P3-44_diagnostic_waivers.csv": "0427f02390e9197231513d42c79b824e5fbf378b400381892a1e25e9962c18bc"
+  },
+  "script_sha256": "cf79418f1ded5eed43f2dac74e340130ef6d4939891422838aa2f13177f69e89"
+}

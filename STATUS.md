@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-07 by agent for Renzo (P5-10 deck v4: 10 slides built in Claude Slides); previous: 2026-11-07 by agent for Renzo (P3-20 and P3-21 closing review → review; post-submission readouts split to P3-45); previous: 2026-11-07 by Codex for Felipe (all 15 review items P3-25 onward reviewed; P3-27/P3-38 done; Economist statuses preserved); previous: 2026-11-07 by Codex for Felipe (P3-42 rolling compression upgrade, F-051 exploratory); previous: 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Codex for Felipe (P3-40 supplemental frozen-bundle replay passes; Windows path differences documented; human sign-off pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-08 by Codex for Felipe (P3-44 saved-answer diagnostic: no demonstrated adaptive advantage; original scores preserved); previous: 2026-11-07 by agent for Renzo (P5-10 deck v4: 10 slides built in Claude Slides); previous: 2026-11-07 by agent for Renzo (P3-20 and P3-21 closing review → review; post-submission readouts split to P3-45); previous: 2026-11-07 by Codex for Felipe (all 15 review items P3-25 onward reviewed; P3-27/P3-38 done; Economist statuses preserved); previous: 2026-11-07 by Codex for Felipe (P3-42 rolling compression upgrade, F-051 exploratory); previous: 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Codex for Felipe (P3-40 supplemental frozen-bundle replay passes; Windows path differences documented; human sign-off pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 
 tag `results-frozen` (F-001 to F-033)
@@ -397,12 +397,14 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [F-049](findings/F-049-brla-operator-routing.md) | BRLA's large June burns use an authorized transfer-and-burn routine also seen before the notice; their fiat purpose remains unidentified | 🔍 exploratory | P3-37 | Jonathan (CS 3) |
 | [F-050](findings/F-050-premium-compression.md) | Partial premium compression can be evaluated against costs, but ridge does not beat simple mean reversion on the primary horizon | 🔍 exploratory | P3-41 | Jonathan (CS 3) |
 | [F-051](findings/F-051-compression-upgrade.md) | Monthly retraining improves the first ridge forecast, but its edge over simple mean reversion remains uncertain | 🔍 exploratory | P3-42 | Jonathan (CS 3) |
-| [F-052](findings/F-052-ai-reviewed-access-pilot.md) | AI-Reviewed Access Benchmark Exploratory Pilot Results | 🔍 exploratory | P3-44 | Independent Verification Reviewer |
+| [F-052](findings/F-052-ai-reviewed-access-pilot.md) | AI-reviewed access pilot finds no demonstrated adaptive advantage | 🔍 exploratory | P3-44 | Independent Verification Reviewer; Codex diagnostic reviewer |
 <!-- BOARD:END -->
 
 
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-08 — Codex for Felipe: P3-44 original scores reproduced; post-hoc coverage A 72.9%, B1 73.7%, B2 75.7% after confirmed missing-path failures only. Unsupported claims remain; F-052 corrected and independently checked. Task stays in review; Economist statuses unchanged.
 
 - 2026-11-07 — agent for Renzo: P5-10 deck v4 built → review: 10 slides in Claude Slides (https://claude.ai/artifact/546JoYhyPui1zXtJnstW2z, private until Renzo shares), nine-chapter story, clean cover, badges/method lines/limits on every results slide, new slides on the on-chain route and on forecasting/treasury; new `scripts/p5_10_deck_figures.py`; appendix dropped (Renzo: PDF = 10 slides). Gates G1–G5 and the reader test still open; repo still private
 

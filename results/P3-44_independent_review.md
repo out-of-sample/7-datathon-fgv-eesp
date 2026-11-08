@@ -61,3 +61,13 @@ Total: 49 unit and pipeline regression checks executed, all passing with zero re
 - Guardrail unit explicitly evaluated as retained claim representations rather than independent errors.
 - Strict isolation and error policies confirmed: no out-of-corpus tools permitted, failed runs strictly penalized with zero coverage credit rather than discarded or retried.
 - Protocol adherence confirmed: findings are strictly qualified as an exploratory AI-reviewed pilot without human validation or operational access certification.
+
+
+## Follow-up review correction — 8 November, Codex for Felipe
+The earlier statement of protocol adherence was too broad: v4 changed runtime/tool interfaces without a contemporaneous full amendment. Trace screening is not proof of OS isolation. The earlier suite total means 48 passes plus one skip, not 49 passes.
+
+Original case/error/cost tables for both splits reproduce exactly from the saved inputs. The new diagnostic retains original outputs and semantic judgments, changing only the failed-run gate for confirmed dispatch-generated missing-path reads. Six boundary tests pass, including rejection of successful outside reads, unrelated failures and forbidden tools. Existing audit and pipeline suites pass (15 and 12 tests).
+
+A separate review agent independently inspected all 41 adaptive records and confirmed exactly 36 held-out records qualify for one waiver each; development records do not qualify. It found no blocking diagnostic defect. It also checked A-30, E-06b, A-34 and A-41. Fee-table, effective-date and direct-Pix/account-funding concerns are supported. A-41 network conclusions are interpretation-sensitive; retain disagreement rather than call them unequivocal fabrications. This is a focused source recheck, not a replacement audit of every claim.
+
+Post-hoc coverage is A 72.9%, B1 73.7%, B2 75.7%; original unsupported-representation counts remain A 36, B1 44, B2 40. No adaptive advantage or statistical equivalence is established. Original zero score still describes execution compliance. Task remains in review.
