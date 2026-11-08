@@ -38,10 +38,10 @@ Felipe requested a bounded upgrade before independent revision. Preserve P3-41/F
 - `findings/F-051-compression-upgrade.md`, `docs/premium-compression-upgrade.md`
 
 ## Handoff
-- **State:** complete, F-051 exploratory. Fourteen tests pass; chart visually inspected. Monthly ridge improves over frozen v1; edge over mean reversion uncertain. Nonlinear candidates retained. All stress cards abstain; v1 preserved.
-- **Next step:** independent teammate runs test and full commands, verifies timestamp traces and sparse policy decisions, then Felipe decides annex use. Do not reselect models on 2026.
-- **Open questions:** independent review and executable access remain pending; no new prospective holdout exists.
-- **How to resume:** `python scripts/p3_42_compression_upgrade.py --test-only`, then without the flag. See `docs/premium-compression-upgrade.md`; local interpreter path in the v1 note.
+- **State:** Independent AI technical review and available frozen-output reproduction are recorded. Felipe authorized AI technical review in place of the pending named-human reruns; no human validation is claimed. Economist ownership keeps status review by his earlier instruction. Compression reruns and chronology/accounting checks passed; superiority over mean reversion remains unestablished.
+- **Next step:** Felipe reviews economic interpretation and deck/annex adoption. Use the current findings and review evidence; further agent checks may inspect the amendments without refitting or changing frozen results.
+- **Open questions:** Economic interpretation/adoption and unresolved access or execution assumptions remain separate from completed technical review.
+- **How to resume:** read the applicable 7 Nov independent review and exact commands linked below; preserve historical findings and audit-time logs.
 
 ## Log
 - 2026-11-07 — Felipe via Codex: protocol ce91d8b precedes model fitting. Four candidates, adaptive bands, matched v1/baseline comparisons, stress cards, fourteen tests and chart complete. Selection remains rolling_ridge_100 from 2025; no changes to methods after test inspection.
@@ -52,3 +52,6 @@ F-051: daily 10-day MAE improves from v1 34.43 to 29.34 bps; mean reversion 30.0
 
 ## Independent review — 7 Nov 2026
 A separate Codex review agent reproduced the full experiment and checked timing, accounting, matched dates and claims. See `docs/review-2026-11-07-compression.md`. All existing outputs reproduced byte for byte; no blocking defect found. Economist ownership and `status: review` are preserved. Named human teammate sign-off and Felipe's annex decision remain pending. The v1 June chart has a non-blocking signal-versus-execution clarity recommendation; no code or model was changed.
+
+## Review amendment — 7 Nov 2026
+Felipe explicitly authorized separate AI agents to replace pending human technical coding/audit/reproduction steps. Existing independent review evidence is accepted within its stated scope; no human sign-off is implied. Historical pending-human statements above describe the earlier protocol. Economist-owned statuses remain review; deck adoption and unsupported economic claims are not approved by this amendment.

@@ -40,10 +40,10 @@ User authorized on 7 Nov after a read-only project/data review. Build the first 
 - `findings/F-050-premium-compression.md`, `docs/premium-compression.md`
 
 ## Handoff
-- **State:** first version complete; nine focused checks pass. F-050 is exploratory. Ridge loses to simple mean reversion on the primary horizon; daily and nonoverlapping results both retained. Two figures visually inspected. No frozen numbers or deck changed.
-- **Next step:** independent teammate runs both commands below, compares tables, checks clock assumptions and decides whether an annex-only result is useful. No automatic extension or test-set tuning authorized by this handoff.
-- **Open questions:** real access, executable quotes, hedge basis and settlement calendars remain unverified. This is not a prospective holdout; Chronos and the other three proposal directions were not implemented.
-- **How to resume:** `python scripts/p3_41_compression.py --test-only`, then `python scripts/p3_41_compression.py`. See `docs/premium-compression.md` for local Windows interpreter and package environment. Full outputs use the P3-41 prefix; input/source hashes are in the audit JSON.
+- **State:** Independent AI technical review and available frozen-output reproduction are recorded. Felipe authorized AI technical review in place of the pending named-human reruns; no human validation is claimed. Economist ownership keeps status review by his earlier instruction. Compression reruns and chronology/accounting checks passed; superiority over mean reversion remains unestablished.
+- **Next step:** Felipe reviews economic interpretation and deck/annex adoption. Use the current findings and review evidence; further agent checks may inspect the amendments without refitting or changing frozen results.
+- **Open questions:** Economic interpretation/adoption and unresolved access or execution assumptions remain separate from completed technical review.
+- **How to resume:** read the applicable 7 Nov independent review and exact commands linked below; preserve historical findings and audit-time logs.
 
 ## Log
 - 2026-11-07 — Felipe via Codex: protocol committed/pushed as `93fd20f` before fitting. Completed input/clock audit, static ridge and two baselines, residual calibration, chronological purging, frontier/delivery gates, nine tests, CSVs, two inspected figures and F-050. Candidate penalties all disclosed; no change after inspecting test outcomes. Fixed the figure legend position during visual QA; no numerical method changed.
@@ -54,3 +54,6 @@ F-050: first operational forecast-to-cost pipeline complete, but no established 
 
 ## Independent review — 7 Nov 2026
 A separate Codex review agent reproduced the full experiment and checked timing, accounting, matched dates and claims. See `docs/review-2026-11-07-compression.md`. All existing outputs reproduced byte for byte; no blocking defect found. Economist ownership and `status: review` are preserved. Named human teammate sign-off and Felipe's annex decision remain pending. The v1 June chart has a non-blocking signal-versus-execution clarity recommendation; no code or model was changed.
+
+## Review amendment — 7 Nov 2026
+Felipe explicitly authorized separate AI agents to replace pending human technical coding/audit/reproduction steps. Existing independent review evidence is accepted within its stated scope; no human sign-off is implied. Historical pending-human statements above describe the earlier protocol. Economist-owned statuses remain review; deck adoption and unsupported economic claims are not approved by this amendment.

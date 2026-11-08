@@ -1,0 +1,9 @@
+{
+  "label": "AI-reviewed exploratory pilot; not human validated",
+  "budget_equivalence": "not established merely by equal ceilings; compare recorded resource use",
+  "guardrail_unit": "retained claim representations, not independent errors",
+  "reading_rule": "A gain >=0.10 over B1; zero unsupported positives; advantage over B2 not explained by resources",
+  "verdict": "fails zero-unsupported-positive guardrail",
+  "A_minus_B1": -0.7367724867724869,
+  "A_minus_B2": -0.7566137566137566
+}

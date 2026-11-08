@@ -34,10 +34,10 @@ Map x is premium compression in bps (initial minus terminal), y is additional te
 - `findings/F-048-buyer-cost-frontier.md`, `docs/buyer-cost-frontier.md`
 
 ## Handoff
-- **State:** script, ten checks, CSVs, figure, F-048 and note complete; frontier visually inspected. F-039 wording corrected, estimates unchanged. Felipe authorized pushing for teammate review on 7 Nov.
-- **Next step:** teammate reproduces P3-38, then Felipe decides whether to replace the treasury illustration. Actual access/quotes remain unresolved.
-- **Open questions:** real executable quotes, institutional access, taxes and settlement calendars unavailable; scenarios only.
-- **How to resume:** run the new script with `--test-only`, then without arguments.
+- **State:** Independent AI technical review and available frozen-output reproduction are recorded. Felipe authorized AI technical review in place of the pending named-human reruns; no human validation is claimed. Economist ownership keeps status review by his earlier instruction.
+- **Next step:** Felipe reviews economic interpretation and deck/annex adoption. Use the current findings and review evidence; further agent checks may inspect the amendments without refitting or changing frozen results.
+- **Open questions:** Economic interpretation/adoption and unresolved access or execution assumptions remain separate from completed technical review.
+- **How to resume:** read the applicable 7 Nov independent review and exact commands linked below; preserve historical findings and audit-time logs.
 
 ## Log
 - 2026-11-07 — Codex for Felipe: claimed new P3-38 after pulling 1ccbddd; preserves untracked scratch/ and Renzo's P3-37 work. Prior one-time push authorization not assumed to cover this new extension.
@@ -48,3 +48,6 @@ F-048: central retrospective cost ceilings positive, but each observed June comp
 ## Independent review — 7 Nov 2026 (Codex for Felipe)
 
 Reviewed in `docs/review-2026-11-07-duration-treasury.md`. Full offline duration/holder/frontier/incident replay passes; all 20 regenerated CSVs match numerically and 37 checks pass. Remaining interpretation/handoff corrections and verification limits are listed in that report. This is agent evidence only: required named human sign-offs remain pending. Economist-owned `status: review` is preserved as Felipe requested.
+
+## Review amendment — 7 Nov 2026
+Felipe explicitly authorized separate AI agents to replace pending human technical coding/audit/reproduction steps. Existing independent review evidence is accepted within its stated scope; no human sign-off is implied. Historical pending-human statements above describe the earlier protocol. Economist-owned statuses remain review; deck adoption and unsupported economic claims are not approved by this amendment.

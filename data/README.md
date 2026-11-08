@@ -125,3 +125,6 @@ Tested 7 Nov 2026 on a fresh clone of `f98f5bf` (with the Flash bundle restored 
 commands ran, and no tracked file changed. Without the archive, `python scripts/p3_29_reconcile.py ledger` (live, no
 key, ~4 min) rebuilds `P3-29_events.csv` from public endpoints. That is a re-download, not a replay of the frozen
 answers: compare the outputs, not the raw file hashes, since each answer records its retrieval time.
+
+## P3-44 access pilot checkpoint
+Ignored `data/raw/p3_28_v2/` holds36 frozen public-source snapshots (including Felipe's image-only browser PDFs and fallible OCR), source/coder/adjudicator provenance,229-row AI references, old blocked v2 attempts and partial v3 runs. Local source archive: `P3-44_corpus_89e82bbb1cad6530.zip`; SHA-256 `99e794d2d78bdd72b11b8a15d820f4aab0ec7841f56250778ec0a1f5b3a555a9`. Obtain the folder from Felipe for exact replay; it is not committed or uploaded by this checkpoint. Source collection can be rerun, but current pages need not match frozen hashes. The source ZIP does not contain later references/runs. No final comparison score exists yet. See P3-44 Handoff for safe continuation and preserve every existing attempt.

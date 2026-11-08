@@ -73,7 +73,7 @@ To establish whether treasurers or regulators could anticipate how long such pre
 - However, a regularized discrete-time hazard model ($\lambda = 10$, selected on 2025 validation) **does not reliably beat the Kaplan-Meier base rate**: it loses on 2025 validation (0.346 vs 0.330), loses at $k=2$ (0.239 vs 0.205) and $k=4$ (0.042 vs 0.037), loses on pooled ongoing ages 0/5/10 (0.255 vs 0.222), and its slight 2026 test gain (0.175 vs 0.188) has a 95% bootstrap confidence interval of **$[-0.112, +0.073]$**, which cleanly spans zero.
 - Under the $3\sigma$ rule, Brazil's 2026 episode started on **25 May 2026** and remained unrecovered after **111 PTAX days** on 30 October 2026.
 
-**Conclusion:** How long a premium shock lasts cannot be forecast better than the historical base rate ("half recover within about 20 business days"). Treasuries and regulators should plan using historical base rates and scenario bounds rather than trusting point forecasts.
+**Conclusion:** This model and evaluation sample do not establish reliable improvement over the historical base rate (the training-pool median is about 20 business days). The uncertainty interval permits both improvement and deterioration. Historical base rates and scenario bounds remain useful benchmarks; this experiment does not establish that shock duration is inherently unpredictable.
 
 ---
 
@@ -163,7 +163,7 @@ In `docs/shock-duration-and-holder-decisions-research-brief.md`, six exploratory
 |---|---|---|---|
 | **1. Fair "Brazil Risk" Benchmark Premium** | PTAX, CDS, and DI swaps available, but no clean risk-neutral shadow price exists. | Crypto liquidity segmentation prevents extracting an asset-pricing benchmark; rolling mean $\ne$ "fair". | Documented as future work; not selected. |
 | **2. Transmission Across Markets & Venues** | Multi-venue order books and DEX pools fully available. | Triangular arbitrage enforces tight correlation; cannot isolate regulatory risk from market noise. | Addressed in frozen core ([`F-009`](../findings/F-009-jump-not-venue-fx-usdt.md), [`F-018`](../findings/F-018-btc-heterogeneity.md), [`F-037`](../findings/F-037-brla-route.md)). Complete. |
-| **3. Institutional Holder Decision Framework** | PTAX, Binance execution prices, and B3 forward rates fully verifiable. | Past entry prices are sunk costs; must distinguish retrospective outcomes from ex-ante rules. | **Adopted as Two-Sided Treasury Framework (`P3-31` / `F-039`).** |
+| **3. Institutional Holder Decision Framework** | Observed PTAX and indicative Binance prices; hypothetical maturity-matched forward priced under ideal covered interest parity. Executable prices and institutional access remain unverified. | Past entry prices are sunk costs; must distinguish retrospective outcomes from ex-ante rules. | **Adopted as Two-Sided Treasury Framework (`P3-31` / `F-039`).** |
 | **4. SOFR & On-Chain Yield Optimization** | SOFR and Aave/Compound archives available. | [`F-020`](../findings/F-020-subsidy-share-2025.md) showed 37–54% of DeFi yield was subsidies. BRL carry dominates USD yield. | Retained only as organic 4% USD sensitivity in `P3-31`. |
 | **5. Statistical Modeling of Shock Duration** | Single-country BRL fails feasibility (1 test episode). 10-currency pool yields 10,875 trading days. | Pooling assumes common recovery mechanism; model does not beat historical base rate out-of-sample. | **Adopted as Global Duration Feasibility & Base-Rate Audit (`P3-30` / `F-038`).** |
 | **6. Global Dollar Depegs & On-Chain Shocks** | 11 dollar depegs cataloged ([`F-013`](../findings/F-013-depeg-count-v2.md), [`F-019`](../findings/F-019-depeg-chapter.md)). | Issuer credit/solvency risk is structurally distinct from sovereign FX capital frictions. | Excluded from pooling; preserved as qualitative analogy. |
@@ -470,7 +470,7 @@ To support finalizing Slide 10, three Portuguese conclusion options are presente
 
 - **O custo:** O fechamento imediato do canal cambial dos fundos funcionou como uma tarifa privada de ~0,95% sem arrecadação: transferiu R$ 106 milhões dos compradores para os vendedores de dólar digital em quatro semanas na Binance (R$ 145 milhões em três corretoras). As regras publicadas com aviso prévio não geraram esse custo.
 - **A mecânica financeira de tesouraria:**  
-  - *Comprador:* Ao proteger o dólar oficial na B3 via paridade coberta, o custo de carrego é nulo (o rendimento dos reais cobre os pontos a termo). A espera isola o risco cambial e foca no prêmio: em junho de 2026, esperar gerou economia retrospectiva de +90 a +164 pb (R$ 4,7 mil a R$ 8,7 mil por 100 mil USDT) em 5 a 20 dias, embora com volatilidade no caminho (+6 pb em 6 dias).  
+  - *Comprador:* Ao proteger o dólar oficial na B3 via paridade coberta, o custo de carrego é nulo (o rendimento dos reais cobre os pontos a termo). O termo ideal reduz a exposição ao USD/BRL; o resultado também depende de USDT/USD, juros, custos, residual do hedge e entrega: em junho de 2026, esperar gerou economia retrospectiva de +90 a +164 pb (R$ 4,7 mil a R$ 8,7 mil por 100 mil USDT) em 5 a 20 dias, embora com volatilidade no caminho (+6 pb em 6 dias).  
   - *Vendedor:* Com obrigações em reais, esperar exige alta do USDT de +19 a +76 pb em 5 a 20 dias só para cobrir os juros em reais (cenário de 10% a.a.); em junho, quem adiou perdeu R$ 4,7 mil a R$ 21,7 mil, sobretudo pela queda do prêmio e pela valorização do real.
 - **Limites da previsão:** O censo global em 10 moedas mostra que metade dos choques se resolve em 20 dias úteis, mas modelos preditivos não superam essa taxa base. Decisões de tesouraria devem se basear em disciplina de custos e coberturas cambiais, não em previsões pontuais de duração.
 ```
@@ -480,7 +480,7 @@ To support finalizing Slide 10, three Portuguese conclusion options are presente
 **Slide 10 — Regulação por Surpresa, Limites à Arbitragem e Gestão de Risco**
 
 - **Forma versus Conteúdo:** Entre oito regras datadas, as publicadas com aviso prévio ficaram dentro da faixa das datas comuns (−35 a +38 pb); só o ofício confidencial e de efeito imediato, que interrompeu a importação de cripto pelos fundos, saiu dela (+94 pb). Ressalva: a Res. 574 (reporte), publicada na véspera, coincide com um dia de +38 pb e fica fora dessa comparação.
-- **Gestão de caixa institucional:** Em momentos de estresse regulatório, stablecoins descolam da paridade oficial. A paridade coberta de juros (CIP) na B3 permite que compradores com acesso a derivativos travem o câmbio oficial sem custo líquido de carrego, transformando a espera em aposta exclusiva sobre o prêmio local. Para vendedores, a conversão imediata elimina a perda de carrego em reais.
+- **Gestão de caixa institucional:** Em momentos de estresse regulatório, stablecoins descolam da paridade oficial. No cenário de termo ideal a paridade coberta de juros (CIP), o rendimento dos reais compensa os pontos a termo; isso não demonstra custo nulo numa operação executável. O hedge reduz a exposição ao USD/BRL, mas a espera também depende de USDT/USD, juros efetivos, custos, residual do hedge e entrega. Neste episódio e sob as hipóteses adotadas, vendedores que adiaram a conversão tiveram resultado inferior; isso não estabelece uma regra geral de venda imediata.
 - **Transparência e falseabilidade:** Auditorias out-of-sample revelam que o tamanho do choque não prevê sua duração melhor que a taxa histórica global (mediana de 20 dias úteis). Uma régua pública, com previsões registradas antes da vigência em código aberto, permite medir o custo de cada regra.
 ```
 ````
@@ -504,7 +504,7 @@ flowchart TD
 
     subgraph Extensions ["Slides 9-10: Costs, Solutions & Treasury Lessons"]
         S9["Slide 9: Quanto Custou e Para Quem\n- Macro: R$ 106 mi transferidos na Binance\n- Micro: Por que +94 e não +350 bps"]
-        S10["Slide 10: O que Aprendemos e a Solução\n- 3 Lições: Porta cara, CIP isola prêmio, mercado não normal\n- Régua pública de custo regulatório\n- Previsão falseável Res. 584 (commit 393a14a)"]
+        S10["Slide 10: O que Aprendemos e a Solução\n- 3 Lições: Porta cara, hedge condicionado, mercado não normal\n- Régua pública de custo regulatório\n- Previsão falseável Res. 584 (commit 393a14a)"]
     end
 
     subgraph Annex ["Anexos (Material Complementar)"]

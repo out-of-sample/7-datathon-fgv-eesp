@@ -45,3 +45,6 @@ The P3-31/P3-39 reviewer independently ran the 23 holder/frontier tests and foun
 ## Handoff
 
 Review the corrected wording and F-049 identity. Then prioritize missing raw-bundle reproduction, blind access coding, and a final ten-slide PDF read-through. These remaining checks need evidence or human review, not additional model fitting. Task P3-40 records the changes and the targeted commit.
+
+## Current-state amendment — 7 Nov 2026
+The raw-ledger replay limitation above was resolved by the frozen-bundle restoration and successful separate AI replay in `docs/review-9ab1ad8-frozen-bundle.md` and `docs/review-2026-11-07-p25-ledger.md`. Felipe subsequently authorized AI technical reviews in place of named-human reruns; no human validation is claimed. Final PDF and source certification remain separate.

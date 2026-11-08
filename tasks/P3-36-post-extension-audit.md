@@ -26,10 +26,10 @@ Check Felipe's five-part progress summary against the latest repository, using t
 - `docs/post-extension-audit-2026-11-07.md`
 
 ## Handoff
-- **State:** audit and authorized corrections complete. Felipe authorized commit and push on 7 Nov. Three bounded agent reviews completed, 27 script checks pass, November arithmetic independently reproduces.
-- **Next step:** team reviews corrected wording; P3-29 S7 remains pending. STATUS reconciled and board regenerated.
-- **Open questions:** independent ledger reproduction remains pending; P3-35 belongs to Renzo.
-- **How to resume:** read the audit and referenced findings.
+- **State:** Independent AI technical review and available frozen-output reproduction are recorded. Felipe authorized AI technical review in place of the pending named-human reruns; no human validation is claimed. Economist ownership keeps status review by his earlier instruction.
+- **Next step:** Felipe reviews economic interpretation and deck/annex adoption. Use the current findings and review evidence; further agent checks may inspect the amendments without refitting or changing frozen results.
+- **Open questions:** BRLA technical work is now P3-37; economic purpose remains unidentified. Ledger replay completed; no final PDF certification.
+- **How to resume:** read the applicable 7 Nov independent review and exact commands linked below; preserve historical findings and audit-time logs.
 
 ## Log
 - 2026-11-07 — Felipe authorized pushing the completed audit and corrections; Codex prepared the P3-36 commit.
@@ -41,3 +41,6 @@ Review saved in `docs/post-extension-audit-2026-11-07.md`. The project has stron
 ## Independent review — 7 Nov 2026 (Codex for Felipe)
 
 Reviewed in `docs/review-2026-11-07-duration-treasury.md`. Full offline duration/holder/frontier/incident replay passes; all 20 regenerated CSVs match numerically and 37 checks pass. Remaining interpretation/handoff corrections and verification limits are listed in that report. This is agent evidence only: required named human sign-offs remain pending. Economist-owned `status: review` is preserved as Felipe requested.
+
+## Review amendment — 7 Nov 2026
+Felipe explicitly authorized separate AI agents to replace pending human technical coding/audit/reproduction steps. Existing independent review evidence is accepted within its stated scope; no human sign-off is implied. Historical pending-human statements above describe the earlier protocol. Economist-owned statuses remain review; deck adoption and unsupported economic claims are not approved by this amendment.

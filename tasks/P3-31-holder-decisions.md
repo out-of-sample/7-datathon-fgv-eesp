@@ -17,7 +17,7 @@ Translate the measured premium into a comprehensive two-sided conditional treasu
   - Quantity $Q = 100{,}000$ USDT, payment deadlines $h \in \{1, \dots, 20\}$ (focus on $h \in \{5, 10, 20\}$) Brazilian PTAX publication business days.
   - **Strategy B1 (Buy Now at $t$)**: Gross BRL cost $C_t^{\text{now}}(Q) = Q \cdot P_t (1 + c_t) + F_t$. Terminal valuation in $T$-reais accounts for domestic BRL return $A_{t,T}^{\text{BRL}} = (1 + r_{\text{BRL}})^{h/252}$ and USD organic yield $r_{\text{USD}} \in \{0\%, 4\%\}$ (per `F-020`).
   - **Strategy B2 (Wait in BRL Unhedged, Buy at $T$)**: Terminal BRL savings $\Delta \text{BRL}_{\text{unhedged}}^{\text{buyer}}(t, T) = C_t^{\text{now}}(Q) \cdot A_{t,T}^{\text{BRL}} - C_T^{\text{wait}}(Q)$. Exhibits exact duality symmetry with Seller under symmetric costs: $\Delta \text{BRL}_{\text{unhedged}}^{\text{buyer}} = \frac{1+c}{1-c} \times (\text{Seller loss})$.
-  - **Strategy B3 (Wait in BRL + Buy USD Forward on B3 / NDF at CIP)**: Forward rate $F = X_t \cdot A_{\text{BRL}} / A_{\text{USD\_FWD}}$ at Covered Interest Parity (with $r_{\text{USD\_FWD}} = 5\%$ SOFR per `R-07`). The BRL deposit interest pays the forward points, so the hedge has **no daily carry cost**. Terminal cost $B_3 = C_T^{\text{wait}}(Q) - N \cdot (X_T - F) + \text{fee}$. The hedged savings $B_1 - B_3$ splits into: $\text{premium change} + \text{USD interest forgone by holding idle USDT} - \text{one-off hedge fee (0.22 bps)}$. Thus, when hedged on B3, waiting is a bet on the USDT premium alone.
+  - **Strategy B3 (Wait in BRL + Buy USD Forward on B3 / NDF at CIP)**: Forward rate $F = X_t \cdot A_{\text{BRL}} / A_{\text{USD\_FWD}}$ at Covered Interest Parity (with $r_{\text{USD\_FWD}} = 5\%$ SOFR per `R-07`). The BRL deposit interest pays the forward points, so the hedge has **no daily carry cost**. Terminal cost $B_3 = C_T^{\text{wait}}(Q) - N \cdot (X_T - F) + \text{fee}$. The hedged savings $B_1 - B_3$ splits into: $\text{premium change} + \text{USD interest forgone by holding idle USDT} - \text{one-off hedge fee (0.22 bps)}$. This is an ideal covered-interest-parity scenario, not an executable B3 quote. Waiting also depends on USDT/USD, achievable deposit and forward rates, costs, delivery and residual FX exposure from the fixed hedge notional; it is not a bet on the local premium alone.
   - Realized retrospective hedged savings from 25 Jun 2026: **+89.7 bps (R$ 4,746) at 5 days**, **+92.3 bps (R$ 4,896) at 10 days**, and **+164.0 bps (R$ 8,733) at 20 days**; on 3 Jul (6 days) the premium was back at 185.9 bps with only +6.3 bps gained.
 - **Side 2 — Institutional Seller (`USDT -> BRL`)**:
   - Quantity $100{,}000$ USDT. Net proceeds $N(Q, P, c, f) = Q \cdot P \cdot (1 - c) - f$. Break-even future gross price $P_T^* = \frac{N(now) \cdot A + f_{\text{later}}}{Q \cdot (1 - c_{\text{later}})}$.
@@ -51,10 +51,10 @@ Translate the measured premium into a comprehensive two-sided conditional treasu
 - `findings/F-039-holder-decisions.md`
 
 ## Handoff
-- **State (6 Nov, fixes accepted):** Felipe accepted the second review's fixes and rewrote `docs/shock-duration-and-holder-decisions-assessment.md` to match the corrected F-038 and F-039. The script `scripts/p3_31_holder.py` is verified (13 unit tests pass); the specification matches the exact CIP hedge pricing (no daily carry cost; saving = premium change + USD interest − fee); retrospective hedged buyer outcomes are +89.7 / +92.3 / +164.0 bps at 5 / 10 / 20 days (+6.3 bps on 3 Jul).
-- **Exact next step:** A third-party teammate who is neither Felipe nor Renzo (Nattan or Jonathan) re-runs `scripts/p3_31_holder.py` and signs off `checked_by` on F-039 to move this task from `review` to `done`.
-- **Open questions:** None on the arithmetic or findings. Placement in deck/annex governed by P5-08.
-- **How to resume:** `.venv/bin/python scripts/p3_31_holder.py --test-only`, then without the flag (Windows: `py`). Outputs: `results/tables/P3-31_*`, `results/figures/P3-31_*`.
+- **State:** Independent AI technical review and available frozen-output reproduction are recorded. Felipe authorized AI technical review in place of the pending named-human reruns; no human validation is claimed. Economist ownership keeps status review by his earlier instruction.
+- **Next step:** Felipe reviews economic interpretation and deck/annex adoption. Use the current findings and review evidence; further agent checks may inspect the amendments without refitting or changing frozen results.
+- **Open questions:** Economic interpretation/adoption and unresolved access or execution assumptions remain separate from completed technical review.
+- **How to resume:** read the applicable 7 Nov independent review and exact commands linked below; preserve historical findings and audit-time logs.
 
 ## Log
 - 2026-11-06 — agent for Renzo (23:43): Renzo takes the peer review of this task (Felipe is the author; Renzo's agent reviews and fixes).
@@ -71,3 +71,6 @@ hurdles. F-039 is exploratory and retrospective, not an ex-ante rule.
 ## Independent review — 7 Nov 2026 (Codex for Felipe)
 
 Reviewed in `docs/review-2026-11-07-duration-treasury.md`. Full offline duration/holder/frontier/incident replay passes; all 20 regenerated CSVs match numerically and 37 checks pass. Remaining interpretation/handoff corrections and verification limits are listed in that report. This is agent evidence only: required named human sign-offs remain pending. Economist-owned `status: review` is preserved as Felipe requested.
+
+## Review amendment — 7 Nov 2026
+Felipe explicitly authorized separate AI agents to replace pending human technical coding/audit/reproduction steps. Existing independent review evidence is accepted within its stated scope; no human sign-off is implied. Historical pending-human statements above describe the earlier protocol. Economist-owned statuses remain review; deck adoption and unsupported economic claims are not approved by this amendment.

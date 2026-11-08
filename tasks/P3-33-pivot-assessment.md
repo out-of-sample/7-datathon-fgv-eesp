@@ -26,32 +26,10 @@ Deliver the extensive English assessment requested by Felipe, linking new resear
 - `docs/shock-duration-and-holder-decisions-assessment.md`
 
 ## Handoff
-- **State (7 Nov, after Renzo's agent's check of Felipe's rewrite `1764536`):** the rewrite matches F-038/F-039.
-  The check found new errors in it and fixed them in place:
-  - Tables 4.1–4.3 used the PTAX of 17 Jun **2024** (5.4124) and an unmatched 5.3976 as the 25 Jun 2026 prices;
-    every price and R$ level is now regenerated from `P3-31_thresholds.csv` and `P3-31_historical_comparison.csv`
-    (the differences and bps were already right).
-  - Slide 10 options:
-    - Brazil's shock "levou mais de 110 dias para fechar a banda" → it never closed;
-    - "Res. 574 previsão mantida / confirmed" → preliminary, with the re-run and P3-26 pending;
-    - "a rede custa frações de ponto-base" removed (the proposed F-040 is not built);
-    - Foxbit 7→35% labelled exploratory;
-    - seller's −R$ 4.7k to −21.7k was called a "carry loss" → mostly the premium falling and the real
-      appreciating;
-    - "Res. 561, 574, 580 within ±35 pb" contradicted F-029/P3-16 → rewritten from F-026 with the Res. 574
-      caveat.
-  - Overclaims:
-    - buyers of the R$ 106–145 mn named as institutions (F-025 does not identify them);
-    - "pre-registered" gates (the pool was added after Brazil failed);
-    - duality "confirms the transfer" (it is an identity);
-    - imports "confirm" the supply contraction;
-    - F-031/F-032 listed as frozen and as an "institutional liquidity mechanism";
-    - BRLA "+111 bps over PTAX" (it is a change);
-    - a test name that does not exist.
-  - 68 links to `file:///c:/Users/Felipe/...` made relative.
-- **Exact next step:** Felipe checks the diff of this commit; the Slide 10 choice continues in P5-08.
-- **Open questions:** none on the numbers.
-- **How to resume:** `git show` this commit; tables can be re-derived from the two CSVs above.
+- **State:** Independent AI technical review and available frozen-output reproduction are recorded. Felipe authorized AI technical review in place of the pending named-human reruns; no human validation is claimed. Economist ownership keeps status review by his earlier instruction.
+- **Next step:** Felipe reviews economic interpretation and deck/annex adoption. Use the current findings and review evidence; further agent checks may inspect the amendments without refitting or changing frozen results.
+- **Open questions:** Economic interpretation/adoption and unresolved access or execution assumptions remain separate from completed technical review.
+- **How to resume:** read the applicable 7 Nov independent review and exact commands linked below; preserve historical findings and audit-time logs.
 
 ## Log
 - 2026-11-06 — agent for Renzo (23:43): Renzo takes the peer review of this task (Felipe is the author; Renzo's agent reviews and fixes).
@@ -70,3 +48,6 @@ Complete. Comprehensive updated English assessment deliverable delivered in `doc
 ## Independent review — 7 Nov 2026 (Codex for Felipe)
 
 Reviewed in `docs/review-2026-11-07-duration-treasury.md`. Full offline duration/holder/frontier/incident replay passes; all 20 regenerated CSVs match numerically and 37 checks pass. Remaining interpretation/handoff corrections and verification limits are listed in that report. This is agent evidence only: required named human sign-offs remain pending. Economist-owned `status: review` is preserved as Felipe requested.
+
+## Review amendment — 7 Nov 2026
+Felipe explicitly authorized separate AI agents to replace pending human technical coding/audit/reproduction steps. Existing independent review evidence is accepted within its stated scope; no human sign-off is implied. Historical pending-human statements above describe the earlier protocol. Economist-owned statuses remain review; deck adoption and unsupported economic claims are not approved by this amendment.

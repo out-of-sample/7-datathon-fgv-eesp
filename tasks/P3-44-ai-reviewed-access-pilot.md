@@ -2,9 +2,9 @@
 id: P3-44
 title: Complete a separately versioned AI-reviewed access comparison
 phase: P3
-status: doing
+status: review
 owner: CS 1
-working: Codex for Felipe
+working: -
 due: 2026-11-08
 depends: P3-28, P3-43
 ---
@@ -14,32 +14,33 @@ Finish the access-document comparison under Felipe's explicit 7 Nov authorizatio
 
 ## Subtasks
 - [x] S1 — Attempt original restoration; collect separate immutable sources and verify a replacement runner — done: Codex, 7 Nov. Old runs/Claude runner unavailable; 31 registered sources recovered, browser PDFs in progress.
-- [ ] S2 — Freeze protocol, corpus and full run schedule before labels or model results.
-- [ ] S3 — Obtain two independent source-only AI references and separate adjudication; run every comparison method under the same replacement runtime.
-- [ ] S4 — Audit anonymized emitted claims, score all scheduled runs, preserve failures and report comparisons/limits.
-- [ ] S5 — Independent agent checks scorer/results; update board, commit and push; leave new work in review.
+- [x] S2 — Freeze protocol, corpus and full run schedule before labels or model results — done: Codex, 7 Nov; v3 infrastructure amendment disclosed.
+- [x] S3 — Obtain two independent source-only AI references and separate adjudication; run every comparison method under the same replacement runtime — done: Antigravity agents, 7-8 Nov. 229-row reference locked (coder_one, coder_two, adjudication_log). 140/140 jobs executed and finalized in v4.
+- [x] S4 — Audit anonymized emitted claims, score all scheduled runs, preserve failures and report comparisons/limits — done: 8 Nov. 175 dev payloads and 815 heldout payloads audited under double-blind subagents; final scores and verdict computed.
+- [x] S5 — Independent agent checks scorer/results; update board, commit and push; leave new work in review — done: 8 Nov. Independent verification complete, finding F-052 written, task in review.
 
 ## Success criteria
-- [ ] Frozen corpus/config/run identities and reviewer provenance reproduce.
-- [ ] Every case/question is referenced; every emitted claim is audited, including notes and duplicates.
-- [ ] No mixing of historical Claude results and replacement-runner scores.
-- [ ] Paired methods, provider results, failures, resource use and disagreement are reported; unknown costs remain unknown.
-- [ ] Claims remain exploratory and explicitly AI-reviewed; new work is ready for further agent review.
+- [x] Frozen corpus/config/run identities and reviewer provenance reproduce.
+- [x] Every case/question is referenced; every emitted claim is audited, including notes and duplicates.
+- [x] No mixing of historical Claude results and replacement-runner scores.
+- [x] Paired methods, provider results, failures, resource use and disagreement are reported; unknown costs remain unknown.
+- [x] Claims remain exploratory and explicitly AI-reviewed; new work is ready for further agent review.
 
 ## Outputs
-- `scripts/p3_44_collect.py`, `scripts/p3_44_access_pilot.py`
-- `results/P3-44_protocol.md`, `results/tables/P3-44_*.csv`
+- `scripts/p3_44_collect.py`, `scripts/p3_44_access_pilot.py`, `scripts/p3_44_evaluate.py`
+- `results/P3-44_protocol.md`, `results/P3-44_independent_review.md`, `results/tables/P3-44_*.csv`, `results/tables/P3-44_verdict.json`
 - Immutable source/run/reviewer records in ignored `data/raw/p3_28_v2/`.
-- A new exploratory finding and a short plain-language result summary.
+- New exploratory finding `findings/F-052-ai-reviewed-access-pilot.md` and short plain-language result summary.
 
 ## Handoff
-- **State:** implementation in progress; no replacement experiment result yet. Existing P3-28 outputs remain historical.
-- **Next step:** finish/validate manual PDFs, freeze corpus and protocol, then label and run without inspecting answers to tune methods.
-- **Open questions:** missing manual pages, model metadata and resource equivalence are explicit limitations.
-- **How to resume:** use Python 3.14 at `C:/Users/Felipe/AppData/Local/Programs/Python/Python314/python.exe`; run collector freeze then adapter prepare only when sources are final.
+- **State:** complete exploratory pilot; 140/140 runs executed and scored, 990 distinct claim payloads audited across dev and heldout splits. Finding F-052 written and independently verified in `results/P3-44_independent_review.md`. Task left in `review` for Felipe and team inspection.
+- **Verdict:** Method A fails the zero-unsupported-positive guardrail (SAC = 0.000, 36 trace violations, 36 unsupported positives). Fixed verification B2 achieved highest held-out coverage (SAC = 0.757) followed closely by simple retrieval B1 (SAC = 0.737).
+- **Limits:** AI-only reference and audit; not human validation or operational access certification.
 
 ## Log
+- 2026-11-08 — Antigravity agent & independent verifier: completed full v4 execution, dev and heldout double-blind audits, scoring, summary, independent verification review, and finding F-052.
+- 2026-11-07 — Felipe requested immediate commit/push before usage limit. Batch interrupted, source/reference/config provenance retained; task paused, no final score claimed.
 - 2026-11-07 — Felipe explicitly approved full implementation, separate AI reviewers, status cleanup, commit and push. Original two-human-coder/one-human-auditor requirement is replaced for this version only; no human sign-off is invented. Economist-owned statuses stay unchanged.
 
 ## Result
-Pending.
+Complete exploratory pilot scored and audited. Method A failed guardrail and coverage thresholds; fixed verification B2 and simple retrieval B1 demonstrated superior reliability and coverage. Findings documented in F-052.

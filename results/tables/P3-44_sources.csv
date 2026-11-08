@@ -1,0 +1,49 @@
+source_id,route_id,legs,publisher,family,split,title,fetch_url,kind,snapshot,fetch,note
+A-01,FOX,L1;L3,Foxbit,foxbit,dev,"Taxas e limites (personal-account page; same URL as R-05)",https://foxbit.com.br/taxas-e-limites/,html,yes,script,"Per-asset table is loaded by JavaScript from A-02"
+A-02,FOX,L2;L3,Foxbit,foxbit,dev,"Fee and limit API behind A-01",https://foxbit.com.br/_api/currencies/tax,json,yes,script,"lastUpdateTimestamp is a cache time; no network named per asset"
+A-03,FOX,L1;L2,Foxbit,foxbit,dev,"Conta Foxbit Empresas (company account)",https://foxbit.com.br/conta-foxbit-empresas,html,yes,script,
+A-04,FOX,L2,Foxbit,foxbit,dev,"Dólar digital e remessa internacional (company page)",https://foxbit.com.br/dolar-digital-e-remessa-global-pj,html,yes,script,
+A-05,FOX,L3,Foxbit,foxbit,dev,"Compra e venda de cripto (company page)",https://foxbit.com.br/compra-e-venda-de-cripto-pj,html,yes,script,
+A-06,FOX,L3,Foxbit,foxbit,dev,"Redes para depósito (help article 36399753206029)",https://faq.foxbit.com.br/api/v2/help_center/pt-br/articles/36399753206029.json,zendesk,yes,script,"HTML page 403; public help-centre API 200"
+A-07,FOX,L1,Foxbit,foxbit,dev,"Como verificar a minha conta PJ? (help article 35382673181453)",https://faq.foxbit.com.br/api/v2/help_center/pt-br/articles/35382673181453.json,zendesk,yes,script,
+A-08,FOX,L1;L3,Foxbit,foxbit,dev,"Como solicitar o aumento de limite da minha conta? (help article 29523864285325)",https://faq.foxbit.com.br/api/v2/help_center/pt-br/articles/29523864285325.json,zendesk,yes,script,
+A-09,FOX,L3,Foxbit,foxbit,dev,"Verificação de origem e destino: o que muda nas transferências (help article 49858279773069)",https://faq.foxbit.com.br/api/v2/help_center/pt-br/articles/49858279773069.json,zendesk,yes,script,"Near-duplicate under article 49858325001997: one document family"
+A-10,FOX,L3,Foxbit,foxbit,dev,"Verificação de origem e destino, FAQ (help article 49858353163533)",https://faq.foxbit.com.br/api/v2/help_center/pt-br/articles/49858353163533.json,zendesk,yes,script,
+A-12,FOX,ALL,Foxbit,foxbit,dev,"Termos de uso",https://foxbit.com.br/termos-de-uso,html,yes,script,"Archived 10 Jun 2026 in Wayback (not used: retrospective mode)"
+E-05.1,FUND,L1,Cointelegraph Brasil,funds-press,dev,"BCB notifies banks and funds (24 Jun 2026), already registered",https://cointelegraph.com.br/news/central-bank-notifies-cryptocurrency-companies,html,yes,script,"Reporter received the notice"
+E-05.5,FUND,L1,Cointelegraph Brasil,funds-press,dev,"BCB keeps the suspension (26 Jun 2026), already registered",https://cointelegraph.com.br/news/central-bank-maintains-the-suspension-crypto-funds,html,yes,script,
+E-05.3,FUND,L1,Cointelegraph Brasil,funds-press,dev,"BCB written LAI answer (29 Jul 2026), already registered",https://cointelegraph.com.br/news/exclusive-central-bank-confirms-it-is-considering-a-24-hour-hold-on-stablecoins,html,yes,script,
+E-05.10,FUND,L1,Cointelegraph Brasil,funds-press,dev,"Brotto opinion (6 Jul 2026), already registered",https://cointelegraph.com.br/news/brazilian-central-bank-closes-stablecoins,html,yes,script,Opinion
+E-14,ALL,L1,BCB,bcb-rules,shared,"Res. BCB 589 (art. 91 of Res. BCB 520), already registered",https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=589,bcb,yes,script,"Shared background rule: one context source for every Brazilian route"
+E-06b,ALL,L3,BCB,bcb-rules,shared,"Res. BCB 584 (art. 2-B of Res. BCB 142), already registered",https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=584,bcb,yes,script,"Shared background rule; in force from 1 Jan 2027"
+E-20,ALL,L1,Blue Consult,third-party,shared,"Faltam 6 dias: 06/11, bancos, mesa P2P (already registered)",https://blueconsult.com.br/faltam-6-dias-06-11-bancos-mesa-p2p/,html,yes,script,"Commercially interested author"
+A-11,USDT,L4,Tether,issuers,shared,"Supported protocols",https://tether.to/en/supported-protocols/,html,yes,script,
+A-24,USDC,L4,Circle,issuers,shared,"USDC contract addresses",https://developers.circle.com/stablecoins/usdc-contract-addresses,html,yes,script,
+A-13,AVE,L1;L2;L3,Avenia,avenia,heldout,"Use case: pix2Stable and on-chain transfer",https://integration-guide.avenia.io/docs/Usecases/pix2Stable&onChainTransfer,html,yes,script,
+A-14,AVE,L2;L3,Avenia,avenia,heldout,"Operations: available combinations",https://integration-guide.avenia.io/docs/Operations/combinations,html,yes,script,
+A-15,AVE,L1,Avenia,avenia,heldout,"KYB level 1 (companies)",https://integration-guide.avenia.io/docs/KYB/kybLevel1,html,yes,script,
+A-16,AVE,L1,Avenia,avenia,heldout,"KYC level 1 (individuals)",https://integration-guide.avenia.io/docs/KYC/kycLevel1,html,yes,script,
+A-17,AVE,L1;L3,Avenia,avenia,heldout,"Concepts: errors and limits",https://integration-guide.avenia.io/docs/Concepts/errorsAndLimits,html,yes,script,
+A-18,AVE,L2;L3,Avenia,avenia,heldout,"Concepts: fees and balances",https://integration-guide.avenia.io/docs/Concepts/feesAndBalances,html,yes,script,
+A-19,AVE,L1,Avenia,avenia,heldout,"FAQ: KYC and KYB",https://integration-guide.avenia.io/docs/FAQ/faqKycKyb,html,yes,script,
+A-20,AVE,L3,Avenia,avenia,heldout,"Beneficiary wallets guide",https://integration-guide.avenia.io/docs/Beneficiaries-Wallets/walletsGuide,html,yes,script,
+A-21,AVE,L3,Avenia,avenia,heldout,"Operations: KYT state",https://integration-guide.avenia.io/docs/Operations/kytState,html,yes,script,
+A-22,AVE,L1,Avenia,avenia,heldout,"Bank accounts (BRL account, Pix)",https://integration-guide.avenia.io/docs/Bank%20Accounts/bankAccounts,html,yes,script,
+A-23,AVE,ALL,Avenia,avenia,heldout,"Avenia platform terms (R-11, T-06)",https://app.avenia.io/Avenia-TC.pdf,pdf,yes,script,
+A-25,BIN,L1,Binance,binance,heldout,"Como depositar BRL na Binance para usuários corporativos",https://www.binance.com/pt-BR/support/faq/c0e8bb3c8d84492592e6f53618b1093b,html,yes,manual,"Bot challenge to scripts: saved by Renzo in his browser"
+A-26,BIN,L1,Binance,binance,heldout,"FAQ sobre transferência bancária de reais (BRL)",https://www.binance.com/pt-BR/support/faq/perguntas-frequentes-faq-sobre-transfer%C3%AAncia-banc%C3%A1ria-de-reais-brasileiros-brl-2604a5d35bd947d485dc30d865539e3e,html,yes,manual,
+A-27,BIN,L1,Binance,binance,heldout,"Saques e depósitos em BRL via Latam Gateway",https://www.binance.com/pt-BR/support/announcement/saques-e-dep%C3%B3sitos-em-brl-via-latam-gateway-confira-tudo-o-que-precisa-saber-ae9056f478cb4f05aa903828cd71bdb2,html,yes,manual,
+A-28,BIN,L1;L2,Binance,binance,heldout,"Termos de uso da funcionalidade FIAT TRADING para usuários brasileiros",https://www.binance.com/pt-BR/support/faq/termos-de-uso-da-funcionalidade-fiat-trading-para-usu%C3%A1rios-brasileiros-91d14ff0e089412e969f41b777f3ac51,html,yes,manual,
+A-29,BIN,L1;L3,Binance,binance,heldout,"Novos limites mensais da Binance",https://www.binance.com/pt-BR/support/faq/novos-limites-mensais-da-binance-53ead861311c4ed28d8f1048b287b62b,html,yes,manual,
+A-30,BIN,L2,Binance,binance,heldout,"Trading fee schedule",https://www.binance.com/pt-BR/fee/trading,html,yes,manual,
+A-31,BIN,L3,Binance,binance,heldout,"Crypto withdrawal fees by network",https://www.binance.com/pt-BR/fee/cryptoFee,html,yes,manual,
+A-32,BIN,L3,Binance,binance,heldout,"Crypto Withdrawal Fees on Binance (R-12)",https://www.binance.com/en-GB/support/faq/crypto-withdrawal-fees-on-binance-d9ff84dccc24423cbe6d59859d86afe3,html,yes,manual,
+A-33,BIN,L3,Binance,binance,heldout,"Travel rule / withdrawal declaration for Brazilian users (Renzo finds the page in Binance support)",,html,yes,manual,"URL recorded by Renzo when saved"
+A-34,MB,L1;L2;L3,Mercado Bitcoin,mb,heldout,"Conta, taxas e limites (R-06)",https://www.mercadobitcoin.com.br/taxas-contas-limites,html,yes,manual,"403 to scripts: saved by Renzo"
+A-35,MB,ALL,Mercado Bitcoin,mb,heldout,"Termo de uso",https://www.mercadobitcoin.com.br/politicas-termo-de-uso,html,yes,manual,
+A-36,MB,L3,Mercado Bitcoin,mb,heldout,"Resolução 521: enviar ou receber cripto? (blog)",https://www.mercadobitcoin.com.br/blog/seguranca/resolucao-521/,html,yes,manual,Marketing blog
+A-37,MB,L1,Mercado Bitcoin,mb,heldout,"Limites de valores em reais (help centre)",https://suporte.mercadobitcoin.com.br/hc/pt-br/articles/7739909853709-Limites-de-valores-em-reais,html,yes,manual,"Redirects to central.ajuda.mercadobitcoin.com.br; save where it lands"
+A-38,MB,L2,Mercado Bitcoin,mb,heldout,"Limites para compra e venda (help centre)",https://suporte.mercadobitcoin.com.br/hc/pt-br/articles/360044291752-Limites-para-compra-e-venda,html,yes,manual,
+A-39,MB,L3,Mercado Bitcoin,mb,heldout,"Limites de envio de cripto para contas PJ (Renzo finds the help article)",,html,yes,manual,"URL recorded by Renzo when saved"
+A-40,MB,L1;L2,Mercado Bitcoin,mb,heldout,"Company (PJ) account page (Renzo finds it on mercadobitcoin.com.br)",,html,yes,manual,"URL recorded by Renzo when saved"
+A-41,MB,L3,Mercado Bitcoin,mb,heldout,"Envie USDT sem taxas (blog; networks)",https://www.mercadobitcoin.com.br/blog/educacao/envie-usdt-sem-taxas-otimize-suas-operacoes-no-mercado-bitcoin/,html,yes,manual,Marketing blog

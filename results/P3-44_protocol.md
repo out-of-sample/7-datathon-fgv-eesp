@@ -21,3 +21,8 @@ Aggregate limits: 900 seconds and 12,000 output tokens per case execution, inclu
 
 ## Delivery
 Run scorer regressions and a separate agent verification; recompute scores from frozen records. Report paired case/family coverage, unsupported positives, unknown handling, failure counts, reference disagreement and resource use. Keep findings exploratory and new tasks in review. Deck adoption remains separate; no automatic main-deck insertion.
+
+## Infrastructure amendment v3 — 7 Nov, before v3 runs
+The v2 CLI executed inference but blocked adaptive shell document reads. These failures appeared in stderr rather than command events; returned unknown answers are not evidence of inferior research performance. The incomplete v2 batch is preserved under `runs/` with `experiment/runtime_failure.json` and is excluded from comparative scoring. No reference-based method scores were inspected or used to choose the repair.
+
+A corpus-only stdio reader was tested successfully while keeping the CLI read-only sandbox. It exposes only list, literal search and bounded read of named public TXT sources in the case folder; it has no shell, network, write or parent-directory operation. All methods receive the same tool environment, with B1/B2 prohibited from calling tools and A restricted to these three tools. Every method is restarted in `runs_v3/`, under a new frozen configuration in `experiment_v3/`, using the same pinned model and unchanged rubric/cases/reading thresholds. Source-only AI references were locked before scoring and are reused; no model-answer tuning is allowed. Tool startup/read failures are recorded as failures, not correct abstentions. This is an infrastructure change, not a fresh untouched scientific holdout.

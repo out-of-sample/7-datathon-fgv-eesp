@@ -2,7 +2,7 @@
 id: P3-37
 title: Investigate the economic function of BRLA mint and burn operations
 phase: P3
-status: review
+status: done
 owner: CS 1
 working: -
 due: 2026-11-07
@@ -23,7 +23,7 @@ Determine what publicly observable mechanism produced the large Celo BRLA burns,
 - [x] Contract execution, address attribution and fiat settlement have separate evidence requirements.
 - [x] All new raw responses are frozen with provenance/checksums and excluded from git.
 - [x] Offline replay and parser self-checks pass; an English finding reports failures and limitations.
-- [ ] Another teammate checks the result before presentation use.
+- [x] Separate AI reviewer checks and replays the result before presentation use — accepted under Felipe's explicit AI-review substitution, 7 Nov. Deck/economic adoption is separate.
 
 ## Outputs
 - `results/P3-36_protocol.md`
@@ -32,11 +32,10 @@ Determine what publicly observable mechanism produced the large Celo BRLA burns,
 - A new exploratory finding and sources in `docs/sources.md`.
 
 ## Handoff
-- **State:** S1–S4 complete; 32/32 mechanisms verified, 0/32 economic purposes identified. F-049 remains exploratory; independent reproduction and economist review pending.
-- **Next step:** another teammate obtains both raw bundles (see `data/README.md`), runs `python3 scripts/p3_36_brla_operations.py --offline` and `python3 scripts/p3_36_brla_operations.py --documents --offline`, and checks F-049 against the tables and source snapshots. Record reviewer and verdict before presentation use; P3-29 S7 remains separate.
-- **Open questions:** legal account/operator identities and exact ticket/settlement purpose. A voluntarily supplied redacted hash-to-ticket/settlement mapping is needed; no issuer contact or private API access was attempted.
-- **Scope:** no deck edits or causal conclusion. The eight large burns use a routine also observed before the notice; that does not explain their economic size.
-- **Coordination:** initial ID P3-35 was renamed P3-36 in de4fbc5. Renzo explicitly authorized main-branch pushes for this investigation. The latest upstream audit has reconciled the old STATUS markers; its header and activity history were preserved.
+- **State:** Completed scoped accounting/technical-routing work and separate AI replay accepted under Felipe's explicit authorization to substitute AI technical reviews. No human audit is claimed. Findings remain exploratory; off-chain economic purpose remains unidentified.
+- **Next step:** No outstanding technical reproduction for this scoped deliverable. Any new economic attribution requires new evidence and separate review; deck adoption remains with Felipe.
+- **Open questions:** No verified fiat settlement, legal-owner identity or causal link to the notice. P3-29 endpoint equality does not prove a flat intervening interval. No fresh live explorer review is claimed; frozen receipt/source checks substitute under the disclosed amendment.
+- **How to resume:** read the applicable 7 Nov independent review and exact commands linked below; preserve historical findings and audit-time logs.
 
 ## Log
 - 2026-11-07 — Final task ID P3-37: upstream independently published P3-36-post-extension-audit.md. Keep script/raw/table prefix P3-36 for provenance; protocol and sampling unchanged. F-049 belongs to P3-37.
@@ -48,3 +47,6 @@ See F-049: eight large burns (335,396,065.575129 BRLA) all transfer from e3a2…
 
 ## Supplemental independent review — 7 Nov 2026
 Codex for Felipe successfully replayed both operation and documentation commands offline, checked historical permission/implementation and ABI/receipt logic, and independently reconciled the large burns' intermediate-account balance neutrality from exported transfers. F-049's technical claim survives; off-chain purpose remains unidentified. Named teammate/presentation and economist gates remain pending, so status remains `review`. Full evidence and commands: `docs/review-2026-11-07-p25-ledger.md`.
+
+## Review amendment — 7 Nov 2026
+Felipe explicitly authorized separate AI agents to replace pending human technical coding/audit/reproduction steps. Existing independent review evidence is accepted within its stated scope; no human sign-off is implied. Historical pending-human statements above describe the earlier protocol. Economist-owned statuses remain review; deck adoption and unsupported economic claims are not approved by this amendment.

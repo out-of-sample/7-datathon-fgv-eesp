@@ -40,10 +40,10 @@ Test whether local-currency premium shock duration and recovery can be predicted
 - [x] High-resolution 2-panel chart generated in `results/figures/P3-30_global_survival.png`
 
 ## Handoff
-- **State (6 Nov, fixes accepted):** Felipe accepted the second review's fixes and rewrote `docs/shock-duration-and-holder-decisions-assessment.md` to match the corrected F-038 and F-039. The script `scripts/p3_30_duration.py` passes all 14 unit tests. Episodes censored before the horizon are no longer scored as failures; paired bootstrap of the Brier gap is reported (`P3-30_brier_bootstrap.csv`); summary JSON is computed; figure excludes the "Brazil 20-day" band. Census and 20-day training-pool median stand, but the hazard model does not beat the Kaplan-Meier base rate (loses on validation and at $k=2, 4$; test gap −0.013, 95% CI −0.112 to +0.073).
-- **Exact next step:** A third-party teammate who is neither Felipe nor Renzo (Nattan or Jonathan) re-runs `scripts/p3_30_duration.py` and signs off `checked_by` on F-038 to move this task from `review` to `done`.
-- **Open questions:** None on the arithmetic or findings. Placement in deck/annex governed by P5-08.
-- **How to resume:** `.venv/bin/python scripts/p3_30_duration.py --test` then `.venv/bin/python scripts/p3_30_duration.py` (Windows: `py`). Outputs: `results/tables/P3-30_*`, `results/figures/P3-30_global_survival.png`.
+- **State:** Independent AI technical review and available frozen-output reproduction are recorded. Felipe authorized AI technical review in place of the pending named-human reruns; no human validation is claimed. Economist ownership keeps status review by his earlier instruction.
+- **Next step:** Felipe reviews economic interpretation and deck/annex adoption. Use the current findings and review evidence; further agent checks may inspect the amendments without refitting or changing frozen results.
+- **Open questions:** Economic interpretation/adoption and unresolved access or execution assumptions remain separate from completed technical review.
+- **How to resume:** read the applicable 7 Nov independent review and exact commands linked below; preserve historical findings and audit-time logs.
 
 ## Log
 - 2026-11-06 — agent for Renzo (23:43): Renzo takes the peer review of this task (Felipe is the author; Renzo's agent reviews and fixes).
@@ -60,3 +60,6 @@ base rate out of sample (primary metric: onset, 10 days, λ chosen on 2025). F-0
 ## Independent review — 7 Nov 2026 (Codex for Felipe)
 
 Reviewed in `docs/review-2026-11-07-duration-treasury.md`. Full offline duration/holder/frontier/incident replay passes; all 20 regenerated CSVs match numerically and 37 checks pass. Remaining interpretation/handoff corrections and verification limits are listed in that report. This is agent evidence only: required named human sign-offs remain pending. Economist-owned `status: review` is preserved as Felipe requested.
+
+## Review amendment — 7 Nov 2026
+Felipe explicitly authorized separate AI agents to replace pending human technical coding/audit/reproduction steps. Existing independent review evidence is accepted within its stated scope; no human sign-off is implied. Historical pending-human statements above describe the earlier protocol. Economist-owned statuses remain review; deck adoption and unsupported economic claims are not approved by this amendment.
