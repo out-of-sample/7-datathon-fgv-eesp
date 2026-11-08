@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-07 by agent for Renzo (P3-20 and P3-21 closing review → review; post-submission readouts split to P3-45); previous: 2026-11-07 by Codex for Felipe (all 15 review items P3-25 onward reviewed; P3-27/P3-38 done; Economist statuses preserved); previous: 2026-11-07 by Codex for Felipe (P3-42 rolling compression upgrade, F-051 exploratory); previous: 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Codex for Felipe (P3-40 supplemental frozen-bundle replay passes; Windows path differences documented; human sign-off pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-07 by agent for Renzo (P5-10 deck v4: 10 slides built in Claude Slides); previous: 2026-11-07 by agent for Renzo (P3-20 and P3-21 closing review → review; post-submission readouts split to P3-45); previous: 2026-11-07 by Codex for Felipe (all 15 review items P3-25 onward reviewed; P3-27/P3-38 done; Economist statuses preserved); previous: 2026-11-07 by Codex for Felipe (P3-42 rolling compression upgrade, F-051 exploratory); previous: 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Codex for Felipe (P3-40 supplemental frozen-bundle replay passes; Windows path differences documented; human sign-off pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 
 tag `results-frozen` (F-001 to F-033)
@@ -84,6 +84,8 @@ Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
 
 
 ## Next actions
+
+**P5-10 deck v4 (7 Nov night):** 10 slides published (link in `tasks/P5-10-deck-v4-final.md`). Needed before Sun 19:00: Felipe approves or edits; a teammate who did not build it does the PDF-only reader test and traces every number; gates G1–G5 (`docs/deck-plan-v4-2026-11-07.md` §6) or their fallbacks; **Renzo makes the repo public or publishes a clean copy**; export PDF.
 
 **P3-20 / P3-21 (7 Nov, agent for Renzo):** both reproduce and are in `review`. P3-20: Felipe's 7 Nov run is the teammate re-run (E1 identical), and Slide 10 carries E1 and the E2 early reading. The team marks it `done`. The E2 verdict (Mon 9 Nov) and S20 (Dec) are in `P3-45`, after the deadline and not for the PDF. P3-21: Felipe accepts or rejects the slide-9 "who paid" table (in v2/v3, not v1) together with the deck pick. Any teammate other than Renzo re-runs `scripts/p3_21_who_paid.py` → F-033 confirmed.
 
@@ -338,7 +340,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P5-07](tasks/P5-07-story-notebook.md) | Story notebook - the whole project end to end (deck prototype) | ✅ done | CS 1 | - | 3/3 | 3/3 | 2026-11-03 | P2-03, P2-04, P3-01, P4-01 |
 | [P5-08](tasks/P5-08-slide10-conclusion.md) | Slide 10 conclusion - answer "so what?" in economic terms, sentence by sentence within the evidence | 👀 review | Economist | - | 3/4 | 2/3 | 2026-11-06 | P3-20, P3-24, P3-25 |
 | [P5-09](tasks/P5-09-deck-v3-claude-slides.md) | Deck v3 - the 10-slide deck rebuilt in Claude Slides, in the mentor deck's design, with a methods slide and checked references | 👀 review | CS 1 | - | 4/5 | 3/4 | 2026-11-06 | P5-01, P4-03 |
-| [P5-10](tasks/P5-10-deck-v4-final.md) | Deck v4 - the final PDF (10 slides + visual appendix) built from v3 and the 7 Nov plan | ⬜ todo | CS 1 | - | 0/6 | 0/3 | 2026-11-08 | P5-08, P5-09 |
+| [P5-10](tasks/P5-10-deck-v4-final.md) | Deck v4 - the final 10-slide PDF, built in Claude Slides from v3 and the 7 Nov plan | 👀 review | CS 1 | - | 2/6 | 0/3 | 2026-11-08 | P5-08, P5-09 |
 
 **Findings**
 
@@ -400,6 +402,8 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 
 
 ## Recent activity (newest first, one line per work session)
+
+- 2026-11-07 — agent for Renzo: P5-10 deck v4 built → review: 10 slides in Claude Slides (https://claude.ai/artifact/546JoYhyPui1zXtJnstW2z, private until Renzo shares), nine-chapter story, clean cover, badges/method lines/limits on every results slide, new slides on the on-chain route and on forecasting/treasury; new `scripts/p5_10_deck_figures.py`; appendix dropped (Renzo: PDF = 10 slides). Gates G1–G5 and the reader test still open; repo still private
 
 - 2026-11-07 — agent for Renzo: deck v4 plan (`docs/deck-plan-v4-2026-11-07.md`, new task `P5-10` todo): 10 slides from v3 + visual appendix A1–A10; new slides "a rede não é o custo" (cost stack, BRLA route, on-chain audit) and "esperar compensa?" (forecasting, treasury); slide 10 answers the opening question; evidence badge, method chip and limit line on every results slide. **Repo `out-of-sample/7-datathon-fgv-eesp` is private**: Renzo decides before submission (D1). Gates G1–G5 for teammates tonight
 
