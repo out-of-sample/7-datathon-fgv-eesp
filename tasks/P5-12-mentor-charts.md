@@ -17,6 +17,7 @@ Deliver large chart images matching deck v4, without editing the supplied deck. 
 - [x] S2 — Historical premium since 2020, with full daily range and a literal unadjusted PTAX companion — done: Codex for Felipe, 8 Nov
 - [x] S3 — Euro and Mexican peso time-series comparison and before/after bars; preserve descriptive limits — done: Codex for Felipe, 8 Nov
 - [x] S4 — Inspect images, record reproducible finding and handoff — done: Codex for Felipe, 8 Nov
+- [x] S5 — Expand both country charts to the five donors named by Felipe, matching slide 5 — done: Codex for Felipe, 8 Nov
 
 ## Success criteria
 - [x] Historical plots include daily extremes and zero, with dates and percent units.
@@ -24,12 +25,14 @@ Deliver large chart images matching deck v4, without editing the supplied deck. 
 - [x] PNGs rendered and inspected; source CSVs and script retained.
 
 ## Handoff
-- **State:** Four final chart pairs (PNG/SVG), data tables and F-057 ready. Existing staged STATUS.md and untracked work preserved. Pull --rebase refused because index is dirty.
+- **State:** Historical chart pairs plus updated country comparisons ready. Current country figures: P5-12_02_brasil_cinco_moedas and P5-12_03_variacao_cinco_moedas (PNG/SVG), now including EUR, MXN, TRY, ZAR, COP and BRL. Data tables expanded to six currencies. Existing three-currency images retained as earlier variants. Existing staged STATUS.md and untracked work preserved. Pull --rebase refused because index is dirty.
 - **Next step:** Felipe chooses historical definition (deck-adjusted recommended) and comparison graphic for slides 2/5. Independent teammate review before asserting new descriptive results as reviewed.
 - **Open questions:** No slide editing performed. "Never below PTAX" is false; do not add it. Historical maximum is not the June 2026 event.
+- **Sharing:** Local commit `cdaf423` contains only the new task, finding, script and chart outputs. Automatic approval review rejected `git push origin main`, requiring explicit user authorization for publication to the shared default branch. Do not retry or bypass without authorization. STATUS.md retains its original staged content plus local session updates; existing other work was not included in the commit.
 - **How to resume:** `python scripts/p5_12_mentor_charts.py` with pandas/numpy/matplotlib. Read F-057; figures under results/figures/P5-12_*.
 
 ## Log
+- 2026-11-08 — Codex for Felipe: user clarified five slide-5 donors; both comparisons expanded, all six rows checked against F-053 and final PNGs inspected. No new push attempted; earlier permission request remains unanswered.
 - 2026-11-08 — Codex for Felipe: charts generated and inspected, labels corrected, arithmetic and F-053 reproduced; ready for review.
 - 2026-11-08 — Codex for Felipe: registered scope; reviewed deck XML and existing datasets. Claim push deferred to avoid mixing staged work.
 

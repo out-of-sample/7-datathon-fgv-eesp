@@ -89,26 +89,37 @@ for col,name,adj in [('premium_bps','01_premio_historico',True),('premium_unadj_
     save(f,name)
 
 # Common calendar window, but each currency keeps its observed dates and own fix.
-view = q.loc['2026-01-01':'2026-09-30',['BRL_ptax','EUR','MXN']]/100
+series = [
+    ('BRL_ptax','Brasil (BRL)',ORANGE,'-'),
+    ('EUR','Euro (EUR)',BLUE,'--'),
+    ('MXN','Peso mexicano (MXN)',GOLD,'-.'),
+    ('TRY','Lira turca (TRY)','#747D36',':'),
+    ('ZAR','Rand sul-africano (ZAR)','#A2517B',(0,(5,2))),
+    ('COP','Peso colombiano (COP)',MUTED,(0,(3,1,1,1)))
+]
+view = q.loc['2026-01-01':'2026-09-30',[s[0] for s in series]]/100
 view.to_csv(TAB/'P5-12_country_daily_pct.csv')
-f,ax = canvas('Brasil, euro e peso mexicano: o prêmio em 2026',
+f,ax = canvas('Brasil e as cinco moedas de comparação',
     'USDT sobre o dólar oficial de cada mercado • média móvel de 5 observações • valores em %',
-    'Fontes: Binance, BCB (Brasil) e BCE (euro e México). Prêmios ajustados por USDT/USD; horários dos fixings diferem.\n'
-    'Comparação descritiva. A faixa destaca 24/jun–21/jul; médias móveis suavizam picos. Não é uma nova estimativa causal.')
+    'Fontes: Binance; BCB (BRL), BCE (EUR, MXN, TRY, ZAR) e TRM (COP). Prêmios ajustados por USDT/USD.\n'
+    'Fixings em horários distintos; alinhamento intradiário da Colômbia é aproximado. Faixa: 24/jun–21/jul/2026.\n'
+    'Comparação descritiva, com médias móveis de 5 observações; não é uma nova estimativa causal.')
+f.subplots_adjust(top=.70)
 ax.axvspan(pd.Timestamp('2026-06-24'),pd.Timestamp('2026-07-21'),color=ORANGE,alpha=.10)
-for c,label,color,ls in [('BRL_ptax','Brasil (BRL)',ORANGE,'-'),('EUR','Zona do euro (EUR)',BLUE,'--'),('MXN','México (MXN)',GOLD,'-.')]:
+for c,label,color,ls in series:
     s = view[c].dropna().rolling(5).mean()
     ax.plot(s.index,s,color=color,lw=2.3,ls=ls,label=label)
 ax.set_xlim(view.index.min(),view.index.max())
 ax.set_xticks(pd.to_datetime(['2026-01-02','2026-03-01','2026-05-01','2026-07-01','2026-09-30']),['02/jan','mar','mai','jul','30/set'])
 ax.yaxis.set_major_formatter(FuncFormatter(lambda v,_:br(v,1)+'%'))
-ax.legend(loc='upper center',bbox_to_anchor=(.5,1.17),ncol=3,frameon=False)
-save(f,'02_brasil_euro_peso')
+ax.legend(loc='lower center',bbox_to_anchor=(.5,1.035),ncol=3,frameon=False,fontsize=13)
+save(f,'02_brasil_cinco_moedas')
 
 # Before-after differences use each market's own days, exactly as F-053.
 windows = [('2026-05-25','2026-06-22'),('2026-06-24','2026-07-21')]
 rows=[]
-for currency,code in [('BRL','BRL_ptax'),('EUR','EUR'),('MXN','MXN')]:
+for code,_,_,_ in series:
+    currency = 'BRL' if code=='BRL_ptax' else code
     raw = d.premium_bps if currency=='BRL' else q[code]
     pre,post=[raw.loc[a:b].dropna() for a,b in windows]
     delta=post.mean()-pre.mean()
@@ -119,22 +130,24 @@ out=pd.DataFrame(rows).set_index('currency')
 out.to_csv(TAB/'P5-12_country_before_after.csv')
 f,ax=canvas('A alta do prêmio se concentrou no Brasil',
     'Variação do prêmio médio após 23/jun/2026 • pontos-base (100 bps = 1%)',
-    'Fontes: Binance, BCB e BCE. Depois: 24/jun–21/jul; antes: 25/mai–22/jun. Média depois menos média antes.\n'
-    'Brasil: 20/20 observações; euro e México: 21/20. Comparação descritiva, sem teste de significância adicional.')
-f.subplots_adjust(left=.24)
+    'Fontes: Binance, BCB, BCE e TRM. Depois: 24/jun–21/jul; antes: 25/mai–22/jun. Média depois menos média antes.\n'
+    'Dias antes/depois: Brasil 20/20; EUR, MXN, TRY e ZAR 21/20; COP 17/17. Alinhamento intradiário do COP é aproximado.\n'
+    'Comparação descritiva, sem teste de significância adicional. 100 bps = 1 ponto percentual de prêmio.')
+f.subplots_adjust(left=.29)
 ax.lines[0].remove()  # horizontal zero guide belongs to the line charts, not bar categories
 ax.grid(False)
 ax.grid(axis='x',color=GRID,lw=.7)
 ax.axvline(0,color=INK,lw=1)
 vals=out.change_bps.values
-ax.barh([2,1,0],vals,color=[ORANGE,BLUE,GOLD],height=.5)
-for y,v in zip([2,1,0],vals):
-    ax.text(v+(2 if v>=0 else -2),y,('+' if v>=0 else '')+br(v,1)+' bps',ha='left' if v>=0 else 'right',va='center',weight='bold',fontsize=21)
-ax.set_yticks([2,1,0],['Brasil (BRL)','Zona do euro (EUR)','México (MXN)'])
-ax.set_xlim(-40,125)
-ax.set_ylim(-.6,2.6)
+positions = list(range(len(series)-1,-1,-1))
+ax.barh(positions,vals,color=[s[2] for s in series],height=.55)
+for y,v in zip(positions,vals):
+    ax.text(v+(2 if v>=0 else -2),y,('+' if v>=0 else '')+br(v,1)+' bps',ha='left' if v>=0 else 'right',va='center',weight='bold',fontsize=17)
+ax.set_yticks(positions,[s[1] for s in series])
+ax.set_xlim(-80,125)
+ax.set_ylim(-.6,len(series)-.4)
 ax.set_xlabel('Variação do prêmio (bps)')
-save(f,'03_variacao_por_moeda')
+save(f,'03_variacao_cinco_moedas')
 
 d[['premium_bps','premium_unadj_bps','window_hours','ptax_window_uncertain']].to_csv(TAB/'P5-12_historical_daily.csv')
 (TAB/'P5-12_checks.json').write_text(json.dumps(stats,indent=2,ensure_ascii=False),encoding='utf-8')
