@@ -30,20 +30,20 @@ A-20,AVE,L3,Avenia,avenia,heldout,"Beneficiary wallets guide",https://integratio
 A-21,AVE,L3,Avenia,avenia,heldout,"Operations: KYT state",https://integration-guide.avenia.io/docs/Operations/kytState,html,yes,script,
 A-22,AVE,L1,Avenia,avenia,heldout,"Bank accounts (BRL account, Pix)",https://integration-guide.avenia.io/docs/Bank%20Accounts/bankAccounts,html,yes,script,
 A-23,AVE,ALL,Avenia,avenia,heldout,"Avenia platform terms (R-11, T-06)",https://app.avenia.io/Avenia-TC.pdf,pdf,yes,script,
-A-25,BIN,L1,Binance,binance,heldout,"Como depositar BRL na Binance para usuários corporativos",https://www.binance.com/pt-BR/support/faq/c0e8bb3c8d84492592e6f53618b1093b,html,yes,manual,"Bot challenge to scripts: saved by Renzo in his browser"
+A-25,BIN,L1,Binance,binance,heldout,"Como depositar BRL na Binance para usuários corporativos",https://www.binance.com/pt-BR/support/faq/c0e8bb3c8d84492592e6f53618b1093b,html,no,manual,"Not obtained: page rendered blank in Renzo's browser (7 Nov); corpus v2 frozen without it"
 A-26,BIN,L1,Binance,binance,heldout,"FAQ sobre transferência bancária de reais (BRL)",https://www.binance.com/pt-BR/support/faq/perguntas-frequentes-faq-sobre-transfer%C3%AAncia-banc%C3%A1ria-de-reais-brasileiros-brl-2604a5d35bd947d485dc30d865539e3e,html,yes,manual,
 A-27,BIN,L1,Binance,binance,heldout,"Saques e depósitos em BRL via Latam Gateway",https://www.binance.com/pt-BR/support/announcement/saques-e-dep%C3%B3sitos-em-brl-via-latam-gateway-confira-tudo-o-que-precisa-saber-ae9056f478cb4f05aa903828cd71bdb2,html,yes,manual,
 A-28,BIN,L1;L2,Binance,binance,heldout,"Termos de uso da funcionalidade FIAT TRADING para usuários brasileiros",https://www.binance.com/pt-BR/support/faq/termos-de-uso-da-funcionalidade-fiat-trading-para-usu%C3%A1rios-brasileiros-91d14ff0e089412e969f41b777f3ac51,html,yes,manual,
-A-29,BIN,L1;L3,Binance,binance,heldout,"Novos limites mensais da Binance",https://www.binance.com/pt-BR/support/faq/novos-limites-mensais-da-binance-53ead861311c4ed28d8f1048b287b62b,html,yes,manual,
+A-29,BIN,L1;L3,Binance,binance,heldout,"Novos limites mensais da Binance",https://www.binance.com/pt-BR/support/faq/novos-limites-mensais-da-binance-53ead861311c4ed28d8f1048b287b62b,html,no,manual,"Not obtained: page rendered blank in Renzo's browser (7 Nov); corpus v2 frozen without it"
 A-30,BIN,L2,Binance,binance,heldout,"Trading fee schedule",https://www.binance.com/pt-BR/fee/trading,html,yes,manual,
 A-31,BIN,L3,Binance,binance,heldout,"Crypto withdrawal fees by network",https://www.binance.com/pt-BR/fee/cryptoFee,html,yes,manual,
 A-32,BIN,L3,Binance,binance,heldout,"Crypto Withdrawal Fees on Binance (R-12)",https://www.binance.com/en-GB/support/faq/crypto-withdrawal-fees-on-binance-d9ff84dccc24423cbe6d59859d86afe3,html,yes,manual,
-A-33,BIN,L3,Binance,binance,heldout,"Travel rule / withdrawal declaration for Brazilian users (Renzo finds the page in Binance support)",,html,yes,manual,"URL recorded by Renzo when saved"
+A-33,BIN,L3,Binance,binance,heldout,"Travel rule / withdrawal declaration for Brazilian users (not found in Binance support)",,html,no,manual,"Not obtained: page not found (7 Nov); corpus v2 frozen without it"
 A-34,MB,L1;L2;L3,Mercado Bitcoin,mb,heldout,"Conta, taxas e limites (R-06)",https://www.mercadobitcoin.com.br/taxas-contas-limites,html,yes,manual,"403 to scripts: saved by Renzo"
 A-35,MB,ALL,Mercado Bitcoin,mb,heldout,"Termo de uso",https://www.mercadobitcoin.com.br/politicas-termo-de-uso,html,yes,manual,
 A-36,MB,L3,Mercado Bitcoin,mb,heldout,"Resolução 521: enviar ou receber cripto? (blog)",https://www.mercadobitcoin.com.br/blog/seguranca/resolucao-521/,html,yes,manual,Marketing blog
 A-37,MB,L1,Mercado Bitcoin,mb,heldout,"Limites de valores em reais (help centre)",https://suporte.mercadobitcoin.com.br/hc/pt-br/articles/7739909853709-Limites-de-valores-em-reais,html,yes,manual,"Redirects to central.ajuda.mercadobitcoin.com.br; save where it lands"
 A-38,MB,L2,Mercado Bitcoin,mb,heldout,"Limites para compra e venda (help centre)",https://suporte.mercadobitcoin.com.br/hc/pt-br/articles/360044291752-Limites-para-compra-e-venda,html,yes,manual,
-A-39,MB,L3,Mercado Bitcoin,mb,heldout,"Limites de envio de cripto para contas PJ (Renzo finds the help article)",,html,yes,manual,"URL recorded by Renzo when saved"
-A-40,MB,L1;L2,Mercado Bitcoin,mb,heldout,"Company (PJ) account page (Renzo finds it on mercadobitcoin.com.br)",,html,yes,manual,"URL recorded by Renzo when saved"
+A-39,MB,L3,Mercado Bitcoin,mb,heldout,"Como liberar os limites de envio de criptomoedas para Conta PJ (help centre)",,html,yes,manual,"Saved by Jonathan as PDF; URL in data/raw/p3_28/manual/urls.csv"
+A-40,MB,L1;L2,Mercado Bitcoin,mb,heldout,"Processo de cadastro para Pessoa Jurídica (help centre)",,html,yes,manual,"Saved by Jonathan as PDF; URL in data/raw/p3_28/manual/urls.csv"
 A-41,MB,L3,Mercado Bitcoin,mb,heldout,"Envie USDT sem taxas (blog; networks)",https://www.mercadobitcoin.com.br/blog/educacao/envie-usdt-sem-taxas-otimize-suas-operacoes-no-mercado-bitcoin/,html,yes,manual,Marketing blog

@@ -4,7 +4,7 @@ title: Monthly retraining improves the first ridge forecast, but its edge over s
 status: exploratory
 task: P3-42
 date: 2026-11-07
-checked_by: -
+checked_by: Jonathan (CS 3)
 ---
 
 ## Claim

@@ -104,6 +104,7 @@ P3-39 (7 Nov, Felipe via explicit implementation request): implement the buyer c
 
 | Date | Decision | Who |
 |---|---|---|
+| 7 Nov | Final deck (P5-10, v4): **only the 10 slides go in the PDF**, no appendix pages; cover kept clean, other slides carry more text, built as a nine-chapter story; plan in `docs/deck-plan-v4-2026-11-07.md` (its appendix section is superseded). Felipe (deck owner) still approves | Renzo |
 | 7 Nov | Continue P3-29 with an English investigation of the economic function of BRLA operations (P3-37, initially P3-35/P3-36; artifact prefix P3-36); distinguish technical routing from settlement and retain independent review before deck use | Renzo |
 | 6 Nov | Formalize the agentic access map and on-chain reconciliation as English task specifications (P3-28/P3-29). Plans only: implementation todo, assignment pending; new evidence and independent evaluation required before deck use | Renzo |
 | 5 Nov | Submission format: GitHub repository link + 10-slide PDF. No `.txt` script export goes to the jury; the repo is the code deliverable (P5-04 now maps claims to scripts). Rest of P5-04 assigned to Nattan or Jonathan | Renzo |

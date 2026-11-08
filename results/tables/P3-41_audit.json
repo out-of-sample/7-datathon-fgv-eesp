@@ -14,9 +14,9 @@
   },
   "selected_alpha": 1000.0,
   "source_sha256": {
-    "scripts\\p3_41_compression.py": "841ead5c73f20df0493d3ad68430166a977228af2fe795d81bbcfc49f8abb1dd",
+    "scripts\\p3_41_compression.py": "56dc72fbc2adf53b0876dac76b9527219d00bb5bd08480ab937e11d9f5e0433d",
     "scripts\\p3_38_buyer_frontier.py": "f137674a6af30f64b29682126845f9b96c16ff98963c4ae5c0aca1ff6b70d76c",
-    "tasks\\P3-41-premium-compression.md": "d67f847096b4793be51b350e99598f570b88c2f64c68bba74c7a2a6ab44d8624"
+    "tasks\\P3-41-premium-compression.md": "93a7184c8df073056f125244226a52996d147b6b27c7fa5f22b3e31231306e4a"
   },
   "excluded_origins_by_horizon": {
     "5": {
@@ -44,8 +44,8 @@
   "intervals": "90% empirical historical absolute-residual bands; no coverage guarantee",
   "chronos": "not run; pretrained overlap and dependencies not audited",
   "environment": {
-    "numpy": "2.5.4",
-    "pandas": "3.1.0",
-    "matplotlib": "3.11.2"
+    "numpy": "2.3.3",
+    "pandas": "2.3.0",
+    "matplotlib": "3.10.3"
   }
 }

@@ -2,7 +2,7 @@
 id: P3-29
 title: Reconcile reported BRLA supply changes with on-chain evidence
 phase: P3
-status: done
+status: review
 owner: Team
 working: -
 due: 2026-11-07
@@ -12,7 +12,7 @@ depends: P3-27
 ## Goal
 Build a reproducible reconciliation of reported BRLA supply changes against contract state, token events and verified cross-chain links. Test how much the observable ledger can explain, preserve unresolved differences, and establish whether the project can add evidence about digital-dollar infrastructure beyond its price results.
 
-**Current status (7 Nov):** the bounded ledger and additional-case work are complete and independently replayed by an AI reviewer. Felipe explicitly substituted AI technical review for the named-human/live-explorer gate; no human validation is claimed. Historical planning checkpoints are retained in the Log.
+**Planning status:** formalized at Renzo's request on 6 Nov 2026; no blockchain collection or experiment has started. `owner: Team` means assignment is pending. The due date is a **feasibility/readiness checkpoint**, not a commitment to finish the study before submission. Suggested roles: CS implementer, economist for interpretation, and a different teammate for reproduction. Claim work through `prompt.md` §7.
 
 ## Questions and hypotheses
 
@@ -149,11 +149,11 @@ Each step is one focused session or is split further when needed. Prioritize the
 ## Subtasks
 - [x] S1 — Verify source provenance and historical RPC capabilities; record G1 and one snapshot pair. — done: Renzo (agent), 2026-11-07 (G1 passed for Celo; F-041)
 - [x] S2 — Commit the accounting protocol, scope, definitions, tolerances and selection rule. — done: Renzo (agent), 2026-11-07 (`results/P3-29_protocol.md`, committed before any interval log was collected)
-- [x] S3 — Reconstruct the Celo stock identity; audit events/coverage and pass G2. — done: Renzo (agent), 2026-11-07 (F-042; stock residual 0 on every day; **G2 frozen-evidence AI review complete**: follow `results/tables/P3-29_case_audit.md` to the raw files)
+- [x] S3 — Reconstruct the Celo stock identity; audit events/coverage and pass G2. — done: Renzo (agent), 2026-11-07 (F-042; stock residual 0 on every day; **G2 needs the reviewer**: follow `results/tables/P3-29_case_audit.md` to the raw files)
 - [x] S4 — Compare circulation and investigate verified multi-chain links; preserve unresolved differences. — done: Renzo (agent), 2026-11-07 (limited scope: other contracts at daily boundaries; P-0045 held; no listed chain absorbed the 23 Jun fall; F-042, F-044)
 - [x] S5 — Complete the frozen additional-case evaluation; run or explicitly waive H4. — done: Renzo (agent), 2026-11-07 (12/12 cases close, 24/24 labels consistent, F-044; **H4 waived**, protocol §8)
 - [x] S6 — Review economic interpretation and prepare the integration figure/evidence export. — done: Renzo (agent) & Felipe (Economist review), 2026-11-07 (figure + `results/P3-29_annex_draft_ptbr.md` reviewed; integrated into `deck/annex_v1_ptbr.md` §B.10.2; kept out of 10-slide main deck)
-- [x] S7 — Independent frozen-output reproduction and interpretation review — done: separate Codex reviewer, 7 Nov; accepted under Felipe's AI-review substitution. See docs/review-2026-11-07-p25-ledger.md. No human or new live-chain audit claimed.
+- [ ] S7 — Independently reproduce outputs, write the finding and finish the handoff. — findings written (F-041, F-042, F-044), sources registered, raw-data recovery documented; **reproduction: a teammate (Jonathan replicated S1)**
 
 ## Success criteria
 - [x] Historical contract identity, supply semantics, timestamps and data-access coverage are documented; unavailable capabilities are explicit. (F-041, T-14–T-22; other chains: identity by slot/code only)
@@ -162,7 +162,7 @@ Each step is one focused session or is split further when needed. Prioritize the
 - [x] Every adjustment/link has evidence; no inferred bridge, fiat redemption, ownership or BCB effect is presented as verified. (no adjustments needed; no link claimed)
 - [x] Additional cases follow the committed selection rule; all failures and scope reductions are disclosed. (manifest `d6008bf` before collection)
 - [x] Optional agent evaluation is either fully reported against its baselines or explicitly waived without a superiority claim. (waived)
-- [x] Independent AI reviewer reproduces the outputs and checks interpretation; accepted under Felipe's explicit substitution of AI review. Main-deck adoption remains separate.
+- [ ] Another teammate reproduces the outputs and checks interpretation before main-deck use; negative results are acceptable.
 
 ## Outputs
 
@@ -202,12 +202,32 @@ For the ten-slide PDF, propose at most one combined solution/evaluation slide wi
 Read `prompt.md`, `STATUS.md`, P3-27, F-037/P3-24 and the input script/data notes first. Source-register T-06/R-11 supplies current issuer contract leads, T-07 documents read-only JSON-RPC capabilities, and T-13 defines the ERC-20 interface. These establish technical starting points, not June contract identity, provider methodology or endpoint availability. Verify and register each new exact source used during execution.
 
 ## Handoff
-- **State:** Completed scoped accounting/technical-routing work and separate AI replay accepted under Felipe's explicit authorization to substitute AI technical reviews. No human audit is claimed. Findings remain exploratory; off-chain economic purpose remains unidentified.
-- **Next step:** No outstanding technical reproduction for this scoped deliverable. Any new economic attribution requires new evidence and separate review; deck adoption remains with Felipe.
-- **Open questions:** No verified fiat settlement, legal-owner identity or causal link to the notice. P3-29 endpoint equality does not prove a flat intervening interval. No fresh live explorer review is claimed; frozen receipt/source checks substitute under the disclosed amendment.
-- **How to resume:** read the applicable 7 Nov independent review and exact commands linked below; preserve historical findings and audit-time logs.
+- **State (01:57 Brasília, 7 Nov):** S1–S5 done and S6 prepared by Renzo's agent; status `review`, no one working. Findings:
+  F-041 (feasibility), F-042 (June Celo ledger: residual 0 on every day; 732.6 mn minted / 724.9 mn burned for +7.7 mn;
+  23 Jun burn of 113.6 mn; not absorbed by Polygon/Gnosis/Moonbeam; DefiLlama 26 Jun value matches no on-chain state),
+  F-044 (12 frozen cases all close; 24/24 labels consistent; DefiLlama read time 00:04–00:46 UTC; P-0045 held 32/0, 6
+  informative). All exploratory. H4 waived.
+- **Next steps (18:48 Brasília, 7 Nov). Only S7 is left, and it needs a person.** Agents have already replayed
+  everything: Renzo's agent on Linux, and Felipe's agent on Windows (`docs/review-9ab1ad8-frozen-bundle.md`, all numbers
+  reproduce). The human sign-off, about 30 min for Jonathan or Nattan:
+  1. `gh release download data-p3-29-p3-36-20261107`, then restore and replay per `data/README.md` → "P3-29 / P3-36 frozen
+     on-chain bundle". Expect an empty `git status` and events hash `17ade99a…`.
+  2. G2: open 3 large burns from `results/tables/P3-29_case_audit.md` on https://celo.blockscout.com/tx/<hash>. Check
+     amount, time, `0xbd22…` as the burned holder, and the transaction going to `0xa5e1…`.
+  3. Read F-042 and F-044 against protocol §6 (no "resgate", "corrida", "migração" or BCB link).
+  4. Write `checked_by` and a History line in F-041, F-042 and F-044. Tick S7 and the last criterion, then set the
+     task to `done`.
+- **Open questions:** why DefiLlama's Celo value is 59,281,880 on 26 Jun and 2 Jul (needs DefiLlama's own records);
+  the mechanism of the large burns is now described by P3-37 / F-049 (an authorized transfer-and-burn routine via
+  `MiniVM`); what the Polygon/Moonbeam implementations do (not read);
+  whether the burns are fiat redemptions (no source; do not say so).
+- **How to resume or extend:** commands above, plus `... figure` for the figure. Raw answers are under `data/raw/p3_29/`
+  (2,841 files; checksums in `data/raw/SHA256SUMS`; not in git); `P3-29_events.csv` (5.8 MB) is git-ignored and rebuilt
+  by `ledger`. Endpoint limits are in F-041 and T-22. A further case set needs a new frozen manifest (protocol §8 rule,
+  new seed) committed before collection.
 
 ## Log
+- 2026-11-07 18:48 (Brasília) — agent for Renzo: acted on the Windows bundle review: `p3_29_reconcile.py` writes repository paths with `/` on every OS (Linux offline replay unchanged, events hash 17ade99a…); README now checks the git-ignored events file explicitly; Handoff reduced to the human S7 checklist. P3-36 script has the same path issue (not changed: another session owns it).
 - 2026-11-07 02:46 (Brasília) — Felipe (Economist): S6 review complete. Answered the three questions in `results/P3-29_annex_draft_ptbr.md` (1: include in Annex §B.10.2, not main slides; 2: keep the 23/06 vs 19/06 non-causal caveat; 3: frame as an on-chain data audit note qualifying F-037 and excluding the 26/06 59.3 mn point) and updated `deck/annex_v1_ptbr.md`.
 - 2026-11-07 01:57 (Brasília) — agent for Renzo: S4 done (other contracts at 15 boundaries, two providers each, P-0045 32 match / 0 miss / 6 informative; no listed chain absorbed Celo's 23 Jun fall), S5 done (manifest `d6008bf` before collection; 12/12 cases residual 0, 24/24 labels consistent, 317/317 receipts; read time 00:04–00:46 UTC), S6 prepared (figure, pt-BR annex draft for Felipe). F-044 exploratory; F-042/F-037 History notes; T-22. Status review: reproduction (S7) and Felipe's S6 review pending. Ledger code split into reusable parts (offline replay byte-identical).
 - 2026-11-07 01:43 (Brasília) — agent for Renzo: tidied the merge from `e9e5bf8`: one `working:` line (Jonathan's value kept), two duplicated log lines with superseded timestamps removed, Jonathan's review line placed in date order. His text is unchanged.
@@ -221,13 +241,13 @@ Read `prompt.md`, `STATUS.md`, P3-27, F-037/P3-24 and the input script/data note
 - 2026-11-06 — Codex for Renzo: formalized from the P3-27 discussion at Renzo's request. Documentation only; no experiment launched or team member assigned.
 
 ## Result
-**S4–S5 (7 Nov 2026, agent for Renzo), F-044 and F-042, exploratory, independently AI-reproduced (7 Nov amendment).** Q3 (generalization): the
+**S4–S5 (7 Nov 2026, agent for Renzo), F-044 and F-042, exploratory, not yet reproduced.** Q3 (generalization): the
 procedure works unchanged on 12 frozen cases (6 large, 6 ordinary): stock residual 0 on 24/24 days, DefiLlama consistent
 within the day on 24/24 labels. The only provider misses among 37 Celo labels are 26 Jun and 2 Jul (same value). S4:
 the other listed contracts' supplies agree across two providers. A registered prediction of DefiLlama's daily read held
 out of sample (32/32; 6 informative). Celo's 23 Jun fall was not offset on Polygon, Gnosis or Moonbeam. H4: waived.
 
-**S3 (7 Nov 2026, agent for Renzo), F-042, exploratory, independently AI-reviewed (7 Nov amendment):** the Celo stock identity holds to the base
+**S3 (7 Nov 2026, agent for Renzo), F-042, exploratory, not yet reviewed:** the Celo stock identity holds to the base
 unit on every UTC day of 19 Jun – 2 Jul 2026 (development case 19–30 Jun: +7,748,666.02 BRLA = 732,612,871.45 minted −
 724,864,205.43 burned). The provider series matches on-chain supply within ±1 BRLA on 12 of 13 labels; 26 Jun is
 unresolved. H1 as registered is not supported for the case (one label fails). Q2: 100% of the stock change is mint/burn
@@ -251,6 +271,3 @@ Not covered by G1: Polygon, Gnosis and Moonbeam contracts; upgrades between the 
 
 ## Supplemental independent review — 7 Nov 2026
 Codex for Felipe successfully replayed `ledger`, `cases` and `chains` offline using the restored frozen bundles. Reported numerical results reproduce; Windows-only path/encoding output differences were inspected and restored. P-0045's `flat_window` checks equal endpoint supplies, not every intervening state: describe that limit or verify intervening logs. Jonathan/Nattan's S7 and explorer/interpretation sign-off remain pending; status remains `review`. Full report and exact commands: `docs/review-2026-11-07-p25-ledger.md`.
-
-## Review amendment — 7 Nov 2026
-Felipe explicitly authorized separate AI agents to replace pending human technical coding/audit/reproduction steps. Existing independent review evidence is accepted within its stated scope; no human sign-off is implied. Historical pending-human statements above describe the earlier protocol. Economist-owned statuses remain review; deck adoption and unsupported economic claims are not approved by this amendment.

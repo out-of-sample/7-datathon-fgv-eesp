@@ -83,7 +83,7 @@ def freeze(f, url, body, status, resp):
     f.write_text(json.dumps({'url': url, 'request': body, 'retrieved_utc': dt.datetime.now(dt.UTC).isoformat(),
                              'http_status': status, 'response': resp}, indent=1))
     with open(SUMS, 'a') as s:
-        s.write(f'{hashlib.sha256(f.read_bytes()).hexdigest()}  {f.relative_to(ROOT)}\n')
+        s.write(f'{hashlib.sha256(f.read_bytes()).hexdigest()}  {f.relative_to(ROOT).as_posix()}\n')
 
 
 def frozen(provider, url, body=None):
@@ -463,7 +463,7 @@ def get_logs(lo, hi, chunks):
     body = {'address': BRLA, 'fromBlock': hex(lo), 'toBlock': hex(hi)}
     res, err = rpc('forno', 'eth_getLogs', body)
     if res is not None:
-        raw = str(frozen('forno', RPC['forno'], rpc_body('eth_getLogs', body))[1].relative_to(ROOT))
+        raw = frozen('forno', RPC['forno'], rpc_body('eth_getLogs', body))[1].relative_to(ROOT).as_posix()  # same on every OS
         chunks.append({'check': 'log_chunk', 'from_block': lo, 'to_block': hi, 'status': 'ok', 'n': len(res), 'detail': raw})
         return [dict(l, _raw=raw) for l in res]
     if hi - lo + 1 <= MIN_CHUNK:

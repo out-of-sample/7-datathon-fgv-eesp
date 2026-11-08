@@ -1,7 +1,7 @@
 {
   "framework": "Two-Sided Institutional Treasury Decision Framework (BRL->USDT Buyer & USDT->BRL Seller)",
-  "input": "data/processed/P1-02_premium_daily.csv",
-  "sha256": "47982f7940d3dac8c4a127083fd3322ff9aa25bb4e1568ae3b09ac54411289b4",
+  "input": "data\\processed\\P1-02_premium_daily.csv",
+  "sha256": "d7417e19e9730f4701631eae1e5604f68faa169da1649549c7350f782adcd5e5",
   "rows_full_input": 1520,
   "rows_selected": 21,
   "selected_missing_prices": 0,

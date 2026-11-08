@@ -58,6 +58,7 @@ Daily window premiums (bps):
 Slide 10 prediction table and Annex B.8/B.9 / `limites.html`.
 
 ## History
+- 2026-11-07, agent for Renzo (P3-20 closing review): re-ran `download` + `readout` on Linux from a fresh pull. Binance 5–6 Nov zips match Felipe's checksums, and every observed value above is reproduced (readout CSV byte-identical). Felipe's 7 Nov run had already reproduced every E1 value from `82f5494` (teammate re-run, P3-20 S7). Mercado Bitcoin still 403. E2 S2 verdict (9 Nov) and S20 → `P3-45`. Status stays exploratory until the E2 verdict.
 - 2026-11-07, Economist (Felipe): added E2 S1 early reading (Binance −5.4 bps, Foxbit −6.5 bps, gap −1.1 bps); updated with P3-26 confounder audit findings and BCB Comunicado 46.241 check (P3-20 S6).
 - 2026-11-05, agent for Renzo: created (P3-20 S3–S4).
 

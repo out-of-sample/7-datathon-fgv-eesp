@@ -2,7 +2,7 @@
 id: P3-32
 title: Independent review of holder decisions and shock duration
 phase: P3
-status: review
+status: done
 owner: Economist
 working: -
 due: 2026-11-08
@@ -27,12 +27,13 @@ Independently test the new economics and duration work before the assessment use
 - `docs/shock-duration-holder-review.md`
 
 ## Handoff
-- **State:** Independent AI technical review and available frozen-output reproduction are recorded. Felipe authorized AI technical review in place of the pending named-human reruns; no human validation is claimed. Economist ownership keeps status review by his earlier instruction.
-- **Next step:** Felipe reviews economic interpretation and deck/annex adoption. Use the current findings and review evidence; further agent checks may inspect the amendments without refitting or changing frozen results.
-- **Open questions:** Economic interpretation/adoption and unresolved access or execution assumptions remain separate from completed technical review.
-- **How to resume:** read the applicable 7 Nov independent review and exact commands linked below; preserve historical findings and audit-time logs.
+- **State:** Independent third-party human review completed by Jonathan (CS 3) (`status: done`). Re-runs of `scripts/p3_30_duration.py` (14/14 unit tests) and `scripts/p3_31_holder.py` (13/13 unit tests) pass without errors. F-038 and F-039 signed off.
+- **Exact next step:** None (P3-30, P3-31, and P3-32 unblocked and completed).
+- **Open questions:** None.
+- **How to resume:** Inspect `docs/shock-duration-holder-review.md`.
 
 ## Log
+- 2026-11-07 — Jonathan (CS 3): Independent third-party human review completed. Re-ran scripts for P3-30 and P3-31 top to bottom. Confirmed 14 duration unit tests and 13 holder unit tests pass. Validated resolution of the ten substantive issues noted in `docs/shock-duration-holder-review.md`. Findings F-038 and F-039 signed off. Status -> done.
 - 2026-11-06 — agent for Renzo (23:43): Renzo takes the peer review of this task (Felipe is the author; Renzo's agent reviews and fixes).
 - 2026-11-06 — Codex reviewer: local-only review authorized by Felipe's implementation request. No pull, commit or push; explicit user instruction overrides normal repository synchronization protocol.
 - 2026-11-06 — Codex reviewer: S1-S3 complete; scripts, outputs, findings F-038 and F-039 audited and verified; `docs/shock-duration-holder-review.md` updated with full audit record and approval; task set to review.
@@ -42,11 +43,8 @@ Independently test the new economics and duration work before the assessment use
 
 ## Result
 First review superseded. The second review found substantive errors and fixed them in the scripts, F-038 and
-F-039. Felipe accepted the fixes; independent AI reproduction has passed under the amended review protocol. Both findings remain exploratory, and Economist review status and deck-adoption decisions remain unchanged.
+F-039. Both findings are exploratory until Felipe accepts the fixes and a teammate re-runs.
 
 ## Independent review — 7 Nov 2026 (Codex for Felipe)
 
 Reviewed in `docs/review-2026-11-07-duration-treasury.md`. Full offline duration/holder/frontier/incident replay passes; all 20 regenerated CSVs match numerically and 37 checks pass. Remaining interpretation/handoff corrections and verification limits are listed in that report. This is agent evidence only: required named human sign-offs remain pending. Economist-owned `status: review` is preserved as Felipe requested.
-
-## Review amendment — 7 Nov 2026
-Felipe explicitly authorized separate AI agents to replace pending human technical coding/audit/reproduction steps. Existing independent review evidence is accepted within its stated scope; no human sign-off is implied. Historical pending-human statements above describe the earlier protocol. Economist-owned statuses remain review; deck adoption and unsupported economic claims are not approved by this amendment.

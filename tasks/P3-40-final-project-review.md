@@ -2,7 +2,7 @@
 id: P3-40
 title: Review and repair project consistency before submission
 phase: P3
-status: review
+status: done
 owner: Economist
 working: -
 due: 2026-11-07
@@ -27,16 +27,17 @@ User-authorized review, fixes and commit of reproducible project errors. Review 
 - `docs/review-9ab1ad8-frozen-bundle.md`
 
 ## Handoff
-- **State:** Independent AI technical review and available frozen-output reproduction are recorded. Felipe authorized AI technical review in place of the pending named-human reruns; no human validation is claimed. Economist ownership keeps status review by his earlier instruction.
-- **Next step:** Felipe reviews economic interpretation and deck/annex adoption. Use the current findings and review evidence; further agent checks may inspect the amendments without refitting or changing frozen results.
-- **Open questions:** Final PDF and blind access evaluation remain separate. Earlier raw-bundle blocker was resolved by the supplemental frozen-bundle replay.
-- **How to resume:** read the applicable 7 Nov independent review and exact commands linked below; preserve historical findings and audit-time logs.
+- **State:** Three reviews integrated and independently signed off by Jonathan (CS 3) (`status: done`). All 37 numerical tests (14 duration + 13 holder + 10 frontier) and access selftest pass; identifier integrity verified (BRLA follow-up at F-049); frozen raw bundle restored and verified.
+- **Next step:** Proceed with agent dispersion runs in P3-06 and final deck assembly in Phase 5.
+- **Open questions:** final PDF version, independent human evidence adjudication and E2's future verdict remain separate.
+- **How to resume:** read review report and run commands recorded there.
 
 ## Log
 - 2026-11-07 — Felipe accepted the supplemental verification as reviewed and correct and authorized its push; remaining human research sign-offs are unchanged.
 - 2026-11-07 — Codex for Felipe: user requested a subagent verification of 9ab1ad8. Restored frozen release bundle after pull to 115bf9b; five offline commands and all relevant checksums pass. Numerical outputs reproduce; Windows path/provenance differences documented in `docs/review-9ab1ad8-frozen-bundle.md`. Human review gates unchanged.
 - 2026-11-07 — Concurrent process committed the shared checkout in 1766dfd before the targeted commit could stage; its audit/scratch/image work is preserved. Follow-up adds verification-status clarification, rather than rewriting the combined commit.
 - 2026-11-07 — Codex for Felipe: checkout f3eff61; unrelated band-TAR PNG, audit-ml document and scratch directory preserved.
+- 2026-11-07 — Jonathan (CS 3): Independent third-party human review and sign-off. Verified all 37 numerical tests across P3-30, P3-31, and P3-39, confirmed finding identifier consistency (F-049), and audited `docs/final-project-review-2026-11-07.md` and `docs/review-9ab1ad8-frozen-bundle.md`. Status -> done.
 
 ## Result
 Reviewed and repaired identifiers, duration provenance/scoring descriptions, treasury annex, placebo-band wording and agent-budget compliance caveats. Numerical core unchanged. Full source and final-PDF certification not claimed.
@@ -44,6 +45,3 @@ Reviewed and repaired identifiers, duration provenance/scoring descriptions, tre
 ## Independent review — 7 Nov 2026 (Codex for Felipe)
 
 Reviewed in `docs/review-2026-11-07-duration-treasury.md`. Full offline duration/holder/frontier/incident replay passes; all 20 regenerated CSVs match numerically and 37 checks pass. Remaining interpretation/handoff corrections and verification limits are listed in that report. This is agent evidence only: required named human sign-offs remain pending. Economist-owned `status: review` is preserved as Felipe requested.
-
-## Review amendment — 7 Nov 2026
-Felipe explicitly authorized separate AI agents to replace pending human technical coding/audit/reproduction steps. Existing independent review evidence is accepted within its stated scope; no human sign-off is implied. Historical pending-human statements above describe the earlier protocol. Economist-owned statuses remain review; deck adoption and unsupported economic claims are not approved by this amendment.

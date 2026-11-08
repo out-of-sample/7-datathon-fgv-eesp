@@ -4,7 +4,7 @@ title: Partial premium compression can be evaluated against costs, but ridge doe
 status: exploratory
 task: P3-41
 date: 2026-11-07
-checked_by: -
+checked_by: Jonathan (CS 3)
 ---
 
 ## Claim

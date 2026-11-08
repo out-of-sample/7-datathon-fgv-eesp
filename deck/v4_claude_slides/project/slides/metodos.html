@@ -1,0 +1,46 @@
+<section id="metodos" data-transition="fade" style="background:#F6F4EF;color:#3D4A5C;font-family:'IBM Plex Sans', Arial, sans-serif;padding:96px 128px 150px;display:flex;flex-direction:column;justify-content:space-between;gap:20px">
+<div style="position:absolute;left:128px;top:52px;width:1664px;height:6px;background:#E3DED4;border-radius:3px"></div>
+<div style="position:absolute;left:128px;top:52px;width:499px;height:6px;background:#D9622B;border-radius:3px"></div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;justify-content:space-between;align-items:center">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#B5481F">Capítulo 2 · Como investigamos</p>
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#F6F4EF;background:#14213D;border:2px solid #14213D;border-radius:24px;padding:2px 18px">Registrado antes dos dados</p>
+</div>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:50px;font-weight:600;line-height:1.1;color:#14213D">Doze técnicas, cada uma contra uma linha de base</h2>
+<p style="font-size:24px;line-height:1.3;color:#14213D;background:#ECE8DF;border-radius:8px;padding:6px 18px"><b>Dados:</b> 1.520 dias úteis (2020–2026) · 3 corretoras + 1 pool on-chain · 10 moedas · 8 regras · 17.536 eventos on-chain</p>
+</div>
+<div style="display:flex;gap:16px">
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FBFAF7;border:1px solid #E3DED4;border-radius:12px;padding:18px 20px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#B5481F">1 · Medir</p>
+<p style="font-size:24px;line-height:1.3"><b>Prêmio</b> = USDT/BRL ÷ (PTAX × USDT/USD) − 1, nas horas da PTAX · <i>contra:</i> ruído de 2–10 bps</p>
+<p style="font-size:24px;line-height:1.3"><b>3 corretoras + rota on-chain</b> (Pix → BRLA → USDC) · <i>contra:</i> a mesma conta em cada mercado</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FBFAF7;border:1px solid #E3DED4;border-radius:12px;padding:18px 20px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#B5481F">2 · Identificar</p>
+<p style="font-size:24px;line-height:1.3"><b>Quebras sem datas</b> (Bai e Perron, 2003) · <i>contra:</i> nenhuma data informada</p>
+<p style="font-size:24px;line-height:1.3"><b>Evento vs 1.073 datas comuns</b> e 30 janelas sem sobreposição · <i>contra:</i> datas sem regra</p>
+<p style="font-size:24px;line-height:1.3"><b>Controle sintético</b> (Abadie et al., 2010) · <i>contra:</i> Brasil feito de 5 moedas</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FBFAF7;border:1px solid #E3DED4;border-radius:12px;padding:18px 20px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#B5481F">3 · Rastrear</p>
+<p style="font-size:24px;line-height:1.3"><b>Fluxos do BCB</b>: compras de stablecoins no exterior · <i>contra:</i> variações mensais</p>
+<p style="font-size:24px;line-height:1.3"><b>Transferência</b> T = Σ Δprêmio × volume · <i>contra:</i> 194 janelas comuns</p>
+<p style="font-size:24px;line-height:1.3"><b>Livro-razão on-chain</b> do BRLA, dois provedores · <i>contra:</i> o dado agregado</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:10px;background:#FBFAF7;border:1px solid #E3DED4;border-radius:12px;padding:18px 20px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#B5481F">4 · Prever e decidir</p>
+<p style="font-size:24px;line-height:1.3"><b>Alarme CUSUM</b> em tempo real (Page, 1954) · <i>contra:</i> regra simples</p>
+<p style="font-size:24px;line-height:1.3"><b>Sobrevivência</b> em 10 moedas · <i>contra:</i> taxa-base</p>
+<p style="font-size:24px;line-height:1.3"><b>Ridge</b> re-treinado mês a mês · <i>contra:</i> “amanhã = hoje”</p>
+<p style="font-size:24px;line-height:1.3"><b>Tesouraria com hedge</b> + 216 cenários de estresse · <i>contra:</i> comprar já</p>
+</div>
+</div>
+<div style="display:flex;gap:32px;background:#14213D;border-radius:12px;padding:18px 24px">
+<p style="flex:1;font-size:24px;line-height:1.3;color:#C9D1DE"><b><span style="color:#F0A57E">Registrado antes:</span></b> hipóteses, regras de decisão e previsões foram para o Git, com data, antes dos dados.</p>
+<p style="flex:1;font-size:24px;line-height:1.3;color:#C9D1DE"><b><span style="color:#F0A57E">Lições de 2025:</span></b> nosso modelo perdeu para “amanhã = hoje”. Agora toda estimativa tem linha de base, e mostramos quando empata.</p>
+<p style="flex:1;font-size:24px;line-height:1.3;color:#C9D1DE"><b><span style="color:#F0A57E">IA sob protocolo:</span></b> agentes avaliados contra métodos simples; toda fonte aberta e citada, regra criada após 4 de 4 links de agentes falharem.</p>
+</div>
+<p style="position:absolute;left:128px;bottom:60px;width:1450px;font-size:24px;color:#5B6573">Transparência: vimos o salto na sondagem inicial; a data do ofício vem da imprensa e do BCB, não do gráfico</p>
+<p style="position:absolute;right:128px;bottom:60px;width:120px;font-size:24px;color:#5B6573;text-align:right">3 / 10</p>
+<aside>Capítulo 2, como investigamos. Doze técnicas em quatro camadas, e em cada uma dizemos contra o que comparamos. Medir: o prêmio nas mesmas horas em que o BCB calcula a PTAX, descontando o preço do USDT em dólar; o custo de negociar, 2 a 10 pontos-base, é o piso de ruído; e a mesma conta em três corretoras e numa rota on-chain. Identificar: um teste de quebras que não recebe nenhuma data; a mudança de 20 dias em torno de cada regra contra a mesma conta em 1.073 datas comuns e em 30 janelas sem sobreposição; e um Brasil sintético feito de cinco moedas. Rastrear: as compras de stablecoins no exterior nas estatísticas do BCB, o dinheiro que passou de compradores a vendedores e um livro-razão on-chain do real digital BRLA, conciliado com dois provedores. Prever e decidir: um alarme CUSUM, um modelo de sobrevivência em dez moedas, um ridge re-treinado todo mês e uma tesouraria com hedge testada em 216 cenários. A lição de 2025, quando nosso modelo perdeu para “amanhã igual a hoje”, virou regra: toda estimativa tem linha de base, e quando um modelo empata, o slide diz isso. Hipóteses e previsões foram registradas no Git antes dos dados. Uma transparência: vimos o salto na sondagem inicial; por isso a data vem da imprensa e do BCB. Referências: Corwin e Schultz (2012); Bai e Perron (2003); Gelbach, Helland e Klick (2013); Abadie, Diamond e Hainmueller (2010); Page (1954); Duffie (2010). Rastreio: F-001, F-005, F-007, F-011, F-014, F-016, F-017, F-024, F-025, F-029, F-037, F-038, F-042, F-048, F-051; regra de fontes em prompt.md §6.</aside>
+</section>

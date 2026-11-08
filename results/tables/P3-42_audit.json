@@ -15,15 +15,15 @@
   "selected": "rolling_ridge_100",
   "protocol": "tasks/P3-42-compression-upgrade.md; ce91d8b",
   "source_sha256": {
-    "scripts\\p3_42_compression_upgrade.py": "9b24c37c64a340219b87678e5c4fa5da0dda0bbae87a50d66ca18f1cebfa65cf",
-    "scripts\\p3_41_compression.py": "841ead5c73f20df0493d3ad68430166a977228af2fe795d81bbcfc49f8abb1dd",
+    "scripts\\p3_42_compression_upgrade.py": "0c58926f6a82e8b571ea5bd0e01a22cce25adfbadf16a4b99e811e83cb2639b9",
+    "scripts\\p3_41_compression.py": "56dc72fbc2adf53b0876dac76b9527219d00bb5bd08480ab937e11d9f5e0433d",
     "scripts\\p3_38_buyer_frontier.py": "f137674a6af30f64b29682126845f9b96c16ff98963c4ae5c0aca1ff6b70d76c"
   },
   "interpretation": "exploratory upgrade after seeing 2026 v1; not a fresh holdout",
   "calibration": "prior-issued errors only, terminal timestamp strictly earlier than signal",
   "environment": {
-    "numpy": "2.5.4",
-    "pandas": "3.1.0",
-    "matplotlib": "3.11.2"
+    "numpy": "2.3.3",
+    "pandas": "2.3.0",
+    "matplotlib": "3.10.3"
   }
 }
