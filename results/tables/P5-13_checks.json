@@ -1,0 +1,12 @@
+{
+  "inputs_sha256": {
+    "data/processed/P1-02_premium_daily.csv": "d7417e19e9730f4701631eae1e5604f68faa169da1649549c7350f782adcd5e5",
+    "data/processed/P3-03_monitor_daily.csv": "44d12754542844dcb4d97798a8dc3073be0a14e7697436702e5b1ebdc6fcb6b9",
+    "results/tables/P3-01_route_costs.csv": "b654ae28b0dc1fef24bb8706e172f462af802c36b705e2b94bab4de64304a23c",
+    "results/tables/P3-25_composition.csv": "2215be2a60580e52a6cb631ef8cf5966fb9f7f5ead6192f02f3606b0955e0c21"
+  },
+  "font": "IBM Plex Sans",
+  "cusum_event": "2026-06-24",
+  "network_range_type": "benchmark fee range, not confidence interval",
+  "figure_count": 4
+}

@@ -1,0 +1,8 @@
+chart,category,value,unit
+10a_premio,Antes,15.236551236874728,bps
+10a_premio,Choque,109.1438516893647,bps
+10b_rede,Prêmio adicional,93.90730045248996,bps
+10b_rede,Taxa de rede mínimo,0.1,bps
+10b_rede,Taxa de rede máximo,0.2,bps
+10c_foxbit,Antes,6.798264,percent
+10c_foxbit,Depois,34.73824,percent
