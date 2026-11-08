@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1152pt" height="576pt" viewBox="0 0 1152 576" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-08T11:57:58.501731</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 576 
+L 1152 576 
+L 1152 0 
+L 0 0 
+z
+" style="fill: #f6f4ef"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 276.48 449.28 
+L 1105.92 449.28 
+L 1105.92 126.72 
+L 276.48 126.72 
+z
+" style="fill: #f6f4ef"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <path d="M 276.48 449.28 
+L 276.48 126.72 
+" clip-path="url(#p564f3a8225)" style="fill: none; stroke: #ddd7cc; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_2"/>
+     <g id="text_1">
+      <text style="font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5b6573" x="276.48" y="470.676484" transform="rotate(-0 276.48 470.676484)">−40</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_3">
+      <path d="M 377.018182 449.28 
+L 377.018182 126.72 
+" clip-path="url(#p564f3a8225)" style="fill: none; stroke: #ddd7cc; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_4"/>
+     <g id="text_2">
+      <text style="font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5b6573" x="377.018182" y="470.676484" transform="rotate(-0 377.018182 470.676484)">−20</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_5">
+      <path d="M 477.556364 449.28 
+L 477.556364 126.72 
+" clip-path="url(#p564f3a8225)" style="fill: none; stroke: #ddd7cc; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_6"/>
+     <g id="text_3">
+      <text style="font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5b6573" x="477.556364" y="470.676484" transform="rotate(-0 477.556364 470.676484)">0</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_7">
+      <path d="M 578.094545 449.28 
+L 578.094545 126.72 
+" clip-path="url(#p564f3a8225)" style="fill: none; stroke: #ddd7cc; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_8"/>
+     <g id="text_4">
+      <text style="font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5b6573" x="578.094545" y="470.676484" transform="rotate(-0 578.094545 470.676484)">20</text>
+     </g>
+    </g>
+    <g id="xtick_5">
+     <g id="line2d_9">
+      <path d="M 678.632727 449.28 
+L 678.632727 126.72 
+" clip-path="url(#p564f3a8225)" style="fill: none; stroke: #ddd7cc; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_10"/>
+     <g id="text_5">
+      <text style="font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5b6573" x="678.632727" y="470.676484" transform="rotate(-0 678.632727 470.676484)">40</text>
+     </g>
+    </g>
+    <g id="xtick_6">
+     <g id="line2d_11">
+      <path d="M 779.170909 449.28 
+L 779.170909 126.72 
+" clip-path="url(#p564f3a8225)" style="fill: none; stroke: #ddd7cc; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_12"/>
+     <g id="text_6">
+      <text style="font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5b6573" x="779.170909" y="470.676484" transform="rotate(-0 779.170909 470.676484)">60</text>
+     </g>
+    </g>
+    <g id="xtick_7">
+     <g id="line2d_13">
+      <path d="M 879.709091 449.28 
+L 879.709091 126.72 
+" clip-path="url(#p564f3a8225)" style="fill: none; stroke: #ddd7cc; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_14"/>
+     <g id="text_7">
+      <text style="font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5b6573" x="879.709091" y="470.676484" transform="rotate(-0 879.709091 470.676484)">80</text>
+     </g>
+    </g>
+    <g id="xtick_8">
+     <g id="line2d_15">
+      <path d="M 980.247273 449.28 
+L 980.247273 126.72 
+" clip-path="url(#p564f3a8225)" style="fill: none; stroke: #ddd7cc; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_16"/>
+     <g id="text_8">
+      <text style="font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5b6573" x="980.247273" y="470.676484" transform="rotate(-0 980.247273 470.676484)">100</text>
+     </g>
+    </g>
+    <g id="xtick_9">
+     <g id="line2d_17">
+      <path d="M 1080.785455 449.28 
+L 1080.785455 126.72 
+" clip-path="url(#p564f3a8225)" style="fill: none; stroke: #ddd7cc; stroke-width: 0.7; stroke-linecap: square"/>
+     </g>
+     <g id="line2d_18"/>
+     <g id="text_9">
+      <text style="font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5b6573" x="1080.785455" y="470.676484" transform="rotate(-0 1080.785455 470.676484)">120</text>
+     </g>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: middle; fill: #5b6573" x="691.2" y="490.277656" transform="rotate(-0 691.2 490.277656)">Variação do prêmio (bps)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_19"/>
+     <g id="text_11">
+      <text style="font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #5b6573" x="266.48" y="192.898828" transform="rotate(-0 266.48 192.898828)">Brasil (BRL)</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_20"/>
+     <g id="text_12">
+      <text style="font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #5b6573" x="266.48" y="293.698828" transform="rotate(-0 266.48 293.698828)">Zona do euro (EUR)</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_21"/>
+     <g id="text_13">
+      <text style="font-size: 15px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #5b6573" x="266.48" y="394.798828" transform="rotate(-0 266.48 394.798828)">México (MXN)</text>
+     </g>
+    </g>
+   </g>
+   <g id="patch_3">
+    <path d="M 477.556364 212.4 
+L 949.619826 212.4 
+L 949.619826 162 
+L 477.556364 162 
+z
+" clip-path="url(#p564f3a8225)" style="fill: #d9622b"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 477.556364 313.2 
+L 474.786776 313.2 
+L 474.786776 262.8 
+L 477.556364 262.8 
+z
+" clip-path="url(#p564f3a8225)" style="fill: #3b6ea8"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 477.556364 414 
+L 415.688877 414 
+L 415.688877 363.6 
+L 477.556364 363.6 
+z
+" clip-path="url(#p564f3a8225)" style="fill: #9a7627"/>
+   </g>
+   <g id="line2d_22">
+    <path d="M 477.556364 449.28 
+L 477.556364 126.72 
+" clip-path="url(#p564f3a8225)" style="fill: none; stroke: #14213d; stroke-linecap: square"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 276.48 449.28 
+L 1105.92 449.28 
+" style="fill: none; stroke: #ddd7cc; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 21px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14213d" x="959.673644" y="192.655898" transform="rotate(-0 959.673644 192.655898)">+93,9 bps</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 21px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #14213d" x="464.732958" y="293.455898" transform="rotate(-0 464.732958 293.455898)">−0,6 bps</text>
+   </g>
+   <g id="text_16">
+    <text style="font-weight: 700; font-size: 21px; font-family: 'DejaVu Sans'; text-anchor: end; fill: #14213d" x="405.635059" y="394.255898" transform="rotate(-0 405.635059 394.255898)">−12,3 bps</text>
+   </g>
+  </g>
+  <g id="text_17">
+   <text style="font-weight: 700; font-size: 25px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #14213d" x="97.92" y="43.2" transform="rotate(-0 97.92 43.2)">A alta do prêmio se concentrou no Brasil</text>
+  </g>
+  <g id="text_18">
+   <text style="font-size: 14px; font-family: 'DejaVu Sans'; text-anchor: start; fill: #5b6573" x="97.92" y="77.76" transform="rotate(-0 97.92 77.76)">Variação do prêmio médio após 23/jun/2026 • pontos-base (100 bps = 1%)</text>
+  </g>
+  <g id="text_19">
+   <text style="font-style: italic; font-size: 11px; font-family: 'DejaVu Sans'; fill: #5b6573" transform="translate(97.92 520.96)">Fontes: Binance, BCB e BCE. Depois: 24/jun–21/jul; antes: 25/mai–22/jun. Média depois menos média antes.</text>
+   <text style="font-style: italic; font-size: 11px; font-family: 'DejaVu Sans'; fill: #5b6573" transform="translate(97.92 538.56)">Brasil: 20/20 observações; euro e México: 21/20. Comparação descritiva, sem teste de significância adicional.</text>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p564f3a8225">
+   <rect x="276.48" y="126.72" width="829.44" height="322.56"/>
+  </clipPath>
+ </defs>
+</svg>

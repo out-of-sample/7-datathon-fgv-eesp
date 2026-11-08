@@ -1,0 +1,28 @@
+{
+  "inputs_sha256": {
+    "data/processed/P1-02_premium_daily.csv": "d7417e19e9730f4701631eae1e5604f68faa169da1649549c7350f782adcd5e5",
+    "data/processed/P1-05_donor_premiums_daily.csv": "2658a7646d4a72824443a7040238761fdd51b311febdeacff738b46346b0b16e",
+    "results/tables/P3-46_country_direct_comparison.csv": "ce99351b49627aadb9292ef109a6b4345854f2b9565428a80cccecdcddbd7f03"
+  },
+  "first": "2020-10-13",
+  "last": "2026-10-30",
+  "days": 1520,
+  "incomplete_windows": 2,
+  "uncertain_windows": 14,
+  "premium_bps": {
+    "negative_days": 85,
+    "negative_share_pct": 5.592105263157895,
+    "min_pct": -1.275224111357376,
+    "min_date": "2022-09-26",
+    "max_pct": 3.613930839613655,
+    "max_date": "2021-02-23"
+  },
+  "premium_unadj_bps": {
+    "negative_days": 99,
+    "negative_share_pct": 6.513157894736842,
+    "min_pct": -1.3127801664989391,
+    "min_date": "2022-11-17",
+    "max_pct": 3.6061662690401777,
+    "max_date": "2021-02-23"
+  }
+}
