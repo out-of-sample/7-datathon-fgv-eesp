@@ -1,0 +1,9 @@
+{
+  "checkpoint_utc": "2026-11-07T22:21:53.694502+00:00",
+  "saved_v3_runs": 30,
+  "failed_saved_runs": 18,
+  "reference_rows": 229,
+  "reference_sha256": "efd4f7f8ffbfe3b2ab69b3977722ee2cf00182bc32856839d167d84d75379532  reference.csv",
+  "status": "unfinished; batch interrupted at explicit user checkpoint request; no final audit or comparative score",
+  "raw_bundle": "data/raw/p3_28_v2/ (ignored, retained locally)"
+}

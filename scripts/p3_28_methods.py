@@ -420,9 +420,80 @@ def evidence_ok(a, ids, texts):
 
 
 def audit_key(c, f, a):
-    return hashlib.sha256(json.dumps([c, f, (a.get('state') or '').lower(), (a.get('value') or '').strip().lower(),
-                                      [sid(x) for x in a.get('source_ids') or []], a.get('passages') or []],
-                                     ensure_ascii=False).encode()).hexdigest()[:16]
+    """Identity of the complete emitted answer, including units, notes and unexpected prose."""
+    return hashlib.sha256(json.dumps([c, f, a], ensure_ascii=False, sort_keys=True).encode()).hexdigest()[:16]
+
+
+def audit_claims(run_):
+    """Retain all answer/draft/raw claims; deduplicate only identical full payloads."""
+    claims = [(a.get('field_id', '__extra__'), a) for a in run_.get('answers', [])]
+    for a in run_.get('draft') or []:
+        if isinstance(a, dict):
+            claims.append((a.get('field_id', '__extra__'), a))
+        else:
+            claims.append(('__draft_output__', dict(state='unknown', value='', note=str(a))))
+    for raw in run_.get('raw_results') or []:
+        if raw:
+            claims.append(('__raw_output__', dict(state='unknown', value='', note=str(raw))))
+    distinct = {}
+    for fid, a in claims:
+        distinct[json.dumps([fid, a], ensure_ascii=False, sort_keys=True)] = (fid, a)
+    return list(distinct.values())
+
+
+def audit_preflight(cs, tag, audit_path):
+    """Build a blinded inventory and refuse finalization without complete explicit decisions.
+
+    AI audit provenance is mandatory for the newly authorized AI-reviewed pilot. Existing
+    human audits can state auditor_type=human. No audit is inferred to be human review.
+    """
+    required, runs = {}, {}
+    for cid, c in cs.items():
+        fs = {f['field_id']: f for f in fields_for(c)}
+        for method, reps in SCHEDULE.items():
+            for r in range(1, reps + 1):
+                p = RUNS / method / f'{cid}_r{r}.json'
+                run_ = json.loads(p.read_text(encoding='utf-8')) if p.exists() else None
+                runs[(cid, method, r)] = run_
+                if run_ is None:
+                    continue
+                if run_['corpus_hash'] != corpus_hash(run_['permitted']):
+                    sys.exit(f'corpus mismatch for {p.name} ({method}): the run saw other document versions')
+                for fid, a in audit_claims(run_):
+                    k = audit_key(cid, fid, a)
+                    required[k] = dict(key=k, case_id=cid, field_id=fid,
+                        question=fs.get(fid, {}).get('question', 'Check all retained free-text claims'),
+                        profile=c['profile_id'], asset=c['destination_asset'], network=c['chain'],
+                        as_of=c['as_of_utc'][:10], state=a.get('state', ''), value=a.get('value', ''),
+                        unit=a.get('unit', ''),
+                        evidence=' || '.join(f'[{sid(x)}] {y}' for x, y in zip(a.get('source_ids') or [], a.get('passages') or [])),
+                        note=a.get('note', ''), answer_json=json.dumps(a, ensure_ascii=False, sort_keys=True),
+                        supports='', value_ok='', note_claim='', auditor_type='', auditor_id='', auditor_comment='')
+    folder = RAW / 'reference'
+    folder.mkdir(parents=True, exist_ok=True)
+    if audit_path is None:
+        if required:
+            dest = folder / f'audit_sheet{tag}.csv'
+            # The blind sheet contains no method/run/reference labels.
+            with dest.open('w', newline='', encoding='utf-8') as fh:
+                w = csv.DictWriter(fh, list(next(iter(required.values()))))
+                w.writeheader()
+                w.writerows(required[k] for k in sorted(required))
+        return {}, required, runs
+    rows = M.rows(audit_path)
+    aud = {r.get('key', ''): r for r in rows}
+    if not rows or len(aud) != len(rows) or '' in aud:
+        sys.exit('audit incomplete: empty audit, duplicate keys or blank audit key')
+    if set(aud) != set(required):
+        sys.exit(f'audit incomplete: {len(set(required) - set(aud))} missing and {len(set(aud) - set(required))} unexpected keys')
+    for k, row in aud.items():
+        if any(row.get(x, '').strip().lower() not in ('yes', 'no') for x in ('supports', 'value_ok', 'note_claim')):
+            sys.exit(f'audit incomplete: invalid or blank yes/no decision for {k}')
+        if row.get('auditor_type', '').strip().lower() not in ('ai', 'human') or not row.get('auditor_id', '').strip():
+            sys.exit(f'audit incomplete: auditor_type (ai/human) and auditor_id required for {k}')
+        for field in ('supports', 'value_ok', 'note_claim', 'auditor_type'):
+            row[field] = row[field].strip().lower()
+    return aud, required, runs
 
 
 def score(ref_path, which, tag='', audit_path=None):
@@ -432,9 +503,10 @@ def score(ref_path, which, tag='', audit_path=None):
     field are excluded from SAC (counted). Macro: mean over a case's scheduled repeats, then over cases.
     Locked manifest: every case x SCHEDULE run must exist; a missing or failed run (errors, timeout) earns zero and its
     answers are still checked by the guardrail. Duplicate answers to one field earn zero; a bad positive among them
-    counts. Guardrail: availability answers 'supported' where the reference is not 'supported', the evidence is invalid,
-    or the auditor marks supports = no; plus notes the auditor flags. Corpus hashes of every run must match the current
-    text extracts, else scoring stops."""
+    counts. Guardrail: final and draft availability claims 'supported' where the reference is not 'supported', evidence
+    is invalid, or the auditor marks supports = no; plus flagged notes and all raw-call prose. Counts refer to retained
+    claim representations, not independent errors. Every distinct complete payload requires an audit decision. Corpus
+    hashes of every run must match the current text extracts, else scoring stops."""
     cs = {k: c for k, c in cases().items() if c['split'] == which}
     ref = {(r['case_id'], r['field_id']): r for r in M.rows(ref_path)}
     need = [(cid, f['field_id']) for cid, c in cs.items() for f in fields_for(c)]
@@ -442,14 +514,15 @@ def score(ref_path, which, tag='', audit_path=None):
     if gaps:
         sys.exit(f'reference incomplete: {len(gaps)} of {len(need)} rows missing or blank, e.g. {gaps[:3]}')
     texts = {i: M.norm(doc_text(i)) for i in M.latest()[1]}
-    aud = {r['key']: r for r in M.rows(audit_path)} if audit_path else {}
-    scores, errs, costs, to_audit, missing = [], [], [], {}, []
+    audited = audit_path is not None
+    aud, required_audit, saved_runs = audit_preflight(cs, tag, audit_path)
+    scores, errs, costs, missing = [], [], [], []
     for cid, c in cs.items():
         fs = fields_for(c)
         for method, reps in SCHEDULE.items():
             for r in range(1, reps + 1):
                 p = RUNS / method / f'{cid}_r{r}.json'
-                run_ = json.loads(p.read_text(encoding='utf-8')) if p.exists() else None
+                run_ = saved_runs[(cid, method, r)]
                 if run_ is None:
                     missing.append(f'{method}/{cid}_r{r}')
                 elif run_['corpus_hash'] != corpus_hash(run_['permitted']):
@@ -467,19 +540,12 @@ def score(ref_path, which, tag='', audit_path=None):
                     mech = answerable(f, rf) and correct(f, rf, a) and ev and not failed
                     k = audit_key(cid, f['field_id'], a) if a else ''
                     ad = aud.get(k, {})
-                    fin = mech and (not aud or (ad.get('supports', '').lower() == 'yes' and (
+                    fin = mech and (not audited or (ad.get('supports', '').lower() == 'yes' and (
                         f['field_id'] not in TEXT_FIELDS or ad.get('value_ok', '').lower() == 'yes')))
                     bad_pos = any(f['kind'] == 'availability' and (x.get('state') or '').lower() == 'supported' and (
                         rf['state'].strip().lower() != 'supported' or not evidence_ok(x, run_['permitted'], texts) or
                         aud.get(audit_key(cid, f['field_id'], x), {}).get('supports', '').lower() == 'no') for x in al)
-                    bad_pos += bool(ad.get('note_claim', '').lower() == 'yes')
-                    if a and (mech or (f['kind'] == 'availability' and (a.get('state') or '').lower() == 'supported')
-                              or (a.get('note') or '').strip()):
-                        to_audit[k] = dict(key=k, case_id=cid, field_id=f['field_id'], question=f['question'],
-                                           profile=c['profile_id'], asset=c['destination_asset'], network=c['chain'],
-                                           as_of=c['as_of_utc'][:10], state=a.get('state', ''), value=a.get('value', ''),
-                                           evidence=' || '.join(f'[{sid(x)}] {y}' for x, y in zip(a.get('source_ids') or [], a.get('passages') or [])),
-                                           note=a.get('note', ''), supports='', value_ok='', note_claim='', auditor_comment='')
+                    bad_pos += any(aud.get(audit_key(cid, f['field_id'], x), {}).get('note_claim', '').lower() == 'yes' for x in al)
                     unk_ans += is_unk
                     if answerable(f, rf):
                         n_ans += 1
@@ -495,6 +561,20 @@ def score(ref_path, which, tag='', audit_path=None):
                                      else 'unsupported_positive' if bad_pos else 'duplicate' if len(al) > 1
                                      else 'failed_run' if failed else 'false_unknown' if is_unk
                                      else 'invalid_evidence' if not ev else 'not_confirmed_by_audit' if mech else 'wrong_answer'))
+                # Drafts, extra fields and every call's prose cannot vanish outside the final-answer loop.
+                expected_fields = {f['field_id'] for f in fs}
+                final_keys = {audit_key(cid, a.get('field_id', '__extra__'), a)
+                              for a in (run_ or {}).get('answers', []) if a.get('field_id') in expected_fields}
+                for fid, extra in audit_claims(run_ or {}):
+                    extra_key = audit_key(cid, fid, extra)
+                    if extra_key not in final_keys:
+                        extra_audit = aud.get(extra_key, {})
+                        guard += int(extra_audit.get('note_claim', '').lower() == 'yes')
+                        if (extra.get('state') or '').lower() == 'supported':
+                            rf = ref.get((cid, fid), {})
+                            guard += int(fid not in expected_fields or rf.get('state', '').strip().lower() != 'supported'
+                                         or not evidence_ok(extra, (run_ or {}).get('permitted', []), texts)
+                                         or extra_audit.get('supports', '').lower() == 'no')
                 scores.append(dict(method=method, case_id=cid, family=c['group_id'], repeat=r, answerable=n_ans,
                                    credited=n_ok, sac=n_ok / n_ans if n_ans else '', unsupported_positive=guard,
                                    ref_unknown=unk_ref, unknown_kept=unk_ok, all_unknown_rate=unk_ans / len(fs),
@@ -515,15 +595,11 @@ def score(ref_path, which, tag='', audit_path=None):
                 w = csv.DictWriter(fh, list(data[0]))
                 w.writeheader()
                 w.writerows(data)
-    if not aud and to_audit:  # blinded audit sheet: no method, run or reference columns; one row per distinct answer
-        rows_ = sorted(to_audit.values(), key=lambda x: x['key'])
-        with open(RAW / f'reference/audit_sheet{tag}.csv', 'w', newline='', encoding='utf-8') as fh:
-            w = csv.DictWriter(fh, list(rows_[0]))
-            w.writeheader()
-            w.writerows(rows_)
-    label = 'FINAL (audited)' if aud else 'PROVISIONAL (mechanical; semantic audit pending)'
+    types = {x['auditor_type'].strip().lower() for x in aud.values()}
+    provenance = 'AI-reviewed exploratory pilot; not human validated' if types == {'ai'} else 'mixed AI/human audit' if 'ai' in types else 'human audit'
+    label = f'FINAL ({provenance})' if audited else 'PROVISIONAL (mechanical; semantic audit pending)'
     print(f'{which} {label}; missing runs {len(missing)}{" " + str(missing[:4]) if missing else ""}; '
-          f'audit sheet rows {len(to_audit)}')
+          f'audit sheet rows {len(required_audit)}')
     print('method | cases in SAC (excluded: no answerable field) | SAC | unsupported positives | unknown kept | all-unknown | failed')
     for m in SCHEDULE:
         rs_ = [x for x in scores if x['method'] == m]

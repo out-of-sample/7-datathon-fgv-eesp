@@ -367,7 +367,8 @@ def chains():
                     'ok': bool(bounds[0].get('code_sha256')),
                     'detail': f"implementations {sorted({r.get('implementation') for r in bounds})}, "
                               f"code hashes {len({r.get('code_sha256') for r in bounds})}, decimals {sorted({r['decimals'] for r in bounds}, key=str)}"})
-        # prediction P-0045 (held out from Celo): flat 00:44-00:48 UTC window -> DefiLlama equals supply within 1 BRLA
+        # prediction P-0045: equal 00:44/00:48 endpoint supplies -> DefiLlama equals supply within 1 BRLA.
+        # Legacy flat_window column tests endpoints only; no claim about intervening mint/burn events.
         for k in range(DEV_END + 1):
             t44 = int((day(k) + dt.timedelta(minutes=44)).timestamp())
             b44 = block_at_search(pa, t44, bounds[k]['block'], head)
@@ -411,11 +412,11 @@ def chains():
             cells += [f"{float(r['supply_brla']) / 1e6:,.3f}" if r['supply_brla'] else '-',
                       f"{float(r['r_at_0000_brla']):,.0f}" if r['r_at_0000_brla'] else '-']
         L.append(f'| {lab} | ' + ' | '.join(cells) + ' |')
-    L += ['', '## Prediction P-0045 (held out from Celo): DefiLlama = supply in a flat 00:44-00:48 UTC window, +-1 BRLA', '']
+    L += ['', '## Prediction P-0045 (held out from Celo): DefiLlama = equal endpoint supply at 00:44/00:48 UTC, +-1 BRLA (intervening changes not checked)', '']
     for n in CHAINS:
         v = [x['verdict'] for x in pred if x['chain'] == n]
         inf = sum(x['informative'] for x in pred if x['chain'] == n)
-        L.append(f"- {n}: {v.count('match')} match, {v.count('miss')} miss, {v.count('not_tested')} not tested (window not flat "
+        L.append(f"- {n}: {v.count('match')} match, {v.count('miss')} miss, {v.count('not_tested')} not tested (unequal endpoints "
                  f"or no value); informative matches (00:44 value differs from 00:00 by more than 1 BRLA, post hoc): {inf}")
     L += [f"- misses: {[(x['chain'], x['label'], x['defillama_v1'], x['supply_0044_brla']) for x in pred if x['verdict'] == 'miss']}",
           '', '## Offset screen (Celo daily change vs the three other contracts combined; accounting, not linking)', '',

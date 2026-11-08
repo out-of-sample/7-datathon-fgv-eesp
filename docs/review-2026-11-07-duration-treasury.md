@@ -50,3 +50,6 @@ Independent slicing of P3-20 daily data gives E1 pre-mean 19.23185 bps, post-mea
 ## Remaining approvals and review limits
 
 Nattan or Jonathan must still sign the specified human reruns for P3-26/P3-30/P3-31/P3-32. Agent reproduction is recorded as evidence, not a substitute for named human gates. P3-33 conclusion choice and P3-39 exhibit adoption remain Felipe's decisions. P3-36/P3-40 are completed scoped audits, not final external-source/PDF certification. Their Economist review status is unchanged by request.
+
+## Follow-through — 7 Nov 2026
+The approved implementation pass corrected the assessment's universal duration claim, pure-premium hedge wording, indicative-price/ideal-forward description, holder chart legend and incident task insulation/restoration claims. Current handoffs distinguish completed AI technical review from economic adoption; obsolete task references and superseded replay blockers are qualified. Felipe explicitly substituted AI technical reviews for named-human reruns; no human validation is claimed. Economist statuses remain review.

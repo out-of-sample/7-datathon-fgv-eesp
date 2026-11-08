@@ -11,3 +11,5 @@ data/agentic_bundle/
 __pycache__/
 .env
 .venv/
+scratch/p3_44_diagnostic/
+scratch/p3_44_diagnostic_tests/

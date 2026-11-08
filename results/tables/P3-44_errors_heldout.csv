@@ -1,0 +1,1801 @@
+method,case_id,repeat,field_id,ref_state,ref_value,state,value,n_answers,evidence_valid,mechanical,final,failed_run,outcome
+B0,H-01,1,F01,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-01,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-01,1,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",unknown,,1,False,False,False,False,false_unknown
+B0,H-01,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-01,1,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B0,H-01,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-01,1,F07,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-01,1,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-01,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-01,1,F10,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-01,1,F11,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-01,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-01,1,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,,1,True,False,False,False,wrong_answer
+B0,H-01,1,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B0,H-01,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-01,1,F01,supported,,supported,,1,True,True,True,False,correct
+B1,H-01,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,1,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B1,H-01,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,1,F05,,by account; monthly per currency/direction plus global USD limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-01,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,1,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-01,1,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,1,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-01,1,F11,supported,,supported,,1,True,True,True,False,correct
+B1,H-01,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,1,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,2026-11-15,1,True,False,False,False,wrong_answer
+B1,H-01,1,F14,,by account; monthly per currency/direction plus global USD limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-01,1,F15,supported,,supported,,1,True,True,True,False,correct
+B1,H-01,2,F01,supported,,supported,,1,True,True,True,False,correct
+B1,H-01,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,2,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B1,H-01,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,2,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B1,H-01,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,2,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-01,2,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,2,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-01,2,F11,supported,,supported,,1,True,True,True,False,correct
+B1,H-01,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,2,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,False,wrong_answer
+B1,H-01,2,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B1,H-01,2,F15,supported,,supported,,1,True,True,True,False,correct
+B1,H-01,3,F01,supported,,supported,,1,True,True,True,False,correct
+B1,H-01,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,3,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B1,H-01,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,3,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B1,H-01,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,3,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-01,3,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,3,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-01,3,F11,supported,,supported,,1,True,True,True,False,correct
+B1,H-01,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-01,3,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,2026-11-15,1,True,False,False,False,wrong_answer
+B1,H-01,3,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B1,H-01,3,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-01,1,F01,supported,,supported,,1,True,True,True,False,correct
+B2,H-01,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,1,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B2,H-01,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,1,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-01,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,1,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-01,1,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,1,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-01,1,F11,supported,,supported,,1,True,True,True,False,correct
+B2,H-01,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,1,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,False,wrong_answer
+B2,H-01,1,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-01,1,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-01,2,F01,supported,,supported,,1,True,True,True,False,correct
+B2,H-01,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,2,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B2,H-01,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,2,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-01,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,2,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-01,2,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,2,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-01,2,F11,supported,,supported,,1,True,True,True,False,correct
+B2,H-01,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,2,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,False,wrong_answer
+B2,H-01,2,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-01,2,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-01,3,F01,supported,,supported,,1,True,True,True,False,correct
+B2,H-01,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,3,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1,1,True,True,True,False,correct
+B2,H-01,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,3,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-01,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,3,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-01,3,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,3,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-01,3,F11,supported,,supported,,1,True,True,True,False,correct
+B2,H-01,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-01,3,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,False,wrong_answer
+B2,H-01,3,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-01,3,F15,supported,,supported,,1,True,True,True,False,correct
+A,H-01,1,F01,supported,,supported,,1,True,False,False,True,failed_run
+A,H-01,1,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,1,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,False,False,True,failed_run
+A,H-01,1,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,1,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,True,failed_run
+A,H-01,1,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,1,F07,supported,,supported,,1,True,False,False,True,failed_run
+A,H-01,1,F08,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,1,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,1,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-01,1,F11,supported,,supported,,1,True,False,False,True,failed_run
+A,H-01,1,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,1,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,True,failed_run
+A,H-01,1,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,True,failed_run
+A,H-01,1,F15,supported,,unknown,,1,False,False,False,True,failed_run
+A,H-01,2,F01,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-01,2,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,2,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1,1,True,False,False,True,failed_run
+A,H-01,2,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,2,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,True,failed_run
+A,H-01,2,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,2,F07,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-01,2,F08,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,2,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,2,F10,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-01,2,F11,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-01,2,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,2,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,2026-11-15,1,True,False,False,True,failed_run
+A,H-01,2,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,True,failed_run
+A,H-01,2,F15,supported,,unknown,,1,False,False,False,True,failed_run
+A,H-01,3,F01,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-01,3,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,3,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1,1,True,False,False,True,failed_run
+A,H-01,3,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,3,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,True,failed_run
+A,H-01,3,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,3,F07,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-01,3,F08,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,3,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,3,F10,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-01,3,F11,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-01,3,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-01,3,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,2026-11-15,1,True,False,False,True,failed_run
+A,H-01,3,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,True,failed_run
+A,H-01,3,F15,supported,,unknown,,1,False,False,False,True,failed_run
+B0,H-02,1,F01,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-02,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-02,1,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",unknown,,1,False,False,False,False,false_unknown
+B0,H-02,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-02,1,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B0,H-02,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-02,1,F07,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-02,1,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-02,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-02,1,F10,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-02,1,F11,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-02,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-02,1,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,,1,True,False,False,False,wrong_answer
+B0,H-02,1,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B0,H-02,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-02,1,F01,supported,,supported,,1,True,True,True,False,correct
+B1,H-02,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-02,1,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B1,H-02,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-02,1,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B1,H-02,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-02,1,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-02,1,F08,unknown,,supported,0,1,True,False,False,False,wrong_answer
+B1,H-02,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-02,1,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-02,1,F11,supported,,supported,,1,True,True,True,False,correct
+B1,H-02,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-02,1,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,False,unsupported_positive
+B1,H-02,1,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B1,H-02,1,F15,supported,,supported,,1,True,True,True,False,correct
+B1,H-02,2,F01,supported,,supported,,1,True,True,True,False,correct
+B1,H-02,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-02,2,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B1,H-02,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-02,2,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B1,H-02,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-02,2,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-02,2,F08,unknown,,supported,0,1,True,False,False,False,wrong_answer
+B1,H-02,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-02,2,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-02,2,F11,supported,,supported,,1,True,True,True,False,correct
+B1,H-02,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-02,2,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,False,unsupported_positive
+B1,H-02,2,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B1,H-02,2,F15,supported,,supported,,1,True,True,True,False,correct
+B1,H-02,3,F01,supported,,supported,,1,True,True,True,False,correct
+B1,H-02,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-02,3,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B1,H-02,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-02,3,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B1,H-02,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-02,3,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-02,3,F08,unknown,,supported,0,1,True,False,False,False,wrong_answer
+B1,H-02,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-02,3,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-02,3,F11,supported,,supported,,1,True,True,True,False,correct
+B1,H-02,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-02,3,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,False,unsupported_positive
+B1,H-02,3,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B1,H-02,3,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-02,1,F01,supported,,supported,,1,True,True,True,False,correct
+B2,H-02,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-02,1,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B2,H-02,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-02,1,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-02,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-02,1,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-02,1,F08,unknown,,supported,0,1,True,False,False,False,wrong_answer
+B2,H-02,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-02,1,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-02,1,F11,supported,,supported,,1,True,True,True,False,correct
+B2,H-02,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-02,1,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,2026-11-15,1,True,False,False,False,unsupported_positive
+B2,H-02,1,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-02,1,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-02,2,F01,supported,,supported,,1,True,True,True,False,correct
+B2,H-02,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-02,2,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B2,H-02,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-02,2,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-02,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-02,2,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-02,2,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-02,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-02,2,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-02,2,F11,supported,,supported,,1,True,True,True,False,correct
+B2,H-02,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-02,2,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,2026-11-15,1,True,False,False,False,unsupported_positive
+B2,H-02,2,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-02,2,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-02,3,F01,supported,,supported,supported,1,True,True,True,False,correct
+B2,H-02,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-02,3,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B2,H-02,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-02,3,F05,,by account; monthly per currency/direction plus global USD limit,supported,case by case,1,True,False,False,False,wrong_answer
+B2,H-02,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-02,3,F07,supported,,supported,supported,1,True,True,True,False,correct
+B2,H-02,3,F08,unknown,,supported,0,1,True,False,False,False,wrong_answer
+B2,H-02,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-02,3,F10,supported,,supported,supported,1,True,True,True,False,correct
+B2,H-02,3,F11,supported,,supported,supported,1,True,True,True,False,correct
+B2,H-02,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-02,3,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,2026-11-15,1,True,False,False,False,unsupported_positive
+B2,H-02,3,F14,,by account; monthly per currency/direction plus global USD limit,supported,case by case,1,True,False,False,False,wrong_answer
+B2,H-02,3,F15,supported,,supported,supported,1,True,True,True,False,correct
+A,H-02,1,F01,supported,,supported,,1,True,False,False,True,failed_run
+A,H-02,1,F02,unknown,,supported,yes,1,True,False,False,True,unsupported_positive
+A,H-02,1,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1,1,True,False,False,True,failed_run
+A,H-02,1,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-02,1,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,True,failed_run
+A,H-02,1,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-02,1,F07,supported,,supported,,1,True,False,False,True,failed_run
+A,H-02,1,F08,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-02,1,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-02,1,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-02,1,F11,supported,,supported,,1,True,False,False,True,failed_run
+A,H-02,1,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-02,1,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,True,unsupported_positive
+A,H-02,1,F14,,by account; monthly per currency/direction plus global USD limit,supported,100000 USD,1,True,False,False,True,failed_run
+A,H-02,1,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-02,2,F01,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-02,2,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-02,2,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1,1,True,False,False,True,failed_run
+A,H-02,2,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-02,2,F05,,by account; monthly per currency/direction plus global USD limit,supported,case by case,1,True,False,False,True,failed_run
+A,H-02,2,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-02,2,F07,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-02,2,F08,unknown,,supported,0,1,True,False,False,True,failed_run
+A,H-02,2,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-02,2,F10,supported,,unknown,,1,False,False,False,True,failed_run
+A,H-02,2,F11,supported,,unknown,,1,False,False,False,True,failed_run
+A,H-02,2,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-02,2,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,True,unsupported_positive
+A,H-02,2,F14,,by account; monthly per currency/direction plus global USD limit,supported,case by case,1,True,False,False,True,failed_run
+A,H-02,2,F15,supported,,unknown,,1,False,False,False,True,failed_run
+A,H-02,3,F01,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-02,3,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-02,3,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1,1,True,False,False,True,failed_run
+A,H-02,3,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-02,3,F05,,by account; monthly per currency/direction plus global USD limit,supported,case by case,1,True,False,False,True,failed_run
+A,H-02,3,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-02,3,F07,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-02,3,F08,unknown,,supported,0,1,True,False,False,True,failed_run
+A,H-02,3,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-02,3,F10,supported,,unknown,,1,False,False,False,True,failed_run
+A,H-02,3,F11,supported,,unknown,,1,False,False,False,True,failed_run
+A,H-02,3,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-02,3,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,2026-11-15,1,True,False,False,True,unsupported_positive
+A,H-02,3,F14,,by account; monthly per currency/direction plus global USD limit,supported,case by case,1,True,False,False,True,failed_run
+A,H-02,3,F15,supported,,unknown,,1,False,False,False,True,failed_run
+B0,H-03,1,F01,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-03,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-03,1,F03,supported,KYC Level 1 identity documents/selfie and terms acceptance,unknown,,1,False,False,False,False,false_unknown
+B0,H-03,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-03,1,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B0,H-03,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-03,1,F07,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-03,1,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-03,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-03,1,F10,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-03,1,F11,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-03,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-03,1,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,,1,True,False,False,False,unsupported_positive
+B0,H-03,1,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B0,H-03,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-03,1,F01,supported,,supported,,1,True,True,True,False,correct
+B1,H-03,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,1,F03,supported,KYC Level 1 identity documents/selfie and terms acceptance,supported,KYC verification,1,True,True,True,False,correct
+B1,H-03,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,1,F05,,by account; monthly per currency/direction plus global USD limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-03,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,1,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-03,1,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,1,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-03,1,F11,supported,,supported,,1,True,True,True,False,correct
+B1,H-03,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,1,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,False,unsupported_positive
+B1,H-03,1,F14,,by account; monthly per currency/direction plus global USD limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-03,1,F15,supported,,supported,,1,True,True,True,False,correct
+B1,H-03,2,F01,supported,,supported,,1,True,True,True,False,correct
+B1,H-03,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,2,F03,supported,KYC Level 1 identity documents/selfie and terms acceptance,supported,KYC verification,1,True,True,True,False,correct
+B1,H-03,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,2,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B1,H-03,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,2,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-03,2,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,2,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-03,2,F11,supported,,supported,,1,True,True,True,False,correct
+B1,H-03,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,2,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,2026-11-15,1,True,False,False,False,unsupported_positive
+B1,H-03,2,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B1,H-03,2,F15,supported,,supported,,1,True,True,True,False,correct
+B1,H-03,3,F01,supported,,supported,,1,True,True,True,False,correct
+B1,H-03,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,3,F03,supported,KYC Level 1 identity documents/selfie and terms acceptance,supported,Cadastro aprovado,1,True,True,True,False,correct
+B1,H-03,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,3,F05,,by account; monthly per currency/direction plus global USD limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-03,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,3,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-03,3,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,3,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-03,3,F11,supported,,supported,,1,True,True,True,False,correct
+B1,H-03,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-03,3,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,2026-11-15,1,True,False,False,False,unsupported_positive
+B1,H-03,3,F14,,by account; monthly per currency/direction plus global USD limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-03,3,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-03,1,F01,supported,,supported,,1,True,True,True,False,correct
+B2,H-03,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,1,F03,supported,KYC Level 1 identity documents/selfie and terms acceptance,supported,KYC Level 1,1,True,True,True,False,correct
+B2,H-03,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,1,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-03,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,1,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-03,1,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,1,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-03,1,F11,supported,,supported,,1,True,True,True,False,correct
+B2,H-03,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,1,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,False,unsupported_positive
+B2,H-03,1,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-03,1,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-03,2,F01,supported,,supported,,1,True,True,True,False,correct
+B2,H-03,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,2,F03,supported,KYC Level 1 identity documents/selfie and terms acceptance,supported,Cadastro aprovado,1,True,True,True,False,correct
+B2,H-03,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,2,F05,,by account; monthly per currency/direction plus global USD limit,supported,by account level,1,True,False,False,False,wrong_answer
+B2,H-03,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,2,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-03,2,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,2,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-03,2,F11,supported,,supported,,1,True,True,True,False,correct
+B2,H-03,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,2,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,False,unsupported_positive
+B2,H-03,2,F14,,by account; monthly per currency/direction plus global USD limit,supported,by account level,1,True,False,False,False,wrong_answer
+B2,H-03,2,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-03,3,F01,supported,,supported,,1,True,True,True,False,correct
+B2,H-03,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,3,F03,supported,KYC Level 1 identity documents/selfie and terms acceptance,supported,Cadastro aprovado,1,True,True,True,False,correct
+B2,H-03,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,3,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-03,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,3,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-03,3,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,3,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-03,3,F11,supported,,supported,,1,True,True,True,False,correct
+B2,H-03,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-03,3,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,False,unsupported_positive
+B2,H-03,3,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-03,3,F15,supported,,supported,,1,True,True,True,False,correct
+A,H-03,1,F01,supported,,supported,,1,True,False,False,True,failed_run
+A,H-03,1,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,1,F03,supported,KYC Level 1 identity documents/selfie and terms acceptance,supported,KYC Level 1,1,True,False,False,True,failed_run
+A,H-03,1,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,1,F05,,by account; monthly per currency/direction plus global USD limit,supported,case by case,1,True,False,False,True,failed_run
+A,H-03,1,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,1,F07,supported,,supported,,1,True,False,False,True,failed_run
+A,H-03,1,F08,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,1,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,1,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-03,1,F11,supported,,supported,,1,True,False,False,True,failed_run
+A,H-03,1,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,1,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,2026-11-15,1,True,False,False,True,unsupported_positive
+A,H-03,1,F14,,by account; monthly per currency/direction plus global USD limit,supported,case by case,1,True,False,False,True,failed_run
+A,H-03,1,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-03,2,F01,supported,,supported,,1,True,False,False,True,failed_run
+A,H-03,2,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,2,F03,supported,KYC Level 1 identity documents/selfie and terms acceptance,supported,KYC Level 1,1,True,False,False,True,failed_run
+A,H-03,2,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,2,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,True,failed_run
+A,H-03,2,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,2,F07,supported,,supported,,1,True,False,False,True,failed_run
+A,H-03,2,F08,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,2,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,2,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-03,2,F11,supported,,supported,,1,True,False,False,True,failed_run
+A,H-03,2,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,2,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,True,unsupported_positive
+A,H-03,2,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,True,failed_run
+A,H-03,2,F15,supported,,unknown,,1,False,False,False,True,failed_run
+A,H-03,3,F01,supported,,supported,,1,True,False,False,True,failed_run
+A,H-03,3,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,3,F03,supported,KYC Level 1 identity documents/selfie and terms acceptance,supported,KYC Level 1,1,True,False,False,True,failed_run
+A,H-03,3,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,3,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,True,failed_run
+A,H-03,3,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,3,F07,supported,,supported,,1,True,False,False,True,failed_run
+A,H-03,3,F08,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,3,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,3,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-03,3,F11,supported,,supported,,1,True,False,False,True,failed_run
+A,H-03,3,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-03,3,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,True,unsupported_positive
+A,H-03,3,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,True,failed_run
+A,H-03,3,F15,supported,,unknown,,1,False,False,False,True,failed_run
+B0,H-04,1,F01,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-04,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-04,1,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",unknown,,1,False,False,False,False,false_unknown
+B0,H-04,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-04,1,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B0,H-04,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-04,1,F07,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-04,1,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-04,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-04,1,F10,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-04,1,F11,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-04,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-04,1,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,,1,True,False,False,False,unsupported_positive
+B0,H-04,1,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B0,H-04,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-04,1,F01,supported,,supported,supported,1,True,True,True,False,correct
+B1,H-04,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,1,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B1,H-04,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,1,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B1,H-04,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,1,F07,supported,,supported,supported,1,True,True,True,False,correct
+B1,H-04,1,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,1,F10,supported,,supported,supported,1,True,True,True,False,correct
+B1,H-04,1,F11,supported,,supported,supported,1,True,True,True,False,correct
+B1,H-04,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,1,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,2026-11-15,1,True,False,False,False,wrong_answer
+B1,H-04,1,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B1,H-04,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-04,2,F01,supported,,supported,,1,True,True,True,False,correct
+B1,H-04,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,2,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B1,H-04,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,2,F05,,by account; monthly per currency/direction plus global USD limit,supported,case by case,1,True,False,False,False,wrong_answer
+B1,H-04,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,2,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-04,2,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,2,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-04,2,F11,supported,,supported,,1,True,True,True,False,correct
+B1,H-04,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,2,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,False,wrong_answer
+B1,H-04,2,F14,,by account; monthly per currency/direction plus global USD limit,supported,case by case,1,True,False,False,False,wrong_answer
+B1,H-04,2,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-04,3,F01,supported,,supported,,1,True,True,True,False,correct
+B1,H-04,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,3,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B1,H-04,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,3,F05,,by account; monthly per currency/direction plus global USD limit,supported,case by case,1,True,False,False,False,wrong_answer
+B1,H-04,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,3,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-04,3,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,3,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-04,3,F11,supported,,supported,,1,True,True,True,False,correct
+B1,H-04,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-04,3,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,False,wrong_answer
+B1,H-04,3,F14,,by account; monthly per currency/direction plus global USD limit,supported,case by case,1,True,False,False,False,wrong_answer
+B1,H-04,3,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B2,H-04,1,F01,supported,,supported,,1,True,True,True,False,correct
+B2,H-04,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,1,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B2,H-04,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,1,F05,,by account; monthly per currency/direction plus global USD limit,supported,by account level,1,True,False,False,False,wrong_answer
+B2,H-04,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,1,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-04,1,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,1,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-04,1,F11,supported,,supported,,1,True,True,True,False,correct
+B2,H-04,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,1,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,False,wrong_answer
+B2,H-04,1,F14,,by account; monthly per currency/direction plus global USD limit,supported,by account level,1,True,False,False,False,wrong_answer
+B2,H-04,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B2,H-04,2,F01,supported,,supported,,1,True,True,True,False,correct
+B2,H-04,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,2,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B2,H-04,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,2,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-04,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,2,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-04,2,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,2,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-04,2,F11,supported,,supported,,1,True,True,True,False,correct
+B2,H-04,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,2,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,False,wrong_answer
+B2,H-04,2,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-04,2,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B2,H-04,3,F01,supported,,supported,,1,True,True,True,False,correct
+B2,H-04,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,3,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1 verification,1,True,True,True,False,correct
+B2,H-04,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,3,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-04,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,3,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-04,3,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,3,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-04,3,F11,supported,,supported,,1,True,True,True,False,correct
+B2,H-04,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-04,3,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,False,wrong_answer
+B2,H-04,3,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,False,false_unknown
+B2,H-04,3,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+A,H-04,1,F01,supported,,supported,,1,True,False,False,True,failed_run
+A,H-04,1,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,1,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1,1,True,False,False,True,failed_run
+A,H-04,1,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,1,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,True,failed_run
+A,H-04,1,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,1,F07,supported,,supported,,1,True,False,False,True,failed_run
+A,H-04,1,F08,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,1,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,1,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-04,1,F11,supported,,supported,,1,True,False,False,True,failed_run
+A,H-04,1,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,1,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,2026-11-15,1,True,False,False,True,failed_run
+A,H-04,1,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,True,failed_run
+A,H-04,1,F15,supported,,unknown,,1,False,False,False,True,failed_run
+A,H-04,2,F01,supported,,supported,,1,True,False,False,True,failed_run
+A,H-04,2,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,2,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1,1,True,False,False,True,failed_run
+A,H-04,2,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,2,F05,,by account; monthly per currency/direction plus global USD limit,supported,case by case,1,True,False,False,True,failed_run
+A,H-04,2,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,2,F07,supported,,supported,,1,True,False,False,True,failed_run
+A,H-04,2,F08,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,2,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,2,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-04,2,F11,supported,,supported,,1,True,False,False,True,failed_run
+A,H-04,2,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,2,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,"November 15, 2026",1,True,False,False,True,failed_run
+A,H-04,2,F14,,by account; monthly per currency/direction plus global USD limit,supported,case by case,1,True,False,False,True,failed_run
+A,H-04,2,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-04,3,F01,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-04,3,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,3,F03,supported,"KYB Level 1, company information/legal documents and representative identity; both questionnaires",supported,KYB Level 1,1,True,False,False,True,failed_run
+A,H-04,3,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,3,F05,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,True,failed_run
+A,H-04,3,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,3,F07,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-04,3,F08,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,3,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,3,F10,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-04,3,F11,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-04,3,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-04,3,F13,supported,"Wallet address/network registration; qualification optional as of date, required 2026-11-15",supported,2026-11-15,1,True,False,False,True,failed_run
+A,H-04,3,F14,,by account; monthly per currency/direction plus global USD limit,unknown,,1,False,False,False,True,failed_run
+A,H-04,3,F15,supported,,supported,supported,1,True,False,False,True,failed_run
+B0,H-05,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-05,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-05,1,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-05,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-05,1,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-05,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-05,1,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-05,1,F08,,10,unknown,,1,False,False,False,False,false_unknown
+B0,H-05,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-05,1,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-05,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-05,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-05,1,F13,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-05,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-05,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-05,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,1,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,1,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,1,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,1,F08,,10,supported,10,1,True,True,True,False,correct
+B1,H-05,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,1,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,1,F13,unknown,,supported,análise de risco,1,True,False,False,False,unsupported_positive
+B1,H-05,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,1,F15,supported,,supported,supported,1,True,True,True,False,correct
+B1,H-05,2,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,2,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,2,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,2,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,2,F08,,10,supported,10,1,True,True,True,False,correct
+B1,H-05,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,2,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,2,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,2,F13,unknown,,supported,análise de risco,1,True,False,False,False,unsupported_positive
+B1,H-05,2,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,2,F15,supported,,supported,,1,True,True,True,False,correct
+B1,H-05,3,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,3,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,3,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,3,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,3,F08,,10,supported,10,1,True,True,True,False,correct
+B1,H-05,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,3,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,3,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,3,F13,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,3,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-05,3,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-05,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,1,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,1,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,1,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,1,F08,,10,supported,10,1,True,True,True,False,correct
+B2,H-05,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,1,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,1,F13,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,1,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-05,2,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,2,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,2,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,2,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,2,F08,,10,supported,10,1,True,True,True,False,correct
+B2,H-05,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,2,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,2,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,2,F13,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,2,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,2,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-05,3,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,3,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,3,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,3,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,3,F08,,10,supported,10,1,True,True,True,False,correct
+B2,H-05,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,3,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,3,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,3,F13,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,3,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-05,3,F15,supported,,supported,,1,True,True,True,False,correct
+A,H-05,1,F01,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,1,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,1,F03,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,1,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,1,F05,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,1,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,1,F07,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,1,F08,,10,supported,10,1,True,False,False,True,failed_run
+A,H-05,1,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,1,F10,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,1,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,1,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,1,F13,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,1,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,1,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-05,2,F01,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,2,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,2,F03,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,2,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,2,F05,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,2,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,2,F07,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,2,F08,,10,supported,10,1,True,False,False,True,failed_run
+A,H-05,2,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,2,F10,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,2,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,2,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,2,F13,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,2,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,2,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-05,3,F01,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,3,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,3,F03,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,3,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,3,F05,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,3,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,3,F07,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,3,F08,,10,supported,10,1,True,False,False,True,failed_run
+A,H-05,3,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,3,F10,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,3,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,3,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,3,F13,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,3,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-05,3,F15,supported,,supported,,1,True,False,False,True,failed_run
+B0,H-06,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-06,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-06,1,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-06,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-06,1,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-06,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-06,1,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-06,1,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-06,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-06,1,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-06,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-06,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-06,1,F13,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-06,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-06,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-06,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,1,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,1,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,1,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,1,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,1,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,1,F13,unknown,,supported,análise de risco,1,True,False,False,False,unsupported_positive
+B1,H-06,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,1,F15,supported,,supported,,1,True,True,True,False,correct
+B1,H-06,2,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,2,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,2,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,2,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,2,F08,unknown,,supported,9.5,1,True,False,False,False,wrong_answer
+B1,H-06,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,2,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,2,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,2,F13,unknown,,supported,análise de risco,1,True,False,False,False,unsupported_positive
+B1,H-06,2,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,2,F15,supported,,supported,,1,True,True,True,False,correct
+B1,H-06,3,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,3,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,3,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,3,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,3,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,3,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,3,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,3,F13,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,3,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-06,3,F15,supported,,supported,supported,1,True,True,True,False,correct
+B2,H-06,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,1,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,1,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,1,F07,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B2,H-06,1,F08,unknown,,supported,9.5,1,True,False,False,False,wrong_answer
+B2,H-06,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,1,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,1,F13,unknown,,supported,yes,1,True,False,False,False,unsupported_positive
+B2,H-06,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,1,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-06,2,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,2,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,2,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,2,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,2,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,2,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,2,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,2,F13,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,2,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,2,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-06,3,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,3,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,3,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,3,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,3,F08,unknown,,supported,9.5,1,True,False,False,False,wrong_answer
+B2,H-06,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,3,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,3,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,3,F13,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,3,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-06,3,F15,supported,,supported,supported,1,True,True,True,False,correct
+A,H-06,1,F01,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,1,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,1,F03,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,1,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,1,F05,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,1,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,1,F07,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,1,F08,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,1,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,1,F10,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,1,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,1,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,1,F13,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,1,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,1,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-06,2,F01,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,2,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,2,F03,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,2,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,2,F05,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,2,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,2,F07,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,2,F08,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,2,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,2,F10,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,2,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,2,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,2,F13,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,2,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,2,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-06,3,F01,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,3,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,3,F03,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,3,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,3,F05,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,3,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,3,F07,unknown,,supported,,1,True,False,False,True,unsupported_positive
+A,H-06,3,F08,unknown,,supported,9.5,1,True,False,False,True,failed_run
+A,H-06,3,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,3,F10,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,3,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,3,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,3,F13,unknown,,supported,2027-01-01,1,True,False,False,True,unsupported_positive
+A,H-06,3,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-06,3,F15,supported,,supported,,1,True,False,False,True,failed_run
+B0,H-07,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-07,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-07,1,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-07,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-07,1,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-07,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-07,1,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-07,1,F08,,10,unknown,,1,False,False,False,False,false_unknown
+B0,H-07,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-07,1,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-07,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-07,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-07,1,F13,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-07,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-07,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-07,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,1,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,1,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,1,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,1,F08,,10,supported,10,1,True,True,True,False,correct
+B1,H-07,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,1,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,1,F13,unknown,,supported,análise de risco da respectiva operação,1,True,False,False,False,unsupported_positive
+B1,H-07,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,1,F15,supported,,supported,,1,True,True,True,False,correct
+B1,H-07,2,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,2,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,2,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,2,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,2,F08,,10,supported,10,1,True,True,True,False,correct
+B1,H-07,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,2,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,2,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,2,F13,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,2,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,2,F15,supported,,supported,,1,True,True,True,False,correct
+B1,H-07,3,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,3,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,3,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,3,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,3,F08,,10,supported,10,1,True,True,True,False,correct
+B1,H-07,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,3,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,3,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,3,F13,unknown,,supported,análise de risco,1,True,False,False,False,unsupported_positive
+B1,H-07,3,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-07,3,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-07,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,1,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,1,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,1,F07,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B2,H-07,1,F08,,10,supported,10,1,True,True,True,False,correct
+B2,H-07,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,1,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,1,F13,unknown,,supported,análise de risco,1,True,False,False,False,unsupported_positive
+B2,H-07,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,1,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-07,2,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,2,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,2,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,2,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,2,F08,,10,supported,10,1,True,True,True,False,correct
+B2,H-07,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,2,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,2,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,2,F13,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,2,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,2,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-07,3,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,3,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,3,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,3,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,3,F08,,10,supported,10,1,True,True,True,False,correct
+B2,H-07,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,3,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,3,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,3,F13,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,3,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-07,3,F15,supported,,supported,,1,True,True,True,False,correct
+A,H-07,1,F01,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,1,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,1,F03,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,1,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,1,F05,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,1,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,1,F07,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,1,F08,,10,supported,10,1,True,False,False,True,failed_run
+A,H-07,1,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,1,F10,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,1,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,1,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,1,F13,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,1,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,1,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-07,2,F01,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,2,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,2,F03,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,2,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,2,F05,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,2,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,2,F07,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,2,F08,,10,supported,10,1,True,False,False,True,failed_run
+A,H-07,2,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,2,F10,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,2,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,2,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,2,F13,unknown,,supported,1º de janeiro de 2027,1,True,False,False,True,unsupported_positive
+A,H-07,2,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,2,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-07,3,F01,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,3,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,3,F03,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,3,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,3,F05,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,3,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,3,F07,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,3,F08,,10,supported,10,1,True,False,False,True,failed_run
+A,H-07,3,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,3,F10,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,3,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,3,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,3,F13,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,3,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-07,3,F15,supported,,supported,,1,True,False,False,True,failed_run
+B0,H-08,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-08,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-08,1,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-08,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-08,1,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-08,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-08,1,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-08,1,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-08,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-08,1,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-08,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-08,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-08,1,F13,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-08,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-08,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-08,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,1,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,1,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,1,F07,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B1,H-08,1,F08,unknown,,supported,9.5,1,True,False,False,False,wrong_answer
+B1,H-08,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,1,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,1,F13,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B1,H-08,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,1,F15,supported,,supported,,1,True,True,True,False,correct
+B1,H-08,2,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,2,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,2,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,2,F07,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,2,F08,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,2,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,2,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,2,F13,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B1,H-08,2,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,2,F15,supported,,supported,,1,True,True,True,False,correct
+B1,H-08,3,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,3,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,3,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,3,F07,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B1,H-08,3,F08,unknown,,supported,9.5,1,True,False,False,False,wrong_answer
+B1,H-08,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,3,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,3,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,3,F13,unknown,,supported,análise de risco da respectiva operação,1,True,False,False,False,unsupported_positive
+B1,H-08,3,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-08,3,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-08,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,1,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,1,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,1,F07,unknown,,supported,supported,1,True,False,False,False,unsupported_positive
+B2,H-08,1,F08,unknown,,supported,9.5,1,True,False,False,False,wrong_answer
+B2,H-08,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,1,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,1,F13,unknown,,supported,análise de risco da respectiva operação,1,True,False,False,False,unsupported_positive
+B2,H-08,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,1,F15,supported,,supported,supported,1,True,True,True,False,correct
+B2,H-08,2,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,2,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,2,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,2,F07,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B2,H-08,2,F08,unknown,,supported,9.5,1,True,False,False,False,wrong_answer
+B2,H-08,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,2,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,2,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,2,F13,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,2,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,2,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-08,3,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,3,F03,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,3,F05,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,3,F07,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B2,H-08,3,F08,unknown,,supported,9.5,1,True,False,False,False,wrong_answer
+B2,H-08,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,3,F10,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,3,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,3,F13,unknown,,supported,análise de risco,1,True,False,False,False,unsupported_positive
+B2,H-08,3,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-08,3,F15,supported,,supported,,1,True,True,True,False,correct
+A,H-08,1,F01,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,1,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,1,F03,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,1,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,1,F05,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,1,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,1,F07,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,1,F08,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,1,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,1,F10,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,1,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,1,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,1,F13,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,1,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,1,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-08,2,F01,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,2,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,2,F03,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,2,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,2,F05,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,2,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,2,F07,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,2,F08,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,2,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,2,F10,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,2,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,2,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,2,F13,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,2,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,2,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-08,3,F01,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,3,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,3,F03,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,3,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,3,F05,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,3,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,3,F07,unknown,,supported,,1,True,False,False,True,unsupported_positive
+A,H-08,3,F08,unknown,,supported,9.5,1,True,False,False,True,failed_run
+A,H-08,3,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,3,F10,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,3,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,3,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,3,F13,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,3,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-08,3,F15,supported,,supported,,1,True,False,False,True,failed_run
+B0,H-09,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-09,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-09,1,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",unknown,,1,False,False,False,False,false_unknown
+B0,H-09,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-09,1,F05,,by account verification; verified deposits have no stated limit,unknown,,1,False,False,False,False,false_unknown
+B0,H-09,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-09,1,F07,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-09,1,F08,,70,,30.0,1,False,False,False,False,invalid_evidence
+B0,H-09,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-09,1,F10,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-09,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-09,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-09,1,F13,supported,yes; effective 2026-05-01,supported,,1,True,False,False,False,wrong_answer
+B0,H-09,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-09,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-09,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,1,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB e conta ativada,1,True,True,True,False,correct
+B1,H-09,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,1,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-09,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,1,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-09,1,F08,,70,supported,70,1,True,True,True,False,correct
+B1,H-09,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,1,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-09,1,F11,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B1,H-09,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,1,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,False,wrong_answer
+B1,H-09,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,1,F15,supported,,supported,,1,True,True,True,False,correct
+B1,H-09,2,F01,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B1,H-09,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,2,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,aprovação cadastral de pessoa jurídica com envio de documentos societários,1,True,True,True,False,correct
+B1,H-09,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,2,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-09,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,2,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-09,2,F08,,70,supported,70,1,True,True,True,False,correct
+B1,H-09,2,F09,unknown,,supported,declaração de finalidade da operação,1,True,False,False,False,unsupported_positive
+B1,H-09,2,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-09,2,F11,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B1,H-09,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,2,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,False,False,False,False,unsupported_positive
+B1,H-09,2,F14,unknown,,supported,case by case,1,False,False,False,False,invalid_evidence
+B1,H-09,2,F15,supported,,supported,,1,True,True,True,False,correct
+B1,H-09,3,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,3,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB e conta ativada,1,False,False,False,False,unsupported_positive
+B1,H-09,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,3,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-09,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,3,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-09,3,F08,,70,supported,70,1,True,True,True,False,correct
+B1,H-09,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,3,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-09,3,F11,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B1,H-09,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,3,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,True,False,False,False,wrong_answer
+B1,H-09,3,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-09,3,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-09,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,1,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB,1,True,True,True,False,correct
+B2,H-09,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,1,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B2,H-09,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,1,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-09,1,F08,,70,supported,70,1,True,True,True,False,correct
+B2,H-09,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,1,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-09,1,F11,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B2,H-09,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,1,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,True,False,False,False,wrong_answer
+B2,H-09,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,1,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-09,2,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,2,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB,1,True,True,True,False,correct
+B2,H-09,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,2,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B2,H-09,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,2,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-09,2,F08,,70,supported,70,1,True,True,True,False,correct
+B2,H-09,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,2,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-09,2,F11,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B2,H-09,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,2,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,True,False,False,False,wrong_answer
+B2,H-09,2,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,2,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-09,3,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,3,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB,1,True,True,True,False,correct
+B2,H-09,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,3,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B2,H-09,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,3,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-09,3,F08,,70,supported,70,1,True,True,True,False,correct
+B2,H-09,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,3,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-09,3,F11,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B2,H-09,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,3,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,False,wrong_answer
+B2,H-09,3,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-09,3,F15,supported,,supported,,1,True,True,True,False,correct
+A,H-09,1,F01,unknown,,supported,,1,True,False,False,True,unsupported_positive
+A,H-09,1,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,1,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB,1,True,False,False,True,failed_run
+A,H-09,1,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,1,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,True,failed_run
+A,H-09,1,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,1,F07,supported,,supported,,1,True,False,False,True,failed_run
+A,H-09,1,F08,,70,supported,70,1,True,False,False,True,failed_run
+A,H-09,1,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,1,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-09,1,F11,unknown,,supported,,1,True,False,False,True,unsupported_positive
+A,H-09,1,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,1,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,True,failed_run
+A,H-09,1,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,1,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-09,2,F01,unknown,,supported,,1,True,False,False,True,unsupported_positive
+A,H-09,2,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,2,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB,1,True,False,False,True,failed_run
+A,H-09,2,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,2,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,True,failed_run
+A,H-09,2,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,2,F07,supported,,supported,,1,True,False,False,True,failed_run
+A,H-09,2,F08,,70,supported,70,1,True,False,False,True,failed_run
+A,H-09,2,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,2,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-09,2,F11,unknown,,supported,,1,True,False,False,True,unsupported_positive
+A,H-09,2,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,2,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,True,failed_run
+A,H-09,2,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,2,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-09,3,F01,unknown,,supported,,1,True,False,False,True,unsupported_positive
+A,H-09,3,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,3,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB e conta ativada,1,True,False,False,True,failed_run
+A,H-09,3,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,3,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,True,failed_run
+A,H-09,3,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,3,F07,supported,,supported,,1,True,False,False,True,failed_run
+A,H-09,3,F08,,70,supported,70,1,False,False,False,True,failed_run
+A,H-09,3,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,3,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-09,3,F11,unknown,,supported,,1,True,False,False,True,unsupported_positive
+A,H-09,3,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,3,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,True,failed_run
+A,H-09,3,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-09,3,F15,supported,,supported,,1,True,False,False,True,failed_run
+B0,H-10,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-10,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-10,1,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",unknown,,1,False,False,False,False,false_unknown
+B0,H-10,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-10,1,F05,,by account verification; verified deposits have no stated limit,unknown,,1,False,False,False,False,false_unknown
+B0,H-10,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-10,1,F07,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-10,1,F08,,70,,30.0,1,False,False,False,False,invalid_evidence
+B0,H-10,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-10,1,F10,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-10,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-10,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-10,1,F13,supported,yes; effective 2026-05-01,supported,,1,True,False,False,False,wrong_answer
+B0,H-10,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-10,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-10,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,1,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB e conta ativada,1,True,True,True,False,correct
+B1,H-10,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,1,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-10,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,1,F07,supported,,supported,supported,1,True,True,True,False,correct
+B1,H-10,1,F08,,70,supported,70,1,True,True,True,False,correct
+B1,H-10,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,1,F10,supported,,supported,supported,1,True,True,True,False,correct
+B1,H-10,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,1,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,False,False,False,False,unsupported_positive
+B1,H-10,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-10,2,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,2,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB,1,True,True,True,False,correct
+B1,H-10,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,2,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-10,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,2,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-10,2,F08,,70,supported,70,1,True,True,True,False,correct
+B1,H-10,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,2,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-10,2,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,2,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,True,False,False,False,wrong_answer
+B1,H-10,2,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,2,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-10,3,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,3,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB,1,True,True,True,False,correct
+B1,H-10,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,3,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-10,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,3,F07,supported,,supported,supported,1,False,False,False,False,unsupported_positive
+B1,H-10,3,F08,,70,supported,70,1,True,True,True,False,correct
+B1,H-10,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,3,F10,supported,,supported,supported,1,True,True,True,False,correct
+B1,H-10,3,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,3,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,True,False,False,False,wrong_answer
+B1,H-10,3,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-10,3,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B2,H-10,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,1,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB e envio de documentos da pessoa jurídica,1,True,True,True,False,correct
+B2,H-10,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,1,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B2,H-10,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,1,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-10,1,F08,,70,supported,70,1,True,True,True,False,correct
+B2,H-10,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,1,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-10,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,1,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,True,False,False,False,wrong_answer
+B2,H-10,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B2,H-10,2,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,2,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB e conta ativada,1,True,True,True,False,correct
+B2,H-10,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,2,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B2,H-10,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,2,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-10,2,F08,,70,supported,70,1,True,True,True,False,correct
+B2,H-10,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,2,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-10,2,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,2,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,False,wrong_answer
+B2,H-10,2,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,2,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B2,H-10,3,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,3,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB,1,True,True,True,False,correct
+B2,H-10,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,3,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B2,H-10,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,3,F07,supported,,unknown,,1,False,False,False,False,false_unknown
+B2,H-10,3,F08,,70,supported,70,1,True,True,True,False,correct
+B2,H-10,3,F09,unknown,,supported,declaração de finalidade da operação,1,True,False,False,False,unsupported_positive
+B2,H-10,3,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-10,3,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,3,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,True,False,False,False,wrong_answer
+B2,H-10,3,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-10,3,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+A,H-10,1,F01,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,1,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,1,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB,1,True,False,False,True,failed_run
+A,H-10,1,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,1,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,True,failed_run
+A,H-10,1,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,1,F07,supported,,supported,,1,False,False,False,True,unsupported_positive
+A,H-10,1,F08,,70,supported,70,1,True,False,False,True,failed_run
+A,H-10,1,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,1,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-10,1,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,1,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,1,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,True,failed_run
+A,H-10,1,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,1,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-10,2,F01,unknown,,supported,,1,True,False,False,True,unsupported_positive
+A,H-10,2,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,2,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB e conta ativada,1,True,False,False,True,failed_run
+A,H-10,2,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,2,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,True,failed_run
+A,H-10,2,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,2,F07,supported,,supported,,1,False,False,False,True,unsupported_positive
+A,H-10,2,F08,,70,supported,70,1,True,False,False,True,failed_run
+A,H-10,2,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,2,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-10,2,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,2,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,2,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,True,failed_run
+A,H-10,2,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,2,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-10,3,F01,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,3,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,3,F03,supported,"Approved registration and active account; CNPJ, company constitution, representatives/beneficial owners identity, representative facial biometrics and financial details",supported,cadastro aprovado pelo MB,1,True,False,False,True,failed_run
+A,H-10,3,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,3,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,True,failed_run
+A,H-10,3,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,3,F07,supported,,supported,,1,True,False,False,True,failed_run
+A,H-10,3,F08,,70,supported,70,1,True,False,False,True,failed_run
+A,H-10,3,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,3,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-10,3,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,3,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,3,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,True,failed_run
+A,H-10,3,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-10,3,F15,supported,,supported,,1,True,False,False,True,failed_run
+B0,H-11,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-11,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-11,1,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",unknown,,1,False,False,False,False,false_unknown
+B0,H-11,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-11,1,F05,,by account verification; verified deposits have no stated limit,unknown,,1,False,False,False,False,false_unknown
+B0,H-11,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-11,1,F07,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-11,1,F08,,70,,30.0,1,False,False,False,False,invalid_evidence
+B0,H-11,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-11,1,F10,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-11,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-11,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-11,1,F13,supported,yes; effective 2026-05-01,supported,,1,True,False,False,False,wrong_answer
+B0,H-11,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-11,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-11,1,F01,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B1,H-11,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,1,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado pelo MB,1,True,True,True,False,correct
+B1,H-11,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,1,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-11,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,1,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-11,1,F08,,70,supported,70,1,True,True,True,False,correct
+B1,H-11,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,1,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-11,1,F11,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B1,H-11,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,1,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,False,False,False,False,unsupported_positive
+B1,H-11,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,1,F15,supported,,supported,,1,True,True,True,False,correct
+B1,H-11,2,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,2,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado pelo MB,1,True,True,True,False,correct
+B1,H-11,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,2,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-11,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,2,F07,supported,,supported,supported,1,True,True,True,False,correct
+B1,H-11,2,F08,,70,supported,70,1,True,True,True,False,correct
+B1,H-11,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,2,F10,supported,,supported,supported,1,True,True,True,False,correct
+B1,H-11,2,F11,unknown,,supported,supported,1,True,False,False,False,unsupported_positive
+B1,H-11,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,2,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,False,False,False,False,unsupported_positive
+B1,H-11,2,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,2,F15,supported,,supported,supported,1,True,True,True,False,correct
+B1,H-11,3,F01,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B1,H-11,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,3,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado pelo MB,1,True,True,True,False,correct
+B1,H-11,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,3,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-11,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,3,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-11,3,F08,,70,supported,70,1,True,True,True,False,correct
+B1,H-11,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,3,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-11,3,F11,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B1,H-11,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,3,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,False,False,False,False,unsupported_positive
+B1,H-11,3,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-11,3,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-11,1,F01,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B2,H-11,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,1,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado pelo MB,1,True,True,True,False,correct
+B2,H-11,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,1,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B2,H-11,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,1,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-11,1,F08,,70,supported,70,1,True,True,True,False,correct
+B2,H-11,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,1,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-11,1,F11,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B2,H-11,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,1,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,True,False,False,False,wrong_answer
+B2,H-11,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,1,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-11,2,F01,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B2,H-11,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,2,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado pelo MB,1,True,True,True,False,correct
+B2,H-11,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,2,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B2,H-11,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,2,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-11,2,F08,,70,supported,70,1,True,True,True,False,correct
+B2,H-11,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,2,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-11,2,F11,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B2,H-11,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,2,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,True,False,False,False,wrong_answer
+B2,H-11,2,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,2,F15,supported,,supported,,1,True,True,True,False,correct
+B2,H-11,3,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,3,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado pelo MB,1,True,True,True,False,correct
+B2,H-11,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,3,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B2,H-11,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,3,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-11,3,F08,,70,supported,70,1,True,True,True,False,correct
+B2,H-11,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,3,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-11,3,F11,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B2,H-11,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,3,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,True,False,False,False,wrong_answer
+B2,H-11,3,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-11,3,F15,supported,,supported,,1,True,True,True,False,correct
+A,H-11,1,F01,unknown,,supported,,1,True,False,False,True,unsupported_positive
+A,H-11,1,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,1,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado pelo MB,1,True,False,False,True,failed_run
+A,H-11,1,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,1,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,True,failed_run
+A,H-11,1,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,1,F07,supported,,supported,,1,True,False,False,True,failed_run
+A,H-11,1,F08,,70,supported,70,1,True,False,False,True,failed_run
+A,H-11,1,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,1,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-11,1,F11,unknown,,supported,,1,True,False,False,True,unsupported_positive
+A,H-11,1,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,1,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,True,failed_run
+A,H-11,1,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,1,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-11,2,F01,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,2,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,2,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado pelo MB,1,True,False,False,True,failed_run
+A,H-11,2,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,2,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,True,failed_run
+A,H-11,2,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,2,F07,supported,,supported,,1,True,False,False,True,failed_run
+A,H-11,2,F08,,70,supported,70,1,True,False,False,True,failed_run
+A,H-11,2,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,2,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-11,2,F11,unknown,,supported,,1,True,False,False,True,unsupported_positive
+A,H-11,2,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,2,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,True,failed_run
+A,H-11,2,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,2,F15,supported,,supported,,1,True,False,False,True,failed_run
+A,H-11,3,F01,unknown,,supported,supported,1,True,False,False,True,unsupported_positive
+A,H-11,3,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,3,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado pelo MB,1,True,False,False,True,failed_run
+A,H-11,3,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,3,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,True,failed_run
+A,H-11,3,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,3,F07,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-11,3,F08,,70,supported,70,1,True,False,False,True,failed_run
+A,H-11,3,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,3,F10,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-11,3,F11,unknown,,supported,supported,1,True,False,False,True,unsupported_positive
+A,H-11,3,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,3,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,True,failed_run
+A,H-11,3,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-11,3,F15,supported,,supported,supported,1,True,False,False,True,failed_run
+B0,H-12,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-12,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-12,1,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",unknown,,1,False,False,False,False,false_unknown
+B0,H-12,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-12,1,F05,,by account verification; verified deposits have no stated limit,unknown,,1,False,False,False,False,false_unknown
+B0,H-12,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-12,1,F07,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-12,1,F08,,70,,30.0,1,False,False,False,False,invalid_evidence
+B0,H-12,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-12,1,F10,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,H-12,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-12,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-12,1,F13,supported,yes; effective 2026-05-01,supported,,1,True,False,False,False,unsupported_positive
+B0,H-12,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,H-12,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-12,1,F01,unknown,,supported,supported,1,False,False,False,False,unsupported_positive
+B1,H-12,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,1,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado pelo MB,1,False,False,False,False,unsupported_positive
+B1,H-12,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,1,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,False,False,False,False,invalid_evidence
+B1,H-12,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,1,F07,supported,,supported,supported,1,False,False,False,False,unsupported_positive
+B1,H-12,1,F08,,70,supported,70,1,False,False,False,False,invalid_evidence
+B1,H-12,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,1,F10,supported,,supported,supported,1,False,False,False,False,unsupported_positive
+B1,H-12,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,1,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,False,False,False,False,unsupported_positive
+B1,H-12,1,F14,unknown,,supported,case by case,1,False,False,False,False,invalid_evidence
+B1,H-12,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-12,2,F01,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B1,H-12,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,2,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado pelo MB,1,True,True,True,False,correct
+B1,H-12,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,2,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-12,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,2,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-12,2,F08,,70,supported,70,1,True,True,True,False,correct
+B1,H-12,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,2,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-12,2,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,2,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,True,False,False,False,wrong_answer
+B1,H-12,2,F14,unknown,,supported,case by case,1,True,False,False,False,wrong_answer
+B1,H-12,2,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,H-12,3,F01,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B1,H-12,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,3,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado pelo MB,1,True,True,True,False,correct
+B1,H-12,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,3,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B1,H-12,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,3,F07,supported,,supported,,1,True,True,True,False,correct
+B1,H-12,3,F08,,70,supported,70,1,True,True,True,False,correct
+B1,H-12,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,3,F10,supported,,supported,,1,True,True,True,False,correct
+B1,H-12,3,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,3,F13,supported,yes; effective 2026-05-01,supported,1º de maio de 2026,1,True,False,False,False,wrong_answer
+B1,H-12,3,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,H-12,3,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B2,H-12,1,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,1,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,1,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado,1,True,True,True,False,correct
+B2,H-12,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,1,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B2,H-12,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,1,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-12,1,F08,,70,supported,70,1,True,True,True,False,correct
+B2,H-12,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,1,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-12,1,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,1,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,False,wrong_answer
+B2,H-12,1,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B2,H-12,2,F01,unknown,,supported,,1,True,False,False,False,unsupported_positive
+B2,H-12,2,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,2,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado pelo MB,1,True,True,True,False,correct
+B2,H-12,2,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,2,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B2,H-12,2,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,2,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-12,2,F08,,70,supported,70,1,True,True,True,False,correct
+B2,H-12,2,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,2,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-12,2,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,2,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,2,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,False,wrong_answer
+B2,H-12,2,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,2,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B2,H-12,3,F01,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,3,F02,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,3,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado pelo MB,1,True,True,True,False,correct
+B2,H-12,3,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,3,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,False,wrong_answer
+B2,H-12,3,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,3,F07,supported,,supported,,1,True,True,True,False,correct
+B2,H-12,3,F08,,70,supported,70,1,True,True,True,False,correct
+B2,H-12,3,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,3,F10,supported,,supported,,1,True,True,True,False,correct
+B2,H-12,3,F11,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,3,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,3,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,False,wrong_answer
+B2,H-12,3,F14,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,H-12,3,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+A,H-12,1,F01,unknown,,supported,,1,True,False,False,True,unsupported_positive
+A,H-12,1,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,1,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado,1,True,False,False,True,failed_run
+A,H-12,1,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,1,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,True,failed_run
+A,H-12,1,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,1,F07,supported,,supported,,1,True,False,False,True,unsupported_positive
+A,H-12,1,F08,,70,supported,70,1,True,False,False,True,failed_run
+A,H-12,1,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,1,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-12,1,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,1,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,1,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,True,failed_run
+A,H-12,1,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,1,F15,supported,,supported,,1,True,False,False,True,unsupported_positive
+A,H-12,2,F01,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,2,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,2,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,cadastro aprovado,1,True,False,False,True,failed_run
+A,H-12,2,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,2,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,True,failed_run
+A,H-12,2,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,2,F07,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-12,2,F08,,70,supported,70,1,True,False,False,True,failed_run
+A,H-12,2,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,2,F10,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-12,2,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,2,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,2,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,True,failed_run
+A,H-12,2,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,2,F15,supported,,supported,supported,1,True,False,False,True,failed_run
+A,H-12,3,F01,unknown,,supported,,1,True,False,False,True,unsupported_positive
+A,H-12,3,F02,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,3,F03,supported,"Approved registration and active account; CPF, birth date, residence, facial biometrics, income/assets",supported,"cadastro aprovado pelo MB, sua conta ativada",1,True,False,False,True,failed_run
+A,H-12,3,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,3,F05,,by account verification; verified deposits have no stated limit,supported,by account level,1,True,False,False,True,failed_run
+A,H-12,3,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,3,F07,supported,,supported,,1,True,False,False,True,unsupported_positive
+A,H-12,3,F08,,70,supported,70,1,True,False,False,True,failed_run
+A,H-12,3,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,3,F10,supported,,supported,,1,True,False,False,True,failed_run
+A,H-12,3,F11,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,3,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,3,F13,supported,yes; effective 2026-05-01,supported,2026-05-01,1,True,False,False,True,failed_run
+A,H-12,3,F14,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,H-12,3,F15,supported,,supported,,1,True,False,False,True,unsupported_positive

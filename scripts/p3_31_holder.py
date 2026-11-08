@@ -441,7 +441,7 @@ def main():
     ax2.plot(headline.horizon_ptax_days, headline.unhedged_savings_brl / 1000, marker='o', color='#2ca02c', lw=2,
              label='B2: esperar sem hedge (inclui a valorização do real)')
     ax2.plot(headline.horizon_ptax_days, headline.hedged_savings_brl / 1000, marker='s', color='#1f77b4', lw=2,
-             label='B3: esperar com hedge cambial (só prêmio + juro em USD)')
+             label='B3: esperar com termo ideal; USDT/USD e residual permanecem')
     ax2.axhline(0, color='black', linewidth=0.8)
     for _, r in headline.iterrows():
         ax2.annotate(f"{r.hedged_savings_bps:+.0f} pb", xy=(r.horizon_ptax_days, r.hedged_savings_brl / 1000),

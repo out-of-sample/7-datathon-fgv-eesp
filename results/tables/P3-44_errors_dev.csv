@@ -1,0 +1,197 @@
+method,case_id,repeat,field_id,ref_state,ref_value,state,value,n_answers,evidence_valid,mechanical,final,failed_run,outcome
+B0,D-01,1,F01,supported,,supported,,1,True,True,True,False,correct
+B0,D-01,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B0,D-01,1,F03,supported,"KYC PJ/compliance, company and representative documents; withdrawal verification level may require additional documents/video call",unknown,,1,False,False,False,False,false_unknown
+B0,D-01,1,F04,,72,unknown,,1,False,False,False,False,false_unknown
+B0,D-01,1,F05,,case by case,unknown,,1,False,False,False,False,false_unknown
+B0,D-01,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,D-01,1,F07,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,D-01,1,F08,,50,,50.0,1,True,True,True,False,correct
+B0,D-01,1,F09,supported,Separate commercial analysis for stablecoins; limits by monthly volume and per-operation ticket,unknown,,1,False,False,False,False,false_unknown
+B0,D-01,1,F10,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,D-01,1,F11,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,D-01,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,D-01,1,F13,supported,yes; effective 2026-11-01,supported,,1,True,False,False,False,wrong_answer
+B0,D-01,1,F14,,case by case,unknown,,1,False,False,False,False,false_unknown
+B0,D-01,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,D-01,1,F01,supported,,supported,,1,True,True,True,False,correct
+B1,D-01,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B1,D-01,1,F03,supported,"KYC PJ/compliance, company and representative documents; withdrawal verification level may require additional documents/video call",supported,company verification by compliance,1,True,True,True,False,correct
+B1,D-01,1,F04,,72,supported,3 business days,1,True,False,False,False,wrong_answer
+B1,D-01,1,F05,,case by case,supported,case by case,1,True,True,True,False,correct
+B1,D-01,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,D-01,1,F07,supported,,conditional,,1,True,False,False,False,wrong_answer
+B1,D-01,1,F08,,50,supported,50,1,True,True,True,False,correct
+B1,D-01,1,F09,supported,Separate commercial analysis for stablecoins; limits by monthly volume and per-operation ticket,supported,separate commercial analysis,1,True,True,True,False,correct
+B1,D-01,1,F10,supported,,supported,,1,True,True,True,False,correct
+B1,D-01,1,F11,supported,,supported,,1,True,True,True,False,correct
+B1,D-01,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,D-01,1,F13,supported,yes; effective 2026-11-01,supported,2026-11-01,1,True,False,False,False,wrong_answer
+B1,D-01,1,F14,,case by case,supported,case by case,1,True,True,True,False,correct
+B1,D-01,1,F15,supported,,supported,,1,True,True,True,False,correct
+B2,D-01,1,F01,supported,,supported,,1,True,True,True,False,correct
+B2,D-01,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B2,D-01,1,F03,supported,"KYC PJ/compliance, company and representative documents; withdrawal verification level may require additional documents/video call",supported,company verification by compliance,1,True,True,True,False,correct
+B2,D-01,1,F04,,72,supported,3,1,True,False,False,False,wrong_answer
+B2,D-01,1,F05,,case by case,supported,case by case,1,True,True,True,False,correct
+B2,D-01,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,D-01,1,F07,supported,,conditional,,1,True,False,False,False,wrong_answer
+B2,D-01,1,F08,,50,supported,50,1,True,True,True,False,correct
+B2,D-01,1,F09,supported,Separate commercial analysis for stablecoins; limits by monthly volume and per-operation ticket,supported,separate commercial analysis,1,True,True,True,False,correct
+B2,D-01,1,F10,supported,,supported,,1,True,True,True,False,correct
+B2,D-01,1,F11,supported,,supported,,1,True,True,True,False,correct
+B2,D-01,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,D-01,1,F13,supported,yes; effective 2026-11-01,supported,2026-11-01,1,True,False,False,False,wrong_answer
+B2,D-01,1,F14,,case by case,supported,case by case,1,True,True,True,False,correct
+B2,D-01,1,F15,supported,,supported,,1,True,True,True,False,correct
+A,D-01,1,F01,supported,,,,0,False,False,False,True,failed_run
+A,D-01,1,F02,supported,yes,,,0,False,False,False,True,failed_run
+A,D-01,1,F03,supported,"KYC PJ/compliance, company and representative documents; withdrawal verification level may require additional documents/video call",,,0,False,False,False,True,failed_run
+A,D-01,1,F04,,72,,,0,False,False,False,True,failed_run
+A,D-01,1,F05,,case by case,,,0,False,False,False,True,failed_run
+A,D-01,1,F06,unknown,,,,0,False,False,False,True,correct_unknown
+A,D-01,1,F07,supported,,,,0,False,False,False,True,failed_run
+A,D-01,1,F08,,50,,,0,False,False,False,True,failed_run
+A,D-01,1,F09,supported,Separate commercial analysis for stablecoins; limits by monthly volume and per-operation ticket,,,0,False,False,False,True,failed_run
+A,D-01,1,F10,supported,,,,0,False,False,False,True,failed_run
+A,D-01,1,F11,supported,,,,0,False,False,False,True,failed_run
+A,D-01,1,F12,unknown,,,,0,False,False,False,True,correct_unknown
+A,D-01,1,F13,supported,yes; effective 2026-11-01,,,0,False,False,False,True,failed_run
+A,D-01,1,F14,,case by case,,,0,False,False,False,True,failed_run
+A,D-01,1,F15,supported,,,,0,False,False,False,True,failed_run
+B0,D-02,1,F01,supported,,supported,,1,True,True,True,False,correct
+B0,D-02,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B0,D-02,1,F03,supported,"KYC PJ/compliance, company and representative documents; withdrawal verification level may require additional documents/video call",unknown,,1,False,False,False,False,false_unknown
+B0,D-02,1,F04,,72,unknown,,1,False,False,False,False,false_unknown
+B0,D-02,1,F05,,case by case,unknown,,1,False,False,False,False,false_unknown
+B0,D-02,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,D-02,1,F07,conditional,,unknown,,1,False,False,False,False,false_unknown
+B0,D-02,1,F08,,50,,50.0,1,True,True,True,False,correct
+B0,D-02,1,F09,supported,Separate commercial analysis for stablecoins; limits by monthly volume and per-operation ticket,unknown,,1,False,False,False,False,false_unknown
+B0,D-02,1,F10,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,D-02,1,F11,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,D-02,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,D-02,1,F13,supported,yes; effective 2026-11-01,supported,,1,True,False,False,False,wrong_answer
+B0,D-02,1,F14,,case by case,unknown,,1,False,False,False,False,false_unknown
+B0,D-02,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,D-02,1,F01,supported,,supported,supported,1,True,True,True,False,correct
+B1,D-02,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B1,D-02,1,F03,supported,"KYC PJ/compliance, company and representative documents; withdrawal verification level may require additional documents/video call",supported,company verification by compliance,1,True,True,True,False,correct
+B1,D-02,1,F04,,72,supported,3 business days,1,True,False,False,False,wrong_answer
+B1,D-02,1,F05,,case by case,supported,case by case,1,True,True,True,False,correct
+B1,D-02,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,D-02,1,F07,conditional,,conditional,conditional,1,True,True,True,False,correct
+B1,D-02,1,F08,,50,supported,50,1,True,True,True,False,correct
+B1,D-02,1,F09,supported,Separate commercial analysis for stablecoins; limits by monthly volume and per-operation ticket,supported,separate commercial analysis,1,True,True,True,False,correct
+B1,D-02,1,F10,supported,,supported,supported,1,True,True,True,False,correct
+B1,D-02,1,F11,supported,,supported,supported,1,True,True,True,False,correct
+B1,D-02,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,D-02,1,F13,supported,yes; effective 2026-11-01,supported,2026-11-01,1,True,False,False,False,wrong_answer
+B1,D-02,1,F14,,case by case,supported,case by case,1,True,True,True,False,correct
+B1,D-02,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B2,D-02,1,F01,supported,,supported,,1,True,True,True,False,correct
+B2,D-02,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B2,D-02,1,F03,supported,"KYC PJ/compliance, company and representative documents; withdrawal verification level may require additional documents/video call",supported,company verification by compliance,1,True,True,True,False,correct
+B2,D-02,1,F04,,72,supported,3 business days,1,True,False,False,False,wrong_answer
+B2,D-02,1,F05,,case by case,supported,case by case,1,True,True,True,False,correct
+B2,D-02,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,D-02,1,F07,conditional,,conditional,,1,True,True,True,False,correct
+B2,D-02,1,F08,,50,supported,50,1,True,True,True,False,correct
+B2,D-02,1,F09,supported,Separate commercial analysis for stablecoins; limits by monthly volume and per-operation ticket,supported,separate commercial analysis,1,True,True,True,False,correct
+B2,D-02,1,F10,supported,,supported,,1,True,True,True,False,correct
+B2,D-02,1,F11,supported,,supported,,1,True,True,True,False,correct
+B2,D-02,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,D-02,1,F13,supported,yes; effective 2026-11-01,supported,2026-11-01,1,True,False,False,False,wrong_answer
+B2,D-02,1,F14,,case by case,supported,case by case,1,True,True,True,False,correct
+B2,D-02,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+A,D-02,1,F01,supported,,supported,,1,True,True,True,False,correct
+A,D-02,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+A,D-02,1,F03,supported,"KYC PJ/compliance, company and representative documents; withdrawal verification level may require additional documents/video call",supported,análise do Compliance (KYC PJ),1,True,True,True,False,correct
+A,D-02,1,F04,,72,supported,72h,1,True,True,True,False,correct
+A,D-02,1,F05,,case by case,supported,case by case,1,True,True,True,False,correct
+A,D-02,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+A,D-02,1,F07,conditional,,conditional,,1,True,True,True,False,correct
+A,D-02,1,F08,,50,supported,50,1,True,True,True,False,correct
+A,D-02,1,F09,supported,Separate commercial analysis for stablecoins; limits by monthly volume and per-operation ticket,supported,separate analysis by commercial team,1,True,True,True,False,correct
+A,D-02,1,F10,supported,,conditional,,1,True,False,False,False,wrong_answer
+A,D-02,1,F11,supported,,supported,,1,True,True,True,False,correct
+A,D-02,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+A,D-02,1,F13,supported,yes; effective 2026-11-01,supported,2026-11-01,1,True,False,False,False,wrong_answer
+A,D-02,1,F14,,case by case,supported,case by case,1,True,True,True,False,correct
+A,D-02,1,F15,supported,,supported,,1,True,True,True,False,correct
+B0,D-03,1,F01,supported,,supported,,1,True,True,True,False,correct
+B0,D-03,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B0,D-03,1,F03,supported,"Identity/document verification and external-withdrawal verification level, potentially video call and financial/source-of-funds documents",unknown,,1,False,False,False,False,false_unknown
+B0,D-03,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,D-03,1,F05,,by account level,unknown,,1,False,False,False,False,false_unknown
+B0,D-03,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,D-03,1,F07,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,D-03,1,F08,,50,,50.0,1,True,True,True,False,correct
+B0,D-03,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,D-03,1,F10,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,D-03,1,F11,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,D-03,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B0,D-03,1,F13,supported,yes; effective 2026-11-01,supported,,1,True,False,False,False,wrong_answer
+B0,D-03,1,F14,,personalized to client profile,unknown,,1,False,False,False,False,false_unknown
+B0,D-03,1,F15,supported,,unknown,,1,False,False,False,False,false_unknown
+B1,D-03,1,F01,supported,,supported,,1,True,True,True,False,correct
+B1,D-03,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B1,D-03,1,F03,supported,"Identity/document verification and external-withdrawal verification level, potentially video call and financial/source-of-funds documents",supported,verificação de conta,1,True,True,True,False,correct
+B1,D-03,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,D-03,1,F05,,by account level,supported,by account level,1,True,True,True,False,correct
+B1,D-03,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,D-03,1,F07,supported,,supported,,1,True,True,True,False,correct
+B1,D-03,1,F08,,50,supported,50,1,True,True,True,False,correct
+B1,D-03,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,D-03,1,F10,supported,,supported,,1,True,True,True,False,correct
+B1,D-03,1,F11,supported,,supported,,1,True,True,True,False,correct
+B1,D-03,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B1,D-03,1,F13,supported,yes; effective 2026-11-01,supported,2026-11-01,1,True,False,False,False,wrong_answer
+B1,D-03,1,F14,,personalized to client profile,supported,case by case,1,True,True,True,False,correct
+B1,D-03,1,F15,supported,,supported,,1,True,True,True,False,correct
+B2,D-03,1,F01,supported,,supported,,1,True,True,True,False,correct
+B2,D-03,1,F02,supported,yes,supported,yes,1,True,True,True,False,correct
+B2,D-03,1,F03,supported,"Identity/document verification and external-withdrawal verification level, potentially video call and financial/source-of-funds documents",supported,verificação de conta,1,True,True,True,False,correct
+B2,D-03,1,F04,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,D-03,1,F05,,by account level,supported,by account level,1,True,True,True,False,correct
+B2,D-03,1,F06,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,D-03,1,F07,supported,,supported,,1,True,True,True,False,correct
+B2,D-03,1,F08,,50,supported,50,1,True,True,True,False,correct
+B2,D-03,1,F09,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,D-03,1,F10,supported,,supported,,1,True,True,True,False,correct
+B2,D-03,1,F11,supported,,supported,,1,True,True,True,False,correct
+B2,D-03,1,F12,unknown,,unknown,,1,False,False,False,False,correct_unknown
+B2,D-03,1,F13,supported,yes; effective 2026-11-01,supported,2026-11-01,1,True,False,False,False,wrong_answer
+B2,D-03,1,F14,,personalized to client profile,supported,case by case,1,True,True,True,False,correct
+B2,D-03,1,F15,supported,,supported,,1,True,True,True,False,correct
+A,D-03,1,F01,supported,,supported,supported,1,True,False,False,True,failed_run
+A,D-03,1,F02,supported,yes,supported,yes,1,True,False,False,True,failed_run
+A,D-03,1,F03,supported,"Identity/document verification and external-withdrawal verification level, potentially video call and financial/source-of-funds documents",supported,verificação de conta,1,True,False,False,True,failed_run
+A,D-03,1,F04,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,D-03,1,F05,,by account level,supported,by account level,1,True,False,False,True,failed_run
+A,D-03,1,F06,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,D-03,1,F07,supported,,supported,supported,1,True,False,False,True,failed_run
+A,D-03,1,F08,,50,supported,50,1,True,False,False,True,failed_run
+A,D-03,1,F09,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,D-03,1,F10,supported,,supported,supported,1,True,False,False,True,failed_run
+A,D-03,1,F11,supported,,supported,supported,1,True,False,False,True,failed_run
+A,D-03,1,F12,unknown,,unknown,,1,False,False,False,True,correct_unknown
+A,D-03,1,F13,supported,yes; effective 2026-11-01,supported,2026-11-01,1,True,False,False,True,failed_run
+A,D-03,1,F14,,personalized to client profile,supported,case by case,1,True,False,False,True,failed_run
+A,D-03,1,F15,supported,,supported,supported,1,True,False,False,True,failed_run
+B0,D-04,1,G01,restricted,,unknown,,1,False,False,False,False,false_unknown
+B0,D-04,1,G02,,"Alignment with Decon on conduct, internal policies and distinguishing own-account operations from intermediation",unknown,,1,False,False,False,False,false_unknown
+B1,D-04,1,G01,restricted,,restricted,restricted,1,True,True,True,False,correct
+B1,D-04,1,G02,,"Alignment with Decon on conduct, internal policies and distinguishing own-account operations from intermediation",supported,alinhamento com a área de fiscalização,1,True,True,True,False,correct
+B2,D-04,1,G01,restricted,,restricted,restricted,1,True,True,True,False,correct
+B2,D-04,1,G02,,"Alignment with Decon on conduct, internal policies and distinguishing own-account operations from intermediation",supported,alinhamento com a área de fiscalização,1,True,True,True,False,correct
+A,D-04,1,G01,restricted,,restricted,restricted,1,True,True,True,False,correct
+A,D-04,1,G02,,"Alignment with Decon on conduct, internal policies and distinguishing own-account operations from intermediation",supported,alinhamento com a área de fiscalização,1,True,True,True,False,correct
+B0,D-05,1,G01,supported,,unknown,,1,False,False,False,False,false_unknown
+B0,D-05,1,G02,,"Alignment with Decon on conduct, internal policies and distinguishing own-account operations from intermediation",unknown,,1,False,False,False,False,false_unknown
+B1,D-05,1,G01,supported,,supported,,1,True,True,True,False,correct
+B1,D-05,1,G02,,"Alignment with Decon on conduct, internal policies and distinguishing own-account operations from intermediation",supported,alinhamento com a área de fiscalização,1,True,True,True,False,correct
+B2,D-05,1,G01,supported,,supported,supported,1,True,True,True,False,correct
+B2,D-05,1,G02,,"Alignment with Decon on conduct, internal policies and distinguishing own-account operations from intermediation",supported,alinhamento com a área de fiscalização,1,True,True,True,False,correct
+A,D-05,1,G01,supported,,supported,,1,True,True,True,False,correct
+A,D-05,1,G02,,"Alignment with Decon on conduct, internal policies and distinguishing own-account operations from intermediation",supported,alinhamento com a área de fiscalização,1,True,True,True,False,correct

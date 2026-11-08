@@ -94,6 +94,10 @@ regime), a "solution" deliverable (a daily monitor), and a causal design the aca
 
 ## Decision log
 
+P3-44 (8 Nov, Felipe): follow the low-cost saved-evidence review recommendation. Preserve original scores, separately label post-hoc missing-path diagnostics and correct method/protocol descriptions. No paid benchmark rerun authorized by this step; no adaptive advantage or human validation claimed.
+
+7 Nov, Felipe: explicitly authorized completion with separate AI reference coders/adjudicator/auditor, replacing unavailable human checks for P3-44 only. Results remain exploratory and must not be described as human validated. Original unavailable runner replaced by a separately versioned same-model comparison; blocked v2 source-read attempt preserved, v3 uses scoped read-only corpus tools. Later requested immediate checkpoint/push before account usage limit; experiment remains unfinished. Economist-owned review statuses stay unchanged.
+
 P3-42 (7 Nov, Felipe): explicit request to upgrade the compression prototype before revision. Bounded protocol `ce91d8b`: monthly linear/nonlinear fits, adaptive residual bands and stress-aware cost cards. F-051 exploratory; v1 preserved. Independent revision and deck adoption remain pending.
 
 P3-41 (7 Nov, Felipe via explicit implementation request after project/data review): implement the first bounded decision-system experiment, partial premium compression linked to the buyer cost frontier. Scope and chronological protocol committed before fitting (`93fd20f`). F-050 remains exploratory; no demonstrated primary-horizon improvement over simple mean reversion. Independent reproduction and deck inclusion remain separate. Simulation, market-state detection, route stress testing and Chronos are not included in this first build.

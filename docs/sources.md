@@ -321,3 +321,19 @@ Task-number coordination: this BRLA follow-up is finally P3-37; its P3-36 artifa
 |---|---|---|
 | BF-01 | B3, Mini U.S. Dollar Futures: https://www.b3.com.br/en_us/products-and-services/trading/exchange-rates/mini-u-s-dollar-futures.htm — opened 7 Nov 2026 (Codex for Felipe, web tool during plan review) | Quote: "USD10,000.00 (ten thousand U.S. Dollar)." Specifies WDO contract increments, monthly expirations and cash settlement. Supports distinguishing an ideal forward from actual futures implementation, not historical execution costs. |
 | BF-02 | BIS, Covered interest parity lost: https://www.bis.org/publications/qr-201609/covered-interest-parity-lost-understanding-cross-currency-basis — opened 7 Nov 2026 (Codex for Felipe, web tool during plan review) | Quote: "Covered interest parity verges on a physical law in international finance." Article discusses deviations and funding/balance-sheet constraints. Motivation for independent deposit/forward inputs; no calibration of this institution's rates is inferred. |
+
+### P3-44 — additional public access documents (7 Nov 2026)
+
+Opened 7 Nov 2026 by Codex for Felipe through one ordinary public HTTP request per registered URL. These are agent-collected snapshots, not human review. The earlier A-25–A-41 unavailable-source row records the prior session; the entries below supersede it only for these three source IDs. Exact responses, retrieval UTC and SHA-256 are in `data/raw/p3_28_v2/manifest.csv`.
+
+| ID | Opened primary source | Verbatim quotation and limit |
+|---|---|---|
+| A-35 | Mercado Bitcoin, Termo de Uso: https://www.mercadobitcoin.com.br/politicas-termo-de-uso | "o seu acesso e a autorização para operar na Plataforma ficarão condicionados ao fornecimento de procuração ou autorização formal" Provider terms condition representation of a company on formal authorization; not proof of a particular account’s eligibility or execution. |
+| A-36 | Mercado Bitcoin blog, Resolução 521: enviar ou receber cripto?: https://www.mercadobitcoin.com.br/blog/seguranca/resolucao-521/ | "a partir de 1º de maio" Provider statement about an added transfer-information step from 1 May 2026; not independent legal interpretation or observed compliance. |
+| A-41 | Mercado Bitcoin blog, Envie USDT sem taxas: https://www.mercadobitcoin.com.br/blog/educacao/envie-usdt-sem-taxas-otimize-suas-operacoes-no-mercado-bitcoin/ | "novos usuários do Mercado Bitcoin contam com até 48 horas de taxa zero para comprar e vender criptoativos na plataforma" Marketing statement about an introductory fee condition; not a permanent zero-fee route or an executable quote. |
+
+Unavailable in this collection: A-25–A-29/A-31–A-32 returned HTTP 202 with no document body; A-37/A-38 redirected to a generic help portal rather than the registered article. A-33/A-39/A-40 have no verified URL in this pass. No login or challenge bypass was attempted. User-saved fee PDFs A-30/A-34 are documented separately.
+
+### P3-44 — Felipe's browser fee captures
+
+A-30: https://www.binance.com/pt-BR/fee/trading — opened and saved by Felipe, 7 Nov 2026; two-page image PDF. OCR quotation: "0.100%/0.100%"; regular-user maker/taker row visually checked by Codex on page 1. A-34: https://www.mercadobitcoin.com.br/taxas-contas-limites — opened and saved by Felipe, 7 Nov 2026; sixteen-page image PDF. OCR quotation: "Taxa Taker"; main fee table visually checked by Codex on page 11. Raw PDF and derived OCR hashes are in the v2 manifest. OCR is fallible and may reorder table cells; these captures establish documentary statements, not executed fees, account access or human validation of the benchmark.

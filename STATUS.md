@@ -1,6 +1,6 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-08 by Codex for Renzo (P3-47 recovery mechanism sensitivity, F-054 exploratory); previous: 2026-11-07 by agent for Renzo (P5-10 deck v4: 10 slides built in Claude Slides); previous: 2026-11-07 by agent for Renzo (P3-20 and P3-21 closing review → review; post-submission readouts split to P3-45); previous: 2026-11-07 by Codex for Felipe (all 15 review items P3-25 onward reviewed; P3-27/P3-38 done; Economist statuses preserved); previous: 2026-11-07 by Codex for Felipe (P3-42 rolling compression upgrade, F-051 exploratory); previous: 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Codex for Felipe (P3-40 supplemental frozen-bundle replay passes; Windows path differences documented; human sign-off pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
+**Last updated:** 2026-11-08 by Codex for Renzo (integrated remote P3-44 work; renumbered commit-activity finding F-056 after ID collision); previous: 2026-11-08 by Codex for Renzo (P3-47 recovery mechanism sensitivity, F-054 exploratory); parallel: 2026-11-08 by Codex for Felipe (P3-44 saved-answer diagnostic); previous: 2026-11-07 by agent for Renzo (P5-10 deck v4: 10 slides built in Claude Slides); previous: 2026-11-07 by agent for Renzo (P3-20 and P3-21 closing review → review; post-submission readouts split to P3-45); previous: 2026-11-07 by Codex for Felipe (all 15 review items P3-25 onward reviewed; P3-27/P3-38 done; Economist statuses preserved); previous: 2026-11-07 by Codex for Felipe (P3-42 rolling compression upgrade, F-051 exploratory); previous: 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Codex for Felipe (P3-40 supplemental frozen-bundle replay passes; Windows path differences documented; human sign-off pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
 submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
 
 tag `results-frozen` (F-001 to F-033)
@@ -270,7 +270,7 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P2-05](tasks/P2-05-confounders-second-venue.md) | Rule out other causes of the 24 Jun 2026 jump | ✅ done | CS 1 | - | 4/4 | 2/2 | 2026-11-02 | P1-02, P1-03 |
 | [P2-06](tasks/P2-06-freeze-team-estimate.md) | Freeze our 23 Jun before/after estimate in the agents' answer format | ✅ done | CS 2 | - | 3/3 | 2/2 | 2026-11-02 | P2-03 |
 
-**P3 — Extensions** (26/47 closed)
+**P3 — Extensions** (26/48 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
@@ -316,11 +316,12 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P3-40](tasks/P3-40-final-project-review.md) | Review and repair project consistency before submission | ✅ done | Economist | - | 3/3 | 3/3 | 2026-11-07 | P3-39 |
 | [P3-41](tasks/P3-41-premium-compression.md) | Forecast economically useful premium compression before a payment deadline | ✅ done | Economist | - | 3/3 | 4/4 | 2026-11-08 | P3-39, P1-02 |
 | [P3-42](tasks/P3-42-compression-upgrade.md) | Upgrade compression forecasts with rolling fits and adaptive calibration | ✅ done | Economist | - | 3/3 | 4/4 | 2026-11-08 | P3-41 |
-| [P3-43](tasks/P3-43-access-audit-finalization.md) | Require complete semantic audits before final access benchmark scoring | ⬜ todo | CS 1 | - | 0/3 | 0/3 | 2026-11-08 | P3-28, P3-38 |
-| [P3-44](tasks/P3-44-ai-reviewed-access-pilot.md) | Complete a separately versioned AI-reviewed access comparison | 🔄 doing | CS 1 | Codex for Felipe | 1/5 | 0/5 | 2026-11-08 | P3-28, P3-43 |
+| [P3-43](tasks/P3-43-access-audit-finalization.md) | Require complete semantic audits before final access benchmark scoring | 👀 review | CS 1 | - | 3/3 | 3/3 | 2026-11-08 | P3-28, P3-38 |
+| [P3-44](tasks/P3-44-ai-reviewed-access-pilot.md) | Complete a separately versioned AI-reviewed access comparison | 👀 review | CS 1 | - | 5/5 | 5/5 | 2026-11-08 | P3-28, P3-43 |
 | [P3-45](tasks/P3-45-post-submission-readouts.md) | Post-submission readouts of the registered predictions - E2 verdict (Mon 9 Nov) and 20-day statistics (early Dec) | ⬜ todo | CS 1 | - | 0/5 | 0/2 | 2026-11-16 | P3-20 |
 | [P3-46](tasks/P3-46-country-direct-comparison.md) | Direct country comparison of dollar exchange rates and USDT premiums | 👀 review | Team | - | 4/4 | 3/3 | 2026-11-08 | P1-05, P2-04 |
 | [P3-47](tasks/P3-47-recovery-mechanism-check.md) | Does Foxbit order flow explain the premium's recovery within weeks? | 👀 review | CS 1 | - | 3/4 | 3/3 | 2026-11-08 | P3-17, P3-19, P3-25 |
+| [P3-48](tasks/P3-48-unified-users-and-timing.md) | One account for who paid and whether waiting helped - the four users (P3-21) and the treasury timing decision (P3-31) in a single framework, tested on every decision date | 👀 review | CS 1 | - | 4/5 | 3/3 | 2026-11-08 | P3-21, P3-31, P3-39, P1-02 |
 
 **P4 — Robustness and freeze** (3/4 closed)
 
@@ -401,20 +402,25 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [F-049](findings/F-049-brla-operator-routing.md) | BRLA's large June burns use an authorized transfer-and-burn routine also seen before the notice; their fiat purpose remains unidentified | 🔍 exploratory | P3-37 | Jonathan (CS 3) |
 | [F-050](findings/F-050-premium-compression.md) | Partial premium compression can be evaluated against costs, but ridge does not beat simple mean reversion on the primary horizon | 🔍 exploratory | P3-41 | Jonathan (CS 3) |
 | [F-051](findings/F-051-compression-upgrade.md) | Monthly retraining improves the first ridge forecast, but its edge over simple mean reversion remains uncertain | 🔍 exploratory | P3-42 | Jonathan (CS 3) |
-| [F-052](findings/F-052-commit-activity.md) | Git commit activity by teammate and Brasília day | 🔍 exploratory | - | - |
+| [F-052](findings/F-052-ai-reviewed-access-pilot.md) | AI-reviewed access pilot finds no demonstrated adaptive advantage | 🔍 exploratory | P3-44 | Independent Verification Reviewer; Codex diagnostic reviewer |
 | [F-053](findings/F-053-country-direct-comparison.md) | Direct comparison separates ordinary USD exchange-rate moves from the Brazilian USDT premium jump | 🔍 exploratory | P3-46 | - |
 | [F-054](findings/F-054-recovery-mechanism-check.md) | Foxbit flow does not distinguish the July recovery mechanism from a common episode trend | 🔍 exploratory | P3-47 | - |
+| [F-055](findings/F-055-users-and-timing.md) | In one account, the four users and the treasury agree - a buyer during the spike paid about R$ 4,840 more per 100k, a holder who sold at once received about R$ 7,300; waiting 10 days with a hedge swung from −R$ 8,800 to +R$ 6,700 by decision date in 2026, and a simple "wait when the premium is above its 60-day median" rule helped out of sample only because of the June shock | 🔍 exploratory | P3-48 | - |
+| [F-056](findings/F-056-commit-activity.md) | Git commit activity by teammate and Brasília day | 🔍 exploratory | - | - |
 <!-- BOARD:END -->
 
 
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-08 — Codex for Renzo: merged remote P3-44 work into local main; resolved STATUS board through `scripts/board.py`; renumbered commit-activity finding from F-052 to F-056 so the independently created P3-44 F-052 keeps its ID.
+
+- 2026-11-08 — Codex for Felipe: P3-44 original scores reproduced; post-hoc coverage A 72.9%, B1 73.7%, B2 75.7% after confirmed missing-path failures only. Unsupported claims remain; F-052 corrected and independently checked. Task stays in review; Economist statuses unchanged.
 - 2026-11-08 — Codex for Renzo: P3-47 bounded recovery check → review, F-054 exploratory. Frozen Foxbit raw checksum and all 350 hours pass; the premium–seller-flow link becomes imprecise within calendar weeks and the flow does not anticipate a next-day premium fall. Registered spec `d497233`; teammate review and deck decision pending. Shared tree remains dirty and `main` behind `origin/main`, so unrelated edits were not stashed or staged.
 
 - 2026-11-07 — agent for Renzo: P5-10 deck v4 built → review: 10 slides in Claude Slides (https://claude.ai/artifact/546JoYhyPui1zXtJnstW2z, private until Renzo shares), nine-chapter story, clean cover, badges/method lines/limits on every results slide, new slides on the on-chain route and on forecasting/treasury; new `scripts/p5_10_deck_figures.py`; appendix dropped (Renzo: PDF = 10 slides). Gates G1–G5 and the reader test still open; repo still private
 
-- 2026-11-07 — Codex: commit activity summary in `findings/F-052-commit-activity.md`: 255 reachable commits mapped to four teammates and grouped by Brasília date; first–last timestamp spans reported as activity windows, not hours worked.
+- 2026-11-07 — Codex: commit activity summary in `findings/F-056-commit-activity.md`: 255 reachable commits mapped to four teammates and grouped by Brasília date; first–last timestamp spans reported as activity windows, not hours worked.
 
 - 2026-11-07 — agent for Renzo: deck v4 plan (`docs/deck-plan-v4-2026-11-07.md`, new task `P5-10` todo): 10 slides from v3 + visual appendix A1–A10; new slides "a rede não é o custo" (cost stack, BRLA route, on-chain audit) and "esperar compensa?" (forecasting, treasury); slide 10 answers the opening question; evidence badge, method chip and limit line on every results slide. **Repo `out-of-sample/7-datathon-fgv-eesp` is private**: Renzo decides before submission (D1). Gates G1–G5 for teammates tonight
 

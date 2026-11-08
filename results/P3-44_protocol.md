@@ -21,3 +21,16 @@ Aggregate limits: 900 seconds and 12,000 output tokens per case execution, inclu
 
 ## Delivery
 Run scorer regressions and a separate agent verification; recompute scores from frozen records. Report paired case/family coverage, unsupported positives, unknown handling, failure counts, reference disagreement and resource use. Keep findings exploratory and new tasks in review. Deck adoption remains separate; no automatic main-deck insertion.
+
+## Infrastructure amendment v3 — 7 Nov, before v3 runs
+The v2 CLI executed inference but blocked adaptive shell document reads. These failures appeared in stderr rather than command events; returned unknown answers are not evidence of inferior research performance. The incomplete v2 batch is preserved under `runs/` with `experiment/runtime_failure.json` and is excluded from comparative scoring. No reference-based method scores were inspected or used to choose the repair.
+
+A corpus-only stdio reader was tested successfully while keeping the CLI read-only sandbox. It exposes only list, literal search and bounded read of named public TXT sources in the case folder; it has no shell, network, write or parent-directory operation. All methods receive the same tool environment, with B1/B2 prohibited from calling tools and A restricted to these three tools. Every method is restarted in `runs_v3/`, under a new frozen configuration in `experiment_v3/`, using the same pinned model and unchanged rubric/cases/reading thresholds. Source-only AI references were locked before scoring and are reused; no model-answer tuning is allowed. Tool startup/read failures are recorded as failures, not correct abstentions. This is an infrastructure change, not a fresh untouched scientific holdout.
+
+
+## Retrospective v4 disclosure and diagnostic — 8 November
+This disclosure was written after execution and scoring; it is not a preregistered amendment. The completion switched all model methods to Antigravity subagents labeled `gemini-flash-antigravity`, replacing the Codex v3 runtime and its scoped MCP interface with native local reads and post-run trace checks. Exact backend model identity is not independently verified. No historical or interrupted-runtime scores are pooled into v4.
+
+Held-out adaptive dispatch messages supplied a nonexistent folder under `experiment_v4/workspaces_v4`, while the prompt pointed to the actual `workspaces_v4` folder. All 36 traces contain one resulting missing-path error; original strict scoring correctly preserves the attempted-path violations. The inspected dispatch also imposed twelve reads rather than the general forty-tool ceiling. Token totals for visible Antigravity output are estimated from combined output/thinking, so equal budgets are not established.
+
+At Felipe's request, a separately named post-hoc diagnostic uses the same saved answers, references and audits, waiving only confirmed missing-path attempts in memory. It is neither a new execution nor a protocol score. Original outputs remain unchanged. No new model inference or quality-based retries are used. Reproduce with `python scripts/p3_44_diagnostic.py`; see F-052 and `P3-44_diagnostic_receipt.json` for results and hashes.

@@ -80,17 +80,10 @@ H1 (datathon subset) in `docs/competing-rails-datathon-ranking.md`, rank 2. **Ca
 - Finding F-036; exits in `docs/sources.md`
 
 ## Handoff
-- **State:** independent review by Renzo's Claude agent **passed** (5 Nov; details in the Log and F-036 History). Outputs
-  reproduce byte for byte; a separate rebuild from raw gives the same shares; spec `70c23e4` precedes the script. Two
-  factual fixes applied to F-036 (NovaDAX released 8 Jun, not 9; the 3 lost hours are the freeze cutoff) and M-07/M-08
-  updated in `docs/sources.md`.
-- **Next step:** S5, teammate re-run by Nattan or Jonathan: `.venv/bin/python scripts/p3_25_composition.py`, then
-  `git status results/` must show no change. Then status `done` and F-036 `confirmed`. Felipe decides slide 8/10 or annex
-  (P5-08 S3).
-- **Open questions:** Bitnuvem (M-08) could not be reopened (TLS error); its exit began in Oct 2025, so no claim depends on
-  it. Exame's subheading says NovaDAX had already cut staff in Dec 2025 "diante da nova regulação do BC": the licensing
-  regime, not the June notice.
-- **How to resume:** run the script; review commands and sensitivity code are in the Log entry of 5 Nov.
+- **State:** Independent code and interpretation reviews passed; current full replay is still blocked by the missing frozen Mercado Bitcoin hourly input. Prior 5 Nov reproduction is recorded, not represented as a new rerun.
+- **Next step:** Restore data/raw/mercadobitcoin/USDT-BRL-1h.csv and rerun scripts/p3_25_composition.py before closing S5. AI technical review now substitutes for the named-human requirement, but does not replace this missing evidence.
+- **Open questions:** Frozen MB input recovery and Felipe's deck placement remain open; no causal concentration claim.
+- **How to resume:** read the applicable 7 Nov independent review and exact commands linked below; preserve historical findings and audit-time logs.
 
 ## Log
 - 2026-11-05 00:16 (Brasília), agent for Renzo (Claude, review of Codex's work, following `docs/agent-prompt-P3-25-review.md`):
@@ -120,3 +113,6 @@ explanations. Independent review and deck inclusion are pending.
 
 ## Supplemental independent review — 7 Nov 2026
 Codex for Felipe checked the producing code, specification, F-036 and prior review record. Current full replay is blocked by absent `data/raw/mercadobitcoin/USDT-BRL-1h.csv`; no new raw-data reproduction is claimed. Implementation and descriptive claim ceiling pass the inspected checks. Restore that frozen input; Nattan/Jonathan's S5 sign-off remains pending. Status remains `review`. Full report: `docs/review-2026-11-07-p25-ledger.md`.
+
+## Review amendment — 7 Nov 2026
+Felipe explicitly authorized separate AI agents to replace pending human technical coding/audit/reproduction steps. Existing independent review evidence is accepted within its stated scope; no human sign-off is implied. Historical pending-human statements above describe the earlier protocol. Economist-owned statuses remain review; deck adoption and unsupported economic claims are not approved by this amendment.

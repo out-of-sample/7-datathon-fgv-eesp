@@ -39,11 +39,11 @@ Protocol amendment 10 (registered before any value was read). totalSupply at 00:
 | 2026-07-02 | 15.632 | -16,330 | 2.667 | 349 | 0.004 | -0 |
 | 2026-07-03 | 18.787 | 34,064 | 2.648 | -0 | 0.004 | -0 |
 
-## Prediction P-0045 (held out from Celo): DefiLlama = supply in a flat 00:44-00:48 UTC window, +-1 BRLA
+## Prediction P-0045 (held out from Celo): DefiLlama = equal endpoint supply at 00:44/00:48 UTC (intervening changes not checked), +-1 BRLA
 
-- polygon: 6 match, 0 miss, 7 not tested (window not flat or no value); informative matches (00:44 value differs from 00:00 by more than 1 BRLA, post hoc): 5
-- gnosis: 13 match, 0 miss, 0 not tested (window not flat or no value); informative matches (00:44 value differs from 00:00 by more than 1 BRLA, post hoc): 1
-- moonbeam: 13 match, 0 miss, 0 not tested (window not flat or no value); informative matches (00:44 value differs from 00:00 by more than 1 BRLA, post hoc): 0
+- polygon: 6 match, 0 miss, 7 not tested (unequal endpoints or no value); informative matches (00:44 value differs from 00:00 by more than 1 BRLA, post hoc): 5
+- gnosis: 13 match, 0 miss, 0 not tested (unequal endpoints or no value); informative matches (00:44 value differs from 00:00 by more than 1 BRLA, post hoc): 1
+- moonbeam: 13 match, 0 miss, 0 not tested (unequal endpoints or no value); informative matches (00:44 value differs from 00:00 by more than 1 BRLA, post hoc): 0
 - misses: []
 
 ## Offset screen (Celo daily change vs the three other contracts combined; accounting, not linking)

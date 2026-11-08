@@ -85,7 +85,7 @@ These checks do not constitute an end-to-end rerun of all raw-data downloads, th
 
 ## Sources and reproducibility
 
-Primary repository evidence: [F-038](../findings/F-038-shock-duration-feasibility.md), [F-039](../findings/F-039-holder-decisions.md), [F-035](../findings/F-035-e1-res574-readout.md), [F-045](../findings/F-045-november-binance-incident-audit.md), [P3-29](../tasks/P3-29-on-chain-reconciliation.md), [P3-35](../tasks/P3-35-brla-economic-function.md), and [source register M-11/M-12](sources.md).
+Primary repository evidence: [F-038](../findings/F-038-shock-duration-feasibility.md), [F-039](../findings/F-039-holder-decisions.md), [F-035](../findings/F-035-e1-res574-readout.md), [F-045](../findings/F-045-november-binance-incident-audit.md), [P3-29](../tasks/P3-29-on-chain-reconciliation.md), [P3-37](../tasks/P3-37-brla-economic-function.md), and [source register M-11/M-12](sources.md).
 
 On this machine run Python using `C:/Users/Felipe/AppData/Local/Programs/Python/Python314/python.exe`; scripts are relative to the repository root. The review read existing frozen sources rather than conducting a fresh external-source verification.
 
@@ -104,3 +104,6 @@ This preserves the useful lesson while distinguishing measured price breadth fro
 3. Present E2 only as an early reading; its verdict is unavailable before submission. Soften complete incident insulation and reconcile hard-coded F-045 report values.
 4. Mark ledger/access findings as exploratory and obtain the remaining independent reproduction where feasible.
 5. Coordinate resolution of committed STATUS conflict markers; no deck or frozen finding was changed by this audit.
+
+## Current-state amendment — 7 Nov 2026
+Historical P3-35 references above refer to the investigation now registered as P3-37. The subsequent frozen-bundle AI replay completed P3-29/P3-37 technical review; see `docs/review-2026-11-07-p25-ledger.md`. Felipe explicitly authorized AI review to replace the pending named-human technical gates. Neither this amendment nor the ledger identifies fiat purpose or certifies a final PDF.
