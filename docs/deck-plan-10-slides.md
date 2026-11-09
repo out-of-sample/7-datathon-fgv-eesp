@@ -1,5 +1,7 @@
 # Deck plan: 10 slides (proposal, 2 Nov 2026)
 
+> **Estado na entrega (8 nov 2026): SUPERADO PELO PDF FINAL — proposta de 2 nov, preservada para histórico.** Veja [estado final](estado-final.md).
+
 **Applied to `deck/deck_v1_ptbr.md` on 2 Nov at Renzo's request;** what changed, two deviations and what is open:
 `docs/deck-changes-2026-11-02.md`.
 

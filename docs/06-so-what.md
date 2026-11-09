@@ -1,5 +1,7 @@
 # Plan — answering "so what?"
 
+> **Estado na entrega (8 nov 2026): USO PARCIAL — parte dos resultados entrou no PDF; este texto continua sendo o plano histórico.** Veja [estado final](estado-final.md).
+
 **Status:** active since 2 Nov 2026 (Renzo). Tasks P3-10 to P3-14. Freeze is Wed 4 Nov, so every task here is
 small and has a stop rule.
 

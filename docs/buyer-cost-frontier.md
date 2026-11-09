@@ -1,5 +1,7 @@
 # Waiting is a conditional cost budget, not a forecast of recovery
 
+> **Estado na entrega (8 nov 2026): EXPLORATÓRIO / NÃO USADO NO PDF — fronteira hipotética sem acesso e execução verificados.** Veja [estado final](estado-final.md).
+
 ## Recommendation
 
 Use the new buyer frontier to connect the measured premium to an institutional decision. First establish access and timely settlement. Then compare buying now with waiting. The extension shows the additional cost waiting can absorb before it becomes more expensive than buying now.

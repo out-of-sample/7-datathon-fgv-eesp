@@ -1,8 +1,8 @@
 # Guia de leitura para a banca
 
-[Voltar ao início](../README.md) · [Abrir a apresentação](../deck/apresentacao-2026.pdf) · [Consultar as fontes](sources.md)
+[Voltar ao início](../README.md) · [Abrir a apresentação de referência](../deck/out-of-sample_deck.pdf) · [Consultar as fontes](sources.md)
 
-Este guia acompanha **“Quanto custa fechar uma porta? Um estudo sobre stablecoins, canais e o preço do dólar digital no Brasil”**, da equipe Out of Sample. A referência é o PDF de dez slides recebido em 8 de novembro de 2026. A cópia neste repositório é idêntica ao arquivo enviado pela equipe.
+Este guia acompanha **“Quanto custa fechar uma porta? Um estudo sobre stablecoins, canais e o preço do dólar digital no Brasil”**, da equipe Out of Sample. Renzo identificou `deck/out-of-sample_deck.pdf` como o arquivo enviado. O guia foi redigido originalmente com outra exportação de dez slides, `deck/apresentacao-2026.pdf`, que tem texto e checksum diferentes. O mapa de temas e códigos abaixo serve para a apresentação de referência; para a redação exata, consulte esse PDF.
 
 ## A pergunta e a resposta
 
@@ -31,7 +31,7 @@ Os registros `F-...` explicam o resultado, as ressalvas e como refazer a conta. 
 
 | Slide | O que conferir | Evidência e código |
 |---|---|---|
-| 1 | Título e pergunta geral | [Apresentação](../deck/apresentacao-2026.pdf) e este guia |
+| 1 | Título e pergunta geral | [Apresentação](../deck/out-of-sample_deck.pdf) e este guia |
 | 2 | Histórico do prêmio e identificação do ofício | [F-011: mudança de patamar](../findings/F-011-blind-breaks.md), [F-023: fontes do ofício](../findings/F-023-notice-sources-and-press-moves.md); [teste de quebras](../scripts/p2_02_breaks.py), [conferência documental](../scripts/p3_14_press_check.py) |
 | 3 | Definição do prêmio, horários e custos de referência | [F-006: ajuste do USDT/USD](../findings/F-006-usdcusdt-gap-fillable.md), [F-015: custos](../findings/F-015-route-costs.md); [construção do prêmio](../scripts/p1_02_premium.py), [custos por rota](../scripts/p3_01_costs.py) |
 | 4–5 | Data da mudança, datas de comparação, outras moedas, corretoras e robustez | [F-016: estudo de evento](../findings/F-016-event-studies-placebos.md), [F-017: controle sintético](../findings/F-017-synthetic-control.md), [F-009: contraprovas](../findings/F-009-jump-not-venue-fx-usdt.md), [F-022: variantes](../findings/F-022-robustness-battery.md); [eventos](../scripts/p2_03_events.py), [sintético](../scripts/p2_04_synth.py), [contraprovas](../scripts/p2_05_checks.py), [robustez](../scripts/p4_01_robustness.py) |
@@ -136,4 +136,4 @@ Este guia organiza os materiais e confere seus caminhos. Sua preparação não r
 - [Histórico de decisões](README.md): escolhas de pesquisa e mudanças de escopo.
 - [Tarefas](../tasks/): especificações, responsáveis e instruções de continuidade.
 
-Há versões anteriores em `deck/`. Para acompanhar este guia, use o [PDF indicado no início](../deck/apresentacao-2026.pdf).
+Há outras versões em `deck/`. Para acompanhar a entrega indicada por Renzo, use o [PDF de referência](../deck/out-of-sample_deck.pdf).

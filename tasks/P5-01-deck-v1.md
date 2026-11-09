@@ -2,7 +2,7 @@
 id: P5-01
 title: Deck v1 (pt-BR)
 phase: P5
-status: paused
+status: dropped
 owner: Economist
 working: -
 due: 2026-11-05
@@ -10,6 +10,9 @@ depends: P4-03
 ---
 
 ## Goal
+
+> **Disposição na entrega (8 nov 2026): Rascunho v1 concluído em Markdown, mas a diagramação/PDF previstos em S4 não foram usados; o PDF entregue é `deck/out-of-sample_deck.pdf`. O trabalho v1 permanece como histórico.**
+
 Full deck draft following `docs/02-dolar-cripto.md` §9 and the definition of done in `prompt.md` §8, including the 'Lições de 2025' slide.
 
 ## Subtasks
@@ -50,6 +53,7 @@ Full deck draft following `docs/02-dolar-cripto.md` §9 and the definition of do
   `.venv/bin/python scripts/build_deck_html.py`. S4 (layout and PDF) after the freeze (P4-03).
 
 ## Log
+- 2026-11-08, Codex para Renzo: classificado após a entrega do PDF de referência; sem alteração dos resultados históricos.
 - 2026-11-02, agent for Renzo: Renzo takes S5 ("update the slides yourself, apply the plan, keep a doc"): deck cut to 10 slides, Anexo F, Q&A sheet, P3-12 figure title reworded, HTML rebuilt; change record `docs/deck-changes-2026-11-02.md`; status paused for Felipe's review. `working: -`.
 - 2026-11-02, Felipe: Integrados os achados confirmados `F-023` a `F-027` (`P3-10` a `P3-14`) nos Slides 5, 6, 10 e 12 de `deck/deck_v1_ptbr.md` (`P3-10_imports.png`, `P3-12_rules.png`, R$ 106,1 mi / R$ 145,3 mi movidos no pico, e previsão datada `393a14a` para a Res. BCB 584 em 01/jan/2027). `working: -`.
 - 2026-11-02, Felipe: Reconstruído `deck/deck_v1_ptbr.md` (14 slides mapeados às 15 seções de `notebooks/p5_07_story.ipynb`) incorporando todas as revisões de 02/nov: pico de 1 mês como único efeito medido, pós-pico não significativo ($p_{\text{placebo}} = 0,24$), $p$-valores de placebo apenas, enquadramento neutro (`docs/02-dolar-cripto.md` §10), fontes abertas para depegs (`DP-01`–`DP-10`) e tarifas (`R-01`–`R-07`), e Opções C e A abertas no Slide 10. `working: Felipe`.
@@ -59,4 +63,6 @@ Full deck draft following `docs/02-dolar-cripto.md` §9 and the definition of do
 - 2026-11-03, agent for Renzo: deck v2 generated next to v1 (`deck/deck_v2_ptbr.md`, `deck/deck_v2_apresentacao.html`) from `docs/deck-proposal-2026-11-03.md` (slides 1, 9, 10; slide 8 line not applied); v1 untouched except its HTML rebuilt after two builder fixes (R$/US$ read as math; no bold/code in table cells). Felipe chooses v1 or v2.
 
 ## Result
+Rascunho v1 concluído em Markdown, mas a diagramação/PDF previstos em S4 não foram usados; o PDF entregue é `deck/out-of-sample_deck.pdf`. O trabalho v1 permanece como histórico.
+
 2/nov (Renzo's agent): deck cortado para 10 slides (`docs/deck-changes-2026-11-02.md`). Antes: apresentação completa em português (`deck/deck_v1_ptbr.md`, 14 slides) alinhada ao protótipo `notebooks/p5_07_story.ipynb` (`P5-07`), às regras de enquadramento e fontes abertas (`prompt.md` §5–§6, `docs/02-dolar-cripto.md` §10) e a todos os achados (`F-001` a `F-027`).

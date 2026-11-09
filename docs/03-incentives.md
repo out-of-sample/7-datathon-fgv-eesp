@@ -1,5 +1,7 @@
 # Project 3 — How much of DeFi yield is subsidy, and does subsidised capital stay?
 
+> **Estado na entrega (8 nov 2026): NÃO USADO NO PDF FINAL — estudo de incentivos não integrou os dez slides.** Veja [estado final](estado-final.md).
+
 **Status:** (a) a 10-minute check feeding one "Lições de 2025" slide (do it now); (b) the full study is the
 fallback if project 2 (the primary) fails its go/no-go on Sun 1 Nov.
 **Deck title (pt-BR draft):** "Juros ou propaganda? Quanto do rendimento DeFi é subsídio e quanto capital fica quando ele acaba"

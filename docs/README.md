@@ -1,39 +1,45 @@
-# Project Plans — Out of Sample, 7º Datathon FGV EESP
+# Planos e decisões — Out of Sample, 7º Datathon FGV EESP
 
 Agents: read `../prompt.md` first.
+
+> **Estado em 8 nov 2026:** o trabalho foi entregue, segundo Renzo. O PDF de referência é
+> [`deck/out-of-sample_deck.pdf`](../deck/out-of-sample_deck.pdf). Consulte o
+> [estado final](estado-final.md) para distinguir material usado, exploratório, não usado e descartado.
+> O quadro abaixo registra as opções consideradas durante o projeto; não é uma lista de entregáveis.
 
 ## The four candidates
 
 | # | Project | Question | Winning potential | Main risk | Status |
 |---|---|---|---|---|---|
-| 2 | [Dólar cripto](02-dolar-cripto.md) | How much more do Brazilians pay for a digital dollar than the official dollar, and how much of that gap do rules that close or tax the arbitrage channels create? | **Highest** (see evidence below) | The 23 Jun 2026 jump has another cause; another team picks the topic | **Primary (recommended 30 Oct, after the probe)** |
-| 1 | [Depeg recovery](01-depeg-recovery.md) | When a stablecoin loses its peg, what brings it back: reserve quality or whether redemption is open right now? | High as a chapter | Fewer than ~12 clean independent events | Chapter of project 2 (2–3 slides) |
-| 3 | [Incentives](03-incentives.md) | How much of the DeFi yield is subsidy, and does subsidised capital stay when rewards end? | Medium | Few clean campaigns; jury finds it niche | One slide; full study only as fallback |
-| 4 | [Treasury allocator](04-treasury-allocator.md) | Does forecasting lending yields improve allocation net of costs? | Low | Persistence already beats our 2025 model | Not recommended |
+| 2 | [Dólar cripto](02-dolar-cripto.md) | How much more do Brazilians pay for a digital dollar than the official dollar, and how much of that gap do rules that close or tax the arbitrage channels create? | **Highest** (see evidence below) | The 23 Jun 2026 jump has another cause; another team picks the topic | **Usado como projeto principal** |
+| 1 | [Depeg recovery](01-depeg-recovery.md) | When a stablecoin loses its peg, what brings it back: reserve quality or whether redemption is open right now? | High as a chapter | Fewer than ~12 clean independent events | **Não usado no PDF final** |
+| 3 | [Incentives](03-incentives.md) | How much of the DeFi yield is subsidy, and does subsidised capital stay when rewards end? | Medium | Few clean campaigns; jury finds it niche | **Não usado no PDF final** |
+| 4 | [Treasury allocator](04-treasury-allocator.md) | Does forecasting lending yields improve allocation net of costs? | Low | Persistence already beats our 2025 model | **Descartado como projeto** |
 
 File numbers are historical; project 2 is now the primary.
 
-**Extension (optional, kept 31 Oct):** [AI agents as research tools](05-agentic-robustness.md). A: 30 AI
-analysts answer our question independently (robustness). B: an AI event coder screens the comparison
-currencies for the synthetic control. Go/no-go at the Sun 1 Nov gate.
+**Extensão original, não concluída nem usada como resultado no PDF:**
+[AI agents as research tools](05-agentic-robustness.md). O plano de 30 analistas
+permanece histórico. A investigação de fontes com IA descrita no slide 2 tem escopo diferente.
 
 **Execution:** phases and success criteria in [`phases.md`](phases.md); live state in [`../STATUS.md`](../STATUS.md);
 one file per task in [`../tasks/`](../tasks/); one file per result in [`../findings/`](../findings/);
 sources in [`sources.md`](sources.md); ongoing strategic hypotheses, reflections, proposals, and decisions with Renzo
 in the append-only [`improvements log`](improvements_log.md).
 
-**Pending team review:** [proposal to test contribution, recovery and presentation](improvements-proposal.md).
-It specifies investigations, deliverables, stop rules and adoption gates; no execution or framing decision is recorded yet.
+**Proposta histórica, não adotada integralmente:**
+[contribuição, recuperação e apresentação](improvements-proposal.md).
 
 **Research brainstorm (4 Nov, Renzo):** [Competing-rails research agenda](competing-rails-research-agenda.md)
 records six directions in English; [datathon ranking and investigation plans](competing-rails-datathon-ranking.md)
 checks their incremental contribution, data requirements and claim limits. Proposals for discussion, not adopted scope;
 includes evidence-based comments on the [research/conclusions memo](plan-research-and-conclusions.md).
 
-**Formalized extension tasks (6 Nov, Renzo):** [P3-28 — agentic access map](../tasks/P3-28-agentic-access-map.md)
-and [P3-29 — on-chain reconciliation](../tasks/P3-29-on-chain-reconciliation.md) specify hypotheses, procedures,
-evaluation and integration with the current findings. Both are **todo, unassigned**; 7 Nov is a feasibility/readiness
-checkpoint. No experiment has run or deck inclusion been decided. The tasks can proceed independently.
+**Extensões de 6–8 nov:** [P3-28 — mapa de acesso](../tasks/P3-28-agentic-access-map.md)
+e [P3-29 — conciliação on-chain](../tasks/P3-29-on-chain-reconciliation.md) avançaram em escopos diferentes.
+O mapa não produziu uma avaliação humana validada para o PDF; números da conciliação aparecem no slide 6,
+mas os achados correspondentes continuam exploratórios. Leia os arquivos de tarefa e o
+[estado final](estado-final.md) antes de reutilizar esses resultados.
 
 **Unifying idea: limits to arbitrage.** A digital dollar should trade at parity with the dollar
 (USD for a stablecoin, PTAX-converted BRL for USDT/BRL). Parity is enforced by an arbitrage channel: issuer
@@ -93,6 +99,8 @@ What the primary plan takes from this: a money result for practitioners (cost of
 regime), a "solution" deliverable (a daily monitor), and a causal design the academics will respect.
 
 ## Decision log
+
+8 Nov, Renzo: trabalho entregue. O arquivo de referência desta cópia do repositório é `deck/out-of-sample_deck.pdf` (10 páginas); histórico de versões e ressalvas em `deck/README.md` e `docs/estado-final.md`. Uma exportação diferente (`deck/apresentacao-2026.pdf`) foi adicionada em paralelo e permanece preservada. A confirmação de upload não está arquivada aqui. Esta nota de encerramento não altera o status de revisão dos achados exploratórios.
 
 P3-44 (8 Nov, Felipe): follow the low-cost saved-evidence review recommendation. Preserve original scores, separately label post-hoc missing-path diagnostics and correct method/protocol descriptions. No paid benchmark rerun authorized by this step; no adaptive advantage or human validation claimed.
 
@@ -183,7 +191,7 @@ What a reviewer would flag, and what we do differently this year:
 | DeFiLlama `apy` = base + token rewards, treated as a risk premium | Separate `apyBase` and `apyReward` (see project 3) |
 | Brazil and Drex only in the introduction | Brazil in the data and the implications |
 
-These go on one deck slide, "Lições de 2025". Owning last year's flaws is the clearest maturity signal we can send.
+Esta tabela foi um insumo de planejamento. O PDF entregue incorporou a comparação com alternativas simples à metodologia, sem uma lâmina autônoma de “Lições de 2025”.
 
 ## Roles (default; adjust per project)
 
@@ -198,4 +206,4 @@ Everyone reviews one result they did not produce.
 
 ## Submission checklist
 
-See `../prompt.md` §8. Phases and dates are in `phases.md`; the working protocol is in `../prompt.md` §7.
+O PDF de dez páginas foi identificado como entregue por Renzo em 8 nov 2026. A lista original em `../prompt.md` §8 e os critérios em `phases.md` documentam o plano histórico; alguns foram alterados (o envio de `.txt` foi substituído pelo link do repositório) e não há recibo de upload neste checkout. A situação verificável por arquivo está em [estado final](estado-final.md).

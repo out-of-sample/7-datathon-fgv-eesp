@@ -1,5 +1,7 @@
 # Competing-rails hypotheses: datathon ranking and investigation plans
 
+> **Estado na entrega (8 nov 2026): AGENDA HISTÓRICA / NÃO ADOTADA INTEGRALMENTE — prioridades propostas, não resultados do PDF.** Veja [estado final](estado-final.md).
+
 **Date:** 4 November 2026 (Brasília)  
 **Prepared by:** Codex for Renzo, P3-23  
 **Status:** Checked recommendation, not adopted scope or new empirical findings.  

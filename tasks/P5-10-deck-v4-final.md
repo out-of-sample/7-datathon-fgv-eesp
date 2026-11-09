@@ -2,7 +2,7 @@
 id: P5-10
 title: Deck v4 - the final 10-slide PDF, built in Claude Slides from v3 and the 7 Nov plan
 phase: P5
-status: review
+status: dropped
 owner: CS 1
 working: -
 due: 2026-11-08
@@ -10,6 +10,9 @@ depends: P5-08, P5-09
 ---
 
 ## Goal
+
+> **Disposição na entrega (8 nov 2026): O v4 publicado em Claude Slides foi uma etapa intermediária. O PDF entregue tem roteiro distinto e está identificado em `deck/out-of-sample_deck.pdf`; gates e teste de leitura previstos aqui não foram registrados como concluídos.**
+
 Build the submission PDF from deck v3 following `docs/deck-plan-v4-2026-11-07.md`: ten slides that add the post-freeze work
 (on-chain route and ledger, recovery composition, forecasting and treasury, registered predictions, access map), a slide-10
 conclusion that answers the opening question in its own words, and a visual appendix (A1–A10) in the same PDF.
@@ -50,8 +53,10 @@ conclusion that answers the opening question in its own words, and a visual appe
   then re-upload the PNG as an asset and replace its `/_blob/` id.
 
 ## Log
+- 2026-11-08, Codex para Renzo: classificado após a entrega do PDF de referência; sem alteração dos resultados históricos.
 - 2026-11-07 21:55, agent for Renzo: S2–S3 done → review. 10 slides published (link in Handoff); new figure script `scripts/p5_10_deck_figures.py` (asserts against F-024, F-036, F-037, F-048); appendix dropped at Renzo's request; gates G1–G5 still open.
 - 2026-11-07 19:05, agent for Renzo: claimed S2–S3. Renzo: build only the 10 slides (no appendix pages), cover clean, other slides with more text, storytelling; D1–D4 still open (subtitle A used provisionally).
 - 2026-11-07 18:30, agent for Renzo: task created with the v4 plan (Renzo asked for a detailed slide plan before building).
 
 ## Result
+O v4 publicado em Claude Slides foi uma etapa intermediária. O PDF entregue tem roteiro distinto e está identificado em `deck/out-of-sample_deck.pdf`; gates e teste de leitura previstos aqui não foram registrados como concluídos.

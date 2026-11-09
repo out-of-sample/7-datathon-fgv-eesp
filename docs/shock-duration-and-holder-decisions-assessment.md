@@ -1,5 +1,7 @@
 # From Retrospective Shock Analysis to Institutional Treasury Decisions: Comprehensive Assessment of Shock Duration and Holder Decisions
 
+> **Estado na entrega (8 nov 2026): USO PARCIAL — avaliação retrospectiva; nenhum modelo de duração foi apresentado como previsão validada.** Veja [estado final](estado-final.md).
+
 > **Status Note (6 November 2026):** This assessment incorporates all peer-review corrections by Renzo's agent (`0f57637`), accepted by Felipe. All calculations, empirical tables, and narrative claims match exploratory findings [`F-038`](../findings/F-038-shock-duration-feasibility.md) and [`F-039`](../findings/F-039-holder-decisions.md) and the second review in [`docs/shock-duration-holder-review.md`](../docs/shock-duration-holder-review.md) exactly. All prior withdrawn claims (e.g., typed-in premiums, 2.5 bps/day carry cost, break-even $h^*$, "ex-ante optimal" waiting, hazard model beating the base rate, and the "Brazil 20-day spike" link) have been fully purged.
 >
 > **Check of this rewrite (Renzo's agent, 7 Nov 2026):** price levels in Tables 4.1–4.3 were taken from 17 Jun 2024 (PTAX 5.4124) and are now regenerated from the P3-31 tables (25 Jun 2026: USDT R\$ 5.2785, PTAX 5.1892); Slide 10 options and §§1, 2, 4.4, 5.1, 9 corrected where they went beyond F-024/F-026/F-029/F-031/F-035–F-038; links made relative. Details in `tasks/P3-33-pivot-assessment.md` (log, 7 Nov).

@@ -1,5 +1,7 @@
 # Compression prototype: monthly adaptation and stress-aware decisions
 
+> **Estado na entrega (8 nov 2026): EXPLORATÓRIO / NÃO USADO NO PDF — atualização do protótipo, sem adoção na entrega.** Veja [estado final](estado-final.md).
+
 The upgrade improves the original ridge model without replacing its evidence record. It adds monthly retraining, a nonlinear challenger, adaptive forecast bands and joint forecast/funding stress cards. Details and limitations are in [F-051](../findings/F-051-compression-upgrade.md); v 1 remains in [F-050](../findings/F-050-premium-compression.md).
 
 The configuration chosen on 2025 is rolling linear ridge with penalty 100. Its 10-day 2026 daily error falls from 34.43 to 29.34 bps, versus 30.03 for simple mean reversion. On the 18 nonoverlapping cases it scores 21.74 versus mean reversion 21.33. Adaptation helps relative to the original ridge, while a reliable advantage over the simpler rule remains unproven. The nonlinear challenger does not clearly improve this comparison.

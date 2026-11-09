@@ -1,5 +1,7 @@
 # Proposal for team approval: contribution, recovery, and presentation
 
+> **Estado na entrega (8 nov 2026): PROPOSTA HISTÓRICA / NÃO ADOTADA INTEGRALMENTE — não tratar como compromisso de execução.** Veja [estado final](estado-final.md).
+
 **Status:** proposed; no team approval recorded.  
 **Requested by:** Renzo. **Prepared:** 2 Nov 2026.  
 **Decision requested:** approve a bounded investigation of three improvements, followed by a separate decision on what enters the submission. Approval of the investigation is not approval of its hypotheses or a replacement title.  

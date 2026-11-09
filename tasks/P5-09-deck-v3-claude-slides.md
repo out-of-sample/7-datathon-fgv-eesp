@@ -2,7 +2,7 @@
 id: P5-09
 title: Deck v3 - the 10-slide deck rebuilt in Claude Slides, in the mentor deck's design, with a methods slide and checked references
 phase: P5
-status: review
+status: dropped
 owner: CS 1
 working: -
 due: 2026-11-06
@@ -10,6 +10,9 @@ depends: P5-01, P4-03
 ---
 
 ## Goal
+
+> **Disposição na entrega (8 nov 2026): A versão v3 foi intermediária e não foi o PDF entregue. Seus arquivos foram preservados para rastreabilidade.**
+
 A third, self-contained version of the 10-slide deck next to v1 and v2 (Felipe picks; nothing in v1/v2 changes). It keeps
 the visual language of the deck shown to the mentor on 4 Nov (navy cover, orange accent, warm off-white pages, serif titles
 over a sans body, blue = ordinary data, orange = the event), fits the story in 10 slides that read without a presenter,
@@ -58,6 +61,7 @@ gives one slide to methods and techniques, cites papers that were opened, and pu
   republish it to the same artifact URL, or ask Renzo's agent.
 
 ## Log
+- 2026-11-08, Codex para Renzo: classificado após a entrega do PDF de referência; sem alteração dos resultados históricos.
 - 2026-11-05 02:40, agent for Renzo: S3–S4 done → review. Five charts redrawn from frozen data (asserts check 15,2/109,1, 1.073 dates and max 65,7, −78%, R$ 106,1 mi and 194 windows); 10 slides + references page published; no task or finding IDs on slides (Renzo); references registered in docs/sources.md (L-05, L-06, L-08, L-14, re-check row).
 - 2026-11-05, agent for Renzo: task created at Renzo's request ("v3 of the 10-slide deck using Claude Slides"). References
   checked on Crossref (DOI records opened 5 Nov): Shleifer & Vishny 1997 JF 52(1) 35–55; Makarov & Schoar 2020 JFE 135(2)
@@ -69,3 +73,4 @@ gives one slide to methods and techniques, cites papers that were opened, and pu
   charts and topic titles ("Resultados").
 
 ## Result
+A versão v3 foi intermediária e não foi o PDF entregue. Seus arquivos foram preservados para rastreabilidade.

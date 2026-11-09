@@ -1,5 +1,11 @@
 # Phases, success criteria and gates
 
+> **Registro histórico de execução.** Em 8 nov 2026, Renzo informou que o trabalho foi entregue como
+> [PDF de dez páginas](../deck/out-of-sample_deck.pdf) e link do repositório. Os critérios abaixo foram
+> escritos antes da entrega; caixas não marcadas não significam que o PDF não foi entregue. O plano de exportar
+> scripts `.txt` foi substituído pela decisão de 5 nov registrada em [docs/README.md](README.md).
+> A composição real do PDF e as pendências científicas estão no [estado final](estado-final.md).
+
 The work is split into phases. Each phase has a **goal in plain words**, a list of tasks (one file each in
 `tasks/`), **success criteria** that anyone can check, and a **gate**: a short team check at the end where
 the criteria are ticked and the outcome goes to the decision log (`docs/README.md`).
@@ -95,6 +101,10 @@ Success criteria:
 - [ ] After the freeze, only bug fixes, each disclosed in the finding file
 
 ## P5 — Deck and submission
+
+**Situação final:** PDF de dez páginas identificado por Renzo como entregue em 8 nov; recibo e horário de upload
+não constam no repositório. O PDF final não contém o anexo e não segue literalmente o plano v4. A confirmação
+administrativa não é inferida dos arquivos locais.
 
 **Dates:** Thu 5 – Sun 8 Nov. **Goal:** a PDF that a juror understands without us in the room.
 

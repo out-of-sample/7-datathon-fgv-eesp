@@ -1,150 +1,39 @@
 # STATUS — Out of Sample, 7º Datathon FGV EESP
 
-**Last updated:** 2026-11-08 by Codex for Felipe (P5-14 Portuguese judge guide approved for commit and push); previous: 2026-11-08 by Codex for Renzo (integrated remote P3-44 work; renumbered commit-activity finding F-056 after ID collision); previous: 2026-11-08 by Codex for Renzo (P3-47 recovery mechanism sensitivity, F-054 exploratory); parallel: 2026-11-08 by Codex for Felipe (P3-44 saved-answer diagnostic); previous: 2026-11-07 by agent for Renzo (P5-10 deck v4: 10 slides built in Claude Slides); previous: 2026-11-07 by agent for Renzo (P3-20 and P3-21 closing review → review; post-submission readouts split to P3-45); previous: 2026-11-07 by Codex for Felipe (all 15 review items P3-25 onward reviewed; P3-27/P3-38 done; Economist statuses preserved); previous: 2026-11-07 by Codex for Felipe (P3-42 rolling compression upgrade, F-051 exploratory); previous: 2026-11-07 by Codex for Felipe (P3-41 compression experiment complete; F-050 exploratory; independent reproduction pending); previous: 2026-11-07 by Codex for Felipe (P3-40 supplemental frozen-bundle replay passes; Windows path differences documented; human sign-off pending); previous: 2026-11-07 by Renzo's agent (P3-40 project consistency review and corrections; pending independent human reviews retained; before: Renzo’s agent, P3-37 BRLA follow-up ready for review; upstream P3-36 audit corrections retained) · **Current phase:** P5 — Deck and
-submission, with registered extensions · **Submission:** Sun 8 Nov, 20:00 (hard deadline 23:59) · **Results frozen:** Wed 4 Nov,
+- **Última atualização:** 2026-11-08, encerramento documental após a entrega informada por Renzo.
+- **Fase:** P5 encerrada para a submissão; P6 depende de eventual seleção.
+- **PDF de referência:** [`deck/out-of-sample_deck.pdf`](deck/out-of-sample_deck.pdf), 10 páginas.
+- **Outra exportação no repositório:** [`deck/apresentacao-2026.pdf`](deck/apresentacao-2026.pdf), dez páginas, com conteúdo e checksum diferentes; veja [`deck/README.md`](deck/README.md).
+- **Resultados centrais congelados:** tag `results-frozen` (4 nov); extensões posteriores mantêm seus próprios graus de revisão.
 
-tag `results-frozen` (F-001 to F-033)
+O quadro de tarefas abaixo registra a trajetória do projeto e é gerado a partir de `tasks/` e `findings/`.
+Depois de mudar algum status, execute `python3 scripts/board.py`.
 
 
 
-This page is the team's dashboard. Read it first; update it at the end of every work session
+## Estado após a entrega
 
-(rules in `prompt.md` §7). The board below is generated: edit the task or finding file, then run
+Renzo informou que o trabalho foi entregue em 8 nov 2026. O PDF de referência é
+[`deck/out-of-sample_deck.pdf`](deck/out-of-sample_deck.pdf). Não há comprovante nem horário de upload
+arquivado neste repositório. A apresentação tem dez páginas e trata do aumento do prêmio do USDT sobre a PTAX
+após o ofício de 23 jun 2026: +93,9 bps durante 20 dias úteis e uma transferência estimada de
+R$ 106,1 milhões dos compradores para vendedores na Binance. O nível após o choque não se distingue de
+variação comum (placebo p = 0,24). Veja o [README principal](README.md), o [mapa do deck](deck/README.md)
+e o [estado final da documentação](docs/estado-final.md).
 
-`python scripts/board.py`.
+Os estudos sobre BRLA, composição da Foxbit, espera e perfis aparecem na apresentação com limites importantes.
+Seus arquivos de achado continuam `exploratory` quando não houve a revisão independente exigida. A entrega
+não resolve a causa da recuperação de julho, quem supriu USDT nem o acesso efetivo a rotas alternativas.
 
+## A partir daqui
 
+- Preservar o PDF entregue como referência. As versões anteriores em `deck/` estão marcadas como histórico.
+- Se a equipe for selecionada, organizar ensaio e perguntas para P6; nenhuma tarefa P6 foi aberta neste encerramento.
+- Leituras futuras das regras registradas ficam em `P3-45`; não atualizar retroativamente o resultado do PDF.
+- As tabelas de tarefas e achados abaixo mostram o último estado registrado por cada responsável. Pendências de
+  revisão não devem ser interpretadas como resultados confirmados pela entrega.
 
-## Where we are (plain language)
-
-
-
-We chose the project "Quanto custa fechar a porta? O preço do dólar digital no Brasil": how much more
-
-Brazilians pay for a digital dollar (USDT) than for the official dollar, and how much of that gap comes from
-
-rules that close or tax the arbitrage channels. A first probe found a real premium (0.2–1% depending on the
-
-year) and a sharp jump on 24 Jun 2026, the day after a reported BCB notice (F-001, F-002). After P2–P4, the
-
-**one-month acute spike** (+93.9 bps = R$ 4,842 per US$ 100k at each day's PTAX; +73.7 to +128.3 bps across 22 variants) is the
-
-only measured effect: it appears on three exchanges, is not the real or USDT's own price, a blind break test finds it
-
-(F-009, F-011), and it exceeds all 1,073 clean placebo dates ($p \approx 0.001$, F-016). It faded from 22 Jul to a
-
-post-spike level (+11.5 to +19.3 bps; +28.2 bps synthetic) that is **not distinguishable from ordinary drift**
-
-(placebo $p = 0.24$, F-022). All five *"So what?"* tasks (`P3-10`–`P3-14`, [`docs/06-so-what.md`](docs/06-so-what.md)) are now peer-reviewed (`done`) and integrated into the deck and annex (`F-023`–`F-027` confirmed): two outlets had the 23 Jun notice or an excerpt
-
-on 24–25 Jun (Cointelegraph Brasil, Exame) and the BCB confirmed its position in writing via LAI (F-023); BCB statistics
-
-show stablecoin purchases abroad fell 78% in July 2026 while the premium rose and stayed at a third of their earlier level
-
-through September (F-024); and buyers of USDT/BRL paid ~R$ 106 mn more on Binance (R$ 145 mn on three exchanges) in the
-
-four weeks after the notice (F-025), only the confidential, immediate 23 Jun notice moved the premium outside $[-35, +38]$ bps among 8 rules (F-026), and a dated prediction (`393a14a`) commits that Res. BCB 584's 24h hold on 1 Jan 2027 (~9.1 bps cost to an outgoing USDT holder) will not move the premium detectably (F-027). The 22 Jul fade matches no event within $\pm 5$ trading days (unexplained), and no public source shows the BCB let funds resume the stopped activity, so a reopening test cannot be run (F-030); post hoc, the fall came with seller-initiated trading on Foxbit ~362 mn USDT above buyer-initiated, in business hours (30 Jun–21 Jul, F-031), which rose with the premium over the official dollar, not the Foxbit–Binance gap, and stopped being net positive near 35 bps (F-032; consistent with price-responsive arbitrage; who traded and whether USDT entered Brazil not identified); Foxbit's
-
-6× volume surge coincides with both its NovaDAX client partnership (M-04, 7 Jul) and the 18 Jul relaunch of its Foxbit
-
-Infra B2B desk (M-05, which fits the 5× larger trade size), cause open. All 11 downward depeg cases and bank/exchange
-
-route parameters now have opened, verbatim-quoted primary sources (`docs/sources.md`), and the deck
-
-(`deck/deck_v1_ptbr.md`) is cut to **10 slides** (2 Nov; changes in `docs/deck-changes-2026-11-02.md`), with the moved material in
-
-Anexo F of `deck/annex_v1_ptbr.md`.
-
-Plan to answer "so what?": [`docs/06-so-what.md`](docs/06-so-what.md).
-
-**4 Nov: results frozen** (F-001 to F-033, tag `results-frozen`; exploratory ones keep their label). After the mentor session
-
-(`docs/mentor-meeting-2026-11-04.md`) and the competing-rails ranking, the remaining work is: the registered prediction
-
-for Res. 574/589 (`P3-20`), BRLA as a fourth venue (`P3-24`, Felipe; Renzo reviews), whether the market's venue mix stayed
-
-changed after the price recovered (`P3-25`, F-036 exploratory, awaiting independent review), and a Slide 10 conclusion
-
-checked sentence by sentence (`P5-08`).
-
-
-
-Plans: [`docs/02-dolar-cripto.md`](docs/02-dolar-cripto.md) (primary) ·
-
-[`docs/01-depeg-recovery.md`](docs/01-depeg-recovery.md) (chapter) ·
-
-[`docs/05-agentic-robustness.md`](docs/05-agentic-robustness.md) (optional AI extensions) ·
-
-[`docs/06-so-what.md`](docs/06-so-what.md) ("so what" extensions) ·
-
-[`docs/phases.md`](docs/phases.md) (phases and success criteria) ·
-
-[`docs/improvements_log.md`](docs/improvements_log.md) (ongoing strategy discussion, proposals and decisions)
-
-
-
-## Next actions
-
-**P3-47 recovery check (8 Nov):** F-054 exploratory; weekly fixed-effect and normalized Foxbit order-flow associations include zero, and afternoon flow does not predict a next-PTAX-day premium fall beyond the no-flow baseline. A teammate independently re-runs `.venv/bin/python scripts/p3_47_recovery_check.py`; Felipe decides whether the negative mechanism result changes slide 7 wording. The recovery cause, participants and USDT source remain unidentified. Frozen MB hourly input is present locally now, but P3-25 still needs its named teammate sign-off.
-
-**P5-10 deck v4 (7 Nov night):** 10 slides published (link in `tasks/P5-10-deck-v4-final.md`). Needed before Sun 19:00: Felipe approves or edits; a teammate who did not build it does the PDF-only reader test and traces every number; gates G1–G5 (`docs/deck-plan-v4-2026-11-07.md` §6) or their fallbacks; **Renzo makes the repo public or publishes a clean copy**; export PDF.
-
-**P3-20 / P3-21 (7 Nov, agent for Renzo):** both reproduce and are in `review`. P3-20: Felipe's 7 Nov run is the teammate re-run (E1 identical), and Slide 10 carries E1 and the E2 early reading. The team marks it `done`. The E2 verdict (Mon 9 Nov) and S20 (Dec) are in `P3-45`, after the deadline and not for the PDF. P3-21: Felipe accepts or rejects the slide-9 "who paid" table (in v2/v3, not v1) together with the deck pick. Any teammate other than Renzo re-runs `scripts/p3_21_who_paid.py` → F-033 confirmed.
-
-**7 Nov independent review (P3-25 onward):** all 15 queued review items inspected; [review and coverage](docs/review-2026-11-07-p25-onwards.md). P3-27/P3-38 closed as historical documentation deliverables. Economist-owned tasks and explicit human gates remain in review. P3-43 is todo: require complete semantic audit and note-specific identity before final access scores. Restore missing P3-25 MB hourly input; narrow duration/hedge/incident wording before PDF reuse.
-
-
-**P3-42 (7 Nov, Felipe):** rolling compression upgrade ready for independent revision (`docs/premium-compression-upgrade.md`, F-051). Fourteen tests pass; monthly ridge improves over v1, uncertain edge over simple mean reversion. Adaptive bands and stress cards complete; all stress cards abstain. V1 preserved; no deck change.
-
-**P3-41 (7 Nov, Felipe):** compression-to-cost prototype complete (`docs/premium-compression.md`, F-050 exploratory). Nine checks pass; outputs reproduce. Ridge loses to simple mean reversion at the primary 10-day horizon; no established acquisition-timing improvement. Next: independent teammate reproduction and annex decision. Access remains unknown; no deck change.
-
-**7 Nov, P3-39 (Felipe):** buyer cost frontier implemented (`docs/buyer-cost-frontier.md`, F-048 exploratory); ten checks pass. Achievable deposit rates vary independently of forward pricing, and both alternatives require access and delivery on time. Central June cost ceilings are positive but change sign across the stress envelope. Next: independent teammate reproduction and Felipe's choice of treasury exhibit. No actual route access established.
-
-- P3-37 BRLA economic-function follow-up: independently replay the 32 cases and review F-049 before annex use; economic purpose remains unidentified.
-
-
-
-**Shock-duration & holder-decisions pivot (Felipe, 6–7 Nov):** [P3-30 — shock duration](tasks/P3-30-shock-duration.md), [P3-31 — holder decisions](tasks/P3-31-holder-decisions.md), [P3-32 — independent review](tasks/P3-32-holder-duration-review.md), and [P3-33 — pivot assessment](tasks/P3-33-pivot-assessment.md) are in `review` (`F-038`, `F-039` exploratory; full assessment in [`docs/shock-duration-and-holder-decisions-assessment.md`](docs/shock-duration-and-holder-decisions-assessment.md) and review in [`docs/shock-duration-holder-review.md`](docs/shock-duration-holder-review.md)). **Peer-review fixes accepted by Felipe (7 Nov):** `docs/shock-duration-and-holder-decisions-assessment.md` has been completely rewritten to match the corrected `F-038` (10-currency pool passes 43/10/8, 20-day training-pool KM median, hazard model does not beat base rate out of sample) and `F-039` (exact CIP B3 hedge has zero daily carry cost; retrospective hedged buyer +89.7/+92.3/+164.0 bps at 5/10/20 days, +6 bps on 3 Jul), with all three Slide 10 options updated and aligned with `docs/proposal-2026-11-05-lessons-and-solution.md`. Next: Nattan or Jonathan re-runs both scripts to move `P3-30`/`P3-31` to `done`.
-
-
-
-**New specifications (Renzo, 6 Nov):** [P3-28 — agentic access map](tasks/P3-28-agentic-access-map.md): **study under way (Renzo, 7 Nov), paused for
-human inputs.** S1 card D-01 is in Annex B.10 (Felipe). The evaluation of agent against simpler methods is set up and
-frozen (`results/P3-28_protocol.md`). Development pilot (F-047, implementer's labels, not H1 evidence): agent 0.87, fixed
-verify workflow 0.85, one-pass retrieval 0.75, keyword rules 0.15. The Avenia held-out runs are done and hashed. Waiting
-on: Renzo's manual saves of the Binance/MB pages, blind coding by Felipe and Jonathan, a blinded audit by Nattan. No
-held-out result can enter the PDF unless all three finish and are checked. [P3-29 — on-chain reconciliation](tasks/P3-29-on-chain-reconciliation.md): **S1–S5 done, S6 completed, status
-review** (F-041, F-042, F-044, all exploratory). BRLA's Celo supply reconciles to the base unit in June and in 12
-cases frozen in advance. June: 732.6 mn minted / 724.9 mn burned for +7.7 mn net, almost all by one account. The 23 Jun
-burn of 113.6 mn did not reappear on Polygon, Gnosis or Moonbeam. DefiLlama matches on-chain supply on 35 of 37 Celo
-labels; its 26 Jun / 2 Jul value of 59.3 mn (quoted in F-037) matches none. Next: **Jonathan or Nattan reproduces (S7)**;
-**Felipe reviewed and integrated the annex draft** `results/P3-29_annex_draft_ptbr.md` (S6). H4 waived.
-
-
-
-1. Phase P1, P2, P3 (core), and P4-01 are complete (`done` or `review`):
-
-   - **Deck & Annex (`P5-01`, `P5-05`, `P5-07`):** Story notebook `notebooks/p5_07_story.ipynb` (`P5-07`) is reviewed and `done`; `deck/deck_v1_ptbr.md` is cut to **10 slides** (2 Nov, Renzo's agent, P5-01 S5 → paused for Felipe's review); every change, two deviations from the plan and the open items are in `docs/deck-changes-2026-11-02.md`; moved material in Anexo F of `deck/annex_v1_ptbr.md`; bank-route table in Anexo B.5 (Option A, team to confirm); rehearsal sheet `deck/qa_ptbr.md`.
-
-   - **Depeg & Money Layer (`P3-09`, `P3-01`):** `P3-09` (`review`) opened and quoted primary sources for all 11 downward depegs + USDP Binance delisting (`DP-01`..`DP-10`) and restored mechanisms in `results/tables/P3-04_depeg_case_table.csv` (`F-019`); `P3-01` (`review`) validated all bank/exchange/hedge parameters (`R-01` BCB EE 48/2019 20 bps corporate spread, `R-01b` BB PJ SWIFT, `R-05` Foxbit, `R-06` MB maker vs taker, `R-07` 2.5 bps 1-day CIP carry) with neutral framing (`F-015`).
-
-   - **"So what" plan ([`docs/06-so-what.md`](docs/06-so-what.md)):** `P3-10`, `P3-11`, `P3-12`, `P3-13`, and `P3-14` are peer-reviewed and `done` (`F-023` to `F-027` confirmed and integrated into Slides 5, 6, 10, 12 and Annexes A, B.5, B.7, C).
-
-   - **Deck language (2 Nov, Renzo):** four levels (measured / consistent with the mechanism / illustrative / not shown) and line-by-line suggestions for Slides 1, 6, 9, 11, 12, 14 in [`docs/deck-notes-2026-11-02.md`](docs/deck-notes-2026-11-02.md), for Felipe; `P3-15` (review): "why +94 bps and not +350" answered in F-028: the marginal route is not identified, and the ordinary 3.5% route did not set the price (highest day +171 bps over the pre-notice level; the May 2025 rise of that IOF moved the premium +13 bps); two pt-BR sentences for Slides 1 and 5 in F-028. Res. BCB 574 (published 22 Jun) is disclosed as a caveat in both deck drafts and annex: `P3-16` (review).
-
-   - **Thu 5 Nov (after the 4 Nov freeze):** Renzo's agent: `P3-20` S3–S4 done (E1 held: +2.1 bps, p = 0.90, F-035) and S5 (E2 branch pushed by 23:59); `P3-25` implementation done, F-036 exploratory, independent Claude review then teammate re-run pending; Felipe: push the mentor-lead data and scripts (`P3-24` S1–S4), then draft Slide 10 (`P5-08`); Renzo reviews all of Felipe's pushed mentor-lead work (`P3-24` S5) and Slide 10 (`P5-08` S4) before the red team (Fri 6).
-
-   - **Submission scripts (`P5-04`):** 18 `.txt` exports now cover the computed claims in both current 10-slide drafts. Isolated replay of 19 commands reproduces all six existing deck charts pixel for pixel; Claude review brief in `docs/agent-prompt-P5-04-review.md`. Reconcile the final PDF after Felipe chooses a draft and `P5-02` finishes any replacement figures.
-
-   - Still open from before the freeze: team confirms Option A (bank routes in Anexo B.5); `P3-05`/`P3-06` (live CLI agent runs); peer-review tasks in `review`.
-
-2. Everyone (and your agents): read [`docs/review-2026-10-31.md`](docs/review-2026-10-31.md) and follow `prompt.md` §5–§7 (`sources are opened, not remembered`).
-
-3. Everyone: pull before starting, claim your task (`working`), push at the end with an updated Handoff (`prompt.md` §7).
-
-
-
-## Blockers and decisions pending
+## Pendências históricas antes da entrega (arquivo)
 
 
 
@@ -332,20 +221,23 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [P4-03](tasks/P4-03-freeze.md) | Freeze results | ✅ done | Team | - | 4/4 | 4/4 | 2026-11-04 | P4-01, P4-02 |
 | [P4-04](tasks/P4-04-headline-inference-window.md) | Honest inference and window contents for the +94 bps headline (non-overlapping windows, first-day move, other measures inside the window) | 👀 review | CS 2 | - | 3/3 | 3/3 | 2026-11-04 | P2-03, P4-01 |
 
-**P5 — Deck and submission** (2/11 closed)
+**P5 — Deck and submission** (6/14 closed)
 
 | ID | Task | Status | Owner | Working now | Steps | Criteria | Due | Depends |
 |---|---|---|---|---|---|---|---|---|
-| [P5-01](tasks/P5-01-deck-v1.md) | Deck v1 (pt-BR) | ⏸️ paused | Economist | - | 5/6 | 4/4 | 2026-11-05 | P4-03 |
-| [P5-02](tasks/P5-02-final-figures.md) | Final figures in one consistent style | ⬜ todo | CS 1 | - | – | 0/3 | 2026-11-06 | P5-01 |
+| [P5-01](tasks/P5-01-deck-v1.md) | Deck v1 (pt-BR) | ✖️ dropped | Economist | - | 5/6 | 4/4 | 2026-11-05 | P4-03 |
+| [P5-02](tasks/P5-02-final-figures.md) | Final figures in one consistent style | ✖️ dropped | CS 1 | - | – | 0/3 | 2026-11-06 | P5-01 |
 | [P5-03](tasks/P5-03-red-team.md) | Red-team review | 👀 review | Team | - | 3/3 | 2/2 | 2026-11-06 | P5-01 |
 | [P5-04](tasks/P5-04-scripts-txt.md) | Export scripts as .txt with headers | 👀 review | CS 1 | - | 4/4 | 2/2 | 2026-11-07 | P4-03 |
-| [P5-05](tasks/P5-05-annex.md) | Annex: sources, event table, AI-use disclosure | 🔄 doing | Economist | - | 4/4 | 2/2 | 2026-11-07 | P5-01 |
-| [P5-06](tasks/P5-06-submission.md) | Submit PDF and scripts | ⬜ todo | Team | - | – | 0/3 | 2026-11-08 | P5-02, P5-03, P5-04, P5-05 |
+| [P5-05](tasks/P5-05-annex.md) | Annex: sources, event table, AI-use disclosure | 👀 review | Economist | - | 4/4 | 2/2 | 2026-11-07 | P5-01 |
+| [P5-06](tasks/P5-06-submission.md) | Registro da entrega do PDF e do link do repositório | 👀 review | Team | - | 2/3 | 0/3 | 2026-11-08 | P5-02, P5-03, P5-04, P5-05 |
 | [P5-07](tasks/P5-07-story-notebook.md) | Story notebook - the whole project end to end (deck prototype) | ✅ done | CS 1 | - | 3/3 | 3/3 | 2026-11-03 | P2-03, P2-04, P3-01, P4-01 |
 | [P5-08](tasks/P5-08-slide10-conclusion.md) | Slide 10 conclusion - answer "so what?" in economic terms, sentence by sentence within the evidence | 👀 review | Economist | - | 3/4 | 2/3 | 2026-11-06 | P3-20, P3-24, P3-25 |
-| [P5-09](tasks/P5-09-deck-v3-claude-slides.md) | Deck v3 - the 10-slide deck rebuilt in Claude Slides, in the mentor deck's design, with a methods slide and checked references | 👀 review | CS 1 | - | 4/5 | 3/4 | 2026-11-06 | P5-01, P4-03 |
-| [P5-10](tasks/P5-10-deck-v4-final.md) | Deck v4 - the final 10-slide PDF, built in Claude Slides from v3 and the 7 Nov plan | 👀 review | CS 1 | - | 2/6 | 0/3 | 2026-11-08 | P5-08, P5-09 |
+| [P5-09](tasks/P5-09-deck-v3-claude-slides.md) | Deck v3 - the 10-slide deck rebuilt in Claude Slides, in the mentor deck's design, with a methods slide and checked references | ✖️ dropped | CS 1 | - | 4/5 | 3/4 | 2026-11-06 | P5-01, P4-03 |
+| [P5-10](tasks/P5-10-deck-v4-final.md) | Deck v4 - the final 10-slide PDF, built in Claude Slides from v3 and the 7 Nov plan | ✖️ dropped | CS 1 | - | 2/6 | 0/3 | 2026-11-08 | P5-08, P5-09 |
+| [P5-11](tasks/P5-11-repository-closeout.md) | Identify the delivered PDF and close the repository documentation | 👀 review | CS 1 | - | 4/4 | 4/4 | 2026-11-08 | P5-06 |
+| [P5-12](tasks/P5-12-mentor-charts.md) | Mentor feedback 1 and 2 - historical PTAX premium and currency comparisons | 👀 review | Economist | - | 5/5 | 3/3 | 2026-11-08 | P1-02, P1-05, P3-46 |
+| [P5-13](tasks/P5-13-pdf-review-9-10.md) | Review current PDF and propose source-backed graphics for slides 9 and 10 | 👀 review | Economist | - | 4/4 | 2/2 | 2026-11-08 | P5-10, P5-12 |
 | [P5-14](tasks/P5-14-guia-da-banca.md) | Guia da banca e README em português para a apresentação mais recente | ✅ done | Economist | - | 3/3 | 3/3 | 2026-11-08 | P5-10, P5-13 |
 
 **Findings**
@@ -408,12 +300,15 @@ New review item: **P3-26** — S1–S2 complete (`scripts/p3_26_binance_incident
 | [F-054](findings/F-054-recovery-mechanism-check.md) | Foxbit flow does not distinguish the July recovery mechanism from a common episode trend | 🔍 exploratory | P3-47 | - |
 | [F-055](findings/F-055-users-and-timing.md) | In one account, the four users and the treasury agree - a buyer during the spike paid about R$ 4,840 more per 100k, a holder who sold at once received about R$ 7,300; waiting 10 days with a hedge swung from −R$ 8,800 to +R$ 6,700 by decision date in 2026, and a simple "wait when the premium is above its 60-day median" rule helped out of sample only because of the June shock | 🔍 exploratory | P3-48 | - |
 | [F-056](findings/F-056-commit-activity.md) | Git commit activity by teammate and Brasília day | 🔍 exploratory | - | - |
+| [F-057](findings/F-057-mentor-premium-charts.md) | Full daily premium history includes negative days and larger isolated peaks than June 2026 | 🔍 exploratory | P5-12 | - |
+| [F-058](findings/F-058-slide9-10-charts.md) | Source-backed slide 9 CUSUM and slide 10 conclusion graphics | 🔍 exploratory | P5-13 | - |
 <!-- BOARD:END -->
 
 
 
 ## Recent activity (newest first, one line per work session)
 
+- 2026-11-08 — Codex para Renzo: revisão de encerramento do PDF entregue (`deck/out-of-sample_deck.pdf`, 10 páginas), inventário de versões em `deck/README.md`, estados finais em `docs/estado-final.md`, flags em planos não usados e README principal com imagens e limites; recibo de upload não consta no repo.
 - 2026-11-08 — Codex for Felipe: P5-14 → done após aprovação de Felipe; README em pt-BR, guia dos dez slides e cópia exata do PDF atual. Links locais e SHA-256 conferidos; commit e push autorizados. Alterações de outros trabalhos preservadas; análises não reexecutadas.
 
 - 2026-11-08 — Codex for Renzo: merged remote P3-44 work into local main; resolved STATUS board through `scripts/board.py`; renumbered commit-activity finding from F-052 to F-056 so the independently created P3-44 F-052 keeps its ID.

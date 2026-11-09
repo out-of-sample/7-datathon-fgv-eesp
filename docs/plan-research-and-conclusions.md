@@ -1,5 +1,7 @@
 # Strategic plan — Research leads and conclusion options
 
+> **Estado na entrega (8 nov 2026): HISTÓRICO / SUPERADO PELO PDF FINAL — opções de conclusão pré-entrega.** Veja [estado final](estado-final.md).
+
 **Date:** 4 November 2026
 **Status:** Discussion draft for the team. See the [mentor synthesis](mentor-meeting-2026-11-04.md) and [Flash evidence audit](flash-findings-mentor-leads.md).
 

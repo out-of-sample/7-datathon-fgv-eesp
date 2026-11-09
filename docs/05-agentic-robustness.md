@@ -1,5 +1,7 @@
 # Extension — AI agents as research tools (A: 30 AI analysts; B: AI event coder)
 
+> **Estado na entrega (8 nov 2026): PLANO NÃO CONCLUÍDO / NÃO USADO COMO RESULTADO — o experimento de 30 analistas não integrou o PDF.** Veja [estado final](estado-final.md).
+
 **Status:** optional extras to the primary project (`02-dolar-cripto.md`), kept by the team on 31 Oct.
 Go/no-go for each at the **Sun 1 Nov gate** (`phases.md`). Dropping either changes nothing in the primary.
 **Owner:** CS 3 (validation). If A is a go, the depeg chapter shrinks to the single SVB-weekend slide.

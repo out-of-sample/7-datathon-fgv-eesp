@@ -32,6 +32,7 @@ Dar à banca uma entrada simples no repositório e caminhos verificáveis do PDF
 - **How to resume:** abrir README e docs/guia-da-banca.md; comparar deck/apresentacao-2026.pdf ao original de Felipe. SHA-256 de ambos: e07c08ed468ffdfe7d4b05c16e96dc97670a87f245864e53ce0cd7e38fcf7758.
 
 ## Log
+- 2026-11-08 — Nota de integração por Codex para Renzo: Renzo identificou `deck/out-of-sample_deck.pdf` como o arquivo entregue. Ele difere da cópia validada nesta tarefa (`deck/apresentacao-2026.pdf`). Ambos foram preservados; o guia passou a apontar para o arquivo indicado por Renzo, mantendo o histórico desta checagem.
 - 2026-11-08 — Felipe aprovou a atualização e solicitou commit e push. Codex separou os arquivos P5-14 e suas próprias linhas de STATUS, sem incluir alterações de outros trabalhos.
 - 2026-11-08 — Codex for Felipe: tarefa nova decorrente do pedido explícito para atualizar a entrada do projeto para a banca. Escopo: PDF, README, guia e verificação documental. Novos textos vinculam códigos atuais, distinguem resultados exploratórios e delimitam o teste antigo de reprodução. Sem alteração dos números ou dos programas de pesquisa.
 

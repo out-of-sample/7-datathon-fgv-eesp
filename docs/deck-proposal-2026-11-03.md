@@ -1,5 +1,7 @@
 # Deck proposal, 3 Nov 2026: the 10 slides after the 3 Nov decisions
 
+> **Estado na entrega (8 nov 2026): SUPERADO PELO PDF FINAL — proposta intermediária, não roteiro da entrega.** Veja [estado final](estado-final.md).
+
 Written by the agent for Renzo, for Felipe (deck owner) and the team. **A proposal only: `deck/deck_v1_ptbr.md` is not
 changed by this file.** Felipe accepts, edits or rejects each row in §3; the decisions the team must take are in §4.
 

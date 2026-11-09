@@ -1,5 +1,7 @@
 # From competing payment rails to market adaptation: a research agenda
 
+> **Estado na entrega (8 nov 2026): AGENDA HISTÓRICA / NÃO ADOTADA INTEGRALMENTE — hipóteses de pesquisa, não resultados do PDF.** Veja [estado final](estado-final.md).
+
 **Date:** 4 November 2026 (Brasília)  
 **Prepared by:** Codex for Renzo, task P3-23  
 **Status:** Research proposals for team and agent discussion; not adopted conclusions or experiment results.  

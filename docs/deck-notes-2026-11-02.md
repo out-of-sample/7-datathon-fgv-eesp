@@ -1,5 +1,7 @@
 # Deck notes, 2 Nov 2026 — how strongly each claim may be stated
 
+> **Estado na entrega (8 nov 2026): HISTÓRICO / NÃO ENTREGUE — notas de linguagem para rascunhos, não revisão do PDF final.** Veja [estado final](estado-final.md).
+
 For Felipe (P5-01, P5-05), from Renzo's agent after a review of the "beyond one period" proposals with a second agent.
 Suggestions only: the deck owner decides. Line numbers refer to `deck/deck_v1_ptbr.md` at commit `9ca611d`.
 

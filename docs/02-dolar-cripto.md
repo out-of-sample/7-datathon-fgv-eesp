@@ -1,7 +1,11 @@
 # Project 2 — Dólar cripto: what does it cost to close the door?
 
-**Status:** **primary** (recommended 30 Oct after the probe; team confirmation pending in `README.md`).
-Project 1 (depeg recovery) becomes a 2–3 slide chapter showing the same mechanism on the dollar side.
+> **Estado na entrega (8 nov 2026): USADO COMO PROJETO PRINCIPAL.** Este documento é o plano histórico;
+> o recorte efetivamente apresentado está em [`deck/out-of-sample_deck.pdf`](../deck/out-of-sample_deck.pdf)
+> e no [estado final](estado-final.md).
+
+**Status histórico:** projeto principal escolhido em 30 out após o probe. A proposta inicial de incluir
+o capítulo depeg em 2–3 slides foi abandonada na versão entregue.
 Strategic discussion with Renzo is recorded append-only in [`improvements_log.md`](improvements_log.md); proposals there
 remain proposals until the team adopts them.
 **Deck title (pt-BR draft):** "Quanto custa fechar a porta? O preço do dólar digital no Brasil"

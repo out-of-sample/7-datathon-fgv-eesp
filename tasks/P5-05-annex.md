@@ -2,7 +2,7 @@
 id: P5-05
 title: Annex: sources, event table, AI-use disclosure
 phase: P5
-status: doing
+status: review
 owner: Economist
 working: -
 due: 2026-11-07
@@ -10,6 +10,9 @@ depends: P5-01
 ---
 
 ## Goal
+
+> **Disposição na entrega (8 nov 2026): O anexo em Markdown foi produzido e continua disponível no repositório, mas não integrou o PDF entregue de dez páginas. Revisão final do anexo como peça autônoma não foi registrada.**
+
 Annex slides: source register, event table with links, robustness tables, and a plain description of how AI agents were used (including extension A/B if done).
 
 ## Subtasks
@@ -37,6 +40,7 @@ Annex slides: source register, event table with links, robustness tables, and a 
 - **How to resume:** Utilizar `deck/annex_v1_ptbr.md` como apêndice formal no material da submissão final.
 
 ## Log
+- 2026-11-08, Codex para Renzo: classificado após a entrega do PDF de referência; sem alteração dos resultados históricos.
 - 2026-11-02, agent for Renzo (P5-01 S5): added Anexo F (material moved off the slides: F-029 inference and window contents, Res. 574 note, method note with L-09, countries, SVB, monitor, Lições de 2025, hypothesis scoreboard, routes) and rewrote the D.2 matrix for the 10-slide deck; C.5 gains L-09. See `docs/deck-changes-2026-11-02.md`.
 - 2026-11-02, Felipe: Integrados `F-023` a `F-027` (`P3-10` a `P3-14`) nos Anexos A, B.5, B.7, C (`D-16`, `D-17`, `E-05.1`–`E-05.10`, `E-10`), D e E de `deck/annex_v1_ptbr.md`; verificado art. 15-B, III do Decreto 6.306/2007 no Planalto (zero tags `[verify]` em `docs/sources.md`). `working: -`.
 - 2026-11-02, Felipe: Atualizado `deck/annex_v1_ptbr.md` (Anexos A–E) com $p$-valores de placebos apenas, datas corrigidas de `P2-03`, tabela completa de `P3-01` (Anexo B.5, Opção A), tabela completa de depegs com fontes `DP-01`–`DP-10` (Anexo B.6) e URLs auditadas (Anexo C). `working: Felipe`.
@@ -46,4 +50,6 @@ Annex slides: source register, event table with links, robustness tables, and a 
 - 2026-11-02, Felipe: Criada a primeira versão de `deck/annex_v1_ptbr.md`.
 
 ## Result
+O anexo em Markdown foi produzido e continua disponível no repositório, mas não integrou o PDF entregue de dez páginas. Revisão final do anexo como peça autônoma não foi registrada.
+
 Documento de anexos (`deck/annex_v1_ptbr.md`) sincronizado com todos os achados (`F-001` a `F-027`), tabelas de `results/tables/` e fontes primárias abertas em `docs/sources.md`.

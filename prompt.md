@@ -1,5 +1,12 @@
 # Agent Brief — Team "Out of Sample", 7º Datathon de Moedas Digitais FGV EESP (2026)
 
+> **Post-submission note (8 Nov 2026):** Renzo reports that the work was delivered. The reference
+> presentation in this repository is [`deck/out-of-sample_deck.pdf`](deck/out-of-sample_deck.pdf),
+> ten pages; see [`docs/estado-final.md`](docs/estado-final.md) for used, unused and exploratory work.
+> Deadline, task and `.txt` export instructions below document the preparation period. The team's
+> later decision was to submit a PDF and repository link, without `.txt` exports. Do not interpret
+> unchecked historical gates as a request to modify the delivered PDF or promote exploratory findings.
+
 Read this file completely before you run a command, write code, or give advice. Then read `STATUS.md`
 (current state), `docs/README.md`, and the task file you were asked to work on. §7 is the working protocol. If anything here conflicts with a direct
 instruction from a team member, the team member wins; tell them about the conflict.

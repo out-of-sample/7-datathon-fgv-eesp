@@ -1,5 +1,7 @@
 # Project 1 — What brings a stablecoin back to $1?
 
+> **Estado na entrega (8 nov 2026): NÃO USADO NO PDF FINAL — plano de capítulo preservado como pesquisa histórica.** Veja [estado final](estado-final.md).
+
 **Status:** **chapter of project 2** (2–3 slides: "the same mechanism in dollars"), changed on 30 Oct after the
 probe made project 2 the primary. Owner: CS 3. The full plan below stays on record. It becomes primary again
 only if project 2 fails its go/no-go on Sun 1 Nov. **Deck title if primary (pt-BR draft):**

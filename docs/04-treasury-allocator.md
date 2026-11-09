@@ -1,5 +1,7 @@
 # Project 4 — Forecast-driven treasury allocation
 
+> **Estado na entrega (8 nov 2026): DESCARTADO COMO PROJETO — plano alternativo não adotado na entrega.** Veja [estado final](estado-final.md).
+
 **Status:** not recommended. Kept so that the reasoning is on record and the project can be revived if the
 opening briefing points strongly at it.
 **Deck title (pt-BR draft):** "Prever o rendimento vale dinheiro? Um mapa de quando mudar de protocolo compensa"

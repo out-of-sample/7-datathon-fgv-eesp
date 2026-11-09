@@ -1,5 +1,7 @@
 # From shock analysis to institutional decisions: an exploratory research brief
 
+> **Estado na entrega (8 nov 2026): USO PARCIAL — ideias de espera entraram como ilustração; o plano preditivo completo não foi concluído.** Veja [estado final](estado-final.md).
+
 **Prepared for:** Felipe and subsequent research-model review  
 **Date:** 6 November 2026, Brasília time  
 **Status:** Idea compilation and research framing; no feasibility assessment or adoption decision  

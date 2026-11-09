@@ -1,5 +1,7 @@
 # From a premium forecast to a conditional waiting decision
 
+> **Estado na entrega (8 nov 2026): EXPLORATÓRIO / NÃO USADO NO PDF — protótipo sem ganho demonstrado na decisão principal.** Veja [estado final](estado-final.md).
+
 The first version is implemented in `scripts/p3_41_compression.py`. It asks whether partial compression before a payment deadline can cover waiting costs. It reuses the buyer cost function from P3-39 (artifact prefix P3-38), and keeps the measured June effect and the duration study unchanged.
 
 **Current result:** ridge does not beat simple mean reversion on the primary 10-day horizon. Across 196 daily 2026 origins, MAE is 34.43 bps for ridge, 30.03 for mean reversion and 36.03 for persistence. On 18 fixed nonoverlapping origins, the corresponding errors are 29.49, 21.33 and 25.22 bps. The conditional waiting rule does not establish economic improvement. Full evidence, attempt disclosure and limitations: [F-050](../findings/F-050-premium-compression.md).
